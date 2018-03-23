@@ -5,7 +5,7 @@
 }
 
 #adminmenu .wpseo-premium-indicator {
-	margin: -2px 0 -3px 2px;
+	margin: -2px 2px -3px 0;
 	color: inherit;
 }
 
@@ -21,7 +21,7 @@
 }
 
 #TB_window .wpseo_content_wrapper label {
-	margin: 0 10px 0 0;
+	margin: 0 0 0 10px;
 	font-size: 14px;
 	font-weight: bold;
 }
@@ -29,6 +29,10 @@
 .wpseo-premium-popup-title {
 	margin: 1em 0;
 	font-size: 1.3em;
+}
+
+.wpseo-premium-popup-icon {
+	margin: 10px;
 }
 
 .edit-tags-php .column-description img {
@@ -50,4 +54,8 @@
 .select2-container .select2-search--inline .select2-search__field {
 	margin-top: 6px !important;
 	line-height: inherit;
+}
+
+.yoast-label-strong {
+	font-weight: 600;
 }
