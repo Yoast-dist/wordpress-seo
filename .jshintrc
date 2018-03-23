@@ -16,7 +16,7 @@
 
     "browser": true,
     "jquery": true,
-
+    
     "globals": {
         "exports": true,
         "module": false
