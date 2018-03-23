@@ -248,7 +248,6 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 
 		$this->go_to_home();
 
-		$this->run_webmaster_tools_authentication_option_test( 'alexaverify', '<meta name="alexaVerifyID" content="alexaverify" />' . "\n" );
 		$this->run_webmaster_tools_authentication_option_test( 'msverify', '<meta name="msvalidate.01" content="msverify" />' . "\n" );
 		$this->run_webmaster_tools_authentication_option_test( 'googleverify', '<meta name="google-site-verification" content="googleverify" />' . "\n" );
 		$this->run_webmaster_tools_authentication_option_test( 'yandexverify', '<meta name="yandex-verification" content="yandexverify" />' . "\n" );
@@ -477,7 +476,7 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 
 		$this->factory->post->create_many( 3 );
 
-		$url = home_url();
+		$url = WPSEO_Utils::home_url();
 
 		$this->run_test_on_consecutive_pages( $url );
 	}
