@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: seo, SEO, google, meta, meta description, search engine optimization, xml sitemap, xml sitemaps, google sitemap, sitemap, sitemaps, robots meta, rss, rss footer, yahoo, bing, news sitemaps, XML News Sitemaps, WordPress SEO, WordPress SEO by Yoast, yoast, multisite, canonical, nofollow, noindex, keywords, meta keywords, description, webmaster tools, google webmaster tools, seo pack
 Requires at least: 3.5
 Tested up to: 3.9.1
-Stable tag: 1.5.3.1
+Stable tag: 1.5.3.2
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the WordPress SEO plugin by Yoast.
 
@@ -108,6 +108,15 @@ You'll find the [FAQ on Yoast.com](https://yoast.com/wordpress/plugins/seo/faq/)
 7. The advanced section of the WordPress SEO meta box.
 
 == Changelog ==
+
+= 1.5.3.2 =
+Release Date: May 16th, 2014
+
+* Bugfixes
+	* Backing out earlier change, as this breaks the snippet preview.
+
+* Enhancement
+	* Reintroduced the 'Strip the category base (usually /category/) from the category URL.' option.
 
 = 1.5.3.1 =
 Release Date: May 15th, 2014
