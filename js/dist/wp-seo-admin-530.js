@@ -113,393 +113,352 @@ var _wpSeoKbSearchInit = require("./kb-search/wp-seo-kb-search-init");
 
 var _wpSeoKbSearchInit2 = _interopRequireDefault(_wpSeoKbSearchInit);
 
+var _a11ySpeak = require("a11y-speak");
+
+var _a11ySpeak2 = _interopRequireDefault(_a11ySpeak);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(function ($) {
-	window.wpseo_init_tabs = function () {
-		if (jQuery(".wpseo-metabox-tabs-div").length > 0) {
-			jQuery(".wpseo-metabox-tabs").on("click", "a.wpseo_tablink", function (ev) {
-				ev.preventDefault();
+/* global wpseoAdminL10n, ajaxurl, tb_remove, wpseoSelect2Locale */
 
-				jQuery(".wpseo-meta-section.active .wpseo-metabox-tabs li").removeClass("active");
-				jQuery(".wpseo-meta-section.active .wpseotab").removeClass("active");
-
-				// Hide the Yoast tooltip when the element gets clicked.
-				jQuery(this).addClass("yoast-tooltip-hidden");
-
-				var targetElem = jQuery(jQuery(this).attr("href"));
-				targetElem.addClass("active");
-				jQuery(this).parent("li").addClass("active");
-
-				if (jQuery(this).hasClass("scroll")) {
-					jQuery("html, body").animate({
-						scrollTop: jQuery(targetElem).offset().top
-					}, 500);
-				}
-			}).on("mouseleave", "a.wpseo_tablink", function () {
-				// The element can still have focus, ensure to hide the tooltip.
-				jQuery(this).addClass("yoast-tooltip-hidden");
-			}).on("blur mouseenter", "a.wpseo_tablink", function () {
-				// Make the element tooltip-able again.
-				jQuery(this).removeClass("yoast-tooltip-hidden");
-			});
-		}
-
-		if (jQuery(".wpseo-meta-section").length > 0) {
-			jQuery("#wpseo-meta-section-content").addClass("active");
-			jQuery(".wpseo-metabox-sidebar li").filter(function () {
-				return jQuery(this).find(".wpseo-meta-section-link").attr("href") === "#wpseo-meta-section-content";
-			}).addClass("active");
-
-			jQuery("a.wpseo-meta-section-link").on("click", function (ev) {
-				ev.preventDefault();
-
-				jQuery(".wpseo-metabox-sidebar li").removeClass("active");
-				jQuery(".wpseo-meta-section").removeClass("active");
-
-				// Hide the Yoast tooltip when the element gets clicked.
-				jQuery(this).addClass("yoast-tooltip-hidden");
-
-				var targetElem = jQuery(jQuery(this).attr("href"));
-				targetElem.addClass("active");
-
-				jQuery(this).parent("li").addClass("active");
-			}).on("mouseleave", function () {
-				// The element can still have focus, ensure to hide the tooltip.
-				jQuery(this).addClass("yoast-tooltip-hidden");
-			}).on("blur mouseenter", function () {
-				// Make the element tooltip-able again.
-				jQuery(this).removeClass("yoast-tooltip-hidden");
-			});
-		}
-
-		jQuery(".wpseo-metabox-tabs").show();
-		// End Tabs code.
-
-		(0, _wpSeoKbSearchInit2.default)();
-	};
+(function () {
+	"use strict";
 
 	/**
-  * @summary Adds select2 for selected fields.
+  * Detects the wrong use of variables in title and description templates
+  *
+  * @param {element} e The element to verify.
+  *
+  * @returns {void}
+  */
+
+	function wpseoDetectWrongVariables(e) {
+		var warn = false;
+		var errorId = "";
+		var wrongVariables = [];
+		var authorVariables = ["userid", "name", "user_description"];
+		var dateVariables = ["date"];
+		var postVariables = ["title", "parent_title", "excerpt", "excerpt_only", "caption", "focuskw", "pt_single", "pt_plural", "modified", "id"];
+		var specialVariables = ["term404", "searchphrase"];
+		var taxonomyVariables = ["term_title", "term_description"];
+		var taxonomyPostVariables = ["category", "category_description", "tag", "tag_description"];
+		if (e.hasClass("posttype-template")) {
+			wrongVariables = wrongVariables.concat(specialVariables, taxonomyVariables);
+		} else if (e.hasClass("homepage-template")) {
+			wrongVariables = wrongVariables.concat(authorVariables, dateVariables, postVariables, specialVariables, taxonomyVariables, taxonomyPostVariables);
+		} else if (e.hasClass("taxonomy-template")) {
+			wrongVariables = wrongVariables.concat(authorVariables, dateVariables, postVariables, specialVariables);
+		} else if (e.hasClass("author-template")) {
+			wrongVariables = wrongVariables.concat(postVariables, dateVariables, specialVariables, taxonomyVariables, taxonomyPostVariables);
+		} else if (e.hasClass("date-template")) {
+			wrongVariables = wrongVariables.concat(authorVariables, postVariables, specialVariables, taxonomyVariables, taxonomyPostVariables);
+		} else if (e.hasClass("search-template")) {
+			wrongVariables = wrongVariables.concat(authorVariables, dateVariables, postVariables, taxonomyVariables, taxonomyPostVariables, ["term404"]);
+		} else if (e.hasClass("error404-template")) {
+			wrongVariables = wrongVariables.concat(authorVariables, dateVariables, postVariables, taxonomyVariables, taxonomyPostVariables, ["searchphrase"]);
+		}
+		jQuery.each(wrongVariables, function (index, variable) {
+			errorId = e.attr("id") + "-" + variable + "-warning";
+			if (e.val().search("%%" + variable + "%%") !== -1) {
+				e.addClass("wpseo-variable-warning-element");
+				var msg = wpseoAdminL10n.variable_warning.replace("%s", "%%" + variable + "%%");
+				if (jQuery("#" + errorId).length) {
+					jQuery("#" + errorId).html(msg);
+				} else {
+					e.after(' <div id="' + errorId + '" class="wpseo-variable-warning">' + msg + "</div>");
+				}
+
+				(0, _a11ySpeak2.default)(wpseoAdminL10n.variable_warning.replace("%s", variable), "assertive");
+
+				warn = true;
+			} else {
+				if (jQuery("#" + errorId).length) {
+					jQuery("#" + errorId).remove();
+				}
+			}
+		});
+		if (warn === false) {
+			e.removeClass("wpseo-variable-warning-element");
+		}
+	}
+
+	/**
+  * Sets a specific WP option
+  *
+  * @param {string} option The option to update.
+  * @param {string} newval The new value for the option.
+  * @param {string} hide   The ID of the element to hide on success.
+  * @param {string} nonce  The nonce for the action.
+  *
+  * @returns {void}
+  */
+	function setWPOption(option, newval, hide, nonce) {
+		jQuery.post(ajaxurl, {
+			action: "wpseo_set_option",
+			option: option,
+			newval: newval,
+			_wpnonce: nonce
+		}, function (data) {
+			if (data) {
+				jQuery("#" + hide).hide();
+			}
+		});
+	}
+
+	/**
+  * Do the kill blocking files action
+  *
+  * @param {string} nonce Nonce to validate request.
+  *
+  * @returns {void}
+  */
+	function wpseoKillBlockingFiles(nonce) {
+		jQuery.post(ajaxurl, {
+			action: "wpseo_kill_blocking_files",
+			// eslint-disable-next-line
+			_ajax_nonce: nonce
+		}).done(function (response) {
+			var noticeContainer = jQuery(".yoast-notice-blocking-files"),
+			    noticeParagraph = jQuery("#blocking_files");
+
+			noticeParagraph.html(response.data.message);
+			// Make the notice focusable and move focue on it so screen readers will read out its content.
+			noticeContainer.attr("tabindex", "-1").focus();
+
+			if (response.success) {
+				noticeContainer.removeClass("notice-error").addClass("notice-success");
+			} else {
+				noticeContainer.addClass("yoast-blocking-files-error");
+			}
+		});
+	}
+
+	/**
+  * Copies the meta description for the homepage
+  *
+  * @returns {void}
+  */
+	function wpseoCopyHomeMeta() {
+		jQuery("#og_frontpage_desc").val(jQuery("#meta_description").val());
+	}
+
+	/**
+  * Makes sure we store the action hash so we can return to the right hash
+  *
+  * @returns {void}
+  */
+	function wpseoSetTabHash() {
+		var conf = jQuery("#wpseo-conf");
+		if (conf.length) {
+			var currentUrl = conf.attr("action").split("#")[0];
+			conf.attr("action", currentUrl + window.location.hash);
+		}
+	}
+
+	/**
+  * When the hash changes, get the base url from the action and then add the current hash
+  */
+	jQuery(window).on("hashchange", wpseoSetTabHash);
+
+	/**
+  * Add a Facebook admin for via AJAX.
+  *
+  * @returns {void}
+  */
+	function wpseoAddFbAdmin() {
+		var targetForm = jQuery("#TB_ajaxContent");
+
+		jQuery.post(ajaxurl, {
+			_wpnonce: targetForm.find("input[name=fb_admin_nonce]").val(),
+			admin_name: targetForm.find("input[name=fb_admin_name]").val(),
+			admin_id: targetForm.find("input[name=fb_admin_id]").val(),
+			action: "wpseo_add_fb_admin"
+		}, function (response) {
+			var resp = jQuery.parseJSON(response);
+
+			targetForm.find("p.notice").remove();
+
+			switch (resp.success) {
+				case 1:
+
+					targetForm.find("input[type=text]").val("");
+
+					jQuery("#user_admin").append(resp.html);
+					jQuery("#connected_fb_admins").show();
+					tb_remove();
+					break;
+				case 0:
+					targetForm.find(".form-wrap").prepend(resp.html);
+					break;
+			}
+		});
+	}
+
+	/**
+  * Adds select2 for selected fields.
   *
   * @returns {void}
   */
 	function initSelect2() {
-		// Select2 for Yoast SEO Metabox Advanced tab
-		$("#yoast_wpseo_meta-robots-noindex").select2({ width: "100%", language: wpseoSelect2Locale });
-		$("#yoast_wpseo_meta-robots-adv").select2({ width: "100%", language: wpseoSelect2Locale });
+		var select2Width = "400px";
+
+		// Select2 for General settings: your info: company or person. Width is the same as the width for the other fields on this page.
+		jQuery("#company_or_person").select2({
+			width: select2Width,
+			language: wpseoSelect2Locale
+		});
+
+		// Select2 for Twitter card meta data in Settings
+		jQuery("#twitter_card_type").select2({
+			width: select2Width,
+			language: wpseoSelect2Locale
+		});
+
+		// Select2 for taxonomy breadcrumbs in Advanced
+		jQuery("#post_types-post-maintax").select2({
+			width: select2Width,
+			language: wpseoSelect2Locale
+		});
+
+		// Select2 for profile in Search Console
+		jQuery("#profile").select2({
+			width: select2Width,
+			language: wpseoSelect2Locale
+		});
 	}
 
 	/**
-  * @summary Shows a informational popup if someone click the add keyword button.
+  * Set the initial active tab in the settings pages.
   *
   * @returns {void}
   */
-	function addKeywordPopup() {
-		var $buyButton = $("#wpseo-add-keyword-popup-button"),
-		    title = $buyButton.text(),
-		    $popupWindow,
-		    $closeButton;
+	function setInitialActiveTab() {
+		var activeTabId = window.location.hash.replace("#top#", "");
+		/*
+   * WordPress uses fragment identifiers for its own in-page links, e.g.
+   * `#wpbody-content` and other plugins may do that as well. Also, facebook
+   * adds a `#_=_` see PR 506. In these cases and when it's empty, default
+   * to the first tab.
+   */
+		if ("" === activeTabId || "#" === activeTabId.charAt(0)) {
+			/*
+    * Reminder: jQuery attr() gets the attribute value for only the first
+    * element in the matched set so this will always be the first tab id.
+    */
+			activeTabId = jQuery(".wpseotab").attr("id");
+		}
 
-		tb_show(title, "#TB_inline?width=650&height=350&inlineId=wpseo-add-keyword-popup", "group");
+		jQuery("#" + activeTabId).addClass("active");
+		jQuery("#" + activeTabId + "-tab").addClass("nav-tab-active").click();
+	}
 
-		// The thicbox popup UI is now available.
-		$popupWindow = $("#TB_window");
-		$closeButton = $("#TB_closeWindowButton");
+	window.wpseoDetectWrongVariables = wpseoDetectWrongVariables;
+	window.setWPOption = setWPOption;
+	window.wpseoKillBlockingFiles = wpseoKillBlockingFiles;
+	window.wpseoCopyHomeMeta = wpseoCopyHomeMeta;
+	// eslint-disable-next-line
+	window.wpseo_add_fb_admin = wpseoAddFbAdmin;
+	window.wpseoSetTabHash = wpseoSetTabHash;
 
-		// The container window isn't the correct size, rectify this and also the centering.
-		$popupWindow.css({ width: 680, height: 350, "margin-left": -340 });
+	jQuery(document).ready(function () {
+		/**
+   * When the hash changes, get the base url from the action and then add the current hash.
+   */
+		wpseoSetTabHash();
 
-		// Accessibility improvements.
-		$popupWindow.attr({
-			role: "dialog",
-			"aria-labelledby": "TB_ajaxWindowTitle",
-			"aria-describedby": "TB_ajaxContent"
-		}).on("keydown", function (event) {
-			var id;
+		(0, _wpSeoKbSearchInit2.default)();
 
-			// Constrain tabbing within the modal.
-			if (9 === event.which) {
-				id = event.target.id;
+		// Toggle the XML sitemap section.
+		jQuery("#enablexmlsitemap").change(function () {
+			jQuery("#sitemapinfo").toggle(jQuery(this).is(":checked"));
+		}).change();
 
-				if (id === "wpseo-add-keyword-popup-button" && !event.shiftKey) {
-					$closeButton.focus();
-					event.preventDefault();
-				} else if (id === "TB_closeWindowButton" && event.shiftKey) {
-					$buyButton.focus();
-					event.preventDefault();
-				}
+		// Toggle the Author archives section.
+		jQuery("#disable-author input[type='radio']").change(function () {
+			// The value on is disabled, off is enabled.
+			if (jQuery(this).is(":checked")) {
+				jQuery("#author-archives-titles-metas-content").toggle(jQuery(this).val() === "off");
+			}
+		}).change();
+
+		// Toggle the Date archives section.
+		jQuery("#disable-date input[type='radio']").change(function () {
+			// The value on is disabled, off is enabled.
+			if (jQuery(this).is(":checked")) {
+				jQuery("#date-archives-titles-metas-content").toggle(jQuery(this).val() === "off");
+			}
+		}).change();
+
+		// Toggle the Format-based archives section.
+		jQuery("#disable-post_format").change(function () {
+			jQuery("#post_format-titles-metas").toggle(jQuery(this).is(":not(:checked)"));
+		}).change();
+
+		// Toggle the Breadcrumbs section.
+		jQuery("#breadcrumbs-enable").change(function () {
+			jQuery("#breadcrumbsinfo").toggle(jQuery(this).is(":checked"));
+		}).change();
+
+		// Toggle the Author / user sitemap section.
+		jQuery("#disable_author_sitemap").find("input:radio").change(function () {
+			if (jQuery(this).is(":checked")) {
+				jQuery("#xml_user_block").toggle(jQuery(this).val() === "off");
+			}
+		}).change();
+
+		// Toggle the Redirect ugly URLs to clean permalinks section.
+		jQuery("#cleanpermalinks").change(function () {
+			jQuery("#cleanpermalinksdiv").toggle(jQuery(this).is(":checked"));
+		}).change();
+
+		// Handle the settings pages tabs.
+		jQuery("#wpseo-tabs").find("a").click(function () {
+			jQuery("#wpseo-tabs").find("a").removeClass("nav-tab-active");
+			jQuery(".wpseotab").removeClass("active");
+
+			var id = jQuery(this).attr("id").replace("-tab", "");
+			jQuery("#" + id).addClass("active");
+			jQuery(this).addClass("nav-tab-active");
+		});
+
+		// Handle the Company or Person select.
+		jQuery("#company_or_person").change(function () {
+			var companyOrPerson = jQuery(this).val();
+			if ("company" === companyOrPerson) {
+				jQuery("#knowledge-graph-company").show();
+				jQuery("#knowledge-graph-person").hide();
+			} else if ("person" === companyOrPerson) {
+				jQuery("#knowledge-graph-company").hide();
+				jQuery("#knowledge-graph-person").show();
+			} else {
+				jQuery("#knowledge-graph-company").hide();
+				jQuery("#knowledge-graph-person").hide();
+			}
+		}).change();
+
+		// Check correct variables usage in title and description templates.
+		jQuery(".template").change(function () {
+			wpseoDetectWrongVariables(jQuery(this));
+		}).change();
+
+		// XML sitemaps "Fix it" button.
+		jQuery("#blocking_files .button").on("click", function () {
+			wpseoKillBlockingFiles(jQuery(this).data("nonce"));
+		});
+
+		// Prevent form submission when pressing Enter on the switch-toggles.
+		jQuery(".switch-yoast-seo input").on("keydown", function (event) {
+			if ("keydown" === event.type && 13 === event.which) {
+				event.preventDefault();
 			}
 		});
 
-		// Move focus back to the element that opened the modal.
-		$("body").on("thickbox:removed", function () {
-			$(".wpseo-add-keyword").focus();
-		});
-	}
-
-	/**
-  * @summary Adds keyword popup if the template for it is found.
-  *
-  * @returns {void}
-  */
-	function initAddKeywordPopup() {
-		// If add keyword popup exists bind it to the add keyword button
-		if (1 === $("#wpseo-add-keyword-popup").length) {
-			$(".wpseo-add-keyword").on("click", addKeywordPopup);
-		}
-	}
-
-	/**
-  * Move the help elements by injecting them into the h3 elements.
-  *
-  * @returns {void}
-  */
-	function moveHelpElements() {
-		jQuery("#wpseo-focuskeyword-section").find("h3").after(jQuery("#help-yoast-focuskeyword").detach().removeClass("wpseo_hidden"));
-
-		jQuery("#wpseo-pageanalysis-section").find("h3").after(jQuery("#help-yoast-pageanalysis").detach().removeClass("wpseo_hidden"));
-
-		var snippetHelp = jQuery("#help-yoast-snippetpreview").detach().removeClass("wpseo_hidden");
-		// Post/taxonomy/media meta box.
-		jQuery("#wpseosnippet").find("h3").after(snippetHelp);
-	}
-
-	jQuery(document).ready(function () {
-		jQuery(".wpseo-meta-section").each(function (_, el) {
-			jQuery(el).find(".wpseo-metabox-tabs li:first").addClass("active");
-			jQuery(el).find(".wpseotab:first").addClass("active");
-		});
-		window.wpseo_init_tabs();
-
-		initAddKeywordPopup();
+		setInitialActiveTab();
 		initSelect2();
-
-		jQuery(window).on("YoastSEO:ready", moveHelpElements);
 	});
-})(jQuery);
+})();
 
-/* eslint-disable */
-/* jshint ignore:start */
-/**
- * Cleans up a string, removing script tags etc.
- *
- * @deprecated since version 3.0
- *
- * @param {string} str
- *
- * @returns {string}
- */
-/* browser:true */
-/* global tb_show, wpseoSelect2Locale */
-
-function ystClean(str) {
-	console.error("ystClean is deprecated since Yoast SEO 3.0, use YoastSEO.js functionality instead.");
-
-	return str;
-}
-
-/**
- * Tests whether given element `str` matches `p`.
- *
- * @deprecated since version 3.0
- *
- * @param {string} str The string to match
- * @param {RegExp} p The regex to match
- * @returns {string}
- */
-function ystFocusKwTest(str, p) {
-	console.error("ystFocusKwTest is deprecated since Yoast SEO 3.0, use YoastSEO.js functionality instead.");
-
-	return "";
-}
-
-/**
- * The function name says it all, removes lower case diacritics
- *
- * @deprecated since version 3.0
- *
- * @param {string} str
- * @returns {string}
- */
-function ystRemoveLowerCaseDiacritics(str) {
-	console.error("ystRemoveLowerCaseDiacritics is deprecated since Yoast SEO 3.0, use YoastSEO.js functionality instead.");
-
-	return str;
-}
-
-/**
- * Tests whether the focus keyword is used in title, body and description
- *
- * @deprecated since version 3.0
- */
-function ystTestFocusKw() {
-	console.error("ystTestFocusKw is deprecated since Yoast SEO 3.0, use YoastSEO.js functionality instead.");
-}
-
-/**
- * This callback is used for variable replacement
- *
- * This is done through a callback as it _could_ be that `ystReplaceVariables` has to do an AJAX request.
- *
- * @callback replaceVariablesCallback
- * @param {string} str The string with the replaced variables in it
- */
-
-/**
- * Replaces variables either with values from wpseoMetaboxL10n, by grabbing them from the page or (ultimately) getting them through AJAX
- *
- * @deprecated since version 3.0
- *
- * @param {string} str The string with variables to be replaced
- * @param {replaceVariablesCallback} callback Callback function for when the
- */
-function ystReplaceVariables(str, callback) {
-	console.error("ystReplaceVariables is deprecated since Yoast SEO 3.0, use YoastSEO.js functionality instead.");
-
-	callback(str);
-}
-
-/**
- * Replace a variable with a string, through an AJAX call to WP
- *
- * @deprecated since version 3.0
- *
- * @param {string} replaceableVar
- * @param {replaceVariablesCallback} callback
- */
-function ystAjaxReplaceVariables(replaceableVar, callback) {
-	console.error("ystAjaxReplaceVariables is deprecated since Yoast SEO 3.0, use YoastSEO.js functionality instead.");
-}
-
-/**
- * Updates the title in the snippet preview
- *
- * @deprecated since version 3.0
- *
- * @param {boolean} [force = false]
- */
-function ystUpdateTitle(force) {
-	console.error("ystUpdateTitle is deprecated since Yoast SEO 3.0, use YoastSEO.js functionality instead.");
-}
-
-/**
- * Cleans the title before use
- *
- * @deprecated since version 3.0
- *
- * @param {string} title
- * @returns {string}
- */
-function ystSanitizeTitle(title) {
-	console.error("ystSanitizeTitle is deprecated since Yoast SEO 3.0, use YoastSEO.js functionality instead.");
-
-	return title;
-}
-
-/**
- * Updates the meta description in the snippet preview
- *
- * @deprecated since version 3.0
- */
-function ystUpdateDesc() {
-	console.error("ystUpdateDesc is deprecated since Yoast SEO 3.0, use YoastSEO.js functionality instead.");
-}
-
-/**
- * Sanitized the description
- *
- * @deprecated since version 3.0
- *
- * @param {string} desc
- * @returns {string}
- */
-function ystSanitizeDesc(desc) {
-	console.error("ystSanitizeDesc is deprecated since Yoast SEO 3.0, use YoastSEO.js functionality instead.");
-
-	return desc;
-}
-
-/**
- * Trims the description to the desired length
- *
- * @deprecated since version 3.0
- *
- * @param {string} desc
- * @returns {string}
- */
-function ystTrimDesc(desc) {
-	console.error("ystTrimDesc is deprecated since Yoast SEO 3.0, use YoastSEO.js functionality instead.");
-
-	return desc;
-}
-
-/**
- * Updates the URL in the snippet preview
- *
- * @deprecated since version 3.0
- */
-function ystUpdateURL() {
-	console.error("ystUpdateURL is deprecated since Yoast SEO 3.0, use YoastSEO.js functionality instead.");
-}
-
-/**
- * Bolds the keywords in a string
- *
- * @deprecated since version 3.0
- *
- * @param {string} str
- * @param {boolean} url
- * @returns {string}
- */
-function ystBoldKeywords(str, url) {
-	console.error("ystBoldKeywords is deprecated since Yoast SEO 3.0, use YoastSEO.js functionality instead.");
-
-	return str;
-}
-
-/**
- * Updates the entire snippet preview
- *
- * @deprecated since version 3.0
- */
-function ystUpdateSnippet() {
-	console.error("ystUpdateSnippet is deprecated since Yoast SEO 3.0, use YoastSEO.js functionality instead.");
-}
-
-/**
- * Escapres the focus keyword
- *
- * @deprecated since version 3.0
- *
- * @param {string} str
- * @returns {string}
- */
-function ystEscapeFocusKw(str) {
-	console.error("ystEscapeFocusKw is deprecated since Yoast SEO 3.0, use YoastSEO.js functionality instead.");
-
-	return str;
-}
-
-window.ystClean = ystClean;
-window.ystFocusKwTest = ystFocusKwTest;
-window.ystRemoveLowerCaseDiacritics = ystRemoveLowerCaseDiacritics;
-window.ystTestFocusKw = ystTestFocusKw;
-window.ystReplaceVariables = ystReplaceVariables;
-window.ystAjaxReplaceVariables = ystAjaxReplaceVariables;
-window.ystUpdateTitle = ystUpdateTitle;
-window.ystSanitizeTitle = ystSanitizeTitle;
-window.ystUpdateDesc = ystUpdateDesc;
-window.ystSanitizeDesc = ystSanitizeDesc;
-window.ystTrimDesc = ystTrimDesc;
-window.ystUpdateURL = ystUpdateURL;
-window.ystBoldKeywords = ystBoldKeywords;
-window.ystUpdateSnippet = ystUpdateSnippet;
-window.ystEscapeFocusKw = ystEscapeFocusKw;
-/* jshint ignore:end */
-/* eslint-enable */
-
-},{"./kb-search/wp-seo-kb-search-init":1}],3:[function(require,module,exports){
+},{"./kb-search/wp-seo-kb-search-init":1,"a11y-speak":3}],3:[function(require,module,exports){
 var containerPolite, containerAssertive, previousMessage = "";
 
 /**

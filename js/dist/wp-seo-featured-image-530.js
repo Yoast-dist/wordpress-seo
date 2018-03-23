@@ -26,9 +26,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 	};
 
 	/**
-  * Set's the featured image to use in the analysis
+  * Sets the featured image to use in the analysis
   *
-  * @param {String} featuredImage
+  * @param {String} featuredImage The featured image to use.
   *
   * @returns {void}
   */
@@ -68,8 +68,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 	/**
   * Adds featured image to sort so it can be analyzed
   *
-  * @param {String} content
-  * @returns {String}
+  * @param {String} content The content to alter.
+  *
+  * @returns {String} Returns the possible altered content.
   */
 	FeaturedImagePlugin.prototype.addImageToContent = function (content) {
 		if (null !== this.featuredImage) {
@@ -91,7 +92,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 	/**
   * Check if image is smaller than 200x200 pixels. If this is the case, show a warning
-  * @param {object} featuredImage
+  *
+  * @param {object} featuredImage The featured image object.
   *
   * @returns {void}
   */
