@@ -83,6 +83,10 @@ label.checkbox {
 	background-color: transparent;
 }
 
+.wp-core-ui .button.wpseo-gsc-save-profile {
+	margin-left: 200px;
+}
+
 table.wpseo th {
 	text-align: left;
 }
@@ -137,24 +141,13 @@ textarea.wpseo_variable_warning {
 	color: #dc3232;
 }
 
-.wpseo_content_wrapper div.wpseo-warning {
-	margin: 2em 0 0 0;
-	padding-right: 10px;
-	padding-left: 10px;
-	border: 2px solid #dc3232;
-	background-color: #dedede;
-}
-
 .wpseo_content_wrapper h3 {
 	margin: 1em 0 0.5em 0;
 }
 
-.wpseo_content_wrapper div.wpseo-warning h4 {
-	margin: 0.5em 0 0 0;
-}
-
-.wpseo_content_wrapper div.wpseo-warning p.error-message {
-	font-weight: normal;
+.wpseo_content_wrapper h1.wpseo-redirect-url-title {
+	margin: 1em 0 0.5em 0;
+	font-size: 1.3em;
 }
 
 #sidebar-container {
@@ -206,7 +199,6 @@ div.yoastbox .button-primary:hover {
 /*.button, .button-primary {*/
 /*margin-top: 10px;*/
 /*}*/
-
 table.yoast_help,
 table.yoast_help th,
 table.yoast_help td {
@@ -272,14 +264,6 @@ table.yoast_help tr:hover {
 	margin-top: 5px;
 }
 
-.button {
-	color: #000 !important;
-}
-
-.button#submit {
-	color: #fff !important;
-}
-
 .postbox#donate {
 	border: 2px green;
 }
@@ -332,7 +316,6 @@ h2 code {
 
 #wpseo-conf {
 	/*max-width: 600px;*/
-	;
 }
 
 #pointer-primary {
@@ -347,8 +330,8 @@ h2 code {
 	cursor: auto;
 }
 
-#wpseo-debug-info h3 span:last-child {
-	padding-left: 16px;
+#wpseo-debug-info .wpseo-debug-heading {
+	font-size: 1em;
 }
 
 #wpseo-debug-info .wpseo-debug {
@@ -419,7 +402,7 @@ textarea.wpseo-new-metadesc {
 }
 
 #separator {
-	margin: 0.5em 0 1em;
+	margin: 1.5em 0 1em;
 }
 
 #separator input.radio {
