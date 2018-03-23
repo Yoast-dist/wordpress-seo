@@ -172,16 +172,15 @@ function wpseo_replace_vars( $string, $args, $omit = array() ) {
 		'%%sep%%'          => $sep,
 		'%%sitename%%'     => get_bloginfo( 'name' ),
 		'%%sitedesc%%'     => get_bloginfo( 'description' ),
-		'%%currenttime%%'  => date( get_option( 'time_format' ) ),
-		'%%currentdate%%'  => date( get_option( 'date_format' ) ),
-		'%%currentday%%'   => date( 'j' ),
-		'%%currentmonth%%' => date( 'F' ),
-		'%%currentyear%%'  => date( 'Y' ),
+		'%%currenttime%%'  => date_i18n( get_option( 'time_format' ) ),
+		'%%currentdate%%'  => date_i18n( get_option( 'date_format' ) ),
+		'%%currentday%%'   => date_i18n( 'j' ),
+		'%%currentmonth%%' => date_i18n( 'F' ),
+		'%%currentyear%%'  => date_i18n( 'Y' ),
 	);
 
-	foreach ( $simple_replacements as $var => $repl ) {
-		$string = str_replace( $var, $repl, $string );
-	}
+	$string = str_replace( array_keys( $simple_replacements ), array_values( $simple_replacements ), $string );
+
 
 	// Let's see if we can bail early.
 	if ( strpos( $string, '%%' ) === false ) {
@@ -235,7 +234,7 @@ function wpseo_replace_vars( $string, $args, $omit = array() ) {
 
 	// Let's do date first as it's a bit more work to get right.
 	if ( $r->post_date != '' ) {
-		$date = mysql2date( get_option( 'date_format' ), $r->post_date );
+		$date = mysql2date( get_option( 'date_format' ), $r->post_date, true );
 	}
 	else {
 		if ( get_query_var( 'day' ) && get_query_var( 'day' ) != '' ) {
@@ -263,7 +262,7 @@ function wpseo_replace_vars( $string, $args, $omit = array() ) {
 		'%%term404%%'	   => sanitize_text_field( str_replace( '-', ' ', $r->term404 ) ),
 	);
 
-	if ( isset( $r->ID ) ) {
+	if ( isset( $r->ID ) && ! empty( $r->ID ) ) {
 		$replacements = array_merge(
 			$replacements, array(
 				'%%caption%%'      => $r->post_excerpt,
@@ -272,7 +271,7 @@ function wpseo_replace_vars( $string, $args, $omit = array() ) {
 				'%%excerpt_only%%' => strip_tags( $r->post_excerpt ),
 				'%%focuskw%%'      => WPSEO_Meta::get_value( 'focuskw', $r->ID ),
 				'%%id%%'           => $r->ID,
-				'%%modified%%'     => mysql2date( get_option( 'date_format' ), $r->post_modified ),
+				'%%modified%%'     => mysql2date( get_option( 'date_format' ), $r->post_modified, true ),
 				'%%name%%'         => get_the_author_meta( 'display_name', ! empty( $r->post_author ) ? $r->post_author : get_query_var( 'author' ) ),
 				'%%tag%%'          => wpseo_get_terms( $r->ID, 'post_tag' ),
 				'%%title%%'        => stripslashes( $r->post_title ),
@@ -491,6 +490,11 @@ add_action( 'init', 'wpseo_xml_sitemaps_init', 1 );
  * Notify search engines of the updated sitemap.
  */
 function wpseo_ping_search_engines( $sitemapurl = null ) {
+	// Don't ping if blog is not public
+	if ( '0' == get_option( 'blog_public' ) ) {
+		return;
+	}
+
 	$options = get_option( 'wpseo_xml' );
 	$base    = $GLOBALS['wp_rewrite']->using_index_permalinks() ? 'index.php/' : '';
 	if ( $sitemapurl == null ) {
