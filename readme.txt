@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: seo, SEO, Yoast SEO, google, meta, meta description, search engine optimization, xml sitemap, xml sitemaps, google sitemap, sitemap, sitemaps, robots meta, rss, rss footer, yahoo, bing, news sitemaps, XML News Sitemaps, WordPress SEO, WordPress SEO by Yoast, yoast, multisite, canonical, nofollow, noindex, keywords, meta keywords, description, webmaster tools, google webmaster tools, seo pack
 Requires at least: 3.9
 Tested up to: 4.2
-Stable tag: 2.2
+Stable tag: 2.2.1
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using Yoast's WordPress SEO plugin.
 
@@ -120,6 +120,12 @@ You'll find the [FAQ on Yoast.com](https://yoast.com/wordpress/plugins/seo/faq/)
 
 == Changelog ==
 
+= 2.2.1 =
+
+Release Date: June 11th, 2015
+
+* Makes sure users can close the tour by circumventing possible JavaScript caching issues that might occur.
+
 = 2.2 =
 
 Release Date: June 10th, 2015
@@ -130,7 +136,7 @@ Release Date: June 10th, 2015
 	* Add Google's mobile friendly test to the SEO toolbar, props [Brandon Hubbard](https://github.com/bhubbard).
 	* Makes sure slugs are not being stripped if the remaining slug is less than 3 characters, props [andyexeter](https://github.com/andyexeter).
 	* Shows an activation error when dependencies were not installed properly with composer.
-	* Added a filter to allow the the RSS footer to be dynamically shown/hidden, props [Hugh Lashbrooke](https://github.com/hlashbrooke).
+	* Added a filter to allow the RSS footer to be dynamically shown/hidden, props [Hugh Lashbrooke](https://github.com/hlashbrooke).
 	* Added many translator comments to help translators more easily get the context.
 	* Made sure Open Graph article tags are added separately, following up on the Open Graph specification.
 	* Adds recommended image sizes per Social network in the social tab of the 	SEO metabox.
