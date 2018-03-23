@@ -22,11 +22,6 @@ if ( !class_exists( 'Yoast_Tracking' ) ) {
 		 * Class constructor
 		 */
 		function __construct() {
-			// The tracking checks daily, but only sends new data every 7 days.
-			if ( !wp_next_scheduled( 'yoast_tracking' ) ) {
-				wp_schedule_event( time(), 'daily', 'yoast_tracking' );
-			}
-
 			add_action( 'yoast_tracking', array( $this, 'tracking' ) );
 		}
 
@@ -89,7 +84,7 @@ if ( !class_exists( 'Yoast_Tracking' ) ) {
 				$plugins = array();
 				foreach ( get_option( 'active_plugins' ) as $plugin_path ) {
 					if ( !function_exists( 'get_plugin_data' ) )
-						require_once ABSPATH . 'wp-admin/includes/admin.php';
+						require_once( ABSPATH . 'wp-admin/includes/admin.php' );
 
 					$plugin_info = get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin_path );
 

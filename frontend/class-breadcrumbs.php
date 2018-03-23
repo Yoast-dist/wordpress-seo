@@ -159,7 +159,7 @@ class WPSEO_Breadcrumbs {
 			$links[] = array( 'id' => $post->ID );
 		} else {
 			if ( is_post_type_archive() ) {
-				$links[] = array( 'ptarchive' => get_post_type() );
+				$links[] = array( 'ptarchive' => $wp_query->query['post_type'] );
 			} else if ( is_tax() || is_tag() || is_category() ) {
 				$term = $wp_query->get_queried_object();
 
@@ -247,7 +247,7 @@ class WPSEO_Breadcrumbs {
 						$crumb404 = $options['breadcrumbs-404crumb'];
 					else
 						$crumb404 = __( 'Error 404: Page not found', 'wordpress-seo' );
-							
+
 					$links[] = array( 'text' => $crumb404 );
 				}
 			}
@@ -310,11 +310,20 @@ class WPSEO_Breadcrumbs {
 			}
 
 			if ( isset( $link['ptarchive'] ) ) {
+				/* @todo add something along the lines of the below to make it work with WooCommerce.. ?
+				if( false === $link['ptarchive'] && true === is_post_type_archive( 'product' ) ) {
+					$link['ptarchive'] = 'product'; // translate ?
+				}*/
 				if ( isset( $opt['bctitle-ptarchive-' . $link['ptarchive']] ) && '' != $opt['bctitle-ptarchive-' . $link['ptarchive']] ) {
 					$archive_title = $opt['bctitle-ptarchive-' . $link['ptarchive']];
 				} else {
 					$post_type_obj = get_post_type_object( $link['ptarchive'] );
-					$archive_title = $post_type_obj->labels->menu_name;
+					if( isset( $post_type_obj->label ) && $post_type_obj->label !== '' ) {
+						$archive_title = $post_type_obj->label;
+					}
+					else {
+						$archive_title = $post_type_obj->labels->menu_name;
+					}
 				}
 				$link['url']  = get_post_type_archive_link( $link['ptarchive'] );
 				$link['text'] = $archive_title;
