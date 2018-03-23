@@ -162,7 +162,7 @@ if ( ! class_exists( 'WPSEO_Admin' ) ) {
 							'id'      => 'title-vars',
 							'title'   => __( 'Basic Variables', 'wordpress-seo' ),
 							'content' => '
-		<h2>' . __( 'Basic Variables.', 'wordpress-seo' ) . '</h2>
+		<h2>' . __( 'Basic Variables', 'wordpress-seo' ) . '</h2>
 			<table class="yoast_help">
 				<tr>
 					<th>%%date%%</th>
@@ -227,9 +227,9 @@ if ( ! class_exists( 'WPSEO_Admin' ) ) {
 			$screen->add_help_tab(
 					array(
 							'id'      => 'title-vars-advanced',
-							'title'   => __( 'Advanced Variables.', 'wordpress-seo' ),
+							'title'   => __( 'Advanced Variables', 'wordpress-seo' ),
 							'content' => '
-				<h2>' . __( 'Advanced Variables.', 'wordpress-seo' ) . '</h2>
+				<h2>' . __( 'Advanced Variables', 'wordpress-seo' ) . '</h2>
 				<table class="yoast_help">
 				<tr>
 					<th>%%pt_single%%</th>
@@ -470,6 +470,18 @@ if ( ! class_exists( 'WPSEO_Admin' ) ) {
 				$settings_link = '<a href="' . esc_url( admin_url( 'admin.php?page=wpseo_dashboard' ) ) . '">' . __( 'Settings', 'wordpress-seo' ) . '</a>';
 				array_unshift( $links, $settings_link );
 			}
+
+			if ( class_exists( 'Yoast_Product_WPSEO_Premium' ) ) {
+				$license_manager = new Yoast_Plugin_License_Manager( new Yoast_Product_WPSEO_Premium() );
+				if ( $license_manager->license_is_valid() ) {
+					return $links;
+				}
+			}
+
+			// add link to premium support landing page
+			$premium_link = '<a href="https://yoast.com/wordpress/plugins/seo-premium/support/#utm_source=wordpress-seo-settings-link&utm_medium=text-link&utm_campaign=support-link">' . __( 'Premium Support', 'wordpress-seo' ) .'</a>';
+			array_unshift( $links, $premium_link );
+
 			return $links;
 		}
 

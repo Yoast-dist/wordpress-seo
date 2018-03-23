@@ -14,7 +14,7 @@ if ( ! function_exists( 'add_filter' ) ) {
  * @internal Nobody should be able to overrule the real version number as this can cause serious issues
  * with the options, so no if ( ! defined() )
  */
-define( 'WPSEO_VERSION', '1.5.2.3' );
+define( 'WPSEO_VERSION', '1.5.2.4' );
 
 if ( ! defined( 'WPSEO_PATH' ) ) {
 	define( 'WPSEO_PATH', plugin_dir_path( WPSEO_FILE ) );
@@ -190,7 +190,7 @@ function wpseo_frontend_init() {
 		add_filter( 'bbp_get_breadcrumb', '__return_false' );
 	}
 
-	add_action( 'wp', 'wpseo_frontend_head_init' );
+	add_action( 'template_redirect', 'wpseo_frontend_head_init', 999 );
 }
 
 /**
