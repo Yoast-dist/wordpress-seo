@@ -118,7 +118,6 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 		'sc-dash'   => '-',
 		'sc-ndash'  => '&ndash;',
 		'sc-mdash'  => '&mdash;',
-		'sc-colon'  => ':',
 		'sc-middot' => '&middot;',
 		'sc-bull'   => '&bull;',
 		'sc-star'   => '*',
