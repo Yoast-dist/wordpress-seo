@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Google Search Console, Content analysis, Readability
 Requires at least: 4.8
 Tested up to: 4.9.8
-Stable tag: 8.3-RC1
+Stable tag: 8.3-RC2
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -108,25 +108,34 @@ You'll find answers to many of your questions on [kb.yoast.com](https://yoa.st/1
 = 8.3.0 =
 Release Date: September 25th, 2018
 
-Bugs:
+Bugfixes:
 
-* Fixes the import of `scoreToRating` in `mapResults.js` to be consistent with the import of the same function in `getIndicatorForScore.js`.
+* Fixes a bug where an incorrect time would be outputted in the `article:published_time` and `article:modified_time` meta properties when a timezone with numerical UTC offset was used (e.g. UTC+10).
+* Fixes a bug where the `article:published_time` and `article:modified_time` meta properties would be localized. Props to [AminulBD](https://github.com/AminulBD).
+* Fixes a bug where the structured data rendered by the Gutenberg How-To and FAQ blocks was rendered on pages with multiple posts.
+* Fixes a bug where snippet variables would not be replaced in the `og:description` of taxonomies when they were added in the Facebook Description input field.
+* Fixes a bug where `babel-polyfill` would throw an error that there shouldn't be two instances of babel-polyfill.
+* Fixes a bug where the `bold` button was available in the How-to block's step title and the FAQ block's Question field while they were already bold by default.
 
 Enhancements:
 
-* Adds colon `:`  as an optional Title Separator.
-* Adds a setting and filter allowing users to edit the text describing the needed time for a how-to guide.
-* Shows a notice on the Yoast SEO dashboard when both Yoast SEO and All in One SEO Pack plugins are active.
-* Introduces an API function to get all WPSEO related capabilities.
+* Adds a colon to the list of possible title separators.
+* Adds a setting and filter (`wpseo_duration_text`) to the how-to block that allows users to edit the text describing the time needed.
+* Adds a help text to the readability analysis.
 
 Other:
 
-* Adds `target = "_blank"` to the anchor tag of the duplicate content link in the archive settings. Props @nikhilbarar.
-* Prevents localize the Open Graph publish and modify DateTime string.
-* Changes the notification message when a new issue has been found
-* Changes the second argument of the `wpseo_sitemap_exclude_empty_terms` filter call when determining which taxonomies should have a sitemap to the correct type. Props to: [liarco](https://github.com/liarco)
-* Removes the executable bits on SVN assets. Props to [mathieu-aubin](https://github.com/mathieu-aubin)
-* Adds a help text to the Readability Analysis.
+* Adds a notice to the Yoast SEO dashboard that is shown when both Yoast SEO and All in One SEO Pack plugins are active.
+* Makes the duplicate content link on the archive settings open in a new tab. Props [nikhilbarar](https://github.com/nikhilbarar).
+* Changes the notification message that is shown when a new SEO-related issue has been found.
+* Uses the correct type as the second argument of the `wpseo_sitemap_exclude_empty_terms` filter call when determining which taxonomies should have a sitemap. Props to: [liarco](https://github.com/liarco).
+* Removes the executable bits on SVN assets. Props to [mathieu-aubin](https://github.com/mathieu-aubin).
+* Introduces an API function to get all Yoast SEO-related capabilities. Props to: [JoryHogeveen](https://github.com/JoryHogeveen).
+* Changes the `@context` property from `http://schema.org` to `https://schema.org` in the FAQ and How-To block's structured data output.
+* Rename the `associatedMedia` property in the FAQ and How-To block's structured data output to `image`, to reflect a change in Google's guidelines.
+* Moves the `@type` and `name` properties to the root of the FAQ block's structured data output.
+* Nests the `Question` objects in the newly introduced `mainEntity` property in the FAQ block's structured data output.
+* Removes the superfluous `position` property from the How-To block's structured data output.
 
 = 8.2.0 =
 Release Date: September 11th, 2018
