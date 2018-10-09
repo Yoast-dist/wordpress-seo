@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Google Search Console, Content analysis, Readability
 Requires at least: 4.8
 Tested up to: 4.9.8
-Stable tag: 8.4
+Stable tag: 9.0-RC1
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -34,8 +34,8 @@ Yoast SEO does everything in its power to please both visitors and search engine
 
 * Content & SEO analysis: Invaluable tools to write SEO-friendly texts.
 * The snippet preview shows you how your post or page will look in the search results - even on mobile. Yoast SEO Premium even has social media previews!
-* **[Premium]** The Insights tool shows you what your text focuses on so you can keep your article in line with your keywords.
-* **[Premium]** Multiple focus keywords: Optimize your article for synonyms and related keywords.
+* **[Premium]** The Insights tool shows you what your text focuses on so you can keep your article in line with your keyphrases.
+* **[Premium]** Multiple focus keyphrases: Optimize your article for synonyms and related keyphrases.
 * **[Premium]** Automatic internal linking suggestions: write your article and get automatic suggested posts to link to.
 
 #### Keep your site in perfect shape
@@ -52,7 +52,7 @@ Yoast SEO does everything in its power to please both visitors and search engine
 
 The Yoast team does not always provide active support for the Yoast SEO plugin on the WordPress.org forums, as we prioritize our email support. One-on-one email support is available to people who [bought Yoast SEO Premium](https://yoa.st/1v8) only.
 
-Note that the [Yoast SEO Premium](https://yoa.st/1v8) also has several extra features too, including the option to have multiple focus keywords, internal linking suggestions, cornerstone content checks and a redirect manager, so it is well worth your investment!
+Note that the [Yoast SEO Premium](https://yoa.st/1v8) also has several extra features too, including the option to have multiple focus keyphrases, internal linking suggestions, cornerstone content checks and a redirect manager, so it is well worth your investment!
 
 You should also check out the [Yoast Local SEO](https://yoa.st/1uu), [Yoast News SEO](https://yoa.st/1uv) and [Yoast Video SEO](https://yoa.st/1uw) extensions to Yoast SEO. They work with the free version of Yoast SEO already, and these premium extensions of course come with support too.
 
@@ -105,6 +105,42 @@ You'll find answers to many of your questions on [kb.yoast.com](https://yoa.st/1
 6. Easily import SEO data from other SEO plugins like All In One SEO pack, HeadSpace2 SEO and wpSEO.de.
 
 == Changelog ==
+
+= 9.0.0 =
+Release Date: October 23rd, 2018
+
+Bugfixes:
+
+* Fixes a bug when the keyword would not be found in the slug when containing punctuation, e.g. the keyphrase `Pooch & Mutt` in the slug `pooch-mutt`.
+* Fixes fatal error on Yoast settings pages that do not have a dedicated option class.
+* Fixes a bug where the buttons to change the How-to steps and FAQ questions order would be only partially visible in mobile view, by moving them at the bottom of the block. Also improves accessibility as the tab sequence is more logical.
+* Fixes a bug where a undefined index notice is given when an OG image url doesn't have a correct path. Props to [@Julian-B90](https://github.com/Julian-B90)
+
+Enhancements:
+
+* Makes keyphrase recognition flexible with regards to word order in the keyphrase vs. word order in the match.
+* The analysis of the following assessments changes:
+  * Image alt attributes: checks whether alt-tags contain the keyphrase or synonyms.
+  * Keyphrase in introduction: checks whether words from the keyphrase or synonyms are matched within one sentence in the introduction or, if not, whether they are present in the first paragraph at all.
+  * Keyphrase in title: checks whether an exact match of the keyphrase is found in the beginning of the title.
+  * Keyphrase length: has new boundaries to check whether the keyphrase is not too long.
+  * Keyphrase in meta description: checks whether all words from the keyphrase are matched within one sentence or, if not, whether they are present in the meta description at all.
+  * Keyphrase in subheading: checks whether 30-75% of all subheadings reflect the topic of the post. A subheading is considered to reflect the topic of the post if more than half of the word from the keyphrase are found in it.
+  * Keyphrase in slug: checks whether a sufficient number of words from the keyphrase is used in the slug.
+  * Keyphrase distribution: uses a new algorithm that checks whether distribution of the keyphrase is good.
+  * Keyphrase density: checks whether there are enough matches; a match is defined as a sentence that contains all words from the keyphrase.
+* When matching keyphrases for the various assessments, the analysis only targets content words and ignores function words (e.g., `the`). This functionality is available in English, German, Dutch, French, Spanish, Italian, Portuguese, Russian and Polish.
+* Improves the feedback texts for all SEO and readability assessments.
+* Adds target="_blank" to the "How to connect to GSC" link to open a new tab when click. Props to [@zkan](https://github.com/zkan)
+* Improves the consistency of the SEO and readability results by showing them in a fixed order.
+* Changes all mentions of 'keyword' to 'keyphrase'. Read more about [the transition from 'keyword' to 'keyphrase'](https://yoa.st/keyword-to-keyphrase).
+* Optimizes and caches WPSEO_Option_Titles::enrich_defaults(). Props to [@soulseekah](https://github.com/soulseekah)
+* Introduces a Features tab in the network admin, which allows disabling all site-specific features for the entire network.
+
+Other:
+
+* Deprecates the WPSEO_Cornerstone class.
+* Deprecates the assessment that checks if stopwords are used within the keyphrase
 
 = 8.4.0 =
 Release Date: October 9th, 2018
