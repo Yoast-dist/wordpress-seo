@@ -158,13 +158,13 @@ $generated_i18n_strings = array(
 	_n_noop( '%4$sKeyphrase density%6$s: %1$s. This is way over the advised %3$s maximum; the focus keyword was found %2$d time. %5$sDon\'t overoptimize%6$s!', '%4$sKeyphrase density%6$s: %1$s. This is way over the advised %3$s maximum; the focus keyword was found %2$d times. %5$sDon\'t overoptimize%6$s!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/MetaDescriptionKeywordAssessment.js:81
-	__( '%1$sKey phrase in meta description%2$s: Focus key phrase or synonym appear in the meta description. Well done!', 'wordpress-seo' ),
+	__( '%1$sKeyphrase in meta description%2$s: Focus keyphrase or synonym appear in the meta description. Well done!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/MetaDescriptionKeywordAssessment.js:102
-	__( '%1$sKey phrase in meta description%2$s: The meta description contains the focus keyword %3$s times, which is over the advised maximum of 2 times. %4$sLimit that%5$s!', 'wordpress-seo' ),
+	__( '%1$sKeyphrase in meta description%2$s: The meta description contains the focus keyphrase %3$s times, which is over the advised maximum of 2 times. %4$sLimit that%5$s!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/MetaDescriptionKeywordAssessment.js:150
-	__( '%1$sKey phrase in meta description%2$s: The meta description has been specified, but it does not contain the focus key phrase. %3$sFix that%4$s!', 'wordpress-seo' ),
+	__( '%1$sKeyphrase in meta description%2$s: The meta description has been specified, but it does not contain the focus keyphrase. %3$sFix that%4$s!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/metaDescriptionLengthAssessment.js:112
 	/* Translators:  %1$s and %2$s expand to a links on yoast.com, %3$s expands to the anchor end tag */ */
@@ -202,7 +202,7 @@ $generated_i18n_strings = array(
 	__( '%1$sOutbound links%2$s: There are both nofollowed and normal outbound links on this page. Good job!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/pageTitleWidthAssessment.js:107
-	__( '%1$sSEO title width%3$s: The SEO title is too short. %2$sUse the space to add keyword variations or create compelling call-to-action copy%3$s.', 'wordpress-seo' ),
+	__( '%1$sSEO title width%3$s: The SEO title is too short. %2$sUse the space to add keyphrase variations or create compelling call-to-action copy%3$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/pageTitleWidthAssessment.js:121
 	__( '%1$sSEO title width%2$s: Good job!', 'wordpress-seo' ),
@@ -282,7 +282,7 @@ $generated_i18n_strings = array(
 	__( '%1$sKeyphrase in title%2$s: The exact match of the focus keyphrase appears at the beginning of the SEO title. Good job!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/TitleKeywordAssessment.js:115
-	__( '%1$sKeyphrase in title%3$s: The exact match of the focus keyphrase appears in the SEO title, but not at the beginning. %2$sTry move it to the beginning%3$s.', 'wordpress-seo' ),
+	__( '%1$sKeyphrase in title%3$s: The exact match of the focus keyphrase appears in the SEO title, but not at the beginning. %2$sTry to move it to the beginning%3$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/TitleKeywordAssessment.js:133
 	__( '%1$sKeyphrase in title%3$s: Does not contain the exact match. %2$sTry to write the exact match of your keyphrase in the SEO title%3$s.', 'wordpress-seo' ),
