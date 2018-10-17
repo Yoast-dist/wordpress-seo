@@ -1,10 +1,10 @@
 <?php
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
-	// Reference: js/src/components/AnalysisUpsell.js:52
+	// Reference: js/src/components/AnalysisUpsell.js:60
 	__( 'Did you know %s also analyzes the different word forms of your keyphrase, like plurals, different word orders and past tenses?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AnalysisUpsell.js:61
+	// Reference: js/src/components/AnalysisUpsell.js:69
 	__( 'Go %s!', 'wordpress-seo' ),
 
 	// Reference: js/src/components/CollapsibleCornerstone.js:22
@@ -41,7 +41,7 @@ $generated_i18n_strings = array(
 	__( 'Readability analysis', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:52
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:254
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:284
 	__( 'Analysis results', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:55
@@ -50,44 +50,41 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:58
 	__( 'Learn more about the readability analysis.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:105
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:121
 	__( 'Would you like to add keyphrase synonyms?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:130
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:146
 	__( '(Opens in a new browser tab!)', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:139
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:155
 	// Reference: js/src/components/modals/KeywordSynonyms.js:63
 	// Reference: js/src/components/modals/MultipleKeywords.js:63
 	__( 'Get %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:158
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:174
 	__( 'Would you like to add a related keyphrase?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:189
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:205
 	__( 'Add related keyphrase', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:223
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:228
+	__( 'Help on choosing the perfect focus keyphrase', 'wordpress-seo' ),
+
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:258
 	__( 'Enter a focus keyphrase to calculate the SEO score', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:229
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:274
 	// Reference: js/src/values/defaultReplaceVariables.js:50
 	__( 'Focus keyphrase', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:236
-	__( 'A focus keyphrase is the phrase you\'d like to be found for in search engines. Enter it below to see how you can improve your text for this term.', 'wordpress-seo' ),
-
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:239
-	__( 'Learn more about the keyphrase analysis.', 'wordpress-seo' ),
-
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:75
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:91
 	__( 'Add synonyms', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/KeywordSynonyms.js:22
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/KeywordSynonyms.js:32
-	__( 'Rank for up to 5 focus keyphrases per page', 'wordpress-seo' ),
+	__( 'Rank better with synonyms & related keyphrases', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/KeywordSynonyms.js:35
 	// Reference: js/src/components/modals/MultipleKeywords.js:29

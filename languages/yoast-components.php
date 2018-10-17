@@ -172,11 +172,8 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/yoast-components/composites/Plugin/HelpCenter/HelpCenter.js:81
 	__( 'Need help?', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/composites/Plugin/Shared/components/KeywordInput.js:143
+	// Reference: node_modules/yoast-components/composites/Plugin/Shared/components/KeywordInput.js:150
 	__( 'Are you trying to use multiple keyphrases? You should add them separately below.', 'wordpress-seo' ),
-
-	// Reference: node_modules/yoast-components/composites/Plugin/Shared/components/KeywordInput.js:169
-	__( 'Focus keyphrase:', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoast-components/composites/Plugin/Shared/components/LanguageNotice.js:51
 	__( 'Your site language is set to %s. ', 'wordpress-seo' ),

@@ -121,50 +121,53 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/yoastseo/src/assessments/seo/IntroductionKeywordAssessment.js:116
 	__( '%1$sKeyphrase in introduction%3$s: Your keyphrase or its synonyms do not appear in the first paragraph. %2$sMake sure the topic is clear immediately%3$s.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/assessments/seo/KeyphraseDistributionAssessment.js:93
+	// Reference: node_modules/yoastseo/src/assessments/seo/KeyphraseDistributionAssessment.js:91
 	__( '%1$sKeyphrase distribution%3$s: %2$sInclude your keyphrase or its synonyms in the text so that we can check keyphrase distribution%3$s.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/assessments/seo/KeyphraseDistributionAssessment.js:111
+	// Reference: node_modules/yoastseo/src/assessments/seo/KeyphraseDistributionAssessment.js:109
 	__( '%1$sKeyphrase distribution%3$s: Very uneven. Large parts of your text do not contain the keyphrase or its synonyms. %2$sDistribute them more evenly%3$s.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/assessments/seo/KeyphraseDistributionAssessment.js:131
+	// Reference: node_modules/yoastseo/src/assessments/seo/KeyphraseDistributionAssessment.js:129
 	__( '%1$sKeyphrase distribution%3$s: Uneven. Some parts of your text do not contain the keyphrase or its synonyms. %2$sDistribute them more evenly%3$s.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/assessments/seo/KeyphraseDistributionAssessment.js:147
+	// Reference: node_modules/yoastseo/src/assessments/seo/KeyphraseDistributionAssessment.js:145
 	__( '%1$sKeyphrase distribution%2$s: Good job!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/assessments/seo/KeyphraseLengthAssessment.js:84
-	__( '%1$sKeyphrase length%3$s: No focus keyphrase was set for this page. %2$sSet a focus keyphrase in order to calculate your SEO score%3$s.', 'wordpress-seo' ),
+	// Reference: node_modules/yoastseo/src/assessments/seo/KeyphraseLengthAssessment.js:86
+	__( '%1$sKeyphrase length%3$s: %2$sSet a keyphrase in order to calculate your SEO score%3$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/KeyphraseLengthAssessment.js:101
+	__( '%1$sKeyphrase length%3$s: No focus keyphrase was set for this page. %2$sSet a keyphrase in order to calculate your SEO score%3$s.', 'wordpress-seo' ),
+
+	// Reference: node_modules/yoastseo/src/assessments/seo/KeyphraseLengthAssessment.js:118
 	__( '%1$sKeyphrase length%2$s: Good job!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/assessments/seo/KeyphraseLengthAssessment.js:120
+	// Reference: node_modules/yoastseo/src/assessments/seo/KeyphraseLengthAssessment.js:137
 	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d words long. That\'s more than the recommended maximum of %2$d words. %4$sMake it shorter%5$s!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/assessments/seo/KeyphraseLengthAssessment.js:142
+	// Reference: node_modules/yoastseo/src/assessments/seo/KeyphraseLengthAssessment.js:159
 	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d words long. That\'s way more than the recommended maximum of %2$d words. %4$sMake it shorter%5$s!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/assessments/seo/KeywordDensityAssessment.js:157
-	__( '%3$sKeyphrase density%5$s: %1$s. This is too low; the focus keyword was found %2$d times. %4$sFocus on your keyphrase%5$s!', 'wordpress-seo' ),
+	// Reference: node_modules/yoastseo/src/assessments/seo/KeywordDensityAssessment.js:213
+	__( '%3$sKeyphrase density%5$s: %1$s. This is too low; the keyphrase was found %2$d times. %4$sFocus on your keyphrase%5$s!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/assessments/seo/KeywordDensityAssessment.js:180
-	_n_noop( '%3$sKeyphrase density%5$s: %1$s. This is too low; the focus keyword was found %2$d time. %4$sFocus on your keyphrase%5$s!', '%3$sKeyphrase density%5$s: %1$s. This is too low; the focus keyword was found %2$d times. %4$sFocus on your keyphrase%5$s!', 'wordpress-seo' ),
+	// Reference: node_modules/yoastseo/src/assessments/seo/KeywordDensityAssessment.js:236
+	_n_noop( '%3$sKeyphrase density%5$s: %1$s. This is too low; the keyphrase was found %2$d time. %4$sFocus on your keyphrase%5$s!', '%3$sKeyphrase density%5$s: %1$s. This is too low; the keyphrase was found %2$d times. %4$sFocus on your keyphrase%5$s!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/assessments/seo/KeywordDensityAssessment.js:227
-	_n_noop( '%4$sKeyphrase density%6$s: %1$s. This is over the advised %3$s maximum; the focus keyword was found %2$d time. %5$sDon\'t overoptimize%6$s!', '%4$sKeyphrase density%6$s: %1$s. This is over the advised %3$s maximum; the focus keyword was found %2$d times. %5$sDon\'t overoptimize%6$s!', 'wordpress-seo' ),
+	// Reference: node_modules/yoastseo/src/assessments/seo/KeywordDensityAssessment.js:283
+	_n_noop( '%4$sKeyphrase density%6$s: %1$s. This is over the advised %3$s maximum; the keyphrase was found %2$d time. %5$sDon\'t overoptimize%6$s!', '%4$sKeyphrase density%6$s: %1$s. This is over the advised %3$s maximum; the keyphrase was found %2$d times. %5$sDon\'t overoptimize%6$s!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/assessments/seo/KeywordDensityAssessment.js:257
-	_n_noop( '%4$sKeyphrase density%6$s: %1$s. This is way over the advised %3$s maximum; the focus keyword was found %2$d time. %5$sDon\'t overoptimize%6$s!', '%4$sKeyphrase density%6$s: %1$s. This is way over the advised %3$s maximum; the focus keyword was found %2$d times. %5$sDon\'t overoptimize%6$s!', 'wordpress-seo' ),
+	// Reference: node_modules/yoastseo/src/assessments/seo/KeywordDensityAssessment.js:313
+	_n_noop( '%4$sKeyphrase density%6$s: %1$s. This is way over the advised %3$s maximum; the keyphrase was found %2$d time. %5$sDon\'t overoptimize%6$s!', '%4$sKeyphrase density%6$s: %1$s. This is way over the advised %3$s maximum; the keyphrase was found %2$d times. %5$sDon\'t overoptimize%6$s!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/MetaDescriptionKeywordAssessment.js:81
-	__( '%1$sKeyphrase in meta description%2$s: Focus keyphrase or synonym appear in the meta description. Well done!', 'wordpress-seo' ),
+	__( '%1$sKeyphrase in meta description%2$s: Keyphrase or synonym appear in the meta description. Well done!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/MetaDescriptionKeywordAssessment.js:102
-	__( '%1$sKeyphrase in meta description%2$s: The meta description contains the focus keyphrase %3$s times, which is over the advised maximum of 2 times. %4$sLimit that%5$s!', 'wordpress-seo' ),
+	__( '%1$sKeyphrase in meta description%2$s: The meta description contains the keyphrase %3$s times, which is over the advised maximum of 2 times. %4$sLimit that%5$s!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/MetaDescriptionKeywordAssessment.js:150
-	__( '%1$sKeyphrase in meta description%2$s: The meta description has been specified, but it does not contain the focus keyphrase. %3$sFix that%4$s!', 'wordpress-seo' ),
+	__( '%1$sKeyphrase in meta description%2$s: The meta description has been specified, but it does not contain the keyphrase. %3$sFix that%4$s!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/metaDescriptionLengthAssessment.js:112
 	/* Translators:  %1$s and %2$s expand to a links on yoast.com, %3$s expands to the anchor end tag */ */
@@ -214,9 +217,6 @@ $generated_i18n_strings = array(
 	/* Translators: %1$s and %2$s expand to links on yoast.com, %3$s expands to the anchor end tag */ */
 	__( '%1$sSEO title width%3$s: %2$sPlease create an SEO title%3$s.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/assessments/seo/subheadingsKeywordAssessment.js:178
-	__( '%1$sKeyphrase in subheading%2$s: More than %3$s of your subheadings reflect the topic of your copy. That\'s too much. %4$sDon\'t over-optimize%5$s!', 'wordpress-seo' ),
-
 	// Reference: node_modules/yoastseo/src/assessments/seo/taxonomyTextLengthAssessment.js:23
 	// Reference: node_modules/yoastseo/src/assessments/seo/textLengthAssessment.js:109
 	/* Translators: %1$d expands to the number of words in the text,
@@ -262,7 +262,7 @@ $generated_i18n_strings = array(
 	_n_noop( 'This is far below the recommended minimum of %5$d word. %3$sAdd more content%4$s.', 'This is far below the recommended minimum of %5$d words. %3$sAdd more content%4$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/TextCompetingLinksAssessment.js:96
-	__( '%1$sLink focus keyphrase%3$s: You\'re linking to another page with the words you want this page to rank for. %2$sDon\'t do that%3$s!', 'wordpress-seo' ),
+	__( '%1$sLink keyphrase%3$s: You\'re linking to another page with the words you want this page to rank for. %2$sDon\'t do that%3$s!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/textImagesAssessment.js:84
 	/* Translators: %1$s and %2$s expand to links on yoast.com, %3$s expands to the anchor end tag */ */
@@ -279,10 +279,10 @@ $generated_i18n_strings = array(
 	__( '%1$sImage alt attributes%3$s: Images on this page do not have alt attributes with words from your keyphrase. %2$sFix that%3$s!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/TitleKeywordAssessment.js:100
-	__( '%1$sKeyphrase in title%2$s: The exact match of the focus keyphrase appears at the beginning of the SEO title. Good job!', 'wordpress-seo' ),
+	__( '%1$sKeyphrase in title%2$s: The exact match of the keyphrase appears at the beginning of the SEO title. Good job!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/TitleKeywordAssessment.js:115
-	__( '%1$sKeyphrase in title%3$s: The exact match of the focus keyphrase appears in the SEO title, but not at the beginning. %2$sTry to move it to the beginning%3$s.', 'wordpress-seo' ),
+	__( '%1$sKeyphrase in title%3$s: The exact match of the keyphrase appears in the SEO title, but not at the beginning. %2$sTry to move it to the beginning%3$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/TitleKeywordAssessment.js:133
 	__( '%1$sKeyphrase in title%3$s: Does not contain the exact match. %2$sTry to write the exact match of your keyphrase in the SEO title%3$s.', 'wordpress-seo' ),
@@ -312,18 +312,18 @@ $generated_i18n_strings = array(
 	__( 'An error occurred in the \'%1$s\' assessment', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/bundledPlugins/previouslyUsedKeywords.js:75
-	__( '%1$sPreviously used keyphrase%2$s: You\'ve not used this focus keyphrase before, very good.', 'wordpress-seo' ),
+	__( '%1$sPreviously used keyphrase%2$s: You\'ve not used this keyphrase before, very good.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/bundledPlugins/previouslyUsedKeywords.js:87
-	/* Translators: %1$s and %2$s expand to an admin link where the focus keyword is already used. %3$s and %4$s
+	/* Translators: %1$s and %2$s expand to an admin link where the keyword is already used. %3$s and %4$s
 	   expand to links on yoast.com, %4$s expands to the anchor end tag. */ */
-	__( '%3$sPreviously used keyphrase%5$s: You\'ve used this focus keyphrase %1$sonce before%2$s. %4$sDo not use your focus keyphrase more than once%5$s.', 'wordpress-seo' ),
+	__( '%3$sPreviously used keyphrase%5$s: You\'ve used this keyphrase %1$sonce before%2$s. %4$sDo not use your keyphrase more than once%5$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/bundledPlugins/previouslyUsedKeywords.js:105
-	/* Translators: %1$s and $3$s expand to the admin search page for the focus keyword, %2$d expands to the number
-	   of times this focus keyword has been used before, %4$s and %5$s expand to links to yoast.com, %6$s expands to
+	/* Translators: %1$s and $3$s expand to the admin search page for the keyword, %2$d expands to the number
+	   of times this keyword has been used before, %4$s and %5$s expand to links to yoast.com, %6$s expands to
 	   the anchor end tag */ */
-	__( '%4$sPreviously used keyphrase%6$s: You\'ve used this focus keyphrase %1$s%2$d times before%3$s. %5$sDo not use your focus keyphrase more than once%6$s.', 'wordpress-seo' ),
+	__( '%4$sPreviously used keyphrase%6$s: You\'ve used this keyphrase %1$s%2$d times before%3$s. %5$sDo not use your keyphrase more than once%6$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/config/presenter.js:10
 	__( 'Feedback', 'wordpress-seo' ),
