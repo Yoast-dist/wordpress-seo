@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Google Search Console, Content analysis, Readability
 Requires at least: 4.8
 Tested up to: 4.9.8
-Stable tag: 9.0-RC3
+Stable tag: 9.0-RC4
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -141,7 +141,10 @@ Enhancements:
 * Introduces a Features tab in the network admin, which allows disabling all site-specific features for the entire network.
 * Improves the tab order within the structured data blocks in Gutenberg and make it consistent between the FAQ and How-To block.
 * Improves sitemap performance by disabling the caching by default.
-* Add `target="_blank"` to the "How to connect to GSC" link to open a new tab when clicked.
+* Adds `target="_blank"` to the "How to connect to GSC" link to open a new tab when clicked.
+* Adds an assessment that that checks whether your keyword consists only of function words.
+* Changes OpenGraph image handling to always use an image from the media library. This makes the performance of the OpenGraph image handling much better.
+* Improves performance by no longer using images from the content as a fallback for the OpenGraph and Twitter images.
 
 Other:
 
