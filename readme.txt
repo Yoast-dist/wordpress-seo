@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Google Search Console, Content analysis, Readability
 Requires at least: 4.8
 Tested up to: 4.9.8
-Stable tag: 9.0-RC4
+Stable tag: 9.0-RC5
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -128,7 +128,7 @@ Enhancements:
   * Keyphrase in introduction: checks whether words from the keyphrase are matched within one sentence in the introduction or, if not, whether they are present in the first paragraph at all. An exact match isn’t required anymore.
   * Keyphrase in title: still checks whether an exact match of the keyphrase is found in (the beginning of) the title, but now also recommends improvement if all words from the keyphrase are found in the title.
   * Keyphrase length: has new boundaries to check whether the keyphrase is not too long. For languages that have support for function word stripping (see above), only content words are taken into account.
-  * Keyphrase in meta description: checks whether all words from the keyphrase are matched within one sentence or, if not, whether they are present in the meta description at all.
+  * Keyphrase in meta description: checks how often all words from the keyphrase are matched within the meta description.
   * Keyphrase in subheading: now checks whether at least one subheading contains more than half of the words from the keyphrase. An exact match isn’t required anymore.
   * Keyphrase in slug: checks whether a sufficient number of words from the keyphrase is used in the slug. The number of words required depends on the length of the keyphrase.
   * Keyphrase density: checks whether there are enough keyphrase matches; a match is defined as a sentence that contains all words from the keyphrase.
@@ -142,7 +142,7 @@ Enhancements:
 * Improves the tab order within the structured data blocks in Gutenberg and make it consistent between the FAQ and How-To block.
 * Improves sitemap performance by disabling the caching by default.
 * Adds `target="_blank"` to the "How to connect to GSC" link to open a new tab when clicked.
-* Adds an assessment that that checks whether your keyword consists only of function words.
+* Adds an assessment that checks whether your keyword consists only of function words.
 * Changes OpenGraph image handling to always use an image from the media library. This makes the performance of the OpenGraph image handling much better.
 * Improves performance by no longer using images from the content as a fallback for the OpenGraph and Twitter images.
 

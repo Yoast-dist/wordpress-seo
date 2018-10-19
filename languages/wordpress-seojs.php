@@ -1,10 +1,10 @@
 <?php
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
-	// Reference: js/src/components/AnalysisUpsell.js:59
+	// Reference: js/src/components/AnalysisUpsell.js:54
 	__( 'Did you know %s also analyzes the different word forms of your keyphrase, like plurals and past tenses?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AnalysisUpsell.js:67
+	// Reference: js/src/components/AnalysisUpsell.js:62
 	__( 'Go %s!', 'wordpress-seo' ),
 
 	// Reference: js/src/components/CollapsibleCornerstone.js:22
