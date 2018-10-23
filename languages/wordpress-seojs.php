@@ -37,48 +37,45 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/SnippetPreviewModal.js:43
 	__( 'Close', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:46
+	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:47
 	__( 'Readability analysis', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:52
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:284
+	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:53
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:298
 	__( 'Analysis results', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:55
-	__( 'This analysis checks your writing for grammar and writing style so your content is as clear as it can be.', 'wordpress-seo' ),
+	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:60
+	__( 'Learn more about the readability analysis', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:58
-	__( 'Learn more about the readability analysis.', 'wordpress-seo' ),
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:105
+	__( 'Add synonyms', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:121
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:135
 	__( 'Would you like to add keyphrase synonyms?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:146
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:160
 	__( '(Opens in a new browser tab!)', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:155
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:169
 	// Reference: js/src/components/modals/KeywordSynonyms.js:63
 	// Reference: js/src/components/modals/MultipleKeywords.js:63
 	__( 'Get %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:174
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:188
 	__( 'Would you like to add a related keyphrase?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:205
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:219
 	__( 'Add related keyphrase', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:228
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:242
 	__( 'Help on choosing the perfect focus keyphrase', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:258
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:272
 	__( 'Enter a focus keyphrase to calculate the SEO score', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:274
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:288
 	// Reference: js/src/values/defaultReplaceVariables.js:50
 	__( 'Focus keyphrase', 'wordpress-seo' ),
-
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:91
-	__( 'Add synonyms', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/KeywordSynonyms.js:22
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
@@ -118,12 +115,6 @@ $generated_i18n_strings = array(
 	__( 'Great news: you can, with %1$s!', 'wordpress-seo' ),
 
 	// Reference: js/src/containers/SnippetEditor.js:107
-	__( 'This is a rendering of what this post might look like in Google\'s search results.', 'wordpress-seo' ),
-
-	// Reference: js/src/containers/SnippetEditor.js:109
-	__( 'Learn more about the Snippet Preview.', 'wordpress-seo' ),
-
-	// Reference: js/src/containers/SnippetEditor.js:118
 	__( 'Please provide a meta description by editing the snippet below.', 'wordpress-seo' ),
 
 	// Reference: js/src/structured-data-blocks/faq/block.js:13
