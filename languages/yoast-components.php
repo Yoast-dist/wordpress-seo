@@ -1,6 +1,18 @@
 <?php
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
+	// Reference: yoast-components/composites/KeywordSuggestions/KeywordSuggestions.js:96
+	__( 'Prominent words', 'wordpress-seo' ),
+
+	// Reference: yoast-components/composites/KeywordSuggestions/KeywordSuggestions.js:56
+	__( 'The following words and word combinations occur the most in the content. These give an indication of what your content focuses on. If the words differ a lot from your topic, you might want to rewrite your content accordingly. ', 'wordpress-seo' ),
+
+	// Reference: yoast-components/composites/KeywordSuggestions/KeywordSuggestions.js:47
+	__( 'Once you add a bit more copy, we\'ll give you a list of words and word combination that occur the most in the content. These give an indication of what your content focuses on.', 'wordpress-seo' ),
+
+	// Reference: yoast-components/composites/KeywordSuggestions/KeywordSuggestions.js:18
+	__( 'Read our %1$sultimate guide to keyword research%2$s to learn more about keyword research and keyword strategy.', 'wordpress-seo' ),
+
 	// Reference: yoast-components/composites/LinkSuggestions/composites/LinkSuggestion.js:18
 	__( 'Copy link to suggested article: %s', 'wordpress-seo' ),
 
@@ -94,16 +106,16 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/MailchimpSignup.js:107
 	__( 'MailChimp signup failed:', 'wordpress-seo' ),
 
-	// Reference: js/src/components/MediaUpload.js:138
+	// Reference: js/src/components/MediaUpload.js:133
 	__( 'Choose image', 'wordpress-seo' ),
 
-	// Reference: js/src/components/MediaUpload.js:119
+	// Reference: js/src/components/MediaUpload.js:114
 	__( 'image preview', 'wordpress-seo' ),
 
-	// Reference: js/src/components/MediaUpload.js:97
+	// Reference: js/src/components/MediaUpload.js:92
 	__( 'Remove the image', 'wordpress-seo' ),
 
-	// Reference: js/src/components/MediaUpload.js:18 js/src/components/MediaUpload.js:17
+	// Reference: js/src/components/MediaUpload.js:19 js/src/components/MediaUpload.js:18
 	__( 'Choose an image', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoast-components/composites/AlgoliaSearch/AlgoliaSearcher.js:229
@@ -187,10 +199,10 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/yoast-components/composites/Plugin/SnippetEditor/components/ReplacementVariableEditor.js:93
 	__( 'Insert snippet variable', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/composites/Plugin/SnippetEditor/components/ReplacementVariableEditorStandalone.js:308
+	// Reference: node_modules/yoast-components/composites/Plugin/SnippetEditor/components/ReplacementVariableEditorStandalone.js:307
 	_n_noop( '%d result found, use up and down arrow keys to navigate', '%d results found, use up and down arrow keys to navigate', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/composites/Plugin/SnippetEditor/components/ReplacementVariableEditorStandalone.js:319
+	// Reference: node_modules/yoast-components/composites/Plugin/SnippetEditor/components/ReplacementVariableEditorStandalone.js:318
 	__( 'No results', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoast-components/composites/Plugin/SnippetEditor/components/SettingsSnippetEditorFields.js:135

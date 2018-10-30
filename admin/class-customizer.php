@@ -16,37 +16,6 @@ class WPSEO_Customizer {
 	protected $wp_customize;
 
 	/**
-	 * Template for the setting IDs used for the customizer.
-	 *
-	 * @var string
-	 */
-	private $setting_template = 'wpseo_titles[%s]';
-
-	/**
-	 * Default arguments for the breadcrumbs customizer settings object.
-	 *
-	 * @var array
-	 */
-	private $default_setting_args = array(
-		'default'   => '',
-		'type'      => 'option',
-		'transport' => 'refresh',
-	);
-
-	/**
-	 * Default arguments for the breadcrumbs customizer control object.
-	 *
-	 * @var array
-	 */
-	private $default_control_args = array(
-		'label'    => '',
-		'type'     => 'text',
-		'section'  => 'wpseo_breadcrumbs_customizer_section',
-		'settings' => '',
-		'context'  => '',
-	);
-
-	/**
 	 * Construct Method.
 	 */
 	public function __construct() {
@@ -102,14 +71,26 @@ class WPSEO_Customizer {
 	 * Adds the breadcrumbs remove blog checkbox
 	 */
 	private function breadcrumbs_blog_remove_setting() {
-		$index        = 'breadcrumbs-display-blog-page';
-		$control_args = array(
-			'label'           => __( 'Remove blog page from breadcrumbs', 'wordpress-seo' ),
-			'type'            => 'checkbox',
-			'active_callback' => array( $this, 'breadcrumbs_blog_remove_active_cb' ),
+		$this->wp_customize->add_setting(
+			'wpseo_titles[breadcrumbs-display-blog-page]', array(
+				'default'   => '',
+				'type'      => 'option',
+				'transport' => 'refresh',
+			)
 		);
 
-		$this->add_setting_and_control( $index, $control_args );
+		$this->wp_customize->add_control(
+			new WP_Customize_Control(
+				$this->wp_customize, 'wpseo-breadcrumbs-display-blog-page', array(
+					'label'           => __( 'Remove blog page from breadcrumbs', 'wordpress-seo' ),
+					'type'            => 'checkbox',
+					'section'         => 'wpseo_breadcrumbs_customizer_section',
+					'settings'        => 'wpseo_titles[breadcrumbs-display-blog-page]',
+					'context'         => '',
+					'active_callback' => array( $this, 'breadcrumbs_blog_remove_active_cb' ),
+				)
+			)
+		);
 	}
 
 	/**
@@ -125,103 +106,149 @@ class WPSEO_Customizer {
 	 * Adds the breadcrumbs separator text field
 	 */
 	private function breadcrumbs_separator_setting() {
-		$index        = 'breadcrumbs-sep';
-		$control_args = array(
-			'label' => __( 'Breadcrumbs separator:', 'wordpress-seo' ),
+		$this->wp_customize->add_setting(
+			'wpseo_titles[breadcrumbs-sep]', array(
+				'default'   => '',
+				'type'      => 'option',
+				'transport' => 'refresh',
+			)
 		);
-		$id           = 'wpseo-breadcrumbs-separator';
 
-		$this->add_setting_and_control( $index, $control_args, $id );
+		$this->wp_customize->add_control(
+			new WP_Customize_Control(
+				$this->wp_customize, 'wpseo-breadcrumbs-separator', array(
+					'label'    => __( 'Breadcrumbs separator:', 'wordpress-seo' ),
+					'type'     => 'text',
+					'section'  => 'wpseo_breadcrumbs_customizer_section',
+					'settings' => 'wpseo_titles[breadcrumbs-sep]',
+					'context'  => '',
+				)
+			)
+		);
 	}
 
 	/**
 	 * Adds the breadcrumbs home anchor text field
 	 */
 	private function breadcrumbs_home_setting() {
-		$index        = 'breadcrumbs-home';
-		$control_args = array(
-			'label' => __( 'Anchor text for the homepage:', 'wordpress-seo' ),
+		$this->wp_customize->add_setting(
+			'wpseo_titles[breadcrumbs-home]', array(
+				'default'   => '',
+				'type'      => 'option',
+				'transport' => 'refresh',
+			)
 		);
 
-		$this->add_setting_and_control( $index, $control_args );
+		$this->wp_customize->add_control(
+			new WP_Customize_Control(
+				$this->wp_customize, 'wpseo-breadcrumbs-home', array(
+					'label'    => __( 'Anchor text for the homepage:', 'wordpress-seo' ),
+					'type'     => 'text',
+					'section'  => 'wpseo_breadcrumbs_customizer_section',
+					'settings' => 'wpseo_titles[breadcrumbs-home]',
+					'context'  => '',
+				)
+			)
+		);
 	}
 
 	/**
 	 * Adds the breadcrumbs prefix text field
 	 */
 	private function breadcrumbs_prefix_setting() {
-		$index        = 'breadcrumbs-prefix';
-		$control_args = array(
-			'label' => __( 'Prefix for breadcrumbs:', 'wordpress-seo' ),
+		$this->wp_customize->add_setting(
+			'wpseo_titles[breadcrumbs-prefix]', array(
+				'default'   => '',
+				'type'      => 'option',
+				'transport' => 'refresh',
+			)
 		);
 
-		$this->add_setting_and_control( $index, $control_args );
+		$this->wp_customize->add_control(
+			new WP_Customize_Control(
+				$this->wp_customize, 'wpseo-breadcrumbs-prefix', array(
+					'label'    => __( 'Prefix for breadcrumbs:', 'wordpress-seo' ),
+					'type'     => 'text',
+					'section'  => 'wpseo_breadcrumbs_customizer_section',
+					'settings' => 'wpseo_titles[breadcrumbs-prefix]',
+					'context'  => '',
+				)
+			)
+		);
 	}
 
 	/**
 	 * Adds the breadcrumbs archive prefix text field
 	 */
 	private function breadcrumbs_archiveprefix_setting() {
-		$index        = 'breadcrumbs-archiveprefix';
-		$control_args = array(
-			'label' => __( 'Prefix for archive pages:', 'wordpress-seo' ),
+		$this->wp_customize->add_setting(
+			'wpseo_titles[breadcrumbs-archiveprefix]', array(
+				'default'   => '',
+				'type'      => 'option',
+				'transport' => 'refresh',
+			)
 		);
 
-		$this->add_setting_and_control( $index, $control_args );
+		$this->wp_customize->add_control(
+			new WP_Customize_Control(
+				$this->wp_customize, 'wpseo-breadcrumbs-archiveprefix', array(
+					'label'    => __( 'Prefix for archive pages:', 'wordpress-seo' ),
+					'type'     => 'text',
+					'section'  => 'wpseo_breadcrumbs_customizer_section',
+					'settings' => 'wpseo_titles[breadcrumbs-archiveprefix]',
+					'context'  => '',
+				)
+			)
+		);
 	}
 
 	/**
 	 * Adds the breadcrumbs search prefix text field
 	 */
 	private function breadcrumbs_searchprefix_setting() {
-		$index        = 'breadcrumbs-searchprefix';
-		$control_args = array(
-			'label' => __( 'Prefix for search result pages:', 'wordpress-seo' ),
+		$this->wp_customize->add_setting(
+			'wpseo_titles[breadcrumbs-searchprefix]', array(
+				'default'   => '',
+				'type'      => 'option',
+				'transport' => 'refresh',
+			)
 		);
 
-		$this->add_setting_and_control( $index, $control_args );
+		$this->wp_customize->add_control(
+			new WP_Customize_Control(
+				$this->wp_customize, 'wpseo-breadcrumbs-searchprefix', array(
+					'label'    => __( 'Prefix for search result pages:', 'wordpress-seo' ),
+					'type'     => 'text',
+					'section'  => 'wpseo_breadcrumbs_customizer_section',
+					'settings' => 'wpseo_titles[breadcrumbs-searchprefix]',
+					'context'  => '',
+				)
+			)
+		);
 	}
 
 	/**
 	 * Adds the breadcrumb 404 prefix text field
 	 */
 	private function breadcrumbs_404_setting() {
-		$index        = 'breadcrumbs-404crumb';
-		$control_args = array(
-			'label' => __( 'Breadcrumb for 404 pages:', 'wordpress-seo' ),
+		$this->wp_customize->add_setting(
+			'wpseo_titles[breadcrumbs-404crumb]', array(
+				'default'   => '',
+				'type'      => 'option',
+				'transport' => 'refresh',
+			)
 		);
 
-		$this->add_setting_and_control( $index, $control_args );
-	}
-
-	/**
-	 * Adds the customizer setting and control.
-	 *
-	 * @param string $index           Array key index to use for the customizer setting.
-	 * @param array  $control_args    Customizer control object arguments.
-	 *                                Only those different from the default need to be passed.
-	 * @param string $id              Optional. Customizer control object ID.
-	 *                                Will default to 'wpseo-' . $index.
-	 * @param array  $custom_settings Optional. Customizer setting arguments.
-	 *                                Only those different from the default need to be passed.
-	 */
-	private function add_setting_and_control( $index, $control_args, $id = null, $custom_settings = array() ) {
-		$setting                  = sprintf( $this->setting_template, $index );
-		$control_args             = array_merge( $this->default_control_args, $control_args );
-		$control_args['settings'] = $setting;
-
-		$settings_args = $this->default_setting_args;
-		if ( ! empty( $custom_settings ) ) {
-			$settings_args = array_merge( $settings_args, $custom_settings );
-		}
-
-		if ( ! isset( $id ) ) {
-			$id = 'wpseo-' . $index;
-		}
-
-		$this->wp_customize->add_setting( $setting, $settings_args );
-
-		$control = new WP_Customize_Control( $this->wp_customize, $id, $control_args );
-		$this->wp_customize->add_control( $control );
+		$this->wp_customize->add_control(
+			new WP_Customize_Control(
+				$this->wp_customize, 'wpseo-breadcrumbs-404crumb', array(
+					'label'    => __( 'Breadcrumb for 404 pages:', 'wordpress-seo' ),
+					'type'     => 'text',
+					'section'  => 'wpseo_breadcrumbs_customizer_section',
+					'settings' => 'wpseo_titles[breadcrumbs-404crumb]',
+					'context'  => '',
+				)
+			)
+		);
 	}
 }
