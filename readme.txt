@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Google Search Console, Content analysis, Readability
 Requires at least: 4.8
 Tested up to: 4.9.8
-Stable tag: 9.1-RC3
+Stable tag: 9.1-RC4
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -116,6 +116,7 @@ Release Date: November 6th, 2018
 * Adds an additional string in the sidebar to the translatable strings. Props to [pedro-mendonca](https://github.com/pedro-mendonca)
 * Adds the filter `wpseo_opengraph_is_valid_image_url` that allows custom image url validation. Props to [petenelson](https://github.com/petenelson)
 * Removes non-functioning eye-markers from the link keyphrase assessment.
+* Updates the font size of the snippet title measure element to correctly mimic Google desktop snippet title. Props to [ol0lll](https://github.com/ol0lll)
 
 ## Bugs:
 * Fixes a bug where a dependency wasn't loaded for the SEO -> Tools page.
