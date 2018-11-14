@@ -180,11 +180,11 @@ class WPSEO_Admin_Asset_Manager {
 
 		wp_register_script( 'lodash-base', plugins_url( 'js/vendor/lodash.min.js', WPSEO_FILE ), array(), false, true );
 		wp_register_script( 'lodash', plugins_url( 'js/vendor/lodash-noconflict.js', WPSEO_FILE ), array( 'lodash-base' ), false, true );
-		wp_register_script( 'wp-polyfill', plugins_url( 'js/dist/babel-polyfill-' . $flat_version . '.js', WPSEO_FILE ), array(), false, true );
+		wp_register_script( 'wp-polyfill', plugins_url( 'js/dist/babel-polyfill-' . $flat_version . '.min.js', WPSEO_FILE ), array(), false, true );
 
 		wp_register_script(
 			'wp-element',
-			plugins_url( 'js/dist/wp-element-' . $flat_version . '.js', WPSEO_FILE ),
+			plugins_url( 'js/dist/wp-element-' . $flat_version . '.min.js', WPSEO_FILE ),
 			array( 'lodash', 'wp-polyfill' ),
 			false,
 			true
@@ -192,7 +192,7 @@ class WPSEO_Admin_Asset_Manager {
 
 		wp_register_script(
 			'wp-api-fetch',
-			plugins_url( 'js/dist/wp-apiFetch-' . $flat_version . '.js', WPSEO_FILE ),
+			plugins_url( 'js/dist/wp-apiFetch-' . $flat_version . '.min.js', WPSEO_FILE ),
 			array( 'wp-i18n', 'wp-polyfill' ),
 			false,
 			true
@@ -200,15 +200,15 @@ class WPSEO_Admin_Asset_Manager {
 
 		wp_register_script(
 			'wp-components',
-			plugins_url( 'js/dist/wp-components-' . $flat_version . '.js', WPSEO_FILE ),
-			array( 'lodash', 'wp-api-fetch', 'wp-i18n', 'wp-polyfill' ),
+			plugins_url( 'js/dist/wp-components-' . $flat_version . '.min.js', WPSEO_FILE ),
+			array( 'lodash', 'wp-api-fetch', 'wp-i18n', 'wp-polyfill', 'wp-compose' ),
 			false,
 			true
 		);
 
 		wp_register_script(
 			'wp-data',
-			plugins_url( 'js/dist/wp-data-' . $flat_version . '.js', WPSEO_FILE ),
+			plugins_url( 'js/dist/wp-data-' . $flat_version . '.min.js', WPSEO_FILE ),
 			array( 'lodash', 'wp-element', 'wp-polyfill' ),
 			false,
 			true
@@ -216,10 +216,28 @@ class WPSEO_Admin_Asset_Manager {
 
 		wp_register_script(
 			'wp-i18n',
-			plugins_url( 'js/dist/wp-i18n-' . $flat_version . '.js', WPSEO_FILE ),
+			plugins_url( 'js/dist/wp-i18n-' . $flat_version . '.min.js', WPSEO_FILE ),
 			array( 'wp-polyfill' ),
 			false,
 			true
+		);
+
+		wp_register_script(
+			'wp-compose',
+			plugins_url( 'js/dist/wp-compose-' . $flat_version . '.min.js', WPSEO_FILE ),
+			array( 'wp-polyfill' ),
+			false,
+			true
+		);
+
+		/*
+		 * wp-annotations only exists from Gutenberg 4.3 and onwards, so we register a no-op in earlier versions.
+		 * The no-op achieves that our scripts that depend on this are actually loaded. Because WordPress doesn't
+		 * load a script if any of the dependencies are missing.
+		 */
+		wp_register_script(
+			'wp-annotations',
+			null
 		);
 	}
 
@@ -370,6 +388,8 @@ class WPSEO_Admin_Asset_Manager {
 					'wp-i18n',
 					'wp-data',
 					'wp-api-fetch',
+					'wp-annotations',
+					'wp-compose',
 					self::PREFIX . 'replacevar-plugin',
 					self::PREFIX . 'shortcode-plugin',
 					self::PREFIX . 'analysis',
@@ -386,6 +406,7 @@ class WPSEO_Admin_Asset_Manager {
 					'wp-i18n',
 					'wp-data',
 					'wp-api-fetch',
+					'wp-compose',
 					self::PREFIX . 'replacevar-plugin',
 					self::PREFIX . 'analysis',
 					self::PREFIX . 'components',
@@ -646,20 +667,5 @@ class WPSEO_Admin_Asset_Manager {
 				'deps' => array( 'wp-edit-blocks' ),
 			),
 		);
-	}
-
-	/**
-	 * Checks if the Gutenberg assets must be loaded.
-	 *
-	 * @return bool True when the Gutenberg assets must be loaded.
-	 */
-	protected function should_load_gutenberg_assets() {
-
-		// When working in the classic editor shipped with Gutenberg, the assets shouldn't be loaded. Fixes IE11 bug.
-		if ( isset( $_GET['classic-editor'] ) ) {
-			return false;
-		}
-
-		return wp_script_is( 'wp-element', 'registered' );
 	}
 }
