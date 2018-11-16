@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Google Search Console, Content analysis, Readability
 Requires at least: 4.8
 Tested up to: 5.0
-Stable tag: 9.2-RC2
+Stable tag: 9.2-RC3
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -127,6 +127,8 @@ Bugfixes:
 * Fixes a bug where the Yoast metabox is visible even when the attachment urls are redirected to the attachment file itself.
 * Fixes a bug where assessments would fail if a "<" character is present in the content.
 * Fixes a bug where paragraphs were sometimes not correctly detected because paragraph tags were not automatically added in WordPress-like fashion.
+* Fixes a bug where multiple marker buttons could be active at the same time.
+* Fixes a bug where escaped HTML is shown in the OpenGraph description.
 
 Compatibility:
 
