@@ -37,45 +37,57 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/SnippetPreviewModal.js:44
 	__( 'Close', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:50
+	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:44
 	__( 'Readability analysis', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:57
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:303
+	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:48
+	__( 'Readability analysis (beta)', 'wordpress-seo' ),
+
+	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:67
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:291
 	__( 'Analysis results', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:64
+	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:74
 	__( 'Learn more about the readability analysis', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:104
-	__( 'Add synonyms', 'wordpress-seo' ),
+	// Reference: js/src/components/contentAnalysis/RecalibrationBetaNotification.js:41
+	__( 'Learn more about the Recalibration beta', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:134
+	// Reference: js/src/components/contentAnalysis/RecalibrationBetaNotification.js:44
+	__( 'Recalibration beta is active', 'wordpress-seo' ),
+
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:113
 	__( 'Would you like to add keyphrase synonyms?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:159
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:138
 	__( '(Opens in a new browser tab!)', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:168
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:147
 	// Reference: js/src/components/modals/KeywordSynonyms.js:63
 	// Reference: js/src/components/modals/MultipleKeywords.js:63
 	__( 'Get %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:187
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:166
 	__( 'Would you like to add a related keyphrase?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:218
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:197
 	__( 'Add related keyphrase', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:242
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:221
 	__( 'Help on choosing the perfect focus keyphrase', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:274
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:256
+	__( 'Focus keyphrase (beta)', 'wordpress-seo' ),
+
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:261
 	__( 'Enter a focus keyphrase to calculate the SEO score', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:293
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:281
 	// Reference: js/src/values/defaultReplaceVariables.js:50
 	__( 'Focus keyphrase', 'wordpress-seo' ),
+
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:83
+	__( 'Add synonyms', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/KeywordSynonyms.js:22
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
