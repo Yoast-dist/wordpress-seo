@@ -657,10 +657,6 @@ class WPSEO_Admin_Init {
 				'version'     => '7.0',
 				'alternative' => null,
 			),
-			'wpseo_genesis_force_adjacent_rel_home' => array(
-				'version'     => '9.4',
-				'alternative' => null,
-			),
 		);
 
 		// Determine which filters have been registered.
