@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Google Search Console, Content analysis, Readability
 Requires at least: 4.8
 Tested up to: 5.0
-Stable tag: 9.3-RC2
+Stable tag: 9.3-RC3
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -128,6 +128,9 @@ Bugfixes:
 * Fixes a bug that caused numbers to be stripped when marking a keyphrase containing a number, e.g. 'Yoast SEO 9.3'.
 * Fixes a bug where the first tab of the metabox would be empty when using WordPress 4.8.x.
 * Fixes a bug where private post types would have a sitemap with their 'private' entries.
+
+Other:
+* Implemented performance optimizations in FAQ and How To blocks.
 
 = 9.2.1 =
 Release Date: November 21th, 2018
