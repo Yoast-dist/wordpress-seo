@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Google Search Console, Content analysis, Readability
 Requires at least: 4.9
 Tested up to: 5.0.1
-Stable tag: 9.4-RC1
+Stable tag: 9.5-beta1
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -105,6 +105,27 @@ You'll find answers to many of your questions on [kb.yoast.com](https://yoa.st/1
 6. Easily import SEO data from other SEO plugins like All In One SEO pack, HeadSpace2 SEO and wpSEO.de.
 
 == Changelog ==
+= 9.5.0 =
+Release Date: January 22nd, 2019
+
+Enhancements:
+
+* Improves the transition word assessment for German.
+* Improves the error logging when there is an error in an SEO or readability assessment.
+
+Bugfixes:
+
+* Fixes a bug where the Ryte endpoint would be called when the Ryte feature has been disabled.
+* Fixes a bug where the 'Show archives for authors without posts in search results?' toggle would be shown when the 'Show author archives in search results?' toggle was disabled in the search appearance settings.
+* Fixes a bug where the front page would be shown in the page sitemap. Props to [stodorovic](https://github.com/stodorovic).
+
+Deprecated:
+
+* Deprecates the methods WPSEO_Utils::get_user_locale() and WPSEO_Utils:: get_language().
+
+Other:
+
+* Adds a Courses Page showing an overview of the available online courses offered by Yoast Academy.
 
 = 9.4.0 =
 Release Date: January 8th, 2019
