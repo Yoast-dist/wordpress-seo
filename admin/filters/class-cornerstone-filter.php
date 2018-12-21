@@ -115,8 +115,7 @@ class WPSEO_Cornerstone_Filter extends WPSEO_Abstract_Post_Filter {
 		global $wpdb;
 
 		return (int) $wpdb->get_var(
-			$wpdb->prepare(
-				'
+			$wpdb->prepare( '
 				SELECT COUNT( 1 )
 				FROM ' . $wpdb->postmeta . '
 				WHERE post_id IN( SELECT ID FROM ' . $wpdb->posts . ' WHERE post_type = %s ) &&

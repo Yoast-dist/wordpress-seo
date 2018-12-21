@@ -38,20 +38,6 @@ class WPSEO_Twitter {
 	private $type;
 
 	/**
-	 * Card types currently allowed by Twitter.
-	 *
-	 * @link https://dev.twitter.com/cards/types
-	 *
-	 * @var array
-	 */
-	private $valid_types = array(
-		'summary',
-		'summary_large_image',
-		'app',
-		'player',
-	);
-
-	/**
 	 * Class constructor
 	 */
 	public function __construct() {
@@ -140,7 +126,13 @@ class WPSEO_Twitter {
 	 * @link https://dev.twitter.com/cards/types
 	 */
 	private function sanitize_card_type() {
-		if ( ! in_array( $this->type, $this->valid_types, true ) ) {
+		if ( ! in_array( $this->type, array(
+			'summary',
+			'summary_large_image',
+			'app',
+			'player',
+		), true )
+		) {
 			$this->type = 'summary';
 		}
 	}

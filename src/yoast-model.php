@@ -227,20 +227,11 @@ class Yoast_Model {
 	 * @return string The table name.
 	 */
 	protected static function _class_name_to_table_name( $class_name ) {
-		$find         = array(
-			'/\\\\/',
-			'/(?<=[a-z])([A-Z])/',
-			'/__/',
-		);
-		$replacements = array(
+		return \strtolower( \preg_replace( array( '/\\\\/', '/(?<=[a-z])([A-Z])/', '/__/' ), array(
 			'_',
 			'_$1',
 			'_',
-		);
-
-		$class_name = \ltrim( $class_name, '\\' );
-		$class_name = \preg_replace( $find, $replacements, $class_name );
-		return \strtolower( $class_name );
+		), \ltrim( $class_name, '\\' ) ) );
 	}
 
 	/**

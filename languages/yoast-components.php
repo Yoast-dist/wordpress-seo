@@ -234,7 +234,7 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/yoast-components/composites/basic/Notification.js:100
 	__( 'Dismiss this notice', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/utils/makeOutboundLink.js:42
+	// Reference: node_modules/yoast-components/utils/makeOutboundLink.js:34
 	__( '(Opens in a new browser tab)', 'wordpress-seo' )
 );
 /* THIS IS THE END OF THE GENERATED FILE */
