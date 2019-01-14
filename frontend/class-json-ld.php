@@ -14,16 +14,11 @@
  */
 class WPSEO_JSON_LD implements WPSEO_WordPress_Integration {
 	/**
-	 * Holds the social profiles for the entity.
-	 *
-	 * @var array
+	 * @var array Holds the social profiles for the entity
 	 */
 	private $profiles = array();
-
 	/**
-	 * Holds the data to put out.
-	 *
-	 * @var array
+	 * @var array Holds the data to put out
 	 */
 	private $data = array();
 
@@ -43,9 +38,7 @@ class WPSEO_JSON_LD implements WPSEO_WordPress_Integration {
 	 * @since 1.8
 	 */
 	public function json_ld() {
-		if ( ! is_404() ) {
-			do_action( 'wpseo_json_ld' );
-		}
+		do_action( 'wpseo_json_ld' );
 	}
 
 	/**

@@ -13,11 +13,7 @@
  */
 class WPSEO_Capability_Manager_Integration implements WPSEO_WordPress_Integration {
 
-	/**
-	 * Capability manager to use.
-	 *
-	 * @var WPSEO_Capability_Manager
-	 */
+	/** @var WPSEO_Capability_Manager Capability manager to use. */
 	public $manager;
 
 	/**

@@ -5,9 +5,9 @@
  * @package Yoast\YoastSEO\Formatters
  */
 
-namespace Yoast\WP\Free\Formatters;
+namespace Yoast\YoastSEO\Formatters;
 
-use Yoast\WP\Free\Models\Indexable;
+use Yoast\YoastSEO\Models\Indexable;
 
 /**
  * Formats the term meta to indexable format.

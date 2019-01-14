@@ -10,39 +10,19 @@
  */
 class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 
-	/**
-	 * Holds the home_url() value.
-	 *
-	 * @var string
-	 */
+	/** @var string $home_url Holds the home_url() value. */
 	protected static $home_url;
 
-	/**
-	 * Holds image parser instance.
-	 *
-	 * @var WPSEO_Sitemap_Image_Parser
-	 */
+	/** @var WPSEO_Sitemap_Image_Parser $image_parser Holds image parser instance. */
 	protected static $image_parser;
 
-	/**
-	 * Holds instance of classifier for a link.
-	 *
-	 * @var object
-	 */
+	/** @var object $classifier Holds instance of classifier for a link. */
 	protected static $classifier;
 
-	/**
-	 * Static front page ID.
-	 *
-	 * @var int
-	 */
+	/** @var int $page_on_front_id Static front page ID. */
 	protected static $page_on_front_id;
 
-	/**
-	 * Posts page ID.
-	 *
-	 * @var int
-	 */
+	/** @var int $page_for_posts_id Posts page ID. */
 	protected static $page_for_posts_id;
 
 	/**

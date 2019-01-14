@@ -5,43 +5,26 @@
  * @package Yoast\YoastSEO\Config
  */
 
-namespace Yoast\WP\Free\Config;
+namespace Yoast\YoastSEO\Config;
 
-use Yoast\WP\Free\Loggers\Logger;
-use Yoast\WP\Free\Loggers\Migration_Logger;
-use Yoast\WP\Free\Yoast_Model;
+use Yoast\YoastSEO\Loggers\Logger;
+use Yoast\YoastSEO\Loggers\Migration_Logger;
+use Yoast\YoastSEO\Yoast_Model;
 use YoastSEO_Vendor\Ruckusing_FrameworkRunner;
 
 /**
  * Triggers database migrations and handles results.
  */
 class Database_Migration {
-
-	/**
-	 * @var int
-	 */
 	const MIGRATION_STATE_SUCCESS = 0;
-
-	/**
-	 * @var int
-	 */
 	const MIGRATION_STATE_ERROR = 1;
 
-	/**
-	 * @var string
-	 */
 	const MIGRATION_ERROR_TRANSIENT_KEY = 'yoast_migration_problem';
 
-	/**
-	 * WPDB instance.
-	 *
-	 * @var \wpdb
-	 */
+	/** @var \wpdb WPDB instance */
 	protected $wpdb;
 
-	/**
-	 * @var \Dependency_Management
-	 */
+	/** @var Dependency_Management */
 	protected $dependency_management;
 
 	/**

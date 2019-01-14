@@ -10,26 +10,12 @@
  */
 class WPSEO_Endpoint_Ryte implements WPSEO_Endpoint {
 
-	/**
-	 * @var string
-	 */
 	const REST_NAMESPACE = 'yoast/v1';
-
-	/**
-	 * @var string
-	 */
 	const ENDPOINT_RETRIEVE = 'ryte';
 
-	/**
-	 * @var string
-	 */
 	const CAPABILITY_RETRIEVE = 'manage_options';
 
-	/**
-	 * Service to use.
-	 *
-	 * @var WPSEO_Ryte_Service
-	 */
+	/** @var WPSEO_Ryte_Service Service to use */
 	protected $service;
 
 	/**

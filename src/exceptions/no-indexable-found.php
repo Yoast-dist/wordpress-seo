@@ -5,9 +5,9 @@
  * @package Yoast\YoastSEO\Exceptions
  */
 
-namespace Yoast\WP\Free\Exceptions;
+namespace Yoast\YoastSEO\Exceptions;
 
-use Yoast\WP\Free\Loggers\Logger;
+use Yoast\YoastSEO\Loggers\Logger;
 
 /**
  * The exception when no indexable could be found.

@@ -10,11 +10,7 @@
  */
 class WPSEO_Extensions {
 
-	/**
-	 * Array with the Yoast extensions.
-	 *
-	 * @var array
-	 */
+	/** @var array Array with the Yoast extensions */
 	protected $extensions = array(
 		'Yoast SEO Premium' => array(
 			'slug'       => 'yoast-seo-premium',

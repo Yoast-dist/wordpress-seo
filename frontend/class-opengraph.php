@@ -10,9 +10,7 @@
  */
 class WPSEO_OpenGraph {
 
-	/**
-	 * @var WPSEO_Frontend_Page_Type
-	 */
+	/** @var WPSEO_Frontend_Page_Type */
 	protected $frontend_page_type;
 
 	/**

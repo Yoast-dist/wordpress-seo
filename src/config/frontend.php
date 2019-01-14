@@ -5,9 +5,9 @@
  * @package Yoast\YoastSEO\Config
  */
 
-namespace Yoast\WP\Free\Config;
+namespace Yoast\YoastSEO\Config;
 
-use Yoast\WP\Free\WordPress\Integration;
+use Yoast\YoastSEO\WordPress\Integration;
 
 /**
  * Load Frontend integrations.

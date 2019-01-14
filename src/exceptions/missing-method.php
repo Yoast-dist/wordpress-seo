@@ -5,7 +5,7 @@
  * @package Yoast\YoastSEO\Exceptions
  */
 
-namespace Yoast\WP\Free\Exceptions;
+namespace Yoast\YoastSEO\Exceptions;
 
 /**
  * The exception when a method does not exists.

@@ -5,18 +5,13 @@
  * @package Yoast\YoastSEO\WordPress;
  */
 
-namespace Yoast\WP\Free\WordPress;
+namespace Yoast\YoastSEO\WordPress;
 
 /**
  * Manage integrations and registers hooks at the required moment.
  */
 class Integration_Group implements Integration {
-
-	/**
-	 * List of integrations.
-	 *
-	 * @var Integration[]
-	 */
+	/** @var Integration[] List of integrations. */
 	protected $integrations = array();
 
 	/**

@@ -5,7 +5,7 @@
  * @package Yoast\YoastSEO\Loggers
  */
 
-namespace Yoast\WP\Free\Loggers;
+namespace Yoast\YoastSEO\Loggers;
 
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;

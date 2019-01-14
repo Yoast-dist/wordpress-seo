@@ -5,7 +5,7 @@
  * @package Yoast\YoastSEO\Config
  */
 
-namespace Yoast\WP\Free\Config;
+namespace Yoast\YoastSEO\Config;
 
 use Composer\Script\Event;
 use Composer\Installer\PackageEvent;

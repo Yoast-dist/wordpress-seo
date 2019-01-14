@@ -5,7 +5,7 @@
  * @package Yoast\YoastSEO
  */
 
-namespace Yoast\WP\Free\Loggers;
+namespace Yoast\YoastSEO\Loggers;
 
 use YoastSEO_Vendor\Ruckusing_Util_Logger;
 

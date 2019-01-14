@@ -11,99 +11,74 @@
 class WPSEO_Breadcrumbs {
 
 	/**
-	 * Instance of this class.
-	 *
-	 * @var object
+	 * @var object    Instance of this class
 	 */
 	public static $instance;
 
 	/**
-	 * Last used 'before' string.
-	 *
-	 * @var string
+	 * @var string    Last used 'before' string
 	 */
 	public static $before = '';
 
 	/**
-	 * Last used 'after' string.
-	 *
-	 * @var string
+	 * @var string    Last used 'after' string
 	 */
 	public static $after = '';
 
+
 	/**
-	 * Blog's show on front setting, 'page' or 'posts'.
-	 *
-	 * @var string
+	 * @var string    Blog's show on front setting, 'page' or 'posts'
 	 */
 	private $show_on_front;
 
 	/**
-	 * Blog's page for posts setting, page id or false.
-	 *
-	 * @var mixed
+	 * @var mixed    Blog's page for posts setting, page id or false
 	 */
 	private $page_for_posts;
 
 	/**
-	 * Current post object.
-	 *
-	 * @var mixed
+	 * @var mixed    Current post object
 	 */
 	private $post;
 
 	/**
-	 * HTML wrapper element for a single breadcrumb element.
-	 *
-	 * @var string
+	 * @var string    HTML wrapper element for a single breadcrumb element
 	 */
 	private $element = 'span';
 
 	/**
-	 * Yoast SEO breadcrumb separator.
-	 *
-	 * @var string
+	 * @var string    Yoast SEO breadcrumb separator
 	 */
 	private $separator = '';
 
 	/**
-	 * HTML wrapper element for the Yoast SEO breadcrumbs output.
-	 *
-	 * @var string
+	 * @var string    HTML wrapper element for the Yoast SEO breadcrumbs output
 	 */
 	private $wrapper = 'span';
 
 	/**
-	 * Array of crumbs.
+	 * @var array    Array of crumbs
 	 *
 	 * Each element of the crumbs array can either have one of these keys:
 	 *    "id"         for post types;
 	 *    "ptarchive"  for a post type archive;
 	 *    "term"       for a taxonomy term.
 	 * OR it consists of a predefined set of 'text', 'url' and 'allow_html'.
-	 *
-	 * @var array
 	 */
 	private $crumbs = array();
 
 	/**
-	 * Count of the elements in the $crumbs property.
-	 *
-	 * @var array
+	 * @var array    Count of the elements in the $crumbs property
 	 */
 	private $crumb_count = 0;
 
 	/**
-	 * Array of individual (linked) html strings created from crumbs.
-	 *
-	 * @var array
+	 * @var array    Array of individual (linked) html strings created from crumbs
 	 */
 	private $links = array();
 
 	/**
-	 * Breadcrumb html string.
-	 *
-	 * @var string
+	 * @var string    Breadcrumb html string
 	 */
 	private $output;
 

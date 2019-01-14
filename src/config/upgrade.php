@@ -5,15 +5,14 @@
  * @package Yoast\YoastSEO\Config
  */
 
-namespace Yoast\WP\Free\Config;
+namespace Yoast\YoastSEO\Config;
 
-use Yoast\WP\Free\WordPress\Integration;
+use Yoast\YoastSEO\WordPress\Integration;
 
 /**
  * Triggers migrations and other upgrades.
  */
 class Upgrade implements Integration {
-
 	/**
 	 * The database migration to use.
 	 *
