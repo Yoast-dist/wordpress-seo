@@ -106,7 +106,7 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/MediaUpload.js:18 js/src/components/MediaUpload.js:17
 	__( 'Choose an image', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/app/ComponentsExample.js:156
+	// Reference: node_modules/yoast-components/app/ComponentsExample.js:147
 	__( 'Free', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoast-components/composites/AlgoliaSearch/AlgoliaSearcher.js:229
