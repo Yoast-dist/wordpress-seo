@@ -13,29 +13,21 @@
 class WPSEO_Twitter {
 
 	/**
-	 * Instance of this class.
-	 *
-	 * @var object
+	 * @var    object    Instance of this class
 	 */
 	public static $instance;
 
 	/**
-	 * Images.
-	 *
-	 * @var array
+	 * @var array Images
 	 */
 	private $images = array();
 
 	/**
-	 * Images.
-	 *
-	 * @var array
+	 * @var array Images
 	 */
 	public $shown_images = array();
 
-	/**
-	 * @var WPSEO_Frontend_Page_Type
-	 */
+	/** @var WPSEO_Frontend_Page_Type */
 	protected $frontend_page_type;
 
 	/**

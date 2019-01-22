@@ -9,21 +9,10 @@
  * Registers the regular admin menu and network admin menu implementations.
  */
 class WPSEO_Menu implements WPSEO_WordPress_Integration {
-
-	/**
-	 * The page identifier used in WordPress to register the admin page.
-	 *
-	 * !DO NOT CHANGE THIS!
-	 *
-	 * @var string
-	 */
+	/** The page identifier used in WordPress to register the admin page !DO NOT CHANGE THIS! */
 	const PAGE_IDENTIFIER = 'wpseo_dashboard';
 
-	/**
-	 * List of classes that add admin functionality.
-	 *
-	 * @var array
-	 */
+	/** @var array List of classes that add admin functionality. */
 	protected $admin_features;
 
 	/**

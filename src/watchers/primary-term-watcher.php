@@ -5,13 +5,13 @@
  * @package Yoast\YoastSEO\Watchers
  */
 
-namespace Yoast\WP\Free\Watchers;
+namespace Yoast\YoastSEO\Watchers;
 
-use Yoast\WP\Free\Exceptions\No_Indexable_Found;
-use Yoast\WP\Free\Loggers\Logger;
-use Yoast\WP\Free\Models\Indexable;
-use Yoast\WP\Free\Models\Primary_Term as Primary_Term_Indexable;
-use Yoast\WP\Free\WordPress\Integration;
+use Yoast\YoastSEO\Exceptions\No_Indexable_Found;
+use Yoast\YoastSEO\Loggers\Logger;
+use Yoast\YoastSEO\Models\Indexable;
+use Yoast\YoastSEO\Models\Primary_Term as Primary_Term_Indexable;
+use Yoast\YoastSEO\WordPress\Integration;
 
 
 /**

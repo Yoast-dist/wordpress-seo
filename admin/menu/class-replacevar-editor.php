@@ -9,18 +9,15 @@
  * Renders a replacement variable editor.
  */
 class WPSEO_Replacevar_Editor {
-
 	/**
-	 * Yoast Forms instance.
-	 *
-	 * @var Yoast_Form
+	 * @var Yoast_Form Yoast Forms instance.
 	 */
 	private $yform;
 
 	/**
-	 * The arguments required for the div to render.
-	 *
 	 * @var array {
+	 *      The arguments required for the div to render.
+	 *
 	 *      @type string $title                 The title field id.
 	 *      @type string $description           The description field id.
 	 *      @type string $page_type_recommended The page type for the context of the recommended replace vars.

@@ -6,7 +6,7 @@
  */
 
 use YoastSEO_Vendor\Ruckusing_Migration_Base;
-use Yoast\WP\Free\Yoast_Model;
+use Yoast\YoastSEO\Yoast_Model;
 
 /**
  * Indexable migration.

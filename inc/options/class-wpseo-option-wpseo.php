@@ -11,18 +11,13 @@
 class WPSEO_Option_Wpseo extends WPSEO_Option {
 
 	/**
-	 * Option name.
-	 *
-	 * @var string
+	 * @var  string  Option name.
 	 */
 	public $option_name = 'wpseo';
 
 	/**
-	 * Array of defaults for the option.
-	 *
-	 * {@internal Shouldn't be requested directly, use $this->get_defaults();}}
-	 *
-	 * @var  array
+	 * @var  array  Array of defaults for the option.
+	 *        Shouldn't be requested directly, use $this->get_defaults();
 	 */
 	protected $defaults = array(
 		// Non-form fields, set via (ajax) function.
@@ -52,9 +47,7 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 	);
 
 	/**
-	 * Sub-options which should not be overloaded with multi-site defaults.
-	 *
-	 * @var array
+	 * @var array Sub-options which should not be overloaded with multi-site defaults.
 	 */
 	public $ms_exclude = array(
 		/* Privacy. */
@@ -64,11 +57,7 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 		'yandexverify',
 	);
 
-	/**
-	 * Possible values for the site_type option.
-	 *
-	 * @var array
-	 */
+	/** @var array Possible values for the site_type option. */
 	protected $site_types = array(
 		'',
 		'blog',
@@ -79,11 +68,7 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 		'personalOther',
 	);
 
-	/**
-	 * Possible environment types.
-	 *
-	 * @var array
-	 */
+	/** @var array Possible environment types. */
 	protected $environment_types = array(
 		'',
 		'production',
@@ -91,11 +76,7 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 		'development',
 	);
 
-	/**
-	 * Possible has_multiple_authors options.
-	 *
-	 * @var array
-	 */
+	/** @var array Possible has_multiple_authors options. */
 	protected $has_multiple_authors_options = array(
 		'',
 		true,
@@ -103,9 +84,7 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 	);
 
 	/**
-	 * Name for an option higher in the hierarchy to override setting access.
-	 *
-	 * @var string
+	 * @var string Name for an option higher in the hierarchy to override setting access.
 	 */
 	protected $override_option_name = 'wpseo_ms';
 

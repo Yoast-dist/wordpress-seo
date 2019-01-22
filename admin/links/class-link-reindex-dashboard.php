@@ -9,19 +9,10 @@
  * Handles the reindexing of links interface in the Dashboard.
  */
 class WPSEO_Link_Reindex_Dashboard {
-
-	/**
-	 * Public post types to scan for unprocessed items.
-	 *
-	 * @var array
-	 */
+	/** @var array Public post types to scan for unprocessed items */
 	protected $public_post_types = array();
 
-	/**
-	 * Number of unprocessed items.
-	 *
-	 * @var int
-	 */
+	/** @var int Number of unprocessed items */
 	protected $unprocessed = 0;
 
 	/**

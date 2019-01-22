@@ -14,9 +14,7 @@ class WPSEO_Product_Upsell_Notice {
 
 	const OPTION_NAME = 'wpseo';
 
-	/**
-	 * @var array
-	 */
+	/** @var array */
 	protected $options;
 
 	/**

@@ -61,23 +61,17 @@
 	},
 	"scripts": {
 		"config-yoastcs": [
-			"@php ./vendor/squizlabs/php_codesniffer/scripts/phpcs --config-set installed_paths ../../../vendor/wp-coding-standards/wpcs,../../../vendor/yoast/yoastcs,../../../vendor/phpcompatibility/php-compatibility,../../../vendor/phpcompatibility/phpcompatibility-paragonie,../../../vendor/phpcompatibility/phpcompatibility-wp",
-			"@php ./vendor/squizlabs/php_codesniffer/scripts/phpcs --config-set default_standard Yoast"
+			"\"vendor/bin/phpcs\" --config-set installed_paths ../../../vendor/wp-coding-standards/wpcs,../../../vendor/yoast/yoastcs,../../../vendor/phpcompatibility/php-compatibility,../../../vendor/phpcompatibility/phpcompatibility-paragonie,../../../vendor/phpcompatibility/phpcompatibility-wp",
+			"\"vendor/bin/phpcs\" --config-set default_standard Yoast"
 		],
 		"check-cs": [
-			"@php ./vendor/squizlabs/php_codesniffer/scripts/phpcs"
-		],
-		"premium-check-cs": [
-			"composer require yoast/yoastcs:~1.2.1 --update-with-dependencies --no-suggest --no-interaction",
-			"@php ./vendor/squizlabs/php_codesniffer/bin/phpcs --ignore=*/premium/cli/ --runtime-set ignore_warnings_on_exit 1",
-			"@php ./vendor/squizlabs/php_codesniffer/bin/phpcs ./premium/cli/ --runtime-set testVersion 5.3- --runtime-set ignore_warnings_on_exit 1",
-			"composer require yoast/yoastcs:~0.4.3 --update-with-dependencies --no-suggest --no-interaction"
+			"\"vendor/bin/phpcs\""
 		],
 		"check-cs-errors": [
-			"@php ./vendor/squizlabs/php_codesniffer/scripts/phpcs --error-severity=1 --warning-severity=6"
+			"\"vendor/bin/phpcs\" --error-severity=1 --warning-severity=6"
 		],
 		"fix-cs": [
-			"@php ./vendor/squizlabs/php_codesniffer/scripts/phpcbf"
+			"\"vendor/bin/phpcbf\""
 		],
 		"prefix-dependencies": [
 			"composer prefix-ruckusing",
@@ -86,14 +80,14 @@
 			"composer du"
 		],
 		"prefix-ruckusing": [
-			"@php ./vendor/humbug/php-scoper/bin/php-scoper add-prefix --prefix=YoastSEO_Vendor --output-dir=./vendor_prefixed/ruckusing --config=config/php-scoper/ruckusing.inc.php --force --quiet"
+			"./vendor/bin/php-scoper add-prefix --prefix=YoastSEO_Vendor --output-dir=./vendor_prefixed/ruckusing --config=config/php-scoper/ruckusing.inc.php --force --quiet"
 		],
 		"prefix-idiorm": [
-			"@php ./vendor/humbug/php-scoper/bin/php-scoper add-prefix --prefix=YoastSEO_Vendor --output-dir=./vendor_prefixed/j4mie/idiorm --config=config/php-scoper/idiorm.inc.php --force --quiet"
+			"./vendor/bin/php-scoper add-prefix --prefix=YoastSEO_Vendor --output-dir=./vendor_prefixed/j4mie/idiorm --config=config/php-scoper/idiorm.inc.php --force --quiet"
 		],
 		"post-install-cmd": [
 			"xrstf\\Composer52\\Generator::onPostInstallCmd",
-			"Yoast\\WP\\Free\\Config\\Dependency_Management::prefix_dependencies"
+			"Yoast\\YoastSEO\\Config\\Dependency_Management::prefix_dependencies"
 		],
 		"post-update-cmd": [
 			"xrstf\\Composer52\\Generator::onPostInstallCmd"
