@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Google Search Console, Content analysis, Readability
 Requires at least: 4.9
 Tested up to: 5.0.3
-Stable tag: 9.7-beta1
+Stable tag: 9.7-beta2
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -118,12 +118,13 @@ Release Date: February 26th, 2019
 * Adds a description of the SEO and Readability score to the posts and taxonomies overview in mobile view.
 * Adds a label element to the Google Search Console authorisation code input field in the configuration wizard.
 
-### Bugfixes:
+## Bugfixes:
 
 * Fixes a bug where a Flesch reading ease score of exactly 90 would trigger incorrect feedback.
 * Fixes a bug where the taxonomy sitemap provider would not handle private taxonomies as expected, resulting in sitemaps not being accessible in specific situations.
 * Fixes a bug where an empty twitter description instead of the term description would be shown.
 * Fixes a bug where undefined warnings would be given when saving a Facebook image.
+* Fixes the Recalibration Beta to be loaded on specific server configurations.
 
 = 9.6.0 =
 Release Date: February 12th, 2019
