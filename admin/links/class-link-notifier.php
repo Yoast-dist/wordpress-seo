@@ -10,9 +10,6 @@
  */
 class WPSEO_Link_Notifier {
 
-	/**
-	 * @var string
-	 */
 	const NOTIFICATION_ID = 'wpseo-reindex-links';
 
 	/**

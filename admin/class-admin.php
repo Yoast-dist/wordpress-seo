@@ -96,6 +96,8 @@ class WPSEO_Admin {
 
 		$this->set_upsell_notice();
 
+		$this->check_php_version();
+
 		$this->initialize_cornerstone_content();
 
 		if ( WPSEO_Utils::is_plugin_network_active() ) {
@@ -110,7 +112,6 @@ class WPSEO_Admin {
 		$integrations[] = new WPSEO_Admin_Gutenberg_Compatibility_Notification();
 		$integrations[] = new WPSEO_Expose_Shortlinks();
 		$integrations[] = new WPSEO_Recalibration_Beta();
-		$integrations[] = new WPSEO_MyYoast_Proxy();
 		$integrations[] = $this->admin_features['google_search_console'];
 		$integrations   = array_merge( $integrations, $this->initialize_seo_links(), $this->initialize_cornerstone_content() );
 
@@ -536,7 +537,7 @@ class WPSEO_Admin {
 	}
 
 	/**
-	 * Initializes WHIP to show a notice for outdated PHP versions.
+	 * Initializes Whip to show a notice for outdated PHP versions.
 	 *
 	 * @deprecated 8.1
 	 * @codeCoverageIgnore

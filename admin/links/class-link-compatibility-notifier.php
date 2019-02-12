@@ -10,9 +10,6 @@
  */
 class WPSEO_Link_Compatibility_Notifier {
 
-	/**
-	 * @var string
-	 */
 	const NOTIFICATION_ID = 'wpseo-links-compatibility';
 
 	/**

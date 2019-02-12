@@ -10,14 +10,7 @@
  */
 class WPSEO_Link {
 
-	/**
-	 * @var string
-	 */
 	const TYPE_EXTERNAL = 'external';
-
-	/**
-	 * @var string
-	 */
 	const TYPE_INTERNAL = 'internal';
 
 	/**

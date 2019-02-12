@@ -3,8 +3,6 @@
  * WPSEO plugin file.
  *
  * @package WPSEO\Admin
- *
- * @uses object $user
  */
 
 /* translators: %1$s expands to Yoast SEO */

@@ -12,8 +12,6 @@ class WPSEO_Cornerstone_Filter extends WPSEO_Abstract_Post_Filter {
 
 	/**
 	 * Name of the meta value.
-	 *
-	 * @var string
 	 */
 	const META_NAME = 'is_cornerstone';
 

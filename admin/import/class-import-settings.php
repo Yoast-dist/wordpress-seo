@@ -11,12 +11,6 @@
  * Class with functionality to import the Yoast SEO settings.
  */
 class WPSEO_Import_Settings {
-
-	/**
-	 * Nonce action key.
-	 *
-	 * @var string
-	 */
 	const NONCE_ACTION = 'wpseo-import-settings';
 
 	/**

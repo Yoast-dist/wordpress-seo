@@ -13,7 +13,6 @@
  * @since 1.8
  */
 class WPSEO_JSON_LD implements WPSEO_WordPress_Integration {
-
 	/**
 	 * Holds the social profiles for the entity.
 	 *

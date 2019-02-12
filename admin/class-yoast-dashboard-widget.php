@@ -10,9 +10,6 @@
  */
 class Yoast_Dashboard_Widget {
 
-	/**
-	 * @var string
-	 */
 	const CACHE_TRANSIENT_KEY = 'wpseo-dashboard-totals';
 
 	/**

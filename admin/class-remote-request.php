@@ -10,15 +10,8 @@
  */
 class WPSEO_Remote_Request {
 
-	/**
-	 * @var string
-	 */
 	const METHOD_POST = 'post';
-
-	/**
-	 * @var string
-	 */
-	const METHOD_GET = 'get';
+	const METHOD_GET  = 'get';
 
 	/**
 	 * @var string

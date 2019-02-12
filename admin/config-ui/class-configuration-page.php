@@ -10,9 +10,6 @@
  */
 class WPSEO_Configuration_Page {
 
-	/**
-	 * @var string
-	 */
 	const PAGE_IDENTIFIER = 'wpseo_configurator';
 
 	/**

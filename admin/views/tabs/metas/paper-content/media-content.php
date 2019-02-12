@@ -4,7 +4,7 @@
  *
  * @package WPSEO\Admin\Views\Media
  *
- * @uses Yoast_Form $yform Form object.
+ * @var Yoast_Form $yform
  */
 
 $wpseo_post_type              = get_post_type_object( 'attachment' );
