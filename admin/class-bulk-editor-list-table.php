@@ -413,9 +413,6 @@ class WPSEO_Bulk_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * Gets a list of sortable columns.
-	 *
-	 * The format is: 'internal-name' => array( 'orderby', bool ).
 	 *
 	 * @return array
 	 */
