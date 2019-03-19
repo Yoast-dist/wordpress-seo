@@ -11,37 +11,27 @@
 class WPSEO_Replacevar_Field {
 
 	/**
-	 * Forms instance.
-	 *
-	 * @var Yoast_Form Yoast
+	 * @var Yoast_Form Yoast Forms instance.
 	 */
 	private $yform;
 
 	/**
-	 * The id for the hidden field.
-	 *
-	 * @var string
+	 * @var string The id for the hidden field.
 	 */
 	private $field_id;
 
 	/**
-	 * The label for the field.
-	 *
-	 * @var string
+	 * @var string The label for the field.
 	 */
 	private $label;
 
 	/**
-	 * The page type for the context of the recommended replace vars.
-	 *
-	 * @var string
+	 * @var string The page type for the context of the recommended replace vars.
 	 */
 	private $page_type_recommended;
 
 	/**
-	 * The page type for the context of the editor specific replace vars.
-	 *
-	 * @var string
+	 * @var string The page type for the context of the editor specific replace vars.
 	 */
 	private $page_type_specific;
 

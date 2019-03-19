@@ -13,9 +13,7 @@
 class WPSEO_Admin_Pages {
 
 	/**
-	 * The option in use for the current admin page.
-	 *
-	 * @var string
+	 * @var string $currentoption The option in use for the current admin page.
 	 */
 	public $currentoption = 'wpseo';
 

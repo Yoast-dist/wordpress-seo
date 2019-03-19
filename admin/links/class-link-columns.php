@@ -30,16 +30,12 @@ class WPSEO_Link_Columns {
 	protected $link_count;
 
 	/**
-	 * Storage to use.
-	 *
-	 * @var WPSEO_Meta_Storage
+	 * @var WPSEO_Meta_Storage Storage to use.
 	 */
 	protected $storage;
 
 	/**
-	 * List of public post types.
-	 *
-	 * @var array
+	 * @var array List of public post types.
 	 */
 	protected $public_post_types = array();
 

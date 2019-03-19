@@ -33,16 +33,12 @@ class WPSEO_GSC implements WPSEO_WordPress_Integration {
 	protected $issue_fetch;
 
 	/**
-	 * Current platform.
-	 *
-	 * @var string
+	 * @var string current platform
 	 */
 	private $platform;
 
 	/**
-	 * Current category.
-	 *
-	 * @var string
+	 * @var string current category
 	 */
 	private $category;
 

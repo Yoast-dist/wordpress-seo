@@ -110,12 +110,7 @@ class WPSEO_JSON_LD implements WPSEO_WordPress_Integration {
 	 * @return void
 	 */
 	public function breadcrumb() {
-		$breadcrumbs_enabled = current_theme_supports( 'yoast-seo-breadcrumbs' );
-		if ( ! $breadcrumbs_enabled ) {
-			$breadcrumbs_enabled = WPSEO_Options::get( 'breadcrumbs-enable', false );
-		}
-
-		if ( is_front_page() || ! $breadcrumbs_enabled ) {
+		if ( is_front_page() || ! WPSEO_Options::get( 'breadcrumbs-enable', false ) ) {
 			return;
 		}
 
@@ -255,7 +250,6 @@ class WPSEO_JSON_LD implements WPSEO_WordPress_Integration {
 			'myspace_url',
 			'youtube_url',
 			'pinterest_url',
-			'wikipedia_url',
 		);
 		foreach ( $social_profiles as $profile ) {
 			if ( WPSEO_Options::get( $profile, '' ) !== '' ) {

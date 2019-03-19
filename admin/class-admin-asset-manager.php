@@ -23,9 +23,7 @@ class WPSEO_Admin_Asset_Manager {
 	const PREFIX = 'yoast-seo-';
 
 	/**
-	 * Prefix for naming the assets.
-	 *
-	 * @var string
+	 * @var string prefix for naming the assets.
 	 */
 	private $prefix;
 

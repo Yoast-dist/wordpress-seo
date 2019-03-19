@@ -11,9 +11,7 @@
 class WPSEO_Taxonomy_Settings_Fields extends WPSEO_Taxonomy_Fields {
 
 	/**
-	 * Options array for the no-index options, including translated labels.
-	 *
-	 * @var array
+	 * @var array   Options array for the no-index options, including translated labels
 	 */
 	private $no_index_options = array();
 

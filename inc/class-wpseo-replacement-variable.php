@@ -70,3 +70,4 @@ class WPSEO_Replacement_Variable {
 		return $this->description;
 	}
 }
+

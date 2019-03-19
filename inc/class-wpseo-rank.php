@@ -36,9 +36,7 @@ class WPSEO_Rank {
 	const NO_INDEX = 'noindex';
 
 	/**
-	 * All possible ranks.
-	 *
-	 * @var array
+	 * @var array All possible ranks.
 	 */
 	protected static $ranks = array(
 		self::BAD,

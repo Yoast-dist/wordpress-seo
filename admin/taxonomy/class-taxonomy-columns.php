@@ -21,9 +21,7 @@ class WPSEO_Taxonomy_Columns {
 	private $analysis_readability;
 
 	/**
-	 * The current taxonomy.
-	 *
-	 * @var string
+	 * @var string The current taxonomy
 	 */
 	private $taxonomy;
 
@@ -159,7 +157,7 @@ class WPSEO_Taxonomy_Columns {
 	/**
 	 * Creates an icon by the given values.
 	 *
-	 * @param WPSEO_Rank $rank  The ranking object.
+	 * @param WPSEO_Rank $rank The ranking object.
 	 * @param string     $title Optional. The title to show. Defaults to the rank label.
 	 *
 	 * @return string The HTML for a score icon.

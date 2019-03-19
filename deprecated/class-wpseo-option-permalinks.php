@@ -16,9 +16,7 @@ _deprecated_file( __FILE__, 'WPSEO 7.0' );
 class WPSEO_Option_Permalinks {
 
 	/**
-	 * Option name.
-	 *
-	 * @var string
+	 * @var  string  option name
 	 */
 	public $option_name = '';
 

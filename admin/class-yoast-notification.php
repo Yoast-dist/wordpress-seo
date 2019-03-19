@@ -47,8 +47,6 @@ class Yoast_Notification {
 	const UPDATED = 'updated';
 
 	/**
-	 * Options of this Notification.
-	 *
 	 * Contains optional arguments:
 	 *
 	 * -             type: The notification type, i.e. 'updated' or 'error'
@@ -60,15 +58,11 @@ class Yoast_Notification {
 	 * - capability_check: How to check capability pass: all or any.
 	 * -  wpseo_page_only: Only display on wpseo page or on every page.
 	 *
-	 * @var array
+	 * @var array Options of this Notification.
 	 */
 	private $options = array();
 
-	/**
-	 * Contains default values for the optional arguments.
-	 *
-	 * @var array
-	 */
+	/** @var array Contains default values for the optional arguments */
 	private $defaults = array(
 		'type'             => self::UPDATED,
 		'id'               => '',

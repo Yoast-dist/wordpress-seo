@@ -11,9 +11,7 @@
 class WPSEO_Expose_Shortlinks implements WPSEO_WordPress_Integration {
 
 	/**
-	 * Array containing the keys and shortlinks.
-	 *
-	 * @var array
+	 * @var array Array containing the keys and shortlinks.
 	 */
 	private $shortlinks = array(
 		'shortlinks.focus_keyword_info'                             => 'https://yoa.st/focus-keyword',

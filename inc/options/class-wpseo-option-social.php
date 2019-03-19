@@ -39,7 +39,7 @@ class WPSEO_Option_Social extends WPSEO_Option {
 		'twitter_site'          => '', // Text field.
 		'twitter_card_type'     => 'summary_large_image',
 		'youtube_url'           => '',
-		'wikipedia_url'         => '',
+		'google_plus_url'       => '',
 		// Form field, but not always available.
 		'fbadminapp'            => '', // Facebook app ID.
 	);
@@ -52,6 +52,7 @@ class WPSEO_Option_Social extends WPSEO_Option {
 		'pinterestverify',
 		'fbadminapp',
 	);
+
 
 	/**
 	 * @var  array  Array of allowed twitter card types.
@@ -136,7 +137,7 @@ class WPSEO_Option_Social extends WPSEO_Option {
 				case 'og_default_image':
 				case 'og_frontpage_image':
 				case 'youtube_url':
-				case 'wikipedia_url':
+				case 'google_plus_url':
 					$this->validate_url( $key, $dirty, $old, $clean );
 					break;
 

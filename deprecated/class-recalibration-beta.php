@@ -19,16 +19,12 @@ _deprecated_file( __FILE__, 'WPSEO 10.0' );
 class WPSEO_Recalibration_Beta implements WPSEO_WordPress_Integration {
 
 	/**
-	 * Name of the options.
-	 *
-	 * @var string
+	 * @var string Name of the options.
 	 */
 	protected $option_name = 'recalibration_beta';
 
 	/**
-	 * The read more URL.
-	 *
-	 * @var string
+	 * @var string The read more URL.
 	 */
 	protected $read_more_url = 'https://yoa.st/recalibration-beta-explanation';
 

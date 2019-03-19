@@ -18,9 +18,7 @@ class WPSEO_OnPage implements WPSEO_WordPress_Integration {
 	const USER_META_KEY = 'wpseo_dismiss_onpage';
 
 	/**
-	 * Is the request started by pressing the fetch button.
-	 *
-	 * @var boolean
+	 * @var boolean Is the request started by pressing the fetch button.
 	 */
 	private $is_manual_request = false;
 

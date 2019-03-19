@@ -9,7 +9,6 @@
  * Class to load assets required for structured data blocks.
  */
 class WPSEO_Structured_Data_Blocks implements WPSEO_WordPress_Integration {
-
 	/**
 	 * @var WPSEO_Admin_Asset_Manager
 	 */

@@ -11,41 +11,31 @@
 class Yoast_Form_Fieldset implements Yoast_Form_Element {
 
 	/**
-	 * The fieldset ID.
-	 *
-	 * @var string
+	 * @var string The fieldset ID.
 	 */
 	private $id;
 
 	/**
-	 * The fieldset HTML default attributes.
-	 *
-	 * @var array
+	 * @var array The fieldset HTML default attributes.
 	 */
 	private $attributes = array(
 		'class' => 'yoast-form-fieldset',
 	);
 
 	/**
-	 * The grouped form elements for the fieldset.
-	 *
-	 * @var string
+	 * @var string The grouped form elements for the fieldset.
 	 */
 	private $content;
 
 	/**
-	 * The fieldset legend HTML default attributes.
-	 *
-	 * @var array
+	 * @var array The fieldset legend HTML default attributes.
 	 */
 	private $legend_attributes = array(
 		'class' => 'yoast-form-legend',
 	);
 
 	/**
-	 * A translatable string for the fieldset legend content.
-	 *
-	 * @var string
+	 * @var string A translatable string for the fieldset legend content.
 	 */
 	private $legend_content;
 

@@ -11,23 +11,17 @@
 class WPSEO_Paper_Presenter {
 
 	/**
-	 * Title of the paper.
-	 *
-	 * @var string
+	 * @var string Title of the paper
 	 */
 	private $title;
 
 	/**
-	 * The view variables.
-	 *
-	 * @var array
+	 * @var array The view variables.
 	 */
 	private $settings;
 
 	/**
-	 * The path to the view file.
-	 *
-	 * @var string
+	 * @var string The path to the view file.
 	 */
 	private $view_file;
 

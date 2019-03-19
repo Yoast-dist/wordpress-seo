@@ -11,9 +11,7 @@
 class WPSEO_Indexable_Service_Term_Provider extends WPSEO_Indexable_Provider {
 
 	/**
-	 * List of fields that need to be renamed.
-	 *
-	 * @var array
+	 * @var array List of fields that need to be renamed.
 	 */
 	protected $renameable_fields = array(
 		'description'                 => 'desc',
@@ -34,8 +32,7 @@ class WPSEO_Indexable_Service_Term_Provider extends WPSEO_Indexable_Provider {
 	 * Returns an array with data for the target object.
 	 *
 	 * @param integer $object_id The target object id.
-	 * @param bool    $as_object Optional. Whether or not to return the indexable
-	 *                           as an object. Defaults to false.
+	 * @param bool    $as_object Optional. Whether or not to return the indexable as an object. Defaults to false.
 	 *
 	 * @return array|WPSEO_Term_Indexable The retrieved data. Defaults to an array format.
 	 */

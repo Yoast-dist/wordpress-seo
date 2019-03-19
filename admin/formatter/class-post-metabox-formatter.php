@@ -16,9 +16,7 @@ class WPSEO_Post_Metabox_Formatter implements WPSEO_Metabox_Formatter_Interface 
 	private $post;
 
 	/**
-	 * The permalink to follow.
-	 *
-	 * @var string
+	 * @var string The permalink to follow.
 	 */
 	private $permalink;
 
