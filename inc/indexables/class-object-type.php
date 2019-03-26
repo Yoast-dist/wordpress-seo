@@ -11,30 +11,22 @@
 abstract class WPSEO_Object_Type {
 
 	/**
-	 * The ID of the object.
-	 *
-	 * @var int
+	 * @var int The ID of the object.
 	 */
 	protected $id;
 
 	/**
-	 * The type of the object.
-	 *
-	 * @var string
+	 * @var string The type of the object.
 	 */
 	protected $type;
 
 	/**
-	 * The subtype of the object.
-	 *
-	 * @var string
+	 * @var string The subtype of the object.
 	 */
 	protected $sub_type;
 
 	/**
-	 * The permalink of the object.
-	 *
-	 * @var string
+	 * @var string The permalink of the object.
 	 */
 	protected $permalink;
 

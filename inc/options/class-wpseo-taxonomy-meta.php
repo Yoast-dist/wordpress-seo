@@ -11,44 +11,33 @@
 class WPSEO_Taxonomy_Meta extends WPSEO_Option {
 
 	/**
-	 * Option name.
-	 *
-	 * @var string
+	 * @var  string  Option name.
 	 */
 	public $option_name = 'wpseo_taxonomy_meta';
 
 	/**
-	 * Whether to include the option in the return for WPSEO_Options::get_all().
-	 *
-	 * @var bool
+	 * @var  bool  Whether to include the option in the return for WPSEO_Options::get_all().
 	 */
 	public $include_in_all = false;
 
 	/**
-	 * Array of defaults for the option.
-	 *
-	 * Shouldn't be requested directly, use $this->get_defaults();
+	 * @var  array  Array of defaults for the option.
+	 *        Shouldn't be requested directly, use $this->get_defaults();
 	 *
 	 * {@internal Important: in contrast to most defaults, the below array format is
 	 *            very bare. The real option is in the format [taxonomy_name][term_id][...]
 	 *            where [...] is any of the $defaults_per_term options shown below.
 	 *            This is of course taken into account in the below methods.}}
-	 *
-	 * @var array
 	 */
 	protected $defaults = array();
 
 	/**
-	 * Option name - same as $option_name property, but now also available to static methods.
-	 *
-	 * @var string
+	 * @var  string  Option name - same as $option_name property, but now also available to static methods.
 	 */
 	public static $name;
 
 	/**
-	 * Array of defaults for individual taxonomy meta entries.
-	 *
-	 * @var array
+	 * @var  array  Array of defaults for individual taxonomy meta entries.
 	 */
 	public static $defaults_per_term = array(
 		'wpseo_title'                 => '',
@@ -74,13 +63,10 @@ class WPSEO_Taxonomy_Meta extends WPSEO_Option {
 	);
 
 	/**
-	 * Available index options.
-	 *
-	 * Used for form generation and input validation.
+	 * @var  array  Available index options.
+	 *        Used for form generation and input validation.
 	 *
 	 * {@internal Labels (translation) added on admin_init via WPSEO_Taxonomy::translate_meta_options().}}
-	 *
-	 * @var array
 	 */
 	public static $no_index_options = array(
 		'default' => '',
@@ -135,11 +121,10 @@ class WPSEO_Taxonomy_Meta extends WPSEO_Option {
 	 * Helper method - Combines a fixed array of default values with an options array
 	 * while filtering out any keys which are not in the defaults array.
 	 *
-	 * @param string $option_key Option name of the option we're doing the merge for.
-	 * @param array  $options    Optional. Current options. If not set, the option defaults
-	 *                           for the $option_key will be returned.
+	 * @param  string $option_key Option name of the option we're doing the merge for.
+	 * @param  array  $options    Optional. Current options. If not set, the option defaults for the $option_key will be returned.
 	 *
-	 * @return array Combined and filtered options array.
+	 * @return  array  Combined and filtered options array.
 	 */
 
 	/*
@@ -188,11 +173,11 @@ class WPSEO_Taxonomy_Meta extends WPSEO_Option {
 	/**
 	 * Validate the option.
 	 *
-	 * @param array $dirty New value for the option.
-	 * @param array $clean Clean value for the option, normally the defaults.
-	 * @param array $old   Old value of the option.
+	 * @param  array $dirty New value for the option.
+	 * @param  array $clean Clean value for the option, normally the defaults.
+	 * @param  array $old   Old value of the option.
 	 *
-	 * @return array Validated clean value for the option to be saved to the database.
+	 * @return  array      Validated clean value for the option to be saved to the database.
 	 */
 	protected function validate_option( $dirty, $clean, $old ) {
 		/*
@@ -241,10 +226,10 @@ class WPSEO_Taxonomy_Meta extends WPSEO_Option {
 	/**
 	 * Validate the meta data for one individual term and removes default values (no need to save those).
 	 *
-	 * @param array $meta_data New values.
-	 * @param array $old_meta  The original values.
+	 * @param  array $meta_data New values.
+	 * @param  array $old_meta  The original values.
 	 *
-	 * @return array Validated and filtered value.
+	 * @return  array        Validated and filtered value.
 	 */
 	public static function validate_term_meta_data( $meta_data, $old_meta ) {
 
@@ -295,7 +280,7 @@ class WPSEO_Taxonomy_Meta extends WPSEO_Option {
 						// The data is stringified JSON. Use `json_decode` and `json_encode` around the sanitation.
 						$input         = json_decode( $meta_data[ $key ], true );
 						$sanitized     = array_map( array( 'WPSEO_Utils', 'sanitize_text_field' ), $input );
-						$clean[ $key ] = wp_json_encode( $sanitized );
+						$clean[ $key ] = json_encode( $sanitized );
 					}
 					elseif ( isset( $old_meta[ $key ] ) ) {
 						// Retain old value if field currently not in use.
@@ -317,7 +302,7 @@ class WPSEO_Taxonomy_Meta extends WPSEO_Option {
 							);
 						}
 
-						$clean[ $key ] = wp_json_encode( $sanitized );
+						$clean[ $key ] = json_encode( $sanitized );
 					}
 					elseif ( isset( $old_meta[ $key ] ) ) {
 						// Retain old value if field currently not in use.
@@ -361,14 +346,14 @@ class WPSEO_Taxonomy_Meta extends WPSEO_Option {
 	 * - Convert old option values to new
 	 * - Fixes strings which were escaped (should have been sanitized - escaping is for output)
 	 *
-	 * @param array  $option_value          Old (not merged with defaults or filtered) option value to
-	 *                                      clean according to the rules for this option.
-	 * @param string $current_version       Optional. Version from which to upgrade, if not set,
-	 *                                      version specific upgrades will be disregarded.
-	 * @param array  $all_old_option_values Optional. Only used when importing old options to have
-	 *                                      access to the real old values, in contrast to the saved ones.
+	 * @param  array  $option_value          Old (not merged with defaults or filtered) option value to
+	 *                                       clean according to the rules for this option.
+	 * @param  string $current_version       Optional. Version from which to upgrade, if not set,
+	 *                                       version specific upgrades will be disregarded.
+	 * @param  array  $all_old_option_values Optional. Only used when importing old options to have
+	 *                                       access to the real old values, in contrast to the saved ones.
 	 *
-	 * @return array Cleaned option.
+	 * @return  array            Cleaned option.
 	 */
 	protected function clean_option( $option_value, $current_version = null, $all_old_option_values = null ) {
 
@@ -432,14 +417,14 @@ class WPSEO_Taxonomy_Meta extends WPSEO_Option {
 	/**
 	 * Retrieve a taxonomy term's meta value(s).
 	 *
-	 * @param mixed  $term     Term to get the meta value for
-	 *                         either (string) term name, (int) term id or (object) term.
-	 * @param string $taxonomy Name of the taxonomy to which the term is attached.
-	 * @param string $meta     Optional. Meta value to get (without prefix).
+	 * @param  mixed  $term     Term to get the meta value for
+	 *                          either (string) term name, (int) term id or (object) term.
+	 * @param  string $taxonomy Name of the taxonomy to which the term is attached.
+	 * @param  string $meta     Optional. Meta value to get (without prefix).
 	 *
-	 * @return mixed|bool Value for the $meta if one is given, might be the default.
-	 *                    If no meta is given, an array of all the meta data for the term.
-	 *                    False if the term does not exist or the $meta provided is invalid.
+	 * @return  mixed|bool    Value for the $meta if one is given, might be the default.
+	 *              If no meta is given, an array of all the meta data for the term.
+	 *              False if the term does not exist or the $meta provided is invalid.
 	 */
 	public static function get_term_meta( $term, $taxonomy, $meta = null ) {
 		/* Figure out the term id. */

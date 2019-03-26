@@ -11,9 +11,7 @@
 class WPSEO_Custom_Taxonomies {
 
 	/**
-	 * Custom taxonomies cache.
-	 *
-	 * @var array
+	 * @var array Cache the custom taxonomies.
 	 */
 	protected static $custom_taxonomies = null;
 

@@ -11,9 +11,7 @@
 class WPSEO_Custom_Fields {
 
 	/**
-	 * Custom fields cache.
-	 *
-	 * @var array
+	 * @var array Cache the custom fields.
 	 */
 	protected static $custom_fields = null;
 

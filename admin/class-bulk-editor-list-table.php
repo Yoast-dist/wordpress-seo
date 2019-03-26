@@ -232,8 +232,7 @@ class WPSEO_Bulk_List_Table extends WP_List_Table {
 	 * This function takes into account the post types in which the current user can
 	 * edit all posts, and the ones the current user can only edit his/her own.
 	 *
-	 * @return string The subquery, which should always be used in $wpdb->prepare(),
-	 *                passing the current user_id in as the first parameter.
+	 * @return string $subquery The subquery, which should always be used in $wpdb->prepare(), passing the current user_id in as the first parameter.
 	 */
 	public function get_base_subquery() {
 		global $wpdb;

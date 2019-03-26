@@ -109,7 +109,7 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/modals/KeywordSynonyms.js:72
 	// Reference: js/src/components/modals/MultipleKeywords.js:72
 	// Reference: js/src/components/modals/RedirectUpsell.js:132
-	__( '1 year free support and updates included!', 'wordpress-seo' ),
+	__( '1 year free updates and upgrades included!', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/Modal.js:76
 	__( 'Open', 'wordpress-seo' ),

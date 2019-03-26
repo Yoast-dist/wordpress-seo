@@ -11,9 +11,7 @@
 class WPSEO_Robots_Validator implements WPSEO_Endpoint_Validator {
 
 	/**
-	 * The robots keys to validate.
-	 *
-	 * @var array
+	 * @var array The robots keys to validate.
 	 */
 	private $robots_to_validate = array(
 		'is_robots_nofollow',

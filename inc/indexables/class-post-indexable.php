@@ -11,9 +11,7 @@
 class WPSEO_Post_Indexable extends WPSEO_Indexable {
 
 	/**
-	 * The updateable fields.
-	 *
-	 * @var array
+	 * @var array The updateable fields.
 	 */
 	protected $updateable_fields = array(
 		'canonical',
