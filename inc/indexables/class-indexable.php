@@ -11,23 +11,17 @@
 abstract class WPSEO_Indexable {
 
 	/**
-	 * The updateable fields.
-	 *
-	 * @var array
+	 * @var array The updateable fields.
 	 */
 	protected $updateable_fields = array();
 
 	/**
-	 * The indexable's data.
-	 *
-	 * @var array
+	 * @var array The indexable's data.
 	 */
 	protected $data;
 
 	/**
-	 * The available validators to run.
-	 *
-	 * @var array
+	 * @var array The available validators to run.
 	 */
 	protected $validators = array(
 		'WPSEO_Object_Type_Validator',

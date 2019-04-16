@@ -14,50 +14,38 @@
 class WPSEO_Option_MS extends WPSEO_Option {
 
 	/**
-	 * Option name.
-	 *
-	 * @var string
+	 * @var  string  option name
 	 */
 	public $option_name = 'wpseo_ms';
 
 	/**
-	 * Option group name for use in settings forms.
-	 *
-	 * @var string
+	 * @var  string  option group name for use in settings forms
 	 */
 	public $group_name = 'yoast_wpseo_multisite_options';
 
 	/**
-	 * Whether to include the option in the return for WPSEO_Options::get_all().
-	 *
-	 * @var bool
+	 * @var  bool  whether to include the option in the return for WPSEO_Options::get_all()
 	 */
 	public $include_in_all = false;
 
 	/**
-	 * Whether this option is only for when the install is multisite.
-	 *
-	 * @var bool
+	 * @var  bool  whether this option is only for when the install is multisite
 	 */
 	public $multisite_only = true;
 
 	/**
-	 * Array of defaults for the option.
-	 *
-	 * Shouldn't be requested directly, use $this->get_defaults();
-	 *
-	 * @var array
+	 * @var  array  Array of defaults for the option
+	 *        Shouldn't be requested directly, use $this->get_defaults();
 	 */
 	protected $defaults = array();
 
 	/**
-	 * Available options for the 'access' setting. Used for input validation.
+	 * @var  array $allowed_access_options Available options for the 'access' setting
+	 *                    Used for input validation
 	 *
 	 * {@internal Important: Make sure the options added to the array here are in line
 	 *            with the keys for the options set for the select box in the
 	 *            admin/pages/network.php file.}}
-	 *
-	 * @var array
 	 */
 	public static $allowed_access_options = array(
 		'admin',
@@ -103,7 +91,7 @@ class WPSEO_Option_MS extends WPSEO_Option {
 	/**
 	 * Add filters to make sure that the option default is returned if the option is not set
 	 *
-	 * @return void
+	 * @return  void
 	 */
 	public function add_default_filters() {
 		// Don't change, needs to check for false as could return prio 0 which would evaluate to false.
@@ -116,7 +104,7 @@ class WPSEO_Option_MS extends WPSEO_Option {
 	 * Remove the default filters.
 	 * Called from the validate() method to prevent failure to add new options
 	 *
-	 * @return void
+	 * @return  void
 	 */
 	public function remove_default_filters() {
 		remove_filter( 'default_site_option_' . $this->option_name, array( $this, 'get_defaults' ) );
@@ -125,7 +113,7 @@ class WPSEO_Option_MS extends WPSEO_Option {
 	/**
 	 * Add filters to make sure that the option is merged with its defaults before being returned
 	 *
-	 * @return void
+	 * @return  void
 	 */
 	public function add_option_filters() {
 		// Don't change, needs to check for false as could return prio 0 which would evaluate to false.
@@ -138,7 +126,7 @@ class WPSEO_Option_MS extends WPSEO_Option {
 	 * Remove the option filters.
 	 * Called from the clean_up methods to make sure we retrieve the original old option
 	 *
-	 * @return void
+	 * @return  void
 	 */
 	public function remove_option_filters() {
 		remove_filter( 'site_option_' . $this->option_name, array( $this, 'get_option' ) );
@@ -149,11 +137,11 @@ class WPSEO_Option_MS extends WPSEO_Option {
 	/**
 	 * Validate the option
 	 *
-	 * @param array $dirty New value for the option.
-	 * @param array $clean Clean value for the option, normally the defaults.
-	 * @param array $old   Old value of the option.
+	 * @param  array $dirty New value for the option.
+	 * @param  array $clean Clean value for the option, normally the defaults.
+	 * @param  array $old   Old value of the option.
 	 *
-	 * @return array Validated clean value for the option to be saved to the database.
+	 * @return  array      Validated clean value for the option to be saved to the database
 	 */
 	protected function validate_option( $dirty, $clean, $old ) {
 
@@ -224,14 +212,14 @@ class WPSEO_Option_MS extends WPSEO_Option {
 	/**
 	 * Clean a given option value
 	 *
-	 * @param array  $option_value          Old (not merged with defaults or filtered) option value to
-	 *                                      clean according to the rules for this option.
-	 * @param string $current_version       (optional) Version from which to upgrade, if not set,
-	 *                                      version specific upgrades will be disregarded.
-	 * @param array  $all_old_option_values (optional) Only used when importing old options to have
-	 *                                      access to the real old values, in contrast to the saved ones.
+	 * @param  array  $option_value          Old (not merged with defaults or filtered) option value to
+	 *                                       clean according to the rules for this option.
+	 * @param  string $current_version       (optional) Version from which to upgrade, if not set,
+	 *                                       version specific upgrades will be disregarded.
+	 * @param  array  $all_old_option_values (optional) Only used when importing old options to have
+	 *                                       access to the real old values, in contrast to the saved ones.
 	 *
-	 * @return array Cleaned option.
+	 * @return  array            Cleaned option
 	 */
 
 	/*

@@ -232,8 +232,7 @@ class WPSEO_Bulk_List_Table extends WP_List_Table {
 	 * This function takes into account the post types in which the current user can
 	 * edit all posts, and the ones the current user can only edit his/her own.
 	 *
-	 * @return string The subquery, which should always be used in $wpdb->prepare(),
-	 *                passing the current user_id in as the first parameter.
+	 * @return string $subquery The subquery, which should always be used in $wpdb->prepare(), passing the current user_id in as the first parameter.
 	 */
 	public function get_base_subquery() {
 		global $wpdb;
@@ -624,8 +623,7 @@ class WPSEO_Bulk_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * Heavily restricts the possible columns by which a user can order the table
-	 * in the bulk editor, thereby preventing a possible CSRF vulnerability.
+	 * Heavily restricts the possible columns by which a user can order the table in the bulk editor, thereby preventing a possible CSRF vulnerability.
 	 *
 	 * @param string $orderby The column by which we want to order.
 	 *
@@ -646,8 +644,7 @@ class WPSEO_Bulk_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * Makes sure the order clause is always ASC or DESC for the bulk editor table,
-	 * thereby preventing a possible CSRF vulnerability.
+	 * Makes sure the order clause is always ASC or DESC for the bulk editor table, thereby preventing a possible CSRF vulnerability.
 	 *
 	 * @param string $order Whether we want to sort ascending or descending.
 	 *

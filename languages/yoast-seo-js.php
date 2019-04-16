@@ -442,7 +442,6 @@ $generated_i18n_strings = array(
 
 	// Reference: node_modules/yoastseo/src/assessor.js:216
 	// Reference: node_modules/yoastseo/src/tree/assess/TreeAssessor.js:132
-	// Reference: node_modules/yoastseo/src/worker/AnalysisWebWorker.js:1040
 	/* Translators: %1$s expands to the name of the assessment. */
 	__( 'An error occurred in the \'%1$s\' assessment', 'wordpress-seo' ),
 

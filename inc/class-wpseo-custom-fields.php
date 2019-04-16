@@ -11,16 +11,14 @@
 class WPSEO_Custom_Fields {
 
 	/**
-	 * Custom fields cache.
-	 *
-	 * @var array
+	 * @var array Cache the custom fields.
 	 */
 	protected static $custom_fields = null;
 
 	/**
 	 * Retrieves the custom field names as an array.
 	 *
-	 * @link WordPress core: wp-admin/includes/template.php. Reused query from it.
+	 * @see WordPress core: wp-admin/includes/template.php. Reused query from it.
 	 *
 	 * @return array The custom fields.
 	 */

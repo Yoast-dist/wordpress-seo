@@ -29,8 +29,7 @@ class WPSEO_FAQ_Block implements WPSEO_WordPress_Integration {
 	/**
 	 * Renders the block.
 	 *
-	 * Because we can't save script tags in Gutenberg without sufficient user permissions,
-	 * we render these server-side.
+	 * Because we can't save script tags in Gutenberg without sufficient user permissions, we render these server-side.
 	 *
 	 * @param array  $attributes The attributes of the block.
 	 * @param string $content    The HTML content of the block.
