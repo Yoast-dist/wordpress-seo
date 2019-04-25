@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Google Search Console, Content analysis, Readability
 Requires at least: 4.9
 Tested up to: 5.1.1
-Stable tag: 11.1-RC1
+Stable tag: 11.1-RC3
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -115,13 +115,11 @@ Enhancements:
 * Adds 'filesize' to whitelisted properties on '$image'. Props to [cmmarslender](https://github.com/cmmarslender).
 * Optimizes the code to avoid an unnecessary DB query to remove notifications storage when it's already empty. Props to [rmc47](https://github.com/rmc47).
 * Improves the breadcrumbs accessibility by adding `aria-current` to the active item.
-* Improves the recognition of German keyphrases that include words with an `i` or `e` in between vowels (e.g., `schrieen`, `schreien`, `speie`).
-* Improves recognition of German 3rd person singular verb forms (e.g., “arbeitet”).
 
 Bugfixes:
 
 * Fixes a bug where the position of the buttons in the FAQ and How-To structured data blocks was compromised when running the development build of Gutenberg.
-* Fixes a bug where the social profile settings page would be empty when no  had been chosen.
+* Fixed a bug where social profile settings would be empty because it was relying on the user choosing whether the site represents a company or a person.
 
 = 11.0.0 =
 Release Date: April 16th, 2019
