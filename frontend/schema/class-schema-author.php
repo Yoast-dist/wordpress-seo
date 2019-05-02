@@ -54,6 +54,7 @@ class WPSEO_Schema_Author extends WPSEO_Schema_Person implements WPSEO_Graph_Pie
 		return false;
 	}
 
+
 	/**
 	 * Builds our array of Schema Person data for a given user ID.
 	 *
@@ -104,7 +105,7 @@ class WPSEO_Schema_Author extends WPSEO_Schema_Person implements WPSEO_Graph_Pie
 				$user_id = get_queried_object_id();
 				break;
 			default:
-				$post    = get_post( $this->context->id );
+				$post = get_post( $this->context->id );
 				$user_id = (int) $post->post_author;
 				break;
 		}

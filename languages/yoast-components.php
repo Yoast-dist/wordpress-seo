@@ -1,43 +1,43 @@
 <?php
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:367
+	// Reference: js/src/components/ConnectGoogleSearchConsole.js:366
 	__( 'Get Google Authorization Code', 'wordpress-seo' ),
 
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:360
+	// Reference: js/src/components/ConnectGoogleSearchConsole.js:359
 	__( 'To allow %s to fetch your Google Search Console information, please enter your Google Authorization Code. Clicking the button below will open a new window.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:348
+	// Reference: js/src/components/ConnectGoogleSearchConsole.js:347
 	__( 'Reauthenticate with Google', 'wordpress-seo' ),
 
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:323
+	// Reference: js/src/components/ConnectGoogleSearchConsole.js:322
 	__( 'Authenticate', 'wordpress-seo' ),
 
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:314
+	// Reference: js/src/components/ConnectGoogleSearchConsole.js:313
 	__( 'Authorization code', 'wordpress-seo' ),
 
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:305
+	// Reference: js/src/components/ConnectGoogleSearchConsole.js:304
 	__( 'Enter your Google Authorization Code and press the Authenticate button.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:279
+	// Reference: js/src/components/ConnectGoogleSearchConsole.js:278
 	__( 'Choose a profile', 'wordpress-seo' ),
 
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:271
+	// Reference: js/src/components/ConnectGoogleSearchConsole.js:270
 	__( 'Select profile', 'wordpress-seo' ),
 
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:258
+	// Reference: js/src/components/ConnectGoogleSearchConsole.js:257
 	__( 'There were no profiles found', 'wordpress-seo' ),
 
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:111
+	// Reference: js/src/components/ConnectGoogleSearchConsole.js:110
 	__( 'There is an error with the request.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/MailchimpSignup.js:225
+	// Reference: js/src/components/MailchimpSignup.js:223
 	__( 'Email', 'wordpress-seo' ),
 
-	// Reference: js/src/components/MailchimpSignup.js:206
+	// Reference: js/src/components/MailchimpSignup.js:204
 	__( 'Sign Up!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/MailchimpSignup.js:109
+	// Reference: js/src/components/MailchimpSignup.js:107
 	__( 'MailChimp signup failed:', 'wordpress-seo' ),
 
 	// Reference: js/src/components/MediaUpload.js:138
@@ -52,10 +52,10 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/MediaUpload.js:18 js/src/components/MediaUpload.js:17
 	__( 'Choose an image', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestion.js:48
+	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestion.js:47
 	__( 'Copy link', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestion.js:51
+	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestion.js:50
 	__( 'Copy link to suggested article: %s', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:119

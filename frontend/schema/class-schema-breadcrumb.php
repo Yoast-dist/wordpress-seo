@@ -140,12 +140,9 @@ class WPSEO_Schema_Breadcrumb implements WPSEO_Graph_Piece {
 	 */
 	private function add_paginated_state() {
 		$this->index++;
-		return $this->add_breadcrumb(
-			$this->index,
-			array(
-				'url'  => $this->context->canonical,
-				'text' => $this->context->title,
-			)
-		);
+		return $this->add_breadcrumb( $this->index, array(
+			'url'  => $this->context->canonical,
+			'text' => $this->context->title,
+		) );
 	}
 }

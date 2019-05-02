@@ -110,6 +110,7 @@ class WPSEO_Addon_Manager {
 		}
 
 		return $this->get_site_information_default();
+
 	}
 
 	/**

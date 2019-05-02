@@ -33,11 +33,14 @@ class WPSEO_Schema_Article implements WPSEO_Graph_Piece {
 	 * @return bool
 	 */
 	public function is_needed() {
-		if ( ! is_singular() ) {
-			return false;
-		}
+		/**
+		 * Filter: 'wpseo_schema_article_post_types' - Allow changing for which post types we output Article schema.
+		 *
+		 * @api string[] $post_types The post types for which we output Article.
+		 */
+		$post_types = apply_filters( 'wpseo_schema_article_post_types', array( 'post' ) );
 
-		return self::is_article_post_type( get_post_type() );
+		return is_singular( $post_types );
 	}
 
 	/**
@@ -69,28 +72,6 @@ class WPSEO_Schema_Article implements WPSEO_Graph_Piece {
 		$data = $this->add_sections( $data );
 
 		return $data;
-	}
-
-	/**
-	 * Determines whether a given post type should have Article schema.
-	 *
-	 * @param string $post_type Post type to check.
-	 *
-	 * @return bool True if it has article schema, false if not.
-	 */
-	public static function is_article_post_type( $post_type = null ) {
-		if ( is_null( $post_type ) ) {
-			$post_type = get_post_type();
-		}
-
-		/**
-		 * Filter: 'wpseo_schema_article_post_types' - Allow changing for which post types we output Article schema.
-		 *
-		 * @api string[] $post_types The post types for which we output Article.
-		 */
-		$post_types = apply_filters( 'wpseo_schema_article_post_types', array( 'post' ) );
-
-		return in_array( $post_type, $post_types );
 	}
 
 	/**

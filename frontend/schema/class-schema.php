@@ -13,7 +13,6 @@
  * @since 1.8
  */
 class WPSEO_Schema implements WPSEO_WordPress_Integration {
-
 	/**
 	 * Registers the hooks.
 	 */
@@ -56,15 +55,7 @@ class WPSEO_Schema implements WPSEO_WordPress_Integration {
 		$graph = array();
 
 		foreach ( $this->get_graph_pieces() as $piece ) {
-			$class = str_replace( 'wpseo_schema_', '', strtolower( get_class( $piece ) ) );
-
-			/**
-			 * Filter: 'wpseo_schema_needs_<class name>' - Allows changing which graph pieces we output.
-			 *
-			 * @api bool $is_needed Whether or not to show a graph piece.
-			 */
-			$is_needed = apply_filters( 'wpseo_schema_needs_' . $class, $piece->is_needed() );
-			if ( ! $is_needed ) {
+			if ( ! $piece->is_needed() ) {
 				continue;
 			}
 
@@ -75,6 +66,7 @@ class WPSEO_Schema implements WPSEO_WordPress_Integration {
 			 *
 			 * @api array $graph_piece The graph piece to filter.
 			 */
+			$class       = str_replace( 'wpseo_schema_', '', strtolower( get_class( $piece ) ) );
 			$graph_piece = apply_filters( 'wpseo_schema_' . $class, $graph_piece );
 			if ( is_array( $graph_piece ) ) {
 				$graph[] = $graph_piece;

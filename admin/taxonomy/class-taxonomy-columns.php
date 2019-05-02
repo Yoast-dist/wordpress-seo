@@ -109,7 +109,7 @@ class WPSEO_Taxonomy_Columns {
 	 * @return string|null
 	 */
 	private function get_taxonomy() {
-		if ( wp_doing_ajax() ) {
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX === true ) {
 			return FILTER_INPUT( INPUT_POST, 'taxonomy' );
 		}
 

@@ -12,7 +12,6 @@ if ( ! interface_exists( 'WPSEO_Graph_Piece' ) ) {
 	 * @since 10.2
 	 */
 	interface WPSEO_Graph_Piece {
-
 		/**
 		 * Add your piece of the graph.
 		 *

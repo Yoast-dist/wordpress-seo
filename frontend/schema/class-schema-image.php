@@ -123,6 +123,8 @@ class WPSEO_Schema_Image {
 		if ( ! empty( $caption ) ) {
 			$this->data['caption'] = $caption;
 		}
+
+		return;
 	}
 
 	/**
