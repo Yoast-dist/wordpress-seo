@@ -69,6 +69,7 @@ echo '<br/>';
 $taxonomies = get_taxonomies(
 	array(
 		'public'   => true,
+		'_builtin' => false,
 	),
 	'objects'
 );

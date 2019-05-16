@@ -15,7 +15,6 @@
  * @property int    $attachment_id  The ID of the attachment used to generate the object.
  */
 class WPSEO_Schema_Image {
-
 	/**
 	 * The `@id` to use for the returned image.
 	 *
@@ -144,7 +143,7 @@ class WPSEO_Schema_Image {
 	 * @return void
 	 */
 	private function add_image_size() {
-		$image_meta = wp_get_attachment_metadata( $this->attachment_id );
+		$image_meta           = wp_get_attachment_metadata( $this->attachment_id );
 		if ( empty( $image_meta['width'] ) || empty( $image_meta['height'] ) ) {
 			return;
 		}

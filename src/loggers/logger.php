@@ -7,8 +7,8 @@
 
 namespace Yoast\WP\Free\Loggers;
 
-use \YoastSEO_Vendor\Psr\Log\LoggerInterface;
-use \YoastSEO_Vendor\Psr\Log\NullLogger;
+use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 
 /**
  * Creates an instance of a logger object.
