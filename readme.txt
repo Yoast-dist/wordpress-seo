@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability
 Requires at least: 4.9
 Tested up to: 5.2
-Stable tag: 11.3-RC2
+Stable tag: 11.3-RC3
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -121,8 +121,9 @@ Bugfixes:
 * Fixes a bug where it would no longer be possible to change the user in the Search Appearance settings when the previously selected user had been deleted.
 
 Other:
-* Removes help center from edit pages.
+* Removes the help center from the metabox.
 * Removes redundant `name` attribute from `author` in `Article` schema markup piece.
+* Increases the MyYoast API request timeout from 1 to 5 seconds, to give servers with a less optimal connection to our services more room to fetch the data.
 
 = 11.2.1 =
 Release Date: May 16th, 2019
