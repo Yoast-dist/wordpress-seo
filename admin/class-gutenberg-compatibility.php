@@ -25,6 +25,8 @@ class WPSEO_Gutenberg_Compatibility {
 	const MINIMUM_SUPPORTED = '6.0.0';
 
 	/**
+	 * Holds the current version.
+	 *
 	 * @var string
 	 */
 	protected $current_version;
