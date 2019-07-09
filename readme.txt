@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability
 Requires at least: 4.9
 Tested up to: 5.2.2
-Stable tag: 11.6-RC4
+Stable tag: 11.6-RC6
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -108,7 +108,7 @@ You'll find answers to many of your questions on [kb.yoast.com](https://yoa.st/1
 = 11.6.0 =
 Release Date: July 9th, 2019
 
- Find out what Yoast SEO 11.6 is all about in [our 11.6 release post](https://yoa.st/release-11-6)!
+Yoast SEO 11.6 is out today. Of course, we did the regular round of bug fixing, but the focus of this release is two-fold: a new, much easier to use tabbed interface for the meta box and an updated HowTo structured data content block for WordPress. Find out all about Yoast SEO 11.6 in [our 11.6 release post](https://yoa.st/release-11-6)!
 
 Enhancements:
 
@@ -123,6 +123,7 @@ Bugfixes:
 * Fixes a bug where the Schema would contain `WebPage` instead of `CollectionPage` for a latest posts homepage and the static posts page type.
 * Fixes a bug where the Organization and Article Schema nodes would incorrectly be output when a website had not set their organization's name and/or logo.
 * Fixes a bug where the eye marker tooltips would break out of the metabox, which would hide the last part of the tooltip text.
+* Fixes a bug where instances of unfiltered HTML would be allowed in term descriptions where they shouldn't be.
 
 = 11.5.0 =
 Release Date: June 25th, 2019
@@ -139,4 +140,4 @@ Bugfixes:
 * Fixes missing trailing slash for the homepage on post sitemap. Props to [stodorovic](https://github.com/stodorovic).
 
 = Earlier versions =
-For the changelog of earlier versions, please refer to https://yoa.st/yoast-seo-changelog
+For the changelog of earlier versions, please refer to [the changelog on yoast.com](https://yoa.st/yoast-seo-changelog).
