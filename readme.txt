@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability
 Requires at least: 4.9
 Tested up to: 5.2.2
-Stable tag: 11.7-RC1
+Stable tag: 11.7-RC2
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -110,7 +110,7 @@ Release Date: July 23rd, 2019
 
 Enhancements:
 
-* Allows a subset of HTML tags in FAQ answer, HowTo description and HowToStep description schema output: <h1>, <h2>, <h3>, <h4>, <h5>, <h6>, <br>, <ol>, <ul>, <li>, <a>, <p>, <b>, <strong>, <i>, <em>, and their closing counterparts.
+* Allows a subset of HTML tags in FAQ answer, HowTo description and HowToStep description schema output: `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`, `<br>`, `<ol>`, `<ul>`, `<li>`, `<a>`, `<p>`, `<b>`, `<strong>`, `<i>`, `<em>`, and their closing counterparts.
 * Remove the `noindex` from feeds as this causes issues for podcasts and other feeds.
 * Improves the accessibility of the horizontal tabs in the metabox by implementing an ARIA tabbed user interface.
 
