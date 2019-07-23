@@ -15,7 +15,7 @@ if ( ! function_exists( 'add_filter' ) ) {
  * {@internal Nobody should be able to overrule the real version number as this can cause
  *            serious issues with the options, so no if ( ! defined() ).}}
  */
-define( 'WPSEO_VERSION', '11.7' );
+define( 'WPSEO_VERSION', '11.8-RC1' );
 
 
 if ( ! defined( 'WPSEO_PATH' ) ) {
@@ -344,7 +344,7 @@ function wpseo_init() {
 
 	// When namespaces are not available, stop further execution.
 	if ( version_compare( PHP_VERSION, '5.6.0', '>=' ) ) {
-		require_once WPSEO_PATH . 'src/loaders/indexable.php';
+		require_once WPSEO_PATH . 'src/main.php';
 		// require_once WPSEO_PATH . 'src/loaders/oauth.php'; Temporarily disabled.
 	}
 }
