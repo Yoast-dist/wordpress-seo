@@ -69,10 +69,7 @@ class WPSEO_Bulk_Title_Editor_List_Table extends WPSEO_Bulk_List_Table {
 
 		switch ( $column_name ) {
 			case 'col_existing_yoast_seo_title':
-				// @todo Inconsistent return/echo behavior R.
-				// I traced the escaping of the attributes to WPSEO_Bulk_List_Table::column_attributes.
-				// The output of WPSEO_Bulk_List_Table::parse_meta_data_field is properly escaped.
-				// phpcs:ignore WordPress.Security.EscapeOutput
+				// @todo Inconsistent echo/return behavior R.
 				echo $this->parse_meta_data_field( $record->ID, $attributes );
 				break;
 
