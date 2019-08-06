@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability
 Requires at least: 4.9
 Tested up to: 5.2.2
-Stable tag: 11.8-RC6
+Stable tag: 11.8
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -108,13 +108,14 @@ You'll find answers to many of your questions on [kb.yoast.com](https://yoa.st/1
 = 11.8.0 =
 Release Date: August 6th, 2019
 
-Find out all about Yoast SEO 11.8 in [our 11.8 release post](https://yoa.st/release-11-8)!
+Release history tells us that the releases in the months of July and August are usually very quiet and not 'that notable'. Due to vacations from team members, the focus is usually on fixing bugs and cleaning up. Not for Yoast SEO 11.8! This new release gives us an enhanced metabox, bug fixes and the help of contributors from outside the company! Find out all about Yoast SEO 11.8 in [our 11.8 release post](https://yoa.st/release-11-8)!
 
 Enhancements:
 
-* Moved advanced SEO settings to a collapsible in the SEO tab.
+* Moves advanced SEO settings to a collapsible in the SEO tab.
 * Social settings tab in the metabox now contains collapsibles instead of tabs.
 * Adds style for padding to the metabox menu to avoid it being overwritten by custom editor styles. Props to [@emilyatmobtown](https://github.com/emilyatmobtown).
+* Improves sanitization of the schema output.
 
 Bugfixes:
 
