@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability
 Requires at least: 4.9
 Tested up to: 5.2.2
-Stable tag: 11.9-RC1
+Stable tag: 11.9-RC3
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -117,7 +117,7 @@ Enhancements:
 Bugfixes:
 
 * Fixes a bug where the image from the configuration wizard notification was missing an empty alt attribute.
-* Fixes a bug where the snippet preview would overwrite the Gutenberg modal overlay color.
+* Fixes a bug where some translations would be missing in the metabox, sidebar, configuration wizard and the help center.
 
 = 11.8.0 =
 Release Date: August 6th, 2019
