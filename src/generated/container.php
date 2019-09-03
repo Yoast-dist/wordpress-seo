@@ -2,13 +2,13 @@
 
 namespace Yoast\WP\Free\Generated;
 
-use YoastSEO_Vendor\Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
-use YoastSEO_Vendor\Symfony\Component\DependencyInjection\ContainerInterface;
-use YoastSEO_Vendor\Symfony\Component\DependencyInjection\Container;
-use YoastSEO_Vendor\Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
-use YoastSEO_Vendor\Symfony\Component\DependencyInjection\Exception\LogicException;
-use YoastSEO_Vendor\Symfony\Component\DependencyInjection\Exception\RuntimeException;
-use YoastSEO_Vendor\Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;
+use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\Container;
+use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
+use Symfony\Component\DependencyInjection\Exception\LogicException;
+use Symfony\Component\DependencyInjection\Exception\RuntimeException;
+use Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;
 
 /**
  * This class has been auto-generated
@@ -84,7 +84,7 @@ class Cached_Container extends Container
     {
         return [
             'Psr\\Container\\ContainerInterface' => true,
-            'YoastSEO_Vendor\\Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
+            'Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
             'Yoast\\WP\\Free\\Builders\\Indexable_Author_Builder' => true,
             'Yoast\\WP\\Free\\Builders\\Indexable_Post_Builder' => true,
             'Yoast\\WP\\Free\\Builders\\Indexable_Term_Builder' => true,

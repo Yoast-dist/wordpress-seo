@@ -9,8 +9,8 @@ namespace Yoast\WP\Free\Oauth;
 
 use WPSEO_Options;
 use WPSEO_Utils;
-use YoastSEO_Vendor\League\OAuth2\Client\Provider\GenericProvider;
-use YoastSEO_Vendor\League\OAuth2\Client\Token\AccessToken;
+use League\OAuth2\Client\Provider\GenericProvider;
+use League\OAuth2\Client\Token\AccessToken;
 
 /**
  * Represents the oAuth client.
@@ -25,11 +25,11 @@ class Client {
 	private $config;
 
 	/**
-	 * Contains the set access tokens.
-	 *
-	 * @var \YoastSEO_Vendor\League\OAuth2\Client\Token\AccessTokenInterface[]
-	 */
-	private $access_tokens;
+  * Contains the set access tokens.
+  *
+  * @var \League\OAuth2\Client\Token\AccessTokenInterface[]
+  */
+ private $access_tokens;
 
 	/**
 	 * Instance of this class.
@@ -122,26 +122,26 @@ class Client {
 	}
 
 	/**
-	 * Saves the access token for the given user.
-	 *
-	 * @param int                                                              $user_id      User ID to receive token for.
-	 * @param \YoastSEO_Vendor\League\OAuth2\Client\Token\AccessTokenInterface $access_token The access token to save.
-	 *
-	 * @return void
-	 */
-	public function save_access_token( $user_id, $access_token ) {
+  * Saves the access token for the given user.
+  *
+  * @param int                                                              $user_id      User ID to receive token for.
+  * @param \League\OAuth2\Client\Token\AccessTokenInterface $access_token The access token to save.
+  *
+  * @return void
+  */
+ public function save_access_token( $user_id, $access_token ) {
 		$this->access_tokens[ $user_id ] = $access_token;
 		$this->update_option();
 	}
 
 	/**
-	 * Retrieves an access token.
-	 *
-	 * @param null|int $user_id User ID to receive token for.
-	 *
-	 * @return bool|\YoastSEO_Vendor\League\OAuth2\Client\Token\AccessTokenInterface False if not found. Token when found.
-	 */
-	public function get_access_token( $user_id = null ) {
+  * Retrieves an access token.
+  *
+  * @param null|int $user_id User ID to receive token for.
+  *
+  * @return bool|\League\OAuth2\Client\Token\AccessTokenInterface False if not found. Token when found.
+  */
+ public function get_access_token( $user_id = null ) {
 		if ( $user_id === null ) {
 			return \reset( $this->access_tokens );
 		}
@@ -171,11 +171,11 @@ class Client {
 	}
 
 	/**
-	 * Returns an instance of the oAuth provider.
-	 *
-	 * @return \YoastSEO_Vendor\League\OAuth2\Client\Provider\GenericProvider The provider.
-	 */
-	public function get_provider() {
+  * Returns an instance of the oAuth provider.
+  *
+  * @return \League\OAuth2\Client\Provider\GenericProvider The provider.
+  */
+ public function get_provider() {
 		return new GenericProvider(
 			[
 				'clientId'                => $this->config['clientId'],
@@ -189,13 +189,13 @@ class Client {
 	}
 
 	/**
-	 * Formats the access tokens.
-	 *
-	 * @param array $access_tokens The access tokens to format.
-	 *
-	 * @return \YoastSEO_Vendor\League\OAuth2\Client\Token\AccessTokenInterface[] The formatted access tokens.
-	 */
-	protected function format_access_tokens( $access_tokens ) {
+  * Formats the access tokens.
+  *
+  * @param array $access_tokens The access tokens to format.
+  *
+  * @return \League\OAuth2\Client\Token\AccessTokenInterface[] The formatted access tokens.
+  */
+ protected function format_access_tokens( $access_tokens ) {
 		if ( ! \is_array( $access_tokens ) || $access_tokens === [] ) {
 			return [];
 		}

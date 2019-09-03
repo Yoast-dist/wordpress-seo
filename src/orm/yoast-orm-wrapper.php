@@ -7,7 +7,7 @@
 
 namespace Yoast\WP\Free\ORM;
 
-use YoastSEO_Vendor\ORM;
+use ORM;
 
 /**
  * Subclass of Idiorm's ORM class that supports
@@ -99,14 +99,14 @@ class ORMWrapper extends ORM {
 	}
 
 	/**
-	 * Method to create an instance of the model class associated with this
-	 * wrapper and populate it with the supplied Idiorm instance.
-	 *
-	 * @param \Yoast\WP\Free\ORM\ORMWrapper|\YoastSEO_Vendor\ORM $orm The ORM used by model.
-	 *
-	 * @return bool|\Yoast\WP\Free\ORM\Yoast_Model Instance of the model class.
-	 */
-	protected function create_model_instance( $orm ) {
+  * Method to create an instance of the model class associated with this
+  * wrapper and populate it with the supplied Idiorm instance.
+  *
+  * @param \Yoast\WP\Free\ORM\ORMWrapper|\ORM $orm The ORM used by model.
+  *
+  * @return bool|\Yoast\WP\Free\ORM\Yoast_Model Instance of the model class.
+  */
+ protected function create_model_instance( $orm ) {
 		if ( $orm === false ) {
 			return false;
 		}

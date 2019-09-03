@@ -7,7 +7,7 @@
 
 namespace Yoast\WP\Free\Loggers;
 
-use YoastSEO_Vendor\Ruckusing_Util_Logger;
+use Ruckusing_Util_Logger;
 
 /**
  * Logger to make sure the output is not written into a file.

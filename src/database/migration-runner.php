@@ -81,9 +81,9 @@ class Migration_Runner implements Initializer {
 		try {
 			$framework_runner = $this->framework->get_framework_runner( $migrations_table_name, $migrations_directory );
 			/**
-			 * @var \YoastSEO_Vendor\Ruckusing_Adapter_MySQL_Base $adapter
-			 */
-			$adapter = $framework_runner->get_adapter();
+    * @var \Ruckusing_Adapter_MySQL_Base $adapter
+    */
+   $adapter = $framework_runner->get_adapter();
 
 			// Create our own migrations table with a 191 string limit to support older versions of MySQL.
 			// Run this before calling the framework runner so it doesn't create it's own.

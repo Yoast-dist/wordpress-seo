@@ -11,7 +11,7 @@ use Yoast\WP\Free\Conditionals\No_Conditionals;
 use Yoast\WP\Free\Loggers\Logger;
 use Yoast\WP\Free\WordPress\Initializer;
 use Yoast\WP\Free\ORM\Yoast_Model;
-use YoastSEO_Vendor\ORM;
+use ORM;
 
 /**
  * Configures the ORM with the database credentials.
@@ -20,9 +20,9 @@ class Database_Setup implements Initializer {
 	use No_Conditionals;
 
 	/**
-	 * @var \YoastSEO_Vendor\Psr\Log\LoggerInterface
-	 */
-	protected $logger;
+  * @var \Psr\Log\LoggerInterface
+  */
+ protected $logger;
 
 	/**
 	 * Database_Setup constructor.

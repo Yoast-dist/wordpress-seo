@@ -58,11 +58,11 @@ class Yoast_Model {
 	public static $auto_prefix_models = '\Yoast\WP\Free\Models\\';
 
 	/**
-	 * Set a logger to use for all models.
-	 *
-	 * @var \YoastSEO_Vendor\Psr\Log\LoggerInterface $logger
-	 */
-	public static $logger;
+  * Set a logger to use for all models.
+  *
+  * @var \Psr\Log\LoggerInterface $logger
+  */
+ public static $logger;
 
 	/**
 	 * Set true to to ignore namespace information when computing table names
@@ -76,11 +76,11 @@ class Yoast_Model {
 	public static $short_table_names = false;
 
 	/**
-	 * The ORM instance used by this model instance to communicate with the database.
-	 *
-	 * @var \YoastSEO_Vendor\ORM $orm
-	 */
-	public $orm;
+  * The ORM instance used by this model instance to communicate with the database.
+  *
+  * @var \ORM $orm
+  */
+ public $orm;
 
 	/**
 	 * The table name for the implemented Model.
@@ -491,13 +491,13 @@ class Yoast_Model {
 	}
 
 	/**
-	 * Set the wrapped ORM instance associated with this Model instance.
-	 *
-	 * @param \YoastSEO_Vendor\ORM $orm The ORM instance to set.
-	 *
-	 * @return void
-	 */
-	public function set_orm( $orm ) {
+  * Set the wrapped ORM instance associated with this Model instance.
+  *
+  * @param \ORM $orm The ORM instance to set.
+  *
+  * @return void
+  */
+ public function set_orm( $orm ) {
 		$this->orm = $orm;
 	}
 

@@ -7,7 +7,7 @@
 
 namespace Yoast\WP\Free;
 
-use YoastSEO_Vendor\Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Class that manages loading integrations if and only if all their conditionals are met.
@@ -29,18 +29,18 @@ class Loader {
 	protected $initializers = [];
 
 	/**
-	 * The dependency injection container.
-	 *
-	 * @var \YoastSEO_Vendor\Symfony\Component\DependencyInjection\ContainerInterface
-	 */
-	protected $container;
+  * The dependency injection container.
+  *
+  * @var \Symfony\Component\DependencyInjection\ContainerInterface
+  */
+ protected $container;
 
 	/**
-	 * Loader constructor.
-	 *
-	 * @param \YoastSEO_Vendor\Symfony\Component\DependencyInjection\ContainerInterface $container The dependency injection container.
-	 */
-	public function __construct( ContainerInterface $container ) {
+  * Loader constructor.
+  *
+  * @param \Symfony\Component\DependencyInjection\ContainerInterface $container The dependency injection container.
+  */
+ public function __construct( ContainerInterface $container ) {
 		$this->container = $container;
 	}
 

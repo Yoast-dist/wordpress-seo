@@ -7,7 +7,7 @@
 
 use Yoast\WP\Free\Config\Dependency_Management;
 use Yoast\WP\Free\Oauth\Client;
-use YoastSEO_Vendor\League\OAuth2\Client\Token\AccessTokenInterface;
+use League\OAuth2\Client\Token\AccessTokenInterface;
 
 if ( ! defined( 'WPSEO_VERSION' ) ) {
 	header( 'Status: 403 Forbidden' );
