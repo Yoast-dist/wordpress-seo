@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability
 Requires at least: 4.9
 Tested up to: 5.2.2
-Stable tag: 12.0-RC1
+Stable tag: 12.0
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -108,20 +108,22 @@ You'll find answers to many of your questions on [kb.yoast.com](https://yoa.st/1
 = 12.0.0 =
 Release Date: September 3rd, 2019
 
-Read more about Yoast SEO 12.0 in [our 12.0 release post](https://yoa.st/release-12-0)!
+Contrary to what the version number might suggest, Yoast SEO 12.0 isn’t a huge release. It’s simply the next release in our current release schedule, but after hitting 11.9 a couple of weeks ago we had no choice but to go for 12.0. That’s how it goes! But don’t worry, there’s enough interesting stuff in this release, including two new checks for the Portuguese language. Read more about Yoast SEO 12.0 in [our 12.0 release post](https://yoa.st/release-12-0)!
 
 Enhancements:
 
 * Adds a filter `wpseo_exclude_from_sitemap_by_term_ids` that allows excluding a term from the XML sitemap.
 * Adds a filter `wpseo_xml_sitemap_include_images` that allows excluding images from the XML sitemap.
-* Adds a maximum width to the metabox. Props [@justemoilouise](https://github.com/justemoilouise).
-* Improves the wording in the configuration wizard notification. Props [@emilyatmobtown](https://github.com/emilyatmobtown).
+* Adds a maximum width to the metabox, props to [@justemoilouise](https://github.com/justemoilouise).
+* Adds support for the assessment that checks whether multiple sentences begin with the same word for Portuguese, props to [amesdigital](https://github.com/amesdigital).
+* Improves the wording in the configuration wizard notification, props to [@emilyatmobtown](https://github.com/emilyatmobtown).
 * Improves user input validation for URLs.
+* Improves the sentence length assessment for Portuguese by increasing the recommended sentence length limit, props to [amesdigital](https://github.com/amesdigital).
 * Updates the document title with a message to communicate form submission errors have occurred.
 
 Bugfixes:
 
-* Fixes a bug where a 404 error would be shown for half of the author sitemaps in case of multiple author sitemaps.
+* Fixes a bug where a 404 error would be shown for the second sitemap (and up) of the author sitemaps in case of multiple author sitemaps.
 
 = 11.9.0 =
 Release Date: August 20th, 2019
