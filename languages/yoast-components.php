@@ -67,6 +67,9 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/analysis-report/ContentAnalysis.js:97
 	__( 'Problems', 'wordpress-seo' ),
 
+	// Reference: node_modules/@yoast/components/Alert.js:127
+	__( 'Dismiss this alert', 'wordpress-seo' ),
+
 	// Reference: node_modules/@yoast/components/ErrorBoundary.js:51
 	__( 'Something went wrong. Please reload the page.', 'wordpress-seo' ),
 
