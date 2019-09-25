@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability
 Requires at least: 4.9
 Tested up to: 5.2.2
-Stable tag: 12.2-RC1
+Stable tag: 12.2-RC2
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -213,6 +213,11 @@ Enhancements:
 Bugfixes:
 
 * Fixes a bug where the banners in the sidebar were no longer responsive.
+
+Other:
+
+* Changes all mentions of the Yoast SEO for WordPress training, which is now free.
+* Combines the 'Newsletter' and 'You might like' steps in the configuration wizard to a step called 'Continue learning'.
 
 = 12.1.0 =
 Release Date: September 17th, 2019
