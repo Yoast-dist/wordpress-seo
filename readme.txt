@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability
 Requires at least: 4.9
 Tested up to: 5.2.2
-Stable tag: 12.2-RC3
+Stable tag: 12.2-RC4
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -208,6 +208,7 @@ Read more about Yoast SEO 12.2 in [our 12.2 release post](https://yoa.st/release
 
 Enhancements:
 
+* Adds default robots meta settings to opt in to all snippet display features, to prevent affected websites in Europe from having snippet display issues.
 * Adds an alert to the configuration wizard and the knowledge graph settings that is shown when organization information is missing.
 
 Bugfixes:
