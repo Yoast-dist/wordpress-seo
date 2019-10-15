@@ -5,8 +5,8 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability
 Requires at least: 4.9
-Tested up to: 5.2.3
-Stable tag: 12.3-RC2
+Tested up to: 5.2.4
+Stable tag: 12.3
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -30,8 +30,8 @@ Yoast SEO does everything in its power to please both visitors and search engine
 * The most advanced XML Sitemaps functionality at the push of a button.
 * Full control over your site's breadcrumbs.
 * Automatically set canonical URLs to avoid duplicate content.
+* **[Premium]** support for our [Yoast SEO Premium](https://yoa.st/1v8) users.
 * **[Premium]** the ability to expand Yoast SEO with the [News SEO](https://yoa.st/1uv), [Video SEO](https://yoa.st/1uw), [Local SEO](https://yoa.st/1uu) and [WooCommerce SEO](https://yoa.st/3rh) extensions.
-* **[Premium]** support for our Yoast SEO Premium users.
 
 #### WRITE KILLER CONTENT WITH YOAST SEO
 We know content is king, that's why Yoast SEO is famous for its readability analysis and its SEO analysis. Yoast SEO gives you:
@@ -211,6 +211,8 @@ Your question has most likely been answered on our knowledge base: [kb.yoast.com
 
 = 12.3.0 =
 Release Date: October 15th, 2019
+
+While some of our checks are independent of languages, Yoast SEO has special skills to adapt the various content analyses to different languages from around the world. In Yoast SEO 12.3, we’re taking the first steps to add another language to the list: Hungarian. In addition, this release features a number of enhancement and fixes. Read [our 12.3 release post](https://yoa.st/release-12-3) to find out more!
 
 Enhancements:
 
