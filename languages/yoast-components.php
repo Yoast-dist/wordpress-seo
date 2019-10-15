@@ -217,19 +217,19 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/search-metadata-previews/snippet-editor/SnippetEditorFields.js:205
 	__( 'Slug', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/FixedWidthContainer.js:132
+	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/FixedWidthContainer.js:133
 	__( 'Scroll to see the preview content.', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:470
+	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:473
 	__( 'Please provide a meta description by editing the snippet below. If you don’t, Google will try to find a relevant part of your post to show in the search results.', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:759
+	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:763
 	__( 'SEO title preview', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:774
+	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:778
 	__( 'Url preview', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:782
+	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:786
 	__( 'Meta description preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/ConnectGoogleSearchConsole.js:367
