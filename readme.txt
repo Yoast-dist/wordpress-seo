@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability
 Requires at least: 4.9
 Tested up to: 5.2.4
-Stable tag: 12.4-RC5
+Stable tag: 12.4
 Requires PHP: 5.2.4
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -212,7 +212,7 @@ Your question has most likely been answered on our knowledge base: [kb.yoast.com
 = 12.4.0 =
 Release Date: October 29th, 2019
 
-Read [our 12.4 release post](https://yoa.st/release-12-4) to find out more!
+After releasing several updates to our snippet preview in previous releases, Yoast SEO 12.4 now shows an image for your post in the mobile snippet preview, just like Google would. We have several other improvements and fixes for you in store with Yoast SEO 12.4. Find out more in [our 12.4 release post](https://yoa.st/release-12-4)!
 
 Enhancements:
 
