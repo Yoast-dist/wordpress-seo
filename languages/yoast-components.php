@@ -223,44 +223,14 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:473
 	__( 'Please provide a meta description by editing the snippet below. If you don’t, Google will try to find a relevant part of your post to show in the search results.', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:763
-	__( 'SEO title preview', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:778
+	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:589
 	__( 'Url preview', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:786
+	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:769
+	__( 'SEO title preview', 'wordpress-seo' ),
+
+	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:788
 	__( 'Meta description preview', 'wordpress-seo' ),
-
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:367
-	__( 'Get Google Authorization Code', 'wordpress-seo' ),
-
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:360
-	__( 'To allow %s to fetch your Google Search Console information, please enter your Google Authorization Code. Clicking the button below will open a new window.', 'wordpress-seo' ),
-
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:348
-	__( 'Reauthenticate with Google', 'wordpress-seo' ),
-
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:323
-	__( 'Authenticate', 'wordpress-seo' ),
-
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:314
-	__( 'Authorization code', 'wordpress-seo' ),
-
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:305
-	__( 'Enter your Google Authorization Code and press the Authenticate button.', 'wordpress-seo' ),
-
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:279
-	__( 'Choose a profile', 'wordpress-seo' ),
-
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:271
-	__( 'Select profile', 'wordpress-seo' ),
-
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:258
-	__( 'There were no profiles found', 'wordpress-seo' ),
-
-	// Reference: js/src/components/ConnectGoogleSearchConsole.js:111
-	__( 'There is an error with the request.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/MailchimpSignup.js:225
 	__( 'Email', 'wordpress-seo' ),
