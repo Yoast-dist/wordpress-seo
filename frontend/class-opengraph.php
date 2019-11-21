@@ -225,7 +225,7 @@ class WPSEO_OpenGraph {
 		 * If the unpaged URL is the same as the normal URL but just with pagination added, use that.
 		 * This makes sure we always use the unpaged URL when we can, but doesn't break for overridden canonicals.
 		 */
-		if ( ! empty( $unpaged_url ) && is_string( $unpaged_url ) && strpos( $url, $unpaged_url ) === 0 ) {
+		if ( is_string( $unpaged_url ) && strpos( $url, $unpaged_url ) === 0 ) {
 			$url = $unpaged_url;
 		}
 
@@ -701,10 +701,10 @@ class WPSEO_OpenGraph {
 
 		$post = get_post();
 
-		$pub = mysql2date( DATE_W3C, $post->post_date_gmt, false );
+		$pub = mysql2date( DATE_W3C, $post->post_date, false );
 		$this->og_tag( 'article:published_time', $pub );
 
-		$mod = mysql2date( DATE_W3C, $post->post_modified_gmt, false );
+		$mod = mysql2date( DATE_W3C, $post->post_modified, false );
 		if ( $mod !== $pub ) {
 			$this->og_tag( 'article:modified_time', $mod );
 			$this->og_tag( 'og:updated_time', $mod );

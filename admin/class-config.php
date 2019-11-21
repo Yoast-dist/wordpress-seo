@@ -65,6 +65,7 @@ class WPSEO_Admin_Pages {
 	 */
 	public function config_page_scripts() {
 		$this->asset_manager->enqueue_script( 'admin-script' );
+		$this->asset_manager->enqueue_script( 'help-center' );
 
 		$page = filter_input( INPUT_GET, 'page' );
 

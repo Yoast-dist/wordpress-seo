@@ -75,4 +75,5 @@ class WPSEO_GSC_Settings {
 		// Return the profile.
 		return trim( $profile, '/' );
 	}
+
 }
