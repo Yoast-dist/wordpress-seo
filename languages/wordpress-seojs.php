@@ -151,6 +151,9 @@ $generated_i18n_strings = array(
 	// Reference: js/src/containers/SnippetEditor.js:105
 	__( 'Please provide a meta description by editing the snippet below.', 'wordpress-seo' ),
 
+	// Reference: js/src/help-scout-beacon.js:177
+	__( 'When you click OK we will load our HelpScout beacon, which will load data from HelpScout. This beacon can potentially also set cookies.', 'wordpress-seo' ),
+
 	// Reference: js/src/structured-data-blocks/faq/block.js:13
 	__( 'List your Frequently Asked Questions in an SEO-friendly way. You can only use one FAQ block per post.', 'wordpress-seo' ),
 
@@ -340,15 +343,6 @@ $generated_i18n_strings = array(
 	__( 'Tag description', 'wordpress-seo' ),
 
 	// Reference: js/src/values/defaultReplaceVariables.js:95
-	__( 'Term description', 'wordpress-seo' ),
-
-	// Reference: js/src/wp-seo-help-center.js:142
-	__( 'Video tutorial', 'wordpress-seo' ),
-
-	// Reference: js/src/wp-seo-help-center.js:154
-	__( 'Knowledge base', 'wordpress-seo' ),
-
-	// Reference: js/src/wp-seo-help-center.js:40
-	__( 'Get support', 'wordpress-seo' )
+	__( 'Term description', 'wordpress-seo' )
 );
 /* THIS IS THE END OF THE GENERATED FILE */
