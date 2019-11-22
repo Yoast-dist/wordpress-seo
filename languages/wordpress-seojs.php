@@ -151,7 +151,7 @@ $generated_i18n_strings = array(
 	// Reference: js/src/containers/SnippetEditor.js:105
 	__( 'Please provide a meta description by editing the snippet below.', 'wordpress-seo' ),
 
-	// Reference: js/src/help-scout-beacon.js:177
+	// Reference: js/src/help-scout-beacon.js:203
 	__( 'When you click OK we will load our HelpScout beacon, which will load data from HelpScout. This beacon can potentially also set cookies.', 'wordpress-seo' ),
 
 	// Reference: js/src/structured-data-blocks/faq/block.js:13
