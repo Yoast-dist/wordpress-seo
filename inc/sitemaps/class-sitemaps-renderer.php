@@ -232,7 +232,7 @@ class WPSEO_Sitemaps_Renderer {
 		$output .= empty( $date ) ? '' : "\t\t<lastmod>" . htmlspecialchars( $date, ENT_COMPAT, $this->output_charset, false ) . "</lastmod>\n";
 
 		if ( empty( $url['images'] ) ) {
-			$url['images'] = [];
+			$url['images'] = array();
 		}
 
 		foreach ( $url['images'] as $img ) {

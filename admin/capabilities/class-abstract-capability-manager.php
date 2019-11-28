@@ -15,7 +15,7 @@ abstract class WPSEO_Abstract_Capability_Manager implements WPSEO_Capability_Man
 	 *
 	 * @var array
 	 */
-	protected $capabilities = [];
+	protected $capabilities = array();
 
 	/**
 	 * Registers a capability.
@@ -81,7 +81,7 @@ abstract class WPSEO_Abstract_Capability_Manager implements WPSEO_Capability_Man
 
 		// Make sure we have the expected type.
 		if ( ! is_array( $filtered ) ) {
-			return [];
+			return array();
 		}
 
 		return $filtered;

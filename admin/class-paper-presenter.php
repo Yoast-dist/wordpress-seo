@@ -39,8 +39,8 @@ class WPSEO_Paper_Presenter {
 	 *                          a view file.
 	 * @param array  $settings  Optional. Settings for the paper.
 	 */
-	public function __construct( $title, $view_file = null, array $settings = [] ) {
-		$defaults = [
+	public function __construct( $title, $view_file = null, array $settings = array() ) {
+		$defaults = array(
 			'paper_id'                 => null,
 			'paper_id_prefix'          => 'wpseo-',
 			'collapsible'              => false,
@@ -50,8 +50,8 @@ class WPSEO_Paper_Presenter {
 			'title_after'              => '',
 			'class'                    => '',
 			'content'                  => '',
-			'view_data'                => [],
-		];
+			'view_data'                => array(),
+		);
 
 		$this->settings  = wp_parse_args( $settings, $defaults );
 		$this->title     = $title;
@@ -93,7 +93,7 @@ class WPSEO_Paper_Presenter {
 			$this->settings['help_text'] = new WPSEO_Admin_Help_Panel( '', '', '' );
 		}
 
-		$view_variables = [
+		$view_variables = array(
 			'class'                    => $this->settings['class'],
 			'collapsible'              => $this->settings['collapsible'],
 			'collapsible_config'       => $this->collapsible_config(),
@@ -105,7 +105,7 @@ class WPSEO_Paper_Presenter {
 			'paper_id'                 => $this->settings['paper_id'],
 			'paper_id_prefix'          => $this->settings['paper_id_prefix'],
 			'yform'                    => Yoast_Form::get_instance(),
-		];
+		);
 
 		return array_merge( $this->settings['view_data'], $view_variables );
 	}
@@ -117,25 +117,25 @@ class WPSEO_Paper_Presenter {
 	 */
 	protected function collapsible_config() {
 		if ( empty( $this->settings['collapsible'] ) ) {
-			return [
+			return array(
 				'toggle_icon' => '',
 				'class'       => '',
 				'expanded'    => '',
-			];
+			);
 		}
 
 		if ( ! empty( $this->settings['expanded'] ) ) {
-			return [
+			return array(
 				'toggle_icon' => 'dashicons-arrow-up-alt2',
 				'class'       => 'toggleable-container',
 				'expanded'    => 'true',
-			];
+			);
 		}
 
-		return [
+		return array(
 			'toggle_icon' => 'dashicons-arrow-down-alt2',
 			'class'       => 'toggleable-container toggleable-container-hidden',
 			'expanded'    => 'false',
-		];
+		);
 	}
 }

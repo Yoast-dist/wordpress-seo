@@ -40,7 +40,7 @@ class WPSEO_Configuration_Options_Adapter {
 	 *
 	 * @var array
 	 */
-	protected $lookup = [];
+	protected $lookup = array();
 
 	/**
 	 * Add a lookup for a WordPress native option.
@@ -96,7 +96,7 @@ class WPSEO_Configuration_Options_Adapter {
 		$this->add_lookup(
 			$class_name,
 			self::OPTION_TYPE_CUSTOM,
-			[ $callback_get, $callback_set ]
+			array( $callback_get, $callback_set )
 		);
 	}
 
@@ -110,10 +110,10 @@ class WPSEO_Configuration_Options_Adapter {
 	 * @throws Exception Thrown when invalid input is provided.
 	 */
 	protected function add_lookup( $class_name, $type, $option ) {
-		$this->lookup[ $class_name ] = [
+		$this->lookup[ $class_name ] = array(
 			'type'   => $type,
 			'option' => $option,
-		];
+		);
 	}
 
 	/**

@@ -51,11 +51,11 @@ class WPSEO_Link_Reindex_Post_Endpoint {
 	 * Register the REST endpoint to WordPress.
 	 */
 	public function register() {
-		$route_args = [
+		$route_args = array(
 			'methods'             => 'GET',
-			'callback'            => [ $this->service, 'reindex' ],
-			'permission_callback' => [ $this, 'can_retrieve_data' ],
-		];
+			'callback'            => array( $this->service, 'reindex' ),
+			'permission_callback' => array( $this, 'can_retrieve_data' ),
+		);
 		register_rest_route( self::REST_NAMESPACE, self::ENDPOINT_QUERY, $route_args );
 	}
 

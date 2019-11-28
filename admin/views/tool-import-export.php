@@ -80,17 +80,17 @@ if ( $import ) {
 	}
 }
 
-$tabs = [
-	'wpseo-import' => [
+$tabs = array(
+	'wpseo-import' => array(
 		'label' => __( 'Import settings', 'wordpress-seo' ),
-	],
-	'wpseo-export' => [
+	),
+	'wpseo-export' => array(
 		'label' => __( 'Export settings', 'wordpress-seo' ),
-	],
-	'import-seo'   => [
+	),
+	'import-seo'   => array(
 		'label' => __( 'Import from other SEO plugins', 'wordpress-seo' ),
-	],
-];
+	),
+);
 
 ?>
 	<br/><br/>

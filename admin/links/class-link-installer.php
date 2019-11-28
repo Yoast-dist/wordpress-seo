@@ -15,16 +15,16 @@ class WPSEO_Link_Installer {
 	 *
 	 * @var WPSEO_Installable[]
 	 */
-	protected $installables = [];
+	protected $installables = array();
 
 	/**
 	 * Sets the installables.
 	 */
 	public function __construct() {
-		$this->installables = [
+		$this->installables = array(
 			new WPSEO_Link_Storage(),
 			new WPSEO_Meta_Storage(),
-		];
+		);
 	}
 
 	/**

@@ -18,9 +18,9 @@ class WPSEO_Plugin_Conflict extends Yoast_Plugin_Conflict {
 	 *
 	 * @var array
 	 */
-	protected $plugins = [
+	protected $plugins = array(
 		// The plugin which are writing OG metadata.
-		'open_graph'   => [
+		'open_graph'   => array(
 			'2-click-socialmedia-buttons/2-click-socialmedia-buttons.php',
 			// 2 Click Social Media Buttons.
 			'add-link-to-facebook/add-link-to-facebook.php',         // Add Link to Facebook.
@@ -60,8 +60,8 @@ class WPSEO_Plugin_Conflict extends Yoast_Plugin_Conflict {
 			'wp-facebook-open-graph-protocol/wp-facebook-ogp.php',   // WP Facebook Open Graph protocol.
 			'wp-ogp/wp-ogp.php',                                     // WP-OGP.
 			'zoltonorg-social-plugin/zosp.php',                      // Zolton.org Social Plugin.
-		],
-		'xml_sitemaps' => [
+		),
+		'xml_sitemaps' => array(
 			'google-sitemap-plugin/google-sitemap-plugin.php',
 			// Google Sitemap (BestWebSoft).
 			'xml-sitemaps/xml-sitemaps.php',
@@ -92,18 +92,18 @@ class WPSEO_Plugin_Conflict extends Yoast_Plugin_Conflict {
 			// Sewn In XML Sitemap (jcow).
 			'rps-sitemap-generator/rps-sitemap-generator.php',
 			// RPS Sitemap Generator (redpixelstudios).
-		],
-		'cloaking' => [
+		),
+		'cloaking' => array(
 			'rs-head-cleaner/rs-head-cleaner.php',
 			// RS Head Cleaner Plus https://wordpress.org/plugins/rs-head-cleaner/.
 			'rs-head-cleaner-lite/rs-head-cleaner-lite.php',
 			// RS Head Cleaner Lite https://wordpress.org/plugins/rs-head-cleaner-lite/.
-		],
-		'seo' => [
+		),
+		'seo' => array(
 			'all-in-one-seo-pack/all_in_one_seo_pack.php',           // All in One SEO Pack.
 			'seo-ultimate/seo-ultimate.php',                         // SEO Ultimate.
-		],
-	];
+		),
+	);
 
 	/**
 	 * Overrides instance to set with this class as class.
@@ -134,7 +134,7 @@ class WPSEO_Plugin_Conflict extends Yoast_Plugin_Conflict {
 			$instance->add_active_plugin( $instance->find_plugin_category( $plugin ), $plugin );
 		}
 
-		$plugin_sections = [];
+		$plugin_sections = array();
 
 		// Only check for open graph problems when they are enabled.
 		if ( WPSEO_Options::get( 'opengraph' ) ) {

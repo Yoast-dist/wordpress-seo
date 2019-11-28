@@ -53,24 +53,24 @@ class WPSEO_Endpoint_File_Size implements WPSEO_Endpoint {
 	 * @return void
 	 */
 	public function register() {
-		$route_args = [
+		$route_args = array(
 			'methods'             => 'GET',
-			'args'                => [
-				'url' => [
+			'args'                => array(
+				'url' => array(
 					'required'    => true,
 					'type'        => 'string',
 					'description' => 'The url to retrieve',
-				],
-			],
-			'callback'            => [
+				),
+			),
+			'callback'            => array(
 				$this->service,
 				'get',
-			],
-			'permission_callback' => [
+			),
+			'permission_callback' => array(
 				$this,
 				'can_retrieve_data',
-			],
-		];
+			),
+		);
 		register_rest_route( self::REST_NAMESPACE, self::ENDPOINT_SINGULAR, $route_args );
 	}
 

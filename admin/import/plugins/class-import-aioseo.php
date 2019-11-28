@@ -29,38 +29,38 @@ class WPSEO_Import_AIOSEO extends WPSEO_Plugin_Importer {
 	 *
 	 * @var array
 	 */
-	protected $import_keys = [
+	protected $import_keys = array(
 		'aioseop_opengraph_settings_title'             => 'opengraph-title',
 		'aioseop_opengraph_settings_desc'              => 'opengraph-description',
 		'aioseop_opengraph_settings_customimg'         => 'opengraph-image',
 		'aioseop_opengraph_settings_customimg_twitter' => 'twitter-image',
-	];
+	);
 
 	/**
 	 * Array of meta keys to detect and import.
 	 *
 	 * @var array
 	 */
-	protected $clone_keys = [
-		[
+	protected $clone_keys = array(
+		array(
 			'old_key' => '_aioseop_title',
 			'new_key' => 'title',
-		],
-		[
+		),
+		array(
 			'old_key' => '_aioseop_description',
 			'new_key' => 'metadesc',
-		],
-		[
+		),
+		array(
 			'old_key' => '_aioseop_noindex',
 			'new_key' => 'meta-robots-noindex',
-			'convert' => [ 'on' => 1 ],
-		],
-		[
+			'convert' => array( 'on' => 1 ),
+		),
+		array(
 			'old_key' => '_aioseop_nofollow',
 			'new_key' => 'meta-robots-nofollow',
-			'convert' => [ 'on' => 1 ],
-		],
-	];
+			'convert' => array( 'on' => 1 ),
+		),
+	);
 
 	/**
 	 * Import All In One SEO meta values.

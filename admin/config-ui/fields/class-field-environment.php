@@ -32,8 +32,8 @@ class WPSEO_Config_Field_Environment extends WPSEO_Config_Field_Choice {
 	public function set_adapter( WPSEO_Configuration_Options_Adapter $adapter ) {
 		$adapter->add_custom_lookup(
 			$this->get_identifier(),
-			[ $this, 'get_data' ],
-			[ $this, 'set_data' ]
+			array( $this, 'get_data' ),
+			array( $this, 'set_data' )
 		);
 	}
 

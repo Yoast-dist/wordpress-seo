@@ -15,7 +15,7 @@ class WPSEO_Configuration_Translations {
 	 *
 	 * @var array
 	 */
-	protected $translations = [];
+	protected $translations = array();
 
 	/**
 	 * The locale.
@@ -58,6 +58,6 @@ class WPSEO_Configuration_Translations {
 			}
 		}
 
-		return [];
+		return array();
 	}
 }

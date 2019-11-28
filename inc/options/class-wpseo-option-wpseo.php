@@ -24,13 +24,11 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 	 *
 	 * @var array
 	 */
-	protected $defaults = [
+	protected $defaults = array(
 		// Non-form fields, set via (ajax) function.
 		'ms_defaults_set'                 => false,
 		// Non-form field, should only be set via validation routine.
 		'version'                         => '', // Leave default as empty to ensure activation/upgrade works.
-		// Non-form field, should be set by dismissing banner.
-		'bf_banner_2019_dismissed'        => false,
 
 		// Form fields.
 		'disableadvanced_meta'            => true,
@@ -50,34 +48,34 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 		'enable_text_link_counter'        => true,
 		'show_onboarding_notice'          => false,
 		'first_activated_on'              => false,
-		'myyoast-oauth'                   => [
-			'config'        => [
+		'myyoast-oauth'                   => array(
+			'config'        => array(
 				'clientId' => null,
 				'secret'   => null,
-			],
-			'access_tokens' => [],
-		],
-	];
+			),
+			'access_tokens' => array(),
+		),
+	);
 
 	/**
 	 * Sub-options which should not be overloaded with multi-site defaults.
 	 *
 	 * @var array
 	 */
-	public $ms_exclude = [
+	public $ms_exclude = array(
 		/* Privacy. */
 		'baiduverify',
 		'googleverify',
 		'msverify',
 		'yandexverify',
-	];
+	);
 
 	/**
 	 * Possible values for the site_type option.
 	 *
 	 * @var array
 	 */
-	protected $site_types = [
+	protected $site_types = array(
 		'',
 		'blog',
 		'shop',
@@ -85,30 +83,30 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 		'smallBusiness',
 		'corporateOther',
 		'personalOther',
-	];
+	);
 
 	/**
 	 * Possible environment types.
 	 *
 	 * @var array
 	 */
-	protected $environment_types = [
+	protected $environment_types = array(
 		'',
 		'production',
 		'staging',
 		'development',
-	];
+	);
 
 	/**
 	 * Possible has_multiple_authors options.
 	 *
 	 * @var array
 	 */
-	protected $has_multiple_authors_options = [
+	protected $has_multiple_authors_options = array(
 		'',
 		true,
 		false,
-	];
+	);
 
 	/**
 	 * Name for an option higher in the hierarchy to override setting access.
@@ -130,10 +128,10 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 		parent::__construct();
 
 		/* Clear the cache on update/add. */
-		add_action( 'add_option_' . $this->option_name, [ 'WPSEO_Utils', 'clear_cache' ] );
-		add_action( 'update_option_' . $this->option_name, [ 'WPSEO_Utils', 'clear_cache' ] );
+		add_action( 'add_option_' . $this->option_name, array( 'WPSEO_Utils', 'clear_cache' ) );
+		add_action( 'update_option_' . $this->option_name, array( 'WPSEO_Utils', 'clear_cache' ) );
 
-		add_filter( 'admin_title', [ 'Yoast_Input_Validation', 'add_yoast_admin_document_title_errors' ] );
+		add_filter( 'admin_title', array( 'Yoast_Input_Validation', 'add_yoast_admin_document_title_errors' ) );
 
 		/**
 		 * Filter the `wpseo` option defaults.
@@ -244,7 +242,6 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 				 * (and don't need to be either as long as the default is false).
 				 */
 				case 'ms_defaults_set':
-				case 'bf_banner_2019_dismissed':
 					if ( isset( $dirty[ $key ] ) ) {
 						$clean[ $key ] = WPSEO_Utils::validate_bool( $dirty[ $key ] );
 					}
@@ -325,13 +322,13 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 	 *
 	 * @return mixed Filtered $options value.
 	 */
-	public function verify_features_against_network( $options = [] ) {
+	public function verify_features_against_network( $options = array() ) {
 		if ( ! is_array( $options ) || empty( $options ) ) {
 			return $options;
 		}
 
 		// For the feature variables, set their values to off in case they are disabled.
-		$feature_vars = [
+		$feature_vars = array(
 			'disableadvanced_meta'       => false,
 			'onpage_indexability'        => false,
 			'content_analysis_active'    => false,
@@ -340,7 +337,7 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 			'enable_cornerstone_content' => false,
 			'enable_xml_sitemap'         => false,
 			'enable_text_link_counter'   => false,
-		];
+		);
 
 		// We can reuse this logic from the base class with the above defaults to parse with the correct feature values.
 		$options = $this->prevent_disabled_options_update( $options, $feature_vars );
@@ -356,11 +353,11 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 	 *               and the third is the hook priority.
 	 */
 	protected function get_verify_features_option_filter_hook() {
-		return [
+		return array(
 			"option_{$this->option_name}",
-			[ $this, 'verify_features_against_network' ],
+			array( $this, 'verify_features_against_network' ),
 			11,
-		];
+		);
 	}
 
 	/**
@@ -370,11 +367,11 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 	 *               and the third is the hook priority.
 	 */
 	protected function get_verify_features_default_option_filter_hook() {
-		return [
+		return array(
 			"default_option_{$this->option_name}",
-			[ $this, 'verify_features_against_network' ],
+			array( $this, 'verify_features_against_network' ),
 			11,
-		];
+		);
 	}
 
 	/**

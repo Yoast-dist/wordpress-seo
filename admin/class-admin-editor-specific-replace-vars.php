@@ -15,37 +15,37 @@ class WPSEO_Admin_Editor_Specific_Replace_Vars {
 	 *
 	 * @var array The editor specific replacement variables.
 	 */
-	protected $replacement_variables = [
+	protected $replacement_variables = array(
 		// Posts types.
-		'page'                     => [ 'id', 'pt_single', 'pt_plural', 'parent_title' ],
-		'post'                     => [ 'id', 'term404', 'pt_single', 'pt_plural' ],
+		'page'                     => array( 'id', 'pt_single', 'pt_plural', 'parent_title' ),
+		'post'                     => array( 'id', 'term404', 'pt_single', 'pt_plural' ),
 		// Custom post type.
-		'custom_post_type'         => [ 'id', 'term404', 'pt_single', 'pt_plural', 'parent_title' ],
+		'custom_post_type'         => array( 'id', 'term404', 'pt_single', 'pt_plural', 'parent_title' ),
 		// Settings - archive pages.
-		'custom-post-type_archive' => [ 'pt_single', 'pt_plural' ],
+		'custom-post-type_archive' => array( 'pt_single', 'pt_plural' ),
 
 		// Taxonomies.
-		'category'                 => [ 'term_title', 'term_description', 'category_description', 'parent_title' ],
-		'post_tag'                 => [ 'term_title', 'term_description', 'tag_description' ],
-		'post_format'              => [],
+		'category'                 => array( 'term_title', 'term_description', 'category_description', 'parent_title' ),
+		'post_tag'                 => array( 'term_title', 'term_description', 'tag_description' ),
+		'post_format'              => array(),
 		// Custom taxonomy.
-		'term-in-custom-taxonomy'  => [ 'term_title', 'term_description', 'category_description', 'parent_title' ],
+		'term-in-custom-taxonomy'  => array( 'term_title', 'term_description', 'category_description', 'parent_title' ),
 
 		// Settings - special pages.
-		'search'                   => [ 'searchphrase' ],
-	];
+		'search'                   => array( 'searchphrase' ),
+	);
 
 	/**
 	 * WPSEO_Admin_Editor_Specific_Replace_Vars constructor.
 	 */
 	public function __construct() {
 		$this->add_for_page_types(
-			[ 'page', 'post', 'custom_post_type' ],
+			array( 'page', 'post', 'custom_post_type' ),
 			WPSEO_Custom_Fields::get_custom_fields()
 		);
 
 		$this->add_for_page_types(
-			[ 'post', 'term-in-custom-taxonomies' ],
+			array( 'post', 'term-in-custom-taxonomies' ),
 			WPSEO_Custom_Taxonomies::get_custom_taxonomies()
 		);
 	}
@@ -188,7 +188,7 @@ class WPSEO_Admin_Editor_Specific_Replace_Vars {
 	 * @return array Extracted names.
 	 */
 	protected function extract_names( $replacement_variables ) {
-		$extracted_names = [];
+		$extracted_names = array();
 
 		foreach ( $replacement_variables as $replacement_variable ) {
 			if ( empty( $replacement_variable['name'] ) ) {

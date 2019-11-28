@@ -29,15 +29,15 @@ class WPSEO_Import_Greg_SEO extends WPSEO_Plugin_Importer {
 	 *
 	 * @var array
 	 */
-	protected $clone_keys = [
-		[
+	protected $clone_keys = array(
+		array(
 			'old_key' => '_ghpseo_alternative_description',
 			'new_key' => 'metadesc',
-		],
-		[
+		),
+		array(
 			'old_key' => '_ghpseo_secondary_title',
 			'new_key' => 'title',
-		],
-	];
+		),
+	);
 
 }

@@ -15,7 +15,7 @@ class WPSEO_Collector {
 	 *
 	 * @var WPSEO_Collection[]
 	 */
-	protected $collections = [];
+	protected $collections = array();
 
 	/**
 	 * Adds a collection object to the collections.
@@ -32,7 +32,7 @@ class WPSEO_Collector {
 	 * @return array The collected data.
 	 */
 	public function collect() {
-		$data = [];
+		$data = array();
 
 		foreach ( $this->collections as $collection ) {
 			$data = array_merge( $data, $collection->get() );

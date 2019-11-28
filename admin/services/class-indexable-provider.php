@@ -15,7 +15,7 @@ abstract class WPSEO_Indexable_Provider implements WPSEO_Indexable_Service_Provi
 	 *
 	 * @var array
 	 */
-	protected $renameable_fields = [];
+	protected $renameable_fields = array();
 
 	/**
 	 * Renames and converts some of the indexable data to its database variant.
