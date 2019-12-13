@@ -152,7 +152,7 @@ $generated_i18n_strings = array(
 	__( 'Please provide a meta description by editing the snippet below.', 'wordpress-seo' ),
 
 	// Reference: js/src/help-scout-beacon.js:203
-	__( 'When you click OK we will load our HelpScout beacon, which will load data from HelpScout. This beacon can potentially also set cookies.', 'wordpress-seo' ),
+	__( 'When you click OK we will open our HelpScout beacon where you can find answers to your questions. This beacon will load our support data and also potentially set cookies.', 'wordpress-seo' ),
 
 	// Reference: js/src/structured-data-blocks/faq/block.js:13
 	__( 'List your Frequently Asked Questions in an SEO-friendly way. You can only use one FAQ block per post.', 'wordpress-seo' ),
