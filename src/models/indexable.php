@@ -44,14 +44,23 @@ use Yoast\WP\Free\ORM\Yoast_Model;
  *
  * @property int     $link_count
  * @property int     $incoming_link_count
+ * @property int     $number_of_pages
  *
  * @property string  $og_title
  * @property string  $og_description
  * @property string  $og_image
+ * @property string  $og_image_id
+ * @property string  $og_image_source
+ * @property string  $og_image_meta
  *
  * @property string  $twitter_title
  * @property string  $twitter_description
  * @property string  $twitter_image
+ * @property string  $twitter_image_id
+ * @property string  $twitter_image_source
+ * @property string  $twitter_card
+ *
+ * @property int     $prominent_words_version
  */
 class Indexable extends Yoast_Model {
 
@@ -63,6 +72,13 @@ class Indexable extends Yoast_Model {
 	protected $uses_timestamps = true;
 
 	/**
+	 * Which columns contain boolean values.
+	 *
+	 * @var array
+	 */
+	protected $boolean_columns = [ 'is_robots_noindex', 'is_robots_nofollow', 'is_robots_noarchive', 'is_robots_noimageindex', 'is_robots_nosnippet' ];
+
+	/**
 	 * The loaded indexable extensions.
 	 *
 	 * @var \Yoast\WP\Free\Models\Indexable_Extension[]
@@ -70,7 +86,7 @@ class Indexable extends Yoast_Model {
 	protected $loaded_extensions = [];
 
 	/**
-	 * Returns an Indexable_Extension by it's name.
+	 * Returns an Indexable_Extension by its name.
 	 *
 	 * @param string $class_name The class name of the extension to load.
 	 *

@@ -12,7 +12,7 @@ use Psr\Log\LoggerTrait;
 use Psr\Log\NullLogger;
 
 /**
- * Creates an instance of a logger object.
+ * Our logger class.
  */
 class Logger implements LoggerInterface {
 	use LoggerTrait;
