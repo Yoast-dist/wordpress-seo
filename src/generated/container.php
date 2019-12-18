@@ -40,11 +40,13 @@ class Cached_Container extends Container
             'yoast\\wp\\free\\commands\\generate_indexables_command' => 'Yoast\\WP\\Free\\Commands\\Generate_Indexables_Command',
             'yoast\\wp\\free\\conditionals\\admin_conditional' => 'Yoast\\WP\\Free\\Conditionals\\Admin_Conditional',
             'yoast\\wp\\free\\conditionals\\front_end_conditional' => 'Yoast\\WP\\Free\\Conditionals\\Front_End_Conditional',
+            'yoast\\wp\\free\\conditionals\\migrations_conditional' => 'Yoast\\WP\\Free\\Conditionals\\Migrations_Conditional',
             'yoast\\wp\\free\\conditionals\\opengraph_conditional' => 'Yoast\\WP\\Free\\Conditionals\\OpenGraph_Conditional',
             'yoast\\wp\\free\\conditionals\\primary_category_conditional' => 'Yoast\\WP\\Free\\Conditionals\\Primary_Category_Conditional',
             'yoast\\wp\\free\\conditionals\\woocommerce_conditional' => 'Yoast\\WP\\Free\\Conditionals\\WooCommerce_Conditional',
             'yoast\\wp\\free\\conditionals\\wpml_conditional' => 'Yoast\\WP\\Free\\Conditionals\\WPML_Conditional',
             'yoast\\wp\\free\\config\\dependency_management' => 'Yoast\\WP\\Free\\Config\\Dependency_Management',
+            'yoast\\wp\\free\\config\\migration_status' => 'Yoast\\WP\\Free\\Config\\Migration_Status',
             'yoast\\wp\\free\\config\\ruckusing_framework' => 'Yoast\\WP\\Free\\Config\\Ruckusing_Framework',
             'yoast\\wp\\free\\context\\meta_tags_context' => 'Yoast\\WP\\Free\\Context\\Meta_Tags_Context',
             'yoast\\wp\\free\\exceptions\\missing_method' => 'Yoast\\WP\\Free\\Exceptions\\Missing_Method',
@@ -187,11 +189,13 @@ class Cached_Container extends Container
             'Yoast\\WP\\Free\\Commands\\Generate_Indexables_Command' => 'getGenerateIndexablesCommandService',
             'Yoast\\WP\\Free\\Conditionals\\Admin_Conditional' => 'getAdminConditionalService',
             'Yoast\\WP\\Free\\Conditionals\\Front_End_Conditional' => 'getFrontEndConditionalService',
+            'Yoast\\WP\\Free\\Conditionals\\Migrations_Conditional' => 'getMigrationsConditionalService',
             'Yoast\\WP\\Free\\Conditionals\\OpenGraph_Conditional' => 'getOpenGraphConditionalService',
             'Yoast\\WP\\Free\\Conditionals\\Primary_Category_Conditional' => 'getPrimaryCategoryConditionalService',
             'Yoast\\WP\\Free\\Conditionals\\WPML_Conditional' => 'getWPMLConditionalService',
             'Yoast\\WP\\Free\\Conditionals\\WooCommerce_Conditional' => 'getWooCommerceConditionalService',
             'Yoast\\WP\\Free\\Config\\Dependency_Management' => 'getDependencyManagementService',
+            'Yoast\\WP\\Free\\Config\\Migration_Status' => 'getMigrationStatusService',
             'Yoast\\WP\\Free\\Config\\Ruckusing_Framework' => 'getRuckusingFrameworkService',
             'Yoast\\WP\\Free\\Context\\Meta_Tags_Context' => 'getMetaTagsContextService',
             'Yoast\\WP\\Free\\Exceptions\\Missing_Method' => 'getMissingMethodService',
@@ -508,6 +512,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\Free\Conditionals\Migrations_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\Free\Conditionals\Migrations_Conditional
+     */
+    protected function getMigrationsConditionalService()
+    {
+        return $this->services['Yoast\\WP\\Free\\Conditionals\\Migrations_Conditional'] = new \Yoast\WP\Free\Conditionals\Migrations_Conditional(${($_ = isset($this->services['Yoast\\WP\\Free\\Config\\Migration_Status']) ? $this->services['Yoast\\WP\\Free\\Config\\Migration_Status'] : ($this->services['Yoast\\WP\\Free\\Config\\Migration_Status'] = new \Yoast\WP\Free\Config\Migration_Status())) && false ?: '_'});
+    }
+
+    /**
      * Gets the public 'Yoast\WP\Free\Conditionals\OpenGraph_Conditional' shared autowired service.
      *
      * @return \Yoast\WP\Free\Conditionals\OpenGraph_Conditional
@@ -555,6 +569,16 @@ class Cached_Container extends Container
     protected function getDependencyManagementService()
     {
         return $this->services['Yoast\\WP\\Free\\Config\\Dependency_Management'] = new \Yoast\WP\Free\Config\Dependency_Management();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\Free\Config\Migration_Status' shared autowired service.
+     *
+     * @return \Yoast\WP\Free\Config\Migration_Status
+     */
+    protected function getMigrationStatusService()
+    {
+        return $this->services['Yoast\\WP\\Free\\Config\\Migration_Status'] = new \Yoast\WP\Free\Config\Migration_Status();
     }
 
     /**
@@ -874,7 +898,7 @@ class Cached_Container extends Container
      */
     protected function getMigrationRunnerService()
     {
-        return $this->services['Yoast\\WP\\Free\\Initializers\\Migration_Runner'] = new \Yoast\WP\Free\Initializers\Migration_Runner(${($_ = isset($this->services['Yoast\\WP\\Free\\Config\\Ruckusing_Framework']) ? $this->services['Yoast\\WP\\Free\\Config\\Ruckusing_Framework'] : $this->getRuckusingFrameworkService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\Free\\Loggers\\Logger']) ? $this->services['Yoast\\WP\\Free\\Loggers\\Logger'] : ($this->services['Yoast\\WP\\Free\\Loggers\\Logger'] = new \Yoast\WP\Free\Loggers\Logger())) && false ?: '_'});
+        return $this->services['Yoast\\WP\\Free\\Initializers\\Migration_Runner'] = new \Yoast\WP\Free\Initializers\Migration_Runner(${($_ = isset($this->services['Yoast\\WP\\Free\\Config\\Migration_Status']) ? $this->services['Yoast\\WP\\Free\\Config\\Migration_Status'] : ($this->services['Yoast\\WP\\Free\\Config\\Migration_Status'] = new \Yoast\WP\Free\Config\Migration_Status())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\Free\\Config\\Ruckusing_Framework']) ? $this->services['Yoast\\WP\\Free\\Config\\Ruckusing_Framework'] : $this->getRuckusingFrameworkService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\Free\\Loggers\\Logger']) ? $this->services['Yoast\\WP\\Free\\Loggers\\Logger'] : ($this->services['Yoast\\WP\\Free\\Loggers\\Logger'] = new \Yoast\WP\Free\Loggers\Logger())) && false ?: '_'});
     }
 
     /**
@@ -964,7 +988,7 @@ class Cached_Container extends Container
      */
     protected function getRedirectsService()
     {
-        return $this->services['Yoast\\WP\\Free\\Integrations\\Front_End\\Redirects'] = new \Yoast\WP\Free\Integrations\Front_End\Redirects(${($_ = isset($this->services['Yoast\\WP\\Free\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\Free\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\Free\\Helpers\\Options_Helper'] = new \Yoast\WP\Free\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\Free\\Helpers\\Meta_Helper']) ? $this->services['Yoast\\WP\\Free\\Helpers\\Meta_Helper'] : ($this->services['Yoast\\WP\\Free\\Helpers\\Meta_Helper'] = new \Yoast\WP\Free\Helpers\Meta_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\Free\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\Free\\Helpers\\Current_Page_Helper'] : $this->getCurrentPageHelperService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\Free\\Integrations\\Front_End\\Redirects'] = new \Yoast\WP\Free\Integrations\Front_End\Redirects(${($_ = isset($this->services['Yoast\\WP\\Free\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\Free\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\Free\\Helpers\\Options_Helper'] = new \Yoast\WP\Free\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\Free\\Helpers\\Meta_Helper']) ? $this->services['Yoast\\WP\\Free\\Helpers\\Meta_Helper'] : ($this->services['Yoast\\WP\\Free\\Helpers\\Meta_Helper'] = new \Yoast\WP\Free\Helpers\Meta_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\Free\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\Free\\Helpers\\Current_Page_Helper'] : $this->getCurrentPageHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\Free\\Helpers\\Redirect_Helper']) ? $this->services['Yoast\\WP\\Free\\Helpers\\Redirect_Helper'] : ($this->services['Yoast\\WP\\Free\\Helpers\\Redirect_Helper'] = new \Yoast\WP\Free\Helpers\Redirect_Helper())) && false ?: '_'});
     }
 
     /**
