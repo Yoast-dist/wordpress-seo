@@ -39,6 +39,7 @@ class Cached_Container extends Container
             'yoast\\wp\\free\\builders\\indexable_term_builder' => 'Yoast\\WP\\Free\\Builders\\Indexable_Term_Builder',
             'yoast\\wp\\free\\commands\\generate_indexables_command' => 'Yoast\\WP\\Free\\Commands\\Generate_Indexables_Command',
             'yoast\\wp\\free\\conditionals\\admin_conditional' => 'Yoast\\WP\\Free\\Conditionals\\Admin_Conditional',
+            'yoast\\wp\\free\\conditionals\\development_conditional' => 'Yoast\\WP\\Free\\Conditionals\\Development_Conditional',
             'yoast\\wp\\free\\conditionals\\front_end_conditional' => 'Yoast\\WP\\Free\\Conditionals\\Front_End_Conditional',
             'yoast\\wp\\free\\conditionals\\migrations_conditional' => 'Yoast\\WP\\Free\\Conditionals\\Migrations_Conditional',
             'yoast\\wp\\free\\conditionals\\opengraph_conditional' => 'Yoast\\WP\\Free\\Conditionals\\OpenGraph_Conditional',
@@ -104,6 +105,7 @@ class Cached_Container extends Container
             'yoast\\wp\\free\\integrations\\watchers\\indexable_term_watcher' => 'Yoast\\WP\\Free\\Integrations\\Watchers\\Indexable_Term_Watcher',
             'yoast\\wp\\free\\integrations\\watchers\\primary_term_watcher' => 'Yoast\\WP\\Free\\Integrations\\Watchers\\Primary_Term_Watcher',
             'yoast\\wp\\free\\loader' => 'Yoast\\WP\\Free\\Loader',
+            'yoast\\wp\\free\\loggers\\database_logger' => 'Yoast\\WP\\Free\\Loggers\\Database_Logger',
             'yoast\\wp\\free\\loggers\\logger' => 'Yoast\\WP\\Free\\Loggers\\Logger',
             'yoast\\wp\\free\\loggers\\migration_logger' => 'Yoast\\WP\\Free\\Loggers\\Migration_Logger',
             'yoast\\wp\\free\\memoizer\\meta_tags_context_memoizer' => 'Yoast\\WP\\Free\\Memoizer\\Meta_Tags_Context_Memoizer',
@@ -188,6 +190,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\Free\\Builders\\Indexable_Term_Builder' => 'getIndexableTermBuilderService',
             'Yoast\\WP\\Free\\Commands\\Generate_Indexables_Command' => 'getGenerateIndexablesCommandService',
             'Yoast\\WP\\Free\\Conditionals\\Admin_Conditional' => 'getAdminConditionalService',
+            'Yoast\\WP\\Free\\Conditionals\\Development_Conditional' => 'getDevelopmentConditionalService',
             'Yoast\\WP\\Free\\Conditionals\\Front_End_Conditional' => 'getFrontEndConditionalService',
             'Yoast\\WP\\Free\\Conditionals\\Migrations_Conditional' => 'getMigrationsConditionalService',
             'Yoast\\WP\\Free\\Conditionals\\OpenGraph_Conditional' => 'getOpenGraphConditionalService',
@@ -253,6 +256,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\Free\\Integrations\\Watchers\\Indexable_Term_Watcher' => 'getIndexableTermWatcherService',
             'Yoast\\WP\\Free\\Integrations\\Watchers\\Primary_Term_Watcher' => 'getPrimaryTermWatcherService',
             'Yoast\\WP\\Free\\Loader' => 'getLoaderService',
+            'Yoast\\WP\\Free\\Loggers\\Database_Logger' => 'getDatabaseLoggerService',
             'Yoast\\WP\\Free\\Loggers\\Logger' => 'getLoggerService',
             'Yoast\\WP\\Free\\Loggers\\Migration_Logger' => 'getMigrationLoggerService',
             'Yoast\\WP\\Free\\Memoizer\\Meta_Tags_Context_Memoizer' => 'getMetaTagsContextMemoizerService',
@@ -499,6 +503,16 @@ class Cached_Container extends Container
     protected function getAdminConditionalService()
     {
         return $this->services['Yoast\\WP\\Free\\Conditionals\\Admin_Conditional'] = new \Yoast\WP\Free\Conditionals\Admin_Conditional();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\Free\Conditionals\Development_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\Free\Conditionals\Development_Conditional
+     */
+    protected function getDevelopmentConditionalService()
+    {
+        return $this->services['Yoast\\WP\\Free\\Conditionals\\Development_Conditional'] = new \Yoast\WP\Free\Conditionals\Development_Conditional();
     }
 
     /**
@@ -1179,8 +1193,19 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\Free\\Integrations\\Watchers\\Indexable_System_Page_Watcher');
         $instance->register_integration('Yoast\\WP\\Free\\Integrations\\Watchers\\Indexable_Term_Watcher');
         $instance->register_integration('Yoast\\WP\\Free\\Integrations\\Watchers\\Primary_Term_Watcher');
+        $instance->register_integration('Yoast\\WP\\Free\\Loggers\\Database_Logger');
 
         return $instance;
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\Free\Loggers\Database_Logger' shared autowired service.
+     *
+     * @return \Yoast\WP\Free\Loggers\Database_Logger
+     */
+    protected function getDatabaseLoggerService()
+    {
+        return $this->services['Yoast\\WP\\Free\\Loggers\\Database_Logger'] = new \Yoast\WP\Free\Loggers\Database_Logger();
     }
 
     /**
