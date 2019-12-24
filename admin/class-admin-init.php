@@ -521,6 +521,18 @@ class WPSEO_Admin_Init {
 				'version'     => '9.4',
 				'alternative' => null,
 			],
+			'wpseo_opengraph'                       => [
+				'version'     => 'xx.x',
+				'alternative' => null,
+			],
+			'wpseo_twitter'                         => [
+				'version'     => 'xx.x',
+				'alternative' => null,
+			],
+			'wpseo_twitter_taxonomy_image'         => [
+				'version'     => 'xx.x',
+				'alternative' => null,
+			],
 		];
 
 		// Determine which filters have been registered.
