@@ -5,7 +5,7 @@
  * @package WPSEO\Migrations
  */
 
-use Yoast\WP\Free\ORM\Yoast_Model;
+use Yoast\WP\SEO\ORM\Yoast_Model;
 use Ruckusing_Migration_Base;
 
 /**
