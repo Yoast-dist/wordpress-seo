@@ -18,8 +18,6 @@ use PhpParser\NodeVisitorAbstract;
 class Remove_Vendor_Prefixing_Array_Key_Visitor extends NodeVisitorAbstract {
 
 	/**
-	 * Removes vendor prefixes from array keys.
-	 *
 	 * @param \PhpParser\Node $node The node being visited.
 	 *
 	 * @return \PhpParser\Node The possibly modified node.

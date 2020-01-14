@@ -17,8 +17,6 @@ use PhpParser\NodeVisitorAbstract;
 class Remove_Vendor_Prefixing_Visitor extends NodeVisitorAbstract {
 
 	/**
-	 * Removes vendor prefixes from use statements.
-	 *
 	 * @param \PhpParser\Node $node The node being visited.
 	 *
 	 * @return \PhpParser\Node The possibly modified node.
