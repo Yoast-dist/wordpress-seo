@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability
 Requires at least: 5.2
 Tested up to: 5.3.2
-Stable tag: 12.8.1-RC1
+Stable tag: 12.8.1-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -214,8 +214,7 @@ Release Date: January 15th, 2020
 
 Bugfixes:
 
-* Fixes a bug introduced in 12.8 where caching of our options would lead to the meta box not showing on new custom post types and taxonomies.
-* Fixes a bug where memory got exhausted on sites with a lot of users when the plugin is activated.
+* Fixes a bug where the Yoast SEO metabox would not be shown on custom post types and taxonomies when the options of our plugin were never saved before.
 
 = 12.8 =
 Release Date: January 7th, 2020
