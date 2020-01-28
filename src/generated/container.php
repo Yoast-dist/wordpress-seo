@@ -332,8 +332,6 @@ class Cached_Container extends Container
         ];
         $this->privates = [
             'Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
-            'WPSEO_Breadcrumbs' => true,
-            'WPSEO_Frontend' => true,
             'WPSEO_Replace_Vars' => true,
             'wpdb' => true,
         ];
@@ -347,8 +345,6 @@ class Cached_Container extends Container
         return [
             'Psr\\Container\\ContainerInterface' => true,
             'Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
-            'WPSEO_Breadcrumbs' => true,
-            'WPSEO_Frontend' => true,
             'WPSEO_Replace_Vars' => true,
             'Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
             'Yoast\\WP\\SEO\\Commands\\Command_Interface' => true,
@@ -371,6 +367,26 @@ class Cached_Container extends Container
         @trigger_error(sprintf('The %s() method is deprecated since Symfony 3.3 and will be removed in 4.0. Use the isCompiled() method instead.', __METHOD__), E_USER_DEPRECATED);
 
         return true;
+    }
+
+    /**
+     * Gets the public 'WPSEO_Breadcrumbs' shared autowired service.
+     *
+     * @return \WPSEO_Breadcrumbs
+     */
+    protected function getWPSEOBreadcrumbsService()
+    {
+        return $this->services['WPSEO_Breadcrumbs'] = new \WPSEO_Breadcrumbs(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizer\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizer\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Presenters\\Breadcrumbs_Presenter']) ? $this->services['Yoast\\WP\\SEO\\Presenters\\Breadcrumbs_Presenter'] : $this->getBreadcrumbsPresenterService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'WPSEO_Frontend' shared autowired service.
+     *
+     * @return \WPSEO_Frontend
+     */
+    protected function getWPSEOFrontendService()
+    {
+        return $this->services['WPSEO_Frontend'] = new \WPSEO_Frontend(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizer\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizer\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
     }
 
     /**
@@ -2129,26 +2145,6 @@ class Cached_Container extends Container
     protected function getWPRewriteWrapperService()
     {
         return $this->services['Yoast\\WP\\SEO\\Wrappers\\WP_Rewrite_Wrapper'] = new \Yoast\WP\SEO\Wrappers\WP_Rewrite_Wrapper();
-    }
-
-    /**
-     * Gets the private 'WPSEO_Breadcrumbs' shared autowired service.
-     *
-     * @return \WPSEO_Breadcrumbs
-     */
-    protected function getWPSEOBreadcrumbsService()
-    {
-        return $this->services['WPSEO_Breadcrumbs'] = new \WPSEO_Breadcrumbs(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizer\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizer\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Presenters\\Breadcrumbs_Presenter']) ? $this->services['Yoast\\WP\\SEO\\Presenters\\Breadcrumbs_Presenter'] : $this->getBreadcrumbsPresenterService()) && false ?: '_'});
-    }
-
-    /**
-     * Gets the private 'WPSEO_Frontend' shared autowired service.
-     *
-     * @return \WPSEO_Frontend
-     */
-    protected function getWPSEOFrontendService()
-    {
-        return $this->services['WPSEO_Frontend'] = new \WPSEO_Frontend(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizer\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizer\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
     }
 
     /**
