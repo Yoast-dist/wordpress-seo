@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability
 Requires at least: 5.2
 Tested up to: 5.3.2
-Stable tag: 13.0-RC1
+Stable tag: 13.0-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -208,6 +208,14 @@ Your question has most likely been answered on our knowledge base: [kb.yoast.com
 6. Easily import SEO data from other SEO plugins like All In One SEO pack, HeadSpace2 SEO and wpSEO.de.
 
 == Changelog ==
+
+= 13.0 =
+Release Date: February 4th, 2020
+
+Enhancements:
+
+* Hides the Facebook settings when Open Graph is disabled.
+* Adds a success state to the paginated comments Health Check. This means the paginated comments check will also be shown when the paginated comments are set up correctly.
 
 = 12.9.1 =
 Release Date: January 21st, 2020
