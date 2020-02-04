@@ -513,7 +513,7 @@ $generated_i18n_strings = array(
 	__( 'Close snippet editor', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/snippetPreview.js:404
-	__( 'Snippet preview', 'wordpress-seo' ),
+	__( 'Google preview', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/snippetPreview.js:405
 	__( 'SEO title preview:', 'wordpress-seo' ),
