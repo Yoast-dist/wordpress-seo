@@ -1700,7 +1700,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Breadcrumbs_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Breadcrumbs_Presenter(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1714,7 +1714,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Canonical_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Canonical_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1728,7 +1728,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Debug\\Marker_Close_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Debug\Marker_Close_Presenter(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())) && false ?: '_'});
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1742,7 +1742,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Debug\\Marker_Open_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Debug\Marker_Open_Presenter(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())) && false ?: '_'});
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1756,7 +1756,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Googlebot_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Googlebot_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1770,7 +1770,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Meta_Description_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Meta_Description_Presenter(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\String_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\String_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\String_Helper'] = new \Yoast\WP\SEO\Helpers\String_Helper())) && false ?: '_'});
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1784,7 +1784,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Article_Author_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Article_Author_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1798,7 +1798,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Article_Modified_Time_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Article_Modified_Time_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1812,7 +1812,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Article_Published_Time_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Article_Published_Time_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1826,7 +1826,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Article_Publisher_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Article_Publisher_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1840,7 +1840,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Description_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Description_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1854,7 +1854,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\FB_App_ID_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\FB_App_ID_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1868,7 +1868,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Image_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Image_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1882,7 +1882,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Locale_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Locale_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1896,7 +1896,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Site_Name_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Site_Name_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1910,7 +1910,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Title_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Title_Presenter(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\String_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\String_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\String_Helper'] = new \Yoast\WP\SEO\Helpers\String_Helper())) && false ?: '_'});
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1924,7 +1924,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Type_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Type_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1938,7 +1938,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Url_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Url_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1952,7 +1952,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Rel_Next_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Rel_Next_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1966,7 +1966,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Rel_Prev_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Rel_Prev_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1980,7 +1980,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Robots_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Robots_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -1994,7 +1994,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Schema_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Schema_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -2008,7 +2008,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Title_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Title_Presenter(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\String_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\String_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\String_Helper'] = new \Yoast\WP\SEO\Helpers\String_Helper())) && false ?: '_'});
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -2022,7 +2022,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Twitter\\Card_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Twitter\Card_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -2036,7 +2036,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Twitter\\Creator_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Twitter\Creator_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -2050,7 +2050,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Twitter\\Description_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Twitter\Description_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -2064,7 +2064,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Twitter\\Image_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Twitter\Image_Presenter(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] = new \Yoast\WP\SEO\Helpers\Url_Helper())) && false ?: '_'});
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -2078,7 +2078,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Twitter\\Site_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Twitter\Site_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
@@ -2092,7 +2092,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Presenters\\Twitter\\Title_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Twitter\Title_Presenter();
 
-        $instance->set_replace_vars_helper(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
