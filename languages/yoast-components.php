@@ -31,25 +31,6 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/components/src/ErrorBoundary.js:51
 	__( 'Something went wrong. Please reload the page.', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/components/src/KeywordSuggestions.js:106
-	// Reference: node_modules/@yoast/components/src/WordOccurrences.js:130
-	__( 'Prominent words', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/components/src/KeywordSuggestions.js:23
-	__( 'Read our %1$sultimate guide to keyword research%2$s to learn more about keyword research and keyword strategy.', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/components/src/KeywordSuggestions.js:50
-	__( 'Once you add a bit more copy, we\'ll give you a list of words that occur the most in the content. These give an indication of what your content focuses on.', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/components/src/KeywordSuggestions.js:57
-	__( 'The following words occur the most in the content. These give an indication of what your content focuses on. If the words differ a lot from your topic, you might want to rewrite your content accordingly. ', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/components/src/KeywordSuggestions.js:67
-	__( 'Once you add a bit more copy, we\'ll give you a list of words and word combinations that occur the most in the content. These give an indication of what your content focuses on.', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/components/src/KeywordSuggestions.js:74
-	__( 'The following words and word combinations occur the most in the content. These give an indication of what your content focuses on. If the words differ a lot from your topic, you might want to rewrite your content accordingly. ', 'wordpress-seo' ),
-
 	// Reference: node_modules/@yoast/components/src/LanguageNotice.js:51
 	__( 'Your site language is set to %s. ', 'wordpress-seo' ),
 
@@ -68,6 +49,18 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/components/src/Toggle.js:146
 	__( 'Off', 'wordpress-seo' ),
 
+	// Reference: node_modules/@yoast/components/src/WordOccurrenceInsights.js:21
+	__( 'Read our %1$sultimate guide to keyword research%2$s to learn more about keyword research and keyword strategy.', 'wordpress-seo' ),
+
+	// Reference: node_modules/@yoast/components/src/WordOccurrenceInsights.js:47
+	__( 'Once you add a bit more copy, we\'ll give you a list of words that occur the most in the content. These give an indication of what your content focuses on.', 'wordpress-seo' ),
+
+	// Reference: node_modules/@yoast/components/src/WordOccurrenceInsights.js:54
+	__( 'The following words occur the most in the content. These give an indication of what your content focuses on. If the words differ a lot from your topic, you might want to rewrite your content accordingly. ', 'wordpress-seo' ),
+
+	// Reference: node_modules/@yoast/components/src/WordOccurrences.js:130
+	__( 'Prominent words', 'wordpress-seo' ),
+
 	// Reference: node_modules/@yoast/components/src/WordOccurrences.js:57
 	__( '%d occurrences', 'wordpress-seo' ),
 
@@ -77,29 +70,26 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestion.js:52
 	__( 'Copy link to suggested article: %s', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:129
-	__( 'This is a list of related content to which you could link in your post. {{a}}Read our article about site structure{{/a}} to learn more about how internal linking can help improve your SEO.', 'wordpress-seo' ),
-
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:174
-	__( 'Consider linking to these {{a}}cornerstone articles:{{/a}}', 'wordpress-seo' ),
-
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:198
-	__( 'Consider linking to these articles:', 'wordpress-seo' ),
-
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:21
+	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:20
 	__( 'We could not find any relevant articles on your website that you could link to from your post.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:24
-	__( 'Once you add a bit more copy, we\'ll give you a list of related content here to which you could link in your post.', 'wordpress-seo' ),
+	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:23
+	__( 'This is a list of related content to which you could link in your post.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:57
+	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:26
+	__( '{{a}}Read our article about site structure{{/a}} to learn more about how internal linking can help improve your SEO.', 'wordpress-seo' ),
+
+	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:31
+	__( 'Consider linking to these {{a}}cornerstone articles:{{/a}}', 'wordpress-seo' ),
+
+	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:33
+	__( 'Consider linking to these articles:', 'wordpress-seo' ),
+
+	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:64
 	__( 'Copied!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:76
+	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:83
 	__( 'Not supported!', 'wordpress-seo' ),
-
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:93
-	__( 'Read {{a}}our article about site structure{{/a}} to learn more about how internal linking can help improve your SEO.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoast-components/composites/Plugin/CornerstoneContent/components/CornerstoneToggle.js:26
 	__( 'Mark as cornerstone content', 'wordpress-seo' ),
