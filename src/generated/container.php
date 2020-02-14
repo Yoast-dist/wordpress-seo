@@ -175,6 +175,8 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\repositories\\primary_term_repository' => 'Yoast\\WP\\SEO\\Repositories\\Primary_Term_Repository',
             'yoast\\wp\\seo\\repositories\\seo_links_repository' => 'Yoast\\WP\\SEO\\Repositories\\SEO_Links_Repository',
             'yoast\\wp\\seo\\repositories\\seo_meta_repository' => 'Yoast\\WP\\SEO\\Repositories\\SEO_Meta_Repository',
+            'yoast\\wp\\seo\\surfaces\\classes_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Classes_Surface',
+            'yoast\\wp\\seo\\surfaces\\current_page_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Current_Page_Surface',
             'yoast\\wp\\seo\\values\\images' => 'Yoast\\WP\\SEO\\Values\\Images',
             'yoast\\wp\\seo\\values\\open_graph\\images' => 'Yoast\\WP\\SEO\\Values\\Open_Graph\\Images',
             'yoast\\wp\\seo\\wrappers\\wp_query_wrapper' => 'Yoast\\WP\\SEO\\Wrappers\\WP_Query_Wrapper',
@@ -332,6 +334,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Repositories\\Primary_Term_Repository' => 'getPrimaryTermRepositoryService',
             'Yoast\\WP\\SEO\\Repositories\\SEO_Links_Repository' => 'getSEOLinksRepositoryService',
             'Yoast\\WP\\SEO\\Repositories\\SEO_Meta_Repository' => 'getSEOMetaRepositoryService',
+            'Yoast\\WP\\SEO\\Surfaces\\Classes_Surface' => 'getClassesSurfaceService',
+            'Yoast\\WP\\SEO\\Surfaces\\Current_Page_Surface' => 'getCurrentPageSurfaceService',
             'Yoast\\WP\\SEO\\Values\\Images' => 'getImagesService',
             'Yoast\\WP\\SEO\\Values\\Open_Graph\\Images' => 'getImages2Service',
             'Yoast\\WP\\SEO\\Wrappers\\WP_Query_Wrapper' => 'getWPQueryWrapperService',
@@ -2151,6 +2155,26 @@ class Cached_Container extends Container
     protected function getSEOMetaRepositoryService()
     {
         return $this->services['Yoast\\WP\\SEO\\Repositories\\SEO_Meta_Repository'] = new \Yoast\WP\SEO\Repositories\SEO_Meta_Repository();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Surfaces\Classes_Surface' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Surfaces\Classes_Surface
+     */
+    protected function getClassesSurfaceService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Surfaces\\Classes_Surface'] = new \Yoast\WP\SEO\Surfaces\Classes_Surface($this);
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Surfaces\Current_Page_Surface' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Surfaces\Current_Page_Surface
+     */
+    protected function getCurrentPageSurfaceService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Surfaces\\Current_Page_Surface'] = new \Yoast\WP\SEO\Surfaces\Current_Page_Surface(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizer\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizer\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'});
     }
 
     /**
