@@ -8,15 +8,15 @@
 namespace Yoast\WP\SEO\Integrations\Front_End;
 
 use Yoast\WP\SEO\Conditionals\Front_End_Conditional;
-use Yoast\WP\SEO\Conditionals\OpenGraph_Conditional;
+use Yoast\WP\SEO\Conditionals\Open_Graph_Conditional;
 use Yoast\WP\SEO\Helpers\Image_Helper;
 use Yoast\WP\SEO\Helpers\Meta_Helper;
 use Yoast\WP\SEO\Integrations\Integration_Interface;
 
 /**
- * Class OpenGraph_OEmbed.
+ * Class Open_Graph_OEmbed.
  */
-class OpenGraph_OEmbed implements Integration_Interface {
+class Open_Graph_OEmbed implements Integration_Interface {
 
 	/**
 	 * The meta helper.
@@ -37,7 +37,7 @@ class OpenGraph_OEmbed implements Integration_Interface {
 	 * @inheritDoc
 	 */
 	public static function get_conditionals() {
-		return [ Front_End_Conditional::class, OpenGraph_Conditional::class ];
+		return [ Front_End_Conditional::class, Open_Graph_Conditional::class ];
 	}
 
 	/**
@@ -49,7 +49,7 @@ class OpenGraph_OEmbed implements Integration_Interface {
 	}
 
 	/**
-	 * OpenGraph_OEmbed constructor.
+	 * Open_Graph_OEmbed constructor.
 	 *
 	 * @codeCoverageIgnore
 	 *
@@ -64,7 +64,7 @@ class OpenGraph_OEmbed implements Integration_Interface {
 	/**
 	 * Callback function to pass to the oEmbed's response data that will enable
 	 * support for using the image and title set by the WordPress SEO plugin's fields. This
-	 * address the concern where some social channels/subscribed use oEmebed data over OpenGraph data
+	 * address the concern where some social channels/subscribed use oEmebed data over Open Graph data
 	 * if both are present.
 	 *
 	 * @param array    $data The oEmbed data.
