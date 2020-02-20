@@ -110,7 +110,6 @@ class WPSEO_Taxonomy_Metabox {
 		}
 
 		$content_sections[] = $this->get_social_meta_section();
-		$content_sections[] = new WPSEO_Metabox_Section_Social();
 
 		return $content_sections;
 	}

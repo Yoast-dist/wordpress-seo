@@ -28,7 +28,7 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/LocalSEOUpsell.js:92
 	__( 'Get the %s plugin now', 'wordpress-seo' ),
 
-	// Reference: js/src/components/Metabox.js:58
+	// Reference: js/src/components/Metabox.js:57
 	// Reference: js/src/components/SnippetPreviewModal.js:53
 	__( 'Google preview', 'wordpress-seo' ),
 
