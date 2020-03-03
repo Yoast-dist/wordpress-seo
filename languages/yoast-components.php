@@ -31,25 +31,6 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/components/ErrorBoundary.js:51
 	__( 'Something went wrong. Please reload the page.', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/components/KeywordSuggestions.js:106
-	// Reference: node_modules/@yoast/components/WordOccurrences.js:130
-	__( 'Prominent words', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/components/KeywordSuggestions.js:23
-	__( 'Read our %1$sultimate guide to keyword research%2$s to learn more about keyword research and keyword strategy.', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/components/KeywordSuggestions.js:50
-	__( 'Once you add a bit more copy, we\'ll give you a list of words that occur the most in the content. These give an indication of what your content focuses on.', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/components/KeywordSuggestions.js:57
-	__( 'The following words occur the most in the content. These give an indication of what your content focuses on. If the words differ a lot from your topic, you might want to rewrite your content accordingly. ', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/components/KeywordSuggestions.js:67
-	__( 'Once you add a bit more copy, we\'ll give you a list of words and word combinations that occur the most in the content. These give an indication of what your content focuses on.', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/components/KeywordSuggestions.js:74
-	__( 'The following words and word combinations occur the most in the content. These give an indication of what your content focuses on. If the words differ a lot from your topic, you might want to rewrite your content accordingly. ', 'wordpress-seo' ),
-
 	// Reference: node_modules/@yoast/components/LanguageNotice.js:51
 	__( 'Your site language is set to %s. ', 'wordpress-seo' ),
 
@@ -67,6 +48,18 @@ $generated_i18n_strings = array(
 
 	// Reference: node_modules/@yoast/components/Toggle.js:146
 	__( 'Off', 'wordpress-seo' ),
+
+	// Reference: node_modules/@yoast/components/WordOccurrenceInsights.js:21
+	__( 'Read our %1$sultimate guide to keyword research%2$s to learn more about keyword research and keyword strategy.', 'wordpress-seo' ),
+
+	// Reference: node_modules/@yoast/components/WordOccurrenceInsights.js:47
+	__( 'Once you add a bit more copy, we\'ll give you a list of words that occur the most in the content. These give an indication of what your content focuses on.', 'wordpress-seo' ),
+
+	// Reference: node_modules/@yoast/components/WordOccurrenceInsights.js:54
+	__( 'The following words occur the most in the content. These give an indication of what your content focuses on. If the words differ a lot from your topic, you might want to rewrite your content accordingly. ', 'wordpress-seo' ),
+
+	// Reference: node_modules/@yoast/components/WordOccurrences.js:130
+	__( 'Prominent words', 'wordpress-seo' ),
 
 	// Reference: node_modules/@yoast/components/WordOccurrences.js:57
 	__( '%d occurrences', 'wordpress-seo' ),
