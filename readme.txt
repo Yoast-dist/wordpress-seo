@@ -5,8 +5,8 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability
 Requires at least: 5.2
-Tested up to: 5.3.2
-Stable tag: 13.3-RC1
+Tested up to: 5.4
+Stable tag: 13.3-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -214,11 +214,20 @@ Release Date: March 17th, 2020
 
 Enhancements:
 
+* Makes sure encoded urls are human readable in forms and output.
 * Adds a `potentialAction` entity to the `WebPage` and `Article` Schema pieces.
+
+Bugfixes:
+
+* Allows percent-encoding in canonical field. Props to [stodorovic](https://github.com/stodorovic).
+* Compares URL percent-encoding as case insensitive. Props to [stodorovic](https://github.com/stodorovic).
 
 Other:
 
-* Changes the cURL Health Check to `critical` instead of `recommended`.
+* Changes cURL Health Check to `critical` instead of `recommended`.
+* Prevents additional sanitation if the URL is already properly encoded. Props to [stodorovic](https://github.com/stodorovic).
+* Requires an absolute path in the URL. If the scheme/host doesn't exist and the path isn't valid then returns an empty string. Props to [stodorovic](https://github.com/stodorovic).
+* Forces percent-encoding of URLs before saving to the database. Props to [stodorovic](https://github.com/stodorovic).
 
 = 13.2 =
 Release Date: March 3rd, 2020
@@ -239,24 +248,3 @@ Enhancements:
 Bugfixes:
 
 * Removes the "Check headers"-tool from the Yoast Admin bar menu, as it is no longer available.
-
-= 13.1 =
-Release Date: February 18th, 2020
-
-Yoast SEO 13.1 is out today! In this plugin, you’ll find several fixes and enhancements, mostly focused at improving our Schema.org structured data implementation. Learn more about the latest versions of Yoast SEO in [our 13.1 release post](https://yoa.st/release-13-1)!
-
-Bugfixes:
-
-* Fixes a bug where the HowTo schema name was incorrectly set to the page title.
-* Fixes a bug where the "force rewrite titles" option would remove the title tag in svg tags. Props to [stodorovic](https://github.com/stodorovic)
-
-Enhancements:
-
-* Sets the Schema HowTo name and Article headline to the post title with a fallback to "No title".
-* Adds the `inLanguage` property to the schema CreativeWork pieces.
-* Removes a duplicate directory from the composer autoload classmap configuration. Props to [szepeviktor](https://github.com/szepeviktor)
-* Improves the copy for the paginated comments Site Health check.
-
-Other:
-
-* Removes the Search Console item from the admin menu and the toolbar menu.
