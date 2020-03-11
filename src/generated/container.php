@@ -2100,7 +2100,7 @@ class Cached_Container extends Container
      */
     protected function getImagePresenter2Service()
     {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Twitter\\Image_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Twitter\Image_Presenter(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] = new \Yoast\WP\SEO\Helpers\Url_Helper())) && false ?: '_'});
+        $this->services['Yoast\\WP\\SEO\\Presenters\\Twitter\\Image_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Twitter\Image_Presenter();
 
         $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
