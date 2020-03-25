@@ -112,7 +112,12 @@ class Author extends Person {
 	 * @return bool|int User ID or false upon return.
 	 */
 	protected function determine_user_id( Meta_Tags_Context $context ) {
-		$user_id = (int) $context->post->post_author;
+		$user_id = 0;
+
+		if ( $context->indexable->object_type === 'post' ) {
+			$user_id = (int) $context->post->post_author;
+		}
+
 		if ( $context->indexable->object_type === 'user' ) {
 			$user_id = $context->indexable->object_id;
 		}
@@ -122,7 +127,13 @@ class Author extends Person {
 		 *
 		 * @api int|bool $user_id The user ID currently determined.
 		 */
-		return apply_filters( 'wpseo_schema_person_user_id', $user_id );
+		$user_id = \apply_filters( 'wpseo_schema_person_user_id', $user_id );
+
+		if ( \is_int( $user_id ) && $user_id > 0 ) {
+			return $user_id;
+		}
+
+		return false;
 	}
 
 	/**
