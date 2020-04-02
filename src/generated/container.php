@@ -101,6 +101,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\initializers\\database_setup' => 'Yoast\\WP\\SEO\\Initializers\\Database_Setup',
             'yoast\\wp\\seo\\initializers\\migration_runner' => 'Yoast\\WP\\SEO\\Initializers\\Migration_Runner',
             'yoast\\wp\\seo\\integrations\\breadcrumbs_integration' => 'Yoast\\WP\\SEO\\Integrations\\Breadcrumbs_Integration',
+            'yoast\\wp\\seo\\integrations\\front_end\\backwards_compatibility' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Backwards_Compatibility',
             'yoast\\wp\\seo\\integrations\\front_end\\category_description' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Category_Description',
             'yoast\\wp\\seo\\integrations\\front_end\\comment_link_fixer' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Comment_Link_Fixer',
             'yoast\\wp\\seo\\integrations\\front_end\\force_rewrite_title' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Force_Rewrite_Title',
@@ -147,35 +148,6 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\presentations\\indexable_static_home_page_presentation' => 'Yoast\\WP\\SEO\\Presentations\\Indexable_Static_Home_Page_Presentation',
             'yoast\\wp\\seo\\presentations\\indexable_static_posts_page_presentation' => 'Yoast\\WP\\SEO\\Presentations\\Indexable_Static_Posts_Page_Presentation',
             'yoast\\wp\\seo\\presentations\\indexable_term_archive_presentation' => 'Yoast\\WP\\SEO\\Presentations\\Indexable_Term_Archive_Presentation',
-            'yoast\\wp\\seo\\presenters\\breadcrumbs_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Breadcrumbs_Presenter',
-            'yoast\\wp\\seo\\presenters\\canonical_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Canonical_Presenter',
-            'yoast\\wp\\seo\\presenters\\debug\\marker_close_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Debug\\Marker_Close_Presenter',
-            'yoast\\wp\\seo\\presenters\\debug\\marker_open_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Debug\\Marker_Open_Presenter',
-            'yoast\\wp\\seo\\presenters\\googlebot_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Googlebot_Presenter',
-            'yoast\\wp\\seo\\presenters\\meta_description_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Meta_Description_Presenter',
-            'yoast\\wp\\seo\\presenters\\open_graph\\article_author_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Article_Author_Presenter',
-            'yoast\\wp\\seo\\presenters\\open_graph\\article_modified_time_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Article_Modified_Time_Presenter',
-            'yoast\\wp\\seo\\presenters\\open_graph\\article_published_time_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Article_Published_Time_Presenter',
-            'yoast\\wp\\seo\\presenters\\open_graph\\article_publisher_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Article_Publisher_Presenter',
-            'yoast\\wp\\seo\\presenters\\open_graph\\description_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Description_Presenter',
-            'yoast\\wp\\seo\\presenters\\open_graph\\fb_app_id_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\FB_App_ID_Presenter',
-            'yoast\\wp\\seo\\presenters\\open_graph\\image_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Image_Presenter',
-            'yoast\\wp\\seo\\presenters\\open_graph\\locale_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Locale_Presenter',
-            'yoast\\wp\\seo\\presenters\\open_graph\\site_name_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Site_Name_Presenter',
-            'yoast\\wp\\seo\\presenters\\open_graph\\title_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Title_Presenter',
-            'yoast\\wp\\seo\\presenters\\open_graph\\type_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Type_Presenter',
-            'yoast\\wp\\seo\\presenters\\open_graph\\url_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Url_Presenter',
-            'yoast\\wp\\seo\\presenters\\rel_next_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Rel_Next_Presenter',
-            'yoast\\wp\\seo\\presenters\\rel_prev_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Rel_Prev_Presenter',
-            'yoast\\wp\\seo\\presenters\\robots_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Robots_Presenter',
-            'yoast\\wp\\seo\\presenters\\schema_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Schema_Presenter',
-            'yoast\\wp\\seo\\presenters\\title_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Title_Presenter',
-            'yoast\\wp\\seo\\presenters\\twitter\\card_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Twitter\\Card_Presenter',
-            'yoast\\wp\\seo\\presenters\\twitter\\creator_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Twitter\\Creator_Presenter',
-            'yoast\\wp\\seo\\presenters\\twitter\\description_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Twitter\\Description_Presenter',
-            'yoast\\wp\\seo\\presenters\\twitter\\image_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Twitter\\Image_Presenter',
-            'yoast\\wp\\seo\\presenters\\twitter\\site_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Twitter\\Site_Presenter',
-            'yoast\\wp\\seo\\presenters\\twitter\\title_presenter' => 'Yoast\\WP\\SEO\\Presenters\\Twitter\\Title_Presenter',
             'yoast\\wp\\seo\\repositories\\indexable_hierarchy_repository' => 'Yoast\\WP\\SEO\\Repositories\\Indexable_Hierarchy_Repository',
             'yoast\\wp\\seo\\repositories\\indexable_repository' => 'Yoast\\WP\\SEO\\Repositories\\Indexable_Repository',
             'yoast\\wp\\seo\\repositories\\primary_term_repository' => 'Yoast\\WP\\SEO\\Repositories\\Primary_Term_Repository',
@@ -270,6 +242,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Initializers\\Database_Setup' => 'getDatabaseSetupService',
             'Yoast\\WP\\SEO\\Initializers\\Migration_Runner' => 'getMigrationRunnerService',
             'Yoast\\WP\\SEO\\Integrations\\Breadcrumbs_Integration' => 'getBreadcrumbsIntegrationService',
+            'Yoast\\WP\\SEO\\Integrations\\Front_End\\Backwards_Compatibility' => 'getBackwardsCompatibilityService',
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\Category_Description' => 'getCategoryDescriptionService',
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\Comment_Link_Fixer' => 'getCommentLinkFixerService',
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\Force_Rewrite_Title' => 'getForceRewriteTitleService',
@@ -316,35 +289,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Presentations\\Indexable_Static_Home_Page_Presentation' => 'getIndexableStaticHomePagePresentationService',
             'Yoast\\WP\\SEO\\Presentations\\Indexable_Static_Posts_Page_Presentation' => 'getIndexableStaticPostsPagePresentationService',
             'Yoast\\WP\\SEO\\Presentations\\Indexable_Term_Archive_Presentation' => 'getIndexableTermArchivePresentationService',
-            'Yoast\\WP\\SEO\\Presenters\\Breadcrumbs_Presenter' => 'getBreadcrumbsPresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Canonical_Presenter' => 'getCanonicalPresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Debug\\Marker_Close_Presenter' => 'getMarkerClosePresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Debug\\Marker_Open_Presenter' => 'getMarkerOpenPresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Googlebot_Presenter' => 'getGooglebotPresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Meta_Description_Presenter' => 'getMetaDescriptionPresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Article_Author_Presenter' => 'getArticleAuthorPresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Article_Modified_Time_Presenter' => 'getArticleModifiedTimePresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Article_Published_Time_Presenter' => 'getArticlePublishedTimePresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Article_Publisher_Presenter' => 'getArticlePublisherPresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Description_Presenter' => 'getDescriptionPresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\FB_App_ID_Presenter' => 'getFBAppIDPresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Image_Presenter' => 'getImagePresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Locale_Presenter' => 'getLocalePresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Site_Name_Presenter' => 'getSiteNamePresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Title_Presenter' => 'getTitlePresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Type_Presenter' => 'getTypePresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Url_Presenter' => 'getUrlPresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Rel_Next_Presenter' => 'getRelNextPresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Rel_Prev_Presenter' => 'getRelPrevPresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Robots_Presenter' => 'getRobotsPresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Schema_Presenter' => 'getSchemaPresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Title_Presenter' => 'getTitlePresenter2Service',
-            'Yoast\\WP\\SEO\\Presenters\\Twitter\\Card_Presenter' => 'getCardPresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Twitter\\Creator_Presenter' => 'getCreatorPresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Twitter\\Description_Presenter' => 'getDescriptionPresenter2Service',
-            'Yoast\\WP\\SEO\\Presenters\\Twitter\\Image_Presenter' => 'getImagePresenter2Service',
-            'Yoast\\WP\\SEO\\Presenters\\Twitter\\Site_Presenter' => 'getSitePresenterService',
-            'Yoast\\WP\\SEO\\Presenters\\Twitter\\Title_Presenter' => 'getTitlePresenter3Service',
             'Yoast\\WP\\SEO\\Repositories\\Indexable_Hierarchy_Repository' => 'getIndexableHierarchyRepositoryService',
             'Yoast\\WP\\SEO\\Repositories\\Indexable_Repository' => 'getIndexableRepositoryService',
             'Yoast\\WP\\SEO\\Repositories\\Primary_Term_Repository' => 'getPrimaryTermRepositoryService',
@@ -380,6 +324,8 @@ class Cached_Container extends Container
             'WPSEO_Replace_Vars' => true,
             'Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
             'Yoast\\WP\\SEO\\Commands\\Command_Interface' => true,
+            'autowired.Yoast\\WP\\SEO\\Presenters\\Breadcrumbs_Presenter' => true,
+            'autowired.Yoast\\WP\\SEO\\Presenters\\Title_Presenter' => true,
             'wpdb' => true,
         ];
     }
@@ -408,7 +354,7 @@ class Cached_Container extends Container
      */
     protected function getWPSEOBreadcrumbsService()
     {
-        return $this->services['WPSEO_Breadcrumbs'] = new \WPSEO_Breadcrumbs(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizer\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizer\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Presenters\\Breadcrumbs_Presenter']) ? $this->services['Yoast\\WP\\SEO\\Presenters\\Breadcrumbs_Presenter'] : $this->getBreadcrumbsPresenterService()) && false ?: '_'});
+        return $this->services['WPSEO_Breadcrumbs'] = new \WPSEO_Breadcrumbs(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizer\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizer\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface']) ? $this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface'] : $this->getHelpersSurfaceService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
     }
 
     /**
@@ -1190,7 +1136,17 @@ class Cached_Container extends Container
      */
     protected function getBreadcrumbsIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Breadcrumbs_Integration'] = new \Yoast\WP\SEO\Integrations\Breadcrumbs_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Presenters\\Breadcrumbs_Presenter']) ? $this->services['Yoast\\WP\\SEO\\Presenters\\Breadcrumbs_Presenter'] : $this->getBreadcrumbsPresenterService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Breadcrumbs_Integration'] = new \Yoast\WP\SEO\Integrations\Breadcrumbs_Integration(new \Yoast\WP\SEO\Presenters\Breadcrumbs_Presenter());
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\Front_End\Backwards_Compatibility' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\Front_End\Backwards_Compatibility
+     */
+    protected function getBackwardsCompatibilityService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Front_End\\Backwards_Compatibility'] = new \Yoast\WP\SEO\Integrations\Front_End\Backwards_Compatibility(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
     }
 
     /**
@@ -1300,7 +1256,7 @@ class Cached_Container extends Container
      */
     protected function getFrontEndIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Front_End_Integration'] = new \Yoast\WP\SEO\Integrations\Front_End_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizer\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizer\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, $this, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Presenters\\Title_Presenter']) ? $this->services['Yoast\\WP\\SEO\\Presenters\\Title_Presenter'] : $this->getTitlePresenter2Service()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Front_End_Integration'] = new \Yoast\WP\SEO\Integrations\Front_End_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizer\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizer\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, $this, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, new \Yoast\WP\SEO\Presenters\Title_Presenter(), ${($_ = isset($this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface']) ? $this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface'] : $this->getHelpersSurfaceService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
     }
 
     /**
@@ -1479,6 +1435,7 @@ class Cached_Container extends Container
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Migration_Runner');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Breadcrumbs_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Backwards_Compatibility');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Category_Description');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Comment_Link_Fixer');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Force_Rewrite_Title');
@@ -1748,412 +1705,6 @@ class Cached_Container extends Container
         $instance->set_generators(${($_ = isset($this->services['Yoast\\WP\\SEO\\Generators\\Schema_Generator']) ? $this->services['Yoast\\WP\\SEO\\Generators\\Schema_Generator'] : $this->getSchemaGeneratorService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Generators\\Open_Graph_Locale_Generator']) ? $this->services['Yoast\\WP\\SEO\\Generators\\Open_Graph_Locale_Generator'] : ($this->services['Yoast\\WP\\SEO\\Generators\\Open_Graph_Locale_Generator'] = new \Yoast\WP\SEO\Generators\Open_Graph_Locale_Generator())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Generators\\Open_Graph_Image_Generator']) ? $this->services['Yoast\\WP\\SEO\\Generators\\Open_Graph_Image_Generator'] : $this->getOpenGraphImageGeneratorService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Generators\\Twitter_Image_Generator']) ? $this->services['Yoast\\WP\\SEO\\Generators\\Twitter_Image_Generator'] : $this->getTwitterImageGeneratorService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Generators\\Breadcrumbs_Generator']) ? $this->services['Yoast\\WP\\SEO\\Generators\\Breadcrumbs_Generator'] : $this->getBreadcrumbsGeneratorService()) && false ?: '_'});
         $instance->set_helpers(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper'] = new \Yoast\WP\SEO\Helpers\Image_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] : $this->getCurrentPageHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] = new \Yoast\WP\SEO\Helpers\Url_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper())) && false ?: '_'});
         $instance->set_archive_adjacent_helpers(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Pagination_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Pagination_Helper'] : $this->getPaginationHelperService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Breadcrumbs_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Breadcrumbs_Presenter
-     */
-    protected function getBreadcrumbsPresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Breadcrumbs_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Breadcrumbs_Presenter(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Canonical_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Canonical_Presenter
-     */
-    protected function getCanonicalPresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Canonical_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Canonical_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Debug\Marker_Close_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Debug\Marker_Close_Presenter
-     */
-    protected function getMarkerClosePresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Debug\\Marker_Close_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Debug\Marker_Close_Presenter(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())) && false ?: '_'});
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Debug\Marker_Open_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Debug\Marker_Open_Presenter
-     */
-    protected function getMarkerOpenPresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Debug\\Marker_Open_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Debug\Marker_Open_Presenter(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())) && false ?: '_'});
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Googlebot_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Googlebot_Presenter
-     */
-    protected function getGooglebotPresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Googlebot_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Googlebot_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Meta_Description_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Meta_Description_Presenter
-     */
-    protected function getMetaDescriptionPresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Meta_Description_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Meta_Description_Presenter(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\String_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\String_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\String_Helper'] = new \Yoast\WP\SEO\Helpers\String_Helper())) && false ?: '_'});
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Open_Graph\Article_Author_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Open_Graph\Article_Author_Presenter
-     */
-    protected function getArticleAuthorPresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Article_Author_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Article_Author_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Open_Graph\Article_Modified_Time_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Open_Graph\Article_Modified_Time_Presenter
-     */
-    protected function getArticleModifiedTimePresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Article_Modified_Time_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Article_Modified_Time_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Open_Graph\Article_Published_Time_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Open_Graph\Article_Published_Time_Presenter
-     */
-    protected function getArticlePublishedTimePresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Article_Published_Time_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Article_Published_Time_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Open_Graph\Article_Publisher_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Open_Graph\Article_Publisher_Presenter
-     */
-    protected function getArticlePublisherPresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Article_Publisher_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Article_Publisher_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Open_Graph\Description_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Open_Graph\Description_Presenter
-     */
-    protected function getDescriptionPresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Description_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Description_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Open_Graph\FB_App_ID_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Open_Graph\FB_App_ID_Presenter
-     */
-    protected function getFBAppIDPresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\FB_App_ID_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\FB_App_ID_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Open_Graph\Image_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Open_Graph\Image_Presenter
-     */
-    protected function getImagePresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Image_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Image_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Open_Graph\Locale_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Open_Graph\Locale_Presenter
-     */
-    protected function getLocalePresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Locale_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Locale_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Open_Graph\Site_Name_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Open_Graph\Site_Name_Presenter
-     */
-    protected function getSiteNamePresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Site_Name_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Site_Name_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Open_Graph\Title_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Open_Graph\Title_Presenter
-     */
-    protected function getTitlePresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Title_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Title_Presenter(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\String_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\String_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\String_Helper'] = new \Yoast\WP\SEO\Helpers\String_Helper())) && false ?: '_'});
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Open_Graph\Type_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Open_Graph\Type_Presenter
-     */
-    protected function getTypePresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Type_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Type_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Open_Graph\Url_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Open_Graph\Url_Presenter
-     */
-    protected function getUrlPresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Open_Graph\\Url_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Open_Graph\Url_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Rel_Next_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Rel_Next_Presenter
-     */
-    protected function getRelNextPresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Rel_Next_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Rel_Next_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Rel_Prev_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Rel_Prev_Presenter
-     */
-    protected function getRelPrevPresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Rel_Prev_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Rel_Prev_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Robots_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Robots_Presenter
-     */
-    protected function getRobotsPresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Robots_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Robots_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Schema_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Schema_Presenter
-     */
-    protected function getSchemaPresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Schema_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Schema_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Title_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Title_Presenter
-     */
-    protected function getTitlePresenter2Service()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Title_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Title_Presenter(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\String_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\String_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\String_Helper'] = new \Yoast\WP\SEO\Helpers\String_Helper())) && false ?: '_'});
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Twitter\Card_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Twitter\Card_Presenter
-     */
-    protected function getCardPresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Twitter\\Card_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Twitter\Card_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Twitter\Creator_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Twitter\Creator_Presenter
-     */
-    protected function getCreatorPresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Twitter\\Creator_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Twitter\Creator_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Twitter\Description_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Twitter\Description_Presenter
-     */
-    protected function getDescriptionPresenter2Service()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Twitter\\Description_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Twitter\Description_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Twitter\Image_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Twitter\Image_Presenter
-     */
-    protected function getImagePresenter2Service()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Twitter\\Image_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Twitter\Image_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Twitter\Site_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Twitter\Site_Presenter
-     */
-    protected function getSitePresenterService()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Twitter\\Site_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Twitter\Site_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Presenters\Twitter\Title_Presenter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Presenters\Twitter\Title_Presenter
-     */
-    protected function getTitlePresenter3Service()
-    {
-        $this->services['Yoast\\WP\\SEO\\Presenters\\Twitter\\Title_Presenter'] = $instance = new \Yoast\WP\SEO\Presenters\Twitter\Title_Presenter();
-
-        $instance->set_replace_vars(${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
 
         return $instance;
     }
