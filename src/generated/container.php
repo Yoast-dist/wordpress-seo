@@ -324,7 +324,6 @@ class Cached_Container extends Container
             'WPSEO_Replace_Vars' => true,
             'Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
             'Yoast\\WP\\SEO\\Commands\\Command_Interface' => true,
-            'autowired.Yoast\\WP\\SEO\\Presenters\\Breadcrumbs_Presenter' => true,
             'autowired.Yoast\\WP\\SEO\\Presenters\\Title_Presenter' => true,
             'wpdb' => true,
         ];
@@ -1136,7 +1135,7 @@ class Cached_Container extends Container
      */
     protected function getBreadcrumbsIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Breadcrumbs_Integration'] = new \Yoast\WP\SEO\Integrations\Breadcrumbs_Integration(new \Yoast\WP\SEO\Presenters\Breadcrumbs_Presenter());
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Breadcrumbs_Integration'] = new \Yoast\WP\SEO\Integrations\Breadcrumbs_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface']) ? $this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface'] : $this->getHelpersSurfaceService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
     }
 
     /**
