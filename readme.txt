@@ -210,11 +210,10 @@ Your question has most likely been answered on our knowledge base: [kb.yoast.com
 == Changelog ==
 
 = 14.0 =
-Release Date: April 14th, 2020
+Release Date: April 28th, 2020
 
 Bugfixes:
 
-* Fixes a bug where a fatal error would be thrown when saving a post while the type was no longer `WP_Post` due to filtering.
 * Fixes a bug where the Open Graph image would be set as Twitter image when Open Graph was disabled.
 * Fixes a bug where the `article:publisher` meta tag would not contain the Person's Facebook account if the Knowledge Graph was set to Person.
 * Fixes a bug where no `title` meta tag would be output when no post or page specific title was specified.
@@ -234,7 +233,6 @@ Enhancements:
 
 Other:
 * Deprecates the following filters: `wpseo_twitter_taxonomy_image`, `wpseo_opengraph`, `wpseo_twitter`, `wpseo_twitter_metatag_key`, `thematic_doctitle`, `woo_title`.
-* Sets minimum supported WordPress version to 5.3.
 
 = 13.5 =
 Release Date: April 14th, 2020
@@ -242,8 +240,10 @@ Release Date: April 14th, 2020
 Bugfixes:
 
 * Fixes a bug where a fatal error would be thrown when saving a post while the type was no longer WP_Post due to filtering.
-* Fixes a bug where .xsl sitemap files would not be cached.
+* Fixes a bug where .xsl site map files would not be cached correctly.
 
+Other:
+* Sets minimum supported WordPress version to 5.3.
 
 = Earlier versions =
 For the changelog of earlier versions, please refer to [the changelog on yoast.com](https://yoa.st/yoast-seo-changelog).
