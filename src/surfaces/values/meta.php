@@ -15,7 +15,6 @@ use Yoast\WP\SEO\Presenters\Abstract_Indexable_Presenter;
 use Yoast\WP\SEO\Surfaces\Helpers_Surface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-
 /**
  * Class Meta
  *
