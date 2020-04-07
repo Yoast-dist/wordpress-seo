@@ -15,14 +15,16 @@ use Yoast\WP\SEO\ORM\Yoast_Model;
  *
  * @package Yoast\WP\SEO\ORM\Repositories
  */
-class SEO_Meta_Repository {
+class SEO_Meta_Repository extends ORMWrapper {
 
 	/**
-	 * Starts a query for this repository.
+	 * Returns the instance of this class constructed through the ORM Wrapper.
 	 *
-	 * @return ORMWrapper
+	 * @return \Yoast\WP\SEO\Repositories\SEO_Meta_Repository
 	 */
-	public function query() {
+	public static function get_instance() {
+		ORMWrapper::$repositories[ Yoast_Model::get_table_name( 'SEO_Meta' ) ] = self::class;
+
 		return Yoast_Model::of_type( 'SEO_Meta' );
 	}
 
@@ -34,8 +36,7 @@ class SEO_Meta_Repository {
 	 * @return \Yoast\WP\SEO\Models\SEO_Meta The SEO meta.
 	 */
 	public function find_by_post_id( $post_id ) {
-		return $this->query()
-					->where( 'object_id', $post_id )
+		return $this->where( 'object_id', $post_id )
 					->find_one();
 	}
 }

@@ -7,13 +7,10 @@
 
 namespace Yoast\WP\SEO\Repositories;
 
-use Cassandra\Index;
-use Psr\Log\LoggerInterface;
-use Yoast\WP\SEO\Builders\Indexable_Builder;
-use Yoast\WP\SEO\Builders\Indexable_Hierarchy_Builder;
-use Yoast\WP\SEO\Helpers\Current_Page_Helper;
+use Yoast\WP\SEO\Builders\Indexable_Author_Builder;
+use Yoast\WP\SEO\Builders\Indexable_Post_Builder;
+use Yoast\WP\SEO\Builders\Indexable_Term_Builder;
 use Yoast\WP\SEO\Loggers\Logger;
-use Yoast\WP\SEO\Models\Indexable;
 use Yoast\WP\SEO\ORM\ORMWrapper;
 use Yoast\WP\SEO\ORM\Yoast_Model;
 
@@ -22,254 +19,71 @@ use Yoast\WP\SEO\ORM\Yoast_Model;
  *
  * @package Yoast\WP\SEO\ORM\Repositories
  */
-class Indexable_Repository {
+class Indexable_Repository extends ORMWrapper {
 
 	/**
-	 * The indexable builder.
-	 *
-	 * @var Indexable_Builder
+	 * @var \Yoast\WP\SEO\Builders\Indexable_Author_Builder
 	 */
-	private $builder;
+	protected $author_builder;
 
 	/**
-	 * Represents the hierarchy repository.
-	 *
-	 * @var Indexable_Hierarchy_Repository
+	 * @var \Yoast\WP\SEO\Builders\Indexable_Post_Builder
 	 */
-	protected $hierarchy_repository;
+	protected $post_builder;
 
 	/**
-	 * The current page helper.
-	 *
-	 * @var Current_Page_Helper
+	 * @var \Yoast\WP\SEO\Builders\Indexable_Term_Builder
 	 */
-	protected $current_page;
+	protected $term_builder;
 
 	/**
-	 * The logger object.
-	 *
-	 * @var LoggerInterface
+	 * @var \Psr\Log\LoggerInterface
 	 */
 	protected $logger;
 
 	/**
 	 * Returns the instance of this class constructed through the ORM Wrapper.
 	 *
-	 * @param Indexable_Builder              $builder              The indexable builder.
-	 * @param Current_Page_Helper            $current_page         The current post helper.
-	 * @param Logger                         $logger               The logger.
-	 * @param Indexable_Hierarchy_Repository $hierarchy_repository The hierarchy repository.
+	 * @param \Yoast\WP\SEO\Builders\Indexable_Author_Builder $author_builder The author builder for creating missing indexables.
+	 * @param \Yoast\WP\SEO\Builders\Indexable_Post_Builder   $post_builder   The post builder for creating missing indexables.
+	 * @param \Yoast\WP\SEO\Builders\Indexable_Term_Builder   $term_builder   The term builder for creating missing indexables.
+	 * @param \Yoast\WP\SEO\Loggers\Logger                    $logger         The logger.
+	 *
+	 * @return \Yoast\WP\SEO\Repositories\Indexable_Repository
 	 */
-	public function __construct(
-		Indexable_Builder $builder,
-		Current_Page_Helper $current_page,
-		Logger $logger,
-		Indexable_Hierarchy_Repository $hierarchy_repository
-
+	public static function get_instance(
+		Indexable_Author_Builder $author_builder,
+		Indexable_Post_Builder $post_builder,
+		Indexable_Term_Builder $term_builder,
+		Logger $logger
 	) {
-		$this->builder              = $builder;
-		$this->current_page         = $current_page;
-		$this->logger               = $logger;
-		$this->hierarchy_repository = $hierarchy_repository;
+		ORMWrapper::$repositories[ Yoast_Model::get_table_name( 'Indexable' ) ] = self::class;
+
+		/**
+		 * @var $instance self
+		 */
+		$instance                 = Yoast_Model::of_type( 'Indexable' );
+		$instance->author_builder = $author_builder;
+		$instance->post_builder   = $post_builder;
+		$instance->term_builder   = $term_builder;
+		$instance->logger         = $logger;
+
+		return $instance;
 	}
 
 	/**
-	 * Starts a query for this repository.
+	 * Retrieves an indexable by it's URL.
 	 *
-	 * @return ORMWrapper
+	 * @param string $url The indexable url.
 	 */
-	public function query() {
-		return Yoast_Model::of_type( 'Indexable' );
-	}
+	public function find_by_url( $url ) {
+		$url      = \trailingslashit( $url );
+		$url_hash = \strlen( $url ) . ':' . \md5( $url );
 
-	/**
-	 * Attempts to find the indexable for the current WordPress page. Returns false if no indexable could be found.
-	 * This may be the result of the indexable not existing or of being unable to determine what type of page the
-	 * current page is.
-	 *
-	 * @return bool|Indexable The indexable, false if none could be found.
-	 */
-	public function for_current_page() {
-		switch ( true ) {
-			case $this->current_page->is_simple_page():
-				return $this->find_by_id_and_type( $this->current_page->get_simple_page_id(), 'post' );
-			case $this->current_page->is_home_static_page():
-				return $this->find_by_id_and_type( $this->current_page->get_front_page_id(), 'post' );
-			case $this->current_page->is_home_posts_page():
-				return $this->find_for_home_page();
-			case $this->current_page->is_term_archive():
-				return $this->find_by_id_and_type( $this->current_page->get_term_id(), 'term' );
-			case $this->current_page->is_date_archive():
-				return $this->find_for_date_archive();
-			case $this->current_page->is_search_result():
-				return $this->find_for_system_page( 'search-result' );
-			case $this->current_page->is_post_type_archive():
-				return $this->find_for_post_type_archive( $this->current_page->get_queried_post_type() );
-			case $this->current_page->is_author_archive():
-				return $this->find_by_id_and_type( $this->current_page->get_author_id(), 'user' );
-			case $this->current_page->is_404():
-				return $this->find_for_system_page( '404' );
-		}
-
-		return $this->query()->create( [ 'object_type' => 'unknown' ] );
-	}
-
-	/**
-	 * Retrieves an indexable by its permalink.
-	 *
-	 * @param string $permalink The indexable permalink.
-	 *
-	 * @return bool|Indexable The indexable, false if none could be found.
-	 */
-	public function find_by_permalink( $permalink ) {
-		$permalink      = \trailingslashit( $permalink );
-		$permalink_hash = \strlen( $permalink ) . ':' . \md5( $permalink );
-
-		// Find by both permalink_hash and permalink, permalink_hash is indexed so will be used first by the DB to optimize the query.
-		return $this->query()
-					->where( 'permalink_hash', $permalink_hash )
-					->where( 'permalink', $permalink )
+		// Find by both url_hash and url, url_hash is indexed so will be used first by the DB to optimize the query.
+		return $this->where( 'url_hash', $url_hash )
+					->where( 'url', $url )
 					->find_one();
-	}
-
-	/**
-	 * Retrieves all the indexable instances of a certain object type.
-	 *
-	 * @param string $object_type The object type.
-	 *
-	 * @return Indexable[] The array with all the indexable instances of a certain object type.
-	 */
-	public function find_all_with_type( $object_type ) {
-		/**
-		 * The array with all the indexable instances of a certain object type.
-		 *
-		 * @var Indexable[] $indexables
-		 */
-		$indexables = $this
-			->query()
-			->where( 'object_type', $object_type )
-			->find_many();
-
-		return $indexables;
-	}
-
-	/**
-	 * Retrieves all the indexable instances of a certain object subtype.
-	 *
-	 * @param string $object_type     The object type.
-	 * @param string $object_sub_type The object subtype.
-	 *
-	 * @return Indexable[] The array with all the indexable instances of a certain object subtype.
-	 */
-	public function find_all_with_type_and_sub_type( $object_type, $object_sub_type ) {
-		/**
-		 * The array with all the indexable instances of a certain object type and subtype.
-		 *
-		 * @var Indexable[] $indexables
-		 */
-		$indexables = $this
-			->query()
-			->where( 'object_type', $object_type )
-			->where( 'object_sub_type', $object_sub_type )
-			->find_many();
-
-		return $indexables;
-	}
-
-	/**
-	 * Retrieves the homepage indexable.
-	 *
-	 * @param bool $auto_create Optional. Create the indexable if it does not exist.
-	 *
-	 * @return bool|Indexable Instance of indexable.
-	 */
-	public function find_for_home_page( $auto_create = true ) {
-		/**
-		 * Indexable instance.
-		 *
-		 * @var Indexable $indexable
-		 */
-		$indexable = $this->query()->where( 'object_type', 'home-page' )->find_one();
-
-		if ( $auto_create && ! $indexable ) {
-			$indexable = $this->builder->build_for_home_page();
-		}
-
-		return $indexable;
-	}
-
-	/**
-	 * Retrieves the date archive indexable.
-	 *
-	 * @param bool $auto_create Optional. Create the indexable if it does not exist.
-	 *
-	 * @return bool|Indexable Instance of indexable.
-	 */
-	public function find_for_date_archive( $auto_create = true ) {
-		/**
-		 * Indexable instance.
-		 *
-		 * @var Indexable $indexable
-		 */
-		$indexable = $this->query()->where( 'object_type', 'date-archive' )->find_one();
-
-		if ( $auto_create && ! $indexable ) {
-			$indexable = $this->builder->build_for_date_archive();
-		}
-
-		return $indexable;
-	}
-
-	/**
-	 * Retrieves an indexable for a post type archive.
-	 *
-	 * @param string $post_type   The post type.
-	 * @param bool   $auto_create Optional. Create the indexable if it does not exist.
-	 *
-	 * @return bool|Indexable The indexable, false if none could be found.
-	 */
-	public function find_for_post_type_archive( $post_type, $auto_create = true ) {
-		/**
-		 * Indexable instance.
-		 *
-		 * @var Indexable $indexable
-		 */
-		$indexable = $this->query()
-						  ->where( 'object_type', 'post-type-archive' )
-						  ->where( 'object_sub_type', $post_type )
-						  ->find_one();
-
-		if ( $auto_create && ! $indexable ) {
-			$indexable = $this->builder->build_for_post_type_archive( $post_type );
-		}
-
-		return $indexable;
-	}
-
-	/**
-	 * Retrieves the indexable for a system page.
-	 *
-	 * @param string $object_sub_type The type of system page.
-	 * @param bool   $auto_create     Optional. Create the indexable if it does not exist.
-	 *
-	 * @return bool|Indexable Instance of indexable.
-	 */
-	public function find_for_system_page( $object_sub_type, $auto_create = true ) {
-		/**
-		 * Indexable instance.
-		 *
-		 * @var Indexable $indexable
-		 */
-		$indexable = $this->query()
-						  ->where( 'object_type', 'system-page' )
-						  ->where( 'object_sub_type', $object_sub_type )
-						  ->find_one();
-
-		if ( $auto_create && ! $indexable ) {
-			$indexable = $this->builder->build_for_system_page( $object_sub_type );
-		}
-
-		return $indexable;
 	}
 
 	/**
@@ -279,16 +93,15 @@ class Indexable_Repository {
 	 * @param string $object_type The indexable object type.
 	 * @param bool   $auto_create Optional. Create the indexable if it does not exist.
 	 *
-	 * @return bool|Indexable Instance of indexable.
+	 * @return bool|\Yoast\WP\SEO\Models\Indexable Instance of indexable.
 	 */
 	public function find_by_id_and_type( $object_id, $object_type, $auto_create = true ) {
-		$indexable = $this->query()
-						  ->where( 'object_id', $object_id )
-						  ->where( 'object_type', $object_type )
-						  ->find_one();
+		$indexable = $this->where( 'object_id', $object_id )
+			->where( 'object_type', $object_type )
+			->find_one();
 
 		if ( $auto_create && ! $indexable ) {
-			$indexable = $this->builder->build_for_id_and_type( $object_id, $object_type );
+			$indexable = $this->create_for_id_and_type( $object_id, $object_type );
 		}
 
 		return $indexable;
@@ -301,29 +114,20 @@ class Indexable_Repository {
 	 * @param string $object_type The indexable object type.
 	 * @param bool   $auto_create Optional. Create the indexable if it does not exist.
 	 *
-	 * @return Indexable[] An array of indexables.
+	 * @return \Yoast\WP\SEO\Models\Indexable[] An array of indexables.
 	 */
 	public function find_by_multiple_ids_and_type( $object_ids, $object_type, $auto_create = true ) {
-		/**
-		 * Represents an array of indexable objects.
-		 *
-		 * @var Indexable[] $indexables
-		 */
-		$indexables = $this->query()
-						   ->where_in( 'object_id', $object_ids )
-						   ->where( 'object_type', $object_type )
-						   ->find_many();
+		$indexables = $this
+			->where_in( 'object_id', $object_ids )
+			->where( 'object_type', $object_type )
+			->find_many();
 
 		if ( $auto_create ) {
-			$indexables_available = [];
-			foreach ( $indexables as $indexable ) {
-				$indexables_available[] = $indexable->object_id;
-			}
-
+			$indexables_available = \array_column( $indexables, 'object_id' );
 			$indexables_to_create = \array_diff( $object_ids, $indexables_available );
 
 			foreach ( $indexables_to_create as $indexable_to_create ) {
-				$indexable = $this->builder->build_for_id_and_type( $indexable_to_create, $object_type );
+				$indexable = $this->create_for_id_and_type( $indexable_to_create, $object_type );
 				$indexable->save();
 
 				$indexables[] = $indexable;
@@ -334,31 +138,45 @@ class Indexable_Repository {
 	}
 
 	/**
-	 * Returns all ancestors of a given indexable.
+	 * Creates an indexable by its ID and type.
 	 *
-	 * @param Indexable $indexable The indexable to find the ancestors of.
+	 * @param int    $object_id   The indexable object ID.
+	 * @param string $object_type The indexable object type.
 	 *
-	 * @return Indexable[] All ancestors of the given indexable.
+	 * @return bool|\Yoast\WP\SEO\Models\Indexable Instance of indexable.
 	 */
-	public function get_ancestors( Indexable $indexable ) {
-		$ancestors = $this->hierarchy_repository->find_ancestors( $indexable );
+	public function create_for_id_and_type( $object_id, $object_type ) {
+		/**
+		 * Indexable instance.
+		 *
+		 * @var \Yoast\WP\SEO\Models\Indexable $indexable
+		 */
+		$indexable              = $this->create();
+		$indexable->object_id   = $object_id;
+		$indexable->object_type = $object_type;
 
-		if ( empty( $ancestors ) ) {
-			return [];
+		switch ( $object_type ) {
+			case 'post':
+				$indexable = $this->post_builder->build( $object_id, $indexable );
+				break;
+			case 'user':
+				$indexable = $this->author_builder->build( $object_id, $indexable );
+				break;
+			case 'term':
+				$indexable = $this->term_builder->build( $object_id, $indexable );
+				break;
 		}
 
-		$indexables = [];
-		foreach ( $ancestors as $ancestor ) {
-			$indexables[] = $ancestor->ancestor_id;
-		}
+		$this->logger->debug(
+			\sprintf(
+				/* translators: 1: object ID; 2: object type. */
+				\__( 'Indexable created for object %1$s with type %2$s', 'wordpress-seo' ),
+				$object_id,
+				$object_type
+			),
+			\get_object_vars( $indexable )
+		);
 
-		if ( $indexables[0] === 0 && \count( $indexables ) === 1 ) {
-			return [];
-		}
-
-		return $this->query()
-			->where_in( 'id', $indexables )
-			->order_by_expr( 'FIELD(id,' . \implode( ',', $indexables ) . ')' )
-			->find_many();
+		return $indexable;
 	}
 }

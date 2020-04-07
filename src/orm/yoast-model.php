@@ -97,20 +97,6 @@ class Yoast_Model {
 	protected $uses_timestamps = false;
 
 	/**
-	 * Which columns contain boolean values.
-	 *
-	 * @var array
-	 */
-	protected $boolean_columns = [];
-
-	/**
-	 * Which columns contain int values.
-	 *
-	 * @var array
-	 */
-	protected $int_columns = [];
-
-	/**
 	 * Hacks around the Model to provide WordPress prefix to tables.
 	 *
 	 * @param string $class_name   Type of Model to load.
@@ -523,16 +509,7 @@ class Yoast_Model {
 	 * @return null|string The value of the property
 	 */
 	public function __get( $property ) {
-		$value = $this->orm->get( $property );
-
-		if ( $value !== null && \in_array( $property, $this->boolean_columns, true ) ) {
-			return (bool) $value;
-		}
-		if ( $value !== null && \in_array( $property, $this->int_columns, true ) ) {
-			return (int) $value;
-		}
-
-		return $value;
+		return $this->orm->get( $property );
 	}
 
 	/**
@@ -544,13 +521,6 @@ class Yoast_Model {
 	 * @return void
 	 */
 	public function __set( $property, $value ) {
-		if ( $value !== null && \in_array( $property, $this->boolean_columns, true ) ) {
-			$value = ( $value ) ? '1' : '0';
-		}
-		if ( $value !== null && \in_array( $property, $this->int_columns, true ) ) {
-			$value = (string) $value;
-		}
-
 		$this->orm->set( $property, $value );
 	}
 

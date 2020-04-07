@@ -25,11 +25,11 @@ class WPSEO_Admin_Editor_Specific_Replace_Vars {
 		'custom-post-type_archive' => [ 'pt_single', 'pt_plural' ],
 
 		// Taxonomies.
-		'category'                 => [ 'term_title', 'term_description', 'category_description', 'parent_title', 'term_hierarchy' ],
+		'category'                 => [ 'term_title', 'term_description', 'category_description', 'parent_title' ],
 		'post_tag'                 => [ 'term_title', 'term_description', 'tag_description' ],
 		'post_format'              => [],
 		// Custom taxonomy.
-		'term-in-custom-taxonomy'  => [ 'term_title', 'term_description', 'category_description', 'parent_title', 'term_hierarchy' ],
+		'term-in-custom-taxonomy'  => [ 'term_title', 'term_description', 'category_description', 'parent_title' ],
 
 		// Settings - special pages.
 		'search'                   => [ 'searchphrase' ],
@@ -45,7 +45,7 @@ class WPSEO_Admin_Editor_Specific_Replace_Vars {
 		);
 
 		$this->add_for_page_types(
-			[ 'post', 'term-in-custom-taxonomy' ],
+			[ 'post', 'term-in-custom-taxonomies' ],
 			WPSEO_Custom_Taxonomies::get_custom_taxonomies()
 		);
 	}
