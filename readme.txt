@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability
 Requires at least: 5.3
 Tested up to: 5.4
-Stable tag: 13.5-RC1
+Stable tag: 14.0-RC3
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -209,6 +209,31 @@ Your question has most likely been answered on our knowledge base: [kb.yoast.com
 
 == Changelog ==
 
+= 14.0 =
+Release Date: April 28th, 2020
+
+Bugfixes:
+
+* Fixes a bug where the Open Graph image would be set as Twitter image when Open Graph was disabled.
+* Fixes a bug where the `article:publisher` meta tag would not contain the Person's Facebook account if the Knowledge Graph was set to Person.
+* Fixes a bug where no `title` meta tag would be output when no post or page specific title was specified.
+* Fixes a bug where the date archive description from the Search Appearance settings would not be used for the `og:description` meta tag.
+* Fixes a bug where a notice would be thrown when a field in the FAQ or HowTo block was left empty.
+
+Enhancements:
+
+* No longer outputs the `og:type` meta tag on 404 pages.
+* No longer outputs a `twitter:title`, `twitter:image` and/or `twitter:description` meta tag if/when there is already an `og:title`, `og:image` and/or `og:description` meta tag specified in the frontend output and they’re not specifically set to something else.
+* No longer outputs an `article:section` and `article:tag` meta tag as none of the Open Graph consumers seems to use it.
+* No longer outputs an `og:updated_time` as it was the same as `article:modified_time` and all Open Graph consumers seem to prefer that.
+* No longer outputs an `og:image:secure_url` meta tag, because it would always be output next to a similar og:image tag.
+* Strips all tags from text fields in the schema output.
+* Adds `Term hierarchy` as a taxonomy snippet variable.
+* Uses the Gravatar image as a fallback for author archive's `og:image` and `twitter:image`.
+
+Other:
+* Deprecates the following filters: `wpseo_twitter_taxonomy_image`, `wpseo_opengraph`, `wpseo_twitter`, `wpseo_twitter_metatag_key`, `thematic_doctitle`, `woo_title`.
+
 = 13.5 =
 Release Date: April 14th, 2020
 
@@ -219,16 +244,6 @@ Bugfixes:
 
 Other:
 * Sets minimum supported WordPress version to 5.3.
-
-= 13.4 =
-Release Date: March 31st, 2020
-
-In Yoast SEO 9.0, we launched an innovative new way to analyze your English language text using word forms. In Yoast SEO 10.1, we added word form support for the German language. Today, we’re glad to announce word form support for Dutch. You can read why this is such an awesome addition in [our 13.4 release post](https://yoa.st/release-13-4)!
-
-Bugfixes:
-
-* Fixes a bug where the host part of URLs could contain reserved characters, like spaces and brackets. Props to [stodorovic](https://github.com/stodorovic)
-* Fixes a bug where form fields were validated inconsistently.
 
 = Earlier versions =
 For the changelog of earlier versions, please refer to [the changelog on yoast.com](https://yoa.st/yoast-seo-changelog).
