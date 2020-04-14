@@ -80,6 +80,7 @@ class WPSEO_Tracking_Settings_Data implements WPSEO_Collection {
 		'company_name',
 		'company_or_person',
 		'person_name',
+		'title_test',
 		'forcerewritetitle',
 		'separator',
 		'title-home-wpseo',

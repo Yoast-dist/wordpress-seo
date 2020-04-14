@@ -24,15 +24,4 @@ class SEO_Meta extends Yoast_Model {
 	 * @var string
 	 */
 	public static $id_column = 'object_id';
-
-	/**
-	 * Which columns contain int values.
-	 *
-	 * @var array
-	 */
-	protected $int_columns = [
-		'object_id',
-		'internal_link_count',
-		'incoming_link_count',
-	];
 }
