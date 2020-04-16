@@ -28,10 +28,6 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/LocalSEOUpsell.js:92
 	__( 'Get the %s plugin now', 'wordpress-seo' ),
 
-	// Reference: js/src/components/Metabox.js:58
-	// Reference: js/src/components/SnippetPreviewModal.js:53
-	__( 'Google preview', 'wordpress-seo' ),
-
 	// Reference: js/src/components/PrimaryTaxonomyFilter.js:80
 	__( 'An error occurred loading the %s primary taxonomy picker.', 'wordpress-seo' ),
 
@@ -43,6 +39,10 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/components/SettingsReplacementVariableEditor.js:35
 	__( 'Modify your meta description by editing it right here', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SnippetPreviewModal.js:53
+	// Reference: js/src/components/fills/MetaboxFill.js:56
+	__( 'Google preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SnippetPreviewModal.js:59
 	// Reference: js/src/components/modals/Modal.js:78
@@ -73,14 +73,14 @@ $generated_i18n_strings = array(
 	// Reference: js/src/values/defaultReplaceVariables.js:50
 	__( 'Focus keyphrase', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:54
+	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:55
 	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:238
 	__( 'Analysis results', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:60
+	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:61
 	__( 'Learn more about the readability analysis', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:95
+	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:96
 	__( 'Readability analysis', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:105
@@ -146,10 +146,16 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/modals/MultipleKeywords.js:20
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
 
+	// Reference: js/src/components/social/SocialUpsell.js:20
+	__( 'Find out why you should upgrade to %s', 'wordpress-seo' ),
+
+	// Reference: js/src/components/social/SocialUpsell.js:35
+	__( 'Do you want to preview what it will look like if people share this post on %s? You can, with %s.', 'wordpress-seo' ),
+
 	// Reference: js/src/containers/SnippetEditor.js:107
 	__( 'Please provide a meta description by editing the snippet below.', 'wordpress-seo' ),
 
-	// Reference: js/src/help-scout-beacon.js:203
+	// Reference: js/src/help-scout-beacon.js:208
 	__( 'When you click OK we will open our HelpScout beacon where you can find answers to your questions. This beacon will load our support data and also potentially set cookies.', 'wordpress-seo' ),
 
 	// Reference: js/src/structured-data-blocks/faq/block.js:23
