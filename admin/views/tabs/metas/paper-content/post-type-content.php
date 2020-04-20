@@ -17,10 +17,10 @@ $paper_style  = false;
 /* translators: %s is the singular version of the post type's name. */
 echo '<h3>' . esc_html( sprintf( __( 'Settings for single %s URLs', 'wordpress-seo' ), $wpseo_post_type->labels->singular_name ) ) . '</h3>';
 
-require dirname( __FILE__ ) . '/post_type/post-type.php';
+require __DIR__ . '/post_type/post-type.php';
 
 if ( $wpseo_post_type->name === 'product' && WPSEO_Utils::is_woocommerce_active() ) {
-	require dirname( __FILE__ ) . '/post_type/woocommerce-shop-page.php';
+	require __DIR__ . '/post_type/woocommerce-shop-page.php';
 
 	return;
 }
@@ -31,8 +31,6 @@ if ( WPSEO_Post_Type::has_archive( $wpseo_post_type ) ) {
 	/* translators: %s is the plural version of the post type's name. */
 	echo '<h3>' . esc_html( sprintf( __( 'Settings for %s archive', 'wordpress-seo' ), $plural_label ) ) . '</h3>';
 
-	$custom_post_type_archive_help = $view_utils->search_results_setting_help( $wpseo_post_type, 'archive' );
-
 	$yform->index_switch(
 		'noindex-ptarchive-' . $wpseo_post_type->name,
 		sprintf(
@@ -40,7 +38,7 @@ if ( WPSEO_Post_Type::has_archive( $wpseo_post_type ) ) {
 			__( 'the archive for %s', 'wordpress-seo' ),
 			$plural_label
 		),
-		$custom_post_type_archive_help->get_button_html() . $custom_post_type_archive_help->get_panel_html()
+		$view_utils->search_results_setting_help()
 	);
 
 	$page_type = $recommended_replace_vars->determine_for_archive( $wpseo_post_type->name );

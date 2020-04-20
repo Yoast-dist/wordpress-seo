@@ -6,16 +6,13 @@
  */
 
 /**
- * Alerts template variables.
+ * Notifications template variables.
  *
  * @noinspection PhpUnusedLocalVariableInspection
  *
  * @var array
  */
-$alerts_data = Yoast_Alerts::get_template_variables();
-
-$notifier = new WPSEO_Configuration_Notifier();
-$notifier->listen();
+$notifications_data = Yoast_Notifications::get_template_variables();
 
 $wpseo_contributors_phrase = sprintf(
 /* translators: %1$s expands to Yoast SEO */
@@ -26,21 +23,19 @@ $wpseo_contributors_phrase = sprintf(
 ?>
 
 	<div class="tab-block">
-		<?php echo $notifier->notify(); ?>
 
 		<div class="yoast-paper">
-			<?php require WPSEO_PATH . 'admin/views/partial-alerts-errors.php'; ?>
+			<?php require WPSEO_PATH . 'admin/views/partial-notifications-errors.php'; ?>
 		</div>
 
-		<div class="yoast-paper">
-			<?php require WPSEO_PATH . 'admin/views/partial-alerts-warnings.php'; ?>
-		</div>
+	<div class="yoast-paper">
+		<?php require WPSEO_PATH . 'admin/views/partial-notifications-warnings.php'; ?>
 	</div>
+</div>
 
 	<div class="tab-block">
-		<h3><?php esc_html_e( 'Credits', 'wordpress-seo' ); ?></h3>
+		<h2><?php esc_html_e( 'Credits', 'wordpress-seo' ); ?></h2>
 		<p>
-			<span class="dashicons dashicons-groups"></span>
 			<a href="<?php WPSEO_Shortlinker::show( 'https://yoa.st/yoast-seo-credits' ); ?>"><?php echo esc_html( $wpseo_contributors_phrase ); ?></a>
 		</p>
 	</div>
