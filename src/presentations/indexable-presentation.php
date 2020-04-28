@@ -26,6 +26,7 @@ use Yoast\WP\SEO\Generators\Schema_Generator;
  * @property string $title
  * @property string $meta_description
  * @property array  $robots
+ * @property array  $bingbot
  * @property array  $googlebot
  * @property string $canonical
  * @property string $rel_next
@@ -227,12 +228,34 @@ class Indexable_Presentation extends Abstract_Presentation {
 	}
 
 	/**
-	 * Generates the googlebot value.
+	 * Generates the robots value for the googlebot tag.
+	 *
+	 * @return array The robots value with opt-in snippets.
+	 */
+	public function generate_googlebot() {
+		return $this->generate_snippet_opt_in();
+	}
+
+	/**
+	 * Generates the value for the bingbot tag.
+	 *
+	 * @return array The robots value with opt-in snippets.
+	 */
+	public function generate_bingbot() {
+		return $this->generate_snippet_opt_in();
+	}
+
+	/**
+	 * Generates a snippet opt-in robots value.
 	 *
 	 * @return array The googlebot value.
 	 */
-	public function generate_googlebot() {
-		return [ 'max-snippet:-1', 'max-image-preview:large', 'max-video-preview:-1' ];
+	private function generate_snippet_opt_in() {
+		if ( isset( $this->robots['index'] ) && $this->robots['index'] === 'noindex' ) {
+			return [];
+		}
+
+		return \array_filter( \array_merge( $this->robots, [ 'max-snippet:-1', 'max-image-preview:large', 'max-video-preview:-1' ] ) );
 	}
 
 	/**
