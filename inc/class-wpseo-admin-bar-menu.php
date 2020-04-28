@@ -280,13 +280,7 @@ class WPSEO_Admin_Bar_Menu implements WPSEO_WordPress_Integration {
 	 * @return void
 	 */
 	protected function add_analysis_submenu( WP_Admin_Bar $wp_admin_bar ) {
-		try {
-			$url = YoastSEO()->meta->for_current_page()->canonical;
-		} catch ( Exception $e ) {
-			// This is not the type of error we can handle here.
-			return;
-		}
-
+		$url           = YoastSEO()->meta->for_current_page()->canonical;
 		$focus_keyword = '';
 
 		if ( ! $url ) {

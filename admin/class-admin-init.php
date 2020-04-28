@@ -456,10 +456,6 @@ class WPSEO_Admin_Init {
 				'version'     => '14.0',
 				'alternative' => null,
 			],
-			'wp_seo_get_bc_ancestors'               => [
-				'version'     => '14.0',
-				'alternative' => 'wpseo_breadcrumb_links',
-			],
 		];
 
 		// Determine which filters have been registered.
