@@ -7,25 +7,25 @@
 
 namespace Yoast\WP\Lib;
 
-use YoastSEO_Vendor\Ruckusing_Adapter_ColumnDefinition;
-use YoastSEO_Vendor\Ruckusing_Adapter_Interface;
-use YoastSEO_Vendor\Ruckusing_Adapter_MySQL_Base;
-use YoastSEO_Vendor\Ruckusing_Adapter_MySQL_TableDefinition;
-use YoastSEO_Vendor\Ruckusing_Exception;
-use YoastSEO_Vendor\Ruckusing_Util_Naming;
+use Ruckusing_Adapter_ColumnDefinition;
+use Ruckusing_Adapter_Interface;
+use Ruckusing_Adapter_MySQL_Base;
+use Ruckusing_Adapter_MySQL_TableDefinition;
+use Ruckusing_Exception;
+use Ruckusing_Util_Naming;
 
-use const YoastSEO_Vendor\MYSQL_MAX_IDENTIFIER_LENGTH;
-use const YoastSEO_Vendor\SQL_ALTER;
-use const YoastSEO_Vendor\SQL_CREATE;
-use const YoastSEO_Vendor\SQL_DELETE;
-use const YoastSEO_Vendor\SQL_DROP;
-use const YoastSEO_Vendor\SQL_INSERT;
-use const YoastSEO_Vendor\SQL_RENAME;
-use const YoastSEO_Vendor\SQL_SELECT;
-use const YoastSEO_Vendor\SQL_SET;
-use const YoastSEO_Vendor\SQL_SHOW;
-use const YoastSEO_Vendor\SQL_UNKNOWN_QUERY_TYPE;
-use const YoastSEO_Vendor\SQL_UPDATE;
+use const MYSQL_MAX_IDENTIFIER_LENGTH;
+use const SQL_ALTER;
+use const SQL_CREATE;
+use const SQL_DELETE;
+use const SQL_DROP;
+use const SQL_INSERT;
+use const SQL_RENAME;
+use const SQL_SELECT;
+use const SQL_SET;
+use const SQL_SHOW;
+use const SQL_UNKNOWN_QUERY_TYPE;
+use const SQL_UPDATE;
 
 /**
  * Ruckusing_Adapter

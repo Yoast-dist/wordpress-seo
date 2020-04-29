@@ -7,10 +7,10 @@
 
 namespace Yoast\WP\Lib;
 
-use YoastSEO_Vendor\Ruckusing_Exception;
-use YoastSEO_Vendor\Ruckusing_FrameworkRunner;
-use YoastSEO_Vendor\Ruckusing_Task_Manager;
-use YoastSEO_Vendor\Ruckusing_Util_Migrator;
+use Ruckusing_Exception;
+use Ruckusing_FrameworkRunner;
+use Ruckusing_Task_Manager;
+use Ruckusing_Util_Migrator;
 
 /**
  * Ruckusing
@@ -248,7 +248,7 @@ class Ruckusing_Framework_Runner extends Ruckusing_FrameworkRunner {
 				continue;
 			}
 			// query old table, if it less than or equal to our max version, then its a candidate for insertion
-			$query_sql = \sprintf( 'SELECT version FROM %s WHERE version >= %d', \YoastSEO_Vendor\RUCKUSING_SCHEMA_TBL_NAME, $file['version'] );
+			$query_sql = \sprintf( 'SELECT version FROM %s WHERE version >= %d', \RUCKUSING_SCHEMA_TBL_NAME, $file['version'] );
 			$existing_version_old_style = $this->_adapter->select_one( $query_sql );
 			if ( \count( $existing_version_old_style ) > 0 ) {
 				// make sure it doesnt exist in our new table, who knows how it got inserted?
