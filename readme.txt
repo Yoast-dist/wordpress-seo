@@ -209,6 +209,16 @@ Your question has most likely been answered on our knowledge base: [kb.yoast.com
 
 == Changelog ==
 
+= 14.0.2 =
+Release Date: April 29th, 2020
+
+Bugfixes:
+
+* Fixes a bug where a fatal error would be thrown when titles were more than 191 characters long.
+* Fixes a bug where a fatal error would be thrown that could occur on WooCommerce installations when the `wpseo_metadesc` filter was called with only 1 argument.
+* Fixes a bug where a fatal error would be thrown when using the `WPSEO_Frontend` class to get the meta description.
+* Removes all usages of `PDO` and `mysqli` directly and uses `wpdb` everywhere. This should prevent a lot of errors for database installations that have different encodings or configurations than what is generally seen.
+
 = 14.0.1 =
 Release Date: April 28th, 2020
 

@@ -106,7 +106,6 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\helpers\\twitter\\image_helper' => 'Yoast\\WP\\SEO\\Helpers\\Twitter\\Image_Helper',
             'yoast\\wp\\seo\\helpers\\url_helper' => 'Yoast\\WP\\SEO\\Helpers\\Url_Helper',
             'yoast\\wp\\seo\\helpers\\user_helper' => 'Yoast\\WP\\SEO\\Helpers\\User_Helper',
-            'yoast\\wp\\seo\\initializers\\database_setup' => 'Yoast\\WP\\SEO\\Initializers\\Database_Setup',
             'yoast\\wp\\seo\\initializers\\migration_runner' => 'Yoast\\WP\\SEO\\Initializers\\Migration_Runner',
             'yoast\\wp\\seo\\integrations\\admin\\indexation_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Indexation_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\migration_error_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Migration_Error_Integration',
@@ -141,7 +140,6 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\watchers\\option_titles_watcher' => 'Yoast\\WP\\SEO\\Integrations\\Watchers\\Option_Titles_Watcher',
             'yoast\\wp\\seo\\integrations\\watchers\\primary_term_watcher' => 'Yoast\\WP\\SEO\\Integrations\\Watchers\\Primary_Term_Watcher',
             'yoast\\wp\\seo\\loader' => 'Yoast\\WP\\SEO\\Loader',
-            'yoast\\wp\\seo\\loggers\\database_logger' => 'Yoast\\WP\\SEO\\Loggers\\Database_Logger',
             'yoast\\wp\\seo\\loggers\\logger' => 'Yoast\\WP\\SEO\\Loggers\\Logger',
             'yoast\\wp\\seo\\loggers\\migration_logger' => 'Yoast\\WP\\SEO\\Loggers\\Migration_Logger',
             'yoast\\wp\\seo\\memoizers\\meta_tags_context_memoizer' => 'Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer',
@@ -261,7 +259,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Helpers\\Twitter\\Image_Helper' => 'getImageHelper4Service',
             'Yoast\\WP\\SEO\\Helpers\\Url_Helper' => 'getUrlHelperService',
             'Yoast\\WP\\SEO\\Helpers\\User_Helper' => 'getUserHelperService',
-            'Yoast\\WP\\SEO\\Initializers\\Database_Setup' => 'getDatabaseSetupService',
             'Yoast\\WP\\SEO\\Initializers\\Migration_Runner' => 'getMigrationRunnerService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Indexation_Integration' => 'getIndexationIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Migration_Error_Integration' => 'getMigrationErrorIntegrationService',
@@ -296,7 +293,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Watchers\\Option_Titles_Watcher' => 'getOptionTitlesWatcherService',
             'Yoast\\WP\\SEO\\Integrations\\Watchers\\Primary_Term_Watcher' => 'getPrimaryTermWatcherService',
             'Yoast\\WP\\SEO\\Loader' => 'getLoaderService',
-            'Yoast\\WP\\SEO\\Loggers\\Database_Logger' => 'getDatabaseLoggerService',
             'Yoast\\WP\\SEO\\Loggers\\Logger' => 'getLoggerService',
             'Yoast\\WP\\SEO\\Loggers\\Migration_Logger' => 'getMigrationLoggerService',
             'Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer' => 'getMetaTagsContextMemoizerService',
@@ -350,6 +346,7 @@ class Cached_Container extends Container
             'Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
             'Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
             'Yoast\\WP\\SEO\\Commands\\Command_Interface' => true,
+            'Yoast\\WP\\SEO\\Initializers\\Initializer_Interface' => true,
             'wpdb' => true,
         ];
     }
@@ -398,7 +395,7 @@ class Cached_Container extends Container
      */
     protected function getWPSEOFrontendService()
     {
-        return $this->services['WPSEO_Frontend'] = new \WPSEO_Frontend(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        return $this->services['WPSEO_Frontend'] = new \WPSEO_Frontend(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface']) ? $this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface'] : $this->getHelpersSurfaceService()) && false ?: '_'});
     }
 
     /**
@@ -770,7 +767,7 @@ class Cached_Container extends Container
      */
     protected function getRuckusingFrameworkService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Config\\Ruckusing_Framework'] = new \Yoast\WP\SEO\Config\Ruckusing_Framework(${($_ = isset($this->services['wpdb']) ? $this->services['wpdb'] : $this->getWpdbService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Config\\Dependency_Management']) ? $this->services['Yoast\\WP\\SEO\\Config\\Dependency_Management'] : ($this->services['Yoast\\WP\\SEO\\Config\\Dependency_Management'] = new \Yoast\WP\SEO\Config\Dependency_Management())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Loggers\\Migration_Logger']) ? $this->services['Yoast\\WP\\SEO\\Loggers\\Migration_Logger'] : $this->getMigrationLoggerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Initializers\\Database_Setup']) ? $this->services['Yoast\\WP\\SEO\\Initializers\\Database_Setup'] : $this->getDatabaseSetupService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Config\\Ruckusing_Framework'] = new \Yoast\WP\SEO\Config\Ruckusing_Framework(${($_ = isset($this->services['wpdb']) ? $this->services['wpdb'] : $this->getWpdbService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Config\\Dependency_Management']) ? $this->services['Yoast\\WP\\SEO\\Config\\Dependency_Management'] : ($this->services['Yoast\\WP\\SEO\\Config\\Dependency_Management'] = new \Yoast\WP\SEO\Config\Dependency_Management())) && false ?: '_'});
     }
 
     /**
@@ -1224,23 +1221,13 @@ class Cached_Container extends Container
     }
 
     /**
-     * Gets the public 'Yoast\WP\SEO\Initializers\Database_Setup' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Initializers\Database_Setup
-     */
-    protected function getDatabaseSetupService()
-    {
-        return $this->services['Yoast\\WP\\SEO\\Initializers\\Database_Setup'] = new \Yoast\WP\SEO\Initializers\Database_Setup(${($_ = isset($this->services['Yoast\\WP\\SEO\\Loggers\\Logger']) ? $this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] : ($this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] = new \Yoast\WP\SEO\Loggers\Logger())) && false ?: '_'}, ${($_ = isset($this->services['wpdb']) ? $this->services['wpdb'] : $this->getWpdbService()) && false ?: '_'});
-    }
-
-    /**
      * Gets the public 'Yoast\WP\SEO\Initializers\Migration_Runner' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Initializers\Migration_Runner
      */
     protected function getMigrationRunnerService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Initializers\\Migration_Runner'] = new \Yoast\WP\SEO\Initializers\Migration_Runner(${($_ = isset($this->services['Yoast\\WP\\SEO\\Config\\Migration_Status']) ? $this->services['Yoast\\WP\\SEO\\Config\\Migration_Status'] : ($this->services['Yoast\\WP\\SEO\\Config\\Migration_Status'] = new \Yoast\WP\SEO\Config\Migration_Status())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Config\\Ruckusing_Framework']) ? $this->services['Yoast\\WP\\SEO\\Config\\Ruckusing_Framework'] : $this->getRuckusingFrameworkService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Loggers\\Logger']) ? $this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] : ($this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] = new \Yoast\WP\SEO\Loggers\Logger())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Initializers\\Database_Setup']) ? $this->services['Yoast\\WP\\SEO\\Initializers\\Database_Setup'] : $this->getDatabaseSetupService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Initializers\\Migration_Runner'] = new \Yoast\WP\SEO\Initializers\Migration_Runner(${($_ = isset($this->services['Yoast\\WP\\SEO\\Config\\Migration_Status']) ? $this->services['Yoast\\WP\\SEO\\Config\\Migration_Status'] : ($this->services['Yoast\\WP\\SEO\\Config\\Migration_Status'] = new \Yoast\WP\SEO\Config\Migration_Status())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Config\\Ruckusing_Framework']) ? $this->services['Yoast\\WP\\SEO\\Config\\Ruckusing_Framework'] : $this->getRuckusingFrameworkService()) && false ?: '_'});
     }
 
     /**
@@ -1440,7 +1427,7 @@ class Cached_Container extends Container
      */
     protected function getWooCommerceService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Third_Party\\WooCommerce'] = new \Yoast\WP\SEO\Integrations\Third_Party\WooCommerce(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Third_Party\\WooCommerce'] = new \Yoast\WP\SEO\Integrations\Third_Party\WooCommerce(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'});
     }
 
     /**
@@ -1575,7 +1562,6 @@ class Cached_Container extends Container
         $instance->register_initializer('WPSEO_Breadcrumbs');
         $instance->register_initializer('WPSEO_Frontend');
         $instance->register_command('Yoast\\WP\\SEO\\Commands\\Index_Command');
-        $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Database_Setup');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Migration_Runner');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Indexation_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Migration_Error_Integration');
@@ -1609,22 +1595,11 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Term_Watcher');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Watchers\\Option_Titles_Watcher');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Watchers\\Primary_Term_Watcher');
-        $instance->register_integration('Yoast\\WP\\SEO\\Loggers\\Database_Logger');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Indexable_Indexation_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Indexables_Head_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field');
 
         return $instance;
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Loggers\Database_Logger' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Loggers\Database_Logger
-     */
-    protected function getDatabaseLoggerService()
-    {
-        return $this->services['Yoast\\WP\\SEO\\Loggers\\Database_Logger'] = new \Yoast\WP\SEO\Loggers\Database_Logger();
     }
 
     /**
