@@ -385,7 +385,7 @@ class Cached_Container extends Container
      */
     protected function getWPSEOBreadcrumbsService()
     {
-        return $this->services['WPSEO_Breadcrumbs'] = new \WPSEO_Breadcrumbs(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface']) ? $this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface'] : $this->getHelpersSurfaceService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+        return $this->services['WPSEO_Breadcrumbs'] = new \WPSEO_Breadcrumbs();
     }
 
     /**
@@ -395,7 +395,7 @@ class Cached_Container extends Container
      */
     protected function getWPSEOFrontendService()
     {
-        return $this->services['WPSEO_Frontend'] = new \WPSEO_Frontend(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface']) ? $this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface'] : $this->getHelpersSurfaceService()) && false ?: '_'});
+        return $this->services['WPSEO_Frontend'] = new \WPSEO_Frontend();
     }
 
     /**
@@ -1559,8 +1559,6 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Loader'] = $instance = new \Yoast\WP\SEO\Loader($this);
 
-        $instance->register_initializer('WPSEO_Breadcrumbs');
-        $instance->register_initializer('WPSEO_Frontend');
         $instance->register_command('Yoast\\WP\\SEO\\Commands\\Index_Command');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Migration_Runner');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Indexation_Integration');
