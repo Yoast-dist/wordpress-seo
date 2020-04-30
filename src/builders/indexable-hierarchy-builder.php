@@ -170,7 +170,7 @@ class Indexable_Hierarchy_Builder {
 				continue;
 			}
 			$this->indexable_hierarchy_repository->add_ancestor( $indexable_id, $ancestor->id, $depth );
-			++$depth;
+			$depth = ( $depth + 1 );
 		}
 	}
 

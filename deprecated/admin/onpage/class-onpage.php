@@ -26,6 +26,7 @@ class WPSEO_OnPage extends WPSEO_Ryte implements WPSEO_WordPress_Integration {
 		_deprecated_function( __METHOD__, 'WPSEO 13.2', WPSEO_Ryte::class );
 	}
 
+
 	/**
 	 * Shows a notice when the website is not indexable.
 	 *

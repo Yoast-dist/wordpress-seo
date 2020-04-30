@@ -13,7 +13,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * Class Classes_Surface
  */
 class Classes_Surface {
-
 	/**
 	 * Loader constructor.
 	 *

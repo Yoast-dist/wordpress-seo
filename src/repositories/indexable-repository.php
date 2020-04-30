@@ -2,23 +2,21 @@
 /**
  * Yoast extension of the Model class.
  *
- * @package Yoast\YoastSEO\ORM\Repositories
+ * @package Yoast\WP\SEO\Repositories
  */
 
 namespace Yoast\WP\SEO\Repositories;
 
 use Psr\Log\LoggerInterface;
+use Yoast\WP\Lib\ORM;
 use Yoast\WP\SEO\Builders\Indexable_Builder;
 use Yoast\WP\SEO\Helpers\Current_Page_Helper;
 use Yoast\WP\SEO\Loggers\Logger;
 use Yoast\WP\SEO\Models\Indexable;
-use Yoast\WP\SEO\ORM\ORMWrapper;
 use Yoast\WP\Lib\Model;
 
 /**
  * Class Indexable_Repository
- *
- * @package Yoast\WP\SEO\ORM\Repositories
  */
 class Indexable_Repository {
 
@@ -74,7 +72,7 @@ class Indexable_Repository {
 	/**
 	 * Starts a query for this repository.
 	 *
-	 * @return ORMWrapper
+	 * @return ORM
 	 */
 	public function query() {
 		return Model::of_type( 'Indexable' );
@@ -139,9 +137,9 @@ class Indexable_Repository {
 
 		// Find by both permalink_hash and permalink, permalink_hash is indexed so will be used first by the DB to optimize the query.
 		return $this->query()
-			->where( 'permalink_hash', $permalink_hash )
-			->where( 'permalink', $permalink )
-			->find_one();
+					->where( 'permalink_hash', $permalink_hash )
+					->where( 'permalink', $permalink )
+					->find_one();
 	}
 
 	/**
@@ -247,9 +245,9 @@ class Indexable_Repository {
 		 * @var Indexable $indexable
 		 */
 		$indexable = $this->query()
-			->where( 'object_type', 'post-type-archive' )
-			->where( 'object_sub_type', $post_type )
-			->find_one();
+						  ->where( 'object_type', 'post-type-archive' )
+						  ->where( 'object_sub_type', $post_type )
+						  ->find_one();
 
 		if ( $auto_create && ! $indexable ) {
 			$indexable = $this->builder->build_for_post_type_archive( $post_type );
@@ -273,9 +271,9 @@ class Indexable_Repository {
 		 * @var Indexable $indexable
 		 */
 		$indexable = $this->query()
-			->where( 'object_type', 'system-page' )
-			->where( 'object_sub_type', $object_sub_type )
-			->find_one();
+						  ->where( 'object_type', 'system-page' )
+						  ->where( 'object_sub_type', $object_sub_type )
+						  ->find_one();
 
 		if ( $auto_create && ! $indexable ) {
 			$indexable = $this->builder->build_for_system_page( $object_sub_type );
@@ -295,9 +293,9 @@ class Indexable_Repository {
 	 */
 	public function find_by_id_and_type( $object_id, $object_type, $auto_create = true ) {
 		$indexable = $this->query()
-			->where( 'object_id', $object_id )
-			->where( 'object_type', $object_type )
-			->find_one();
+						  ->where( 'object_id', $object_id )
+						  ->where( 'object_type', $object_type )
+						  ->find_one();
 
 		if ( $auto_create && ! $indexable ) {
 			$indexable = $this->builder->build_for_id_and_type( $object_id, $object_type );
@@ -322,9 +320,9 @@ class Indexable_Repository {
 		 * @var Indexable[] $indexables
 		 */
 		$indexables = $this->query()
-			->where_in( 'object_id', $object_ids )
-			->where( 'object_type', $object_type )
-			->find_many();
+						   ->where_in( 'object_id', $object_ids )
+						   ->where( 'object_type', $object_type )
+						   ->find_many();
 
 		if ( $auto_create ) {
 			$indexables_available = [];

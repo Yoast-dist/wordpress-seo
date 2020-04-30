@@ -26,7 +26,7 @@ class WPSEO_Twitter {
 	 *
 	 * @var array
 	 */
-	public $shown_images = [];
+	public $shown_images = array();
 
 	/**
 	 * Class constructor.

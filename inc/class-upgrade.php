@@ -19,41 +19,41 @@ class WPSEO_Upgrade {
 		WPSEO_Options::maybe_set_multisite_defaults( false );
 
 		$routines = [
-			'1.5.0'     => 'upgrade_15',
-			'2.0'       => 'upgrade_20',
-			'2.1'       => 'upgrade_21',
-			'2.2'       => 'upgrade_22',
-			'2.3'       => 'upgrade_23',
-			'3.0'       => 'upgrade_30',
-			'3.3'       => 'upgrade_33',
-			'3.6'       => 'upgrade_36',
-			'4.0'       => 'upgrade_40',
-			'4.4'       => 'upgrade_44',
-			'4.7'       => 'upgrade_47',
-			'4.9'       => 'upgrade_49',
-			'5.0'       => 'upgrade_50',
-			'5.1'       => 'upgrade_50_51',
-			'5.5'       => 'upgrade_55',
-			'5.6'       => 'upgrade_56',
-			'6.1'       => 'upgrade_61',
-			'6.3'       => 'upgrade_63',
-			'7.0-RC0'   => 'upgrade_70',
-			'7.1-RC0'   => 'upgrade_71',
-			'7.3-RC0'   => 'upgrade_73',
-			'7.4-RC0'   => 'upgrade_74',
-			'7.5.3'     => 'upgrade_753',
-			'7.7-RC0'   => 'upgrade_77',
-			'7.7.2-RC0' => 'upgrade_772',
-			'9.0-RC0'   => 'upgrade_90',
-			'10.0-RC0'  => 'upgrade_100',
-			'11.1-RC0'  => 'upgrade_111',
+			'1.5.0'      => 'upgrade_15',
+			'2.0'        => 'upgrade_20',
+			'2.1'        => 'upgrade_21',
+			'2.2'        => 'upgrade_22',
+			'2.3'        => 'upgrade_23',
+			'3.0'        => 'upgrade_30',
+			'3.3'        => 'upgrade_33',
+			'3.6'        => 'upgrade_36',
+			'4.0'        => 'upgrade_40',
+			'4.4'        => 'upgrade_44',
+			'4.7'        => 'upgrade_47',
+			'4.9'        => 'upgrade_49',
+			'5.0'        => 'upgrade_50',
+			'5.1'        => 'upgrade_50_51',
+			'5.5'        => 'upgrade_55',
+			'5.6'        => 'upgrade_56',
+			'6.1'        => 'upgrade_61',
+			'6.3'        => 'upgrade_63',
+			'7.0-RC0'    => 'upgrade_70',
+			'7.1-RC0'    => 'upgrade_71',
+			'7.3-RC0'    => 'upgrade_73',
+			'7.4-RC0'    => 'upgrade_74',
+			'7.5.3'      => 'upgrade_753',
+			'7.7-RC0'    => 'upgrade_77',
+			'7.7.2-RC0'  => 'upgrade_772',
+			'9.0-RC0'    => 'upgrade_90',
+			'10.0-RC0'   => 'upgrade_100',
+			'11.1-RC0'   => 'upgrade_111',
 			/** Reset notifications because we removed the AMP Glue plugin notification */
-			'12.1-RC0'  => 'clean_all_notifications',
-			'12.3-RC0'  => 'upgrade_123',
-			'12.4-RC0'  => 'upgrade_124',
-			'12.8-RC0'  => 'upgrade_128',
-			'13.2-RC0'  => 'upgrade_132',
-			'14.1-RC0'  => 'upgrade_141',
+			'12.1-RC0'   => 'clean_all_notifications',
+			'12.3-RC0'   => 'upgrade_123',
+			'12.4-RC0'   => 'upgrade_124',
+			'12.8-RC0'   => 'upgrade_128',
+			'13.2-RC0'   => 'upgrade_132',
+			'14.0.3-RC0' => 'upgrade_1403',
 		];
 
 		array_walk( $routines, [ $this, 'run_upgrade_routine' ], $version );
@@ -730,26 +730,10 @@ class WPSEO_Upgrade {
 	}
 
 	/**
-	 * Performs the 14.1 upgrade.
+	 * Perform the 14.0.3 upgrade.
 	 */
-	private function upgrade_141() {
-		/*
-		 * These notifications are retrieved from storage on the `init` hook with
-		 * priority 1. We need to remove them after they're retrieved.
-		 */
-		add_action( 'init', [ $this, 'remove_notifications_for_141' ] );
-	}
-
-	/**
-	 * Removes notifications from the Notification center for the 14.1 upgrade.
-	 *
-	 * @return void
-	 */
-	public function remove_notifications_for_141() {
-		Yoast_Notification_Center::get()->remove_notification_by_id( 'wpseo-dismiss-recalculate' );
-		Yoast_Notification_Center::get()->remove_notification_by_id( 'wpseo-dismiss-blog-public-notice' );
-		Yoast_Notification_Center::get()->remove_notification_by_id( 'wpseo-links-table-not-accessible' );
-		Yoast_Notification_Center::get()->remove_notification_by_id( 'wpseo-post-type-archive-notification' );
+	private function upgrade_1403() {
+		WPSEO_Options::set( 'ignore_indexation_warning', false );
 	}
 
 	/**

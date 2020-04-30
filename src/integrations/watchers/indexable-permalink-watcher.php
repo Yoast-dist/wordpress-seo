@@ -17,7 +17,6 @@ use Yoast\WP\SEO\WordPress\Wrapper;
  * Handles updates to the permalink_structure for the Indexables table.
  */
 class Indexable_Permalink_Watcher implements Integration_Interface {
-
 	/**
 	 * The post type helper.
 	 *

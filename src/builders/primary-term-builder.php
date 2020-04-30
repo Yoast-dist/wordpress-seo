@@ -54,6 +54,7 @@ class Primary_Term_Builder {
 		$this->meta         = $meta;
 	}
 
+
 	/**
 	 * Formats and saves the primary terms for the post with the given post id.
 	 *

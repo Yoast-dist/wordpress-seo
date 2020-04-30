@@ -258,7 +258,6 @@ class Front_End_Integration implements Integration_Interface {
 			$presenter->presentation = $context->presentation;
 			$presenter->helpers      = $this->helpers;
 			$presenter->replace_vars = $this->replace_vars;
-
 			$output = $presenter->present();
 			if ( ! empty( $output ) ) {
 				echo "\t" . $output . PHP_EOL;

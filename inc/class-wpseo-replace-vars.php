@@ -284,11 +284,11 @@ class WPSEO_Replace_Vars {
 		if ( ! empty( $this->args->ID ) ) {
 			$cat = $this->get_terms( $this->args->ID, 'category' );
 			if ( $cat !== '' ) {
-				return $cat;
+				$replacement = $cat;
 			}
 		}
 
-		if ( isset( $this->args->cat_name ) && ! empty( $this->args->cat_name ) ) {
+		if ( ( ! isset( $replacement ) || $replacement === '' ) && ( isset( $this->args->cat_name ) && ! empty( $this->args->cat_name ) ) ) {
 			$replacement = $this->args->cat_name;
 		}
 
@@ -391,7 +391,7 @@ class WPSEO_Replace_Vars {
 	private function retrieve_parent_title() {
 		$replacement = null;
 
-		if ( ( is_singular() || is_admin() ) && isset( $GLOBALS['post'] ) ) {
+		if ( ! isset( $replacement ) && ( ( is_singular() || is_admin() ) && isset( $GLOBALS['post'] ) ) ) {
 			if ( isset( $GLOBALS['post']->post_parent ) && $GLOBALS['post']->post_parent !== 0 ) {
 				$replacement = get_the_title( $GLOBALS['post']->post_parent );
 			}
@@ -408,9 +408,11 @@ class WPSEO_Replace_Vars {
 	private function retrieve_searchphrase() {
 		$replacement = null;
 
-		$search = get_query_var( 's' );
-		if ( $search !== '' ) {
-			$replacement = esc_html( $search );
+		if ( ! isset( $replacement ) ) {
+			$search = get_query_var( 's' );
+			if ( $search !== '' ) {
+				$replacement = esc_html( $search );
+			}
 		}
 
 		return $replacement;
@@ -427,9 +429,6 @@ class WPSEO_Replace_Vars {
 
 	/**
 	 * Retrieve the site's tag line / description for use as replacement string.
-	 *
-	 * The `$replacement` variable is static because it doesn't change depending
-	 * on the context. See https://github.com/Yoast/wordpress-seo/pull/1172#issuecomment-46019482.
 	 *
 	 * @return string|null
 	 */
@@ -448,9 +447,6 @@ class WPSEO_Replace_Vars {
 
 	/**
 	 * Retrieve the site's name for use as replacement string.
-	 *
-	 * The `$replacement` variable is static because it doesn't change depending
-	 * on the context. See https://github.com/Yoast/wordpress-seo/pull/1172#issuecomment-46019482.
 	 *
 	 * @return string|null
 	 */
@@ -710,13 +706,6 @@ class WPSEO_Replace_Vars {
 					$replacement = $name;
 				}
 			}
-			elseif ( is_category() || is_tag() || is_tax() ) {
-				$term = $GLOBALS['wp_query']->get_queried_object();
-				$name = get_term_meta( $term->term_id, $field, true );
-				if ( $name !== '' ) {
-					$replacement = $name;
-				}
-			}
 		}
 
 		return $replacement;
@@ -777,9 +766,6 @@ class WPSEO_Replace_Vars {
 	/**
 	 * Retrieve the current date for use as replacement string.
 	 *
-	 * The `$replacement` variable is static because it doesn't change depending
-	 * on the context. See https://github.com/Yoast/wordpress-seo/pull/1172#issuecomment-46019482.
-	 *
 	 * @return string The formatted current date.
 	 */
 	private function retrieve_currentdate() {
@@ -794,9 +780,6 @@ class WPSEO_Replace_Vars {
 
 	/**
 	 * Retrieve the current day for use as replacement string.
-	 *
-	 * The `$replacement` variable is static because it doesn't change depending
-	 * on the context. See https://github.com/Yoast/wordpress-seo/pull/1172#issuecomment-46019482.
 	 *
 	 * @return string The current day.
 	 */
@@ -813,9 +796,6 @@ class WPSEO_Replace_Vars {
 	/**
 	 * Retrieve the current month for use as replacement string.
 	 *
-	 * The `$replacement` variable is static because it doesn't change depending
-	 * on the context. See https://github.com/Yoast/wordpress-seo/pull/1172#issuecomment-46019482.
-	 *
 	 * @return string The current month.
 	 */
 	private function retrieve_currentmonth() {
@@ -831,9 +811,6 @@ class WPSEO_Replace_Vars {
 	/**
 	 * Retrieve the current time for use as replacement string.
 	 *
-	 * The `$replacement` variable is static because it doesn't change depending
-	 * on the context. See https://github.com/Yoast/wordpress-seo/pull/1172#issuecomment-46019482.
-	 *
 	 * @return string The formatted current time.
 	 */
 	private function retrieve_currenttime() {
@@ -848,9 +825,6 @@ class WPSEO_Replace_Vars {
 
 	/**
 	 * Retrieve the current year for use as replacement string.
-	 *
-	 * The `$replacement` variable is static because it doesn't change depending
-	 * on the context. See https://github.com/Yoast/wordpress-seo/pull/1172#issuecomment-46019482.
 	 *
 	 * @return string The current year.
 	 */
@@ -1386,7 +1360,7 @@ class WPSEO_Replace_Vars {
 	private function retrieve_term_hierarchy() {
 		$replacement = null;
 
-		if ( isset( $this->args->term_id ) && ! empty( $this->args->taxonomy ) ) {
+		if ( ! isset( $replacement ) && isset( $this->args->term_id ) && ! empty( $this->args->taxonomy ) ) {
 			$hierarchy = $this->get_term_hierarchy();
 
 			if ( $hierarchy !== '' ) {

@@ -23,6 +23,13 @@ use Yoast\WP\SEO\Repositories\Indexable_Repository;
 class Indexable_Post_Watcher implements Integration_Interface {
 
 	/**
+	 * @inheritDoc
+	 */
+	public static function get_conditionals() {
+		return [ Migrations_Conditional::class ];
+	}
+
+	/**
 	 * The indexable repository.
 	 *
 	 * @var Indexable_Repository
@@ -56,13 +63,6 @@ class Indexable_Post_Watcher implements Integration_Interface {
 	 * @var Post_Helper
 	 */
 	private $post;
-
-	/**
-	 * @inheritDoc
-	 */
-	public static function get_conditionals() {
-		return [ Migrations_Conditional::class ];
-	}
 
 	/**
 	 * Indexable_Post_Watcher constructor.

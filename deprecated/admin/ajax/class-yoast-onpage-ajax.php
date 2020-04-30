@@ -38,4 +38,5 @@ class Yoast_OnPage_Ajax {
 	public function dismiss_notice() {
 		_deprecated_function( __METHOD__, 'WPSEO 13.2' );
 	}
+
 }

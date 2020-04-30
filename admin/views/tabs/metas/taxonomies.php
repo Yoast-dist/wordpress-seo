@@ -23,7 +23,7 @@ if ( is_array( $wpseo_taxonomies ) && $wpseo_taxonomies !== [] ) {
 	foreach ( array_values( $wpseo_taxonomies ) as $wpseo_taxonomy_index => $wpseo_taxonomy ) {
 		$wpseo_taxonomy_presenter = new WPSEO_Paper_Presenter(
 			$wpseo_taxonomy->labels->name,
-			__DIR__ . '/paper-content/taxonomy-content.php',
+			dirname( __FILE__ ) . '/paper-content/taxonomy-content.php',
 			[
 				'collapsible' => true,
 				'expanded'    => ( $wpseo_taxonomy_index === 0 ),
@@ -47,4 +47,4 @@ if ( is_array( $wpseo_taxonomies ) && $wpseo_taxonomies !== [] ) {
 unset( $wpseo_taxonomies );
 
 printf( '<h2>%s</h2>', esc_html__( 'Category URLs', 'wordpress-seo' ) );
-require __DIR__ . '/taxonomies/category-url.php';
+require dirname( __FILE__ ) . '/taxonomies/category-url.php';

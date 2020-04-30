@@ -18,6 +18,13 @@ use Yoast\WP\SEO\Repositories\Indexable_Repository;
 class Indexable_Author_Watcher implements Integration_Interface {
 
 	/**
+	 * @inheritDoc
+	 */
+	public static function get_conditionals() {
+		return [ Migrations_Conditional::class ];
+	}
+
+	/**
 	 * The indexable repository.
 	 *
 	 * @var \Yoast\WP\SEO\Repositories\Indexable_Repository
@@ -30,13 +37,6 @@ class Indexable_Author_Watcher implements Integration_Interface {
 	 * @var \Yoast\WP\SEO\Builders\Indexable_Builder
 	 */
 	protected $builder;
-
-	/**
-	 * @inheritDoc
-	 */
-	public static function get_conditionals() {
-		return [ Migrations_Conditional::class ];
-	}
 
 	/**
 	 * Indexable_Author_Watcher constructor.

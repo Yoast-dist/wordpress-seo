@@ -11,7 +11,6 @@ namespace Yoast\WP\SEO\Helpers;
  * Class Product_Helper
  */
 class Product_Helper {
-
 	/**
 	 * Get the product name in the head section.
 	 *
