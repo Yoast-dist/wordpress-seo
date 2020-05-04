@@ -1,6 +1,60 @@
 <?php
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
+	// Reference: js/src/components/AdvancedSettings.js:109
+	__( 'Should search engines follow links on this %s', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:116
+	__( 'Learn more about the no-follow setting on our help page.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:130
+	__( 'Meta robots advanced', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:135
+	__( 'No Image Index', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:136
+	__( 'No Archive', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:137
+	__( 'No Snippet', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:141
+	__( 'Learn more about advanced meta robots settings on our help page.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:155
+	__( 'Breadcrumbs Title', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:161
+	__( 'Learn more about the breadcrumbs title setting on our help page.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:175
+	__( 'Canonical URL', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:181
+	__( 'Learn more about canonical URLs on our help page.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:197
+	__( 'Advanced', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:23
+	__( 'No', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:24
+	__( 'Yes', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:46
+	__( 'Default for %s, currently: %s', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:71
+	__( 'Even though you can set the meta robots setting here, the entire site is set to noindex in the sitewide privacy settings, so these settings won\'t have an effect.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:82
+	__( 'Allow search engines to show this %s in search results?', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:91
+	__( 'Learn more about the no-index setting on our help page.', 'wordpress-seo' ),
+
 	// Reference: js/src/components/AnalysisUpsell.js:55
 	__( 'Did you know %s also analyzes the different word forms of your keyphrase, like plurals and past tenses?', 'wordpress-seo' ),
 
@@ -28,7 +82,7 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/LocalSEOUpsell.js:92
 	__( 'Get the %s plugin now', 'wordpress-seo' ),
 
-	// Reference: js/src/components/Metabox.js:57
+	// Reference: js/src/components/Metabox.js:58
 	// Reference: js/src/components/SnippetPreviewModal.js:53
 	__( 'Google preview', 'wordpress-seo' ),
 

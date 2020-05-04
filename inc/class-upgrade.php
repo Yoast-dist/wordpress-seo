@@ -54,6 +54,7 @@ class WPSEO_Upgrade {
 			'12.8-RC0'   => 'upgrade_128',
 			'13.2-RC0'   => 'upgrade_132',
 			'14.0.3-RC0' => 'upgrade_1403',
+			'14.1-RC0'  => 'upgrade_141',
 		];
 
 		array_walk( $routines, [ $this, 'run_upgrade_routine' ], $version );
@@ -741,6 +742,29 @@ class WPSEO_Upgrade {
 	 */
 	private function upgrade_1403() {
 		WPSEO_Options::set( 'ignore_indexation_warning', false );
+	}
+
+	/**
+	 * Performs the 14.1 upgrade.
+	 */
+	private function upgrade_141() {
+		/*
+		 * These notifications are retrieved from storage on the `init` hook with
+		 * priority 1. We need to remove them after they're retrieved.
+		 */
+		add_action( 'init', [ $this, 'remove_notifications_for_141' ] );
+	}
+
+	/**
+	 * Removes notifications from the Notification center for the 14.1 upgrade.
+	 *
+	 * @return void
+	 */
+	public function remove_notifications_for_141() {
+		Yoast_Notification_Center::get()->remove_notification_by_id( 'wpseo-dismiss-recalculate' );
+		Yoast_Notification_Center::get()->remove_notification_by_id( 'wpseo-dismiss-blog-public-notice' );
+		Yoast_Notification_Center::get()->remove_notification_by_id( 'wpseo-links-table-not-accessible' );
+		Yoast_Notification_Center::get()->remove_notification_by_id( 'wpseo-post-type-archive-notification' );
 	}
 
 	/**
