@@ -1,58 +1,58 @@
 <?php
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
-	// Reference: js/src/components/AdvancedSettings.js:111
+	// Reference: js/src/components/AdvancedSettings.js:109
 	__( 'Should search engines follow links on this %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:118
+	// Reference: js/src/components/AdvancedSettings.js:116
 	__( 'Learn more about the no-follow setting on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:132
+	// Reference: js/src/components/AdvancedSettings.js:130
 	__( 'Meta robots advanced', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:137
+	// Reference: js/src/components/AdvancedSettings.js:135
 	__( 'No Image Index', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:138
+	// Reference: js/src/components/AdvancedSettings.js:136
 	__( 'No Archive', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:139
+	// Reference: js/src/components/AdvancedSettings.js:137
 	__( 'No Snippet', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:143
+	// Reference: js/src/components/AdvancedSettings.js:141
 	__( 'Learn more about advanced meta robots settings on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:157
+	// Reference: js/src/components/AdvancedSettings.js:155
 	__( 'Breadcrumbs Title', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:163
+	// Reference: js/src/components/AdvancedSettings.js:161
 	__( 'Learn more about the breadcrumbs title setting on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:177
+	// Reference: js/src/components/AdvancedSettings.js:175
 	__( 'Canonical URL', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:183
+	// Reference: js/src/components/AdvancedSettings.js:181
 	__( 'Learn more about canonical URLs on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:199
+	// Reference: js/src/components/AdvancedSettings.js:197
 	__( 'Advanced', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:25
+	// Reference: js/src/components/AdvancedSettings.js:23
 	__( 'No', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:26
+	// Reference: js/src/components/AdvancedSettings.js:24
 	__( 'Yes', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:48
+	// Reference: js/src/components/AdvancedSettings.js:46
 	__( 'Default for %s, currently: %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:73
-	__( 'Even though you can set the meta robots setting here, the entire site is set to noindex in the sitewide privacy settings,so these settings won\'t have an effect.', 'wordpress-seo' ),
+	// Reference: js/src/components/AdvancedSettings.js:71
+	__( 'Even though you can set the meta robots setting here, the entire site is set to noindex in the sitewide privacy settings, so these settings won\'t have an effect.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:84
+	// Reference: js/src/components/AdvancedSettings.js:82
 	__( 'Allow search engines to show this %s in search results?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:93
+	// Reference: js/src/components/AdvancedSettings.js:91
 	__( 'Learn more about the no-index setting on our help page.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/AnalysisUpsell.js:55
