@@ -206,6 +206,10 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/social/SocialUpsell.js:35
 	__( 'Do you want to preview what it will look like if people share this post on %s? You can, with %s.', 'wordpress-seo' ),
 
+	// Reference: js/src/containers/FacebookEditor.js:19
+	// Reference: js/src/containers/TwitterEditor.js:19
+	__( 'Modify your %s description by editing it right here...', 'wordpress-seo' ),
+
 	// Reference: js/src/containers/SnippetEditor.js:56
 	__( 'Please provide a meta description by editing the snippet below.', 'wordpress-seo' ),
 
