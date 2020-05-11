@@ -44,7 +44,7 @@ $generated_i18n_strings = array(
 	__( 'Yes', 'wordpress-seo' ),
 
 	// Reference: js/src/components/AdvancedSettings.js:46
-	__( 'Default for %s, currently: %s', 'wordpress-seo' ),
+	__( '%s (current default for %s)', 'wordpress-seo' ),
 
 	// Reference: js/src/components/AdvancedSettings.js:71
 	__( 'Even though you can set the meta robots setting here, the entire site is set to noindex in the sitewide privacy settings, so these settings won\'t have an effect.', 'wordpress-seo' ),
