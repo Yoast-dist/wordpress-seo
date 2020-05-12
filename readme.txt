@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability
 Requires at least: 5.3
 Tested up to: 5.4
-Stable tag: 14.1-RC5
+Stable tag: 14.1-RC6
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -210,7 +210,7 @@ Your question has most likely been answered on our knowledge base: [kb.yoast.com
 == Changelog ==
 
 = 14.1 =
-Release Date: May 12th, 2020
+Release Date: May 13th, 2020
 
 Despite weeks and weeks of testing Yoast SEO 14.0, there were still some people running into issues. In Yoast SEO 14.1, we’re improving things to help stabilize the plugin. Read more about those changes in [our release post](https://yoa.st/release-14-1)!
 
@@ -231,6 +231,7 @@ Bugfixes:
 * Fixes a bug where no metadata would be output on the frontend when the tables necessary for the indexables could not be created
 * Fixes a bug where the indexation notification would be shown on the WordPress updates page when updating themes or plugins.
 * Fixes a bug where the `yoast index --network` WP CLI command would throw an error when the database migrations for one or more subsites on a multisite environment had not been run yet.
+* Fixes a bug where no or incorrect breadcrumbs where shown for 404 pages, author archives and date archives. Props to [amitsidhpura](https://github.com/amitsidhpura).
 
 Enhancements:
 
@@ -248,6 +249,10 @@ Enhancements:
 * Optimizes finding attachments by URL. This addresses a primary cause of higher server load issues occurring since 14.0.
 * Adds a warning to the metabox that is shown when a user enters a focus keyphrase that contains more than 191 characters.
 * Makes the copy of the indexation setting in the advanced tab consistent between all contexts (post, page, category, etc.).
+* Adds the `term_id` for terms in the object that can be filtered with the `wpseo_breadcrumb_links` and `wpseo_breadcrumb_single_link_info` filters. Props to [amitsidhpura](https://github.com/amitsidhpura).
+* Adds a time estimation to the indexing notification based on the amount of objects that need to be indexed.
+* Adds a button to the indexing notification to hide it for a week when more than 2500 objects need to be indexed.
+* Improves the notification that is shown when there were problems creating the necessary database tables.
 
 Other
 
