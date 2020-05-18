@@ -1,58 +1,58 @@
 <?php
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
-	// Reference: js/src/components/AdvancedSettings.js:109
+	// Reference: js/src/components/AdvancedSettings.js:111
 	__( 'Should search engines follow links on this %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:116
+	// Reference: js/src/components/AdvancedSettings.js:118
 	__( 'Learn more about the no-follow setting on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:130
+	// Reference: js/src/components/AdvancedSettings.js:132
 	__( 'Meta robots advanced', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:135
+	// Reference: js/src/components/AdvancedSettings.js:137
 	__( 'No Image Index', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:136
+	// Reference: js/src/components/AdvancedSettings.js:138
 	__( 'No Archive', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:137
+	// Reference: js/src/components/AdvancedSettings.js:139
 	__( 'No Snippet', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:141
+	// Reference: js/src/components/AdvancedSettings.js:143
 	__( 'Learn more about advanced meta robots settings on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:155
+	// Reference: js/src/components/AdvancedSettings.js:157
 	__( 'Breadcrumbs Title', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:161
+	// Reference: js/src/components/AdvancedSettings.js:163
 	__( 'Learn more about the breadcrumbs title setting on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:175
+	// Reference: js/src/components/AdvancedSettings.js:177
 	__( 'Canonical URL', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:181
+	// Reference: js/src/components/AdvancedSettings.js:183
 	__( 'Learn more about canonical URLs on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:197
+	// Reference: js/src/components/AdvancedSettings.js:199
 	__( 'Advanced', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:23
+	// Reference: js/src/components/AdvancedSettings.js:25
 	__( 'No', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:24
+	// Reference: js/src/components/AdvancedSettings.js:26
 	__( 'Yes', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:46
+	// Reference: js/src/components/AdvancedSettings.js:48
 	__( 'Default for %s, currently: %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:71
+	// Reference: js/src/components/AdvancedSettings.js:73
 	__( 'Even though you can set the meta robots setting here, the entire site is set to noindex in the sitewide privacy settings, so these settings won\'t have an effect.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:82
+	// Reference: js/src/components/AdvancedSettings.js:84
 	__( 'Allow search engines to show this %s in search results?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:91
+	// Reference: js/src/components/AdvancedSettings.js:93
 	__( 'Learn more about the no-index setting on our help page.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/AnalysisUpsell.js:55
@@ -127,14 +127,14 @@ $generated_i18n_strings = array(
 	// Reference: js/src/values/defaultReplaceVariables.js:50
 	__( 'Focus keyphrase', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:55
+	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:50
 	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:238
 	__( 'Analysis results', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:61
+	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:56
 	__( 'Learn more about the readability analysis', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:96
+	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:91
 	__( 'Readability analysis', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:105
