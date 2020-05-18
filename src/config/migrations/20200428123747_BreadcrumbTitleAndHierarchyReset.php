@@ -12,6 +12,7 @@ use Ruckusing_Migration_Base;
  * BreadcrumbTitleAndHierarchyReset
  */
 class BreadcrumbTitleAndHierarchyReset extends Ruckusing_Migration_Base {
+
 	/**
 	 * Migration up.
 	 */
