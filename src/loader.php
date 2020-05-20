@@ -44,18 +44,18 @@ class Loader {
 	protected $commands = [];
 
 	/**
-  * The dependency injection container.
-  *
-  * @var \Symfony\Component\DependencyInjection\ContainerInterface
-  */
- protected $container;
+	 * The dependency injection container.
+	 *
+	 * @var ContainerInterface
+	 */
+	protected $container;
 
 	/**
-  * Loader constructor.
-  *
-  * @param \Symfony\Component\DependencyInjection\ContainerInterface $container The dependency injection container.
-  */
- public function __construct( ContainerInterface $container ) {
+	 * Loader constructor.
+	 *
+	 * @param ContainerInterface $container The dependency injection container.
+	 */
+	public function __construct( ContainerInterface $container ) {
 		$this->container = $container;
 	}
 
