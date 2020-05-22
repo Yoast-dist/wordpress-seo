@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability
 Requires at least: 5.3
 Tested up to: 5.4
-Stable tag: 14.2-RC2
+Stable tag: 14.2-RC3
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -214,9 +214,11 @@ Release Date: May 26th, 2020
 
 Bugfixes:
 
-* Fixes an issue where breadcrumbs were being saved in reversed order.
-* Fixes a bug where setting `Security: no advanced settings for authors` to `off` would remove the Advanced Settings tab for all users.
+* Fixes a bug where breadcrumbs would be saved in reversed order.
+* Fixes a bug where setting `Security: no advanced settings for authors` to `off` would remove the advanced settings tab for all users.
 * Fixes a bug where replacement variables would not be replaced when using the deprecated WPSEO_Frontend output without echoing it.
+* Fixes a bug where our `select2` styling would overwrite the `select2` styling of other plugins.
+* Fixes a bug where JavaScript could be executed via the error message on the Social section in the Yoast Settings. As this potentially dangerous data is not saved, abusing this was not possible.
 
 Enhancements:
 
