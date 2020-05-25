@@ -61,13 +61,13 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/AnalysisUpsell.js:63
 	__( 'Go %s!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/CollapsibleCornerstone.js:23
+	// Reference: js/src/components/CollapsibleCornerstone.js:26
 	__( 'Cornerstone content', 'wordpress-seo' ),
 
-	// Reference: js/src/components/CollapsibleCornerstone.js:25
+	// Reference: js/src/components/CollapsibleCornerstone.js:28
 	__( 'Cornerstone content should be the most important and extensive articles on your site.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/CollapsibleCornerstone.js:27
+	// Reference: js/src/components/CollapsibleCornerstone.js:30
 	__( 'Learn more about Cornerstone Content.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/CornerstoneToggle.js:26
@@ -128,7 +128,7 @@ $generated_i18n_strings = array(
 	__( 'Focus keyphrase', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:50
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:238
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:244
 	__( 'Analysis results', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:56
@@ -137,27 +137,27 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:91
 	__( 'Readability analysis', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:105
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:106
 	// Reference: js/src/components/modals/KeywordSynonyms.js:62
 	// Reference: js/src/components/modals/MultipleKeywords.js:61
 	__( 'Get %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:124
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:125
 	__( 'Would you like to add a related keyphrase?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:155
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:158
 	__( 'Add related keyphrase', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:216
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:219
 	__( 'Enter a focus keyphrase to calculate the SEO score', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:224
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:230
 	__( 'SEO analysis', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:49
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:50
 	__( 'Add synonyms', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:76
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:77
 	__( 'Would you like to add keyphrase synonyms?', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/KeywordSynonyms.js:21
@@ -199,6 +199,9 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/components/modals/MultipleKeywords.js:20
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
+
+	// Reference: js/src/components/social/SocialMetadata.js:27
+	__( '%s preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/social/SocialUpsell.js:20
 	__( 'Find out why you should upgrade to %s', 'wordpress-seo' ),
