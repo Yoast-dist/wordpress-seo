@@ -203,7 +203,7 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/modals/MultipleKeywords.js:20
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/social/SocialMetadata.js:27
+	// Reference: js/src/components/social/SocialMetadata.js:34
 	__( '%s preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/social/SocialUpsell.js:20
