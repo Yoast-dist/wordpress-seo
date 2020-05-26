@@ -18,11 +18,11 @@ class Logger implements LoggerInterface {
 	use LoggerTrait;
 
 	/**
-  * The logger object.
-  *
-  * @var \Psr\Log\LoggerInterface
-  */
- protected $wrapped_logger;
+	 * The logger object.
+	 *
+	 * @var LoggerInterface
+	 */
+	protected $wrapped_logger;
 
 	/**
 	 * Logger constructor.
@@ -35,7 +35,7 @@ class Logger implements LoggerInterface {
    *
    * @api \Psr\Log\LoggerInterface $logger Instance of NullLogger.
    *
-   * @return \Psr\Log\LoggerInterface The logger object.
+   * @return LoggerInterface The logger object.
    */
   $this->wrapped_logger = \apply_filters( 'wpseo_logger', $this->wrapped_logger );
 	}
