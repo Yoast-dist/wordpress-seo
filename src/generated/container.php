@@ -85,6 +85,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\helpers\\date_helper' => 'Yoast\\WP\\SEO\\Helpers\\Date_Helper',
             'yoast\\wp\\seo\\helpers\\home_url_helper' => 'Yoast\\WP\\SEO\\Helpers\\Home_Url_Helper',
             'yoast\\wp\\seo\\helpers\\image_helper' => 'Yoast\\WP\\SEO\\Helpers\\Image_Helper',
+            'yoast\\wp\\seo\\helpers\\language_helper' => 'Yoast\\WP\\SEO\\Helpers\\Language_Helper',
             'yoast\\wp\\seo\\helpers\\meta_helper' => 'Yoast\\WP\\SEO\\Helpers\\Meta_Helper',
             'yoast\\wp\\seo\\helpers\\open_graph\\image_helper' => 'Yoast\\WP\\SEO\\Helpers\\Open_Graph\\Image_Helper',
             'yoast\\wp\\seo\\helpers\\options_helper' => 'Yoast\\WP\\SEO\\Helpers\\Options_Helper',
@@ -238,6 +239,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Helpers\\Date_Helper' => 'getDateHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Home_Url_Helper' => 'getHomeUrlHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Image_Helper' => 'getImageHelperService',
+            'Yoast\\WP\\SEO\\Helpers\\Language_Helper' => 'getLanguageHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Meta_Helper' => 'getMetaHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Open_Graph\\Image_Helper' => 'getImageHelper2Service',
             'Yoast\\WP\\SEO\\Helpers\\Options_Helper' => 'getOptionsHelperService',
@@ -252,7 +254,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Helpers\\Schema\\HTML_Helper' => 'getHTMLHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Schema\\ID_Helper' => 'getIDHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Schema\\Image_Helper' => 'getImageHelper3Service',
-            'Yoast\\WP\\SEO\\Helpers\\Schema\\Language_Helper' => 'getLanguageHelperService',
+            'Yoast\\WP\\SEO\\Helpers\\Schema\\Language_Helper' => 'getLanguageHelper2Service',
             'Yoast\\WP\\SEO\\Helpers\\Site_Helper' => 'getSiteHelperService',
             'Yoast\\WP\\SEO\\Helpers\\String_Helper' => 'getStringHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper' => 'getTaxonomyHelperService',
@@ -1032,6 +1034,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Helpers\Language_Helper' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Helpers\Language_Helper
+     */
+    protected function getLanguageHelperService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Helpers\\Language_Helper'] = new \Yoast\WP\SEO\Helpers\Language_Helper();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Helpers\Meta_Helper' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Helpers\Meta_Helper
@@ -1182,7 +1194,7 @@ class Cached_Container extends Container
      *
      * @return \Yoast\WP\SEO\Helpers\Schema\Language_Helper
      */
-    protected function getLanguageHelperService()
+    protected function getLanguageHelper2Service()
     {
         return $this->services['Yoast\\WP\\SEO\\Helpers\\Schema\\Language_Helper'] = new \Yoast\WP\SEO\Helpers\Schema\Language_Helper();
     }
