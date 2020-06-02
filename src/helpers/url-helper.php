@@ -17,10 +17,10 @@ class Url_Helper {
 	/**
 	 * Retrieve home URL with proper trailing slash.
 	 *
-	 * @codeCoverageIgnore - We have to write test when this method contains own code.
-	 *
 	 * @param string      $path   Path relative to home URL.
 	 * @param string|null $scheme Scheme to apply.
+	 *
+	 * @codeCoverageIgnore - We have to write test when this method contains own code.
 	 *
 	 * @return string Home URL with optional path, appropriately slashed if not.
 	 */
@@ -31,9 +31,9 @@ class Url_Helper {
 	/**
 	 * Check whether a url is relative.
 	 *
-	 * @codeCoverageIgnore - We have to write test when this method contains own code.
-	 *
 	 * @param string $url URL string to check.
+	 *
+	 * @codeCoverageIgnore - We have to write test when this method contains own code.
 	 *
 	 * @return bool True when url is relative.
 	 */
@@ -46,10 +46,12 @@ class Url_Helper {
 	 *
 	 * @param string $url The URL to get the path from.
 	 *
+	 * @codeCoverageIgnore It only wraps a WordPress function.
+	 *
 	 * @return string The path of the URL. Returns an empty string if URL parsing fails.
 	 */
 	public function get_url_path( $url ) {
-		return (string) \wp_parse_url( $url, PHP_URL_PATH );
+		return (string) \wp_parse_url( $url, \PHP_URL_PATH );
 	}
 
 	/**
@@ -67,7 +69,7 @@ class Url_Helper {
 		}
 
 		$parts = \explode( '.', $path );
-		if ( empty( $parts ) || count( $parts ) === 1 ) {
+		if ( empty( $parts ) || \count( $parts ) === 1 ) {
 			return '';
 		}
 
@@ -82,7 +84,7 @@ class Url_Helper {
 	 * @return string The absolute url.
 	 */
 	public function ensure_absolute_url( $url ) {
-		if ( ! is_string( $url ) || $url === '' ) {
+		if ( ! \is_string( $url ) || $url === '' ) {
 			return $url;
 		}
 
@@ -101,7 +103,7 @@ class Url_Helper {
 	 * @return string
 	 */
 	public function build_absolute_url( $path = null ) {
-		$path      = \wp_parse_url( $path, PHP_URL_PATH );
+		$path      = \wp_parse_url( $path, \PHP_URL_PATH );
 		$url_parts = \wp_parse_url( \home_url() );
 
 		$base_url = \trailingslashit( $url_parts['scheme'] . '://' . $url_parts['host'] );

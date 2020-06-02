@@ -15,6 +15,8 @@ use Yoast\WP\SEO\Config\Migration_Status;
 class Migrations_Conditional implements Conditional {
 
 	/**
+	 * The migration status.
+	 *
 	 * @var Migration_Status
 	 */
 	protected $migration_status;
@@ -29,9 +31,9 @@ class Migrations_Conditional implements Conditional {
 	}
 
 	/**
-	 * @inheritdoc
+	 * @inheritDoc
 	 */
 	public function is_met() {
-		return $this->migration_status->is_version( 'free', WPSEO_VERSION );
+		return $this->migration_status->is_version( 'free', \WPSEO_VERSION );
 	}
 }

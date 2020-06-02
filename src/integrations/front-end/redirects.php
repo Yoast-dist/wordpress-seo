@@ -20,16 +20,22 @@ use Yoast\WP\SEO\Integrations\Integration_Interface;
 class Redirects implements Integration_Interface {
 
 	/**
+	 * The options helper.
+	 *
 	 * @var Options_Helper
 	 */
 	protected $options;
 
 	/**
+	 * The meta helper.
+	 *
 	 * @var Meta_Helper
 	 */
 	protected $meta;
 
 	/**
+	 * The current page helper.
+	 *
 	 * @var Current_Page_Helper
 	 */
 	protected $current_page;
@@ -59,7 +65,6 @@ class Redirects implements Integration_Interface {
 	}
 
 	/**
-	 * @codeCoverageIgnore
 	 * @inheritDoc
 	 */
 	public static function get_conditionals() {
@@ -67,13 +72,12 @@ class Redirects implements Integration_Interface {
 	}
 
 	/**
-	 * @codeCoverageIgnore
 	 * @inheritDoc
 	 */
 	public function register_hooks() {
-		add_action( 'wp', [ $this, 'archive_redirect' ] );
-		add_action( 'wp', [ $this, 'page_redirect' ], 99 );
-		add_action( 'template_redirect', [ $this, 'attachment_redirect' ], 1 );
+		\add_action( 'wp', [ $this, 'archive_redirect' ] );
+		\add_action( 'wp', [ $this, 'page_redirect' ], 99 );
+		\add_action( 'template_redirect', [ $this, 'attachment_redirect' ], 1 );
 	}
 
 	/**
@@ -81,7 +85,7 @@ class Redirects implements Integration_Interface {
 	 */
 	public function archive_redirect() {
 		if ( $this->need_archive_redirect() ) {
-			$this->redirect->do_safe_redirect( get_bloginfo( 'url' ), 301 );
+			$this->redirect->do_safe_redirect( \get_bloginfo( 'url' ), 301 );
 		}
 	}
 
@@ -93,8 +97,8 @@ class Redirects implements Integration_Interface {
 			return;
 		}
 
-		$post = get_post();
-		if ( ! is_object( $post ) ) {
+		$post = \get_post();
+		if ( ! \is_object( $post ) ) {
 			return;
 		}
 
@@ -103,9 +107,8 @@ class Redirects implements Integration_Interface {
 			return;
 		}
 
-		$this->redirect->do_redirect( $redirect );
+		$this->redirect->do_redirect( $redirect, 301 );
 	}
-
 
 	/**
 	 * If the option to disable attachment URLs is checked, this performs the redirect to the attachment.
@@ -124,7 +127,7 @@ class Redirects implements Integration_Interface {
 			return;
 		}
 
-		$this->redirect->do_redirect( $url );
+		$this->redirect->do_redirect( $url, 301 );
 	}
 
 	/**
@@ -153,7 +156,7 @@ class Redirects implements Integration_Interface {
 	/**
 	 * Retrieves the attachment url for the current page.
 	 *
-	 * @codeCoverageIgnore
+	 * @codeCoverageIgnore It wraps WordPress functions.
 	 *
 	 * @return string The attachment url.
 	 */
@@ -161,12 +164,12 @@ class Redirects implements Integration_Interface {
 		/**
 		 * Allows the developer to change the target redirection URL for attachments.
 		 *
-		 * @api   string $attachment_url The attachment URL for the queried object.
-		 * @api   object $queried_object The queried object.
+		 * @api string $attachment_url The attachment URL for the queried object.
+		 * @api object $queried_object The queried object.
 		 *
 		 * @since 7.5.3
 		 */
-		return apply_filters(
+		return \apply_filters(
 			'wpseo_attachment_redirect_url',
 			\wp_get_attachment_url( \get_queried_object_id() ),
 			\get_queried_object()

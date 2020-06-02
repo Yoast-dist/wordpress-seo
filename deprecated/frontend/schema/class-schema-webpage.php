@@ -5,58 +5,43 @@
  * @package WPSEO\Frontend\Schema
  */
 
+use Yoast\WP\SEO\Generators\Schema\WebPage;
+
 /**
  * Returns schema WebPage data.
  *
- * @deprecated xx.x
+ * @deprecated 14.0
  *
  * @since 10.2
  */
-class WPSEO_Schema_WebPage implements WPSEO_Graph_Piece {
+class WPSEO_Schema_WebPage extends WPSEO_Deprecated_Graph_Piece {
+
+	/**
+	 * The date helper.
+	 *
+	 * @var WPSEO_Date_Helper
+	 */
+	protected $date;
 
 	/**
 	 * WPSEO_Schema_WebPage constructor.
 	 *
-	 * @codeCoverageIgnore
-	 * @deprecated xx.x
-	 */
-	public function __construct() {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
-	}
-
-	/**
-	 * Determines whether or not a piece should be added to the graph.
+	 * @param null $context The context. No longer used but present for BC.
 	 *
 	 * @codeCoverageIgnore
-	 * @deprecated xx.x
-	 *
-	 * @return bool
+	 * @deprecated 14.0
 	 */
-	public function is_needed() {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
+	public function __construct( $context = null ) {
+		parent::__construct( WebPage::class );
 
-		return false;
-	}
-
-	/**
-	 * Returns WebPage schema data.
-	 *
-	 * @codeCoverageIgnore
-	 * @deprecated xx.x
-	 *
-	 * @return array WebPage schema data.
-	 */
-	public function generate() {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
-
-		return array();
+		$this->date = new WPSEO_Date_Helper();
 	}
 
 	/**
 	 * Adds an author property to the $data if the WebPage is not represented.
 	 *
 	 * @codeCoverageIgnore
-	 * @deprecated xx.x
+	 * @deprecated 14.0
 	 *
 	 * @param array   $data The WebPage schema.
 	 * @param WP_Post $post The post the context is representing.
@@ -64,20 +49,22 @@ class WPSEO_Schema_WebPage implements WPSEO_Graph_Piece {
 	 * @return array The WebPage schema.
 	 */
 	public function add_author( $data, $post ) {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
+		_deprecated_function( __METHOD__, 'WPSEO 14.0', 'Yoast\WP\SEO\Generators\Schema\WebPage::add_author' );
 
-		return $data;
+		return $this->stable->add_author( $data, $post );
 	}
 
 	/**
 	 * If we have an image, make it the primary image of the page.
 	 *
 	 * @codeCoverageIgnore
-	 * @deprecated xx.x
+	 * @deprecated 14.0
 	 *
 	 * @param array $data WebPage schema data.
 	 */
 	public function add_image( &$data ) {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
+		_deprecated_function( __METHOD__, 'WPSEO 14.0', 'Yoast\WP\SEO\Generators\Schema\WebPage::add_image' );
+
+		$this->stable->add_image( $data );
 	}
 }

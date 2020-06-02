@@ -5,58 +5,114 @@
  * @package WPSEO\Frontend\Schema
  */
 
+use Yoast\WP\SEO\Config\Schema_IDs;
+use Yoast\WP\SEO\Generators\Schema\Author;
+
 /**
  * Returns schema Person data.
  *
- * @deprecated xx.x
+ * @deprecated 14.0
  *
  * @since 10.2
  */
-class WPSEO_Schema_Author implements WPSEO_Graph_Piece {
+class WPSEO_Schema_Author extends WPSEO_Deprecated_Graph_Piece {
+
+	/**
+	 * The hash used for images.
+	 *
+	 * @var string
+	 */
+	protected $image_hash = Schema_IDs::AUTHOR_LOGO_HASH;
+
+	/**
+	 * The Schema type we use for this class.
+	 *
+	 * @var string[]
+	 */
+	protected $type = [ 'Person' ];
 
 	/**
 	 * WPSEO_Schema_Author constructor.
 	 *
+	 * @param null $context The context. No longer used but present for BC.
+	 *
 	 * @codeCoverageIgnore
-	 * @deprecated xx.x
+	 * @deprecated 14.0
 	 */
-	public function __construct() {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
+	public function __construct( $context = null ) {
+		parent::__construct( Author::class );
 	}
 
 	/**
 	 * Determine whether we should return Person schema.
 	 *
 	 * @codeCoverageIgnore
-	 * @deprecated xx.x
+	 * @deprecated 14.0
 	 *
 	 * @return bool
 	 */
 	public function is_needed() {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
+		_deprecated_function( __METHOD__, 'WPSEO 14.0', 'Yoast\WP\SEO\Generators\Schema\Author::is_needed' );
+
+		if ( $this->stable->context->indexable->object_type === 'user' ) {
+			return true;
+		}
+
+		// This call to `is_post_author` is why this whole block could not be replaced with a `parent::is_needed()` call.
+		if ( $this->is_post_author() ) {
+			// If the author is the user the site represents, no need for an extra author block.
+			if ( $this->stable->is_needed() ) {
+				return (int) $this->stable->context->post->post_author !== $this->stable->context->site_user_id;
+			}
+
+			return true;
+		}
 
 		return false;
 	}
 
 	/**
-	 * Returns Person Schema data.
-	 *
-	 * @return bool|array Person data on success, false on failure.
-	 */
-	public function generate() {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
-
-		return array();
-	}
-
-	/**
 	 * Gets the Schema type we use for this class.
+	 *
+	 * @codeCoverageIgnore
+	 * @deprecated 14.0
 	 *
 	 * @return string[] The schema type.
 	 */
 	public static function get_type() {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
+		_deprecated_function( __METHOD__, 'WPSEO 14.0' );
 
-		return array();
+		return [ 'Person' ];
+	}
+
+	/**
+	 * Determine whether the current URL is worthy of Article schema.
+	 *
+	 * @codeCoverageIgnore
+	 * @deprecated 14.0
+	 *
+	 * @return bool
+	 */
+	protected function is_post_author() {
+		_deprecated_function( __METHOD__, 'WPSEO 14.0' );
+
+		return (
+			$this->stable->context->indexable->object_type === 'post'
+			&& $this->helpers->schema->article->is_article_post_type( $this->stable->context->indexable->object_sub_type )
+		);
+	}
+
+	/**
+	 * Determines a User ID for the Person data.
+	 *
+	 * @codeCoverageIgnore
+	 * @deprecated 14.0
+	 *
+	 * @return bool|int User ID or false upon return.
+	 */
+	protected function determine_user_id() {
+		_deprecated_function( __METHOD__, 'WPSEO 14.0', 'Yoast\WP\SEO\Generators\Schema\Author::determine_user_id' );
+
+		return parent::determine_user_id();
 	}
 }

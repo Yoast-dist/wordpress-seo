@@ -24,7 +24,6 @@ class BbPress implements Integration_Interface {
 	private $options;
 
 	/**
-	 * @codeCoverageIgnore
 	 * @inheritDoc
 	 */
 	public static function get_conditionals() {
@@ -34,7 +33,7 @@ class BbPress implements Integration_Interface {
 	/**
 	 * BbPress constructor.
 	 *
-	 * @codeCoverageIgnore
+	 * @codeCoverageIgnore It only sets dependencies.
 	 *
 	 * @param Options_Helper $options The options helper.
 	 */
@@ -43,7 +42,6 @@ class BbPress implements Integration_Interface {
 	}
 
 	/**
-	 * @codeCoverageIgnore
 	 * @inheritDoc
 	 */
 	public function register_hooks() {
@@ -58,6 +56,6 @@ class BbPress implements Integration_Interface {
 		 * {@internal The class itself is only loaded when the template tag is encountered
 		 *            via the template tag function in the wpseo-functions.php file.}}
 		 */
-		add_filter( 'bbp_get_breadcrumb', '__return_false' );
+		\add_filter( 'bbp_get_breadcrumb', '__return_false' );
 	}
 }

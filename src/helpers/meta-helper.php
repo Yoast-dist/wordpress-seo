@@ -7,6 +7,8 @@
 
 namespace Yoast\WP\SEO\Helpers;
 
+use WPSEO_Meta;
+
 /**
  * Class Meta_Helper
  */
@@ -24,6 +26,8 @@ class Meta_Helper {
 	 * @param string $key    Internal key of the value to get (without prefix).
 	 * @param int    $postid Post ID of the post to get the value for.
 	 *
+	 * @codeCoverageIgnore We have to write test when this method contains own code.
+	 *
 	 * @return string All 'normal' values returned from get_post_meta() are strings.
 	 *                Objects and arrays are possible, but not used by this plugin
 	 *                and therefore discarted (except when the special 'serialized' field def
@@ -33,6 +37,6 @@ class Meta_Helper {
 	 *                if the post does not exist.
 	 */
 	public function get_value( $key, $postid = 0 ) {
-		return \WPSEO_Meta::get_value( $key, $postid );
+		return WPSEO_Meta::get_value( $key, $postid );
 	}
 }

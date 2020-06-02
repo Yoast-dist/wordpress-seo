@@ -58,11 +58,14 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/components/src/WordOccurrenceInsights.js:54
 	__( 'The following words occur the most in the content. These give an indication of what your content focuses on. If the words differ a lot from your topic, you might want to rewrite your content accordingly. ', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/components/src/WordOccurrences.js:130
+	// Reference: node_modules/@yoast/components/src/data-model/DataModel.js:25
+	__( '%d occurrences', 'wordpress-seo' ),
+
+	// Reference: node_modules/@yoast/components/src/data-model/DataModel.js:50
 	__( 'Prominent words', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/components/src/WordOccurrences.js:57
-	__( '%d occurrences', 'wordpress-seo' ),
+	// Reference: node_modules/@yoast/components/src/help-icon/HelpIcon.js:50
+	__( '(Opens in a new browser tab)', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestion.js:49
 	__( 'Copy link', 'wordpress-seo' ),
@@ -123,9 +126,6 @@ $generated_i18n_strings = array(
 
 	// Reference: node_modules/@yoast/configuration-wizard/src/StepIndicator.js:52
 	__( 'Step %1$d: %2$s', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/helpers/src/makeOutboundLink.js:75
-	__( '(Opens in a new browser tab)', 'wordpress-seo' ),
 
 	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/ModeSwitcher.js:107
 	__( 'Desktop result', 'wordpress-seo' ),

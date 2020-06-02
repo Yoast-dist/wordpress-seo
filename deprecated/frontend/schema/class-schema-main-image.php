@@ -5,53 +5,76 @@
  * @package WPSEO\Frontend\Schema
  */
 
+use Yoast\WP\SEO\Generators\Schema\Main_Image;
+
 /**
  * Returns ImageObject schema data.
  *
  * @codeCoverageIgnore
- * @deprecated xx.x
+ * @deprecated 14.0
  *
  * @since 11.5
  */
-class WPSEO_Schema_MainImage implements WPSEO_Graph_Piece {
+class WPSEO_Schema_MainImage extends WPSEO_Deprecated_Graph_Piece {
 
 	/**
 	 * WPSEO_Schema_WebPage constructor.
 	 *
+	 * @param null $context The context. No longer used but present for BC.
+	 *
 	 * @codeCoverageIgnore
-	 * @deprecated xx.x
+	 * @deprecated 14.0
 	 */
-	public function __construct() {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
+	public function __construct( $context = null ) {
+		parent::__construct( Main_Image::class );
 	}
 
 	/**
-	 * Determines whether or not a piece should be added to the graph.
+	 * Gets the post's first usable content image. Null if none is available.
 	 *
 	 * @codeCoverageIgnore
-	 * @deprecated xx.x
+	 * @deprecated 14.0
 	 *
-	 * @return bool
+	 * @param int $post_id The post id.
+	 *
+	 * @return string|null The image URL or null if there is no image.
 	 */
-	public function is_needed() {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
+	protected function get_first_usable_content_image_for_post( $post_id ) {
+		_deprecated_function( __METHOD__, 'WPSEO 14.0' );
 
-		return false;
+		return WPSEO_Image_Utils::get_first_usable_content_image_for_post( $post_id );
 	}
 
 	/**
-	 * Adds a main image for the current URL to the schema if there is one.
-	 *
-	 * This can be either the featured image, or fall back to the first image in the content of the page.
+	 * Generates image schema from the attachment id.
 	 *
 	 * @codeCoverageIgnore
-	 * @deprecated xx.x
+	 * @deprecated 14.0
 	 *
-	 * @return false|array $data Image Schema.
+	 * @param string $image_id The image schema id.
+	 *
+	 * @return array Schema ImageObject array.
 	 */
-	public function generate() {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
+	protected function generate_image_schema_from_attachment_id( $image_id ) {
+		_deprecated_function( __METHOD__, 'WPSEO 14.0', 'YoastSEO()->helpers->schema->image->generate_from_attachment_id' );
 
-		return array();
+		return $this->helpers->schema->image->generate_from_attachment_id( $image_id, \get_post_thumbnail_id() );
+	}
+
+	/**
+	 * Generates image schema from the url.
+	 *
+	 * @codeCoverageIgnore
+	 * @deprecated 14.0
+	 *
+	 * @param string $image_id  The image schema id.
+	 * @param string $image_url The image URL.
+	 *
+	 * @return array Schema ImageObject array.
+	 */
+	protected function generate_image_schema_from_url( $image_id, $image_url ) {
+		_deprecated_function( __METHOD__, 'WPSEO 14.0', 'YoastSEO()->helpers->schema->image->generate_from_url' );
+
+		return $this->helpers->schema->image->generate_from_url( $image_id, $image_url );
 	}
 }

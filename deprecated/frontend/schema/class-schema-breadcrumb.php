@@ -5,46 +5,26 @@
  * @package WPSEO\Frontend\Schema
  */
 
+use Yoast\WP\SEO\Generators\Schema\Breadcrumb;
+
 /**
  * Returns schema Breadcrumb data.
  *
- * @deprecated xx.x
+ * @deprecated 14.0
  *
  * @since 10.2
  */
-class WPSEO_Schema_Breadcrumb implements WPSEO_Graph_Piece {
+class WPSEO_Schema_Breadcrumb extends WPSEO_Deprecated_Graph_Piece {
 
 	/**
 	 * WPSEO_Schema_Breadcrumb constructor.
 	 *
+	 * @param null $context The context. No longer used but present for BC.
+	 *
 	 * @codeCoverageIgnore
-	 * @deprecated xx.x
+	 * @deprecated 14.0
 	 */
-	public function __construct() {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
-	}
-
-	/**
-	 * Determine if we should add a breadcrumb attribute.
-	 *
-	 * @return bool
-	 */
-	public function is_needed() {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
-
-		return false;
-	}
-
-	/**
-	 * Returns Schema breadcrumb data to allow recognition of page's position in the site hierarchy.
-	 *
-	 * @link https://developers.google.com/search/docs/data-types/breadcrumb
-	 *
-	 * @return bool|array Array on success, false on failure.
-	 */
-	public function generate() {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
-
-		return array();
+	public function __construct( $context = null ) {
+		parent::__construct( Breadcrumb::class );
 	}
 }

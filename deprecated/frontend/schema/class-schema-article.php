@@ -5,66 +5,51 @@
  * @package WPSEO\Frontend\Schema
  */
 
+use Yoast\WP\SEO\Generators\Schema\Article;
+
 /**
  * Returns schema Article data.
  *
- * @deprecated xx.x
+ * @deprecated 14.0
  *
  * @since 10.2
  */
-class WPSEO_Schema_Article implements WPSEO_Graph_Piece {
+class WPSEO_Schema_Article extends WPSEO_Deprecated_Graph_Piece {
+
+	/**
+	 * The date helper.
+	 *
+	 * @var WPSEO_Date_Helper
+	 */
+	protected $date;
 
 	/**
 	 * WPSEO_Schema_Article constructor.
 	 *
-	 * @codeCoverageIgnore
-	 * @deprecated xx.x
-	 */
-	public function __construct() {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
-	}
-
-	/**
-	 * Determines whether or not a piece should be added to the graph.
+	 * @param array $context The context. No longer used but present for BC.
 	 *
 	 * @codeCoverageIgnore
-	 * @deprecated xx.x
-	 *
-	 * @return bool
+	 * @deprecated 14.0
 	 */
-	public function is_needed() {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
+	public function __construct( $context = null ) {
+		parent::__construct( Article::class );
 
-		return false;
-	}
-
-	/**
-	 * Returns Article data.
-	 *
-	 * @codeCoverageIgnore
-	 * @deprecated xx.x
-	 *
-	 * @return array $data Article data.
-	 */
-	public function generate() {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
-
-		return array();
+		$this->date = new WPSEO_Date_Helper();
 	}
 
 	/**
 	 * Determines whether a given post type should have Article schema.
 	 *
 	 * @codeCoverageIgnore
-	 * @deprecated xx.x
+	 * @deprecated 14.0
 	 *
 	 * @param string $post_type Post type to check.
 	 *
 	 * @return bool True if it has article schema, false if not.
 	 */
 	public static function is_article_post_type( $post_type = null ) {
-		_deprecated_function( __METHOD__, 'WPSEO xx.x' );
+		_deprecated_function( __METHOD__, 'WPSEO 14.0', 'YoastSEO()->helpers->schema->article->is_article_post_type' );
 
-		return false;
+		return YoastSEO()->helpers->schema->article->is_article_post_type( $post_type );
 	}
 }
