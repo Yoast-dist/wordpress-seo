@@ -230,11 +230,71 @@ $generated_i18n_strings = array(
 	// Reference: js/src/containers/SnippetEditor.js:107
 	__( 'Please provide a meta description by editing the snippet below.', 'wordpress-seo' ),
 
-	// Reference: js/src/edit.js:163
+	// Reference: js/src/edit.js:211
 	__( 'Yoast SEO', 'wordpress-seo' ),
+
+	// Reference: js/src/edit.js:63
+	__( 'Link', 'wordpress-seo' ),
 
 	// Reference: js/src/help-scout-beacon.js:208
 	__( 'When you click OK we will open our HelpScout beacon where you can find answers to your questions. This beacon will load our support data and also potentially set cookies.', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/edit-link.js:110
+	__( 'Link removed.', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/edit-link.js:155
+	__( 'Unlink', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/edit-link.js:23
+	__( 'Add Link', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/inline.js:347
+	__( 'Warning: the link has been inserted but could have errors. Please test it.', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/inline.js:349
+	__( 'Link edited.', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/inline.js:351
+	__( 'Link inserted.', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/inline.js:435
+	__( 'Learn more about marking a link as nofollow or sponsored.', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/inline.js:441
+	__( 'Search engines should ignore this link (mark as %1$snofollow%2$s)%3$s', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/inline.js:454
+	__( 'This is a sponsored link or advert (mark as %1$ssponsored%2$s)%3$s', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/inline.js:485
+	__( 'Open in new tab', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/link-editor.js:42
+	__( 'Apply', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/link-viewer.js:80
+	__( 'Edit', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/url-input.js:143
+	_n_noop( '%d result found, use up and down arrow keys to navigate.', '%d results found, use up and down arrow keys to navigate.', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/url-input.js:150
+	__( 'No results.', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/url-input.js:252
+	__( 'Link selected.', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/url-input.js:312
+	__( 'URL', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/url-input.js:317
+	__( 'Paste URL or type to search', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/url-input.js:358
+	__( '(no title)', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/utils.js:101
+	__( '%s (opens in a new tab)', 'wordpress-seo' ),
 
 	// Reference: js/src/structured-data-blocks/faq/block.js:23
 	__( 'List your Frequently Asked Questions in an SEO-friendly way. You can only use one FAQ block per post.', 'wordpress-seo' ),
