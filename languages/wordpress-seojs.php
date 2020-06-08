@@ -73,6 +73,18 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/CornerstoneToggle.js:26
 	__( 'Mark as cornerstone content', 'wordpress-seo' ),
 
+	// Reference: js/src/components/DocumentSidebar.js:19
+	// Reference: js/src/components/PrePublish.js:32
+	__( 'Readability analysis:', 'wordpress-seo' ),
+
+	// Reference: js/src/components/DocumentSidebar.js:23
+	// Reference: js/src/components/PrePublish.js:36
+	__( 'SEO analysis:', 'wordpress-seo' ),
+
+	// Reference: js/src/components/DocumentSidebar.js:26
+	// Reference: js/src/components/PrePublish.js:39
+	__( 'Improve your post with Yoast SEO', 'wordpress-seo' ),
+
 	// Reference: js/src/components/LocalSEOUpsell.js:76
 	__( 'Serving local customers?', 'wordpress-seo' ),
 
@@ -85,6 +97,18 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/Metabox.js:58
 	// Reference: js/src/components/SnippetPreviewModal.js:53
 	__( 'Google preview', 'wordpress-seo' ),
+
+	// Reference: js/src/components/PostPublish.js:17
+	__( 'Share your post!', 'wordpress-seo' ),
+
+	// Reference: js/src/components/PrePublish.js:16
+	__( 'No focus keyword was entered', 'wordpress-seo' ),
+
+	// Reference: js/src/components/PrePublish.js:22
+	__( 'We\'ve analyzed your post. Everything looks good. Well done!', 'wordpress-seo' ),
+
+	// Reference: js/src/components/PrePublish.js:24
+	__( 'We\'ve analyzed your post. There is still room for improvement!', 'wordpress-seo' ),
 
 	// Reference: js/src/components/PrimaryTaxonomyFilter.js:80
 	__( 'An error occurred loading the %s primary taxonomy picker.', 'wordpress-seo' ),
@@ -205,6 +229,9 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/containers/SnippetEditor.js:107
 	__( 'Please provide a meta description by editing the snippet below.', 'wordpress-seo' ),
+
+	// Reference: js/src/edit.js:163
+	__( 'Yoast SEO', 'wordpress-seo' ),
 
 	// Reference: js/src/help-scout-beacon.js:208
 	__( 'When you click OK we will open our HelpScout beacon where you can find answers to your questions. This beacon will load our support data and also potentially set cookies.', 'wordpress-seo' ),
