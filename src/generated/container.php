@@ -94,6 +94,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\generators\\twitter_image_generator' => 'Yoast\\WP\\SEO\\Generators\\Twitter_Image_Generator',
             'yoast\\wp\\seo\\helpers\\author_archive_helper' => 'Yoast\\WP\\SEO\\Helpers\\Author_Archive_Helper',
             'yoast\\wp\\seo\\helpers\\blocks_helper' => 'Yoast\\WP\\SEO\\Helpers\\Blocks_Helper',
+            'yoast\\wp\\seo\\helpers\\capability_helper' => 'Yoast\\WP\\SEO\\Helpers\\Capability_Helper',
             'yoast\\wp\\seo\\helpers\\current_page_helper' => 'Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper',
             'yoast\\wp\\seo\\helpers\\date_helper' => 'Yoast\\WP\\SEO\\Helpers\\Date_Helper',
             'yoast\\wp\\seo\\helpers\\home_url_helper' => 'Yoast\\WP\\SEO\\Helpers\\Home_Url_Helper',
@@ -188,6 +189,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\values\\open_graph\\images' => 'Yoast\\WP\\SEO\\Values\\Open_Graph\\Images',
             'yoast\\wp\\seo\\wrappers\\wp_query_wrapper' => 'Yoast\\WP\\SEO\\Wrappers\\WP_Query_Wrapper',
             'yoast\\wp\\seo\\wrappers\\wp_rewrite_wrapper' => 'Yoast\\WP\\SEO\\Wrappers\\WP_Rewrite_Wrapper',
+            'yoast_notification_center' => 'Yoast_Notification_Center',
             'yoastseo_vendor\\symfony\\component\\dependencyinjection\\containerinterface' => 'YoastSEO_Vendor\\YoastSEO_Vendor\\Symfony\\Component\\DependencyInjection\\ContainerInterface',
         ];
         $this->methodMap = [
@@ -260,6 +262,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Generators\\Twitter_Image_Generator' => 'getTwitterImageGeneratorService',
             'Yoast\\WP\\SEO\\Helpers\\Author_Archive_Helper' => 'getAuthorArchiveHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Blocks_Helper' => 'getBlocksHelperService',
+            'Yoast\\WP\\SEO\\Helpers\\Capability_Helper' => 'getCapabilityHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper' => 'getCurrentPageHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Date_Helper' => 'getDateHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Home_Url_Helper' => 'getHomeUrlHelperService',
@@ -354,6 +357,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Values\\Open_Graph\\Images' => 'getImages2Service',
             'Yoast\\WP\\SEO\\Wrappers\\WP_Query_Wrapper' => 'getWPQueryWrapperService',
             'Yoast\\WP\\SEO\\Wrappers\\WP_Rewrite_Wrapper' => 'getWPRewriteWrapperService',
+            'Yoast_Notification_Center' => 'getYoastNotificationCenterService',
             'wpdb' => 'getWpdbService',
         ];
         $this->privates = [
@@ -1139,6 +1143,16 @@ class Cached_Container extends Container
     protected function getBlocksHelperService()
     {
         return $this->services['Yoast\\WP\\SEO\\Helpers\\Blocks_Helper'] = new \Yoast\WP\SEO\Helpers\Blocks_Helper(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Post_Helper'] : $this->getPostHelperService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Helpers\Capability_Helper' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Helpers\Capability_Helper
+     */
+    protected function getCapabilityHelperService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper();
     }
 
     /**
@@ -2231,6 +2245,16 @@ class Cached_Container extends Container
     protected function getWPRewriteWrapperService()
     {
         return $this->services['Yoast\\WP\\SEO\\Wrappers\\WP_Rewrite_Wrapper'] = new \Yoast\WP\SEO\Wrappers\WP_Rewrite_Wrapper();
+    }
+
+    /**
+     * Gets the public 'Yoast_Notification_Center' shared service.
+     *
+     * @return \Yoast_Notification_Center
+     */
+    protected function getYoastNotificationCenterService()
+    {
+        return $this->services['Yoast_Notification_Center'] = \Yoast\WP\SEO\WordPress\Wrapper::get_notification_center();
     }
 
     /**
