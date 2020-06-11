@@ -6,6 +6,7 @@
  */
 
 use Yoast\WP\SEO\Generators\Schema\FAQ;
+use Yoast\WP\SEO\Memoizers\Meta_Tags_Context_Memoizer;
 
 /**
  * Returns schema FAQ data.
@@ -14,7 +15,7 @@ use Yoast\WP\SEO\Generators\Schema\FAQ;
  *
  * @since 11.3
  */
-class WPSEO_Schema_FAQ extends WPSEO_Deprecated_Graph_Piece {
+class WPSEO_Schema_FAQ extends FAQ implements WPSEO_Graph_Piece {
 
 	/**
 	 * WPSEO_Schema_FAQ constructor.
@@ -25,7 +26,11 @@ class WPSEO_Schema_FAQ extends WPSEO_Deprecated_Graph_Piece {
 	 * @deprecated 14.0
 	 */
 	public function __construct( $context = null ) {
-		parent::__construct( FAQ::class );
+		_deprecated_function( __METHOD__, 'WPSEO 14.0', 'Yoast\WP\SEO\Generators\Schema\FAQ' );
+
+		$memoizer      = YoastSEO()->classes->get( Meta_Tags_Context_Memoizer::class );
+		$this->context = $memoizer->for_current_page();
+		$this->helpers = YoastSEO()->helpers;
 	}
 
 	/**
@@ -62,6 +67,20 @@ class WPSEO_Schema_FAQ extends WPSEO_Deprecated_Graph_Piece {
 	}
 
 	/**
+	 * Render a list of questions, referencing them by ID.
+	 *
+	 * @codeCoverageIgnore
+	 * @deprecated 14.0
+	 *
+	 * @return array $data Our Schema graph.
+	 */
+	public function generate() {
+		_deprecated_function( __METHOD__, 'WPSEO 14.0', 'Yoast\WP\SEO\Generators\Schema\FAQ::generate' );
+
+		return parent::generate();
+	}
+
+	/**
 	 * Add the Questions in our FAQ blocks as separate pieces to the graph.
 	 *
 	 * @codeCoverageIgnore
@@ -77,5 +96,19 @@ class WPSEO_Schema_FAQ extends WPSEO_Deprecated_Graph_Piece {
 		_deprecated_function( __METHOD__, 'WPSEO 14.0' );
 
 		return [];
+	}
+
+	/**
+	 * Determines whether or not a piece should be added to the graph.
+	 *
+	 * @codeCoverageIgnore
+	 * @deprecated 14.0
+	 *
+	 * @return bool
+	 */
+	public function is_needed() {
+		_deprecated_function( __METHOD__, 'WPSEO 14.0', 'Yoast\WP\SEO\Generators\Schema\FAQ::is_needed' );
+
+		return parent::is_needed();
 	}
 }

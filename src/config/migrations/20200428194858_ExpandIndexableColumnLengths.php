@@ -5,22 +5,13 @@
  * @package WPSEO\Migrations
  */
 
-namespace Yoast\WP\SEO\Config\Migrations;
-
-use Yoast\WP\Lib\Migrations\Migration;
 use Yoast\WP\Lib\Model;
+use Ruckusing_Migration_Base;
 
 /**
  * ExpandIndexableColumnLengths
  */
-class ExpandIndexableColumnLengths extends Migration {
-
-	/**
-	 * The plugin this migration belongs to.
-	 *
-	 * @var string
-	 */
-	public static $plugin = 'free';
+class ExpandIndexableColumnLengths extends Ruckusing_Migration_Base {
 
 	/**
 	 * Migration up.

@@ -6,6 +6,7 @@
  */
 
 use Yoast\WP\SEO\Generators\Schema\Breadcrumb;
+use Yoast\WP\SEO\Memoizers\Meta_Tags_Context_Memoizer;
 
 /**
  * Returns schema Breadcrumb data.
@@ -14,7 +15,7 @@ use Yoast\WP\SEO\Generators\Schema\Breadcrumb;
  *
  * @since 10.2
  */
-class WPSEO_Schema_Breadcrumb extends WPSEO_Deprecated_Graph_Piece {
+class WPSEO_Schema_Breadcrumb extends Breadcrumb implements WPSEO_Graph_Piece {
 
 	/**
 	 * WPSEO_Schema_Breadcrumb constructor.
@@ -25,6 +26,40 @@ class WPSEO_Schema_Breadcrumb extends WPSEO_Deprecated_Graph_Piece {
 	 * @deprecated 14.0
 	 */
 	public function __construct( $context = null ) {
-		parent::__construct( Breadcrumb::class );
+		_deprecated_function( __METHOD__, 'WPSEO 14.0', 'Yoast\WP\SEO\Generators\Schema\Breadcrumb' );
+
+		$memoizer      = YoastSEO()->classes->get( Meta_Tags_Context_Memoizer::class );
+		$this->context = $memoizer->for_current_page();
+		$this->helpers = YoastSEO()->helpers;
+	}
+
+	/**
+	 * Determine if we should add a breadcrumb attribute.
+	 *
+	 * @codeCoverageIgnore
+	 * @deprecated 14.0
+	 *
+	 * @return bool
+	 */
+	public function is_needed() {
+		_deprecated_function( __METHOD__, 'WPSEO 14.0', 'Yoast\WP\SEO\Generators\Schema\Breadcrumb::is_needed' );
+
+		return parent::is_needed();
+	}
+
+	/**
+	 * Returns Schema breadcrumb data to allow recognition of page's position in the site hierarchy.
+	 *
+	 * @link https://developers.google.com/search/docs/data-types/breadcrumb
+	 *
+	 * @codeCoverageIgnore
+	 * @deprecated 14.0
+	 *
+	 * @return bool|array Array on success, false on failure.
+	 */
+	public function generate() {
+		_deprecated_function( __METHOD__, 'WPSEO 14.0', 'Yoast\WP\SEO\Generators\Schema\Breadcrumb::generate' );
+
+		return parent::generate();
 	}
 }
