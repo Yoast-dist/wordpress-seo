@@ -95,10 +95,10 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/PrimaryTaxonomyPicker.js:242
 	__( 'Select the primary %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/RelatedKeyPhrasesModal.js:90
+	// Reference: js/src/components/RelatedKeyPhrasesModal.js:91
 	__( 'Get related keyphrases', 'wordpress-seo' ),
 
-	// Reference: js/src/components/RelatedKeyPhrasesModal.js:94
+	// Reference: js/src/components/RelatedKeyPhrasesModal.js:95
 	__( 'Related keyphrases', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SettingsReplacementVariableEditor.js:35
@@ -208,6 +208,12 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/components/modals/MultipleKeywords.js:20
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SemRushLimitReached.js:21
+	__( 'You\'ve reached your request limit for today. Check back tomorrow or upgrade your plan over at %s', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SemRushLimitReached.js:33
+	__( 'Upgrade your %s plan', 'wordpress-seo' ),
 
 	// Reference: js/src/containers/SnippetEditor.js:107
 	__( 'Please provide a meta description by editing the snippet below.', 'wordpress-seo' ),
