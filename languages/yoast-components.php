@@ -190,16 +190,16 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/SnippetPreview.js:789
 	__( 'Meta description preview', 'wordpress-seo' ),
 
-	// Reference: js/src/components/MailchimpSignup.js:225
+	// Reference: js/src/components/MailchimpSignup.js:224
 	__( 'Email', 'wordpress-seo' ),
 
 	// Reference: js/src/components/MailchimpSignup.js:206
-	__( 'Sign Up!', 'wordpress-seo' ),
+	__( 'Sign up!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/MailchimpSignup.js:109
+	// Reference: js/src/components/MailchimpSignup.js:107
 	__( 'MailChimp signup failed:', 'wordpress-seo' ),
 
-	// Reference: js/src/components/MediaUpload.js:141 js/src/components/MediaUpload.js:18
+	// Reference: js/src/components/MediaUpload.js:146 js/src/components/MediaUpload.js:18
 	// Reference: js/src/components/MediaUpload.js:17
 	__( 'Choose an image', 'wordpress-seo' ),
 
