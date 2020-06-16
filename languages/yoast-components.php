@@ -58,6 +58,9 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/components/src/WordOccurrenceInsights.js:54
 	__( 'The following words occur the most in the content. These give an indication of what your content focuses on. If the words differ a lot from your topic, you might want to rewrite your content accordingly. ', 'wordpress-seo' ),
 
+	// Reference: node_modules/@yoast/components/src/button/Icon.js:20
+	__( 'Close', 'wordpress-seo' ),
+
 	// Reference: node_modules/@yoast/components/src/data-model/DataModel.js:25
 	__( '%d occurrences', 'wordpress-seo' ),
 
@@ -108,9 +111,6 @@ $generated_i18n_strings = array(
 
 	// Reference: node_modules/@yoast/configuration-wizard/src/ConfigurationWizard.js:191
 	__( 'A problem occurred when saving the current step, {{link}}please file a bug report{{/link}} describing what step you are on and which changes you want to make (if any).', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/configuration-wizard/src/ConfigurationWizard.js:277
-	__( 'Close', 'wordpress-seo' ),
 
 	// Reference: node_modules/@yoast/configuration-wizard/src/ConfigurationWizard.js:278
 	__( 'Close the Wizard', 'wordpress-seo' ),
