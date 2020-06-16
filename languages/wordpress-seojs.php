@@ -161,7 +161,7 @@ $generated_i18n_strings = array(
 	__( 'Your keyphrase is too long. It can be a maximum of 191 characters.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:54
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:238
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:304
 	__( 'Analysis results', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:60
@@ -170,28 +170,28 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:95
 	__( 'Readability analysis', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:105
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:117
+	__( 'Add synonyms', 'wordpress-seo' ),
+
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:134
+	__( 'Would you like to add keyphrase synonyms?', 'wordpress-seo' ),
+
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:177
 	// Reference: js/src/components/modals/KeywordSynonyms.js:62
 	// Reference: js/src/components/modals/MultipleKeywords.js:61
 	__( 'Get %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:124
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:187
 	__( 'Would you like to add a related keyphrase?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:155
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:220
 	__( 'Add related keyphrase', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:216
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:281
 	__( 'Enter a focus keyphrase to calculate the SEO score', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:224
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:289
 	__( 'SEO analysis', 'wordpress-seo' ),
-
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:49
-	__( 'Add synonyms', 'wordpress-seo' ),
-
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:76
-	__( 'Would you like to add keyphrase synonyms?', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/KeywordSynonyms.js:21
 	__( 'Great news: you can, with %1$s!', 'wordpress-seo' ),
