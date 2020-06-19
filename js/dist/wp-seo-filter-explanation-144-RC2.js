@@ -1,0 +1,1 @@
+(window.yoastWebpackJsonp=window.yoastWebpackJsonp||[]).push([[23],{358:function(o,i){jQuery("#posts-filter .tablenav.top").after(`<div class="notice notice-info inline wpseo-filter-explanation"><p class="dashicons-before dashicons-lightbulb">${yoastFilterExplanation.text}</p></div>`)}},[[358,0]]]);

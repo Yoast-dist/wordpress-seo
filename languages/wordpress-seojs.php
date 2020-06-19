@@ -73,16 +73,16 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/CornerstoneToggle.js:26
 	__( 'Mark as cornerstone content', 'wordpress-seo' ),
 
-	// Reference: js/src/components/DocumentSidebar.js:19
-	// Reference: js/src/components/PrePublish.js:32
+	// Reference: js/src/components/DocumentSidebar.js:29
+	// Reference: js/src/components/PrePublish.js:41
 	__( 'Readability analysis:', 'wordpress-seo' ),
 
-	// Reference: js/src/components/DocumentSidebar.js:23
-	// Reference: js/src/components/PrePublish.js:36
+	// Reference: js/src/components/DocumentSidebar.js:33
+	// Reference: js/src/components/PrePublish.js:45
 	__( 'SEO analysis:', 'wordpress-seo' ),
 
-	// Reference: js/src/components/DocumentSidebar.js:26
-	// Reference: js/src/components/PrePublish.js:39
+	// Reference: js/src/components/DocumentSidebar.js:36
+	// Reference: js/src/components/PrePublish.js:48
 	__( 'Improve your post with Yoast SEO', 'wordpress-seo' ),
 
 	// Reference: js/src/components/LocalSEOUpsell.js:76
@@ -101,14 +101,14 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/PostPublish.js:17
 	__( 'Share your post!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/PrePublish.js:16
-	__( 'No focus keyword was entered', 'wordpress-seo' ),
-
-	// Reference: js/src/components/PrePublish.js:22
+	// Reference: js/src/components/PrePublish.js:29
 	__( 'We\'ve analyzed your post. Everything looks good. Well done!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/PrePublish.js:24
+	// Reference: js/src/components/PrePublish.js:31
 	__( 'We\'ve analyzed your post. There is still room for improvement!', 'wordpress-seo' ),
+
+	// Reference: js/src/components/PrePublish.js:37
+	__( 'No focus keyword was entered', 'wordpress-seo' ),
 
 	// Reference: js/src/components/PrimaryTaxonomyFilter.js:80
 	__( 'An error occurred loading the %s primary taxonomy picker.', 'wordpress-seo' ),
@@ -230,71 +230,78 @@ $generated_i18n_strings = array(
 	// Reference: js/src/containers/SnippetEditor.js:107
 	__( 'Please provide a meta description by editing the snippet below.', 'wordpress-seo' ),
 
-	// Reference: js/src/edit.js:211
+	// Reference: js/src/edit.js:184
 	__( 'Yoast SEO', 'wordpress-seo' ),
-
-	// Reference: js/src/edit.js:63
-	__( 'Link', 'wordpress-seo' ),
 
 	// Reference: js/src/help-scout-beacon.js:208
 	__( 'When you click OK we will open our HelpScout beacon where you can find answers to your questions. This beacon will load our support data and also potentially set cookies.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/edit-link.js:110
+	// Reference: js/src/inline-links/edit-link.js:109
 	__( 'Link removed.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/edit-link.js:155
+	// Reference: js/src/inline-links/edit-link.js:136
 	__( 'Unlink', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/edit-link.js:23
-	__( 'Add Link', 'wordpress-seo' ),
+	// Reference: js/src/inline-links/edit-link.js:27
+	__( 'Link', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/inline.js:347
-	__( 'Warning: the link has been inserted but could have errors. Please test it.', 'wordpress-seo' ),
+	// Reference: js/src/inline-links/inline.js:174
+	__( 'Warning: the link has been inserted but may have errors. Please test it.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/inline.js:349
+	// Reference: js/src/inline-links/inline.js:180
 	__( 'Link edited.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/inline.js:351
+	// Reference: js/src/inline-links/inline.js:182
 	__( 'Link inserted.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/inline.js:435
+	// Reference: js/src/inline-links/inline.js:191
 	__( 'Learn more about marking a link as nofollow or sponsored.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/inline.js:441
+	// Reference: js/src/inline-links/inline.js:197
 	__( 'Search engines should ignore this link (mark as %1$snofollow%2$s)%3$s', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/inline.js:454
+	// Reference: js/src/inline-links/inline.js:210
 	__( 'This is a sponsored link or advert (mark as %1$ssponsored%2$s)%3$s', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/inline.js:485
+	// Reference: js/src/inline-links/inline.js:224
+	// Reference: js/src/inline-links/vendor/settings-drawer.js:15
 	__( 'Open in new tab', 'wordpress-seo' ),
-
-	// Reference: js/src/inline-links/link-editor.js:42
-	__( 'Apply', 'wordpress-seo' ),
-
-	// Reference: js/src/inline-links/link-viewer.js:80
-	__( 'Edit', 'wordpress-seo' ),
-
-	// Reference: js/src/inline-links/url-input.js:143
-	_n_noop( '%d result found, use up and down arrow keys to navigate.', '%d results found, use up and down arrow keys to navigate.', 'wordpress-seo' ),
-
-	// Reference: js/src/inline-links/url-input.js:150
-	__( 'No results.', 'wordpress-seo' ),
-
-	// Reference: js/src/inline-links/url-input.js:252
-	__( 'Link selected.', 'wordpress-seo' ),
-
-	// Reference: js/src/inline-links/url-input.js:312
-	__( 'URL', 'wordpress-seo' ),
-
-	// Reference: js/src/inline-links/url-input.js:317
-	__( 'Paste URL or type to search', 'wordpress-seo' ),
-
-	// Reference: js/src/inline-links/url-input.js:358
-	__( '(no title)', 'wordpress-seo' ),
 
 	// Reference: js/src/inline-links/utils.js:101
 	__( '%s (opens in a new tab)', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/vendor/link-control.js:409
+	__( 'An unknown error occurred during creation. Please try again.', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/vendor/link-control.js:459
+	__( 'Recently updated', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/vendor/link-control.js:462
+	__( 'Search results for "%s"', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/vendor/link-control.js:554
+	__( 'Creating', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/vendor/link-control.js:586
+	__( 'Currently selected', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/vendor/link-control.js:614
+	__( 'Edit', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/vendor/search-create-button.js:44
+	__( 'New page: <mark>%s</mark>', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/vendor/search-input.js:54
+	__( 'Search or type url', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/vendor/search-input.js:65
+	__( 'Submit', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/vendor/search-item.js:54
+	__( 'Press ENTER to add this link', 'wordpress-seo' ),
+
+	// Reference: js/src/inline-links/vendor/settings-drawer.js:48
+	__( 'Currently selected link settings', 'wordpress-seo' ),
 
 	// Reference: js/src/structured-data-blocks/faq/block.js:23
 	__( 'List your Frequently Asked Questions in an SEO-friendly way. You can only use one FAQ block per post.', 'wordpress-seo' ),
