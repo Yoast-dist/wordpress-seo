@@ -158,11 +158,11 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/ModeSwitcher.js:92
 	__( 'Mobile result', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/SettingsSnippetEditorFields.js:135
+	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/SettingsSnippetEditorFields.js:136
 	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/SnippetEditorFields.js:181
 	__( 'SEO title', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/SettingsSnippetEditorFields.js:150
+	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/SettingsSnippetEditorFields.js:151
 	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/SnippetEditorFields.js:224
 	__( 'Meta description', 'wordpress-seo' ),
 
