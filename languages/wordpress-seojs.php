@@ -115,10 +115,10 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/PrimaryTaxonomyPicker.js:242
 	__( 'Select the primary %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/RelatedKeyPhrasesModal.js:91
+	// Reference: js/src/components/RelatedKeyPhrasesModal.js:93
 	__( 'Get related keyphrases', 'wordpress-seo' ),
 
-	// Reference: js/src/components/RelatedKeyPhrasesModal.js:95
+	// Reference: js/src/components/RelatedKeyPhrasesModal.js:97
 	__( 'Related keyphrases', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SettingsReplacementVariableEditor.js:35
@@ -238,6 +238,9 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/components/modals/SemRushLimitReached.js:33
 	__( 'Upgrade your %s plan', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SemRushLoading.js:17
+	__( 'Please wait while %1$s is connecting to %2$s to get related keyphrases...', 'wordpress-seo' ),
 
 	// Reference: js/src/components/social/SocialMetadata.js:34
 	__( '%s preview', 'wordpress-seo' ),
