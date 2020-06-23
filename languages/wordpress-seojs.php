@@ -234,7 +234,7 @@ $generated_i18n_strings = array(
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/SemRushLimitReached.js:23
-	__( 'You\'ve reached your request limit for today. Check back tomorrow or upgrade your plan over at %s', 'wordpress-seo' ),
+	__( 'You\'ve reached your request limit for today. Check back tomorrow or upgrade your plan over at %s.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/SemRushLimitReached.js:35
 	__( 'Upgrade your %s plan', 'wordpress-seo' ),
