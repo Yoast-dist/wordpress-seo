@@ -115,10 +115,10 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/PrimaryTaxonomyPicker.js:242
 	__( 'Select the primary %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/RelatedKeyPhrasesModal.js:93
+	// Reference: js/src/components/RelatedKeyPhrasesModal.js:94
 	__( 'Get related keyphrases', 'wordpress-seo' ),
 
-	// Reference: js/src/components/RelatedKeyPhrasesModal.js:97
+	// Reference: js/src/components/RelatedKeyPhrasesModal.js:98
 	__( 'Related keyphrases', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SettingsReplacementVariableEditor.js:35
@@ -233,14 +233,20 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/modals/MultipleKeywords.js:20
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/SemRushLimitReached.js:21
+	// Reference: js/src/components/modals/SemRushLimitReached.js:23
 	__( 'You\'ve reached your request limit for today. Check back tomorrow or upgrade your plan over at %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/SemRushLimitReached.js:33
+	// Reference: js/src/components/modals/SemRushLimitReached.js:35
 	__( 'Upgrade your %s plan', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/SemRushLoading.js:17
+	// Reference: js/src/components/modals/SemRushLoading.js:19
 	__( 'Please wait while %1$s is connecting to %2$s to get related keyphrases...', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SemRushUpsellAlert.js:22
+	__( 'Would you like to be able to add these related keyphrases to the %s analysis so you can optimize your content even further?', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SemRushUpsellAlert.js:35
+	__( 'Check out %s!', 'wordpress-seo' ),
 
 	// Reference: js/src/components/social/SocialMetadata.js:34
 	__( '%s preview', 'wordpress-seo' ),
