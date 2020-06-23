@@ -59,6 +59,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\conditionals\\woocommerce_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Conditional',
             'yoast\\wp\\seo\\conditionals\\wpml_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\WPML_Conditional',
             'yoast\\wp\\seo\\conditionals\\yoast_admin_and_dashboard_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Yoast_Admin_And_Dashboard_Conditional',
+            'yoast\\wp\\seo\\conditionals\\yoast_admin_page_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Yoast_Admin_Page_Conditional',
             'yoast\\wp\\seo\\config\\dependency_management' => 'Yoast\\WP\\SEO\\Config\\Dependency_Management',
             'yoast\\wp\\seo\\config\\migration_status' => 'Yoast\\WP\\SEO\\Config\\Migration_Status',
             'yoast\\wp\\seo\\config\\migrations\\addcollationtotables' => 'Yoast\\WP\\SEO\\Config\\Migrations\\AddCollationToTables',
@@ -124,6 +125,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\initializers\\migration_runner' => 'Yoast\\WP\\SEO\\Initializers\\Migration_Runner',
             'yoast\\wp\\seo\\integrations\\admin\\indexation_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Indexation_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\migration_error_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Migration_Error_Integration',
+            'yoast\\wp\\seo\\integrations\\admin\\redesign_notification_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Redesign_Notification_Integration',
             'yoast\\wp\\seo\\integrations\\breadcrumbs_integration' => 'Yoast\\WP\\SEO\\Integrations\\Breadcrumbs_Integration',
             'yoast\\wp\\seo\\integrations\\front_end\\backwards_compatibility' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Backwards_Compatibility',
             'yoast\\wp\\seo\\integrations\\front_end\\category_term_description' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Category_Term_Description',
@@ -226,6 +228,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\WPML_Conditional' => 'getWPMLConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Conditional' => 'getWooCommerceConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Yoast_Admin_And_Dashboard_Conditional' => 'getYoastAdminAndDashboardConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Yoast_Admin_Page_Conditional' => 'getYoastAdminPageConditionalService',
             'Yoast\\WP\\SEO\\Config\\Dependency_Management' => 'getDependencyManagementService',
             'Yoast\\WP\\SEO\\Config\\Migration_Status' => 'getMigrationStatusService',
             'Yoast\\WP\\SEO\\Config\\Migrations\\AddCollationToTables' => 'getAddCollationToTablesService',
@@ -291,6 +294,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Initializers\\Migration_Runner' => 'getMigrationRunnerService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Indexation_Integration' => 'getIndexationIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Migration_Error_Integration' => 'getMigrationErrorIntegrationService',
+            'Yoast\\WP\\SEO\\Integrations\\Admin\\Redesign_Notification_Integration' => 'getRedesignNotificationIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Breadcrumbs_Integration' => 'getBreadcrumbsIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\Backwards_Compatibility' => 'getBackwardsCompatibilityService',
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\Category_Term_Description' => 'getCategoryTermDescriptionService',
@@ -791,6 +795,16 @@ class Cached_Container extends Container
     protected function getYoastAdminAndDashboardConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\Yoast_Admin_And_Dashboard_Conditional'] = new \Yoast\WP\SEO\Conditionals\Yoast_Admin_And_Dashboard_Conditional();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Yoast_Admin_Page_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Yoast_Admin_Page_Conditional
+     */
+    protected function getYoastAdminPageConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Yoast_Admin_Page_Conditional'] = new \Yoast\WP\SEO\Conditionals\Yoast_Admin_Page_Conditional();
     }
 
     /**
@@ -1462,6 +1476,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\Admin\Redesign_Notification_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\Admin\Redesign_Notification_Integration
+     */
+    protected function getRedesignNotificationIntegrationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Redesign_Notification_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Redesign_Notification_Integration();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Integrations\Breadcrumbs_Integration' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Integrations\Breadcrumbs_Integration
@@ -1788,6 +1812,7 @@ class Cached_Container extends Container
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Migration_Runner');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Indexation_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Migration_Error_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Redesign_Notification_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Breadcrumbs_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Backwards_Compatibility');
