@@ -242,10 +242,10 @@ $generated_i18n_strings = array(
 	// Reference: js/src/help-scout-beacon.js:208
 	__( 'When you click OK we will open our HelpScout beacon where you can find answers to your questions. This beacon will load our support data and also potentially set cookies.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/edit-link.js:108
+	// Reference: js/src/inline-links/edit-link.js:109
 	__( 'Link removed.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/edit-link.js:135
+	// Reference: js/src/inline-links/edit-link.js:136
 	__( 'Unlink', 'wordpress-seo' ),
 
 	// Reference: js/src/inline-links/edit-link.js:27
