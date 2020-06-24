@@ -115,10 +115,10 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/PrimaryTaxonomyPicker.js:242
 	__( 'Select the primary %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/RelatedKeyPhrasesModal.js:94
+	// Reference: js/src/components/RelatedKeyPhrasesModal.js:95
 	__( 'Get related keyphrases', 'wordpress-seo' ),
 
-	// Reference: js/src/components/RelatedKeyPhrasesModal.js:98
+	// Reference: js/src/components/RelatedKeyPhrasesModal.js:99
 	__( 'Related keyphrases', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SettingsReplacementVariableEditor.js:35
@@ -241,6 +241,9 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/components/modals/SemRushLoading.js:19
 	__( 'Please wait while %1$s is connecting to %2$s to get related keyphrases...', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SemRushRequestFailed.js:17
+	__( 'We\'ve encountered a problem trying to get related keyphrases. Please try again later.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/SemRushUpsellAlert.js:22
 	__( 'Would you like to be able to add these related keyphrases to the %s analysis so you can optimize your content even further?', 'wordpress-seo' ),
