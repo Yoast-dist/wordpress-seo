@@ -115,11 +115,11 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/PrimaryTaxonomyPicker.js:242
 	__( 'Select the primary %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/RelatedKeyPhrasesModal.js:95
-	__( 'Get related keyphrases', 'wordpress-seo' ),
-
-	// Reference: js/src/components/RelatedKeyPhrasesModal.js:99
+	// Reference: js/src/components/RelatedKeyPhrasesModal.js:100
 	__( 'Related keyphrases', 'wordpress-seo' ),
+
+	// Reference: js/src/components/RelatedKeyPhrasesModal.js:96
+	__( 'Get related keyphrases', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SettingsReplacementVariableEditor.js:35
 	__( 'Modify your meta description by editing it right here', 'wordpress-seo' ),
@@ -241,6 +241,9 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/components/modals/SemRushLoading.js:19
 	__( 'Please wait while %1$s is connecting to %2$s to get related keyphrases...', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SemRushMaxRelatedKeyphrases.js:19
+	__( 'You\'ve reached the maximum amount of 4 related keyphrases. You can change or remove related keyphrases in the %s metabox or sidebar.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/SemRushRequestFailed.js:17
 	__( 'We\'ve encountered a problem trying to get related keyphrases. Please try again later.', 'wordpress-seo' ),
