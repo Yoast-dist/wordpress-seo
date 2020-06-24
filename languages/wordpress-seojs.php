@@ -259,34 +259,34 @@ $generated_i18n_strings = array(
 	// Reference: js/src/initializers/edit.js:89
 	__( 'Please upgrade your WordPress version or install the Gutenberg plugin to get this %1$s feature.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/edit-link.js:109
+	// Reference: js/src/inline-links/edit-link.js:105
 	__( 'Link removed.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/edit-link.js:136
+	// Reference: js/src/inline-links/edit-link.js:145
 	__( 'Unlink', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/edit-link.js:27
+	// Reference: js/src/inline-links/edit-link.js:23
 	__( 'Link', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/inline.js:175
+	// Reference: js/src/inline-links/inline.js:174
 	__( 'Warning: the link has been inserted but may have errors. Please test it.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/inline.js:181
+	// Reference: js/src/inline-links/inline.js:180
 	__( 'Link edited.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/inline.js:183
+	// Reference: js/src/inline-links/inline.js:182
 	__( 'Link inserted.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/inline.js:192
+	// Reference: js/src/inline-links/inline.js:191
 	__( 'Learn more about marking a link as nofollow or sponsored.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/inline.js:198
+	// Reference: js/src/inline-links/inline.js:197
 	__( 'Search engines should ignore this link (mark as %1$snofollow%2$s)%3$s', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/inline.js:211
+	// Reference: js/src/inline-links/inline.js:210
 	__( 'This is a sponsored link or advert (mark as %1$ssponsored%2$s)%3$s', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/inline.js:225
+	// Reference: js/src/inline-links/inline.js:224
 	__( 'Open in new tab', 'wordpress-seo' ),
 
 	// Reference: js/src/inline-links/utils.js:101
