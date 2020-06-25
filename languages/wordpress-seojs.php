@@ -245,7 +245,7 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/modals/SemRushMaxRelatedKeyphrases.js:19
 	__( 'You\'ve reached the maximum amount of 4 related keyphrases. You can change or remove related keyphrases in the %s metabox or sidebar.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/SemRushRequestFailed.js:17
+	// Reference: js/src/components/modals/SemRushRequestFailed.js:16
 	__( 'We\'ve encountered a problem trying to get related keyphrases. Please try again later.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/SemRushUpsellAlert.js:22
