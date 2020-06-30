@@ -22,14 +22,14 @@ class WPSEO_Paper_Presenter {
 	 *
 	 * @var array
 	 */
-	protected $settings;
+	private $settings;
 
 	/**
 	 * The path to the view file.
 	 *
 	 * @var string
 	 */
-	protected $view_file;
+	private $view_file;
 
 	/**
 	 * WPSEO_presenter_paper constructor.
@@ -39,14 +39,14 @@ class WPSEO_Paper_Presenter {
 	 *                          a view file.
 	 * @param array  $settings  Optional. Settings for the paper.
 	 */
-	public function __construct( $title, $view_file = '', array $settings = [] ) {
+	public function __construct( $title, $view_file = null, array $settings = [] ) {
 		$defaults = [
 			'paper_id'                 => null,
 			'paper_id_prefix'          => 'wpseo-',
 			'collapsible'              => false,
 			'collapsible_header_class' => '',
 			'expanded'                 => false,
-			'help_button'              => '',
+			'help_text'                => '',
 			'title_after'              => '',
 			'class'                    => '',
 			'content'                  => '',
@@ -70,7 +70,7 @@ class WPSEO_Paper_Presenter {
 
 		$content = $this->settings['content'];
 
-		if ( ! empty( $this->view_file ) ) {
+		if ( $this->view_file !== null ) {
 			ob_start();
 			require $this->view_file;
 			$content = ob_get_clean();
@@ -88,14 +88,18 @@ class WPSEO_Paper_Presenter {
 	 *
 	 * @return array The view variables.
 	 */
-	protected function get_view_variables() {
+	private function get_view_variables() {
+		if ( $this->settings['help_text'] instanceof WPSEO_Admin_Help_Panel === false ) {
+			$this->settings['help_text'] = new WPSEO_Admin_Help_Panel( '', '', '' );
+		}
+
 		$view_variables = [
 			'class'                    => $this->settings['class'],
 			'collapsible'              => $this->settings['collapsible'],
 			'collapsible_config'       => $this->collapsible_config(),
 			'collapsible_header_class' => $this->settings['collapsible_header_class'],
 			'title_after'              => $this->settings['title_after'],
-			'help_button'              => $this->settings['help_button'],
+			'help_text'                => $this->settings['help_text'],
 			'view_file'                => $this->view_file,
 			'title'                    => $this->title,
 			'paper_id'                 => $this->settings['paper_id'],
