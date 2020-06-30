@@ -161,7 +161,7 @@ $generated_i18n_strings = array(
 	__( 'Your keyphrase is too long. It can be a maximum of 191 characters.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:50
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:310
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:311
 	__( 'Analysis results', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:56
