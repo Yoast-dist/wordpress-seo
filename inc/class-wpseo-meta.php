@@ -237,9 +237,9 @@ class WPSEO_Meta {
 	 * @var array
 	 */
 	private static $social_fields = [
-		'title'       => 'hidden',
-		'description' => 'hidden',
-		'image'       => 'hidden',
+		'title'       => 'text',
+		'description' => 'textarea',
+		'image'       => 'upload',
 		'image-id'    => 'hidden',
 	];
 

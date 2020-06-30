@@ -29,22 +29,16 @@ class WPSEO_Option_Tabs_Formatter {
 	 */
 	public function run( WPSEO_Option_Tabs $option_tabs ) {
 
-		echo '<nav class="yoast-tabs" id="wpseo-tabs">';
-		echo '<ul class="yoast-tabs__list">';
+		echo '<h2 class="nav-tab-wrapper" id="wpseo-tabs">';
 		foreach ( $option_tabs->get_tabs() as $tab ) {
 			printf(
-				'<li class="yoast-tabs__list-item">
-					<a class="yoast-tabs__list-item-link" id="%1$s" href="%2$s">
-						%3$s
-					</a>
-				</li>',
+				'<a class="nav-tab" id="%1$s" href="%2$s">%3$s</a>',
 				esc_attr( $tab->get_name() . '-tab' ),
 				esc_url( '#top#' . $tab->get_name() ),
 				esc_html( $tab->get_label() )
 			);
 		}
-		echo '</ul>';
-		echo '</nav>';
+		echo '</h2>';
 
 		foreach ( $option_tabs->get_tabs() as $tab ) {
 			$identifier = $tab->get_name();

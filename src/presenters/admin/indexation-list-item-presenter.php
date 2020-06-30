@@ -61,12 +61,12 @@ class Indexation_List_Item_Presenter extends Abstract_Presenter {
 		$shutdown_limit = \apply_filters( 'wpseo_shutdown_indexation_limit', 25 );
 
 		if ( $this->total_unindexed === 0 || $this->total_unindexed < $shutdown_limit ) {
-			$output .= '<span class="yoast-check"></span>' . \esc_html__( 'Great, your site has been optimized!', 'wordpress-seo' );
+			$output .= '<span class="wpseo-checkmark-ok-icon"></span>' . \esc_html__( 'Great, your site has been optimized!', 'wordpress-seo' );
 		}
 		else {
 			$output .= \sprintf(
 				'<span id="yoast-indexation">' .
-					'<button type="button" class="yoast-button yoast-button--secondary yoast-open-indexation" data-title="%1$s" data-settings="yoastIndexationData">' .
+					'<button type="button" class="button yoast-open-indexation" data-title="%1$s">' .
 						'%2$s' .
 					'</button>' .
 				'</span>',
