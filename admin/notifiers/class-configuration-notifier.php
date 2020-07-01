@@ -6,19 +6,33 @@
  */
 
 /**
- * Represents the logic for showing the configuration wizard notification.
+ * Represents the logic for showing the notification.
  */
-class WPSEO_Configuration_Notifier {
+class WPSEO_Configuration_Notifier implements WPSEO_Listener {
 
 	/**
-	 * Whether the notification should be shown.
+	 * Option name use to determine whether the notice has been dismissed.
+	 *
+	 * @var string
+	 */
+	const META_NAME = 'wpseo-dismiss-configuration-notice';
+
+	/**
+	 * Default value.
+	 *
+	 * @var string
+	 */
+	const META_VALUE = 'yes';
+
+	/**
+	 * Should the notification be shown.
 	 *
 	 * @var bool
 	 */
 	protected $show_notification;
 
 	/**
-	 * Constructs the object by setting the show notification property based on the given option.
+	 * Constructs the object by setting the show notification property based the given options.
 	 */
 	public function __construct() {
 		$this->show_notification = WPSEO_Options::get( 'show_onboarding_notice', false );
@@ -30,20 +44,52 @@ class WPSEO_Configuration_Notifier {
 	 * @return string A string with the notification HTML, or empty string when no notification is needed.
 	 */
 	public function notify() {
-		$notification_center = Yoast_Notification_Center::get();
-		$notification_center->remove_notification_by_id( 'wpseo-wizard-notification' );
-
 		if ( ! $this->show_notification() ) {
-			$this->re_run_notification();
-			return;
+			return $this->re_run_notification();
 		}
-		if ( WPSEO_Options::get( 'started_configuration_wizard' ) ) {
-			$this->continue_notification();
-			return;
-		}
-		$this->first_time_notification();
+
+		return $this->first_time_notification();
 	}
 
+	/**
+	 * Listens to an argument in the request URL. When triggered just set the notification to dismissed.
+	 *
+	 * @return void
+	 */
+	public function listen() {
+		if ( ! $this->show_notification() || ! $this->dismissal_is_triggered() ) {
+			return;
+		}
+
+		$this->set_dismissed();
+	}
+
+	/**
+	 * Checks if the dismissal should be triggered.
+	 *
+	 * @return bool True when action has been triggered.
+	 */
+	protected function dismissal_is_triggered() {
+		return filter_input( INPUT_GET, 'dismiss_get_started' ) === '1';
+	}
+
+	/**
+	 * Checks if the current user has dismissed the notification.
+	 *
+	 * @return bool True when the notification has been dismissed.
+	 */
+	protected function is_dismissed() {
+		return get_user_meta( get_current_user_id(), self::META_NAME, true ) === self::META_VALUE;
+	}
+
+	/**
+	 * Sets the dismissed state for the current user.
+	 *
+	 * @return void
+	 */
+	protected function set_dismissed() {
+		update_user_meta( get_current_user_id(), self::META_NAME, self::META_VALUE );
+	}
 
 	/**
 	 * Checks if the notification should be shown.
@@ -51,72 +97,80 @@ class WPSEO_Configuration_Notifier {
 	 * @return bool True when notification should be shown.
 	 */
 	protected function show_notification() {
-		return $this->show_notification;
+		return $this->show_notification && ! $this->is_dismissed();
 	}
 
 	/**
-	 * Adds the re-run notification to the notification center.
+	 * Returns the notification to re-run the config wizard.
 	 *
-	 * @return void
+	 * @return string The notification.
 	 */
-	public function re_run_notification() {
-		$note         = new Wizard_Notification();
-		$message      = $note->get_notification_message( 'finish' );
-		$notification = new Yoast_Notification(
-			$message,
-			[
-				'type'         => Yoast_Notification::WARNING,
-				'id'           => 'wpseo-wizard-notification',
-				'capabilities' => 'wpseo_manage_options',
-				'priority'     => 0.1,
-			]
+	private function re_run_notification() {
+		$content = sprintf(
+			/* translators: %1$s expands to Yoast SEO, %2$s is a link start tag to the Onboarding Wizard, %3$s is the link closing tag. */
+			esc_html__( 'If you want to double-check your %1$s settings, or change something, you can always %2$sreopen the configuration wizard%3$s.', 'wordpress-seo' ),
+			'Yoast SEO',
+			'<a href="' . esc_url( admin_url( 'admin.php?page=' . WPSEO_Configuration_Page::PAGE_IDENTIFIER ) ) . '">',
+			'</a>'
 		);
 
-		$notification_center = Yoast_Notification_Center::get();
-		$notification_center->add_notification( $notification );
+		return $this->notification( __( 'SEO settings configured', 'wordpress-seo' ), $content );
 	}
 
 	/**
-	 * Adds the first-time notification to the notification center.
+	 * Returns the notification to start the config wizard for the first time.
 	 *
-	 * @return void
+	 * @return string The notification.
 	 */
-	public function first_time_notification() {
-		$note         = new Wizard_Notification();
-		$message      = $note->get_notification_message( 'start' );
-		$notification = new Yoast_Notification(
-			$message,
-			[
-				'type'         => Yoast_Notification::WARNING,
-				'id'           => 'wpseo-wizard-notification',
-				'capabilities' => 'wpseo_manage_options',
-				'priority'     => 1,
-			]
+	private function first_time_notification() {
+		$content = sprintf(
+			/* translators: %1$s expands to Yoast SEO, %2$s is a link start tag to the Onboarding Wizard, %3$s is the link closing tag. */
+			esc_html__( 'Get started quickly with the %1$s %2$sconfiguration wizard%3$s!', 'wordpress-seo' ),
+			'Yoast SEO',
+			'<a href="' . esc_url( admin_url( 'admin.php?page=' . WPSEO_Configuration_Page::PAGE_IDENTIFIER ) ) . '">',
+			'</a>'
 		);
 
-		$notification_center = Yoast_Notification_Center::get();
-		$notification_center->add_notification( $notification );
+		return $this->notification( __( 'First-time SEO configuration', 'wordpress-seo' ), $content, true );
 	}
 
 	/**
-	 * Adds the continue notification to the notification center.
+	 * Returns a styled notification.
 	 *
-	 * @return void
+	 * @param string $title          Title for the notification.
+	 * @param string $content        Content for the notification.
+	 * @param bool   $show_dismissal Whether to show the dismiss button or not.
+	 *
+	 * @return string The styled notification.
 	 */
-	public function continue_notification() {
-		$note         = new Wizard_Notification();
-		$message      = $note->get_notification_message( 'continue' );
-		$notification = new Yoast_Notification(
-			$message,
-			[
-				'type'         => Yoast_Notification::WARNING,
-				'id'           => 'wpseo-wizard-notification',
-				'capabilities' => 'wpseo_manage_options',
-				'priority'     => 1,
-			]
+	private function notification( $title, $content, $show_dismissal = false ) {
+		$notification  = '<div class="yoast-container yoast-container__configuration-wizard">';
+		$notification .= sprintf(
+			'<img src="%1$s" height="%2$s" width="%3$d" alt="" />',
+			esc_url( plugin_dir_url( WPSEO_FILE ) . 'images/new-to-configuration-notice.svg' ),
+			60,
+			60
+		);
+		$notification .= '<div class="yoast-container__configuration-wizard--content">';
+		$notification .= sprintf(
+			'<h3>%s<span class="dashicons dashicons-yes"></span></h3>',
+			esc_html( $title )
 		);
 
-		$notification_center = Yoast_Notification_Center::get();
-		$notification_center->add_notification( $notification );
+		$notification .= '<p>';
+		$notification .= $content;
+		$notification .= '</p>';
+
+		$notification .= '</div>';
+		if ( $show_dismissal ) {
+			$notification .= sprintf(
+				'<a href="%1$s" style="" class="button dismiss yoast-container__configuration-wizard--dismiss"><span class="screen-reader-text">%2$s</span><span class="dashicons dashicons-no-alt"></span></a>',
+				esc_url( admin_url( 'admin.php?page=wpseo_dashboard&amp;dismiss_get_started=1' ) ),
+				esc_html__( 'Dismiss this item.', 'wordpress-seo' )
+			);
+		}
+		$notification .= '</div>';
+
+		return $notification;
 	}
 }

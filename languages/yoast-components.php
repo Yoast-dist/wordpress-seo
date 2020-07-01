@@ -58,7 +58,7 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/components/src/WordOccurrenceInsights.js:54
 	__( 'The following words occur the most in the content. These give an indication of what your content focuses on. If the words differ a lot from your topic, you might want to rewrite your content accordingly. ', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/components/src/button/Icon.js:20
+	// Reference: node_modules/@yoast/components/src/button/Icon.js:21
 	__( 'Close', 'wordpress-seo' ),
 
 	// Reference: node_modules/@yoast/components/src/data-model/DataModel.js:25
@@ -183,16 +183,16 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/SnippetPreview.js:788
 	__( 'Meta description preview', 'wordpress-seo' ),
 
-	// Reference: js/src/components/MailchimpSignup.js:234
+	// Reference: js/src/components/MailchimpSignup.js:235
 	__( 'Email', 'wordpress-seo' ),
 
 	// Reference: js/src/components/MailchimpSignup.js:216
-	__( 'Sign up!', 'wordpress-seo' ),
+	__( 'Sign Up!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/MailchimpSignup.js:117
+	// Reference: js/src/components/MailchimpSignup.js:119
 	__( 'MailChimp signup failed:', 'wordpress-seo' ),
 
-	// Reference: js/src/components/MediaUpload.js:146 js/src/components/MediaUpload.js:18
+	// Reference: js/src/components/MediaUpload.js:141 js/src/components/MediaUpload.js:18
 	// Reference: js/src/components/MediaUpload.js:17
 	__( 'Choose an image', 'wordpress-seo' ),
 
