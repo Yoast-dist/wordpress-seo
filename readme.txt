@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Requires at least: 5.3
 Tested up to: 5.4.1
-Stable tag: 14.5-RC6
+Stable tag: 14.5-RC7
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -216,6 +216,11 @@ Enhancements:
 
 * Disables the WP Core sitemaps as introduced in WordPress 5.5.
 * Adds the option for users to opt-in to allow Yoast to track some data about their site.
+* Adds an abstract class to easily add dynamic blocks in Yoast SEO / add-ons.
+
+Bugfixes:
+
+* Fixes a bug where the SEO title and meta description for posts that have a custom title and/or description would not be displayed in the posts overview.
 
 = 14.4.1 =
 Release Date: June 23rd, 2020
