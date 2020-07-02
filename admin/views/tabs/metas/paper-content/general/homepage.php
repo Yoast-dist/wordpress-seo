@@ -8,17 +8,18 @@
  */
 
 ?>
-<div class="tab-block yoast-feature">
-	<div class="yoast-field-group">
+<div class="tab-block">
 	<?php
 	if ( get_option( 'show_on_front' ) === 'posts' ) {
-		// @todo add the proper URL here once this article has been written.
-		$homepage_help = new WPSEO_Admin_Help_Button(
+		$homepage_help = new WPSEO_Admin_Help_Panel(
 			'search-appearance-homepage',
-			__( 'Learn more about the homepage setting', 'wordpress-seo' )
+			__( 'Learn more about the homepage setting', 'wordpress-seo' ),
+			__( 'This is what shows in the search results when people find your homepage. This means this is probably what they see when they search for your brand name.', 'wordpress-seo' ),
+			'has-wrapper'
 		);
 
-		echo '<h2 class="help-button-inline">', esc_html__( 'Homepage', 'wordpress-seo' ), $homepage_help, '</h2>';
+		echo '<h2 class="help-button-inline">', esc_html__( 'Homepage', 'wordpress-seo' ), $homepage_help->get_button_html(), '</h2>';
+		echo $homepage_help->get_panel_html();
 
 		$editor = new WPSEO_Replacevar_Editor(
 			$yform,
@@ -54,6 +55,4 @@
 		}
 	}
 	?>
-	</div>
-	<br class="clear">
 </div>

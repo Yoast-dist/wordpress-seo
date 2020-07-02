@@ -27,11 +27,14 @@ if ( get_option( 'show_on_front' ) === 'page' && get_option( 'page_for_posts' ) 
 }
 
 $yoast_free_breadcrumb_bold_texts = [
-	__( 'Regular', 'wordpress-seo' ),
-	__( 'Bold', 'wordpress-seo' ),
+	'on'  => __( 'Bold', 'wordpress-seo' ),
+	'off' => __( 'Regular', 'wordpress-seo' ),
 ];
-$yform->light_switch( 'breadcrumbs-boldlast',
-__( 'Bold the last page', 'wordpress-seo' ), $yoast_free_breadcrumb_bold_texts );
+$yform->toggle_switch(
+	'breadcrumbs-boldlast',
+	$yoast_free_breadcrumb_bold_texts,
+	__( 'Bold the last page', 'wordpress-seo' )
+);
 
 echo '<br/><br/>';
 
