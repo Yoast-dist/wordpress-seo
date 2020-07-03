@@ -115,11 +115,11 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/PrimaryTaxonomyPicker.js:242
 	__( 'Select the primary %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/RelatedKeyPhrasesModal.js:100
-	__( 'Related keyphrases', 'wordpress-seo' ),
-
-	// Reference: js/src/components/RelatedKeyPhrasesModal.js:96
+	// Reference: js/src/components/RelatedKeyphrasesModal.js:88
 	__( 'Get related keyphrases', 'wordpress-seo' ),
+
+	// Reference: js/src/components/RelatedKeyphrasesModal.js:92
+	__( 'Related keyphrases', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SettingsReplacementVariableEditor.js:39
 	__( 'Modify your meta description by editing it right here', 'wordpress-seo' ),
@@ -161,7 +161,7 @@ $generated_i18n_strings = array(
 	__( 'Your keyphrase is too long. It can be a maximum of 191 characters.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:50
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:311
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:310
 	__( 'Analysis results', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:56
@@ -277,13 +277,13 @@ $generated_i18n_strings = array(
 	// Reference: js/src/help-scout-beacon.js:208
 	__( 'When you click OK we will open our HelpScout beacon where you can find answers to your questions. This beacon will load our support data and also potentially set cookies.', 'wordpress-seo' ),
 
-	// Reference: js/src/initializers/edit.js:216
+	// Reference: js/src/initializers/edit.js:218
 	__( 'Yoast SEO', 'wordpress-seo' ),
 
-	// Reference: js/src/initializers/edit.js:85
+	// Reference: js/src/initializers/edit.js:87
 	__( 'Marking links with nofollow/sponsored has been disabled for WordPress installs < 5.4.', 'wordpress-seo' ),
 
-	// Reference: js/src/initializers/edit.js:88
+	// Reference: js/src/initializers/edit.js:90
 	__( 'Please upgrade your WordPress version or install the Gutenberg plugin to get this %1$s feature.', 'wordpress-seo' ),
 
 	// Reference: js/src/inline-links/edit-link.js:105
@@ -329,7 +329,7 @@ $generated_i18n_strings = array(
 	__( 'Frequently Asked Questions', 'wordpress-seo' ),
 
 	// Reference: js/src/structured-data-blocks/faq/block.js:28
-	// Reference: js/src/structured-data-blocks/how-to/block.js:57
+	// Reference: js/src/structured-data-blocks/how-to/block.js:56
 	__( 'Schema', 'wordpress-seo' ),
 
 	// Reference: js/src/structured-data-blocks/faq/components/FAQ.js:158
@@ -360,13 +360,13 @@ $generated_i18n_strings = array(
 	// Reference: js/src/structured-data-blocks/how-to/components/HowToStep.js:178
 	__( 'Add image', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/block.js:51
+	// Reference: js/src/structured-data-blocks/how-to/block.js:50
 	__( 'Create a How-to guide in an SEO-friendly way. You can only use one How-to block per post.', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/block.js:55
+	// Reference: js/src/structured-data-blocks/how-to/block.js:54
 	__( 'How-to', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/block.js:56
+	// Reference: js/src/structured-data-blocks/how-to/block.js:55
 	__( 'How to', 'wordpress-seo' ),
 
 	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:227

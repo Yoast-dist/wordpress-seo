@@ -93,22 +93,20 @@ $tabs = [
 ];
 
 ?>
+	<br/><br/>
 
-	<nav class="yoast-tabs" id="wpseo-tabs">
-		<ul class="yoast-tabs__list">
+	<h2 class="nav-tab-wrapper" id="wpseo-tabs">
 		<?php foreach ( $tabs as $identifier => $tab ) : ?>
-			<li class="yoast-tabs__list-item">
-			<a class="yoast-tabs__list-item-link" id="<?php echo esc_attr( $identifier . '-tab' ); ?>" href="<?php echo esc_url( '#top#' . $identifier ); ?>"><?php echo esc_html( $tab['label'] ); ?></a>
-			</li>
+			<a class="nav-tab" id="<?php echo esc_attr( $identifier . '-tab' ); ?>" href="<?php echo esc_url( '#top#' . $identifier ); ?>"><?php echo esc_html( $tab['label'] ); ?></a>
 		<?php endforeach; ?>
+
 		<?php
-			/**
-			 * Allow adding a custom import tab header.
-			 */
-			do_action( 'wpseo_import_tab_header' );
+		/**
+		 * Allow adding a custom import tab header.
+		 */
+		do_action( 'wpseo_import_tab_header' );
 		?>
-		</ul>
-	</nav>
+	</h2>
 
 <?php
 

@@ -76,7 +76,6 @@ class WPSEO_Admin {
 
 		if ( WPSEO_Utils::is_yoast_seo_page() ) {
 			add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
-			add_filter( 'admin_body_class', [ $this, 'set_yoast_body_class' ] );
 		}
 
 		if ( WPSEO_Utils::is_api_available() ) {
@@ -125,17 +124,6 @@ class WPSEO_Admin {
 		foreach ( $integrations as $integration ) {
 			$integration->register_hooks();
 		}
-	}
-
-	/**
-	 * Adds `yoast` to the admin page body class.
-	 *
-	 * @param string $body_class Space-separated list of CSS classes.
-	 *
-	 * @return string Space-separated list of CSS classes with `yoast` added.
-	 */
-	public function set_yoast_body_class( $body_class ) {
-		return $body_class . ' yoast';
 	}
 
 	/**
@@ -272,7 +260,7 @@ class WPSEO_Admin {
 	 */
 	public function enqueue_global_style() {
 		$asset_manager = new WPSEO_Admin_Asset_Manager();
-		$asset_manager->enqueue_style( 'post-overview-global' );
+		$asset_manager->enqueue_style( 'admin-global' );
 	}
 
 	/**
@@ -450,43 +438,5 @@ class WPSEO_Admin {
 			$helpscout_settings['products'],
 			$helpscout_settings['ask_consent']
 		);
-	}
-
-	/* ********************* DEPRECATED METHODS ********************* */
-
-	/**
-	 * Cleans stopwords out of the slug, if the slug hasn't been set yet.
-	 *
-	 * @deprecated 7.0
-	 * @codeCoverageIgnore
-	 *
-	 * @return void
-	 */
-	public function remove_stopwords_from_slug() {
-		_deprecated_function( __METHOD__, 'WPSEO 7.0' );
-	}
-
-	/**
-	 * Filter the stopwords from the slug.
-	 *
-	 * @deprecated 7.0
-	 * @codeCoverageIgnore
-	 *
-	 * @return void
-	 */
-	public function filter_stopwords_from_slug() {
-		_deprecated_function( __METHOD__, 'WPSEO 7.0' );
-	}
-
-	/**
-	 * Initializes WHIP to show a notice for outdated PHP versions.
-	 *
-	 * @deprecated 8.1
-	 * @codeCoverageIgnore
-	 *
-	 * @return void
-	 */
-	public function check_php_version() {
-		// Intentionally left empty.
 	}
 }
