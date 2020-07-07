@@ -259,13 +259,13 @@ $generated_i18n_strings = array(
 	// Reference: js/src/initializers/edit.js:88
 	__( 'Please upgrade your WordPress version or install the Gutenberg plugin to get this %1$s feature.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/edit-link.js:105
+	// Reference: js/src/inline-links/edit-link.js:106
 	__( 'Link removed.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/edit-link.js:145
+	// Reference: js/src/inline-links/edit-link.js:146
 	__( 'Unlink', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/edit-link.js:23
+	// Reference: js/src/inline-links/edit-link.js:24
 	__( 'Link', 'wordpress-seo' ),
 
 	// Reference: js/src/inline-links/inline.js:174
