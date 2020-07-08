@@ -10,6 +10,8 @@ namespace Yoast\WP\SEO\Presentations;
 use Yoast\WP\SEO\Context\Meta_Tags_Context;
 use Yoast\WP\SEO\Generators\Breadcrumbs_Generator;
 use Yoast\WP\SEO\Generators\Open_Graph_Image_Generator;
+use Yoast\WP\SEO\Generators\Open_Graph_Locale_Generator;
+use Yoast\WP\SEO\Generators\Schema_Generator;
 use Yoast\WP\SEO\Generators\Twitter_Image_Generator;
 use Yoast\WP\SEO\Helpers\Current_Page_Helper;
 use Yoast\WP\SEO\Helpers\Image_Helper;
@@ -17,8 +19,6 @@ use Yoast\WP\SEO\Helpers\Options_Helper;
 use Yoast\WP\SEO\Helpers\Url_Helper;
 use Yoast\WP\SEO\Helpers\User_Helper;
 use Yoast\WP\SEO\Models\Indexable;
-use Yoast\WP\SEO\Generators\Open_Graph_Locale_Generator;
-use Yoast\WP\SEO\Generators\Schema_Generator;
 
 /**
  * Class Indexable_Presentation
@@ -369,6 +369,10 @@ class Indexable_Presentation extends Abstract_Presentation {
 	public function generate_open_graph_title() {
 		if ( $this->model->open_graph_title ) {
 			return $this->model->open_graph_title;
+		}
+
+		if ( $this->model->breadcrumb_title ) {
+			return $this->model->breadcrumb_title;
 		}
 
 		return $this->title;
