@@ -277,7 +277,7 @@ $generated_i18n_strings = array(
 	// Reference: js/src/help-scout-beacon.js:208
 	__( 'When you click OK we will open our HelpScout beacon where you can find answers to your questions. This beacon will load our support data and also potentially set cookies.', 'wordpress-seo' ),
 
-	// Reference: js/src/initializers/edit.js:218
+	// Reference: js/src/initializers/edit.js:222
 	__( 'Yoast SEO', 'wordpress-seo' ),
 
 	// Reference: js/src/initializers/edit.js:87
