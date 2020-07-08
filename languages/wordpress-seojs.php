@@ -115,11 +115,99 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/PrimaryTaxonomyPicker.js:242
 	__( 'Select the primary %s', 'wordpress-seo' ),
 
+	// Reference: js/src/components/SchemaTab.js:104
+	__( '%1$sNone%2$s', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:118
+	__( 'You can change the default type for %1$s in your %2$sSearch Appearance Settings%3$s.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:15
+	__( 'Web Page', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:152
+	__( 'Learn more about structured data with Schema.org', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:159
+	__( 'What type of page or content is this?', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:162
+	__( 'Learn more about page or content types', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:169
+	// Reference: js/src/containers/SchemaTab.js:108
+	__( 'Page type', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:177
+	// Reference: js/src/containers/SchemaTab.js:107
+	__( 'Article type', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:19
+	__( 'Item Page', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:224
+	// Reference: js/src/structured-data-blocks/faq/block.js:28
+	// Reference: js/src/structured-data-blocks/how-to/block.js:56
+	__( 'Schema', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:23
+	__( 'About Page', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:27
+	__( 'FAQ Page', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:31
+	__( 'QA Page', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:35
+	__( 'Profile Page', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:39
+	__( 'Contact Page', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:43
+	__( 'Medical Web Page', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:47
+	__( 'Collection Page', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:51
+	__( 'Checkout Page', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:55
+	__( 'Real Estate Listing', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:59
+	__( 'Search Results Page', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:71
+	__( 'Article', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:75
+	__( 'Social Media Posting', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:79
+	__( 'News Article', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:83
+	__( 'Advertiser Content Article', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:87
+	__( 'Satirical Article', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:91
+	__( 'Scholary Article', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:95
+	__( 'Tech Article', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:99
+	__( 'Report', 'wordpress-seo' ),
+
 	// Reference: js/src/components/SettingsReplacementVariableEditor.js:39
 	__( 'Modify your meta description by editing it right here', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SnippetPreviewModal.js:53
-	// Reference: js/src/components/fills/MetaboxFill.js:57
+	// Reference: js/src/components/fills/MetaboxFill.js:58
 	__( 'Google preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SnippetPreviewModal.js:59
@@ -244,6 +332,18 @@ $generated_i18n_strings = array(
 	// Reference: js/src/containers/TwitterEditor.js:25
 	__( 'Modify your %s description by editing it right here...', 'wordpress-seo' ),
 
+	// Reference: js/src/containers/SchemaTab.js:55
+	__( 'Yoast SEO automatically describes your posts using schema.org', 'wordpress-seo' ),
+
+	// Reference: js/src/containers/SchemaTab.js:56
+	__( 'This helps search engines understand your website and your content. You can change some of your settings for this post below.', 'wordpress-seo' ),
+
+	// Reference: js/src/containers/SchemaTab.js:67
+	__( 'Yoast SEO automatically describes your pages using schema.org', 'wordpress-seo' ),
+
+	// Reference: js/src/containers/SchemaTab.js:68
+	__( 'This helps search engines understand your website and your content. You can change some of your settings for this page below.', 'wordpress-seo' ),
+
 	// Reference: js/src/containers/SnippetEditor.js:56
 	__( 'Please provide a meta description by editing the snippet below.', 'wordpress-seo' ),
 
@@ -259,13 +359,13 @@ $generated_i18n_strings = array(
 	// Reference: js/src/initializers/edit.js:88
 	__( 'Please upgrade your WordPress version or install the Gutenberg plugin to get this %1$s feature.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/edit-link.js:105
+	// Reference: js/src/inline-links/edit-link.js:106
 	__( 'Link removed.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/edit-link.js:145
+	// Reference: js/src/inline-links/edit-link.js:146
 	__( 'Unlink', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/edit-link.js:23
+	// Reference: js/src/inline-links/edit-link.js:24
 	__( 'Link', 'wordpress-seo' ),
 
 	// Reference: js/src/inline-links/inline.js:174
@@ -300,10 +400,6 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/structured-data-blocks/faq/block.js:27
 	__( 'Frequently Asked Questions', 'wordpress-seo' ),
-
-	// Reference: js/src/structured-data-blocks/faq/block.js:28
-	// Reference: js/src/structured-data-blocks/how-to/block.js:56
-	__( 'Schema', 'wordpress-seo' ),
 
 	// Reference: js/src/structured-data-blocks/faq/components/FAQ.js:158
 	__( 'New question added', 'wordpress-seo' ),

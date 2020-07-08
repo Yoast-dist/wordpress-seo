@@ -77,7 +77,6 @@ ul.wpseo-metabox-tabs li.active {
   height: auto;
   vertical-align: top;
   border: 1px solid rgba( 0,0,0,0.2 );
-  border-bottom: 0;
 }
 
 .wpseo-meta-section.active,
@@ -729,4 +728,15 @@ div.interface-pinned-items button.components-button.is-pressed[aria-label="Yoast
 div.interface-pinned-items button.components-button.is-pressed[aria-label="Yoast SEO Premium"] > svg path {
 	fill: #ffffff;
 }
+.wpseo-schema-icon {
+  height: 16px;
+  width: 16px;
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: var(--yoast-svg-icon-schema);
+  background-size: cover;
+}
+
 /*# sourceMappingURL=metabox.css.map */
