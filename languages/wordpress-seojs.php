@@ -236,12 +236,12 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/social/SocialUpsell.js:35
 	__( 'Do you want to preview what it will look like if people share this post on %s? You can, with %s.', 'wordpress-seo' ),
 
-	// Reference: js/src/containers/FacebookEditor.js:17
-	// Reference: js/src/containers/TwitterEditor.js:17
+	// Reference: js/src/containers/FacebookEditor.js:18
+	// Reference: js/src/containers/TwitterEditor.js:18
 	__( 'Modify your %s title by editing it right here...', 'wordpress-seo' ),
 
-	// Reference: js/src/containers/FacebookEditor.js:24
-	// Reference: js/src/containers/TwitterEditor.js:24
+	// Reference: js/src/containers/FacebookEditor.js:25
+	// Reference: js/src/containers/TwitterEditor.js:25
 	__( 'Modify your %s description by editing it right here...', 'wordpress-seo' ),
 
 	// Reference: js/src/containers/SnippetEditor.js:56
@@ -259,13 +259,13 @@ $generated_i18n_strings = array(
 	// Reference: js/src/initializers/edit.js:88
 	__( 'Please upgrade your WordPress version or install the Gutenberg plugin to get this %1$s feature.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/edit-link.js:105
+	// Reference: js/src/inline-links/edit-link.js:106
 	__( 'Link removed.', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/edit-link.js:145
+	// Reference: js/src/inline-links/edit-link.js:146
 	__( 'Unlink', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/edit-link.js:23
+	// Reference: js/src/inline-links/edit-link.js:24
 	__( 'Link', 'wordpress-seo' ),
 
 	// Reference: js/src/inline-links/inline.js:174
