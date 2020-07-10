@@ -135,13 +135,13 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/WordPressUserSelectorOnboardingWizard.js:53
 	__( 'You can edit the details shown in meta data, like the social profiles, the name and the description of this user on their %1$s profile page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/WordPressUserSelectorSearchAppearance.js:117
-	__( 'Name:', 'wordpress-seo' ),
+	// Reference: js/src/components/WordPressUserSelectorSearchAppearance.js:116
+	__( 'Name', 'wordpress-seo' ),
 
 	// Reference: js/src/components/WordPressUserSelectorSearchAppearance.js:69
-	__( 'Error: Please select a user below to make your site\'s meta data complete.', 'wordpress-seo' ),
+	__( 'Please select a user below to make your site\'s meta data complete.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/WordPressUserSelectorSearchAppearance.js:86
+	// Reference: js/src/components/WordPressUserSelectorSearchAppearance.js:85
 	__( 'You have selected the user %1$s as the person this site represents. Their user profile information will now be used in search results. %2$sUpdate their profile to make sure the information is correct.%3$s', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/KeywordInput.js:41
