@@ -227,13 +227,13 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/modals/MultipleKeywords.js:19
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/social/SocialMetadata.js:34
+	// Reference: js/src/components/social/SocialMetadata.js:31
 	__( '%s preview', 'wordpress-seo' ),
 
-	// Reference: js/src/components/social/SocialUpsell.js:20
+	// Reference: js/src/components/social/SocialUpsell.js:19
 	__( 'Find out why you should upgrade to %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/social/SocialUpsell.js:35
+	// Reference: js/src/components/social/SocialUpsell.js:34
 	__( 'Do you want to preview what it will look like if people share this post on %s? You can, with %s.', 'wordpress-seo' ),
 
 	// Reference: js/src/containers/FacebookEditor.js:18
