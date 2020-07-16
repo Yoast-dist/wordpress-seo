@@ -7,10 +7,10 @@
 
 namespace Yoast\WP\SEO\Presentations;
 
+use Yoast\WP\SEO\Helpers\Date_Helper;
 use Yoast\WP\SEO\Helpers\Pagination_Helper;
 use Yoast\WP\SEO\Helpers\Post_Helper;
 use Yoast\WP\SEO\Helpers\Post_Type_Helper;
-use Yoast\WP\SEO\Helpers\Date_Helper;
 
 /**
  * Class Indexable_Post_Type_Presentation
@@ -196,6 +196,23 @@ class Indexable_Post_Type_Presentation extends Indexable_Presentation {
 		}
 
 		return parent::generate_open_graph_images();
+	}
+
+	/**
+	 * Generates the open graph title.
+	 *
+	 * @return string The open graph title.
+	 */
+	public function generate_open_graph_title() {
+		if ( $this->model->open_graph_title ) {
+			return $this->model->open_graph_title;
+		}
+
+		if ( $this->model->breadcrumb_title ) {
+			return $this->model->breadcrumb_title;
+		}
+
+		return $this->title;
 	}
 
 	/**
