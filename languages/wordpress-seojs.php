@@ -289,9 +289,6 @@ $generated_i18n_strings = array(
 	// Reference: js/src/inline-links/inline.js:224
 	__( 'Open in new tab', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/utils.js:101
-	__( '%s (opens in a new tab)', 'wordpress-seo' ),
-
 	// Reference: js/src/structured-data-blocks/faq/block.js:22
 	__( 'List your Frequently Asked Questions in an SEO-friendly way. You can only use one FAQ block per post.', 'wordpress-seo' ),
 
