@@ -1,7 +1,7 @@
 .yoast .yoast-button {
 	display: inline-block;
 	position: relative;
-	padding: 11px 13px 13px;
+	padding: 10px;
 	text-decoration: none;
 	border-radius: 4px;
 	border: 1px solid rgba(0,0,0, 0.2);
@@ -13,7 +13,7 @@
 
 .yoast .yoast-button:active { /* 'Pressed' button state */
 	box-shadow: none;
-	padding-bottom: 12px;
+	padding-bottom: 10px;
 	top: 2px;
 }
 
@@ -55,6 +55,9 @@
 .yoast .yoast-button--buy {
 	display: inline-flex;
 	align-items: center;
+	padding: 12px;
+	font-size: 16px;
+	font-weight: 500;
 	color: var(--yoast-color-dark);
 	background-color: var(--yoast-color-sale);
 }

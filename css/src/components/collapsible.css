@@ -1,10 +1,62 @@
 .yoast-collapsible {
-	margin-bottom: 48px;
-	max-width: 600px;
+	margin-bottom: 16px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: var(--yoast-container-width);
 	position: relative;
+	box-shadow: var(--yoast-shadow-default);
+	border: var(--yoast-border-default);
 }
 
-.yoast-collapsible .collapsible-header {
-	border-bottom: var(--yoast-border-default);
-	padding-bottom: 13px;
+.yoast-collapsible.yoast-full-width {
+	max-width: 100%;
+}
+
+.yoast #wpcontent .yoast-collapsible h3 {
+	font-size: 1.4em;
+	font-weight: 300;
+	padding-top: 16px;
+	margin-bottom: 16px;
+}
+
+.toggleable-container {
+	padding: 0 16px;
+}
+
+.toggleable-container-hidden {
+	display: none;
+}
+
+.yoast #wpcontent h2.collapsible-header {
+	margin-bottom: 0;
+}
+
+.collapsible-header .toggleable-container-icon {
+	float: right;
+	color: var(--yoast-color-default);
+	cursor: pointer;
+}
+
+.collapsible-header code {
+	font-size: 16px;
+	font-weight: normal;
+	color: var(--yoast-color-default);
+	padding: 0;
+	margin: 0 4px;
+	background: none;
+}
+
+.collapsible-header .toggleable-container-trigger {
+	display: block;
+	width: 100%;
+	text-align: left;
+	border: 0;
+	background: none;
+	color: var(--yoast-primary-color);
+	padding: 16px;
+	cursor: pointer;
+}
+
+.collapsible-header .toggleable-container-trigger:focus {
+	outline: 0;
 }

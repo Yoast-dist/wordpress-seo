@@ -26,7 +26,7 @@ if ( is_array( $wpseo_taxonomies ) && $wpseo_taxonomies !== [] ) {
 			__DIR__ . '/paper-content/taxonomy-content.php',
 			[
 				'collapsible' => true,
-				'expanded'    => ( $wpseo_taxonomy_index === 0 ),
+				'expanded'    => false,
 				'paper_id'    => 'settings-' . $wpseo_taxonomy->name,
 				'view_data'   => [
 					'wpseo_taxonomy'               => $wpseo_taxonomy,
@@ -35,7 +35,7 @@ if ( is_array( $wpseo_taxonomies ) && $wpseo_taxonomies !== [] ) {
 					'editor_specific_replace_vars' => $editor_specific_replace_vars,
 				],
 				'title_after' => ' (<code>' . esc_html( $wpseo_taxonomy->name ) . '</code>)',
-				'class'       => 'search-appearance',
+				'class'       => 'search-appearance search-appearance--bottom',
 			]
 		);
 		echo $wpseo_taxonomy_presenter->get_output();
@@ -46,7 +46,14 @@ if ( is_array( $wpseo_taxonomies ) && $wpseo_taxonomies !== [] ) {
 
 unset( $wpseo_taxonomies );
 
-echo '<div class="yoast-feature">';
-printf( '<h2>%s</h2>', esc_html__( 'Category URLs', 'wordpress-seo' ) );
-require __DIR__ . '/taxonomies/category-url.php';
-echo '</div>';
+
+$wpseo_taxonomy_presenter = new WPSEO_Collapsible_Presenter(
+	__( 'Category URLs', 'wordpress-seo' ),
+	__DIR__ . '/taxonomies/category-url.php',
+	[
+		'collapsible' => true,
+		'expanded'    => false,
+		'paper_id'    => 'taxonomies-category-urls',
+	]
+);
+echo $wpseo_taxonomy_presenter->get_output();

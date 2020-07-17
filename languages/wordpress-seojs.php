@@ -85,13 +85,13 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/PrePublish.js:48
 	__( 'Improve your post with Yoast SEO', 'wordpress-seo' ),
 
-	// Reference: js/src/components/LocalSEOUpsell.js:76
+	// Reference: js/src/components/LocalSEOUpsell.js:78
 	__( 'Serving local customers?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/LocalSEOUpsell.js:81
+	// Reference: js/src/components/LocalSEOUpsell.js:83
 	__( 'Truly optimize your site for a local audience with our %s plugin! Optimized address details, opening hours, store locator and pickup option!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/LocalSEOUpsell.js:92
+	// Reference: js/src/components/LocalSEOUpsell.js:94
 	__( 'Get the %s plugin now', 'wordpress-seo' ),
 
 	// Reference: js/src/components/PostPublish.js:17
@@ -135,7 +135,7 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/WordPressUserSelectorOnboardingWizard.js:53
 	__( 'You can edit the details shown in meta data, like the social profiles, the name and the description of this user on their %1$s profile page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/WordPressUserSelectorSearchAppearance.js:116
+	// Reference: js/src/components/WordPressUserSelectorSearchAppearance.js:117
 	__( 'Name', 'wordpress-seo' ),
 
 	// Reference: js/src/components/WordPressUserSelectorSearchAppearance.js:69

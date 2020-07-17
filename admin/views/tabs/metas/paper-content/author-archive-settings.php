@@ -10,19 +10,13 @@
 $yform->light_switch(
 	'disable-author',
 	__( 'Author archives', 'wordpress-seo' ),
-	[
-		__( 'Enabled', 'wordpress-seo' ),
-		__( 'Disabled', 'wordpress-seo' ),
-	],
+	[],
 	false,
 	true
 );
 
-?>
+echo '<div id="author-archives-titles-metas-content" class="archives-titles-metas-content">';
 
-<div id='author-archives-titles-metas-content' class='archives-titles-metas-content'>
-
-<?php
 $author_archives_help = new WPSEO_Admin_Help_Button(
 	'https://yoa.st/show-x',
 	esc_html__( 'Help on the author archives search results setting', 'wordpress-seo' )
@@ -34,10 +28,7 @@ $yform->index_switch(
 	$author_archives_help
 );
 
-?>
-
-<div id='noindex-author-noposts-wpseo-container'>
-<?php
+echo '<div id="noindex-author-noposts-wpseo-container">';
 
 $author_archives_no_posts_help = new WPSEO_Admin_Help_Button(
 	'https://yoast.com/show-x-in-search-results/',
@@ -50,10 +41,7 @@ $yform->index_switch(
 	$author_archives_no_posts_help
 );
 
-?>
-</div>
-
-<?php
+echo '</div>'; // noindex-container.
 
 $recommended_replace_vars     = new WPSEO_Admin_Recommended_Replace_Vars();
 $editor_specific_replace_vars = new WPSEO_Admin_Editor_Specific_Replace_Vars();
@@ -69,5 +57,5 @@ $editor                       = new WPSEO_Replacevar_Editor(
 );
 
 $editor->render();
-?>
-</div>
+
+echo '</div>'; // author-archives.

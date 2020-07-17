@@ -1,12 +1,28 @@
 .yoast-paper {
 	background-color: white;
-	padding: 24px;
-	margin-bottom: 32px;
+	padding: 16px 16px 0;
 	box-shadow: var(--yoast-shadow-default);
 	border: var(--yoast-border-default);
-	max-width: 600px;
+	max-width: var(--yoast-container-width);
 	position: relative;
 	box-sizing: border-box;
+	margin: 0 auto 16px;
+}
+
+.yoast #wpcontent .yoast-paper h2 {
+	margin-bottom: 16px;
+}
+
+.yoast-paper:last-of-type {
+	margin-bottom: 16px;
+}
+
+.yoast-feature:last-of-type {
+	margin-bottom: 16px;
+}
+
+.yoast-paper--bottom {
+	padding-bottom: 16px;
 }
 
 .yoast-paper--small {
@@ -20,8 +36,7 @@
 }
 
 .yoast-paper .yoast-notifications-dismissed {
-	width: calc(600px - 48px);
-	margin-bottom: 0;
+	margin-bottom: 16px;
 }
 
 .yoast-paper__item {
@@ -29,7 +44,6 @@
 }
 
 .yoast-paper #yoast-warnings-dismissed .collapsible-header {
-	font-size: 16px;
 	padding-bottom: 0;
 	border: 0;
 	margin-bottom: 0;
@@ -37,7 +51,7 @@
 
 .yoast-paper .toggleable-container-trigger {
 	background: none;
-	border: 0px;
+	border: 0;
 	width: 100%;
 	text-align: left;
 	color: var(--yoast-color-primary);
@@ -50,8 +64,11 @@
 	margin-bottom: 24px;
 }
 
+.yoast #wpcontent .paper-container h3:first-child {
+	padding-top: 0;
+}
 
-.yoast-paper__item .yoast-alert {
+.yoast-paper__item .yoast-notification {
 	position: relative;
 	margin-left: 22px;
 }

@@ -8,7 +8,7 @@
  */
 
 ?>
-<div class="tab-block yoast-feature">
+<div class="tab-block yoast-paper yoast-space-after yoast-space-bottom">
 	<div class="yoast-field-group">
 	<?php
 	if ( get_option( 'show_on_front' ) === 'posts' ) {
@@ -54,5 +54,4 @@
 	}
 	?>
 	</div>
-	<br class="clear">
 </div>

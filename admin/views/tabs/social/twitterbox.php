@@ -13,7 +13,7 @@ if ( ! defined( 'WPSEO_VERSION' ) ) {
 	header( 'HTTP/1.1 403 Forbidden' );
 	exit();
 }
-echo '<div class="yoast-feature">';
+echo '<div class="yoast-paper yoast-paper--bottom">';
 echo '<h2>' . esc_html__( 'Twitter settings', 'wordpress-seo' ) . '</h2>';
 
 printf(
@@ -21,15 +21,23 @@ printf(
 	esc_html__( 'Twitter uses Open Graph metadata just like Facebook, so be sure to keep the "Add Open Graph meta data" setting on the Facebook tab enabled if you want to optimize your site for Twitter.', 'wordpress-seo' )
 );
 
-$yform->light_switch( 'twitter', __( 'Add Twitter card meta data', 'wordpress-seo' ) );
-
 echo '<p>';
 esc_html_e( 'Enable this feature if you want Twitter to display a preview with images and a text excerpt when a link to your site is shared.', 'wordpress-seo' );
 echo '</p>';
 
-echo '<br />';
+$yform->light_switch(
+	'twitter',
+	__( 'Twitter card meta data', 'wordpress-seo' )
+);
 
-$yform->select( 'twitter_card_type', __( 'The default card type to use', 'wordpress-seo' ), WPSEO_Option_Social::$twitter_card_types );
+echo '<div id="wpseo-twitter-settings">';
+$yform->radio(
+	'twitter_card_type',
+	WPSEO_Option_Social::$twitter_card_types,
+	__( 'The default card type to use', 'wordpress-seo' )
+);
+echo '</div>'; // twitter-settings.
+
 echo '</div>';
 
 do_action( 'wpseo_admin_twitter_section' );

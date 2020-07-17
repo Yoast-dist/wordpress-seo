@@ -75,7 +75,7 @@ class Yoast_Form {
 		 */
 		require_once ABSPATH . 'wp-admin/options-head.php';
 		?>
-		<h1 id="wpseo-title"><?php echo esc_html( get_admin_page_title() ); ?></h1>
+		<div class="wpseo_content_cell"><h1 id="wpseo-title"><?php echo esc_html( get_admin_page_title() ); ?></h1></div>
 		<div class="wpseo_content_wrapper yoast-layout">
 			<div class="wpseo_content_cell yoast-main" id="wpseo_content_top">
 		<?php
@@ -130,9 +130,9 @@ class Yoast_Form {
 			$settings_changed_listener = new WPSEO_Admin_Settings_Changed_Listener();
 
 			echo '<div id="wpseo-submit-container">';
-			submit_button( __( 'Save changes', 'wordpress-seo' ), 'yoast-button yoast-button--primary' );
-
 			$settings_changed_listener->show_success_message();
+
+			submit_button( __( 'Save changes', 'wordpress-seo' ), 'yoast-button yoast-button--primary' );
 			echo '</div>';
 
 			echo PHP_EOL . '</form>';
@@ -224,7 +224,9 @@ class Yoast_Form {
 		$attr     = wp_parse_args( $attr, $defaults );
 
 		$id = ( $attr['id'] === '' ) ? '' : ' id="' . esc_attr( $attr['id'] ) . '"';
+		echo '<div class="yoast-field-group__title">';
 		echo '<legend class="yoast-form-legend ' . esc_attr( $attr['class'] ) . '"' . $id . '>' . $text . '</legend>';
+		echo '</div>';
 	}
 
 	/**
@@ -307,9 +309,12 @@ class Yoast_Form {
 			$class .= '--inverse';
 		}
 
-
 		if ( empty( $buttons ) ) {
 			$buttons = [ __( 'Disabled', 'wordpress-seo' ), __( 'Enabled', 'wordpress-seo' ) ];
+
+			if ( $inverse ) {
+				$buttons = array_reverse( $buttons );
+			}
 		}
 
 		list( $off_button, $on_button ) = $buttons;
@@ -358,7 +363,7 @@ class Yoast_Form {
 		'<span class="yoast-toggle--inactive" aria-hidden="true">', esc_html( $off_button ), '</span>',
 		'<span class="yoast-toggle--active" aria-hidden="true">', esc_html( $on_button ), '</span>',
 		'</div>',
-		'<a href="', $url, '" class="yoast-button yoast-button--buy yoast-button--buy-small">', __( 'Upgrade to premium', 'wordpress-seo' ) ,'<span class="yoast-button--buy__caret"></span></a>',
+		'<a href="', $url, '" class="yoast-button yoast-button--buy yoast-button--buy-small">', __( 'Upgrade to Premium', 'wordpress-seo' ) ,'<span class="yoast-button--buy__caret"></span></a>',
 		'</div>';
 	}
 
@@ -410,12 +415,19 @@ class Yoast_Form {
 		Yoast_Input_Validation::set_error_descriptions();
 		$aria_attributes .= Yoast_Input_Validation::get_the_aria_describedby_attribute( $var );
 
-		echo '<input' . $attributes . $aria_attributes . ' class="yoast-field-group__inputfield ' . esc_attr( $attr['class'] ) . '
-		" placeholder="' . esc_attr( $attr['placeholder'] ) . '
-		" type="' . $type . '
-		" id="', esc_attr( $var ), '
-		" name="', esc_attr( $this->option_name ), '[', esc_attr( $var ), ']
-		" value="', esc_attr( $val ), '"', disabled( $this->is_control_disabled( $var ), true, false ), '/>', '</div>';
+		echo '<input' . $attributes . $aria_attributes . ' class="yoast-field-group__inputfield ' . esc_attr( $attr['class'] ) . '"
+		placeholder="' . esc_attr( $attr['placeholder'] ) . '"
+		type="' . $type . '"
+		id="', esc_attr( $var ), '"
+		name="', esc_attr( $this->option_name ), '[', esc_attr( $var ), ']"
+		value="', esc_attr( $val ), '"',
+		disabled( $this->is_control_disabled( $var ), true, false ), '/>';
+
+		if ( ! empty( $attr['html_after'] ) ) {
+			echo $attr['html_after'];
+		}
+
+		echo '</div>';
 
 		echo Yoast_Input_Validation::get_the_error_description( $var );
 	}
@@ -622,7 +634,6 @@ class Yoast_Form {
 				' value="', esc_attr( $id_value ), '"',
 				' />';
 		echo '</div>';
-		echo '<br class="clear"/>';
 	}
 
 	/**
@@ -643,7 +654,7 @@ class Yoast_Form {
 
 		$var_esc = esc_attr( $var );
 
-		echo '<fieldset class="yoast-form-fieldset wpseo_radio_block" id="' . $var_esc . '">';
+		echo '<fieldset class="yoast-field-group" id="' . $var_esc . '">';
 
 		if ( is_string( $legend ) && $legend !== '' ) {
 
@@ -667,15 +678,10 @@ class Yoast_Form {
 			}
 
 			$key_esc = esc_attr( $key );
+			echo '<div class="yoast-field-group__radiobutton yoast-field-group__radiobutton--vertical">';
 			echo '<input type="radio" class="radio" id="' . $var_esc . '-' . $key_esc . '" name="' . esc_attr( $this->option_name ) . '[' . $var_esc . ']" value="' . $key_esc . '" ' . checked( $val, $key_esc, false ) . disabled( $this->is_control_disabled( $var ), true, false ) . ' />';
-			$this->label(
-				$label,
-				[
-					'for'        => $var_esc . '-' . $key_esc,
-					'class'      => 'radio',
-					'aria_label' => $aria_label,
-				]
-			);
+			echo '<label for="' . $var_esc . '-' . $key_esc . '">' . $label . '</label>';
+			echo '</div>';
 		}
 		echo '</fieldset>';
 	}
@@ -823,21 +829,15 @@ class Yoast_Form {
 	 * @return void
 	 */
 	public function index_switch( $var, $label, $help = '' ) {
-		$index_switch_values = [
-			__( 'Yes', 'wordpress-seo' ),
-			__( 'No', 'wordpress-seo' ),
-		];
-
-		$this->light_switch(
+		$this->show_hide_switch(
 			$var,
 			sprintf(
 			/* translators: %s expands to an indexable object's name, like a post type or taxonomy */
 				esc_html__( 'Show %s in search results?', 'wordpress-seo' ),
 				esc_html( $label )
 			),
-			$index_switch_values,
-			$help,
-			true
+			true,
+			$help
 		);
 	}
 
@@ -852,12 +852,16 @@ class Yoast_Form {
 	 * @return void
 	 */
 	public function show_hide_switch( $var, $label, $inverse_keys = false, $help = '' ) {
-		$show_hide_switch = [
+		$labels = [
 			__( 'Hide', 'wordpress-seo' ),
 			__( 'Show', 'wordpress-seo' ),
 		];
 
-		$this->light_switch( $var, $label, $show_hide_switch, $help, $inverse_keys );
+		if ( $inverse_keys ) {
+			$labels = array_reverse( $labels );
+		}
+
+		$this->light_switch( $var, $label, $labels, $help, $inverse_keys );
 	}
 
 	/**

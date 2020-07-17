@@ -16,7 +16,7 @@ if ( $wpseo_taxonomy->name === 'post_format' ) {
 	$yform->light_switch(
 		'disable-post_format',
 		__( 'Format-based archives', 'wordpress-seo' ),
-		[ __( 'Enabled', 'wordpress-seo' ), __( 'Disabled', 'wordpress-seo' ) ],
+		[],
 		false,
 		false
 	);
@@ -30,6 +30,13 @@ $yform->index_switch(
 	$view_utils->search_results_setting_help()
 );
 
+if ( $wpseo_taxonomy->name !== 'post_format' ) {
+	$yform->show_hide_switch(
+		'display-metabox-tax-' . $wpseo_taxonomy->name,
+		/* translators: %s expands to an indexable object's name, like a post type or taxonomy */
+		sprintf( __( 'Show SEO settings for %1$s', 'wordpress-seo' ), $title )
+	);
+}
 
 // Determine the page type for the term, this is needed for the recommended replacement variables.
 $page_type = $recommended_replace_vars->determine_for_term( $wpseo_taxonomy->name );
@@ -45,14 +52,6 @@ $editor = new WPSEO_Replacevar_Editor(
 	]
 );
 $editor->render();
-
-if ( $wpseo_taxonomy->name !== 'post_format' ) {
-	$yform->show_hide_switch(
-		'display-metabox-tax-' . $wpseo_taxonomy->name,
-		/* translators: %s expands to an indexable object's name, like a post type or taxonomy */
-		sprintf( __( 'Show SEO settings for %1$s', 'wordpress-seo' ), $title )
-	);
-}
 
 /**
  * Allow adding custom checkboxes to the admin meta page - Taxonomies tab.

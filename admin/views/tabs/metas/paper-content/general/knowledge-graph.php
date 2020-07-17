@@ -12,7 +12,7 @@ $knowledge_graph_help = new WPSEO_Admin_Help_Button(
 	__( 'Learn more about the knowledge graph setting', 'wordpress-seo' )
 );
 ?>
-<div class="tab-block yoast-feature">
+<div class="tab-block yoast-paper yoast-space-after yoast-space-bottom">
 	<h2 class="help-button-inline"><?php echo esc_html__( 'Knowledge Graph & Schema.org', 'wordpress-seo' ) . $knowledge_graph_help; ?></h2>
 	<?php
 	/**
@@ -33,8 +33,14 @@ $knowledge_graph_help = new WPSEO_Admin_Help_Button(
 		'company' => __( 'Organization', 'wordpress-seo' ),
 		'person'  => __( 'Person', 'wordpress-seo' ),
 	];
-	$yform->select( 'company_or_person', __( 'Organization or person', 'wordpress-seo' ), $yoast_free_kg_select_options, 'styled', false );
+
+	$yform->radio(
+		'company_or_person',
+		$yoast_free_kg_select_options,
+		__( 'Organization or person', 'wordpress-seo' )
+	);
 	?>
+	<br>
 	<div id="knowledge-graph-company">
 		<h3><?php esc_html_e( 'Organization', 'wordpress-seo' ); ?></h3>
 		<?php

@@ -18,27 +18,28 @@ $media_attachment_help = new WPSEO_Admin_Help_Button(
 );
 
 ?>
-<div class="yoast-feature">
+<div class="yoast-paper">
 	<h2 class="help-button-inline"><?php echo esc_html__( 'Media & attachment URLs', 'wordpress-seo' ) . $media_attachment_help; ?></h2>
 
-	<p><strong><?php esc_html_e( 'We recommend you set this to Yes.', 'wordpress-seo' ); ?></strong></p>
+	<p><?php printf(
+		esc_html__( 'We recommend you set this to %1$sYes%2$s.', 'wordpress-seo' ),
+		'<strong>',
+		'</strong>'
+		); ?></p>
 	<?php
 
-	$yoast_free_disable_attachments_texts = [
-		__( 'Yes', 'wordpress-seo' ),
-		__( 'No', 'wordpress-seo' ),
-	];
 	$yform->light_switch(
 		'disable-attachment',
 		__( 'Redirect attachment URLs to the attachment itself?', 'wordpress-seo' ),
-		$yoast_free_disable_attachments_texts,
-		false,
-		true
+		[
+			__( 'No', 'wordpress-seo' ),
+			__( 'Yes', 'wordpress-seo' ),
+		]
 	);
 
 	?>
 
-	<div id="media_settings">
+	<div id="media_settings" class="yoast-space--bottom">
 		<?php
 		$noindex_option_name = 'noindex-' . $wpseo_post_type->name;
 

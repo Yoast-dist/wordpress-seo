@@ -23,7 +23,10 @@ $yform->textinput( 'breadcrumbs-404crumb', __( 'Breadcrumb for 404 Page', 'wordp
 echo '<br/>';
 
 if ( get_option( 'show_on_front' ) === 'page' && get_option( 'page_for_posts' ) > 0 ) {
-	$yform->show_hide_switch( 'breadcrumbs-display-blog-page', __( 'Show Blog page', 'wordpress-seo' ) );
+	$yform->show_hide_switch(
+		'breadcrumbs-display-blog-page',
+		__( 'Show Blog page', 'wordpress-seo' )
+	);
 }
 
 $yoast_free_breadcrumb_bold_texts = [
@@ -33,7 +36,7 @@ $yoast_free_breadcrumb_bold_texts = [
 $yform->light_switch( 'breadcrumbs-boldlast',
 __( 'Bold the last page', 'wordpress-seo' ), $yoast_free_breadcrumb_bold_texts );
 
-echo '<br/><br/>';
+echo '<br/>';
 
 /*
  * WPSEO_Post_Type::get_accessible_post_types() should *not* be used here.
@@ -61,7 +64,6 @@ if ( is_array( $post_types ) && $post_types !== [] ) {
 	}
 	unset( $pt );
 }
-echo '<br/>';
 
 $taxonomies = get_taxonomies(
 	[
@@ -94,8 +96,9 @@ if ( is_array( $taxonomies ) && $taxonomies !== [] ) {
 unset( $taxonomies, $post_types );
 
 ?>
-<br class="clear"/>
+<br><br>
 </div>
+
 <h2><?php esc_html_e( 'How to insert breadcrumbs in your theme', 'wordpress-seo' ); ?></h2>
 <p>
 	<?php
