@@ -289,6 +289,9 @@ $generated_i18n_strings = array(
 	// Reference: js/src/inline-links/inline.js:224
 	__( 'Open in new tab', 'wordpress-seo' ),
 
+	// Reference: js/src/structured-data-blocks/faq/block.js:21
+	__( 'Yoast FAQ', 'wordpress-seo' ),
+
 	// Reference: js/src/structured-data-blocks/faq/block.js:22
 	__( 'List your Frequently Asked Questions in an SEO-friendly way. You can only use one FAQ block per post.', 'wordpress-seo' ),
 
@@ -329,6 +332,9 @@ $generated_i18n_strings = array(
 	// Reference: js/src/structured-data-blocks/faq/components/Question.js:55
 	// Reference: js/src/structured-data-blocks/how-to/components/HowToStep.js:178
 	__( 'Add image', 'wordpress-seo' ),
+
+	// Reference: js/src/structured-data-blocks/how-to/block.js:49
+	__( 'Yoast How-to', 'wordpress-seo' ),
 
 	// Reference: js/src/structured-data-blocks/how-to/block.js:50
 	__( 'Create a How-to guide in an SEO-friendly way. You can only use one How-to block per post.', 'wordpress-seo' ),
