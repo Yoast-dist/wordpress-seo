@@ -206,11 +206,11 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/SettingsReplacementVariableEditor.js:39
 	__( 'Modify your meta description by editing it right here', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SnippetPreviewModal.js:53
+	// Reference: js/src/components/SnippetPreviewModal.js:59
 	// Reference: js/src/components/fills/MetaboxFill.js:58
 	__( 'Google preview', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SnippetPreviewModal.js:59
+	// Reference: js/src/components/SnippetPreviewModal.js:67
 	// Reference: js/src/components/modals/Modal.js:78
 	__( 'Close', 'wordpress-seo' ),
 
@@ -223,13 +223,13 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/WordPressUserSelectorOnboardingWizard.js:53
 	__( 'You can edit the details shown in meta data, like the social profiles, the name and the description of this user on their %1$s profile page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/WordPressUserSelectorSearchAppearance.js:117
-	__( 'Name:', 'wordpress-seo' ),
+	// Reference: js/src/components/WordPressUserSelectorSearchAppearance.js:116
+	__( 'Name', 'wordpress-seo' ),
 
 	// Reference: js/src/components/WordPressUserSelectorSearchAppearance.js:69
-	__( 'Error: Please select a user below to make your site\'s meta data complete.', 'wordpress-seo' ),
+	__( 'Please select a user below to make your site\'s meta data complete.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/WordPressUserSelectorSearchAppearance.js:86
+	// Reference: js/src/components/WordPressUserSelectorSearchAppearance.js:85
 	__( 'You have selected the user %1$s as the person this site represents. Their user profile information will now be used in search results. %2$sUpdate their profile to make sure the information is correct.%3$s', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/KeywordInput.js:41
@@ -315,13 +315,13 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/modals/MultipleKeywords.js:19
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/social/SocialMetadata.js:34
+	// Reference: js/src/components/social/SocialMetadata.js:31
 	__( '%s preview', 'wordpress-seo' ),
 
-	// Reference: js/src/components/social/SocialUpsell.js:20
+	// Reference: js/src/components/social/SocialUpsell.js:19
 	__( 'Find out why you should upgrade to %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/social/SocialUpsell.js:35
+	// Reference: js/src/components/social/SocialUpsell.js:34
 	__( 'Do you want to preview what it will look like if people share this post on %s? You can, with %s.', 'wordpress-seo' ),
 
 	// Reference: js/src/containers/FacebookEditor.js:18
@@ -389,8 +389,8 @@ $generated_i18n_strings = array(
 	// Reference: js/src/inline-links/inline.js:224
 	__( 'Open in new tab', 'wordpress-seo' ),
 
-	// Reference: js/src/inline-links/utils.js:101
-	__( '%s (opens in a new tab)', 'wordpress-seo' ),
+	// Reference: js/src/structured-data-blocks/faq/block.js:21
+	__( 'Yoast FAQ', 'wordpress-seo' ),
 
 	// Reference: js/src/structured-data-blocks/faq/block.js:22
 	__( 'List your Frequently Asked Questions in an SEO-friendly way. You can only use one FAQ block per post.', 'wordpress-seo' ),
@@ -428,6 +428,9 @@ $generated_i18n_strings = array(
 	// Reference: js/src/structured-data-blocks/faq/components/Question.js:55
 	// Reference: js/src/structured-data-blocks/how-to/components/HowToStep.js:178
 	__( 'Add image', 'wordpress-seo' ),
+
+	// Reference: js/src/structured-data-blocks/how-to/block.js:49
+	__( 'Yoast How-to', 'wordpress-seo' ),
 
 	// Reference: js/src/structured-data-blocks/how-to/block.js:50
 	__( 'Create a How-to guide in an SEO-friendly way. You can only use one How-to block per post.', 'wordpress-seo' ),
