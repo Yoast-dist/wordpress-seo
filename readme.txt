@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Requires at least: 5.3
 Tested up to: 5.4.1
-Stable tag: 14.6
+Stable tag: 14.6.1-RC1
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -208,6 +208,17 @@ Your question has most likely been answered on our knowledge base: [kb.yoast.com
 6. Easily import SEO data from other SEO plugins like All In One SEO pack, HeadSpace2 SEO and wpSEO.de.
 
 == Changelog ==
+
+= 14.6.1 =
+Release Date: July 21st, 2020
+
+Other:
+
+* Reverts the change for social media titles to pick the post/page/term title, as this could inadvertently lead to low quality titles for some archives and other page types.
+
+Bugfixes:
+
+* Fixes a bug where the where all methods were removed from `xmlrpc.php` due to incorrect usage of `add_action` as opposed to `add_filter`.
 
 = 14.6 =
 Release Date: July 21st, 2020
