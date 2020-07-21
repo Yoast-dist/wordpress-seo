@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Requires at least: 5.3
 Tested up to: 5.4.1
-Stable tag: 14.6.1
+Stable tag: 14.7-RC1
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -209,6 +209,22 @@ Your question has most likely been answered on our knowledge base: [kb.yoast.com
 
 == Changelog ==
 
+= 14.7 =
+Release Date: August 4th, 2020
+
+Enhancements:
+
+ * Shows a more specific notification when the permalinks are reset or when the category base setting is changed.
+
+Bugfixes:
+
+ * Ensures the indexation spots the indexables without a permalink.
+ * Fixes a bug where an indexable's permalink remained unchanged when the categories prefix option was changed.
+
+Other:
+
+ * Enables the cornerstone content toggle for taxonomies.
+
 = 14.6.1 =
 Release Date: July 21st, 2020
 
@@ -247,22 +263,6 @@ Bugfixes:
 Other:
 
 * Removes functions, class variables and classes that were deprecated prior to version 11.5.
-
-= 14.5 =
-Release Date: July 8th, 2020
-
-Yoast SEO 14.5 is out today! In this release, we made some changes regarding our use of XML sitemaps. We decided to disable the new WordPress core XML sitemaps in favour of our own. Also, we fixed a number of bugs. Read more about those changes in [our release post](https://yoa.st/release-14-5)!
-
-Enhancements:
-
-* Disables the WP Core sitemaps as introduced in WordPress 5.5.
-* Adds an abstract class to easily add dynamic blocks in Yoast SEO / add-ons.
-
-Bugfixes:
-
-* Fixes a bug where the SEO title and meta description for posts that have a custom title and/or description would not be displayed in the posts overview.
-* Fixes a bug where the WordPress dashboard was slower for very large sites, by caching the number of unindexed posts, terms and post type archives.
-* Fixes a bug where inline link functionality in custom blocks could be missing.
 
 = Earlier versions =
 For the changelog of earlier versions, please refer to [the changelog on yoast.com](https://yoa.st/yoast-seo-changelog).

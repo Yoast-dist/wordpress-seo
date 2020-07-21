@@ -73,6 +73,15 @@
 		"lint": [
 			"@php ./vendor/php-parallel-lint/php-parallel-lint/parallel-lint . -e php --exclude vendor --exclude vendor_prefixed --exclude node_modules --exclude .git"
 		],
+		"lint-files": [
+			"@php ./vendor/php-parallel-lint/php-parallel-lint/parallel-lint"
+		],
+		"lint-branch": [
+			"Yoast\\WP\\SEO\\Composer\\Actions::lint_branch"
+		],
+		"lint-staged": [
+			"Yoast\\WP\\SEO\\Composer\\Actions::lint_staged"
+		],
 		"premium-lint": [
 			"@php ./vendor/php-parallel-lint/php-parallel-lint/parallel-lint ./wp-seo-premium.php ./tests/load/wp-seo-premium.php ./premium/ ./integration-tests/premium/ ./tests/premium/ -e php"
 		],
