@@ -250,13 +250,13 @@ $generated_i18n_strings = array(
 	// Reference: js/src/help-scout-beacon.js:208
 	__( 'When you click OK we will open our HelpScout beacon where you can find answers to your questions. This beacon will load our support data and also potentially set cookies.', 'wordpress-seo' ),
 
-	// Reference: js/src/initializers/edit.js:216
+	// Reference: js/src/initializers/edit.js:215
 	__( 'Yoast SEO', 'wordpress-seo' ),
 
-	// Reference: js/src/initializers/edit.js:85
+	// Reference: js/src/initializers/edit.js:81
 	__( 'Marking links with nofollow/sponsored has been disabled for WordPress installs < 5.4.', 'wordpress-seo' ),
 
-	// Reference: js/src/initializers/edit.js:88
+	// Reference: js/src/initializers/edit.js:84
 	__( 'Please upgrade your WordPress version or install the Gutenberg plugin to get this %1$s feature.', 'wordpress-seo' ),
 
 	// Reference: js/src/inline-links/edit-link.js:106
@@ -304,6 +304,14 @@ $generated_i18n_strings = array(
 	// Reference: js/src/structured-data-blocks/faq/block.js:28
 	// Reference: js/src/structured-data-blocks/how-to/block.js:56
 	__( 'Schema', 'wordpress-seo' ),
+
+	// Reference: js/src/structured-data-blocks/faq/block.js:29
+	// Reference: js/src/structured-data-blocks/how-to/block.js:57
+	__( 'SEO', 'wordpress-seo' ),
+
+	// Reference: js/src/structured-data-blocks/faq/block.js:30
+	// Reference: js/src/structured-data-blocks/how-to/block.js:58
+	__( 'Structured Data', 'wordpress-seo' ),
 
 	// Reference: js/src/structured-data-blocks/faq/components/FAQ.js:158
 	__( 'New question added', 'wordpress-seo' ),
