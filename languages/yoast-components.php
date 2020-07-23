@@ -70,10 +70,10 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/components/src/help-icon/HelpIcon.js:50
 	__( '(Opens in a new browser tab)', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestion.js:66
+	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestion.js:65
 	__( 'Copy link', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestion.js:69
+	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestion.js:68
 	__( 'Copy link to suggested article: %s', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:20
