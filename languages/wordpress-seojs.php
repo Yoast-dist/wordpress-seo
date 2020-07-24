@@ -125,7 +125,7 @@ $generated_i18n_strings = array(
 	__( 'Modify your meta description by editing it right here', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SnippetPreviewModal.js:46
-	// Reference: js/src/components/fills/MetaboxFill.js:57
+	// Reference: js/src/components/fills/MetaboxFill.js:59
 	__( 'Google preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SnippetPreviewModal.js:53
