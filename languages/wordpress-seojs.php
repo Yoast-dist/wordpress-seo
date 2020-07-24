@@ -115,10 +115,10 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/PrimaryTaxonomyPicker.js:242
 	__( 'Select the primary %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/RelatedKeyphrasesModal.js:88
+	// Reference: js/src/components/RelatedKeyphrasesModal.js:73
 	__( 'Get related keyphrases', 'wordpress-seo' ),
 
-	// Reference: js/src/components/RelatedKeyphrasesModal.js:92
+	// Reference: js/src/components/RelatedKeyphrasesModal.js:77
 	__( 'Related keyphrases', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SettingsReplacementVariableEditor.js:39
