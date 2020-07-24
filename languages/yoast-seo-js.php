@@ -1,6 +1,13 @@
 <?php
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
+	/* translators: SOME DESCRIPTIVE TITLE.
+Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+This file is distributed under the same license as the PACKAGE package.
+FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+ */
+,
+
 	// Reference: node_modules/yoastseo/src/assessments/readability/fleschReadingEaseAssessment.js:73
 	__( 'Good job!', 'wordpress-seo' ),
 

@@ -2,6 +2,7 @@
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
 	// Reference: js/src/components/AdvancedSettings.js:110
+	/* translators: %s translates to the Post Label in singular form */
 	__( 'Should search engines follow links on this %s', 'wordpress-seo' ),
 
 	// Reference: js/src/components/AdvancedSettings.js:117
@@ -44,21 +45,25 @@ $generated_i18n_strings = array(
 	__( 'Yes', 'wordpress-seo' ),
 
 	// Reference: js/src/components/AdvancedSettings.js:47
+	/* translators: %s translates to the "yes" or "no" ,%s translates to the Post Label in plural form */
 	__( '%s (current default for %s)', 'wordpress-seo' ),
 
 	// Reference: js/src/components/AdvancedSettings.js:72
 	__( 'Even though you can set the meta robots setting here, the entire site is set to noindex in the sitewide privacy settings, so these settings won\'t have an effect.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/AdvancedSettings.js:83
+	/* translators: %s translates to the Post Label in singular form */
 	__( 'Allow search engines to show this %s in search results?', 'wordpress-seo' ),
 
 	// Reference: js/src/components/AdvancedSettings.js:92
 	__( 'Learn more about the no-index setting on our help page.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/AnalysisUpsell.js:54
+	/* translators: %s expands to Yoast SEO Premium */
 	__( 'Did you know %s also analyzes the different word forms of your keyphrase, like plurals and past tenses?', 'wordpress-seo' ),
 
 	// Reference: js/src/components/AnalysisUpsell.js:62
+	/* translators: %s expands to Premium */
 	__( 'Go %s!', 'wordpress-seo' ),
 
 	// Reference: js/src/components/CollapsibleCornerstone.js:25
@@ -89,9 +94,11 @@ $generated_i18n_strings = array(
 	__( 'Serving local customers?', 'wordpress-seo' ),
 
 	// Reference: js/src/components/LocalSEOUpsell.js:81
+	/* translators: %s expands to Local SEO */
 	__( 'Truly optimize your site for a local audience with our %s plugin! Optimized address details, opening hours, store locator and pickup option!', 'wordpress-seo' ),
 
 	// Reference: js/src/components/LocalSEOUpsell.js:92
+	/* translators: %s expands to Local SEO */
 	__( 'Get the %s plugin now', 'wordpress-seo' ),
 
 	// Reference: js/src/components/PostPublish.js:17
@@ -107,12 +114,14 @@ $generated_i18n_strings = array(
 	__( 'No focus keyword was entered', 'wordpress-seo' ),
 
 	// Reference: js/src/components/PrimaryTaxonomyFilter.js:79
+	/* translators: %s expands to Yoast SEO. */
 	__( 'An error occurred loading the %s primary taxonomy picker.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/PrimaryTaxonomyFilter.js:85
 	__( 'Copy error', 'wordpress-seo' ),
 
 	// Reference: js/src/components/PrimaryTaxonomyPicker.js:242
+	/* translators: %s expands to the taxonomy name. */
 	__( 'Select the primary %s', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SettingsReplacementVariableEditor.js:39
@@ -133,6 +142,7 @@ $generated_i18n_strings = array(
 	__( 'The name of the person', 'wordpress-seo' ),
 
 	// Reference: js/src/components/WordPressUserSelectorOnboardingWizard.js:53
+	/* translators: %1$s expands to WordPress */
 	__( 'You can edit the details shown in meta data, like the social profiles, the name and the description of this user on their %1$s profile page.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/WordPressUserSelectorSearchAppearance.js:116
@@ -167,6 +177,7 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:106
 	// Reference: js/src/components/modals/KeywordSynonyms.js:61
 	// Reference: js/src/components/modals/MultipleKeywords.js:60
+	/* translators: %s expands to 'Yoast SEO Premium'. */
 	__( 'Get %s', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:125
@@ -188,6 +199,7 @@ $generated_i18n_strings = array(
 	__( 'Would you like to add keyphrase synonyms?', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/KeywordSynonyms.js:20
+	/* translators: %1$s expands to a 'Yoast SEO Premium' text linked to the yoast.com website. */
 	__( 'Great news: you can, with %1$s!', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/KeywordSynonyms.js:30
@@ -195,6 +207,7 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/components/modals/KeywordSynonyms.js:33
 	// Reference: js/src/components/modals/MultipleKeywords.js:26
+	/* translators: %1$s expands to a 'strong' start tag, %2$s to a 'strong' end tag. */
 	__( '%1$sNo more dead links%2$s: easy redirect manager', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/KeywordSynonyms.js:37
@@ -203,6 +216,7 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/components/modals/KeywordSynonyms.js:40
 	// Reference: js/src/components/modals/MultipleKeywords.js:33
+	/* translators: %1$s expands to a 'strong' start tag, %2$s to a 'strong' end tag. */
 	__( '%1$sSocial media preview%2$s: Facebook & Twitter', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/KeywordSynonyms.js:44
@@ -215,6 +229,7 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/components/modals/KeywordSynonyms.js:50
 	// Reference: js/src/components/modals/MultipleKeywords.js:49
+	/* translators: %s expands to 'Yoast SEO Premium'. */
 	__( 'Other benefits of %s for you:', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/KeywordSynonyms.js:70
@@ -225,23 +240,29 @@ $generated_i18n_strings = array(
 	__( 'Open', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/MultipleKeywords.js:19
+	/* translators: %s expands to a 'Yoast SEO Premium' text linked to the yoast.com website. */
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
 
 	// Reference: js/src/components/social/SocialMetadata.js:31
+	/* translators: %s expands to Twitter. */
 	__( '%s preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/social/SocialUpsell.js:19
+	/* translators: %s expands to Yoast SEO Premium */
 	__( 'Find out why you should upgrade to %s', 'wordpress-seo' ),
 
 	// Reference: js/src/components/social/SocialUpsell.js:34
+	/* translators: %s expands to the social medium name, which is either Twitter or Facebook. %s expands to Yoast SEO Premium */
 	__( 'Do you want to preview what it will look like if people share this post on %s? You can, with %s.', 'wordpress-seo' ),
 
 	// Reference: js/src/containers/FacebookEditor.js:18
 	// Reference: js/src/containers/TwitterEditor.js:18
+	/* translators: %s expands to the social medium name, i.e. Faceboook. */
 	__( 'Modify your %s title by editing it right here...', 'wordpress-seo' ),
 
 	// Reference: js/src/containers/FacebookEditor.js:25
 	// Reference: js/src/containers/TwitterEditor.js:25
+	/* translators: %s expands to the social medium name, i.e. Faceboook. */
 	__( 'Modify your %s description by editing it right here...', 'wordpress-seo' ),
 
 	// Reference: js/src/containers/SnippetEditor.js:56
@@ -437,10 +458,12 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/structured-data-blocks/how-to/legacy/utils/8.2.js:65
 	// Reference: js/src/structured-data-blocks/how-to/utils/buildDurationString.js:65
+	/* translators: %s expands to a unit of time (e.g. 1 day). */
 	__( '%s and %s', 'wordpress-seo' ),
 
 	// Reference: js/src/structured-data-blocks/how-to/legacy/utils/8.2.js:72
 	// Reference: js/src/structured-data-blocks/how-to/utils/buildDurationString.js:72
+	/* translators: %s expands to a unit of time (e.g. 1 day). */
 	__( '%s, %s and %s', 'wordpress-seo' ),
 
 	// Reference: js/src/values/defaultReplaceVariables.js:100
