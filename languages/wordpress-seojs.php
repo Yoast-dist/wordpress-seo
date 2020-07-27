@@ -193,6 +193,24 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:296
 	__( 'SEO analysis', 'wordpress-seo' ),
 
+	// Reference: js/src/components/modals/KeyphrasesTable.js:131
+	__( 'Get more insights at %s', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/KeyphrasesTable.js:64
+	__( 'Related keyphrase', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/KeyphrasesTable.js:70
+	__( 'Volume', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/KeyphrasesTable.js:76
+	__( 'Learn more about the related keyphrases volume', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/KeyphrasesTable.js:84
+	__( 'Trend', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/KeyphrasesTable.js:90
+	__( 'Learn more about the related keyphrases trend', 'wordpress-seo' ),
+
 	// Reference: js/src/components/modals/KeywordSynonyms.js:20
 	__( 'Great news: you can, with %1$s!', 'wordpress-seo' ),
 
