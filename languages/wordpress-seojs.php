@@ -115,6 +115,27 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/PrimaryTaxonomyPicker.js:242
 	__( 'Select the primary %s', 'wordpress-seo' ),
 
+	// Reference: js/src/components/SchemaSettings.js:102
+	_n_noop( 'Upon saving, this setting will apply to all of your %1$s. %1$s that are manually configured will be left untouched.', 'Upon saving, these settings will apply to all of your %1$s. %1$s that are manually configured will be left untouched.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaSettings.js:116
+	__( 'Default Page type', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaSettings.js:124
+	__( 'Default Article type', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaSettings.js:17
+	__( 'default', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaSettings.js:86
+	__( 'Schema settings', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaSettings.js:88
+	__( 'Learn more about the schema settings', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaSettings.js:91
+	__( 'Choose how your %1$s should be described by default in your site\'s schema.org markup. You can change these settings for individual %1$s.', 'wordpress-seo' ),
+
 	// Reference: js/src/components/SchemaTab.js:104
 	__( '%1$sNone%2$s', 'wordpress-seo' ),
 
@@ -122,6 +143,7 @@ $generated_i18n_strings = array(
 	__( 'You can change the default type for %1$s in your %2$sSearch Appearance Settings%3$s.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:15
+	// Reference: js/src/values/SchemaOptions.js:5
 	__( 'Web Page', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:152
@@ -142,6 +164,7 @@ $generated_i18n_strings = array(
 	__( 'Article type', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:19
+	// Reference: js/src/values/SchemaOptions.js:9
 	__( 'Item Page', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:224
@@ -150,57 +173,75 @@ $generated_i18n_strings = array(
 	__( 'Schema', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:23
+	// Reference: js/src/values/SchemaOptions.js:13
 	__( 'About Page', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:27
+	// Reference: js/src/values/SchemaOptions.js:17
 	__( 'FAQ Page', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:31
+	// Reference: js/src/values/SchemaOptions.js:21
 	__( 'QA Page', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:35
+	// Reference: js/src/values/SchemaOptions.js:25
 	__( 'Profile Page', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:39
+	// Reference: js/src/values/SchemaOptions.js:29
 	__( 'Contact Page', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:43
+	// Reference: js/src/values/SchemaOptions.js:33
 	__( 'Medical Web Page', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:47
+	// Reference: js/src/values/SchemaOptions.js:37
 	__( 'Collection Page', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:51
+	// Reference: js/src/values/SchemaOptions.js:41
 	__( 'Checkout Page', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:55
+	// Reference: js/src/values/SchemaOptions.js:45
 	__( 'Real Estate Listing', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:59
+	// Reference: js/src/values/SchemaOptions.js:49
 	__( 'Search Results Page', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:71
+	// Reference: js/src/values/SchemaOptions.js:60
 	__( 'Article', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:75
+	// Reference: js/src/values/SchemaOptions.js:64
 	__( 'Social Media Posting', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:79
+	// Reference: js/src/values/SchemaOptions.js:68
 	__( 'News Article', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:83
+	// Reference: js/src/values/SchemaOptions.js:72
 	__( 'Advertiser Content Article', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:87
+	// Reference: js/src/values/SchemaOptions.js:76
 	__( 'Satirical Article', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:91
+	// Reference: js/src/values/SchemaOptions.js:80
 	__( 'Scholary Article', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:95
+	// Reference: js/src/values/SchemaOptions.js:84
 	__( 'Tech Article', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:99
+	// Reference: js/src/values/SchemaOptions.js:88
 	__( 'Report', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SettingsReplacementVariableEditor.js:39
@@ -530,6 +571,9 @@ $generated_i18n_strings = array(
 	// Reference: js/src/structured-data-blocks/how-to/legacy/utils/8.2.js:72
 	// Reference: js/src/structured-data-blocks/how-to/utils/buildDurationString.js:72
 	__( '%s, %s and %s', 'wordpress-seo' ),
+
+	// Reference: js/src/values/SchemaOptions.js:92
+	__( 'None', 'wordpress-seo' ),
 
 	// Reference: js/src/values/defaultReplaceVariables.js:100
 	__( 'Current year', 'wordpress-seo' ),
