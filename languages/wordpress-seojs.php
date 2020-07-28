@@ -153,11 +153,14 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/contentAnalysis/KeywordInput.js:42
 	__( 'Help on choosing the perfect focus keyphrase', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/KeywordInput.js:62
+	// Reference: js/src/components/contentAnalysis/KeywordInput.js:61
+	__( 'Please enter a focus keyphrase first to get related keyphrases', 'wordpress-seo' ),
+
+	// Reference: js/src/components/contentAnalysis/KeywordInput.js:68
 	// Reference: js/src/values/defaultReplaceVariables.js:50
 	__( 'Focus keyphrase', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/KeywordInput.js:70
+	// Reference: js/src/components/contentAnalysis/KeywordInput.js:77
 	__( 'Your keyphrase is too long. It can be a maximum of 191 characters.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:50
