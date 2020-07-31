@@ -70,31 +70,28 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/components/help-icon/HelpIcon.js:50
 	__( '(Opens in a new browser tab)', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestion.js:49
+	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestion.js:65
 	__( 'Copy link', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestion.js:52
+	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestion.js:68
 	__( 'Copy link to suggested article: %s', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:20
 	__( 'We could not find any relevant articles on your website that you could link to from your post.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:23
-	__( 'This is a list of related content to which you could link in your post.', 'wordpress-seo' ),
-
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:26
+	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:24
 	__( '{{a}}Read our article about site structure{{/a}} to learn more about how internal linking can help improve your SEO.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:31
+	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:29
 	__( 'Consider linking to these {{a}}cornerstone articles:{{/a}}', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:33
+	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:31
 	__( 'Consider linking to these articles:', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:64
+	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:62
 	__( 'Copied!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:83
+	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:81
 	__( 'Not supported!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoast-components/composites/Plugin/CornerstoneContent/components/CornerstoneToggle.js:26
