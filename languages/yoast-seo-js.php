@@ -1,6 +1,13 @@
 <?php
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
+	/* translators: SOME DESCRIPTIVE TITLE.
+Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+This file is distributed under the same license as the PACKAGE package.
+FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+ */
+,
+
 	// Reference: node_modules/yoastseo/src/assessments/readability/fleschReadingEaseAssessment.js:90
 	__( 'Good job!', 'wordpress-seo' ),
 
@@ -409,14 +416,10 @@ $generated_i18n_strings = array(
 	__( '%1$sKeyphrase in title%3$s: The exact match of the focus keyphrase appears in the SEO title, but not at the beginning. %2$sMove it to the beginning for the best results%3$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/TitleKeywordAssessment.js:131
-	/* Translators: %1$s and %2$s expand to a link on yoast.com,
-	   %3$s expands to the anchor end tag. */
-	__( '%1$sKeyphrase in title%3$s: Does not contain the exact match. %2$sTry to write the exact match of your keyphrase in the SEO title and put it at the beginning of the title%3$s.', 'wordpress-seo' ),
-
 	// Reference: node_modules/yoastseo/src/assessments/seo/TitleKeywordAssessment.js:141
 	/* Translators: %1$s and %2$s expand to a link on yoast.com,
 	   %3$s expands to the anchor end tag. */
-	__( '%1$sKeyphrase in title%3$s: Does not contain the exact match. %2$sTry to write the exact match of your keyphrase in the SEO title and put the keyphrase at the beginning of the title%3$s.', 'wordpress-seo' ),
+	__( '%1$sKeyphrase in title%3$s: Does not contain the exact match. %2$sTry to write the exact match of your keyphrase in the SEO title and put it at the beginning of the title%3$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/TitleKeywordAssessment.js:150
 	/* Translators: %1$s and %2$s expand to a link on yoast.com,
