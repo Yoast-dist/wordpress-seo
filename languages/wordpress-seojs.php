@@ -101,6 +101,10 @@ $generated_i18n_strings = array(
 	/* translators: %s expands to Local SEO */
 	__( 'Get the %s plugin now', 'wordpress-seo' ),
 
+	// Reference: js/src/components/OpenPostSettingsModal.js:36
+	/* translators: %s translates to the Post Label in singular form */
+	__( 'Open %s settings', 'wordpress-seo' ),
+
 	// Reference: js/src/components/PostPublish.js:17
 	__( 'Share your post!', 'wordpress-seo' ),
 
