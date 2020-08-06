@@ -248,16 +248,16 @@ FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/SubHeadingsKeywordAssessment.js:155
 	// Reference: node_modules/yoastseo/src/assessments/seo/SubHeadingsKeywordAssessment.js:223
-	__( '%1$sKeyphrase in subheading%3$s: %2$sUse more keyphrases or synonyms in your higher-level subheadings%3$s!', 'wordpress-seo' ),
+	__( '%1$sKeyphrase in subheading%3$s: %2$sUse more keyphrases or synonyms in your H2 and H3 subheadings%3$s!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/SubHeadingsKeywordAssessment.js:171
-	__( '%1$sKeyphrase in subheading%3$s: More than 75%% of your higher-level subheadings reflect the topic of your copy. That\'s too much. %2$sDon\'t over-optimize%3$s!', 'wordpress-seo' ),
+	__( '%1$sKeyphrase in subheading%3$s: More than 75%% of your H2 and H3 subheadings reflect the topic of your copy. That\'s too much. %2$sDon\'t over-optimize%3$s!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/SubHeadingsKeywordAssessment.js:189
-	__( '%1$sKeyphrase in subheading%2$s: Your higher-level subheading reflects the topic of your copy. Good job!', 'wordpress-seo' ),
+	__( '%1$sKeyphrase in subheading%2$s: Your H2 or H3 subheading reflects the topic of your copy. Good job!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/SubHeadingsKeywordAssessment.js:206
-	_n_noop( '%1$sKeyphrase in subheading%2$s: %3$s of your higher-level subheadings reflects the topic of your copy. Good job!', '%1$sKeyphrase in subheading%2$s: %3$s of your higher-level subheadings reflect the topic of your copy. Good job!', 'wordpress-seo' ),
+	_n_noop( '%1$sKeyphrase in subheading%2$s: %3$s of your H2 and H3 subheadings reflects the topic of your copy. Good job!', '%1$sKeyphrase in subheading%2$s: %3$s of your H2 and H3 subheadings reflect the topic of your copy. Good job!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/assessments/seo/taxonomyTextLengthAssessment.js:24
 	// Reference: node_modules/yoastseo/src/assessments/seo/TextLengthAssessment.js:81
