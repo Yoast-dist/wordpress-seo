@@ -124,25 +124,25 @@ $generated_i18n_strings = array(
 	/* translators: %s expands to the taxonomy name. */
 	__( 'Select the primary %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaSettings.js:57
+	// Reference: js/src/components/SchemaSettings.js:111
+	__( 'Default Page type', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaSettings.js:120
+	__( 'Default Article type', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaSettings.js:81
 	__( 'Schema settings', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaSettings.js:59
+	// Reference: js/src/components/SchemaSettings.js:83
 	__( 'Learn more about the schema settings', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaSettings.js:62
+	// Reference: js/src/components/SchemaSettings.js:86
 	/* translators: %1$s expands to an indexable object's name, e.g. Posts or Pages. */
 	__( 'Choose how your %1$s should be described by default in your site\'s schema.org markup. You can change these settings for individual %1$s.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaSettings.js:73
+	// Reference: js/src/components/SchemaSettings.js:97
 	/* translators: %1$s expands to an indexable object's name, e.g. Posts or Pages. */
 	_n_noop( 'Upon saving, this setting will apply to all of your %1$s. %1$s that are manually configured will be left untouched.', 'Upon saving, these settings will apply to all of your %1$s. %1$s that are manually configured will be left untouched.', 'wordpress-seo' ),
-
-	// Reference: js/src/components/SchemaSettings.js:87
-	__( 'Default Page type', 'wordpress-seo' ),
-
-	// Reference: js/src/components/SchemaSettings.js:95
-	__( 'Default Article type', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:126
 	// Reference: js/src/structured-data-blocks/faq/block.js:28
