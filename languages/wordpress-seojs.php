@@ -124,27 +124,27 @@ $generated_i18n_strings = array(
 	/* translators: %s expands to the taxonomy name. */
 	__( 'Select the primary %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaSettings.js:57
+	// Reference: js/src/components/SchemaSettings.js:111
+	__( 'Default Page type', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaSettings.js:120
+	__( 'Default Article type', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaSettings.js:81
 	__( 'Schema settings', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaSettings.js:59
+	// Reference: js/src/components/SchemaSettings.js:83
 	__( 'Learn more about the schema settings', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaSettings.js:62
+	// Reference: js/src/components/SchemaSettings.js:86
 	/* translators: %1$s expands to an indexable object's name, e.g. Posts or Pages. */
 	__( 'Choose how your %1$s should be described by default in your site\'s schema.org markup. You can change these settings for individual %1$s.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaSettings.js:73
+	// Reference: js/src/components/SchemaSettings.js:97
 	/* translators: %1$s expands to an indexable object's name, e.g. Posts or Pages. */
 	_n_noop( 'Upon saving, this setting will apply to all of your %1$s. %1$s that are manually configured will be left untouched.', 'Upon saving, these settings will apply to all of your %1$s. %1$s that are manually configured will be left untouched.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaSettings.js:87
-	__( 'Default Page type', 'wordpress-seo' ),
-
-	// Reference: js/src/components/SchemaSettings.js:95
-	__( 'Default Article type', 'wordpress-seo' ),
-
-	// Reference: js/src/components/SchemaTab.js:124
+	// Reference: js/src/components/SchemaTab.js:126
 	// Reference: js/src/structured-data-blocks/faq/block.js:28
 	// Reference: js/src/structured-data-blocks/how-to/block.js:56
 	__( 'Schema', 'wordpress-seo' ),
@@ -163,11 +163,11 @@ $generated_i18n_strings = array(
 	__( 'Learn more about page or content types', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:67
-	// Reference: js/src/containers/SchemaTab.js:139
+	// Reference: js/src/containers/SchemaTab.js:143
 	__( 'Page type', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:74
-	// Reference: js/src/containers/SchemaTab.js:138
+	// Reference: js/src/containers/SchemaTab.js:142
 	__( 'Article type', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SettingsReplacementVariableEditor.js:39
@@ -314,13 +314,13 @@ $generated_i18n_strings = array(
 	// Reference: js/src/containers/SchemaSettings.js:15
 	__( 'default', 'wordpress-seo' ),
 
-	// Reference: js/src/containers/SchemaTab.js:145
+	// Reference: js/src/containers/SchemaTab.js:149
 	__( 'Yoast SEO automatically describes your pages using schema.org', 'wordpress-seo' ),
 
-	// Reference: js/src/containers/SchemaTab.js:146
+	// Reference: js/src/containers/SchemaTab.js:150
 	__( 'This helps search engines understand your website and your content. You can change some of your settings for this page below.', 'wordpress-seo' ),
 
-	// Reference: js/src/containers/SchemaTab.js:22
+	// Reference: js/src/containers/SchemaTab.js:24
 	/* translators: %1$s expands to the plural name of the current post type, %2$s expands to the current site wide default. */
 	__( 'Default for %1$s (%2$s)', 'wordpress-seo' ),
 
