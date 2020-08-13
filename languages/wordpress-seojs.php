@@ -144,7 +144,7 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/SchemaSettings.js:95
 	__( 'Default Article type', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaTab.js:124
+	// Reference: js/src/components/SchemaTab.js:126
 	// Reference: js/src/structured-data-blocks/faq/block.js:28
 	// Reference: js/src/structured-data-blocks/how-to/block.js:56
 	__( 'Schema', 'wordpress-seo' ),
@@ -163,11 +163,11 @@ $generated_i18n_strings = array(
 	__( 'Learn more about page or content types', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:67
-	// Reference: js/src/containers/SchemaTab.js:139
+	// Reference: js/src/containers/SchemaTab.js:143
 	__( 'Page type', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaTab.js:74
-	// Reference: js/src/containers/SchemaTab.js:138
+	// Reference: js/src/containers/SchemaTab.js:142
 	__( 'Article type', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SettingsReplacementVariableEditor.js:39
@@ -314,13 +314,13 @@ $generated_i18n_strings = array(
 	// Reference: js/src/containers/SchemaSettings.js:15
 	__( 'default', 'wordpress-seo' ),
 
-	// Reference: js/src/containers/SchemaTab.js:145
+	// Reference: js/src/containers/SchemaTab.js:149
 	__( 'Yoast SEO automatically describes your pages using schema.org', 'wordpress-seo' ),
 
-	// Reference: js/src/containers/SchemaTab.js:146
+	// Reference: js/src/containers/SchemaTab.js:150
 	__( 'This helps search engines understand your website and your content. You can change some of your settings for this page below.', 'wordpress-seo' ),
 
-	// Reference: js/src/containers/SchemaTab.js:22
+	// Reference: js/src/containers/SchemaTab.js:24
 	/* translators: %1$s expands to the plural name of the current post type, %2$s expands to the current site wide default. */
 	__( 'Default for %1$s (%2$s)', 'wordpress-seo' ),
 
