@@ -8,6 +8,7 @@
 namespace Yoast\WP\SEO\Repositories;
 
 use Psr\Log\LoggerInterface;
+use wpdb;
 use Yoast\WP\Lib\Model;
 use Yoast\WP\Lib\ORM;
 use Yoast\WP\SEO\Builders\Indexable_Builder;
@@ -49,24 +50,33 @@ class Indexable_Repository {
 	protected $logger;
 
 	/**
+	 * The WordPress database.
+	 *
+	 * @var wpdb
+	 */
+	protected $wpdb;
+
+	/**
 	 * Returns the instance of this class constructed through the ORM Wrapper.
 	 *
 	 * @param Indexable_Builder              $builder              The indexable builder.
 	 * @param Current_Page_Helper            $current_page         The current post helper.
 	 * @param Logger                         $logger               The logger.
 	 * @param Indexable_Hierarchy_Repository $hierarchy_repository The hierarchy repository.
+	 * @param wpdb                           $wpdb                 The WordPress database instance.
 	 */
 	public function __construct(
 		Indexable_Builder $builder,
 		Current_Page_Helper $current_page,
 		Logger $logger,
-		Indexable_Hierarchy_Repository $hierarchy_repository
-
+		Indexable_Hierarchy_Repository $hierarchy_repository,
+		wpdb $wpdb
 	) {
 		$this->builder              = $builder;
 		$this->current_page         = $current_page;
 		$this->logger               = $logger;
 		$this->hierarchy_repository = $hierarchy_repository;
+		$this->wpdb                 = $wpdb;
 	}
 
 	/**
@@ -384,8 +394,8 @@ class Indexable_Repository {
 	/**
 	 * Returns all subpages with a given post_parent.
 	 *
-	 * @param int   $post_parent the post parent.
-	 * @param array $exclude_ids the ids to exclude.
+	 * @param int   $post_parent The post parent.
+	 * @param array $exclude_ids The ids to exclude.
 	 *
 	 * @return Indexable[] array of indexables.
 	 */
@@ -393,12 +403,27 @@ class Indexable_Repository {
 		$query = $this->query()
 			->where( 'post_parent', $post_parent )
 			->where( 'object_type', 'post' )
-			->where( 'post_status' ,'publish' );
+			->where( 'post_status', 'publish' );
 
 		if ( ! empty( $exclude_ids ) ) {
 			$query->where_not_in( 'object_id', $exclude_ids );
 		}
 		return $query->find_many();
+	}
+
+	/**
+	 * Updates the incoming link count for an indexable without first fetching it.
+	 *
+	 * @param int $indexable_id The indexable ID.
+	 * @param int $count        The incoming link count.
+	 *
+	 * @return bool Whether or not the update was succeful.
+	 */
+	public function update_incoming_link_count( $indexable_id, $count ) {
+		return (bool) $this->query()
+			->set( 'incoming_link_count', $count )
+			->where( 'id', $indexable_id )
+			->update_many();
 	}
 
 	/**
