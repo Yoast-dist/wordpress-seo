@@ -101,10 +101,6 @@ $generated_i18n_strings = array(
 	/* translators: %s expands to Local SEO */
 	__( 'Get the %s plugin now', 'wordpress-seo' ),
 
-	// Reference: js/src/components/OpenPostSettingsModal.js:36
-	/* translators: %s translates to the Post Label in singular form */
-	__( 'Open %s settings', 'wordpress-seo' ),
-
 	// Reference: js/src/components/PostPublish.js:17
 	__( 'Share your post!', 'wordpress-seo' ),
 
@@ -182,7 +178,7 @@ $generated_i18n_strings = array(
 	__( 'Google preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SnippetPreviewModal.js:67
-	// Reference: js/src/components/modals/Modal.js:78
+	// Reference: js/src/components/modals/SeoAnalysisModal.js:25
 	__( 'Close', 'wordpress-seo' ),
 
 	// Reference: js/src/components/WordPressUserSelector.js:113
@@ -286,12 +282,16 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/modals/MultipleKeywords.js:69
 	__( '1 year free support and updates included!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/Modal.js:76
-	__( 'Open', 'wordpress-seo' ),
-
 	// Reference: js/src/components/modals/MultipleKeywords.js:19
 	/* translators: %s expands to a 'Yoast SEO Premium' text linked to the yoast.com website. */
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/PostSettingsModal.js:38
+	/* translators: %s translates to the Post Label in singular form */
+	__( 'Open %s settings', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SeoAnalysisModal.js:23
+	__( 'Open', 'wordpress-seo' ),
 
 	// Reference: js/src/components/social/SocialMetadata.js:31
 	/* translators: %s expands to Twitter. */
