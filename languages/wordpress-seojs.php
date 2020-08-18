@@ -178,7 +178,7 @@ $generated_i18n_strings = array(
 	__( 'Google preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SnippetPreviewModal.js:70
-	// Reference: js/src/components/modals/Modal.js:78
+	// Reference: js/src/components/modals/SeoAnalysisModal.js:25
 	__( 'Close', 'wordpress-seo' ),
 
 	// Reference: js/src/components/WordPressUserSelector.js:113
@@ -282,12 +282,12 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/modals/MultipleKeywords.js:69
 	__( '1 year free support and updates included!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/Modal.js:76
-	__( 'Open', 'wordpress-seo' ),
-
 	// Reference: js/src/components/modals/MultipleKeywords.js:19
 	/* translators: %s expands to a 'Yoast SEO Premium' text linked to the yoast.com website. */
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SeoAnalysisModal.js:23
+	__( 'Open', 'wordpress-seo' ),
 
 	// Reference: js/src/components/social/SocialMetadata.js:31
 	/* translators: %s expands to Twitter. */
