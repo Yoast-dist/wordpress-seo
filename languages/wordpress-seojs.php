@@ -127,10 +127,10 @@ $generated_i18n_strings = array(
 	/* translators: %s expands to the taxonomy name. */
 	__( 'Select the primary %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/RelatedKeyphrasesModal.js:72
+	// Reference: js/src/components/RelatedKeyphrasesModal.js:73
 	__( 'Get related keyphrases', 'wordpress-seo' ),
 
-	// Reference: js/src/components/RelatedKeyphrasesModal.js:76
+	// Reference: js/src/components/RelatedKeyphrasesModal.js:77
 	__( 'Related keyphrases', 'wordpress-seo' ),
 
 	// Reference: js/src/components/RelatedKeyphrasesModalContent.js:57
