@@ -190,7 +190,7 @@ $generated_i18n_strings = array(
 	__( 'Google preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SnippetPreviewModal.js:65
-	// Reference: js/src/components/modals/Modal.js:78
+	// Reference: js/src/components/modals/SeoAnalysisModal.js:25
 	__( 'Close', 'wordpress-seo' ),
 
 	// Reference: js/src/components/WordPressUserSelector.js:113
@@ -229,7 +229,7 @@ $generated_i18n_strings = array(
 	__( 'Focus keyphrase', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:50
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:310
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:244
 	__( 'Analysis results', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:56
@@ -238,29 +238,29 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:91
 	__( 'Readability analysis', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:119
-	__( 'Add synonyms', 'wordpress-seo' ),
-
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:136
-	__( 'Would you like to add keyphrase synonyms?', 'wordpress-seo' ),
-
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:179
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:106
 	// Reference: js/src/components/modals/KeywordSynonyms.js:61
 	// Reference: js/src/components/modals/MultipleKeywords.js:60
 	/* translators: %s expands to 'Yoast SEO Premium'. */
 	__( 'Get %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:189
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:125
 	__( 'Would you like to add a related keyphrase?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:224
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:158
 	__( 'Add related keyphrase', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:285
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:219
 	__( 'Enter a focus keyphrase to calculate the SEO score', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:296
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:230
 	__( 'SEO analysis', 'wordpress-seo' ),
+
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:50
+	__( 'Add synonyms', 'wordpress-seo' ),
+
+	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:77
+	__( 'Would you like to add keyphrase synonyms?', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/KeyphrasesTable.js:100
 	__( 'Related keyphrase', 'wordpress-seo' ),
@@ -358,9 +358,6 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/modals/MultipleKeywords.js:69
 	__( '1 year free support and updates included!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/Modal.js:76
-	__( 'Open', 'wordpress-seo' ),
-
 	// Reference: js/src/components/modals/MultipleKeywords.js:19
 	/* translators: %s expands to a 'Yoast SEO Premium' text linked to the yoast.com website. */
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
@@ -397,6 +394,9 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/modals/SemRushUpsellAlert.js:34
 	/* translators: %s: Expands to "Yoast SEO Premium". */
 	__( 'Check out %s!', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SeoAnalysisModal.js:23
+	__( 'Open', 'wordpress-seo' ),
 
 	// Reference: js/src/components/social/SocialMetadata.js:31
 	/* translators: %s expands to Twitter. */
