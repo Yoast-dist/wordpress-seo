@@ -1,61 +1,58 @@
 <?php
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
-	// Reference: js/src/components/AdvancedSettings.js:110
+	// Reference: js/src/components/AdvancedSettings.js:109
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Should search engines follow links on this %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:117
+	// Reference: js/src/components/AdvancedSettings.js:116
 	__( 'Learn more about the no-follow setting on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:131
+	// Reference: js/src/components/AdvancedSettings.js:130
 	__( 'Meta robots advanced', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:136
+	// Reference: js/src/components/AdvancedSettings.js:135
 	__( 'No Image Index', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:137
+	// Reference: js/src/components/AdvancedSettings.js:136
 	__( 'No Archive', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:138
+	// Reference: js/src/components/AdvancedSettings.js:137
 	__( 'No Snippet', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:142
+	// Reference: js/src/components/AdvancedSettings.js:141
 	__( 'Learn more about advanced meta robots settings on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:156
+	// Reference: js/src/components/AdvancedSettings.js:155
 	__( 'Breadcrumbs Title', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:162
+	// Reference: js/src/components/AdvancedSettings.js:161
 	__( 'Learn more about the breadcrumbs title setting on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:176
+	// Reference: js/src/components/AdvancedSettings.js:175
 	__( 'Canonical URL', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:182
+	// Reference: js/src/components/AdvancedSettings.js:181
 	__( 'Learn more about canonical URLs on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:198
-	__( 'Advanced', 'wordpress-seo' ),
-
-	// Reference: js/src/components/AdvancedSettings.js:24
+	// Reference: js/src/components/AdvancedSettings.js:23
 	__( 'No', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:25
+	// Reference: js/src/components/AdvancedSettings.js:24
 	__( 'Yes', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:47
+	// Reference: js/src/components/AdvancedSettings.js:46
 	/* translators: %s translates to the "yes" or "no" ,%s translates to the Post Label in plural form */
 	__( '%s (current default for %s)', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:72
+	// Reference: js/src/components/AdvancedSettings.js:71
 	__( 'Even though you can set the meta robots setting here, the entire site is set to noindex in the sitewide privacy settings, so these settings won\'t have an effect.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:83
+	// Reference: js/src/components/AdvancedSettings.js:82
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Allow search engines to show this %s in search results?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:92
+	// Reference: js/src/components/AdvancedSettings.js:91
 	__( 'Learn more about the no-index setting on our help page.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/AnalysisUpsell.js:54
@@ -120,7 +117,7 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/PrimaryTaxonomyFilter.js:85
 	__( 'Copy error', 'wordpress-seo' ),
 
-	// Reference: js/src/components/PrimaryTaxonomyPicker.js:242
+	// Reference: js/src/components/PrimaryTaxonomyPicker.js:237
 	/* translators: %s expands to the taxonomy name. */
 	__( 'Select the primary %s', 'wordpress-seo' ),
 
@@ -144,29 +141,24 @@ $generated_i18n_strings = array(
 	/* translators: %1$s expands to an indexable object's name, e.g. Posts or Pages. */
 	_n_noop( 'Upon saving, this setting will apply to all of your %1$s. %1$s that are manually configured will be left untouched.', 'Upon saving, these settings will apply to all of your %1$s. %1$s that are manually configured will be left untouched.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaTab.js:126
-	// Reference: js/src/structured-data-blocks/faq/block.js:28
-	// Reference: js/src/structured-data-blocks/how-to/block.js:56
-	__( 'Schema', 'wordpress-seo' ),
-
-	// Reference: js/src/components/SchemaTab.js:23
+	// Reference: js/src/components/SchemaTab.js:22
 	/* translators: %1$s expands to the plural name of the current post type, %2$s and %3$s expand to a link to the Search Appearance Settings page */
 	__( 'You can change the default type for %1$s in your %2$sSearch Appearance Settings%3$s.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaTab.js:56
+	// Reference: js/src/components/SchemaTab.js:55
 	__( 'Learn more about structured data with Schema.org', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaTab.js:60
+	// Reference: js/src/components/SchemaTab.js:59
 	__( 'What type of page or content is this?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaTab.js:62
+	// Reference: js/src/components/SchemaTab.js:61
 	__( 'Learn more about page or content types', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaTab.js:67
+	// Reference: js/src/components/SchemaTab.js:66
 	// Reference: js/src/containers/SchemaTab.js:143
 	__( 'Page type', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaTab.js:74
+	// Reference: js/src/components/SchemaTab.js:73
 	// Reference: js/src/containers/SchemaTab.js:142
 	__( 'Article type', 'wordpress-seo' ),
 
@@ -175,6 +167,7 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/components/SnippetPreviewModal.js:62
 	// Reference: js/src/components/fills/MetaboxFill.js:58
+	// Reference: js/src/components/modals/PostSettingsModal.js:22
 	__( 'Google preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SnippetPreviewModal.js:70
@@ -244,6 +237,16 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:77
 	__( 'Would you like to add keyphrase synonyms?', 'wordpress-seo' ),
 
+	// Reference: js/src/components/fills/MetaboxFill.js:100
+	// Reference: js/src/components/modals/PostSettingsModal.js:42
+	__( 'Advanced', 'wordpress-seo' ),
+
+	// Reference: js/src/components/fills/SidebarFill.js:108
+	// Reference: js/src/components/modals/PostSettingsModal.js:37
+	// Reference: js/src/structured-data-blocks/faq/block.js:28
+	// Reference: js/src/structured-data-blocks/how-to/block.js:56
+	__( 'Schema', 'wordpress-seo' ),
+
 	// Reference: js/src/components/modals/KeywordSynonyms.js:20
 	/* translators: %1$s expands to a 'Yoast SEO Premium' text linked to the yoast.com website. */
 	__( 'Great news: you can, with %1$s!', 'wordpress-seo' ),
@@ -286,9 +289,23 @@ $generated_i18n_strings = array(
 	/* translators: %s expands to a 'Yoast SEO Premium' text linked to the yoast.com website. */
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/PostSettingsModal.js:38
+	// Reference: js/src/components/modals/PostSettingsModal.js:115
+	/* translators: %s translates to the Post Label in singular form */
+	__( 'Make sure to save your %s for changes to take effect', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/PostSettingsModal.js:124
+	/* translators: %s translates to the Post Label in singular form */
+	__( 'Return to your %s', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/PostSettingsModal.js:137
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Open %s settings', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/PostSettingsModal.js:27
+	__( 'Facebook preview', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/PostSettingsModal.js:32
+	__( 'Twitter preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/SeoAnalysisModal.js:23
 	__( 'Open', 'wordpress-seo' ),
