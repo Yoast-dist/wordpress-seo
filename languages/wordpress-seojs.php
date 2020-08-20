@@ -165,12 +165,15 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/SettingsReplacementVariableEditor.js:39
 	__( 'Modify your meta description by editing it right here', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SnippetPreviewModal.js:62
+	// Reference: js/src/components/SnippetPreviewModal.js:68
 	// Reference: js/src/components/fills/MetaboxFill.js:58
 	// Reference: js/src/components/modals/PostSettingsModal.js:22
 	__( 'Google preview', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SnippetPreviewModal.js:70
+	// Reference: js/src/components/SnippetPreviewModal.js:73
+	__( 'This preview will be removed from here, and can already be found in the post settings.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SnippetPreviewModal.js:79
 	// Reference: js/src/components/modals/SeoAnalysisModal.js:25
 	__( 'Close', 'wordpress-seo' ),
 
