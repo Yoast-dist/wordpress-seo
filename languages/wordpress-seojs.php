@@ -1,59 +1,59 @@
 <?php
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
-	// Reference: js/src/components/AdvancedSettings.js:109
-	/* translators: %s translates to the Post Label in singular form */
-	__( 'Should search engines follow links on this %s', 'wordpress-seo' ),
-
-	// Reference: js/src/components/AdvancedSettings.js:116
-	__( 'Learn more about the no-follow setting on our help page.', 'wordpress-seo' ),
-
-	// Reference: js/src/components/AdvancedSettings.js:130
-	__( 'Meta robots advanced', 'wordpress-seo' ),
-
-	// Reference: js/src/components/AdvancedSettings.js:135
-	__( 'No Image Index', 'wordpress-seo' ),
-
-	// Reference: js/src/components/AdvancedSettings.js:136
-	__( 'No Archive', 'wordpress-seo' ),
-
-	// Reference: js/src/components/AdvancedSettings.js:137
-	__( 'No Snippet', 'wordpress-seo' ),
-
-	// Reference: js/src/components/AdvancedSettings.js:141
-	__( 'Learn more about advanced meta robots settings on our help page.', 'wordpress-seo' ),
-
-	// Reference: js/src/components/AdvancedSettings.js:155
-	__( 'Breadcrumbs Title', 'wordpress-seo' ),
-
-	// Reference: js/src/components/AdvancedSettings.js:161
-	__( 'Learn more about the breadcrumbs title setting on our help page.', 'wordpress-seo' ),
-
-	// Reference: js/src/components/AdvancedSettings.js:175
-	__( 'Canonical URL', 'wordpress-seo' ),
-
-	// Reference: js/src/components/AdvancedSettings.js:181
-	__( 'Learn more about canonical URLs on our help page.', 'wordpress-seo' ),
-
-	// Reference: js/src/components/AdvancedSettings.js:23
-	__( 'No', 'wordpress-seo' ),
-
-	// Reference: js/src/components/AdvancedSettings.js:24
-	__( 'Yes', 'wordpress-seo' ),
-
-	// Reference: js/src/components/AdvancedSettings.js:46
-	/* translators: %s translates to the "yes" or "no" ,%s translates to the Post Label in plural form */
-	__( '%s (current default for %s)', 'wordpress-seo' ),
-
-	// Reference: js/src/components/AdvancedSettings.js:71
-	__( 'Even though you can set the meta robots setting here, the entire site is set to noindex in the sitewide privacy settings, so these settings won\'t have an effect.', 'wordpress-seo' ),
-
-	// Reference: js/src/components/AdvancedSettings.js:82
+	// Reference: js/src/components/AdvancedSettings.js:101
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Allow search engines to show this %s in search results?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:91
+	// Reference: js/src/components/AdvancedSettings.js:110
 	__( 'Learn more about the no-index setting on our help page.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:136
+	/* translators: %s translates to the Post Label in singular form */
+	__( 'Should search engines follow links on this %s', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:143
+	__( 'Learn more about the no-follow setting on our help page.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:160
+	__( 'Meta robots advanced', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:165
+	__( 'No Image Index', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:166
+	__( 'No Archive', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:167
+	__( 'No Snippet', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:171
+	__( 'Learn more about advanced meta robots settings on our help page.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:196
+	__( 'Breadcrumbs Title', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:202
+	__( 'Learn more about the breadcrumbs title setting on our help page.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:227
+	__( 'Canonical URL', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:233
+	__( 'Learn more about canonical URLs on our help page.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:40
+	__( 'No', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:41
+	__( 'Yes', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:63
+	/* translators: %s translates to the "yes" or "no" ,%s translates to the Post Label in plural form */
+	__( '%s (current default for %s)', 'wordpress-seo' ),
+
+	// Reference: js/src/components/AdvancedSettings.js:90
+	__( 'Even though you can set the meta robots setting here, the entire site is set to noindex in the sitewide privacy settings, so these settings won\'t have an effect.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/AnalysisUpsell.js:54
 	/* translators: %s expands to Yoast SEO Premium */
@@ -289,15 +289,15 @@ $generated_i18n_strings = array(
 	/* translators: %s expands to a 'Yoast SEO Premium' text linked to the yoast.com website. */
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/PostSettingsModal.js:115
+	// Reference: js/src/components/modals/PostSettingsModal.js:142
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Make sure to save your %s for changes to take effect', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/PostSettingsModal.js:124
+	// Reference: js/src/components/modals/PostSettingsModal.js:151
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Return to your %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/PostSettingsModal.js:137
+	// Reference: js/src/components/modals/PostSettingsModal.js:164
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Open %s settings', 'wordpress-seo' ),
 
