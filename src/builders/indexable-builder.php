@@ -142,9 +142,7 @@ class Indexable_Builder {
 	 */
 	public function build_for_id_and_type( $object_id, $object_type, $indexable = false ) {
 		$indexable        = $this->ensure_indexable( $indexable );
-		$indexable_before = $this->indexable_repository
-			->query()
-			->create( $indexable->as_array() );
+		$indexable_before = $indexable;
 
 		switch ( $object_type ) {
 			case 'post':
