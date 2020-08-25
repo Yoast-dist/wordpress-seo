@@ -1,58 +1,58 @@
 <?php
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
-	// Reference: js/src/components/AdvancedSettings.js:101
+	// Reference: js/src/components/AdvancedSettings.js:100
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Allow search engines to show this %s in search results?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:110
+	// Reference: js/src/components/AdvancedSettings.js:109
 	__( 'Learn more about the no-index setting on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:136
+	// Reference: js/src/components/AdvancedSettings.js:137
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Should search engines follow links on this %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:143
+	// Reference: js/src/components/AdvancedSettings.js:144
 	__( 'Learn more about the no-follow setting on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:160
+	// Reference: js/src/components/AdvancedSettings.js:165
 	__( 'Meta robots advanced', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:165
+	// Reference: js/src/components/AdvancedSettings.js:170
 	__( 'No Image Index', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:166
+	// Reference: js/src/components/AdvancedSettings.js:171
 	__( 'No Archive', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:167
+	// Reference: js/src/components/AdvancedSettings.js:172
 	__( 'No Snippet', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:171
+	// Reference: js/src/components/AdvancedSettings.js:176
 	__( 'Learn more about advanced meta robots settings on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:196
+	// Reference: js/src/components/AdvancedSettings.js:201
 	__( 'Breadcrumbs Title', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:202
+	// Reference: js/src/components/AdvancedSettings.js:207
 	__( 'Learn more about the breadcrumbs title setting on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:227
+	// Reference: js/src/components/AdvancedSettings.js:232
 	__( 'Canonical URL', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:233
+	// Reference: js/src/components/AdvancedSettings.js:238
 	__( 'Learn more about canonical URLs on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:40
+	// Reference: js/src/components/AdvancedSettings.js:41
 	__( 'No', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:41
+	// Reference: js/src/components/AdvancedSettings.js:42
 	__( 'Yes', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:63
+	// Reference: js/src/components/AdvancedSettings.js:64
 	/* translators: %s translates to the "yes" or "no" ,%s translates to the Post Label in plural form */
 	__( '%s (current default for %s)', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:90
+	// Reference: js/src/components/AdvancedSettings.js:89
 	__( 'Even though you can set the meta robots setting here, the entire site is set to noindex in the sitewide privacy settings, so these settings won\'t have an effect.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/AnalysisUpsell.js:54
