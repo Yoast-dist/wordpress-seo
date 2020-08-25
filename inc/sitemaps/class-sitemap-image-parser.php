@@ -392,7 +392,7 @@ class WPSEO_Sitemap_Image_Parser {
 			return $src;
 		}
 
-		if ( YoastSEO()->helpers->url->is_relative( $src ) === true ) {
+		if ( WPSEO_Utils::is_url_relative( $src ) === true ) {
 
 			if ( $src[0] !== '/' ) {
 				return $src;
