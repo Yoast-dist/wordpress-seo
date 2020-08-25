@@ -304,10 +304,10 @@ $generated_i18n_strings = array(
 	/* translators: %s expands to a 'Yoast SEO Premium' text linked to the yoast.com website. */
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/SEMrushCountrySelector.js:330
+	// Reference: js/src/components/modals/SEMrushCountrySelector.js:328
 	__( 'Show results for:', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/SEMrushCountrySelector.js:344
+	// Reference: js/src/components/modals/SEMrushCountrySelector.js:342
 	__( 'Change Country', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:100
