@@ -127,11 +127,14 @@ $generated_i18n_strings = array(
 	/* translators: %s expands to the taxonomy name. */
 	__( 'Select the primary %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:73
+	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:107
+	__( 'Related keyphrases', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:128
 	__( 'Get related keyphrases', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:77
-	__( 'Related keyphrases', 'wordpress-seo' ),
+	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:130
+	__( '(Opens in a new browser window)', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SEMrushRelatedKeyphrasesModalContent.js:57
 	__( 'Sorry, there\'s no data available for that keyphrase/country combination.', 'wordpress-seo' ),
