@@ -141,26 +141,30 @@ $generated_i18n_strings = array(
 	/* translators: %1$s expands to an indexable object's name, e.g. Posts or Pages. */
 	_n_noop( 'Upon saving, this setting will apply to all of your %1$s. %1$s that are manually configured will be left untouched.', 'Upon saving, these settings will apply to all of your %1$s. %1$s that are manually configured will be left untouched.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaTab.js:22
+	// Reference: js/src/components/SchemaTab.js:101
+	// Reference: js/src/containers/SchemaTab.js:53
+	__( 'Article type', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:28
+	/* translators: %1$s expands to the plural name of the current post type, %2$s expands to the current site wide default. */
+	__( 'Default for %1$s (%2$s)', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SchemaTab.js:47
 	/* translators: %1$s expands to the plural name of the current post type, %2$s and %3$s expand to a link to the Search Appearance Settings page */
 	__( 'You can change the default type for %1$s in your %2$sSearch Appearance Settings%3$s.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaTab.js:55
+	// Reference: js/src/components/SchemaTab.js:83
 	__( 'Learn more about structured data with Schema.org', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaTab.js:59
+	// Reference: js/src/components/SchemaTab.js:87
 	__( 'What type of page or content is this?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaTab.js:61
+	// Reference: js/src/components/SchemaTab.js:89
 	__( 'Learn more about page or content types', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaTab.js:66
-	// Reference: js/src/containers/SchemaTab.js:143
+	// Reference: js/src/components/SchemaTab.js:94
+	// Reference: js/src/containers/SchemaTab.js:54
 	__( 'Page type', 'wordpress-seo' ),
-
-	// Reference: js/src/components/SchemaTab.js:73
-	// Reference: js/src/containers/SchemaTab.js:142
-	__( 'Article type', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SettingsReplacementVariableEditor.js:39
 	__( 'Modify your meta description by editing it right here', 'wordpress-seo' ),
@@ -338,15 +342,11 @@ $generated_i18n_strings = array(
 	// Reference: js/src/containers/SchemaSettings.js:15
 	__( 'default', 'wordpress-seo' ),
 
-	// Reference: js/src/containers/SchemaTab.js:149
+	// Reference: js/src/containers/SchemaTab.js:56
 	__( 'Yoast SEO automatically describes your pages using schema.org', 'wordpress-seo' ),
 
-	// Reference: js/src/containers/SchemaTab.js:150
+	// Reference: js/src/containers/SchemaTab.js:57
 	__( 'This helps search engines understand your website and your content. You can change some of your settings for this page below.', 'wordpress-seo' ),
-
-	// Reference: js/src/containers/SchemaTab.js:24
-	/* translators: %1$s expands to the plural name of the current post type, %2$s expands to the current site wide default. */
-	__( 'Default for %1$s (%2$s)', 'wordpress-seo' ),
 
 	// Reference: js/src/containers/SnippetEditor.js:63
 	__( 'Please provide a meta description by editing the snippet below.', 'wordpress-seo' ),
