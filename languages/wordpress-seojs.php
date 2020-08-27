@@ -248,12 +248,6 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/modals/PostSettingsModal.js:42
 	__( 'Advanced', 'wordpress-seo' ),
 
-	// Reference: js/src/components/fills/SidebarFill.js:108
-	// Reference: js/src/components/modals/PostSettingsModal.js:37
-	// Reference: js/src/structured-data-blocks/faq/block.js:28
-	// Reference: js/src/structured-data-blocks/how-to/block.js:56
-	__( 'Schema', 'wordpress-seo' ),
-
 	// Reference: js/src/components/modals/KeywordSynonyms.js:20
 	/* translators: %1$s expands to a 'Yoast SEO Premium' text linked to the yoast.com website. */
 	__( 'Great news: you can, with %1$s!', 'wordpress-seo' ),
@@ -313,6 +307,11 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/components/modals/PostSettingsModal.js:32
 	__( 'Twitter preview', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/PostSettingsModal.js:37
+	// Reference: js/src/structured-data-blocks/faq/block.js:28
+	// Reference: js/src/structured-data-blocks/how-to/block.js:56
+	__( 'Schema', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/SeoAnalysisModal.js:23
 	__( 'Open', 'wordpress-seo' ),
