@@ -15,7 +15,7 @@ if ( ! function_exists( 'add_filter' ) ) {
  * {@internal Nobody should be able to overrule the real version number as this can cause
  *            serious issues with the options, so no if ( ! defined() ).}}
  */
-define( 'WPSEO_VERSION', '14.9-RC4' );
+define( 'WPSEO_VERSION', '14.9-RC5' );
 
 
 if ( ! defined( 'WPSEO_PATH' ) ) {
@@ -290,6 +290,7 @@ function wpseo_init() {
 
 	if ( version_compare( WPSEO_Options::get( 'version', 1 ), WPSEO_VERSION, '<' ) ) {
 		if ( function_exists( 'opcache_reset' ) ) {
+			// phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- Prevent notices when opcache.restrict_api is set.
 			@opcache_reset();
 		}
 
