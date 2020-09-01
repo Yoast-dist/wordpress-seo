@@ -171,7 +171,7 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/components/SnippetPreviewModal.js:68
 	// Reference: js/src/components/fills/MetaboxFill.js:58
-	// Reference: js/src/components/modals/PostSettingsModal.js:22
+	// Reference: js/src/components/modals/PostSettingsModal.js:21
 	__( 'Google preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SnippetPreviewModal.js:73
@@ -245,7 +245,7 @@ $generated_i18n_strings = array(
 	__( 'Would you like to add keyphrase synonyms?', 'wordpress-seo' ),
 
 	// Reference: js/src/components/fills/MetaboxFill.js:100
-	// Reference: js/src/components/modals/PostSettingsModal.js:42
+	// Reference: js/src/components/modals/PostSettingsModal.js:41
 	__( 'Advanced', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/KeywordSynonyms.js:20
@@ -290,7 +290,7 @@ $generated_i18n_strings = array(
 	/* translators: %s expands to a 'Yoast SEO Premium' text linked to the yoast.com website. */
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/PostSettingsModal.js:142
+	// Reference: js/src/components/modals/PostSettingsModal.js:141
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Make sure to save your %s for changes to take effect', 'wordpress-seo' ),
 
@@ -298,17 +298,17 @@ $generated_i18n_strings = array(
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Return to your %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/PostSettingsModal.js:164
+	// Reference: js/src/components/modals/PostSettingsModal.js:166
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Open %s settings', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/PostSettingsModal.js:27
+	// Reference: js/src/components/modals/PostSettingsModal.js:26
 	__( 'Facebook preview', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/PostSettingsModal.js:32
+	// Reference: js/src/components/modals/PostSettingsModal.js:31
 	__( 'Twitter preview', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/PostSettingsModal.js:37
+	// Reference: js/src/components/modals/PostSettingsModal.js:36
 	// Reference: js/src/structured-data-blocks/faq/block.js:28
 	// Reference: js/src/structured-data-blocks/how-to/block.js:56
 	__( 'Schema', 'wordpress-seo' ),
