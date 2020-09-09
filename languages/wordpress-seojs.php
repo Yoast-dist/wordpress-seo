@@ -169,18 +169,6 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/SettingsReplacementVariableEditor.js:39
 	__( 'Modify your meta description by editing it right here', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SnippetPreviewModal.js:68
-	// Reference: js/src/components/fills/MetaboxFill.js:58
-	// Reference: js/src/components/modals/PostSettingsModal.js:21
-	__( 'Google preview', 'wordpress-seo' ),
-
-	// Reference: js/src/components/SnippetPreviewModal.js:73
-	__( 'This preview will be removed from here, and can already be found in the post settings.', 'wordpress-seo' ),
-
-	// Reference: js/src/components/SnippetPreviewModal.js:79
-	// Reference: js/src/components/modals/SeoAnalysisModal.js:25
-	__( 'Close', 'wordpress-seo' ),
-
 	// Reference: js/src/components/WordPressUserSelector.js:113
 	__( 'Select a user...', 'wordpress-seo' ),
 
@@ -245,8 +233,17 @@ $generated_i18n_strings = array(
 	__( 'Would you like to add keyphrase synonyms?', 'wordpress-seo' ),
 
 	// Reference: js/src/components/fills/MetaboxFill.js:100
-	// Reference: js/src/components/modals/PostSettingsModal.js:41
+	// Reference: js/src/components/fills/SidebarFill.js:102
 	__( 'Advanced', 'wordpress-seo' ),
+
+	// Reference: js/src/components/fills/MetaboxFill.js:58
+	// Reference: js/src/components/modals/editorModals/GooglePreviewModal.js:16
+	__( 'Google preview', 'wordpress-seo' ),
+
+	// Reference: js/src/components/fills/SidebarFill.js:89
+	// Reference: js/src/structured-data-blocks/faq/block.js:28
+	// Reference: js/src/structured-data-blocks/how-to/block.js:56
+	__( 'Schema', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/KeywordSynonyms.js:20
 	/* translators: %1$s expands to a 'Yoast SEO Premium' text linked to the yoast.com website. */
@@ -290,31 +287,25 @@ $generated_i18n_strings = array(
 	/* translators: %s expands to a 'Yoast SEO Premium' text linked to the yoast.com website. */
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/PostSettingsModal.js:141
+	// Reference: js/src/components/modals/SeoAnalysisModal.js:23
+	__( 'Open', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SeoAnalysisModal.js:25
+	__( 'Close', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/editorModals/EditorModal.js:66
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Make sure to save your %s for changes to take effect', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/PostSettingsModal.js:151
+	// Reference: js/src/components/modals/editorModals/EditorModal.js:76
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Return to your %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/PostSettingsModal.js:166
-	/* translators: %s translates to the Post Label in singular form */
-	__( 'Open %s settings', 'wordpress-seo' ),
-
-	// Reference: js/src/components/modals/PostSettingsModal.js:26
+	// Reference: js/src/components/modals/editorModals/FacebookPreviewModal.js:16
 	__( 'Facebook preview', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/PostSettingsModal.js:31
+	// Reference: js/src/components/modals/editorModals/TwitterPreviewModal.js:16
 	__( 'Twitter preview', 'wordpress-seo' ),
-
-	// Reference: js/src/components/modals/PostSettingsModal.js:36
-	// Reference: js/src/structured-data-blocks/faq/block.js:28
-	// Reference: js/src/structured-data-blocks/how-to/block.js:56
-	__( 'Schema', 'wordpress-seo' ),
-
-	// Reference: js/src/components/modals/SeoAnalysisModal.js:23
-	__( 'Open', 'wordpress-seo' ),
 
 	// Reference: js/src/components/social/SocialMetadata.js:31
 	/* translators: %s expands to Twitter. */
