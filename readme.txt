@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.5
-Stable tag: 15.0-RC4
+Stable tag: 15.0-RC5
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -213,7 +213,7 @@ Release Date: September 15th, 2020
 
 Enhancements:
 
-* Introduces an advanced Settings tab in the sidebar.
+* Introduces an advanced settings tab in the sidebar.
 * Introduces buttons in the sidebar to open the Facebook and Twitter Preview in a modal.
 * Changes the Google Preview modal styling to match the other new modals.
 * Always shows the Google Preview editor fields and as a result removes the 'Edit snippet' button.
