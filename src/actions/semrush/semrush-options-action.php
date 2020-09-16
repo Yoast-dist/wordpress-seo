@@ -1,13 +1,8 @@
 <?php
-/**
- * Country code option action for SEMrush.
- *
- * @package Yoast\WP\SEO\Actions\SEMrush
- */
 
 namespace Yoast\WP\SEO\Actions\SEMrush;
 
-use \Yoast\WP\SEO\Helpers\Options_Helper;
+use Yoast\WP\SEO\Helpers\Options_Helper;
 
 /**
  * Class SEMrush_Options_Action
@@ -15,6 +10,8 @@ use \Yoast\WP\SEO\Helpers\Options_Helper;
 class SEMrush_Options_Action {
 
 	/**
+	 * The Options_Helper instance.
+	 *
 	 * @var Options_Helper
 	 */
 	protected $options_helper;
@@ -50,7 +47,5 @@ class SEMrush_Options_Action {
 			'status'  => 500,
 			'error'   => 'Could not save option in the database',
 		];
-
 	}
-
 }

@@ -1,9 +1,4 @@
 <?php
-/**
- * Phrases action for SEMrush.
- *
- * @package Yoast\WP\SEO\Actions\SEMrush
- */
 
 namespace Yoast\WP\SEO\Actions\SEMrush;
 
@@ -27,6 +22,8 @@ class SEMrush_Phrases_Action {
 	const KEYPHRASES_URL = 'https://oauth.semrush.com/api/v1/keywords/phrase_related';
 
 	/**
+	 * The SEMrush_Client instance.
+	 *
 	 * @var SEMrush_Client
 	 */
 	protected $client;
@@ -64,7 +61,7 @@ class SEMrush_Phrases_Action {
 					'export_columns' => 'Ph,Nq,Td',
 					'display_limit'  => 10,
 					'display_offset' => 0,
-					'display_sort'   => 'nq_desc',
+					'display_sort'   => 'rr_desc',
 					'display_filter' => '%2B|Nq|Lt|1000',
 				],
 			];

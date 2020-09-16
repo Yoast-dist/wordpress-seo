@@ -1,9 +1,4 @@
 <?php
-/**
- * Builder for the indexables.
- *
- * @package Yoast\YoastSEO\Builders
- */
 
 namespace Yoast\WP\SEO\Builders;
 
@@ -11,6 +6,8 @@ use Yoast\WP\SEO\Models\Indexable;
 use Yoast\WP\SEO\Repositories\Indexable_Repository;
 
 /**
+ * Builder for the indexables.
+ *
  * Creates all the indexables.
  */
 class Indexable_Builder {
@@ -182,11 +179,11 @@ class Indexable_Builder {
 			);
 		}
 
+		$this->save_indexable( $indexable, $indexable_before );
+
 		if ( \in_array( $object_type, [ 'post', 'term' ], true ) && $indexable->post_status !== 'unindexed' ) {
 			$this->hierarchy_builder->build( $indexable );
 		}
-
-		$this->save_indexable( $indexable, $indexable_before );
 
 		return $indexable;
 	}

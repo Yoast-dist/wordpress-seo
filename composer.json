@@ -29,12 +29,12 @@
 		"pimple/pimple": "^3.2",
 		"psr/log": "^1.0",
 		"league/oauth2-client": "^2.4",
-		"symfony/dependency-injection": "^3.4"
+		"symfony/dependency-injection": "^3.4",
+		"symfony/polyfill-intl-idn": "^1.11"
 	},
 	"require-dev": {
 		"yoast/php-development-environment": "^1.0",
-		"yoast/yoastcs": "~0.4.3",
-		"phpcompatibility/phpcompatibility-wp": "^2.0.0",
+		"yoast/yoastcs": "^2.0.0",
 		"humbug/php-scoper": "^0.12.0",
 		"brain/monkey": "^2.4",
 		"phpunit/phpunit": "^5.7",
@@ -78,12 +78,16 @@
 		"lint-staged": [
 			"Yoast\\WP\\SEO\\Composer\\Actions::lint_staged"
 		],
-		"config-yoastcs": [
-			"@php ./vendor/squizlabs/php_codesniffer/scripts/phpcs --config-set installed_paths ../../../vendor/wp-coding-standards/wpcs,../../../vendor/yoast/yoastcs,../../../vendor/phpcompatibility/php-compatibility,../../../vendor/phpcompatibility/phpcompatibility-paragonie,../../../vendor/phpcompatibility/phpcompatibility-wp",
-			"@php ./vendor/squizlabs/php_codesniffer/scripts/phpcs --config-set default_standard Yoast"
-		],
 		"cs": [
 			"Yoast\\WP\\SEO\\Composer\\Actions::check_coding_standards"
+		],
+		"check-cs-thresholds": [
+			"@putenv YOASTCS_THRESHOLD_ERRORS=948",
+			"@putenv YOASTCS_THRESHOLD_WARNINGS=268",
+			"Yoast\\WP\\SEO\\Composer\\Actions::check_cs_thresholds"
+		],
+		"check-cs-summary": [
+			"@check-cs-warnings --report=summary"
 		],
 		"check-cs": [
 			"@check-cs-warnings -n"
@@ -93,16 +97,16 @@
 			"composer check-cs"
 		],
 		"check-cs-warnings": [
-			"@php ./vendor/squizlabs/php_codesniffer/scripts/phpcs"
+			"@php ./vendor/squizlabs/php_codesniffer/bin/phpcs"
 		],
 		"check-staged-cs": [
-			"Yoast\\WP\\SEO\\Composer\\Actions::check_staged_cs"
+			"@check-cs-warnings --filter=GitStaged"
 		],
 		"check-branch-cs": [
 			"Yoast\\WP\\SEO\\Composer\\Actions::check_branch_cs"
 		],
 		"fix-cs": [
-			"@php ./vendor/squizlabs/php_codesniffer/scripts/phpcbf"
+			"@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
 		],
 		"prefix-dependencies": [
 			"composer prefix-oauth2-client",
@@ -114,7 +118,8 @@
 			"@php ./vendor/humbug/php-scoper/bin/php-scoper add-prefix --prefix=YoastSEO_Vendor --output-dir=./vendor_prefixed/psr --config=config/php-scoper/psr.inc.php --force --quiet"
 		],
 		"prefix-symfony": [
-			"@php ./vendor/humbug/php-scoper/bin/php-scoper add-prefix --prefix=YoastSEO_Vendor --output-dir=./vendor_prefixed/symfony/dependency-injection --config=config/php-scoper/dependency-injection.inc.php --force --quiet"
+			"@php ./vendor/humbug/php-scoper/bin/php-scoper add-prefix --prefix=YoastSEO_Vendor --output-dir=./vendor_prefixed/symfony/dependency-injection --config=config/php-scoper/dependency-injection.inc.php --force --quiet",
+			"@php ./vendor/humbug/php-scoper/bin/php-scoper add-prefix --prefix=YoastSEO_Vendor --output-dir=./vendor_prefixed/symfony/polyfill-intl-idn --config=config/php-scoper/polyfill-intl-idn.inc.php --force --quiet"
 		],
 		"remove-vendor-prefixed-uses": [
 			"@php ./vendor/atanamo/php-codeshift/bin/codeshift --mod=config/php-codeshift/remove-vendor-prefixing-codemod.php --src=artifact-composer/src",

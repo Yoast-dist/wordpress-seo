@@ -1,14 +1,9 @@
 <?php
-/**
- * Login action for SEMrush.
- *
- * @package Yoast\WP\SEO\Actions\SEMrush
- */
 
 namespace Yoast\WP\SEO\Actions\SEMrush;
 
 use Yoast\WP\SEO\Config\SEMrush_Client;
-use Yoast\WP\SEO\Exceptions\OAuth\OAuth_Authentication_Failed_Exception;
+use Yoast\WP\SEO\Exceptions\OAuth\Authentication_Failed_Exception;
 
 /**
  * Class SEMrush_Login_Action
@@ -16,6 +11,8 @@ use Yoast\WP\SEO\Exceptions\OAuth\OAuth_Authentication_Failed_Exception;
 class SEMrush_Login_Action {
 
 	/**
+	 * The SEMrush_Client instance.
+	 *
 	 * @var SEMrush_Client
 	 */
 	protected $client;
@@ -45,7 +42,7 @@ class SEMrush_Login_Action {
 				'tokens' => $tokens->to_array(),
 				'status' => 200,
 			];
-		} catch ( OAuth_Authentication_Failed_Exception $e ) {
+		} catch ( Authentication_Failed_Exception $e ) {
 			return $e->get_response();
 		}
 	}
@@ -61,4 +58,3 @@ class SEMrush_Login_Action {
 		// Prompt with login screen.
 	}
 }
-
