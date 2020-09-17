@@ -1,33 +1,33 @@
 <?php
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
-	// Reference: js/src/components/AdvancedSettings.js:100
+	// Reference: js/src/components/AdvancedSettings.js:103
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Allow search engines to show this %s in search results?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:109
+	// Reference: js/src/components/AdvancedSettings.js:112
 	__( 'Learn more about the no-index setting on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:137
+	// Reference: js/src/components/AdvancedSettings.js:140
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Should search engines follow links on this %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:144
+	// Reference: js/src/components/AdvancedSettings.js:147
 	__( 'Learn more about the no-follow setting on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:166
+	// Reference: js/src/components/AdvancedSettings.js:168
 	__( 'Meta robots advanced', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:172
+	// Reference: js/src/components/AdvancedSettings.js:174
 	__( 'No Image Index', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:173
+	// Reference: js/src/components/AdvancedSettings.js:175
 	__( 'No Archive', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:174
+	// Reference: js/src/components/AdvancedSettings.js:176
 	__( 'No Snippet', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:178
+	// Reference: js/src/components/AdvancedSettings.js:180
 	__( 'Learn more about advanced meta robots settings on our help page.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/AdvancedSettings.js:203
@@ -36,23 +36,23 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/AdvancedSettings.js:209
 	__( 'Learn more about the breadcrumbs title setting on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:234
+	// Reference: js/src/components/AdvancedSettings.js:233
 	__( 'Canonical URL', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:240
+	// Reference: js/src/components/AdvancedSettings.js:239
 	__( 'Learn more about canonical URLs on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:41
+	// Reference: js/src/components/AdvancedSettings.js:42
 	__( 'No', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:42
+	// Reference: js/src/components/AdvancedSettings.js:43
 	__( 'Yes', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:64
+	// Reference: js/src/components/AdvancedSettings.js:65
 	/* translators: %s translates to the "yes" or "no" ,%s translates to the Post Label in plural form */
 	__( '%s (current default for %s)', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:89
+	// Reference: js/src/components/AdvancedSettings.js:91
 	__( 'Even though you can set the meta robots setting here, the entire site is set to noindex in the sitewide privacy settings, so these settings won\'t have an effect.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/AnalysisUpsell.js:54
@@ -232,15 +232,15 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:77
 	__( 'Would you like to add keyphrase synonyms?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/fills/MetaboxFill.js:100
-	// Reference: js/src/components/fills/SidebarFill.js:102
-	__( 'Advanced', 'wordpress-seo' ),
-
-	// Reference: js/src/components/fills/MetaboxFill.js:58
+	// Reference: js/src/components/fills/MetaboxFill.js:41
 	// Reference: js/src/components/modals/editorModals/GooglePreviewModal.js:16
 	__( 'Google preview', 'wordpress-seo' ),
 
-	// Reference: js/src/components/fills/SidebarFill.js:89
+	// Reference: js/src/components/fills/MetaboxFill.js:59
+	// Reference: js/src/components/fills/SidebarFill.js:61
+	__( 'Advanced', 'wordpress-seo' ),
+
+	// Reference: js/src/components/fills/SidebarFill.js:54
 	// Reference: js/src/structured-data-blocks/faq/block.js:28
 	// Reference: js/src/structured-data-blocks/how-to/block.js:56
 	__( 'Schema', 'wordpress-seo' ),
@@ -293,11 +293,11 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/modals/SeoAnalysisModal.js:25
 	__( 'Close', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/editorModals/EditorModal.js:66
+	// Reference: js/src/components/modals/editorModals/EditorModal.js:68
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Make sure to save your %s for changes to take effect', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/editorModals/EditorModal.js:76
+	// Reference: js/src/components/modals/editorModals/EditorModal.js:78
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Return to your %s', 'wordpress-seo' ),
 
