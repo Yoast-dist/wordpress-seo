@@ -15,31 +15,31 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/AdvancedSettings.js:144
 	__( 'Learn more about the no-follow setting on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:165
+	// Reference: js/src/components/AdvancedSettings.js:166
 	__( 'Meta robots advanced', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:170
+	// Reference: js/src/components/AdvancedSettings.js:172
 	__( 'No Image Index', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:171
+	// Reference: js/src/components/AdvancedSettings.js:173
 	__( 'No Archive', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:172
+	// Reference: js/src/components/AdvancedSettings.js:174
 	__( 'No Snippet', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:176
+	// Reference: js/src/components/AdvancedSettings.js:178
 	__( 'Learn more about advanced meta robots settings on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:201
+	// Reference: js/src/components/AdvancedSettings.js:203
 	__( 'Breadcrumbs Title', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:207
+	// Reference: js/src/components/AdvancedSettings.js:209
 	__( 'Learn more about the breadcrumbs title setting on our help page.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:232
+	// Reference: js/src/components/AdvancedSettings.js:234
 	__( 'Canonical URL', 'wordpress-seo' ),
 
-	// Reference: js/src/components/AdvancedSettings.js:238
+	// Reference: js/src/components/AdvancedSettings.js:240
 	__( 'Learn more about canonical URLs on our help page.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/AdvancedSettings.js:41
