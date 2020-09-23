@@ -312,7 +312,7 @@ $generated_i18n_strings = array(
 	__( 'Show results for:', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/SEMrushCountrySelector.js:312
-	__( 'Change Country', 'wordpress-seo' ),
+	__( 'Select country', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:100
 	__( 'Related keyphrase', 'wordpress-seo' ),
