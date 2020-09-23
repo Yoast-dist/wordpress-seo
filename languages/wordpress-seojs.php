@@ -63,6 +63,9 @@ $generated_i18n_strings = array(
 	/* translators: %s expands to Premium */
 	__( 'Go %s!', 'wordpress-seo' ),
 
+	// Reference: js/src/components/AreaChartTable.js:25
+	__( 'The number of headers and header labels don\'t match.', 'wordpress-seo' ),
+
 	// Reference: js/src/components/CollapsibleCornerstone.js:25
 	__( 'Cornerstone content', 'wordpress-seo' ),
 
@@ -120,6 +123,18 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/PrimaryTaxonomyPicker.js:237
 	/* translators: %s expands to the taxonomy name. */
 	__( 'Select the primary %s', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:180
+	__( 'Related keyphrases', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:201
+	__( 'Get related keyphrases', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:203
+	__( '(Opens in a new browser window)', 'wordpress-seo' ),
+
+	// Reference: js/src/components/SEMrushRelatedKeyphrasesModalContent.js:57
+	__( 'Sorry, there\'s no data available for that keyphrase/country combination.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SchemaSettings.js:111
 	__( 'Default Page type', 'wordpress-seo' ),
@@ -188,15 +203,21 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/WordPressUserSelectorSearchAppearance.js:85
 	__( 'You have selected the user %1$s as the person this site represents. Their user profile information will now be used in search results. %2$sUpdate their profile to make sure the information is correct.%3$s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/KeywordInput.js:41
+	// Reference: js/src/components/contentAnalysis/KeywordInput.js:52
 	__( 'Help on choosing the perfect focus keyphrase', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/KeywordInput.js:61
+	// Reference: js/src/components/contentAnalysis/KeywordInput.js:67
+	__( 'Please enter a focus keyphrase first to get related keyphrases', 'wordpress-seo' ),
+
+	// Reference: js/src/components/contentAnalysis/KeywordInput.js:71
+	__( 'Are you trying to use multiple keyphrases? You should add them separately below.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/contentAnalysis/KeywordInput.js:75
+	__( 'Your keyphrase is too long. It can be a maximum of 191 characters.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/contentAnalysis/KeywordInput.js:97
 	// Reference: js/src/values/defaultReplaceVariables.js:50
 	__( 'Focus keyphrase', 'wordpress-seo' ),
-
-	// Reference: js/src/components/contentAnalysis/KeywordInput.js:69
-	__( 'Your keyphrase is too long. It can be a maximum of 191 characters.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:50
 	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:244
@@ -232,15 +253,15 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:77
 	__( 'Would you like to add keyphrase synonyms?', 'wordpress-seo' ),
 
-	// Reference: js/src/components/fills/MetaboxFill.js:41
+	// Reference: js/src/components/fills/MetaboxFill.js:47
 	// Reference: js/src/components/modals/editorModals/GooglePreviewModal.js:16
 	__( 'Google preview', 'wordpress-seo' ),
 
-	// Reference: js/src/components/fills/MetaboxFill.js:59
-	// Reference: js/src/components/fills/SidebarFill.js:61
+	// Reference: js/src/components/fills/MetaboxFill.js:65
+	// Reference: js/src/components/fills/SidebarFill.js:63
 	__( 'Advanced', 'wordpress-seo' ),
 
-	// Reference: js/src/components/fills/SidebarFill.js:54
+	// Reference: js/src/components/fills/SidebarFill.js:56
 	// Reference: js/src/structured-data-blocks/faq/block.js:28
 	// Reference: js/src/structured-data-blocks/how-to/block.js:56
 	__( 'Schema', 'wordpress-seo' ),
@@ -286,6 +307,97 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/modals/MultipleKeywords.js:19
 	/* translators: %s expands to a 'Yoast SEO Premium' text linked to the yoast.com website. */
 	__( 'Great news: you can, with %s!', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushCountrySelector.js:300
+	__( 'Show results for:', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushCountrySelector.js:312
+	__( 'Change Country', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:100
+	__( 'Related keyphrase', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:106
+	__( 'Volume', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:112
+	__( 'Learn more about the related keyphrases volume', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:120
+	__( 'Trend', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:126
+	__( 'Learn more about the related keyphrases trend', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:154
+	__( 'Keyphrase volume in the last 12 months on a scale from 0 to 100.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:173
+	/* translators: %s expands to SEMrush */
+	__( 'Get more insights at %s', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:55
+	__( 'Twelve months ago', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:56
+	__( 'Eleven months ago', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:57
+	__( 'Ten months ago', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:58
+	__( 'Nine months ago', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:59
+	__( 'Eight months ago', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:60
+	__( 'Seven months ago', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:61
+	__( 'Six months ago', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:62
+	__( 'Five months ago', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:63
+	__( 'Four months ago', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:64
+	__( 'Three months ago', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:65
+	__( 'Two months ago', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:66
+	__( 'Last month', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushLimitReached.js:22
+	/* translators: %s : Expands to "SEMrush". */
+	__( 'You\'ve reached your request limit for today. Check back tomorrow or upgrade your plan over at %s.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushLimitReached.js:34
+	/* translators: %s : Expands to "SEMrush". */
+	__( 'Upgrade your %s plan', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushLoading.js:18
+	/* translators: %1$s expands to "Yoast SEO", %2$s expands to "SEMrush". */
+	__( 'Please wait while %1$s is connecting to %2$s to get related keyphrases...', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushMaxRelatedKeyphrases.js:18
+	/* translators: %s: Expands to "Yoast SEO". */
+	__( 'You\'ve reached the maximum amount of 4 related keyphrases. You can change or remove related keyphrases in the %s metabox or sidebar.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushRequestFailed.js:15
+	__( 'We\'ve encountered a problem trying to get related keyphrases. Please try again later.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushUpsellAlert.js:21
+	/* translators: %s: Expands to "Yoast SEO". */
+	__( 'Would you like to be able to add these related keyphrases to the %s analysis so you can optimize your content even further?', 'wordpress-seo' ),
+
+	// Reference: js/src/components/modals/SEMrushUpsellAlert.js:34
+	/* translators: %s: Expands to "Yoast SEO Premium". */
+	__( 'Check out %s!', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/SeoAnalysisModal.js:23
 	__( 'Open', 'wordpress-seo' ),
@@ -344,13 +456,13 @@ $generated_i18n_strings = array(
 	// Reference: js/src/help-scout-beacon.js:208
 	__( 'When you click OK we will open our HelpScout beacon where you can find answers to your questions. This beacon will load our support data and also potentially set cookies.', 'wordpress-seo' ),
 
-	// Reference: js/src/initializers/block-editor-integration.js:139
+	// Reference: js/src/initializers/block-editor-integration.js:140
 	__( 'Yoast SEO', 'wordpress-seo' ),
 
-	// Reference: js/src/initializers/block-editor-integration.js:52
+	// Reference: js/src/initializers/block-editor-integration.js:53
 	__( 'Marking links with nofollow/sponsored has been disabled for WordPress installs < 5.4.', 'wordpress-seo' ),
 
-	// Reference: js/src/initializers/block-editor-integration.js:55
+	// Reference: js/src/initializers/block-editor-integration.js:56
 	__( 'Please upgrade your WordPress version or install the Gutenberg plugin to get this %1$s feature.', 'wordpress-seo' ),
 
 	// Reference: js/src/inline-links/edit-link.js:106
