@@ -39,6 +39,9 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\actions\\indexation\\indexable_term_indexation_action' => 'Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_Term_Indexation_Action',
             'yoast\\wp\\seo\\actions\\indexation\\post_link_indexing_action' => 'Yoast\\WP\\SEO\\Actions\\Indexation\\Post_Link_Indexing_Action',
             'yoast\\wp\\seo\\actions\\indexation\\term_link_indexing_action' => 'Yoast\\WP\\SEO\\Actions\\Indexation\\Term_Link_Indexing_Action',
+            'yoast\\wp\\seo\\actions\\semrush\\semrush_login_action' => 'Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Login_Action',
+            'yoast\\wp\\seo\\actions\\semrush\\semrush_options_action' => 'Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Options_Action',
+            'yoast\\wp\\seo\\actions\\semrush\\semrush_phrases_action' => 'Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Phrases_Action',
             'yoast\\wp\\seo\\builders\\indexable_author_builder' => 'Yoast\\WP\\SEO\\Builders\\Indexable_Author_Builder',
             'yoast\\wp\\seo\\builders\\indexable_builder' => 'Yoast\\WP\\SEO\\Builders\\Indexable_Builder',
             'yoast\\wp\\seo\\builders\\indexable_date_archive_builder' => 'Yoast\\WP\\SEO\\Builders\\Indexable_Date_Archive_Builder',
@@ -90,6 +93,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\config\\migrations\\wpyoastprimaryterm' => 'Yoast\\WP\\SEO\\Config\\Migrations\\WpYoastPrimaryTerm',
             'yoast\\wp\\seo\\config\\schema_ids' => 'Yoast\\WP\\SEO\\Config\\Schema_IDs',
             'yoast\\wp\\seo\\config\\schema_types' => 'Yoast\\WP\\SEO\\Config\\Schema_Types',
+            'yoast\\wp\\seo\\config\\semrush_client' => 'Yoast\\WP\\SEO\\Config\\SEMrush_Client',
             'yoast\\wp\\seo\\context\\meta_tags_context' => 'Yoast\\WP\\SEO\\Context\\Meta_Tags_Context',
             'yoast\\wp\\seo\\exceptions\\missing_method' => 'Yoast\\WP\\SEO\\Exceptions\\Missing_Method',
             'yoast\\wp\\seo\\generators\\breadcrumbs_generator' => 'Yoast\\WP\\SEO\\Generators\\Breadcrumbs_Generator',
@@ -112,6 +116,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\helpers\\capability_helper' => 'Yoast\\WP\\SEO\\Helpers\\Capability_Helper',
             'yoast\\wp\\seo\\helpers\\current_page_helper' => 'Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper',
             'yoast\\wp\\seo\\helpers\\date_helper' => 'Yoast\\WP\\SEO\\Helpers\\Date_Helper',
+            'yoast\\wp\\seo\\helpers\\environment_helper' => 'Yoast\\WP\\SEO\\Helpers\\Environment_Helper',
             'yoast\\wp\\seo\\helpers\\home_url_helper' => 'Yoast\\WP\\SEO\\Helpers\\Home_Url_Helper',
             'yoast\\wp\\seo\\helpers\\image_helper' => 'Yoast\\WP\\SEO\\Helpers\\Image_Helper',
             'yoast\\wp\\seo\\helpers\\indexable_helper' => 'Yoast\\WP\\SEO\\Helpers\\Indexable_Helper',
@@ -120,6 +125,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\helpers\\open_graph\\image_helper' => 'Yoast\\WP\\SEO\\Helpers\\Open_Graph\\Image_Helper',
             'yoast\\wp\\seo\\helpers\\options_helper' => 'Yoast\\WP\\SEO\\Helpers\\Options_Helper',
             'yoast\\wp\\seo\\helpers\\pagination_helper' => 'Yoast\\WP\\SEO\\Helpers\\Pagination_Helper',
+            'yoast\\wp\\seo\\helpers\\permalink_helper' => 'Yoast\\WP\\SEO\\Helpers\\Permalink_Helper',
             'yoast\\wp\\seo\\helpers\\post_helper' => 'Yoast\\WP\\SEO\\Helpers\\Post_Helper',
             'yoast\\wp\\seo\\helpers\\post_type_helper' => 'Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper',
             'yoast\\wp\\seo\\helpers\\primary_term_helper' => 'Yoast\\WP\\SEO\\Helpers\\Primary_Term_Helper',
@@ -173,6 +179,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\watchers\\indexable_category_permalink_watcher' => 'Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Category_Permalink_Watcher',
             'yoast\\wp\\seo\\integrations\\watchers\\indexable_date_archive_watcher' => 'Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Date_Archive_Watcher',
             'yoast\\wp\\seo\\integrations\\watchers\\indexable_home_page_watcher' => 'Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Home_Page_Watcher',
+            'yoast\\wp\\seo\\integrations\\watchers\\indexable_homeurl_watcher' => 'Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_HomeUrl_Watcher',
             'yoast\\wp\\seo\\integrations\\watchers\\indexable_permalink_watcher' => 'Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Permalink_Watcher',
             'yoast\\wp\\seo\\integrations\\watchers\\indexable_post_meta_watcher' => 'Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Post_Meta_Watcher',
             'yoast\\wp\\seo\\integrations\\watchers\\indexable_post_type_archive_watcher' => 'Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Post_Type_Archive_Watcher',
@@ -207,6 +214,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\routes\\indexable_indexation_route' => 'Yoast\\WP\\SEO\\Routes\\Indexable_Indexation_Route',
             'yoast\\wp\\seo\\routes\\indexables_head_route' => 'Yoast\\WP\\SEO\\Routes\\Indexables_Head_Route',
             'yoast\\wp\\seo\\routes\\link_indexing_route' => 'Yoast\\WP\\SEO\\Routes\\Link_Indexing_Route',
+            'yoast\\wp\\seo\\routes\\semrush_route' => 'Yoast\\WP\\SEO\\Routes\\SEMrush_Route',
             'yoast\\wp\\seo\\routes\\yoast_head_rest_field' => 'Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field',
             'yoast\\wp\\seo\\surfaces\\classes_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Classes_Surface',
             'yoast\\wp\\seo\\surfaces\\helpers_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface',
@@ -236,6 +244,9 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_Term_Indexation_Action' => 'getIndexableTermIndexationActionService',
             'Yoast\\WP\\SEO\\Actions\\Indexation\\Post_Link_Indexing_Action' => 'getPostLinkIndexingActionService',
             'Yoast\\WP\\SEO\\Actions\\Indexation\\Term_Link_Indexing_Action' => 'getTermLinkIndexingActionService',
+            'Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Login_Action' => 'getSEMrushLoginActionService',
+            'Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Options_Action' => 'getSEMrushOptionsActionService',
+            'Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Phrases_Action' => 'getSEMrushPhrasesActionService',
             'Yoast\\WP\\SEO\\Builders\\Indexable_Author_Builder' => 'getIndexableAuthorBuilderService',
             'Yoast\\WP\\SEO\\Builders\\Indexable_Builder' => 'getIndexableBuilderService',
             'Yoast\\WP\\SEO\\Builders\\Indexable_Date_Archive_Builder' => 'getIndexableDateArchiveBuilderService',
@@ -285,6 +296,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Config\\Migrations\\WpYoastIndexable' => 'getWpYoastIndexableService',
             'Yoast\\WP\\SEO\\Config\\Migrations\\WpYoastIndexableHierarchy' => 'getWpYoastIndexableHierarchyService',
             'Yoast\\WP\\SEO\\Config\\Migrations\\WpYoastPrimaryTerm' => 'getWpYoastPrimaryTermService',
+            'Yoast\\WP\\SEO\\Config\\SEMrush_Client' => 'getSEMrushClientService',
             'Yoast\\WP\\SEO\\Config\\Schema_IDs' => 'getSchemaIDsService',
             'Yoast\\WP\\SEO\\Config\\Schema_Types' => 'getSchemaTypesService',
             'Yoast\\WP\\SEO\\Context\\Meta_Tags_Context' => 'getMetaTagsContextService',
@@ -309,6 +321,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Helpers\\Capability_Helper' => 'getCapabilityHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper' => 'getCurrentPageHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Date_Helper' => 'getDateHelperService',
+            'Yoast\\WP\\SEO\\Helpers\\Environment_Helper' => 'getEnvironmentHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Home_Url_Helper' => 'getHomeUrlHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Image_Helper' => 'getImageHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Indexable_Helper' => 'getIndexableHelperService',
@@ -317,6 +330,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Helpers\\Open_Graph\\Image_Helper' => 'getImageHelper2Service',
             'Yoast\\WP\\SEO\\Helpers\\Options_Helper' => 'getOptionsHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Pagination_Helper' => 'getPaginationHelperService',
+            'Yoast\\WP\\SEO\\Helpers\\Permalink_Helper' => 'getPermalinkHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Post_Helper' => 'getPostHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper' => 'getPostTypeHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Primary_Term_Helper' => 'getPrimaryTermHelperService',
@@ -369,6 +383,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Author_Watcher' => 'getIndexableAuthorWatcherService',
             'Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Category_Permalink_Watcher' => 'getIndexableCategoryPermalinkWatcherService',
             'Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Date_Archive_Watcher' => 'getIndexableDateArchiveWatcherService',
+            'Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_HomeUrl_Watcher' => 'getIndexableHomeUrlWatcherService',
             'Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Home_Page_Watcher' => 'getIndexableHomePageWatcherService',
             'Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Permalink_Watcher' => 'getIndexablePermalinkWatcherService',
             'Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Post_Meta_Watcher' => 'getIndexablePostMetaWatcherService',
@@ -404,6 +419,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Routes\\Indexable_Indexation_Route' => 'getIndexableIndexationRouteService',
             'Yoast\\WP\\SEO\\Routes\\Indexables_Head_Route' => 'getIndexablesHeadRouteService',
             'Yoast\\WP\\SEO\\Routes\\Link_Indexing_Route' => 'getLinkIndexingRouteService',
+            'Yoast\\WP\\SEO\\Routes\\SEMrush_Route' => 'getSEMrushRouteService',
             'Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field' => 'getYoastHeadRESTFieldService',
             'Yoast\\WP\\SEO\\Surfaces\\Classes_Surface' => 'getClassesSurfaceService',
             'Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface' => 'getHelpersSurfaceService',
@@ -604,6 +620,36 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Actions\SEMrush\SEMrush_Login_Action' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Actions\SEMrush\SEMrush_Login_Action
+     */
+    protected function getSEMrushLoginActionService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Login_Action'] = new \Yoast\WP\SEO\Actions\SEMrush\SEMrush_Login_Action(${($_ = isset($this->services['Yoast\\WP\\SEO\\Config\\SEMrush_Client']) ? $this->services['Yoast\\WP\\SEO\\Config\\SEMrush_Client'] : $this->getSEMrushClientService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Actions\SEMrush\SEMrush_Options_Action' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Actions\SEMrush\SEMrush_Options_Action
+     */
+    protected function getSEMrushOptionsActionService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Options_Action'] = new \Yoast\WP\SEO\Actions\SEMrush\SEMrush_Options_Action(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Actions\SEMrush\SEMrush_Phrases_Action' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Actions\SEMrush\SEMrush_Phrases_Action
+     */
+    protected function getSEMrushPhrasesActionService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Phrases_Action'] = new \Yoast\WP\SEO\Actions\SEMrush\SEMrush_Phrases_Action(${($_ = isset($this->services['Yoast\\WP\\SEO\\Config\\SEMrush_Client']) ? $this->services['Yoast\\WP\\SEO\\Config\\SEMrush_Client'] : $this->getSEMrushClientService()) && false ?: '_'});
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Builders\Indexable_Author_Builder' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Builders\Indexable_Author_Builder
@@ -649,8 +695,13 @@ class Cached_Container extends Container
         if (isset($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'])) {
             return $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'];
         }
+        $f = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : $this->getIndexableHelperService()) && false ?: '_'};
 
-        $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] = $instance = new \Yoast\WP\SEO\Builders\Indexable_Builder($a, $b, $c, $d, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Post_Type_Archive_Builder']) ? $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Post_Type_Archive_Builder'] : $this->getIndexablePostTypeArchiveBuilderService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Date_Archive_Builder']) ? $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Date_Archive_Builder'] : $this->getIndexableDateArchiveBuilderService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_System_Page_Builder']) ? $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_System_Page_Builder'] : $this->getIndexableSystemPageBuilderService()) && false ?: '_'}, $e, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Builders\\Primary_Term_Builder']) ? $this->services['Yoast\\WP\\SEO\\Builders\\Primary_Term_Builder'] : $this->getPrimaryTermBuilderService()) && false ?: '_'});
+        if (isset($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'])) {
+            return $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'];
+        }
+
+        $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] = $instance = new \Yoast\WP\SEO\Builders\Indexable_Builder($a, $b, $c, $d, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Post_Type_Archive_Builder']) ? $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Post_Type_Archive_Builder'] : $this->getIndexablePostTypeArchiveBuilderService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Date_Archive_Builder']) ? $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Date_Archive_Builder'] : $this->getIndexableDateArchiveBuilderService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_System_Page_Builder']) ? $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_System_Page_Builder'] : $this->getIndexableSystemPageBuilderService()) && false ?: '_'}, $e, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Builders\\Primary_Term_Builder']) ? $this->services['Yoast\\WP\\SEO\\Builders\\Primary_Term_Builder'] : $this->getPrimaryTermBuilderService()) && false ?: '_'}, $f);
 
         $instance->set_indexable_repository(${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'});
 
@@ -1177,6 +1228,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Config\SEMrush_Client' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Config\SEMrush_Client
+     */
+    protected function getSEMrushClientService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Config\\SEMrush_Client'] = new \Yoast\WP\SEO\Config\SEMrush_Client(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Config\Schema_IDs' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Config\Schema_IDs
@@ -1417,6 +1478,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Helpers\Environment_Helper' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Helpers\Environment_Helper
+     */
+    protected function getEnvironmentHelperService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Helpers\\Environment_Helper'] = new \Yoast\WP\SEO\Helpers\Environment_Helper();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Helpers\Home_Url_Helper' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Helpers\Home_Url_Helper
@@ -1449,7 +1520,11 @@ class Cached_Container extends Container
      */
     protected function getIndexableHelperService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] = new \Yoast\WP\SEO\Helpers\Indexable_Helper();
+        $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] = $instance = new \Yoast\WP\SEO\Helpers\Indexable_Helper(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Environment_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Environment_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Environment_Helper'] = new \Yoast\WP\SEO\Helpers\Environment_Helper())) && false ?: '_'});
+
+        $instance->set_indexable_repository(${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'});
+
+        return $instance;
     }
 
     /**
@@ -1506,6 +1581,16 @@ class Cached_Container extends Container
     protected function getPaginationHelperService()
     {
         return $this->services['Yoast\\WP\\SEO\\Helpers\\Pagination_Helper'] = new \Yoast\WP\SEO\Helpers\Pagination_Helper(${($_ = isset($this->services['Yoast\\WP\\SEO\\Wrappers\\WP_Rewrite_Wrapper']) ? $this->services['Yoast\\WP\\SEO\\Wrappers\\WP_Rewrite_Wrapper'] : ($this->services['Yoast\\WP\\SEO\\Wrappers\\WP_Rewrite_Wrapper'] = new \Yoast\WP\SEO\Wrappers\WP_Rewrite_Wrapper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Wrappers\\WP_Query_Wrapper']) ? $this->services['Yoast\\WP\\SEO\\Wrappers\\WP_Query_Wrapper'] : ($this->services['Yoast\\WP\\SEO\\Wrappers\\WP_Query_Wrapper'] = new \Yoast\WP\SEO\Wrappers\WP_Query_Wrapper())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Helpers\Permalink_Helper' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Helpers\Permalink_Helper
+     */
+    protected function getPermalinkHelperService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Helpers\\Permalink_Helper'] = new \Yoast\WP\SEO\Helpers\Permalink_Helper();
     }
 
     /**
@@ -1745,7 +1830,7 @@ class Cached_Container extends Container
      */
     protected function getIndexationIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Indexation_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Indexation_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_Post_Indexation_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_Post_Indexation_Action'] : $this->getIndexablePostIndexationActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_Term_Indexation_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_Term_Indexation_Action'] : $this->getIndexableTermIndexationActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_Post_Type_Archive_Indexation_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_Post_Type_Archive_Indexation_Action'] : $this->getIndexablePostTypeArchiveIndexationActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_General_Indexation_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_General_Indexation_Action'] : $this->getIndexableGeneralIndexationActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_Complete_Indexation_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_Complete_Indexation_Action'] : $this->getIndexableCompleteIndexationActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Yoast_Tools_Page_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Yoast_Tools_Page_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Yoast_Tools_Page_Conditional'] = new \Yoast\WP\SEO\Conditionals\Yoast_Tools_Page_Conditional())) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Indexation_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Indexation_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_Post_Indexation_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_Post_Indexation_Action'] : $this->getIndexablePostIndexationActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_Term_Indexation_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_Term_Indexation_Action'] : $this->getIndexableTermIndexationActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_Post_Type_Archive_Indexation_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_Post_Type_Archive_Indexation_Action'] : $this->getIndexablePostTypeArchiveIndexationActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_General_Indexation_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_General_Indexation_Action'] : $this->getIndexableGeneralIndexationActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_Complete_Indexation_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexation\\Indexable_Complete_Indexation_Action'] : $this->getIndexableCompleteIndexationActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Yoast_Tools_Page_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Yoast_Tools_Page_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Yoast_Tools_Page_Conditional'] = new \Yoast\WP\SEO\Conditionals\Yoast_Tools_Page_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : $this->getIndexableHelperService()) && false ?: '_'});
     }
 
     /**
@@ -2005,7 +2090,7 @@ class Cached_Container extends Container
      */
     protected function getIndexableAncestorWatcherService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Ancestor_Watcher'] = new \Yoast\WP\SEO\Integrations\Watchers\Indexable_Ancestor_Watcher(${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Hierarchy_Builder']) ? $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Hierarchy_Builder'] : $this->getIndexableHierarchyBuilderService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Hierarchy_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Hierarchy_Repository'] : $this->getIndexableHierarchyRepositoryService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] = new \Yoast\WP\SEO\Helpers\Indexable_Helper())) && false ?: '_'}, ${($_ = isset($this->services['wpdb']) ? $this->services['wpdb'] : $this->getWpdbService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Ancestor_Watcher'] = new \Yoast\WP\SEO\Integrations\Watchers\Indexable_Ancestor_Watcher(${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Hierarchy_Builder']) ? $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Hierarchy_Builder'] : $this->getIndexableHierarchyBuilderService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Hierarchy_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Hierarchy_Repository'] : $this->getIndexableHierarchyRepositoryService()) && false ?: '_'}, ${($_ = isset($this->services['wpdb']) ? $this->services['wpdb'] : $this->getWpdbService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Permalink_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Permalink_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Permalink_Helper'] = new \Yoast\WP\SEO\Helpers\Permalink_Helper())) && false ?: '_'});
     }
 
     /**
@@ -2025,7 +2110,7 @@ class Cached_Container extends Container
      */
     protected function getIndexableCategoryPermalinkWatcherService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Category_Permalink_Watcher'] = new \Yoast\WP\SEO\Integrations\Watchers\Indexable_Category_Permalink_Watcher(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] : $this->getPostTypeHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Category_Permalink_Watcher'] = new \Yoast\WP\SEO\Integrations\Watchers\Indexable_Category_Permalink_Watcher(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] : $this->getPostTypeHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : $this->getIndexableHelperService()) && false ?: '_'});
     }
 
     /**
@@ -2036,6 +2121,16 @@ class Cached_Container extends Container
     protected function getIndexableDateArchiveWatcherService()
     {
         return $this->services['Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Date_Archive_Watcher'] = new \Yoast\WP\SEO\Integrations\Watchers\Indexable_Date_Archive_Watcher(${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder']) ? $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] : $this->getIndexableBuilderService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\Watchers\Indexable_HomeUrl_Watcher' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\Watchers\Indexable_HomeUrl_Watcher
+     */
+    protected function getIndexableHomeUrlWatcherService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_HomeUrl_Watcher'] = new \Yoast\WP\SEO\Integrations\Watchers\Indexable_HomeUrl_Watcher(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] : $this->getPostTypeHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : $this->getIndexableHelperService()) && false ?: '_'});
     }
 
     /**
@@ -2055,7 +2150,7 @@ class Cached_Container extends Container
      */
     protected function getIndexablePermalinkWatcherService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Permalink_Watcher'] = new \Yoast\WP\SEO\Integrations\Watchers\Indexable_Permalink_Watcher(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] : $this->getPostTypeHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Permalink_Watcher'] = new \Yoast\WP\SEO\Integrations\Watchers\Indexable_Permalink_Watcher(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] : $this->getPostTypeHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : $this->getIndexableHelperService()) && false ?: '_'});
     }
 
     /**
@@ -2211,6 +2306,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Category_Permalink_Watcher');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Date_Archive_Watcher');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Home_Page_Watcher');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_HomeUrl_Watcher');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Permalink_Watcher');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Post_Meta_Watcher');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Watchers\\Indexable_Post_Type_Archive_Watcher');
@@ -2224,6 +2320,7 @@ class Cached_Container extends Container
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Indexable_Indexation_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Indexables_Head_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Link_Indexing_Route');
+        $instance->register_route('Yoast\\WP\\SEO\\Routes\\SEMrush_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field');
 
         return $instance;
@@ -2473,7 +2570,7 @@ class Cached_Container extends Container
             return $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'];
         }
 
-        return $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] = new \Yoast\WP\SEO\Repositories\Indexable_Repository($a, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] : $this->getCurrentPageHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Loggers\\Logger']) ? $this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] : ($this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] = new \Yoast\WP\SEO\Loggers\Logger())) && false ?: '_'}, $b, ${($_ = isset($this->services['wpdb']) ? $this->services['wpdb'] : $this->getWpdbService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] = new \Yoast\WP\SEO\Helpers\Indexable_Helper())) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] = new \Yoast\WP\SEO\Repositories\Indexable_Repository($a, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] : $this->getCurrentPageHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Loggers\\Logger']) ? $this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] : ($this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] = new \Yoast\WP\SEO\Loggers\Logger())) && false ?: '_'}, $b, ${($_ = isset($this->services['wpdb']) ? $this->services['wpdb'] : $this->getWpdbService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Permalink_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Permalink_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Permalink_Helper'] = new \Yoast\WP\SEO\Helpers\Permalink_Helper())) && false ?: '_'});
     }
 
     /**
@@ -2537,6 +2634,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Routes\SEMrush_Route' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Routes\SEMrush_Route
+     */
+    protected function getSEMrushRouteService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Routes\\SEMrush_Route'] = new \Yoast\WP\SEO\Routes\SEMrush_Route(${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Login_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Login_Action'] : $this->getSEMrushLoginActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Options_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Options_Action'] : $this->getSEMrushOptionsActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Phrases_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Phrases_Action'] : $this->getSEMrushPhrasesActionService()) && false ?: '_'});
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Routes\Yoast_Head_REST_Field' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Routes\Yoast_Head_REST_Field
@@ -2573,7 +2680,7 @@ class Cached_Container extends Container
      */
     protected function getMetaSurfaceService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface'] = new \Yoast\WP\SEO\Surfaces\Meta_Surface($this, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Wrappers\\WP_Rewrite_Wrapper']) ? $this->services['Yoast\\WP\\SEO\\Wrappers\\WP_Rewrite_Wrapper'] : ($this->services['Yoast\\WP\\SEO\\Wrappers\\WP_Rewrite_Wrapper'] = new \Yoast\WP\SEO\Wrappers\WP_Rewrite_Wrapper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] = new \Yoast\WP\SEO\Helpers\Indexable_Helper())) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface'] = new \Yoast\WP\SEO\Surfaces\Meta_Surface($this, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Wrappers\\WP_Rewrite_Wrapper']) ? $this->services['Yoast\\WP\\SEO\\Wrappers\\WP_Rewrite_Wrapper'] : ($this->services['Yoast\\WP\\SEO\\Wrappers\\WP_Rewrite_Wrapper'] = new \Yoast\WP\SEO\Wrappers\WP_Rewrite_Wrapper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : $this->getIndexableHelperService()) && false ?: '_'});
     }
 
     /**
