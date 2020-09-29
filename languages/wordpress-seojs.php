@@ -456,6 +456,24 @@ $generated_i18n_strings = array(
 	// Reference: js/src/help-scout-beacon.js:208
 	__( 'When you click OK we will open our HelpScout beacon where you can find answers to your questions. This beacon will load our support data and also potentially set cookies.', 'wordpress-seo' ),
 
+	// Reference: js/src/indexation.js:257
+	__( 'This button to optimize the SEO data for your website is disabled for non-production environments.', 'wordpress-seo' ),
+
+	// Reference: js/src/indexation.js:263
+	__( 'SEO data optimization complete', 'wordpress-seo' ),
+
+	// Reference: js/src/indexation.js:277
+	__( 'Optimizing SEO data... This may take a while.', 'wordpress-seo' ),
+
+	// Reference: js/src/indexation.js:283
+	__( 'Oops, something has gone wrong and we couldn\'t complete the optimization of your SEO data. Please click the button again to re-start the process.', 'wordpress-seo' ),
+
+	// Reference: js/src/indexation.js:290
+	__( 'Stop SEO data optimization', 'wordpress-seo' ),
+
+	// Reference: js/src/indexation.js:293
+	__( 'Start SEO data optimization', 'wordpress-seo' ),
+
 	// Reference: js/src/initializers/block-editor-integration.js:140
 	__( 'Yoast SEO', 'wordpress-seo' ),
 
