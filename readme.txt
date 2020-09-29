@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.5
-Stable tag: 14.9
+Stable tag: 15.0
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -211,11 +211,17 @@ Your question has most likely been answered on our knowledge base: [kb.yoast.com
 = 15.1 =
 Release Date: October 13th, 2020
 
+Other:
+
+* Merges the indexable and link indexing tools on the tools page into one process.
+* Adds the watch tasks to the readme.
+
 Enhancements:
 
 * Adds an integration with SEMrush to search for and compare search volume of related keyphrases.
+* Improves the user experience of the indexing tool on the tools page by showing its progress on the tools page itself, instead of in a separate pop-up modal.
 * Prevents several processes from happening on non-production environments:
-    * Indexing indexables. 
+    * Indexing indexables.
     * Pinging search engines about XML sitemaps.
     * Sending tracking information.
     * Checking the indexability of the site with Ryte.
@@ -225,6 +231,7 @@ Enhancements:
 * Registers a cron job that checks whether the `home_url` was changed manually and resets the permalinks accordingly.
 * Makes it possible to recognize keyphrases in Farsi when they have a negation prefix or an indefinite article (for example: ماشین ("car") in ماشینی ("a car")).
 * Improves keyphrase recognition in Farsi by filtering the function words such as `هفت`, `چهارم`, `یا `.
+* Adds an option and a filter (`wpseo_dynamic_permalinks_enabled`) to enable dynamic permalink fallback in the indexable model.
 
 Bugfixes:
 
@@ -246,7 +253,6 @@ Enhancements:
 * Adds a hover state styling to the items in the Metabox.
 * Improves the English transition word assessment by adding the following words to the transition word list: 'note that', 'not only', 'initially', 'as opposed to'.
 * Improves the keyphrase and prominent word recognition when words in the text occur with specific Arabic or Urdu punctuation marks.
-* Adds an option and a filter (`wpseo_dynamic_permalinks_enabled`) to enable dynamic permalink fallback in the indexable model.
 
 Bugfixes:
 
