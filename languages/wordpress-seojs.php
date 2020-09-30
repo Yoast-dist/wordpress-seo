@@ -382,7 +382,7 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/components/modals/SEMrushLoading.js:18
 	/* translators: %1$s expands to "Yoast SEO", %2$s expands to "SEMrush". */
-	__( 'Please wait while %1$s is connecting to %2$s to get related keyphrases...', 'wordpress-seo' ),
+	__( 'Please wait while %1$s connects to %2$s to get related keyphrases...', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/SEMrushMaxRelatedKeyphrases.js:18
 	/* translators: %s: Expands to "Yoast SEO". */
