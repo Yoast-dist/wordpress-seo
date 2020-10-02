@@ -155,14 +155,6 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/ModeSwitcher.js:91
 	__( 'Mobile result', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/SettingsSnippetEditorFields.js:136
-	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/SnippetEditorFields.js:184
-	__( 'SEO title', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/SettingsSnippetEditorFields.js:151
-	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/SnippetEditorFields.js:227
-	__( 'Meta description', 'wordpress-seo' ),
-
 	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/SnippetEditor.js:256
 	__( 'Modify your meta description by editing it right here', 'wordpress-seo' ),
 
@@ -172,8 +164,14 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/SnippetEditor.js:568
 	__( 'Edit snippet', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/SnippetEditorFields.js:206
+	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/SnippetEditorFields.js:182
+	__( 'SEO title', 'wordpress-seo' ),
+
+	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/SnippetEditorFields.js:204
 	__( 'Slug', 'wordpress-seo' ),
+
+	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-editor/SnippetEditorFields.js:225
+	__( 'Meta description', 'wordpress-seo' ),
 
 	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/FixedWidthContainer.js:133
 	__( 'Scroll to see the preview content.', 'wordpress-seo' ),

@@ -154,23 +154,23 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/SEMrushRelatedKeyphrasesModalContent.js:57
 	__( 'Sorry, there\'s no data available for that keyphrase/country combination.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaSettings.js:111
+	// Reference: js/src/components/SchemaSettings.js:110
 	__( 'Default Page type', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaSettings.js:120
+	// Reference: js/src/components/SchemaSettings.js:119
 	__( 'Default Article type', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaSettings.js:81
+	// Reference: js/src/components/SchemaSettings.js:80
 	__( 'Schema settings', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaSettings.js:83
+	// Reference: js/src/components/SchemaSettings.js:82
 	__( 'Learn more about the schema settings', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaSettings.js:86
+	// Reference: js/src/components/SchemaSettings.js:85
 	/* translators: %1$s expands to an indexable object's name, e.g. Posts or Pages. */
 	__( 'Choose how your %1$s should be described by default in your site\'s schema.org markup. You can change these settings for individual %1$s.', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SchemaSettings.js:97
+	// Reference: js/src/components/SchemaSettings.js:96
 	/* translators: %1$s expands to an indexable object's name, e.g. Posts or Pages. */
 	_n_noop( 'Upon saving, this setting will apply to all of your %1$s. %1$s that are manually configured will be left untouched.', 'Upon saving, these settings will apply to all of your %1$s. %1$s that are manually configured will be left untouched.', 'wordpress-seo' ),
 
