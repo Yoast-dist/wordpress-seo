@@ -457,7 +457,7 @@ $generated_i18n_strings = array(
 	__( 'When you click OK we will open our HelpScout beacon where you can find answers to your questions. This beacon will load our support data and also potentially set cookies.', 'wordpress-seo' ),
 
 	// Reference: js/src/indexation.js:275
-	__( 'This button to optimize the SEO data for your website is disabled for non-production environments.', 'wordpress-seo' ),
+	__( 'SEO data optimization is disabled for non-production environments.', 'wordpress-seo' ),
 
 	// Reference: js/src/indexation.js:281
 	__( 'SEO data optimization complete', 'wordpress-seo' ),
