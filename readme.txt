@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.5.1
-Stable tag: 15.1-RC4
+Stable tag: 15.1-RC5
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -211,7 +211,7 @@ Your question has most likely been answered on our knowledge base: [kb.yoast.com
 = 15.1 =
 Release Date: October 13th, 2020
 
-Enhancements: 
+Enhancements:
 
 * Adds an integration with SEMrush to search for and compare search volume of related keyphrases.
 * Moves the Ryte feature toggle to the new Integrations tab where the new SEMrush feature toggle also can be found.
