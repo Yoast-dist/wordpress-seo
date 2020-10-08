@@ -124,13 +124,13 @@ $generated_i18n_strings = array(
 	/* translators: %s expands to the taxonomy name. */
 	__( 'Select the primary %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:180
+	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:182
 	__( 'Related keyphrases', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:201
+	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:203
 	__( 'Get related keyphrases', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:203
+	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:205
 	__( '(Opens in a new browser window)', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SEMrushRelatedKeyphrasesModalContent.js:57

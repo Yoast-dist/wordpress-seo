@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.5.1
-Stable tag: 15.1-RC5
+Stable tag: 15.1-RC6
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -232,6 +232,7 @@ Enhancements:
 Bugfixes:
 
 * Fixes a bug where the Yoast replacement variables plugin would not be available on edit terms page for usage by other plugins.
+* Fixes a bug where the incoming link count for each post, as shown on the post overview page, was incorrect.
 
 Other:
 
