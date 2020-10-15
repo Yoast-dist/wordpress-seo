@@ -13,8 +13,6 @@ if ( ! defined( 'WPSEO_VERSION' ) ) {
 	exit();
 }
 
-echo '<div class="tab-block">';
-
 /*
  * {@internal Important: Make sure the options added to the array here are in line with the
  * options set in the WPSEO_Option_MS::$allowed_access_options property.}}
@@ -52,5 +50,3 @@ else {
 }
 
 echo '<p><strong>' . esc_html__( 'Take note:', 'wordpress-seo' ) . '</strong> ' . esc_html__( 'Privacy sensitive (FB admins and such), theme specific (title rewrite) and a few very site specific settings will not be imported to new sites.', 'wordpress-seo' ) . '</p>';
-
-echo '</div>';
