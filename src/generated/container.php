@@ -68,6 +68,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\conditionals\\primary_category_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Primary_Category_Conditional',
             'yoast\\wp\\seo\\conditionals\\should_index_links_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Should_Index_Links_Conditional',
             'yoast\\wp\\seo\\conditionals\\the_events_calendar_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\The_Events_Calendar_Conditional',
+            'yoast\\wp\\seo\\conditionals\\third_party\\w3_total_cache_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\W3_Total_Cache_Conditional',
             'yoast\\wp\\seo\\conditionals\\web_stories_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Web_Stories_Conditional',
             'yoast\\wp\\seo\\conditionals\\woocommerce_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Conditional',
             'yoast\\wp\\seo\\conditionals\\wpml_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\WPML_Conditional',
@@ -178,6 +179,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\third_party\\bbpress' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\BbPress',
             'yoast\\wp\\seo\\integrations\\third_party\\jetpack' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Jetpack',
             'yoast\\wp\\seo\\integrations\\third_party\\the_events_calendar' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\The_Events_Calendar',
+            'yoast\\wp\\seo\\integrations\\third_party\\w3_total_cache' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\W3_Total_Cache',
             'yoast\\wp\\seo\\integrations\\third_party\\web_stories' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Web_Stories',
             'yoast\\wp\\seo\\integrations\\third_party\\woocommerce' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\WooCommerce',
             'yoast\\wp\\seo\\integrations\\third_party\\woocommerce_permalinks' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Woocommerce_Permalinks',
@@ -281,6 +283,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\Primary_Category_Conditional' => 'getPrimaryCategoryConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Should_Index_Links_Conditional' => 'getShouldIndexLinksConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\The_Events_Calendar_Conditional' => 'getTheEventsCalendarConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\W3_Total_Cache_Conditional' => 'getW3TotalCacheConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\WPML_Conditional' => 'getWPMLConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Web_Stories_Conditional' => 'getWebStoriesConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Conditional' => 'getWooCommerceConditionalService',
@@ -391,6 +394,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\BbPress' => 'getBbPressService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Jetpack' => 'getJetpackService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\The_Events_Calendar' => 'getTheEventsCalendarService',
+            'Yoast\\WP\\SEO\\Integrations\\Third_Party\\W3_Total_Cache' => 'getW3TotalCacheService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\WPML' => 'getWPMLService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Web_Stories' => 'getWebStoriesService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\WooCommerce' => 'getWooCommerceService',
@@ -1000,6 +1004,16 @@ class Cached_Container extends Container
     protected function getTheEventsCalendarConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\The_Events_Calendar_Conditional'] = new \Yoast\WP\SEO\Conditionals\The_Events_Calendar_Conditional();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Third_Party\W3_Total_Cache_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Third_Party\W3_Total_Cache_Conditional
+     */
+    protected function getW3TotalCacheConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\W3_Total_Cache_Conditional'] = new \Yoast\WP\SEO\Conditionals\Third_Party\W3_Total_Cache_Conditional();
     }
 
     /**
@@ -2129,6 +2143,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\Third_Party\W3_Total_Cache' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\Third_Party\W3_Total_Cache
+     */
+    protected function getW3TotalCacheService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Third_Party\\W3_Total_Cache'] = new \Yoast\WP\SEO\Integrations\Third_Party\W3_Total_Cache();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Integrations\Third_Party\WPML' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Integrations\Third_Party\WPML
@@ -2395,6 +2419,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\BbPress');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Jetpack');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\The_Events_Calendar');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\W3_Total_Cache');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Web_Stories');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Woocommerce_Permalinks');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\WooCommerce');
