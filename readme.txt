@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.5.1
-Stable tag: 15.2-RC4
+Stable tag: 15.2-RC5
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -227,6 +227,8 @@ Bugfixes:
 * Fixes styling of the General tab in the Network admin dashboard.
 * Fixes a bug where the German passive voice assessment would show an error when the text contained a participle enclosed within curly quotation marks (e.g., `"getan"`).
 * Fixes a bug where the WooCommerce product permalinks were not updated after a permalink structure change.
+* Fixes a bug where the replacement variable dropdown menu was partially hidden for the description inputs in all preview modals.
+* Fixes a fatal error that would occur on sites that did have curl installed but did not have the PHP curl extension installed.
 
 Other:
  * Removes the "Remind me in 7 days" option in the SEO data optimization notification on the Yoast SEO dashboard, which was shown for large sites with more than 2500 unindexed indexables.

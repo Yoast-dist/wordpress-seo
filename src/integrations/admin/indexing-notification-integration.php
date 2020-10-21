@@ -174,9 +174,11 @@ class Indexing_Notification_Integration implements Integration_Interface {
 			return;
 		}
 
-		$notification = $this->notification();
-		$this->notification_helper->restore_notification( $notification );
-		$this->notification_center->add_notification( $notification );
+		if ( ! $this->notification_center->get_notification_by_id( self::NOTIFICATION_ID ) ) {
+			$notification = $this->notification();
+			$this->notification_helper->restore_notification( $notification );
+			$this->notification_center->add_notification( $notification );
+		}
 	}
 
 	/**
@@ -200,7 +202,7 @@ class Indexing_Notification_Integration implements Integration_Interface {
 	 */
 	protected function should_show_notification() {
 		// Don't show a notification if the indexation has already been started earlier.
-		if ( $this->options_helper->get( 'indexation_started' ) === 0 ) {
+		if ( $this->options_helper->get( 'indexation_started' ) > 0 ) {
 			return false;
 		}
 
