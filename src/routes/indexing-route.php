@@ -15,12 +15,13 @@ use Yoast\WP\SEO\Actions\Indexing\Indexing_Complete_Action;
 use Yoast\WP\SEO\Actions\Indexing\Post_Link_Indexing_Action;
 use Yoast\WP\SEO\Actions\Indexing\Term_Link_Indexing_Action;
 use Yoast\WP\SEO\Conditionals\No_Conditionals;
+use Yoast\WP\SEO\Config\Indexing_Reasons;
+use Yoast\WP\SEO\Helpers\Indexing_Helper;
 use Yoast\WP\SEO\Helpers\Options_Helper;
-use Yoast\WP\SEO\Integrations\Admin\Indexing_Notification_Integration;
 use Yoast\WP\SEO\Main;
 
 /**
- * Indexable_Indexation_Route class.
+ * Indexing_Route class.
  *
  * Indexing route for indexables.
  */
@@ -225,11 +226,11 @@ class Indexing_Route extends Abstract_Indexation_Route {
 	protected $options_helper;
 
 	/**
-	 * The notification center.
+	 * The indexing helper.
 	 *
-	 * @var \Yoast_Notification_Center
+	 * @var Indexing_Helper
 	 */
-	protected $notification_center;
+	protected $indexing_helper;
 
 	/**
 	 * Indexable_Indexation_Route constructor.
@@ -244,7 +245,7 @@ class Indexing_Route extends Abstract_Indexation_Route {
 	 * @param Post_Link_Indexing_Action                     $post_link_indexing_action           The post link indexing action.
 	 * @param Term_Link_Indexing_Action                     $term_link_indexing_action           The term link indexing action.
 	 * @param Options_Helper                                $options_helper                      The options helper.
-	 * @param \Yoast_Notification_Center                    $notification_center                 The notification center.
+	 * @param Indexing_Helper                               $indexing_helper                     The indexing helper.
 	 */
 	public function __construct(
 		Indexable_Post_Indexation_Action $post_indexation_action,
@@ -257,7 +258,7 @@ class Indexing_Route extends Abstract_Indexation_Route {
 		Post_Link_Indexing_Action $post_link_indexing_action,
 		Term_Link_Indexing_Action $term_link_indexing_action,
 		Options_Helper $options_helper,
-		\Yoast_Notification_Center $notification_center
+		Indexing_Helper $indexing_helper
 	) {
 		$this->post_indexation_action              = $post_indexation_action;
 		$this->term_indexation_action              = $term_indexation_action;
@@ -271,7 +272,7 @@ class Indexing_Route extends Abstract_Indexation_Route {
 		$this->options_helper                      = $options_helper;
 		$this->post_link_indexing_action           = $post_link_indexing_action;
 		$this->term_link_indexing_action           = $term_link_indexing_action;
-		$this->notification_center                 = $notification_center;
+		$this->indexing_helper                     = $indexing_helper;
 	}
 
 	/**
@@ -418,9 +419,7 @@ class Indexing_Route extends Abstract_Indexation_Route {
 		try {
 			return parent::run_indexation_action( $indexation_action, $url );
 		} catch ( \Exception $exception ) {
-			$this->options_helper->set( 'indexing_reason', Indexing_Notification_Integration::REASON_INDEXING_FAILED );
-			// Remove the notification so it can be added again with the new reason.
-			$this->notification_center->remove_notification_by_id( Indexing_Notification_Integration::NOTIFICATION_ID );
+			$this->indexing_helper->set_reason( Indexing_Reasons::REASON_INDEXING_FAILED );
 
 			return new WP_Error( 'wpseo_error_indexing', $exception->getMessage() );
 		}
