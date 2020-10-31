@@ -477,13 +477,13 @@ $generated_i18n_strings = array(
 	// Reference: js/src/help-scout-beacon.js:208
 	__( 'When you click OK we will open our HelpScout beacon where you can find answers to your questions. This beacon will load our support data and also potentially set cookies.', 'wordpress-seo' ),
 
-	// Reference: js/src/initializers/block-editor-integration.js:140
+	// Reference: js/src/initializers/block-editor-integration.js:151
 	__( 'Yoast SEO', 'wordpress-seo' ),
 
-	// Reference: js/src/initializers/block-editor-integration.js:53
+	// Reference: js/src/initializers/block-editor-integration.js:54
 	__( 'Marking links with nofollow/sponsored has been disabled for WordPress installs < 5.4.', 'wordpress-seo' ),
 
-	// Reference: js/src/initializers/block-editor-integration.js:56
+	// Reference: js/src/initializers/block-editor-integration.js:57
 	__( 'Please upgrade your WordPress version or install the Gutenberg plugin to get this %1$s feature.', 'wordpress-seo' ),
 
 	// Reference: js/src/inline-links/edit-link.js:106
