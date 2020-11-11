@@ -90,26 +90,26 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/PrePublish.js:48
 	__( 'Improve your post with Yoast SEO', 'wordpress-seo' ),
 
-	// Reference: js/src/components/Indexation.js:214
+	// Reference: js/src/components/Indexation.js:234
 	__( 'This feature includes and replaces the Text Link Counter and Internal Linking Analysis', 'wordpress-seo' ),
 
-	// Reference: js/src/components/Indexation.js:236
-	__( 'SEO data optimization is disabled for non-production environments.', 'wordpress-seo' ),
-
-	// Reference: js/src/components/Indexation.js:242
-	__( 'SEO data optimization complete', 'wordpress-seo' ),
-
-	// Reference: js/src/components/Indexation.js:256
-	__( 'Optimizing SEO data... This may take a while.', 'wordpress-seo' ),
-
-	// Reference: js/src/components/Indexation.js:262
-	__( 'Oops, something has gone wrong and we couldn\'t complete the optimization of your SEO data. Please click the button again to re-start the process.', 'wordpress-seo' ),
-
-	// Reference: js/src/components/Indexation.js:273
+	// Reference: js/src/components/Indexation.js:263
 	__( 'Stop SEO data optimization', 'wordpress-seo' ),
 
 	// Reference: js/src/components/Indexation.js:279
 	__( 'Start SEO data optimization', 'wordpress-seo' ),
+
+	// Reference: js/src/components/Indexation.js:283
+	__( 'SEO data optimization is disabled for non-production environments.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/Indexation.js:302
+	__( 'Optimizing SEO data... This may take a while.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/Indexation.js:314
+	__( 'Oops, something has gone wrong and we couldn\'t complete the optimization of your SEO data. Please click the button again to re-start the process.', 'wordpress-seo' ),
+
+	// Reference: js/src/components/Indexation.js:349
+	__( 'SEO data optimization complete', 'wordpress-seo' ),
 
 	// Reference: js/src/components/LocalSEOUpsell.js:76
 	__( 'Serving local customers?', 'wordpress-seo' ),
