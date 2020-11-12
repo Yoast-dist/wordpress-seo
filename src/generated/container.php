@@ -67,6 +67,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\conditionals\\open_graph_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Open_Graph_Conditional',
             'yoast\\wp\\seo\\conditionals\\posts_overview_or_ajax_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Posts_Overview_Or_Ajax_Conditional',
             'yoast\\wp\\seo\\conditionals\\primary_category_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Primary_Category_Conditional',
+            'yoast\\wp\\seo\\conditionals\\schema_blocks_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Schema_Blocks_Conditional',
             'yoast\\wp\\seo\\conditionals\\semrush_enabled_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\SEMrush_Enabled_Conditional',
             'yoast\\wp\\seo\\conditionals\\should_index_links_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Should_Index_Links_Conditional',
             'yoast\\wp\\seo\\conditionals\\the_events_calendar_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\The_Events_Calendar_Conditional',
@@ -167,6 +168,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\blocks\\internal_linking_category' => 'Yoast\\WP\\SEO\\Integrations\\Blocks\\Internal_Linking_Category',
             'yoast\\wp\\seo\\integrations\\blocks\\structured_data_blocks' => 'Yoast\\WP\\SEO\\Integrations\\Blocks\\Structured_Data_Blocks',
             'yoast\\wp\\seo\\integrations\\breadcrumbs_integration' => 'Yoast\\WP\\SEO\\Integrations\\Breadcrumbs_Integration',
+            'yoast\\wp\\seo\\integrations\\duplicate_post_integration' => 'Yoast\\WP\\SEO\\Integrations\\Duplicate_Post_Integration',
             'yoast\\wp\\seo\\integrations\\front_end\\backwards_compatibility' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Backwards_Compatibility',
             'yoast\\wp\\seo\\integrations\\front_end\\category_term_description' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Category_Term_Description',
             'yoast\\wp\\seo\\integrations\\front_end\\comment_link_fixer' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Comment_Link_Fixer',
@@ -179,6 +181,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\front_end\\theme_titles' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Theme_Titles',
             'yoast\\wp\\seo\\integrations\\front_end_integration' => 'Yoast\\WP\\SEO\\Integrations\\Front_End_Integration',
             'yoast\\wp\\seo\\integrations\\primary_category' => 'Yoast\\WP\\SEO\\Integrations\\Primary_Category',
+            'yoast\\wp\\seo\\integrations\\schema_blocks' => 'Yoast\\WP\\SEO\\Integrations\\Schema_Blocks',
             'yoast\\wp\\seo\\integrations\\third_party\\amp' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\AMP',
             'yoast\\wp\\seo\\integrations\\third_party\\bbpress' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\BbPress',
             'yoast\\wp\\seo\\integrations\\third_party\\jetpack' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Jetpack',
@@ -288,6 +291,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\Posts_Overview_Or_Ajax_Conditional' => 'getPostsOverviewOrAjaxConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Primary_Category_Conditional' => 'getPrimaryCategoryConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\SEMrush_Enabled_Conditional' => 'getSEMrushEnabledConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Schema_Blocks_Conditional' => 'getSchemaBlocksConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Should_Index_Links_Conditional' => 'getShouldIndexLinksConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\The_Events_Calendar_Conditional' => 'getTheEventsCalendarConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\W3_Total_Cache_Conditional' => 'getW3TotalCacheConditionalService',
@@ -387,6 +391,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Blocks\\Internal_Linking_Category' => 'getInternalLinkingCategoryService',
             'Yoast\\WP\\SEO\\Integrations\\Blocks\\Structured_Data_Blocks' => 'getStructuredDataBlocksService',
             'Yoast\\WP\\SEO\\Integrations\\Breadcrumbs_Integration' => 'getBreadcrumbsIntegrationService',
+            'Yoast\\WP\\SEO\\Integrations\\Duplicate_Post_Integration' => 'getDuplicatePostIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\Backwards_Compatibility' => 'getBackwardsCompatibilityService',
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\Category_Term_Description' => 'getCategoryTermDescriptionService',
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\Comment_Link_Fixer' => 'getCommentLinkFixerService',
@@ -399,6 +404,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\Theme_Titles' => 'getThemeTitlesService',
             'Yoast\\WP\\SEO\\Integrations\\Front_End_Integration' => 'getFrontEndIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Primary_Category' => 'getPrimaryCategoryService',
+            'Yoast\\WP\\SEO\\Integrations\\Schema_Blocks' => 'getSchemaBlocksService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\AMP' => 'getAMPService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\BbPress' => 'getBbPressService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Jetpack' => 'getJetpackService',
@@ -1066,6 +1072,16 @@ class Cached_Container extends Container
     protected function getSEMrushEnabledConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\SEMrush_Enabled_Conditional'] = new \Yoast\WP\SEO\Conditionals\SEMrush_Enabled_Conditional(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Schema_Blocks_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Schema_Blocks_Conditional
+     */
+    protected function getSchemaBlocksConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Schema_Blocks_Conditional'] = new \Yoast\WP\SEO\Conditionals\Schema_Blocks_Conditional();
     }
 
     /**
@@ -2095,6 +2111,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\Duplicate_Post_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\Duplicate_Post_Integration
+     */
+    protected function getDuplicatePostIntegrationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Duplicate_Post_Integration'] = new \Yoast\WP\SEO\Integrations\Duplicate_Post_Integration();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Integrations\Front_End\Backwards_Compatibility' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Integrations\Front_End\Backwards_Compatibility
@@ -2212,6 +2238,32 @@ class Cached_Container extends Container
     protected function getPrimaryCategoryService()
     {
         return $this->services['Yoast\\WP\\SEO\\Integrations\\Primary_Category'] = new \Yoast\WP\SEO\Integrations\Primary_Category();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\Schema_Blocks' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\Schema_Blocks
+     */
+    protected function getSchemaBlocksService()
+    {
+        $this->services['Yoast\\WP\\SEO\\Integrations\\Schema_Blocks'] = $instance = new \Yoast\WP\SEO\Integrations\Schema_Blocks();
+
+        $instance->register_template('src/schema-templates/address.block.php');
+        $instance->register_template('src/schema-templates/address.schema.php');
+        $instance->register_template('src/schema-templates/image.schema.php');
+        $instance->register_template('src/schema-templates/ingredients.block.php');
+        $instance->register_template('src/schema-templates/ingredients.schema.php');
+        $instance->register_template('src/schema-templates/job-posting.block.php');
+        $instance->register_template('src/schema-templates/job-posting.schema.php');
+        $instance->register_template('src/schema-templates/recipe.block.php');
+        $instance->register_template('src/schema-templates/recipe.schema.php');
+        $instance->register_template('src/schema-templates/step.block.php');
+        $instance->register_template('src/schema-templates/step.schema.php');
+        $instance->register_template('src/schema-templates/steps.block.php');
+        $instance->register_template('src/schema-templates/steps.schema.php');
+
+        return $instance;
     }
 
     /**
@@ -2515,6 +2567,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Blocks\\Internal_Linking_Category');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Blocks\\Structured_Data_Blocks');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Breadcrumbs_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Duplicate_Post_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Backwards_Compatibility');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Category_Term_Description');
@@ -2527,6 +2580,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\RSS_Footer_Embed');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Theme_Titles');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Primary_Category');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Schema_Blocks');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\AMP');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\BbPress');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Jetpack');
