@@ -240,14 +240,14 @@ $generated_i18n_strings = array(
 	// Reference: js/src/values/defaultReplaceVariables.js:50
 	__( 'Focus keyphrase', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:50
+	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:48
 	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:244
 	__( 'Analysis results', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:56
+	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:54
 	__( 'Learn more about the readability analysis', 'wordpress-seo' ),
 
-	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:91
+	// Reference: js/src/components/contentAnalysis/ReadabilityAnalysis.js:85
 	__( 'Readability analysis', 'wordpress-seo' ),
 
 	// Reference: js/src/components/contentAnalysis/SeoAnalysis.js:106
