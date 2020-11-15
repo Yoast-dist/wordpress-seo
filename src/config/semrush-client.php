@@ -4,14 +4,14 @@ namespace Yoast\WP\SEO\Config;
 
 use Yoast\WP\SEO\Exceptions\OAuth\Authentication_Failed_Exception;
 use Yoast\WP\SEO\Exceptions\SEMrush\Tokens\Empty_Property_Exception;
-use Yoast\WP\SEO\Exceptions\SEMrush\Tokens\Failed_Storage_Exception;
-use GuzzleHttp\Client;
-use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
-use League\OAuth2\Client\Provider\GenericProvider;
 use Yoast\WP\SEO\Exceptions\SEMrush\Tokens\Empty_Token_Exception;
+use Yoast\WP\SEO\Exceptions\SEMrush\Tokens\Failed_Storage_Exception;
 use Yoast\WP\SEO\Helpers\Options_Helper;
 use Yoast\WP\SEO\Values\SEMrush\SEMrush_Token;
 use Yoast\WP\SEO\Wrappers\WP_Remote_Handler;
+use GuzzleHttp\Client;
+use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
+use League\OAuth2\Client\Provider\GenericProvider;
 
 /**
  * Class SEMrush_Client
