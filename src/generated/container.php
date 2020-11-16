@@ -2249,19 +2249,17 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Integrations\\Schema_Blocks'] = $instance = new \Yoast\WP\SEO\Integrations\Schema_Blocks();
 
-        $instance->register_template('src/schema-templates/address.block.php');
-        $instance->register_template('src/schema-templates/address.schema.php');
-        $instance->register_template('src/schema-templates/image.schema.php');
-        $instance->register_template('src/schema-templates/ingredients.block.php');
-        $instance->register_template('src/schema-templates/ingredients.schema.php');
-        $instance->register_template('src/schema-templates/job-posting.block.php');
-        $instance->register_template('src/schema-templates/job-posting.schema.php');
-        $instance->register_template('src/schema-templates/recipe.block.php');
-        $instance->register_template('src/schema-templates/recipe.schema.php');
-        $instance->register_template('src/schema-templates/step.block.php');
-        $instance->register_template('src/schema-templates/step.schema.php');
-        $instance->register_template('src/schema-templates/steps.block.php');
-        $instance->register_template('src/schema-templates/steps.schema.php');
+        $instance->register_template('/home/travis/build/Yoast/wordpress-seo/src/schema-templates/address.block.php');
+        $instance->register_template('/home/travis/build/Yoast/wordpress-seo/src/schema-templates/address.schema.php');
+        $instance->register_template('/home/travis/build/Yoast/wordpress-seo/src/schema-templates/image.schema.php');
+        $instance->register_template('/home/travis/build/Yoast/wordpress-seo/src/schema-templates/ingredients.block.php');
+        $instance->register_template('/home/travis/build/Yoast/wordpress-seo/src/schema-templates/ingredients.schema.php');
+        $instance->register_template('/home/travis/build/Yoast/wordpress-seo/src/schema-templates/recipe.block.php');
+        $instance->register_template('/home/travis/build/Yoast/wordpress-seo/src/schema-templates/recipe.schema.php');
+        $instance->register_template('/home/travis/build/Yoast/wordpress-seo/src/schema-templates/step.block.php');
+        $instance->register_template('/home/travis/build/Yoast/wordpress-seo/src/schema-templates/step.schema.php');
+        $instance->register_template('/home/travis/build/Yoast/wordpress-seo/src/schema-templates/steps.block.php');
+        $instance->register_template('/home/travis/build/Yoast/wordpress-seo/src/schema-templates/steps.schema.php');
 
         return $instance;
     }
