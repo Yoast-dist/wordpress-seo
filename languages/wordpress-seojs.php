@@ -1,6 +1,24 @@
 <?php
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
+	// Reference: js/src/analysis/getIndicatorForScore.js:17
+	__( 'Feedback', 'wordpress-seo' ),
+
+	// Reference: js/src/analysis/getIndicatorForScore.js:24
+	__( 'Needs improvement', 'wordpress-seo' ),
+
+	// Reference: js/src/analysis/getIndicatorForScore.js:29
+	__( 'OK SEO score', 'wordpress-seo' ),
+
+	// Reference: js/src/analysis/getIndicatorForScore.js:30
+	__( 'OK', 'wordpress-seo' ),
+
+	// Reference: js/src/analysis/getIndicatorForScore.js:35
+	__( 'Good SEO score', 'wordpress-seo' ),
+
+	// Reference: js/src/analysis/getIndicatorForScore.js:36
+	__( 'Good', 'wordpress-seo' ),
+
 	// Reference: js/src/components/AdvancedSettings.js:127
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Should search engines follow links on this %s', 'wordpress-seo' ),
@@ -145,13 +163,13 @@ $generated_i18n_strings = array(
 	/* translators: %s expands to the taxonomy name. */
 	__( 'Select the primary %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:182
+	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:189
 	__( 'Related keyphrases', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:203
+	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:210
 	__( 'Get related keyphrases', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:205
+	// Reference: js/src/components/SEMrushRelatedKeyphrasesModal.js:212
 	__( '(Opens in a new browser window)', 'wordpress-seo' ),
 
 	// Reference: js/src/components/SEMrushRelatedKeyphrasesModalContent.js:57
@@ -276,13 +294,16 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/components/fills/MetaboxFill.js:47
 	// Reference: js/src/components/modals/editorModals/GooglePreviewModal.js:16
+	// Reference: js/src/elementor/components/modals/editorModals/GooglePreviewModal.js:16
 	__( 'Google preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/fills/MetaboxFill.js:65
 	// Reference: js/src/components/fills/SidebarFill.js:63
+	// Reference: js/src/elementor/components/fills/ElementorFill.js:76
 	__( 'Advanced', 'wordpress-seo' ),
 
 	// Reference: js/src/components/fills/SidebarFill.js:56
+	// Reference: js/src/elementor/components/fills/ElementorFill.js:69
 	// Reference: js/src/structured-data-blocks/faq/block.js:28
 	// Reference: js/src/structured-data-blocks/how-to/block.js:56
 	__( 'Schema', 'wordpress-seo' ),
@@ -472,7 +493,17 @@ $generated_i18n_strings = array(
 	__( 'This helps search engines understand your website and your content. You can change some of your settings for this page below.', 'wordpress-seo' ),
 
 	// Reference: js/src/containers/SnippetEditor.js:64
+	// Reference: js/src/elementor/containers/SnippetEditor.js:90
 	__( 'Please provide a meta description by editing the snippet below.', 'wordpress-seo' ),
+
+	// Reference: js/src/elementor/initializers/introduction.js:19
+	__( 'New: Yoast SEO for Elementor', 'wordpress-seo' ),
+
+	// Reference: js/src/elementor/initializers/introduction.js:20
+	__( 'Click here to get started with Yoast SEO\'s content analysis for Elementor!', 'wordpress-seo' ),
+
+	// Reference: js/src/elementor/initializers/introduction.js:40
+	__( 'Got it', 'wordpress-seo' ),
 
 	// Reference: js/src/help-scout-beacon.js:208
 	__( 'When you click OK we will open our HelpScout beacon where you can find answers to your questions. This beacon will load our support data and also potentially set cookies.', 'wordpress-seo' ),
