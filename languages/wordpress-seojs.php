@@ -500,7 +500,7 @@ $generated_i18n_strings = array(
 	__( 'New: Yoast SEO for Elementor', 'wordpress-seo' ),
 
 	// Reference: js/src/elementor/initializers/introduction.js:20
-	__( 'Click here to get started with Yoast SEO\'s content analysis for Elementor!', 'wordpress-seo' ),
+	__( 'Get started with Yoast SEO\'s content analysis for Elementor!', 'wordpress-seo' ),
 
 	// Reference: js/src/elementor/initializers/introduction.js:40
 	__( 'Got it', 'wordpress-seo' ),
