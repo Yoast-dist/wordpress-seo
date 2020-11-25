@@ -1,1 +1,1 @@
-(window.yoastWebpackJsonp=window.yoastWebpackJsonp||[]).push([[5],{376:function(o,n,s){"use strict";(0,function(o){return o&&o.__esModule?o:{default:o}}(s(377)).default)()},377:function(o,n){o.exports=window.yoast.schemaBlocks}},[[376,0]]]);
+(window.yoastWebpackJsonp=window.yoastWebpackJsonp||[]).push([[5],{377:function(o,n,s){"use strict";(0,function(o){return o&&o.__esModule?o:{default:o}}(s(378)).default)()},378:function(o,n){o.exports=window.yoast.schemaBlocks}},[[377,0]]]);
