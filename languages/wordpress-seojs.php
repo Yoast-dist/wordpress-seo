@@ -567,32 +567,32 @@ $generated_i18n_strings = array(
 	// Reference: js/src/structured-data-blocks/how-to/block.js:58
 	__( 'Structured Data', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/faq/components/FAQ.js:158
+	// Reference: js/src/structured-data-blocks/faq/components/FAQ.js:135
 	__( 'New question added', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/faq/components/FAQ.js:285
+	// Reference: js/src/structured-data-blocks/faq/components/FAQ.js:237
 	__( 'Add question', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/faq/components/Question.js:215
+	// Reference: js/src/structured-data-blocks/faq/components/Question.js:193
 	__( 'Delete question', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/faq/components/Question.js:221
+	// Reference: js/src/structured-data-blocks/faq/components/Question.js:199
 	__( 'Insert question', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/faq/components/Question.js:238
+	// Reference: js/src/structured-data-blocks/faq/components/Question.js:216
 	__( 'Move question up', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/faq/components/Question.js:245
+	// Reference: js/src/structured-data-blocks/faq/components/Question.js:223
 	__( 'Move question down', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/faq/components/Question.js:370
+	// Reference: js/src/structured-data-blocks/faq/components/Question.js:347
 	__( 'Enter a question', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/faq/components/Question.js:383
+	// Reference: js/src/structured-data-blocks/faq/components/Question.js:359
 	__( 'Enter the answer to the question', 'wordpress-seo' ),
 
 	// Reference: js/src/structured-data-blocks/faq/components/Question.js:55
-	// Reference: js/src/structured-data-blocks/how-to/components/HowToStep.js:178
+	// Reference: js/src/structured-data-blocks/how-to/components/HowToStep.js:154
 	__( 'Add image', 'wordpress-seo' ),
 
 	// Reference: js/src/structured-data-blocks/how-to/block.js:49
@@ -607,74 +607,74 @@ $generated_i18n_strings = array(
 	// Reference: js/src/structured-data-blocks/how-to/block.js:55
 	__( 'How to', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:227
+	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:216
 	__( 'New step added', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:512
+	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:461
 	__( 'Add step', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:548
+	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:497
 	__( 'Showing step items as an unordered list', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:549
+	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:498
 	__( 'Showing step items as an ordered list.', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:672
+	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:610
 	__( 'Add total time', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:690
+	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:628
 	__( 'days', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:705
+	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:643
 	__( 'hours', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:720
+	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:658
 	__( 'minutes', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:733
+	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:671
 	__( 'Delete total time', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:757
+	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:695
 	__( 'Settings', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:759
+	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:697
 	__( 'CSS class(es) to apply to the steps', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:762
+	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:700
 	__( 'Optional. This can give you better control over the styling of the steps.', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:765
+	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:703
 	__( 'Describe the duration of the instruction:', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:768
+	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:706
 	__( 'Optional. Customize how you want to describe the duration of the instruction', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:772
+	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:710
 	__( 'Unordered list', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:803
+	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:740
 	__( 'Enter a description', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:84
+	// Reference: js/src/structured-data-blocks/how-to/components/HowTo.js:80
 	// Reference: js/src/structured-data-blocks/how-to/legacy/8.2.js:85
 	__( 'Time needed:', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowToStep.js:205
+	// Reference: js/src/structured-data-blocks/how-to/components/HowToStep.js:181
 	__( 'Delete step', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowToStep.js:211
+	// Reference: js/src/structured-data-blocks/how-to/components/HowToStep.js:187
 	__( 'Insert step', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowToStep.js:228
+	// Reference: js/src/structured-data-blocks/how-to/components/HowToStep.js:204
 	__( 'Move step up', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowToStep.js:235
+	// Reference: js/src/structured-data-blocks/how-to/components/HowToStep.js:211
 	__( 'Move step down', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowToStep.js:360
+	// Reference: js/src/structured-data-blocks/how-to/components/HowToStep.js:335
 	__( 'Enter a step title', 'wordpress-seo' ),
 
-	// Reference: js/src/structured-data-blocks/how-to/components/HowToStep.js:373
+	// Reference: js/src/structured-data-blocks/how-to/components/HowToStep.js:347
 	__( 'Enter a step description', 'wordpress-seo' ),
 
 	// Reference: js/src/structured-data-blocks/how-to/legacy/utils/8.2.js:31
