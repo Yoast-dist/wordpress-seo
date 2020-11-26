@@ -25,7 +25,11 @@
 }
 
 .yoast label {
-	color: var(--yoast-color-label);
+	color: var(--yoast-color-label-help);
+}
+
+label[for="focus-keyword-input-sidebar"], .yoast-field-group__title > label {
+	color: var(--yoast-color-font-default);
 }
 
 .yoast input[disabled] {
@@ -34,10 +38,6 @@
 
 .yoast.components-panel__body .yoast-title {
 	font-weight: 500;
-}
-
-.yoast-field-group__title b {
-	font-weight: var(--yoast-font-weight-bold);
 }
 
 .yoast h3 span > span {
@@ -75,7 +75,7 @@
 .yoast-elementor-panel__fills {
 	margin-top: 10px;
 	padding: 5px 5px 0 5px;
-	color: var(--yoast-color-dark);
+	color: var(--yoast-color-font-default);
 	background-color: var(--yoast-color-white);
 	-webkit-font-smoothing: subpixel-antialiased;
 }
