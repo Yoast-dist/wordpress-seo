@@ -517,6 +517,9 @@ $generated_i18n_strings = array(
 	// Reference: js/src/initializers/block-editor-integration.js:57
 	__( 'Please upgrade your WordPress version or install the Gutenberg plugin to get this %1$s feature.', 'wordpress-seo' ),
 
+	// Reference: js/src/initializers/elementor-editor-integration.js:54
+	__( 'Unfortunately we cannot save changes to your SEO settings while you are working on a draft of an already-published post. If you want to save your SEO changes, make sure to click \'Update\', or wait to make your SEO changes until you are ready to do so.', 'wordpress-seo' ),
+
 	// Reference: js/src/inline-links/edit-link.js:106
 	__( 'Link removed.', 'wordpress-seo' ),
 
