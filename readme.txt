@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.6
-Stable tag: 15.4-RC5
+Stable tag: 15.4-RC6
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -251,6 +251,8 @@ Bugfixes:
 * Fixes a bug where memory could be exhaused on the page overview for users with a large number of pages.
 * Fixes a bug where a ArgumentCountError would be thrown on the Search Appearance settings page when using PHP 8.0.
 * Fixes a bug where disabling the tracking network-wide in a multisite environment did not automatically disable tracking on the sites in the network.
+* Fixes a bug where tracking would send partial data.
+
 
 Other:
 
