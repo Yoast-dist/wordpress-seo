@@ -1587,7 +1587,7 @@ class Cached_Container extends Container
      */
     protected function getSchemaGeneratorService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Generators\\Schema_Generator'] = new \Yoast\WP\SEO\Generators\Schema_Generator(${($_ = isset($this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface']) ? $this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface'] : $this->getHelpersSurfaceService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Generators\\Schema_Generator'] = new \Yoast\WP\SEO\Generators\Schema_Generator(${($_ = isset($this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface']) ? $this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface'] : $this->getHelpersSurfaceService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
     }
 
     /**
