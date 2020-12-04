@@ -2289,7 +2289,7 @@ class Cached_Container extends Container
      */
     protected function getSchemaBlocksService()
     {
-        $this->services['Yoast\\WP\\SEO\\Integrations\\Schema_Blocks'] = $instance = new \Yoast\WP\SEO\Integrations\Schema_Blocks(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'});
+        $this->services['Yoast\\WP\\SEO\\Integrations\\Schema_Blocks'] = $instance = new \Yoast\WP\SEO\Integrations\Schema_Blocks(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Schema\\ID_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Schema\\ID_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Schema\\ID_Helper'] = new \Yoast\WP\SEO\Helpers\Schema\ID_Helper())) && false ?: '_'});
 
         $instance->register_template('/home/travis/build/Yoast/wordpress-seo/src/schema-templates/address.block.php');
         $instance->register_template('/home/travis/build/Yoast/wordpress-seo/src/schema-templates/address.schema.php');
