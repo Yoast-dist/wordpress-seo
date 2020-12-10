@@ -55,6 +55,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\builders\\indexable_term_builder' => 'Yoast\\WP\\SEO\\Builders\\Indexable_Term_Builder',
             'yoast\\wp\\seo\\builders\\primary_term_builder' => 'Yoast\\WP\\SEO\\Builders\\Primary_Term_Builder',
             'yoast\\wp\\seo\\commands\\index_command' => 'Yoast\\WP\\SEO\\Commands\\Index_Command',
+            'yoast\\wp\\seo\\conditionals\\admin\\post_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Admin\\Post_Conditional',
             'yoast\\wp\\seo\\conditionals\\admin\\posts_overview_or_ajax_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Admin\\Posts_Overview_Or_Ajax_Conditional',
             'yoast\\wp\\seo\\conditionals\\admin_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Admin_Conditional',
             'yoast\\wp\\seo\\conditionals\\breadcrumbs_enabled_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Breadcrumbs_Enabled_Conditional',
@@ -85,6 +86,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\config\\migration_status' => 'Yoast\\WP\\SEO\\Config\\Migration_Status',
             'yoast\\wp\\seo\\config\\migrations\\addcollationtotables' => 'Yoast\\WP\\SEO\\Config\\Migrations\\AddCollationToTables',
             'yoast\\wp\\seo\\config\\migrations\\addcolumnstoindexables' => 'Yoast\\WP\\SEO\\Config\\Migrations\\AddColumnsToIndexables',
+            'yoast\\wp\\seo\\config\\migrations\\addestimatedreadingtime' => 'Yoast\\WP\\SEO\\Config\\Migrations\\AddEstimatedReadingTime',
             'yoast\\wp\\seo\\config\\migrations\\addhasancestorscolumn' => 'Yoast\\WP\\SEO\\Config\\Migrations\\AddHasAncestorsColumn',
             'yoast\\wp\\seo\\config\\migrations\\addindexableobjectidandtypeindex' => 'Yoast\\WP\\SEO\\Config\\Migrations\\AddIndexableObjectIdAndTypeIndex',
             'yoast\\wp\\seo\\config\\migrations\\addindexesforprominentwordsonindexables' => 'Yoast\\WP\\SEO\\Config\\Migrations\\AddIndexesForProminentWordsOnIndexables',
@@ -131,6 +133,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\helpers\\image_helper' => 'Yoast\\WP\\SEO\\Helpers\\Image_Helper',
             'yoast\\wp\\seo\\helpers\\indexable_helper' => 'Yoast\\WP\\SEO\\Helpers\\Indexable_Helper',
             'yoast\\wp\\seo\\helpers\\indexing_helper' => 'Yoast\\WP\\SEO\\Helpers\\Indexing_Helper',
+            'yoast\\wp\\seo\\helpers\\input_helper' => 'Yoast\\WP\\SEO\\Helpers\\Input_Helper',
             'yoast\\wp\\seo\\helpers\\language_helper' => 'Yoast\\WP\\SEO\\Helpers\\Language_Helper',
             'yoast\\wp\\seo\\helpers\\meta_helper' => 'Yoast\\WP\\SEO\\Helpers\\Meta_Helper',
             'yoast\\wp\\seo\\helpers\\notification_helper' => 'Yoast\\WP\\SEO\\Helpers\\Notification_Helper',
@@ -284,6 +287,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Builders\\Indexable_Term_Builder' => 'getIndexableTermBuilderService',
             'Yoast\\WP\\SEO\\Builders\\Primary_Term_Builder' => 'getPrimaryTermBuilderService',
             'Yoast\\WP\\SEO\\Commands\\Index_Command' => 'getIndexCommandService',
+            'Yoast\\WP\\SEO\\Conditionals\\Admin\\Post_Conditional' => 'getPostConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Admin\\Posts_Overview_Or_Ajax_Conditional' => 'getPostsOverviewOrAjaxConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Admin_Conditional' => 'getAdminConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Breadcrumbs_Enabled_Conditional' => 'getBreadcrumbsEnabledConditionalService',
@@ -314,6 +318,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Config\\Migration_Status' => 'getMigrationStatusService',
             'Yoast\\WP\\SEO\\Config\\Migrations\\AddCollationToTables' => 'getAddCollationToTablesService',
             'Yoast\\WP\\SEO\\Config\\Migrations\\AddColumnsToIndexables' => 'getAddColumnsToIndexablesService',
+            'Yoast\\WP\\SEO\\Config\\Migrations\\AddEstimatedReadingTime' => 'getAddEstimatedReadingTimeService',
             'Yoast\\WP\\SEO\\Config\\Migrations\\AddHasAncestorsColumn' => 'getAddHasAncestorsColumnService',
             'Yoast\\WP\\SEO\\Config\\Migrations\\AddIndexableObjectIdAndTypeIndex' => 'getAddIndexableObjectIdAndTypeIndexService',
             'Yoast\\WP\\SEO\\Config\\Migrations\\AddIndexesForProminentWordsOnIndexables' => 'getAddIndexesForProminentWordsOnIndexablesService',
@@ -360,6 +365,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Helpers\\Image_Helper' => 'getImageHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Indexable_Helper' => 'getIndexableHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Indexing_Helper' => 'getIndexingHelperService',
+            'Yoast\\WP\\SEO\\Helpers\\Input_Helper' => 'getInputHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Language_Helper' => 'getLanguageHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Meta_Helper' => 'getMetaHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Notification_Helper' => 'getNotificationHelperService',
@@ -957,6 +963,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Admin\Post_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Admin\Post_Conditional
+     */
+    protected function getPostConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Admin\\Post_Conditional'] = new \Yoast\WP\SEO\Conditionals\Admin\Post_Conditional();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Conditionals\Admin\Posts_Overview_Or_Ajax_Conditional' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Conditionals\Admin\Posts_Overview_Or_Ajax_Conditional
@@ -1254,6 +1270,16 @@ class Cached_Container extends Container
     protected function getAddColumnsToIndexablesService()
     {
         return $this->services['Yoast\\WP\\SEO\\Config\\Migrations\\AddColumnsToIndexables'] = new \Yoast\WP\SEO\Config\Migrations\AddColumnsToIndexables(${($_ = isset($this->services['Yoast\\WP\\Lib\\Migrations\\Adapter']) ? $this->services['Yoast\\WP\\Lib\\Migrations\\Adapter'] : ($this->services['Yoast\\WP\\Lib\\Migrations\\Adapter'] = new \Yoast\WP\Lib\Migrations\Adapter())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Config\Migrations\AddEstimatedReadingTime' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Config\Migrations\AddEstimatedReadingTime
+     */
+    protected function getAddEstimatedReadingTimeService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Config\\Migrations\\AddEstimatedReadingTime'] = new \Yoast\WP\SEO\Config\Migrations\AddEstimatedReadingTime(${($_ = isset($this->services['Yoast\\WP\\Lib\\Migrations\\Adapter']) ? $this->services['Yoast\\WP\\Lib\\Migrations\\Adapter'] : ($this->services['Yoast\\WP\\Lib\\Migrations\\Adapter'] = new \Yoast\WP\Lib\Migrations\Adapter())) && false ?: '_'});
     }
 
     /**
@@ -1734,6 +1760,16 @@ class Cached_Container extends Container
         $instance->set_indexing_actions(${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Post_Indexation_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Post_Indexation_Action'] : $this->getIndexablePostIndexationActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Term_Indexation_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Term_Indexation_Action'] : $this->getIndexableTermIndexationActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Post_Type_Archive_Indexation_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Post_Type_Archive_Indexation_Action'] : $this->getIndexablePostTypeArchiveIndexationActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_General_Indexation_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_General_Indexation_Action'] : $this->getIndexableGeneralIndexationActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Post_Link_Indexing_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Post_Link_Indexing_Action'] : $this->getPostLinkIndexingActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Term_Link_Indexing_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Term_Link_Indexing_Action'] : $this->getTermLinkIndexingActionService()) && false ?: '_'});
 
         return $instance;
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Helpers\Input_Helper' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Helpers\Input_Helper
+     */
+    protected function getInputHelperService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Helpers\\Input_Helper'] = new \Yoast\WP\SEO\Helpers\Input_Helper();
     }
 
     /**
@@ -2624,6 +2660,7 @@ class Cached_Container extends Container
         $instance->register_migration('free', '20200617122511', 'Yoast\\WP\\SEO\\Config\\Migrations\\CreateSEOLinksTable');
         $instance->register_migration('free', '20200702141921', 'Yoast\\WP\\SEO\\Config\\Migrations\\CreateIndexableSubpagesIndex');
         $instance->register_migration('free', '20200728095334', 'Yoast\\WP\\SEO\\Config\\Migrations\\AddIndexesForProminentWordsOnIndexables');
+        $instance->register_migration('free', '20201202144329', 'Yoast\\WP\\SEO\\Config\\Migrations\\AddEstimatedReadingTime');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Migration_Runner');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Admin_Columns_Cache_Integration');
