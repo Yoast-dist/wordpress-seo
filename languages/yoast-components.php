@@ -182,10 +182,10 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/SnippetPreview.js:589
 	__( 'Url preview', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/SnippetPreview.js:769
+	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/SnippetPreview.js:778
 	__( 'SEO title preview', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/SnippetPreview.js:788
+	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/SnippetPreview.js:797
 	__( 'Meta description preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/MailchimpSignup.js:235
