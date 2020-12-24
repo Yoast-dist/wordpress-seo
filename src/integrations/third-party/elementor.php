@@ -16,7 +16,7 @@ use WPSEO_Metabox_Analysis_SEO;
 use WPSEO_Metabox_Formatter;
 use WPSEO_Post_Metabox_Formatter;
 use WPSEO_Utils;
-use Yoast\WP\SEO\Conditionals\Admin\Elementor_Edit_Conditional;
+use Yoast\WP\SEO\Conditionals\Third_Party\Elementor_Edit_Conditional;
 use Yoast\WP\SEO\Helpers\Capability_Helper;
 use Yoast\WP\SEO\Helpers\Options_Helper;
 use Yoast\WP\SEO\Integrations\Integration_Interface;
@@ -25,7 +25,7 @@ use Elementor\Controls_Manager;
 use Elementor\Core\DocumentTypes\PageBase;
 
 /**
- * Adds customizations to the front end for breadcrumbs.
+ * Integrates the Yoast SEO metabox in the Elementor editor.
  */
 class Elementor implements Integration_Interface {
 
@@ -144,7 +144,7 @@ class Elementor implements Integration_Interface {
 	}
 
 	/**
-	 * Renders the breadcrumbs.
+	 * Initializes the integration.
 	 *
 	 * @return void
 	 */
@@ -363,10 +363,10 @@ class Elementor implements Integration_Interface {
 		$this->asset_manager->enqueue_script( 'elementor' );
 
 		$yoast_components_l10n = new WPSEO_Admin_Asset_Yoast_Components_L10n();
-		$yoast_components_l10n->localize_script( WPSEO_Admin_Asset_Manager::PREFIX . 'elementor' );
+		$yoast_components_l10n->localize_script( 'elementor' );
 
-		\wp_localize_script( WPSEO_Admin_Asset_Manager::PREFIX . 'elementor', 'wpseoAdminL10n', WPSEO_Utils::get_admin_l10n() );
-		\wp_localize_script( WPSEO_Admin_Asset_Manager::PREFIX . 'elementor', 'wpseoFeaturesL10n', WPSEO_Utils::retrieve_enabled_features() );
+		$this->asset_manager->localize_script( 'elementor', 'wpseoAdminL10n', WPSEO_Utils::get_admin_l10n() );
+		$this->asset_manager->localize_script( 'elementor', 'wpseoFeaturesL10n', WPSEO_Utils::retrieve_enabled_features() );
 
 		$analysis_worker_location          = new WPSEO_Admin_Asset_Analysis_Worker_Location( $this->asset_manager->flatten_version( WPSEO_VERSION ) );
 		$used_keywords_assessment_location = new WPSEO_Admin_Asset_Analysis_Worker_Location( $this->asset_manager->flatten_version( WPSEO_VERSION ), 'used-keywords-assessment' );
@@ -412,7 +412,7 @@ class Elementor implements Integration_Interface {
 			];
 		}
 
-		\wp_localize_script( WPSEO_Admin_Asset_Manager::PREFIX . 'elementor', 'wpseoScriptData', $script_data );
+		$this->asset_manager->localize_script( 'elementor', 'wpseoScriptData', $script_data );
 	}
 
 	/**
@@ -526,6 +526,16 @@ class Elementor implements Integration_Interface {
 			'sep',
 			'page',
 			'currentyear',
+			'tag',
+			'category',
+			'primary_category',
+			'pt_single',
+			'pt_plural',
+			'modified',
+			'name',
+			'user_description',
+			'pagetotal',
+			'pagenumber',
 		];
 
 		foreach ( $vars_to_cache as $var ) {
