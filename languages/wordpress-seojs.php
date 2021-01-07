@@ -456,9 +456,11 @@ $generated_i18n_strings = array(
 	__( 'Return to your %s', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/editorModals/FacebookPreviewModal.js:15
+	// Reference: js/src/elementor/components/modals/editorModals/FacebookPreviewModal.js:15
 	__( 'Facebook preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/editorModals/TwitterPreviewModal.js:16
+	// Reference: js/src/elementor/components/modals/editorModals/TwitterPreviewModal.js:16
 	__( 'Twitter preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/social/SocialMetadata.js:31
@@ -475,11 +477,15 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/containers/FacebookEditor.js:76
 	// Reference: js/src/containers/TwitterEditor.js:81
+	// Reference: js/src/elementor/containers/FacebookEditor.js:76
+	// Reference: js/src/elementor/containers/TwitterEditor.js:81
 	/* translators: %s expands to the social medium name, i.e. Faceboook. */
 	__( 'Modify your %s title by editing it right here...', 'wordpress-seo' ),
 
 	// Reference: js/src/containers/FacebookEditor.js:83
 	// Reference: js/src/containers/TwitterEditor.js:88
+	// Reference: js/src/elementor/containers/FacebookEditor.js:83
+	// Reference: js/src/elementor/containers/TwitterEditor.js:88
 	/* translators: %s expands to the social medium name, i.e. Faceboook. */
 	__( 'Modify your %s description by editing it right here...', 'wordpress-seo' ),
 
