@@ -502,6 +502,24 @@ $generated_i18n_strings = array(
 	// Reference: js/src/elementor/containers/SnippetEditor.js:90
 	__( 'Please provide a meta description by editing the snippet below.', 'wordpress-seo' ),
 
+	// Reference: js/src/dynamic-blocks.js:14
+	__( 'Yoast Breadcrumbs', 'wordpress-seo' ),
+
+	// Reference: js/src/dynamic-blocks.js:17
+	__( 'Adds the Yoast SEO breadcrumbs to your template or content.', 'wordpress-seo' ),
+
+	// Reference: js/src/dynamic-blocks.js:19
+	__( 'seo', 'wordpress-seo' ),
+
+	// Reference: js/src/dynamic-blocks.js:20
+	__( 'breadcrumbs', 'wordpress-seo' ),
+
+	// Reference: js/src/dynamic-blocks.js:21
+	__( 'internal linking', 'wordpress-seo' ),
+
+	// Reference: js/src/dynamic-blocks.js:22
+	__( 'site structure', 'wordpress-seo' ),
+
 	// Reference: js/src/elementor/initializers/introduction.js:19
 	__( 'New: Yoast SEO for Elementor', 'wordpress-seo' ),
 
