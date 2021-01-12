@@ -8,7 +8,7 @@ use Yoast\WP\SEO\Integrations\Integration_Interface;
 use Yoast\WP\SEO\Repositories\Indexable_Repository;
 
 /**
- * Date archive watcher to save the meta data to an indexable.
+ * Date archive watcher to save the meta data to an Indexable.
  *
  * Watches the date archive options to save the meta information when updated.
  */
@@ -22,21 +22,19 @@ class Indexable_Date_Archive_Watcher implements Integration_Interface {
 	protected $repository;
 
 	/**
-	 * The indexable builder.
-	 *
 	 * @var Indexable_Builder
 	 */
 	protected $builder;
 
 	/**
-	 * Returns the conditionals based on which this loadable should be active.
+	 * @inheritDoc
 	 */
 	public static function get_conditionals() {
 		return [ Migrations_Conditional::class ];
 	}
 
 	/**
-	 * Indexable_Date_Archive_Watcher constructor.
+	 * Indexable_Author_Watcher constructor.
 	 *
 	 * @param Indexable_Repository $repository The repository to use.
 	 * @param Indexable_Builder    $builder    The date archive builder to use.
@@ -47,9 +45,7 @@ class Indexable_Date_Archive_Watcher implements Integration_Interface {
 	}
 
 	/**
-	 * Initializes the integration.
-	 *
-	 * This is the place to register hooks and filters.
+	 * @inheritDoc
 	 */
 	public function register_hooks() {
 		\add_action( 'update_option_wpseo_titles', [ $this, 'check_option' ], 10, 2 );

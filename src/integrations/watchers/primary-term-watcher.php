@@ -45,7 +45,7 @@ class Primary_Term_Watcher implements Integration_Interface {
 	protected $primary_term_builder;
 
 	/**
-	 * Returns the conditionals based on which this loadable should be active.
+	 * @inheritDoc
 	 */
 	public static function get_conditionals() {
 		return [ Migrations_Conditional::class ];
@@ -74,9 +74,7 @@ class Primary_Term_Watcher implements Integration_Interface {
 	}
 
 	/**
-	 * Initializes the integration.
-	 *
-	 * This is the place to register hooks and filters.
+	 * @inheritDoc
 	 */
 	public function register_hooks() {
 		\add_action( 'save_post', [ $this, 'save_primary_terms' ] );
