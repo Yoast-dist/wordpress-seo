@@ -24,14 +24,18 @@ abstract class Dynamic_Block implements Integration_Interface {
 	protected $script;
 
 	/**
-	 * {@inheritDoc}
+	 * Get conditionals.
+	 *
+	 * @inheritDoc
 	 */
 	public static function get_conditionals() {
 		return [];
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * Register hooks.
+	 *
+	 * @inheritDoc
 	 */
 	public function register_hooks() {
 		\add_action( 'init', [ $this, 'register_block' ], 11 );
