@@ -475,15 +475,15 @@ $generated_i18n_strings = array(
 	/* translators: %s expands to Yoast SEO Premium */
 	__( 'Find out why you should upgrade to %s', 'wordpress-seo' ),
 
-	// Reference: js/src/containers/FacebookEditor.js:76
-	// Reference: js/src/containers/TwitterEditor.js:81
+	// Reference: js/src/containers/FacebookEditor.js:60
+	// Reference: js/src/containers/TwitterEditor.js:65
 	// Reference: js/src/elementor/containers/FacebookEditor.js:76
 	// Reference: js/src/elementor/containers/TwitterEditor.js:81
 	/* translators: %s expands to the social medium name, i.e. Faceboook. */
 	__( 'Modify your %s title by editing it right here...', 'wordpress-seo' ),
 
-	// Reference: js/src/containers/FacebookEditor.js:83
-	// Reference: js/src/containers/TwitterEditor.js:88
+	// Reference: js/src/containers/FacebookEditor.js:67
+	// Reference: js/src/containers/TwitterEditor.js:72
 	// Reference: js/src/elementor/containers/FacebookEditor.js:83
 	// Reference: js/src/elementor/containers/TwitterEditor.js:88
 	/* translators: %s expands to the social medium name, i.e. Faceboook. */
