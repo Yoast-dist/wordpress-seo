@@ -455,8 +455,8 @@ $generated_i18n_strings = array(
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Return to your %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/editorModals/FacebookPreviewModal.js:15
-	// Reference: js/src/elementor/components/modals/editorModals/FacebookPreviewModal.js:15
+	// Reference: js/src/components/modals/editorModals/FacebookPreviewModal.js:16
+	// Reference: js/src/elementor/components/modals/editorModals/FacebookPreviewModal.js:16
 	__( 'Facebook preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/editorModals/TwitterPreviewModal.js:16

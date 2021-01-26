@@ -83,13 +83,13 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/components/src/image-select/ImageSelectButtons.js:42
 	__( 'Remove image', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/components/src/inputs/DurationInput.js:43
+	// Reference: node_modules/@yoast/components/src/inputs/DurationInput.js:138
 	__( 'hours', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/components/src/inputs/DurationInput.js:57
+	// Reference: node_modules/@yoast/components/src/inputs/DurationInput.js:152
 	__( 'minutes', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/components/src/inputs/DurationInput.js:72
+	// Reference: node_modules/@yoast/components/src/inputs/DurationInput.js:167
 	__( 'seconds', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestion.js:65
