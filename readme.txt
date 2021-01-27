@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.6
-Stable tag: 15.8-RC1
+Stable tag: 15.8-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -235,16 +235,20 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 == Changelog ==
 
 = 15.8 =
-Release Date: February 9th
+Release Date: February 9th, 2021
 
 Enhancements:
 
-* Improves loading time of the posts overview page in the WordPress backend. Props to [Rahe](https://github.com/Rahe).
+* Adds a breadcrumbs block, allowing users to add breadcrumbs to a page or post using the block editor, or to a widget area using the Gutenberg plugin.
+* Changes the default setting to enable breadcrumbs for the theme to `true`. This means themes that declare theme support for this feature automatically output Yoast breadcrumbs on every page. Existing installs will not be impacted by this change.
+* Breadcrumbs settings can now always be edited, regardless of if the breadcrumbs are enabled for the theme.
+* Like the block, the breadcrumbs shortcode is now always rendered, regardless of if the breadcrumbs are enabled for the theme.
+* Improves the loading time of the posts overview page in the WordPress backend. Props to [Rahe](https://github.com/Rahe).
 
 Bugfixes:
 
 * Fixes a bug where the target indexable for relative links was not properly detected.
-* Fixes a bug where scheme relative links were not parsed correctly.
+* Fixes a bug where scheme-relative links were not parsed correctly.
 * Fixes a bug where custom capabilities could malfunction due to a race condition. Props to [Jerome Charaoui](https://github.com/jcharaoui).
 
 = 15.7 =
