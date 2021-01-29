@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.6
-Stable tag: 15.8-RC2
+Stable tag: 15.8-RC3
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -249,6 +249,7 @@ Bugfixes:
 
 * Fixes a bug where the target indexable for relative links was not properly detected.
 * Fixes a bug where scheme-relative links were not parsed correctly.
+* Fixes a bug where paginated WooCommerce shop pages did not have the right canonical.
 * Fixes a bug where custom capabilities could malfunction due to a race condition. Props to [Jerome Charaoui](https://github.com/jcharaoui).
 
 = 15.7 =
