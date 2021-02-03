@@ -447,11 +447,11 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/modals/SeoAnalysisModal.js:25
 	__( 'Close', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/editorModals/EditorModal.js:68
+	// Reference: js/src/components/modals/editorModals/EditorModal.js:65
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Make sure to save your %s for changes to take effect', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/editorModals/EditorModal.js:78
+	// Reference: js/src/components/modals/editorModals/EditorModal.js:75
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Return to your %s', 'wordpress-seo' ),
 
