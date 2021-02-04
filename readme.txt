@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.6
-Stable tag: 15.8-RC4
+Stable tag: 15.8-RC5
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -244,6 +244,7 @@ Enhancements:
 * Breadcrumbs settings can now always be edited, regardless of if the breadcrumbs are enabled for the theme.
 * Like the block, the breadcrumbs shortcode is now always rendered, regardless of if the breadcrumbs are enabled for the theme.
 * Improves the loading time of the posts overview page in the WordPress backend. Props to [Rahe](https://github.com/Rahe).
+* Makes sure the breadcrumbs schema is always present, except on 404 pages.
 
 Bugfixes:
 
