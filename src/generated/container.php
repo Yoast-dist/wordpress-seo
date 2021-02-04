@@ -2431,8 +2431,6 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Integrations\\Schema_Blocks'] = $instance = new \Yoast\WP\SEO\Integrations\Schema_Blocks(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'});
 
-        $instance->register_template('/home/travis/build/Yoast/wordpress-seo/src/schema-templates/address.block.php');
-        $instance->register_template('/home/travis/build/Yoast/wordpress-seo/src/schema-templates/address.schema.php');
         $instance->register_template('/home/travis/build/Yoast/wordpress-seo/src/schema-templates/image.schema.php');
         $instance->register_template('/home/travis/build/Yoast/wordpress-seo/src/schema-templates/ingredients.block.php');
         $instance->register_template('/home/travis/build/Yoast/wordpress-seo/src/schema-templates/ingredients.schema.php');
