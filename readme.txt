@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.6
-Stable tag: 15.8.1
+Stable tag: 15.8.2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -233,6 +233,13 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 6. Easily import SEO data from other SEO plugins like All In One SEO pack, HeadSpace2 SEO and wpSEO.de.
 
 == Changelog ==
+
+= 15.8.2 =
+Release Date: February 12th, 2021
+
+Bugfixes:
+
+* Fixes wrong file numbers in Premium.
 
 = 15.8.1 =
 Release Date: February 12th, 2021
