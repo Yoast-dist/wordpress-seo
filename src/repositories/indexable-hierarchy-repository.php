@@ -78,9 +78,6 @@ class Indexable_Hierarchy_Repository {
 			->find_array();
 
 		if ( ! empty( $ancestors ) ) {
-			if ( count( $ancestors ) === 1 && $ancestors[0]['ancestor_id'] === '0' ) {
-				return [];
-			}
 			return \wp_list_pluck( $ancestors, 'ancestor_id' );
 		}
 
