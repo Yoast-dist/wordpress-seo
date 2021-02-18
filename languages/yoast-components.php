@@ -25,7 +25,7 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/analysis-report/src/ContentAnalysis.js:97
 	__( 'Problems', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/components/src/Alert.js:127
+	// Reference: node_modules/@yoast/components/src/Alert.js:131
 	__( 'Dismiss this alert', 'wordpress-seo' ),
 
 	// Reference: node_modules/@yoast/components/src/ErrorBoundary.js:51
