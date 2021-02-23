@@ -15,7 +15,7 @@ if ( ! function_exists( 'add_filter' ) ) {
  * {@internal Nobody should be able to overrule the real version number as this can cause
  *            serious issues with the options, so no if ( ! defined() ).}}
  */
-define( 'WPSEO_VERSION', '15.9' );
+define( 'WPSEO_VERSION', '16.0-RC1' );
 
 
 if ( ! defined( 'WPSEO_PATH' ) ) {
@@ -329,9 +329,6 @@ function wpseo_init() {
 	// Loading Ryte integration.
 	$wpseo_ryte = new WPSEO_Ryte();
 	$wpseo_ryte->register_hooks();
-
-	// Initializes the Yoast indexables for the first time.
-	YoastSEO();
 }
 
 /**
@@ -457,6 +454,13 @@ if ( ! wp_installing() && ( $spl_autoload_exists && $filter_exists ) ) {
 	}
 
 	add_action( 'init', [ 'WPSEO_Replace_Vars', 'setup_statics_once' ] );
+
+	// Initializes the Yoast indexables for the first time.
+	YoastSEO();
+	/**
+	 * Action called when the Yoast SEO plugin file has loaded.
+	 */
+	do_action( 'wpseo_loaded' );
 }
 
 // Activation and deactivation hook.
