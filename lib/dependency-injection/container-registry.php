@@ -2,8 +2,8 @@
 
 namespace Yoast\WP\Lib\Dependency_Injection;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
+use YoastSEO_Vendor\Symfony\Component\DependencyInjection\ContainerInterface;
+use YoastSEO_Vendor\Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 
 /**
  * Container_Registry class.

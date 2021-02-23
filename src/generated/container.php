@@ -2,13 +2,13 @@
 
 namespace Yoast\WP\SEO\Generated;
 
-use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\Container;
-use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
-use Symfony\Component\DependencyInjection\Exception\LogicException;
-use Symfony\Component\DependencyInjection\Exception\RuntimeException;
-use Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;
+use YoastSEO_Vendor\Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
+use YoastSEO_Vendor\Symfony\Component\DependencyInjection\ContainerInterface;
+use YoastSEO_Vendor\Symfony\Component\DependencyInjection\Container;
+use YoastSEO_Vendor\Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
+use YoastSEO_Vendor\Symfony\Component\DependencyInjection\Exception\LogicException;
+use YoastSEO_Vendor\Symfony\Component\DependencyInjection\Exception\RuntimeException;
+use YoastSEO_Vendor\Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;
 
 /**
  * This class has been auto-generated
@@ -507,11 +507,11 @@ class Cached_Container extends Container
             'wpdb' => 'getWpdbService',
         ];
         $this->privates = [
-            'Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
+            'YoastSEO_Vendor\\YoastSEO_Vendor\\Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
             'wpdb' => true,
         ];
         $this->aliases = [
-            'Symfony\\Component\\DependencyInjection\\ContainerInterface' => 'service_container',
+            'YoastSEO_Vendor\\YoastSEO_Vendor\\Symfony\\Component\\DependencyInjection\\ContainerInterface' => 'service_container',
         ];
     }
 
@@ -519,8 +519,8 @@ class Cached_Container extends Container
     {
         return [
             'Psr\\Container\\ContainerInterface' => true,
-            'Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
-            'Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
+            'YoastSEO_Vendor\\Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
+            'YoastSEO_Vendor\\YoastSEO_Vendor\\Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
             'Yoast\\WP\\SEO\\Commands\\Command_Interface' => true,
             'wpdb' => true,
         ];

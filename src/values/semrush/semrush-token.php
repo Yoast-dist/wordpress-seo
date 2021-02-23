@@ -3,7 +3,7 @@
 namespace Yoast\WP\SEO\Values\SEMrush;
 
 use Yoast\WP\SEO\Exceptions\SEMrush\Tokens\Empty_Property_Exception;
-use League\OAuth2\Client\Token\AccessTokenInterface;
+use YoastSEO_Vendor\League\OAuth2\Client\Token\AccessTokenInterface;
 
 /**
  * Class SEMrush_Token
