@@ -14,7 +14,7 @@ use Yoast\WP\SEO\Loggers\Logger;
 use Yoast\WP\SEO\Models\Indexable;
 use Yoast\WP\SEO\Repositories\Indexable_Hierarchy_Repository;
 use Yoast\WP\SEO\Repositories\Indexable_Repository;
-use YoastSEO_Vendor\Psr\Log\LogLevel;
+use Psr\Log\LogLevel;
 
 /**
  * WordPress Post watcher.
