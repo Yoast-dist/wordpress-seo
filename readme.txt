@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.6
-Stable tag: 15.9
+Stable tag: 15.9.1-RC1
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -234,13 +234,14 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 == Changelog ==
 
-= 15.9.3 =
+= 15.9.1 =
 Release Date: March 9th, 2021
 
 Other:
 
 * Adds a notification to prompt users to enable auto-updates for Yoast SEO, in case they also have auto-updates for WordPress Core enabled.
 * Ensures compatibility with WordPress Core's `robots` meta tag by hooking into the `wp_robots` filter and using our settings there.
+* Enables/disables auto-updates for Yoast SEO Premium and the Yoast Woocommerce, News, Video, Local and ACF Content Analysis for Yoast SEO plugins when auto-updates for Yoast SEO are enabled/disabled.
 
 = 15.9 =
 Release Date: February 23rd, 2021
