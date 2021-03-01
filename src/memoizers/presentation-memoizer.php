@@ -5,7 +5,7 @@ namespace Yoast\WP\SEO\Memoizers;
 use Yoast\WP\SEO\Context\Meta_Tags_Context;
 use Yoast\WP\SEO\Models\Indexable;
 use Yoast\WP\SEO\Presentations\Indexable_Presentation;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use YoastSEO_Vendor\Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * The presentation memoizer.
