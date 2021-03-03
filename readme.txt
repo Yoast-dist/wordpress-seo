@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.6
-Stable tag: 15.9.1-RC2
+Stable tag: 15.9.1-RC3
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -235,7 +235,11 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 == Changelog ==
 
 = 15.9.1 =
-Release Date: March 9th, 2021
+Release Date: March 4th, 2021
+
+Enhancements:
+
+* Removes `mainEntityOfPage` from our FAQ Schema block output and moves it to `mainEntity` on the `WebPage` output, fixing a Google parse issue with those FAQ blocks.
 
 Other:
 
