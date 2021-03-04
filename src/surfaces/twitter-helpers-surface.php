@@ -3,7 +3,7 @@
 namespace Yoast\WP\SEO\Surfaces;
 
 use Yoast\WP\SEO\Helpers\Twitter;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use YoastSEO_Vendor\Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Class Twitter_Helpers_Surface.
