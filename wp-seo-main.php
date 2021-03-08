@@ -35,8 +35,8 @@ define( 'YOAST_VENDOR_DEFINE_PREFIX', 'YOASTSEO_VENDOR__' );
 define( 'YOAST_VENDOR_PREFIX_DIRECTORY', 'vendor_prefixed' );
 
 define( 'YOAST_SEO_PHP_REQUIRED', '5.6' );
-define( 'YOAST_SEO_WP_TESTED', '5.6' );
-define( 'YOAST_SEO_WP_REQUIRED', '5.4' );
+define( 'YOAST_SEO_WP_TESTED', '5.7' );
+define( 'YOAST_SEO_WP_REQUIRED', '5.6' );
 
 if ( ! defined( 'WPSEO_NAMESPACES' ) ) {
 	define( 'WPSEO_NAMESPACES', true );
@@ -256,7 +256,7 @@ function wpseo_on_activate_blog( $blog_id ) {
 		$blog_id = (int) $blog_id->blog_id;
 	}
 
-	if ( is_plugin_active_for_network( plugin_basename( WPSEO_FILE ) ) ) {
+	if ( is_plugin_active_for_network( WPSEO_BASENAME ) ) {
 		switch_to_blog( $blog_id );
 		wpseo_activate( false );
 		restore_current_blog();
@@ -582,7 +582,7 @@ function yoast_wpseo_self_deactivate() {
 
 	if ( $is_deactivated === null ) {
 		$is_deactivated = true;
-		deactivate_plugins( plugin_basename( WPSEO_FILE ) );
+		deactivate_plugins( WPSEO_BASENAME );
 		if ( isset( $_GET['activate'] ) ) {
 			unset( $_GET['activate'] );
 		}
