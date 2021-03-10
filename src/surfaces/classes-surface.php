@@ -2,7 +2,7 @@
 
 namespace Yoast\WP\SEO\Surfaces;
 
-use YoastSEO_Vendor\Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Class Classes_Surface.

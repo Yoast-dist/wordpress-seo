@@ -3,7 +3,7 @@
 namespace Yoast\WP\SEO\Surfaces;
 
 use Yoast\WP\SEO\Helpers\Open_Graph;
-use YoastSEO_Vendor\Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Class Open_Graph_Helpers_Surface.

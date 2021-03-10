@@ -11,7 +11,7 @@ use Yoast\WP\SEO\Presenters\Debug\Marker_Close_Presenter;
 use Yoast\WP\SEO\Presenters\Debug\Marker_Open_Presenter;
 use Yoast\WP\SEO\Presenters\Title_Presenter;
 use Yoast\WP\SEO\Surfaces\Helpers_Surface;
-use YoastSEO_Vendor\Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Class Front_End_Integration.
