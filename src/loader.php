@@ -3,7 +3,7 @@
 namespace Yoast\WP\SEO;
 
 use WP_CLI;
-use YoastSEO_Vendor\Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Class that manages loading integrations if and only if all their conditionals are met.
