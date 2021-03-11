@@ -262,6 +262,12 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\surfaces\\open_graph_helpers_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Open_Graph_Helpers_Surface',
             'yoast\\wp\\seo\\surfaces\\schema_helpers_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Schema_Helpers_Surface',
             'yoast\\wp\\seo\\surfaces\\twitter_helpers_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Twitter_Helpers_Surface',
+            'yoast\\wp\\seo\\validators\\search_engine_verify\\baidu_verify_validator' => 'Yoast\\WP\\SEO\\Validators\\Search_Engine_Verify\\Baidu_Verify_Validator',
+            'yoast\\wp\\seo\\validators\\search_engine_verify\\bing_verify_validator' => 'Yoast\\WP\\SEO\\Validators\\Search_Engine_Verify\\Bing_Verify_Validator',
+            'yoast\\wp\\seo\\validators\\search_engine_verify\\google_verify_validator' => 'Yoast\\WP\\SEO\\Validators\\Search_Engine_Verify\\Google_Verify_Validator',
+            'yoast\\wp\\seo\\validators\\search_engine_verify\\pinterest_verify_validator' => 'Yoast\\WP\\SEO\\Validators\\Search_Engine_Verify\\Pinterest_Verify_Validator',
+            'yoast\\wp\\seo\\validators\\search_engine_verify\\yandex_verify_validator' => 'Yoast\\WP\\SEO\\Validators\\Search_Engine_Verify\\Yandex_Verify_Validator',
+            'yoast\\wp\\seo\\validators\\url_validator' => 'Yoast\\WP\\SEO\\Validators\\Url_Validator',
             'yoast\\wp\\seo\\values\\images' => 'Yoast\\WP\\SEO\\Values\\Images',
             'yoast\\wp\\seo\\values\\open_graph\\images' => 'Yoast\\WP\\SEO\\Values\\Open_Graph\\Images',
             'yoast\\wp\\seo\\wrappers\\wp_query_wrapper' => 'Yoast\\WP\\SEO\\Wrappers\\WP_Query_Wrapper',
@@ -508,6 +514,12 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Surfaces\\Open_Graph_Helpers_Surface' => 'getOpenGraphHelpersSurfaceService',
             'Yoast\\WP\\SEO\\Surfaces\\Schema_Helpers_Surface' => 'getSchemaHelpersSurfaceService',
             'Yoast\\WP\\SEO\\Surfaces\\Twitter_Helpers_Surface' => 'getTwitterHelpersSurfaceService',
+            'Yoast\\WP\\SEO\\Validators\\Search_Engine_Verify\\Baidu_Verify_Validator' => 'getBaiduVerifyValidatorService',
+            'Yoast\\WP\\SEO\\Validators\\Search_Engine_Verify\\Bing_Verify_Validator' => 'getBingVerifyValidatorService',
+            'Yoast\\WP\\SEO\\Validators\\Search_Engine_Verify\\Google_Verify_Validator' => 'getGoogleVerifyValidatorService',
+            'Yoast\\WP\\SEO\\Validators\\Search_Engine_Verify\\Pinterest_Verify_Validator' => 'getPinterestVerifyValidatorService',
+            'Yoast\\WP\\SEO\\Validators\\Search_Engine_Verify\\Yandex_Verify_Validator' => 'getYandexVerifyValidatorService',
+            'Yoast\\WP\\SEO\\Validators\\Url_Validator' => 'getUrlValidatorService',
             'Yoast\\WP\\SEO\\Values\\Images' => 'getImagesService',
             'Yoast\\WP\\SEO\\Values\\Open_Graph\\Images' => 'getImages2Service',
             'Yoast\\WP\\SEO\\Wrappers\\WP_Query_Wrapper' => 'getWPQueryWrapperService',
@@ -3281,6 +3293,66 @@ class Cached_Container extends Container
     protected function getTwitterHelpersSurfaceService()
     {
         return $this->services['Yoast\\WP\\SEO\\Surfaces\\Twitter_Helpers_Surface'] = new \Yoast\WP\SEO\Surfaces\Twitter_Helpers_Surface($this);
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Validators\Search_Engine_Verify\Baidu_Verify_Validator' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Validators\Search_Engine_Verify\Baidu_Verify_Validator
+     */
+    protected function getBaiduVerifyValidatorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Validators\\Search_Engine_Verify\\Baidu_Verify_Validator'] = new \Yoast\WP\SEO\Validators\Search_Engine_Verify\Baidu_Verify_Validator();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Validators\Search_Engine_Verify\Bing_Verify_Validator' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Validators\Search_Engine_Verify\Bing_Verify_Validator
+     */
+    protected function getBingVerifyValidatorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Validators\\Search_Engine_Verify\\Bing_Verify_Validator'] = new \Yoast\WP\SEO\Validators\Search_Engine_Verify\Bing_Verify_Validator();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Validators\Search_Engine_Verify\Google_Verify_Validator' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Validators\Search_Engine_Verify\Google_Verify_Validator
+     */
+    protected function getGoogleVerifyValidatorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Validators\\Search_Engine_Verify\\Google_Verify_Validator'] = new \Yoast\WP\SEO\Validators\Search_Engine_Verify\Google_Verify_Validator();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Validators\Search_Engine_Verify\Pinterest_Verify_Validator' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Validators\Search_Engine_Verify\Pinterest_Verify_Validator
+     */
+    protected function getPinterestVerifyValidatorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Validators\\Search_Engine_Verify\\Pinterest_Verify_Validator'] = new \Yoast\WP\SEO\Validators\Search_Engine_Verify\Pinterest_Verify_Validator();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Validators\Search_Engine_Verify\Yandex_Verify_Validator' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Validators\Search_Engine_Verify\Yandex_Verify_Validator
+     */
+    protected function getYandexVerifyValidatorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Validators\\Search_Engine_Verify\\Yandex_Verify_Validator'] = new \Yoast\WP\SEO\Validators\Search_Engine_Verify\Yandex_Verify_Validator();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Validators\Url_Validator' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Validators\Url_Validator
+     */
+    protected function getUrlValidatorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Validators\\Url_Validator'] = new \Yoast\WP\SEO\Validators\Url_Validator();
     }
 
     /**
