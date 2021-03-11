@@ -250,6 +250,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\repositories\\primary_term_repository' => 'Yoast\\WP\\SEO\\Repositories\\Primary_Term_Repository',
             'yoast\\wp\\seo\\repositories\\seo_links_repository' => 'Yoast\\WP\\SEO\\Repositories\\SEO_Links_Repository',
             'yoast\\wp\\seo\\repositories\\seo_meta_repository' => 'Yoast\\WP\\SEO\\Repositories\\SEO_Meta_Repository',
+            'yoast\\wp\\seo\\repositories\\settings_repository' => 'Yoast\\WP\\SEO\\Repositories\\Settings_Repository',
             'yoast\\wp\\seo\\routes\\alert_dismissal_route' => 'Yoast\\WP\\SEO\\Routes\\Alert_Dismissal_Route',
             'yoast\\wp\\seo\\routes\\indexables_head_route' => 'Yoast\\WP\\SEO\\Routes\\Indexables_Head_Route',
             'yoast\\wp\\seo\\routes\\indexing_route' => 'Yoast\\WP\\SEO\\Routes\\Indexing_Route',
@@ -495,6 +496,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Repositories\\Primary_Term_Repository' => 'getPrimaryTermRepositoryService',
             'Yoast\\WP\\SEO\\Repositories\\SEO_Links_Repository' => 'getSEOLinksRepositoryService',
             'Yoast\\WP\\SEO\\Repositories\\SEO_Meta_Repository' => 'getSEOMetaRepositoryService',
+            'Yoast\\WP\\SEO\\Repositories\\Settings_Repository' => 'getSettingsRepositoryService',
             'Yoast\\WP\\SEO\\Routes\\Alert_Dismissal_Route' => 'getAlertDismissalRouteService',
             'Yoast\\WP\\SEO\\Routes\\Indexables_Head_Route' => 'getIndexablesHeadRouteService',
             'Yoast\\WP\\SEO\\Routes\\Indexing_Route' => 'getIndexingRouteService',
@@ -3159,6 +3161,16 @@ class Cached_Container extends Container
     protected function getSEOMetaRepositoryService()
     {
         return $this->services['Yoast\\WP\\SEO\\Repositories\\SEO_Meta_Repository'] = new \Yoast\WP\SEO\Repositories\SEO_Meta_Repository();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Repositories\Settings_Repository' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Repositories\Settings_Repository
+     */
+    protected function getSettingsRepositoryService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Repositories\\Settings_Repository'] = new \Yoast\WP\SEO\Repositories\Settings_Repository();
     }
 
     /**
