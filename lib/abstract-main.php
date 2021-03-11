@@ -5,7 +5,7 @@ namespace Yoast\WP\Lib;
 use Exception;
 use Yoast\WP\Lib\Dependency_Injection\Container_Registry;
 use Yoast\WP\SEO\Loader;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use YoastSEO_Vendor\Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Abstract class to extend for the main class in a plugin.

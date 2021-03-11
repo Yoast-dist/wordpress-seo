@@ -9,9 +9,9 @@ use Yoast\WP\SEO\Exceptions\SEMrush\Tokens\Failed_Storage_Exception;
 use Yoast\WP\SEO\Helpers\Options_Helper;
 use Yoast\WP\SEO\Values\SEMrush\SEMrush_Token;
 use Yoast\WP\SEO\Wrappers\WP_Remote_Handler;
-use GuzzleHttp\Client;
-use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
-use League\OAuth2\Client\Provider\GenericProvider;
+use YoastSEO_Vendor\GuzzleHttp\Client;
+use YoastSEO_Vendor\League\OAuth2\Client\Provider\Exception\IdentityProviderException;
+use YoastSEO_Vendor\League\OAuth2\Client\Provider\GenericProvider;
 
 /**
  * Class SEMrush_Client
