@@ -136,6 +136,15 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/PostPublish.js:17
 	__( 'Share your post!', 'wordpress-seo' ),
 
+	// Reference: js/src/components/PostPublish.js:23
+	__( 'Facebook', 'wordpress-seo' ),
+
+	// Reference: js/src/components/PostPublish.js:30
+	__( 'Twitter', 'wordpress-seo' ),
+
+	// Reference: js/src/components/PostPublish.js:31
+	__( '(Opens in a new browser tab)', 'wordpress-seo' ),
+
 	// Reference: js/src/components/PrePublish.js:21
 	__( 'We\'ve analyzed your post. Everything looks good. Well done!', 'wordpress-seo' ),
 
