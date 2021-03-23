@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.7
-Stable tag: 16.1-RC2
+Stable tag: 16.1-RC3
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -254,6 +254,7 @@ Bugfixes:
 * Fixes a bug where a warning was shown on the Features settings page when running the plugin on PHP 8.0.
 * Fixes a bug where a warning was shown on the Integrations settings page when running the plugin on PHP 8.0.
 * Fixes a bug where, on a multisite installation, enabling/disabling auto-updates for Yoast SEO would not automatically enable/disable auto-updates for Yoast SEO Premium and the other Yoast add-ons.
+Fixes a bug where the breadcrumbs aren't updated properly when editing a post via the quick edit.
 
 = 16.0.2 =
 Release Date: March 18th, 2021
