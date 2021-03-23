@@ -234,6 +234,13 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 == Changelog ==
 
+= 16.0.3 =
+Release Date: March 23rd, 2021
+
+Bugfixes:
+
+* Fixes a bug where rewrite rules could be set as if the strip category base feature was enabled during plugin activation.
+
 = 16.0.2 =
 Release Date: March 18th, 2021
 
