@@ -71,8 +71,6 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 		'alternate_website_name'        => '',
 		'company_logo'                  => '',
 		'company_logo_id'               => 0,
-		'company_logo_meta'             => false,
-		'person_logo_meta'              => false,
 		'company_name'                  => '',
 		'company_or_person'             => 'company',
 		'company_or_person_user_id'     => false,
@@ -335,14 +333,6 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 			$switch_key = $this->get_switch_key( $key );
 
 			switch ( $switch_key ) {
-				// Only ever set programmatically, so no reason for intense validation.
-				case 'company_logo_meta':
-				case 'person_logo_meta':
-					if ( isset( $dirty[ $key ] ) ) {
-						$clean[ $key ] = $dirty[ $key ];
-					}
-					break;
-
 				/* Breadcrumbs text fields. */
 				case 'breadcrumbs-404crumb':
 				case 'breadcrumbs-archiveprefix':
@@ -361,7 +351,7 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 
 				/*
 				 * Covers:
-				 *  'title-home-wpseo', 'title-author-wpseo', 'title-archive-wpseo', // phpcs:ignore Squiz.PHP.CommentedOutCode.Found -- This isn't commented out code.
+				 *  'title-home-wpseo', 'title-author-wpseo', 'title-archive-wpseo',
 				 *  'title-search-wpseo', 'title-404-wpseo'
 				 *  'title-' . $pt->name
 				 *  'title-ptarchive-' . $pt->name
@@ -389,9 +379,6 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 
 				case 'company_logo':
 				case 'person_logo':
-					// When a logo changes, we need to ditch the caches we have for it.
-					unset( $clean[ $switch_key . '_id' ] );
-					unset( $clean[ $switch_key . '_meta' ] );
 					$this->validate_url( $key, $dirty, $old, $clean );
 					break;
 
@@ -414,7 +401,7 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 					break;
 
 				/*
-				 * Covers: 'rssbefore', 'rssafter' // phpcs:ignore Squiz.PHP.CommentedOutCode.Found -- This isn't commented out code.
+				 * Covers: 'rssbefore', 'rssafter'
 				 */
 				case 'rssbefore':
 				case 'rssafter':

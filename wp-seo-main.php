@@ -15,7 +15,7 @@ if ( ! function_exists( 'add_filter' ) ) {
  * {@internal Nobody should be able to overrule the real version number as this can cause
  *            serious issues with the options, so no if ( ! defined() ).}}
  */
-define( 'WPSEO_VERSION', '16.1-RC3' );
+define( 'WPSEO_VERSION', '16.0.2' );
 
 
 if ( ! defined( 'WPSEO_PATH' ) ) {
@@ -256,7 +256,7 @@ function wpseo_on_activate_blog( $blog_id ) {
 		$blog_id = (int) $blog_id->blog_id;
 	}
 
-	if ( is_plugin_active_for_network( WPSEO_BASENAME ) ) {
+	if ( is_plugin_active_for_network( plugin_basename( WPSEO_FILE ) ) ) {
 		switch_to_blog( $blog_id );
 		wpseo_activate( false );
 		restore_current_blog();
@@ -582,7 +582,7 @@ function yoast_wpseo_self_deactivate() {
 
 	if ( $is_deactivated === null ) {
 		$is_deactivated = true;
-		deactivate_plugins( WPSEO_BASENAME );
+		deactivate_plugins( plugin_basename( WPSEO_FILE ) );
 		if ( isset( $_GET['activate'] ) ) {
 			unset( $_GET['activate'] );
 		}
