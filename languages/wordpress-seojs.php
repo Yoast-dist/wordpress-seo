@@ -136,6 +136,15 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/PostPublish.js:17
 	__( 'Share your post!', 'wordpress-seo' ),
 
+	// Reference: js/src/components/PostPublish.js:23
+	__( 'Facebook', 'wordpress-seo' ),
+
+	// Reference: js/src/components/PostPublish.js:30
+	__( 'Twitter', 'wordpress-seo' ),
+
+	// Reference: js/src/components/PostPublish.js:31
+	__( '(Opens in a new browser tab)', 'wordpress-seo' ),
+
 	// Reference: js/src/components/PrePublish.js:21
 	__( 'We\'ve analyzed your post. Everything looks good. Well done!', 'wordpress-seo' ),
 
@@ -210,7 +219,7 @@ $generated_i18n_strings = array(
 	// Reference: js/src/containers/SchemaTab.js:54
 	__( 'Page type', 'wordpress-seo' ),
 
-	// Reference: js/src/components/SettingsReplacementVariableEditor.js:39
+	// Reference: js/src/components/SettingsReplacementVariableEditor.js:36
 	__( 'Modify your meta description by editing it right here', 'wordpress-seo' ),
 
 	// Reference: js/src/components/WordPressUserSelector.js:113
