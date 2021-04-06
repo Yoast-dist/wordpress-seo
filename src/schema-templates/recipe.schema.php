@@ -7,7 +7,7 @@
 		"@id": "%%main_schema_id%%"
 	},
 	"image": {{inner-blocks-id allowed-blocks=[ "core/image" ] only-first=true null-when-empty=true }},
-	"name": {{inner-blocks-html blocks={ "yoast/recipe-name": "name" } null-when-empty=true allowed-tags=[ "h1","h2","h3","h4","h5","h6","br","a","p","b","strong","i","em", "ul", "ol", "li" ] }},
+	"name": {{html name="title"}},
 	"author": {
 		"@id": "%%author_id%%"
 	},

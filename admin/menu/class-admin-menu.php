@@ -44,7 +44,6 @@ class WPSEO_Admin_Menu extends WPSEO_Base_Menu {
 			);
 
 			// Wipe notification bits from hooks.
-			// phpcs:ignore WordPress.WP.GlobalVariablesOverride -- This is a deliberate action.
 			$admin_page_hooks[ $this->get_page_identifier() ] = 'seo';
 		}
 
