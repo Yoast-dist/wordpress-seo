@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.7
-Stable tag: 16.1-RC6
+Stable tag: 16.1
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -237,15 +237,17 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 = 16.1 =
 Release Date: April 6th, 2021
 
+Yoast SEO 16.1 is out today! It features several enhancements and fixes that make the plugin chug along nicely. Happy updating! Read more about what’s new in Yoast SEO 16.1 in [our release post](https://yoa.st/release-16-1)!
+
 Enhancements:
 
-* Optimizes the queries used for fetching unindexed objects.
+* Improves the performance of the SEO data indexing process by optimizing the queries used for fetching unindexed objects.
 * Adds your OpenGraph or Twitter image as the main image in Schema when they're set.
-* Adds `contentUrl` to the schema image output to more precisely say what the URL _is_.
+* Adds `contentUrl` to the schema image output.
 * Improves the performance of the post indexing. Props to [Ovidiu Liuta](https://github.com/ovidiul).
 * Improves the URL in the Google preview when in the desktop mode.
-* Performance optimization for loading the person & organization logo in Schema.
-* Optimizes several calls to WP path and basename functions by using already defined and calculated constants.
+* Improves the performance of loading the person & organization logo in Schema.
+* Improves the performance by optimizing several calls to WP path and basename functions by using already defined and calculated constants.
 * Removes the keyphrase highlighting in the mobile meta description to reflect new Google behavior.
 
 Bugfixes:
