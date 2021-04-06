@@ -24,13 +24,12 @@ class Addon_Update_Watcher implements Integration_Interface {
 	 *
 	 * @var string[]
 	 */
-	const ADD_ON_PLUGIN_FILES = [
+	const ADD_ONS = [
 		'wordpress-seo-premium/wp-seo-premium.php',
 		'wpseo-video/video-seo.php',
-		'wpseo-local/local-seo.php', // When installing Local through a released zip, the path is different from the path on a dev environment.
+		'wpseo-local/local-seo.php',
 		'wpseo-woocommerce/wpseo-woocommerce.php',
 		'wpseo-news/wpseo-news.php',
-		'acf-content-analysis-for-yoast-seo/yoast-acf-analysis.php', // When installing ACF for Yoast through a released zip, the path is different from the path on a dev environment.
 	];
 
 	/**
@@ -73,7 +72,7 @@ class Addon_Update_Watcher implements Integration_Interface {
 			return $old_html;
 		}
 
-		$not_a_yoast_addon = ! \in_array( $plugin, self::ADD_ON_PLUGIN_FILES, true );
+		$not_a_yoast_addon = ! \in_array( $plugin, self::ADD_ONS, true );
 
 		if ( $not_a_yoast_addon ) {
 			return $old_html;
@@ -145,7 +144,7 @@ class Addon_Update_Watcher implements Integration_Interface {
 	 * @param string[] $auto_updated_plugins The current list of auto-updated plugins.
 	 */
 	protected function enable_auto_updates_for_addons( $auto_updated_plugins ) {
-		$plugins = \array_merge( $auto_updated_plugins, self::ADD_ON_PLUGIN_FILES );
+		$plugins = \array_merge( $auto_updated_plugins, self::ADD_ONS );
 		\update_site_option( 'auto_update_plugins', $plugins );
 	}
 
@@ -155,7 +154,7 @@ class Addon_Update_Watcher implements Integration_Interface {
 	 * @param string[] $auto_updated_plugins The current list of auto-updated plugins.
 	 */
 	protected function disable_auto_updates_for_addons( $auto_updated_plugins ) {
-		$plugins = \array_values( \array_diff( $auto_updated_plugins, self::ADD_ON_PLUGIN_FILES ) );
+		$plugins = \array_values( \array_diff( $auto_updated_plugins, self::ADD_ONS ) );
 		\update_site_option( 'auto_update_plugins', $plugins );
 	}
 
