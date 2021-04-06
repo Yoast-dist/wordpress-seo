@@ -2475,6 +2475,8 @@ class Cached_Container extends Container
         $instance->register_template('src/schema-templates/image.schema.php');
         $instance->register_template('src/schema-templates/ingredients.block.php');
         $instance->register_template('src/schema-templates/ingredients.schema.php');
+        $instance->register_template('src/schema-templates/recipe-name.block.php');
+        $instance->register_template('src/schema-templates/recipe-name.schema.php');
         $instance->register_template('src/schema-templates/recipe.block.php');
         $instance->register_template('src/schema-templates/recipe.schema.php');
         $instance->register_template('src/schema-templates/step.block.php');
