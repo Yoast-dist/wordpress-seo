@@ -92,6 +92,9 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/components/src/inputs/DurationInput.js:167
 	__( 'seconds', 'wordpress-seo' ),
 
+	// Reference: node_modules/@yoast/components/src/new-badge/NewBadge.js:14
+	__( 'New', 'wordpress-seo' ),
+
 	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestion.js:65
 	__( 'Copy link', 'wordpress-seo' ),
 
