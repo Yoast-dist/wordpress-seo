@@ -7,11 +7,11 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/schema-blocks/dist/blocks/warning-block/edit.js:41
 	__( 'No, please undo this', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/schema-blocks/dist/core/validation/BlockValidationResult.js:53
+	// Reference: node_modules/@yoast/schema-blocks/dist/core/validation/BlockValidationResult.js:60
 	/* translators: %1$s expands to the block name. */
 	__( 'The `%1$s` block is required but missing.', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/schema-blocks/dist/core/validation/BlockValidationResult.js:65
+	// Reference: node_modules/@yoast/schema-blocks/dist/core/validation/BlockValidationResult.js:72
 	/* translators: %1$s expands to the block name. */
 	__( 'The `%1$s` block is recommended but missing.', 'wordpress-seo' ),
 
