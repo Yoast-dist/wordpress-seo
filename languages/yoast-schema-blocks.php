@@ -32,11 +32,11 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/schema-blocks/dist/functions/presenters/InnerBlocksSidebar.js:70
 	__( 'Analysis', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/schema-blocks/dist/functions/presenters/SidebarWarningPresenter.js:49
+	// Reference: node_modules/@yoast/schema-blocks/dist/functions/presenters/SidebarWarningPresenter.js:37
 	/* translators: %s expands to the schema block name. */
 	__( 'Not all required blocks have been completed! No %s schema will be generated for your page.', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/schema-blocks/dist/functions/presenters/SidebarWarningPresenter.js:52
+	// Reference: node_modules/@yoast/schema-blocks/dist/functions/presenters/SidebarWarningPresenter.js:40
 	__( 'Good job! All required blocks have been completed.', 'wordpress-seo' ),
 
 	// Reference: node_modules/@yoast/schema-blocks/dist/instructions/blocks/Date.js:47
