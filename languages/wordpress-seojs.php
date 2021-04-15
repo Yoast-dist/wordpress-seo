@@ -556,6 +556,18 @@ $generated_i18n_strings = array(
 	/* translators: %1$s translates to the Post Label in singular form */
 	__( 'Unfortunately we cannot save changes to your SEO settings while you are working on a draft of an already-published %1$s. If you want to save your SEO changes, make sure to click \'Update\', or wait to make your SEO changes until you are ready to update the %1$s.', 'wordpress-seo' ),
 
+	// Reference: js/src/initializers/search-appearance.js:65
+	__( 'Organization logo', 'wordpress-seo' ),
+
+	// Reference: js/src/initializers/search-appearance.js:75
+	__( 'Person logo / avatar', 'wordpress-seo' ),
+
+	// Reference: js/src/initializers/search-appearance.js:88
+	__( 'Social default image', 'wordpress-seo' ),
+
+	// Reference: js/src/initializers/social-settings.js:16
+	__( 'Image', 'wordpress-seo' ),
+
 	// Reference: js/src/inline-links/edit-link.js:106
 	__( 'Link removed.', 'wordpress-seo' ),
 
