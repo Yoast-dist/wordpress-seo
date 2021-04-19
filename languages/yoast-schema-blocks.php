@@ -15,11 +15,11 @@ $generated_i18n_strings = array(
 	/* translators: %1$s expands to the block name. */
 	__( 'The `%1$s` block is recommended but missing.', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/schema-blocks/dist/functions/gutenberg/watchers/warningWatcher.js:48
+	// Reference: node_modules/@yoast/schema-blocks/dist/functions/gutenberg/watchers/warningWatcher.js:49
 	/* translators: %1$s: the block name that is removed, %2$s: the anchor to a page about required blocks, %3$s the closing anchor tag. */
 	__( 'You\'ve just removed the ‘%1$s’ block, but this is a %2$srequired block for Schema output%3$s. Without this block no Schema will be generated. Are you sure you want to do this?', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/schema-blocks/dist/functions/gutenberg/watchers/warningWatcher.js:53
+	// Reference: node_modules/@yoast/schema-blocks/dist/functions/gutenberg/watchers/warningWatcher.js:54
 	/* translators: %1$s: the block name that is removed, %2$s: the anchor to a page about recommended blocks, %3$s the closing anchor tag. */
 	__( 'You\'ve just removed the ‘%1$s’ block, but this is a %2$srecommended block for Schema output%3$s. Are you sure you want to do this?', 'wordpress-seo' ),
 
