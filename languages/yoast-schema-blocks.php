@@ -23,13 +23,16 @@ $generated_i18n_strings = array(
 	/* translators: %1$s: the block name that is removed, %2$s: the anchor to a page about recommended blocks, %3$s the closing anchor tag. */
 	__( 'You\'ve just removed the ‘%1$s’ block, but this is a %2$srecommended block for Schema output%3$s. Are you sure you want to do this?', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/schema-blocks/dist/functions/presenters/InnerBlocksSidebar.js:57
+	// Reference: node_modules/@yoast/schema-blocks/dist/functions/presenters/InnerBlocksSidebar.js:58
 	__( 'Required Blocks', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/schema-blocks/dist/functions/presenters/InnerBlocksSidebar.js:58
+	// Reference: node_modules/@yoast/schema-blocks/dist/functions/presenters/InnerBlocksSidebar.js:59
 	__( 'Recommended Blocks', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/schema-blocks/dist/functions/presenters/InnerBlocksSidebar.js:70
+	// Reference: node_modules/@yoast/schema-blocks/dist/functions/presenters/InnerBlocksSidebar.js:73
+	__( 'Blocks for Schema output', 'wordpress-seo' ),
+
+	// Reference: node_modules/@yoast/schema-blocks/dist/functions/presenters/InnerBlocksSidebar.js:86
 	__( 'Analysis', 'wordpress-seo' ),
 
 	// Reference: node_modules/@yoast/schema-blocks/dist/functions/presenters/SidebarWarningPresenter.js:37
