@@ -374,7 +374,7 @@ $generated_i18n_strings = array(
 	__( 'Keyphrase volume in the last 12 months on a scale from 0 to 100.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:173
-	/* translators: %s expands to SEMrush */
+	/* translators: %s expands to Semrush */
 	__( 'Get more insights at %s', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/SEMrushKeyphrasesTable.js:55
@@ -414,15 +414,15 @@ $generated_i18n_strings = array(
 	__( 'Last month', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/SEMrushLimitReached.js:22
-	/* translators: %s : Expands to "SEMrush". */
+	/* translators: %s : Expands to "Semrush". */
 	__( 'You\'ve reached your request limit for today. Check back tomorrow or upgrade your plan over at %s.', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/SEMrushLimitReached.js:34
-	/* translators: %s : Expands to "SEMrush". */
+	/* translators: %s : Expands to "Semrush". */
 	__( 'Upgrade your %s plan', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/SEMrushLoading.js:18
-	/* translators: %1$s expands to "Yoast SEO", %2$s expands to "SEMrush". */
+	/* translators: %1$s expands to "Yoast SEO", %2$s expands to "Semrush". */
 	__( 'Please wait while %1$s connects to %2$s to get related keyphrases...', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/SEMrushMaxRelatedKeyphrases.js:18
