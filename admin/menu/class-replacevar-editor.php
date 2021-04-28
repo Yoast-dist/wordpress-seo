@@ -29,7 +29,6 @@ class WPSEO_Replacevar_Editor {
 	 *      @type string $label_title             Optional. The label to use for the title field.
 	 *      @type string $label_description       Optional. The label to use for the description field.
 	 *      @type string $description_placeholder Optional. The placeholder text to use for the description field.
-	 *      @type bool   $has_new_badge           Optional. Whether to show the "New" badge.
 	 * }
 	 */
 	private $arguments;
@@ -49,7 +48,6 @@ class WPSEO_Replacevar_Editor {
 	 *      @type string $label_title             Optional. The label to use for the title field.
 	 *      @type string $label_description       Optional. The label to use for the description field.
 	 *      @type string $description_placeholder Optional. The placeholder text to use for the description field.
-	 *      @type bool   $has_new_badge           Optional. Whether to show the "New" badge.
 	 * }
 	 */
 	public function __construct( Yoast_Form $yform, $arguments ) {
@@ -75,7 +73,6 @@ class WPSEO_Replacevar_Editor {
 			'label_title'             => (string) $arguments['label_title'],
 			'label_description'       => (string) $arguments['label_description'],
 			'description_placeholder' => (string) $arguments['description_placeholder'],
-			'has_new_badge'           => (bool) $arguments['has_new_badge'],
 		];
 	}
 
@@ -100,8 +97,7 @@ class WPSEO_Replacevar_Editor {
 				data-react-replacevar-paper-style="%5$s"
 				data-react-replacevar-label-title="%6$s"
 				data-react-replacevar-label-description="%7$s"
-				data-react-replacevar-description-placeholder="%8$s"
-				data-react-replacevar-has-new-badge="%9$s"></div>',
+				data-react-replacevar-description-placeholder="%8$s"></div>',
 			esc_attr( $this->arguments['title'] ),
 			esc_attr( $this->arguments['description'] ),
 			esc_attr( $this->arguments['page_type_recommended'] ),
@@ -109,8 +105,7 @@ class WPSEO_Replacevar_Editor {
 			esc_attr( $this->arguments['paper_style'] ),
 			esc_attr( $this->arguments['label_title'] ),
 			esc_attr( $this->arguments['label_description'] ),
-			esc_attr( $this->arguments['description_placeholder'] ),
-			esc_attr( $this->arguments['has_new_badge'] )
+			esc_attr( $this->arguments['description_placeholder'] )
 		);
 	}
 

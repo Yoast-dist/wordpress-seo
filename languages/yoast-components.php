@@ -92,9 +92,6 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/components/inputs/DurationInput.js:167
 	__( 'seconds', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/components/new-badge/NewBadge.js:14
-	__( 'New', 'wordpress-seo' ),
-
 	// Reference: node_modules/yoast-components/composites/LinkSuggestions/LinkSuggestion.js:65
 	__( 'Copy link', 'wordpress-seo' ),
 
@@ -183,7 +180,7 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/search-metadata-previews/snippet-editor/SnippetEditor.js:279
 	__( 'Close snippet editor', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-editor/SnippetEditor.js:570
+	// Reference: node_modules/@yoast/search-metadata-previews/snippet-editor/SnippetEditor.js:568
 	__( 'Edit snippet', 'wordpress-seo' ),
 
 	// Reference: node_modules/@yoast/search-metadata-previews/snippet-editor/SnippetEditorFields.js:182
@@ -198,37 +195,17 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/FixedWidthContainer.js:133
 	__( 'Scroll to see the preview content.', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/ProductDataDesktop.js:23
-	/* translators: %s expands to the actual rating, e.g. 8/10. */
-	__( 'Rating: %s', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/ProductDataDesktop.js:26
-	/* translators: %s expands to the review count. */
-	__( '%s reviews', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/ProductDataMobile.js:41
-	__( 'Rating', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/ProductDataMobile.js:51
-	__( 'Price', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/ProductDataMobile.js:60
-	__( 'Availability', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:474
+	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:472
 	__( 'Please provide a meta description by editing the snippet below. If you don’t, Google will try to find a relevant part of your post to show in the search results.', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:583
+	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:581
 	__( 'Url preview', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:804
+	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:771
 	__( 'SEO title preview', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:827
-	__( 'Meta description preview:', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:833
-	__( 'Shopping data preview:', 'wordpress-seo' ),
+	// Reference: node_modules/@yoast/search-metadata-previews/snippet-preview/SnippetPreview.js:788
+	__( 'Meta description preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/MailchimpSignup.js:235
 	__( 'Email', 'wordpress-seo' ),
