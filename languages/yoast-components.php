@@ -198,21 +198,21 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/FixedWidthContainer.js:133
 	__( 'Scroll to see the preview content.', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/ProductDataDesktop.js:23
+	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/ProductDataDesktop.js:24
 	/* translators: %s expands to the actual rating, e.g. 8/10. */
 	__( 'Rating: %s', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/ProductDataDesktop.js:26
+	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/ProductDataDesktop.js:27
 	/* translators: %s expands to the review count. */
 	__( '%s reviews', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/ProductDataMobile.js:41
+	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/ProductDataMobile.js:43
 	__( 'Rating', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/ProductDataMobile.js:51
+	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/ProductDataMobile.js:53
 	__( 'Price', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/ProductDataMobile.js:60
+	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/ProductDataMobile.js:62
 	__( 'Availability', 'wordpress-seo' ),
 
 	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/SnippetPreview.js:474
@@ -227,7 +227,7 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/SnippetPreview.js:816
 	__( 'SEO title preview', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/SnippetPreview.js:834
+	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/SnippetPreview.js:833
 	__( 'Meta description preview:', 'wordpress-seo' ),
 
 	// Reference: js/src/components/MailchimpSignup.js:235
