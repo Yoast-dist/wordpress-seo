@@ -221,14 +221,14 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/SnippetPreview.js:583
 	__( 'Url preview', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/SnippetPreview.js:804
+	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/SnippetPreview.js:758
+	__( 'Shopping data preview:', 'wordpress-seo' ),
+
+	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/SnippetPreview.js:816
 	__( 'SEO title preview', 'wordpress-seo' ),
 
-	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/SnippetPreview.js:827
+	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/SnippetPreview.js:834
 	__( 'Meta description preview:', 'wordpress-seo' ),
-
-	// Reference: node_modules/@yoast/search-metadata-previews/src/snippet-preview/SnippetPreview.js:833
-	__( 'Shopping data preview:', 'wordpress-seo' ),
 
 	// Reference: js/src/components/MailchimpSignup.js:235
 	__( 'Email', 'wordpress-seo' ),
