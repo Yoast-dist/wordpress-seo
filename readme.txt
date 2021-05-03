@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.7
-Stable tag: 16.2
+Stable tag: 16.1.1
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -234,6 +234,27 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 == Changelog ==
 
+= 16.3 =
+Release Date: May 18th, 2021
+
+Enhancements:
+
+* Moves the Frontpage open graph title, description and image settings from the Social > Facebook tab, to the Search Appearance > Content Types tab.
+* Improves the UX of the snippet variables in those Frontpage settings input fields by making the UI consistent with variables in other places.
+
+Bugfixes:
+
+* Fixes a bug where we would accidentally include unminified css files in the zip. This led to an unnecessary zip size increase.
+
+Other:
+
+* Adds the `yoast_display_gutenberg_compat_notification` filter to allow disabling the Gutenberg compatibility notification.
+* Adds the `wpseo_schema_person_data` filter to enable the filtering of `Person` Schema by the user's ID.
+* Adds a new `Yoast\WP\SEO\admin_post_types_archive` hook at the end of the archive section of the custom post types in Search Appearance.
+* Deprecates the `wpseo_admin_page_meta_post_types` hook in favor of the new `Yoast\WP\SEO\admin_post_types_beforearchive` hook.
+* Deprecates the `wpseo_admin_page_meta_taxonomies` hook in favor of the new `Yoast\WP\SEO\admin_taxonomies_meta` hook.
+* Replaces all occurrences of 'SEMrush' by 'Semrush' to reflect Semrush's rebranding.
+
 = 16.2 =
 Release Date: April 28th, 2021
 
@@ -257,38 +278,6 @@ Bugfixes:
 Other:
 
 * Adds the `'wpseo_enable_editor_features_' . $post_type` filter to allow users to show the Yoast SEO metabox on non-public post types if these are accessible. Props to [jondcampbell](https://github.com/jondcampbell).
-
-= 16.1.1 =
-Release Date: April 6th, 2021
-
-Bugfixes:
-
-* Fixes a bug where a fatal error would be thrown when creating a new Elementor template or editing an existing one.
-
-= 16.1 =
-Release Date: April 6th, 2021
-
-Yoast SEO 16.1 is out today! It features several enhancements and fixes that make the plugin chug along nicely. Happy updating! Read more about what’s new in Yoast SEO 16.1 in [our release post](https://yoa.st/release-16-1)!
-
-Enhancements:
-
-* Improves the performance of the SEO data indexing process by optimizing the queries used for fetching unindexed objects.
-* Adds your OpenGraph or Twitter image as the main image in Schema when they're set.
-* Adds `contentUrl` to the schema image output.
-* Improves the performance of the post indexing. Props to [Ovidiu Liuta](https://github.com/ovidiul).
-* Improves the URL in the Google preview when in the desktop mode.
-* Improves the performance of loading the person & organization logo in Schema.
-* Improves the performance by optimizing several calls to WP path and basename functions by using already defined and calculated constants.
-* Removes the keyphrase highlighting in the mobile meta description to reflect new Google behavior.
-
-Bugfixes:
-
-* Fixes a bug where the analysis highlight button would be visible in our Elementor integration even though we don't support it.
-* Fixes a bug where a warning was shown on the Features settings page when running the plugin on PHP 8.0.
-* Fixes a bug where a warning was shown on the Integrations settings page when running the plugin on PHP 8.0.
-* Fixes a bug where, on a multisite installation, enabling/disabling auto-updates for Yoast SEO would not automatically enable/disable auto-updates for Yoast SEO Premium and the other Yoast add-ons.
-* Fixes a bug where the breadcrumbs aren't updated properly when editing a post via the quick edit.
-* Fixes a bug where the rewrite rules would not always be flushed on plugin activation.
 
 = Earlier versions =
 For the changelog of earlier versions, please refer to [the changelog on yoast.com](https://yoa.st/yoast-seo-changelog).
