@@ -18,6 +18,7 @@ use WPSEO_Metabox_Analysis_SEO;
 use WPSEO_Metabox_Formatter;
 use WPSEO_Post_Metabox_Formatter;
 use WPSEO_Utils;
+use Yoast\WP\SEO\Actions\Alert_Dismissal_Action;
 use Yoast\WP\SEO\Conditionals\Admin\Estimated_Reading_Time_Conditional;
 use Yoast\WP\SEO\Conditionals\Third_Party\Elementor_Edit_Conditional;
 use Yoast\WP\SEO\Helpers\Capability_Helper;
@@ -29,6 +30,11 @@ use Yoast\WP\SEO\Presenters\Admin\Meta_Fields_Presenter;
  * Integrates the Yoast SEO metabox in the Elementor editor.
  */
 class Elementor implements Integration_Interface {
+
+	/**
+	 * The identifier for the elementor tab.
+	 */
+	const YOAST_TAB = 'yoast-tab';
 
 	/**
 	 * Represents the post.
@@ -47,14 +53,14 @@ class Elementor implements Integration_Interface {
 	/**
 	 * Represents the options helper.
 	 *
-	 * @var \Yoast\WP\SEO\Helpers\Options_Helper
+	 * @var Options_Helper
 	 */
 	protected $options;
 
 	/**
 	 * Represents the capability helper.
 	 *
-	 * @var \Yoast\WP\SEO\Helpers\Capability_Helper
+	 * @var Capability_Helper
 	 */
 	protected $capability;
 
@@ -92,11 +98,6 @@ class Elementor implements Integration_Interface {
 	 * @var Estimated_Reading_Time_Conditional
 	 */
 	protected $estimated_reading_time_conditional;
-
-	/**
-	 * The identifier for the elementor tab.
-	 */
-	const YOAST_TAB = 'yoast-tab';
 
 	/**
 	 * Returns the conditionals based in which this loadable should be active.
@@ -417,7 +418,7 @@ class Elementor implements Integration_Interface {
 			'enabled_features'        => WPSEO_Utils::retrieve_enabled_features(),
 		];
 
-		$alert_dismissal_action = YoastSEO()->classes->get( \Yoast\WP\SEO\Actions\Alert_Dismissal_Action::class );
+		$alert_dismissal_action = YoastSEO()->classes->get( Alert_Dismissal_Action::class );
 		$dismissed_alerts       = $alert_dismissal_action->all_dismissed();
 
 		$script_data = [
