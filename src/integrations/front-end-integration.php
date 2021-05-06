@@ -236,6 +236,8 @@ class Front_End_Integration implements Integration_Interface {
 
 	/**
 	 * Filters the title, mainly used for compatibility reasons.
+	 *
+	 * @return string
 	 */
 	public function filter_title() {
 		$context = $this->context_memoizer->for_current_page();
@@ -258,7 +260,7 @@ class Front_End_Integration implements Integration_Interface {
 	 * @return array The filtered presenters.
 	 */
 	public function filter_robots_presenter( $presenters ) {
-		if ( ! function_exists( 'wp_robots' ) ) {
+		if ( ! \function_exists( 'wp_robots' ) ) {
 			return $presenters;
 		}
 
