@@ -17,7 +17,7 @@ class Yoast_Form {
 	/**
 	 * Instance of this class
 	 *
-	 * @var object
+	 * @var Yoast_Form
 	 * @since 2.0
 	 */
 	public static $instance;
@@ -970,7 +970,7 @@ class Yoast_Form {
 	 *
 	 * @param string $feature_setting The feature setting.
 	 *
-	 * @return boolean True if we are dealing with the Usage tracking feature on a multisite subsite.
+	 * @return bool True if we are dealing with the Usage tracking feature on a multisite subsite.
 	 */
 	protected function is_tracking_on_subsite( $feature_setting ) {
 		return ( $feature_setting === 'tracking' && ! is_network_admin() && ! is_main_site() );
