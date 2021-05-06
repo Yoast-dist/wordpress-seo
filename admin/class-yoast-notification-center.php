@@ -149,8 +149,8 @@ class Yoast_Notification_Center {
 	/**
 	 * Checks if the notification is being dismissed.
 	 *
-	 * @param string|Yoast_Notification $notification Notification to check dismissal of.
-	 * @param string                    $meta_value   Value to set the meta value to if dismissed.
+	 * @param Yoast_Notification $notification Notification to check dismissal of.
+	 * @param string             $meta_value   Value to set the meta value to if dismissed.
 	 *
 	 * @return bool True if dismissed.
 	 */
@@ -326,8 +326,8 @@ class Yoast_Notification_Center {
 	/**
 	 * Get the notification by ID and user ID.
 	 *
-	 * @param string $notification_id The ID of the notification to search for.
-	 * @param int    $user_id         The ID of the user.
+	 * @param string   $notification_id The ID of the notification to search for.
+	 * @param int|null $user_id         The ID of the user.
 	 *
 	 * @return Yoast_Notification|null
 	 */
@@ -735,9 +735,9 @@ class Yoast_Notification_Center {
 	/**
 	 * Filter out non-persistent notifications.
 	 *
-	 * @param Yoast_Notification $notification Notification to test for persistent.
-	 *
 	 * @since 3.2
+	 *
+	 * @param Yoast_Notification $notification Notification to test for persistent.
 	 *
 	 * @return bool
 	 */
@@ -761,9 +761,9 @@ class Yoast_Notification_Center {
 	/**
 	 * Convert Notification to array representation.
 	 *
-	 * @param Yoast_Notification $notification Notification to convert.
-	 *
 	 * @since 3.2
+	 *
+	 * @param Yoast_Notification $notification Notification to convert.
 	 *
 	 * @return array
 	 */

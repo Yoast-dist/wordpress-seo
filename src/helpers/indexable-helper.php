@@ -58,9 +58,9 @@ class Indexable_Helper {
 	/**
 	 * Sets the indexable repository. Done to avoid circular dependencies.
 	 *
-	 * @param Indexable_Repository $repository The indexable repository.
-	 *
 	 * @required
+	 *
+	 * @param Indexable_Repository $repository The indexable repository.
 	 */
 	public function set_indexable_repository( Indexable_Repository $repository ) {
 		$this->repository = $repository;
@@ -111,7 +111,7 @@ class Indexable_Helper {
 	/**
 	 * Resets the permalinks of the indexables.
 	 *
-	 * @param string      $type    The type of the indexable.
+	 * @param string|null $type    The type of the indexable.
 	 * @param string|null $subtype The subtype. Can be null.
 	 * @param string      $reason  The reason that the permalink has been changed.
 	 */

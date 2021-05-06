@@ -285,9 +285,9 @@ class Yoast_Form {
 	 *
 	 * @since 12.8
 	 *
-	 * @param string $variable    The variables within the option to create the checkbox list for.
-	 * @param string $labels      The labels to show for the variable.
-	 * @param array  $attr        Extra attributes to add to the checkbox list.
+	 * @param string $variable The variables within the option to create the checkbox list for.
+	 * @param string $labels   The labels to show for the variable.
+	 * @param array  $attr     Extra attributes to add to the checkbox list.
 	 */
 	public function checkbox_list( $variable, $labels, $attr = [] ) {
 		$defaults = [
@@ -909,8 +909,8 @@ class Yoast_Form {
 	/**
 	 * Retrieves the value for the form field.
 	 *
-	 * @param string $field_name    The field name to retrieve the value for.
-	 * @param string $default_value The default value, when field has no value.
+	 * @param string      $field_name    The field name to retrieve the value for.
+	 * @param string|null $default_value The default value, when field has no value.
 	 *
 	 * @return mixed|null The retrieved value.
 	 */

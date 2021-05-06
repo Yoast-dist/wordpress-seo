@@ -73,6 +73,7 @@ class WPSEO_Taxonomy_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 		$taxonomies     = array_intersect_key( $taxonomies, array_flip( $taxonomy_names ) );
 
 		// Retrieve all the taxonomies and their terms so we can do a proper count on them.
+
 		/**
 		 * Filter the setting of excluding empty terms from the XML sitemap.
 		 *
@@ -172,9 +173,9 @@ class WPSEO_Taxonomy_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	 * @param int    $max_entries  Entries per sitemap.
 	 * @param int    $current_page Current page of the sitemap.
 	 *
-	 * @throws OutOfBoundsException When an invalid page is requested.
-	 *
 	 * @return array
+	 *
+	 * @throws OutOfBoundsException When an invalid page is requested.
 	 */
 	public function get_sitemap_links( $type, $max_entries, $current_page ) {
 		global $wpdb;
