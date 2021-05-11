@@ -198,21 +198,21 @@ $generated_i18n_strings = array(
 	// Reference: packages/search-metadata-previews/src/snippet-preview/FixedWidthContainer.js:133
 	__( 'Scroll to see the preview content.', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/ProductDataDesktop.js:23
+	// Reference: packages/search-metadata-previews/src/snippet-preview/ProductDataDesktop.js:24
 	/* %s expands to the actual rating, e.g. 8/10. */
 	__( 'Rating: %s', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/ProductDataDesktop.js:26
+	// Reference: packages/search-metadata-previews/src/snippet-preview/ProductDataDesktop.js:27
 	/* %s expands to the review count. */
 	__( '%s reviews', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/ProductDataMobile.js:41
+	// Reference: packages/search-metadata-previews/src/snippet-preview/ProductDataMobile.js:43
 	__( 'Rating', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/ProductDataMobile.js:51
+	// Reference: packages/search-metadata-previews/src/snippet-preview/ProductDataMobile.js:53
 	__( 'Price', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/ProductDataMobile.js:60
+	// Reference: packages/search-metadata-previews/src/snippet-preview/ProductDataMobile.js:62
 	__( 'Availability', 'wordpress-seo' ),
 
 	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:474
@@ -221,14 +221,14 @@ $generated_i18n_strings = array(
 	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:583
 	__( 'Url preview', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:804
+	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:758
+	__( 'Shopping data preview:', 'wordpress-seo' ),
+
+	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:816
 	__( 'SEO title preview', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:827
-	__( 'Meta description preview:', 'wordpress-seo' ),
-
 	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:833
-	__( 'Shopping data preview:', 'wordpress-seo' ),
+	__( 'Meta description preview:', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/MailchimpSignup.js:119
 	__( 'MailChimp signup failed:', 'wordpress-seo' ),
