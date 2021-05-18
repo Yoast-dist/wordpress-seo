@@ -21,24 +21,21 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/helpers/addCheckToChecklist.js:107
 	__( 'Good', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/AddonInstallation.js:103
-	__( 'Addon installation', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/components/AddonInstallation.js:108
+	// Reference: packages/js/src/components/AddonInstallation.js:114
 	/* %s expands to Yoast SEO Premium */
 	__( 'Please confirm below that you would like to install %s on this site.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/AddonInstallation.js:54
+	// Reference: packages/js/src/components/AddonInstallation.js:56
 	__( 'Cancel', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/AddonInstallation.js:70
-	__( 'Install and activate addons', 'wordpress-seo' ),
+	// Reference: packages/js/src/components/AddonInstallation.js:73
+	__( 'Install and activate', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/AddonInstallation.js:77
+	// Reference: packages/js/src/components/AddonInstallation.js:80
 	/* %s expands to Yoast */
-	__( '%s addon installation', 'wordpress-seo' ),
+	__( '%s SEO installation', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/AddonInstallation.js:81
+	// Reference: packages/js/src/components/AddonInstallation.js:84
 	__( 'the following addons', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/AdvancedSettings.js:127
