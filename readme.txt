@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.7
-Stable tag: 16.4-RC1
+Stable tag: 16.4-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -239,13 +239,18 @@ Release Date: June 1st, 2021
 
 Enhancements:
 
+* Completes the readability analysis for Czech by adding the transition words, sentence beginnings and passive voice assessments.
+* Improves keyphrase recognition in Czech by filtering out function words such as `dvou`, `tvému`, `nějaký`.
+* Improves the accuracy of passive voice detection in Portuguese.
+* Adds the missing Polish transition word `jak wiemy` (props to @jarekherisz).
+* Makes all twitter meta tags self-closing, for consistencies' sake and to allow pages to pass validation in some tools.
+* Improves the UX consistency between the notification counter in the admin bar and in the sidebar.
+* Makes the notification counter in the admin bar a closer match to the counter the sidebar.
 * Makes all twitter meta tags self-closing.
-* Changes the notification in the adminbar to closer match the sidebar.
-* Adds Czech to supported languages.
 
 Bugfixes:
 
-* Fixes a bug where debugging info has been echoed.
+* Changes the function to retrieve the locale for language researcher from `get_user_locale()` to `get_locale()`
 
 = 16.3 =
 Release Date: May 18th, 2021
