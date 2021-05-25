@@ -170,7 +170,7 @@ $generated_i18n_strings = array(
 	__( '%1$sKeyphrase in introduction%2$s: Well done!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/IntroductionKeywordAssessment.js:101
-	__( '%1$sKeyphrase in introduction%3$s:Your keyphrase or its synonyms appear in the first paragraph of the copy, but not within one sentence. %2$sFix that%3$s!', 'wordpress-seo' ),
+	__( '%1$sKeyphrase in introduction%3$s: Your keyphrase or its synonyms appear in the first paragraph of the copy, but not within one sentence. %2$sFix that%3$s!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/IntroductionKeywordAssessment.js:117
 	__( '%1$sKeyphrase in introduction%3$s: Your keyphrase or its synonyms do not appear in the first paragraph. %2$sMake sure the topic is clear immediately%3$s.', 'wordpress-seo' ),
