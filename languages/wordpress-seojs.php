@@ -580,7 +580,7 @@ $generated_i18n_strings = array(
 	__( 'Person logo / avatar', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/initializers/search-appearance.js:78
-	__( 'Social default image', 'wordpress-seo' ),
+	__( 'Social image', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/initializers/social-settings.js:16
 	__( 'Image', 'wordpress-seo' ),
