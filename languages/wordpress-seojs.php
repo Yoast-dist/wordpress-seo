@@ -236,7 +236,7 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/containers/SchemaTab.js:54
 	__( 'Page type', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/SettingsReplacementVariableEditor.js:38
+	// Reference: packages/js/src/components/SettingsReplacementVariableEditor.js:39
 	__( 'Modify your meta description by editing it right here', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WordPressUserSelector.js:113
