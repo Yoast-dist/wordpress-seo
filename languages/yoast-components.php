@@ -239,15 +239,15 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/MailchimpSignup.js:235
 	__( 'Email', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/MediaUpload.js:17
-	// Reference: packages/js/src/components/MediaUpload.js:18
-	// Reference: packages/js/src/components/MediaUpload.js:141
+	// Reference: packages/js/src/components/MediaUpload.js:21
+	// Reference: packages/js/src/components/MediaUpload.js:22
+	// Reference: packages/js/src/components/MediaUpload.js:145
 	__( 'Choose an image', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/MediaUpload.js:100
+	// Reference: packages/js/src/components/MediaUpload.js:104
 	__( 'Remove the image', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/MediaUpload.js:122
+	// Reference: packages/js/src/components/MediaUpload.js:126
 	__( 'image preview', 'wordpress-seo' )
 );
 /* THIS IS THE END OF THE GENERATED FILE */

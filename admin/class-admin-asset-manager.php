@@ -226,30 +226,33 @@ class WPSEO_Admin_Asset_Manager {
 			'help-scout-beacon',
 		];
 		$additional_dependencies = [
-			'analysis-worker'  => [ self::PREFIX . 'analysis-package' ],
-			'api-client'       => [ 'wp-api' ],
-			'dashboard-widget' => [ self::PREFIX . 'api-client' ],
-			'indexation'       => [
+			'analysis-worker'    => [ self::PREFIX . 'analysis-package' ],
+			'api-client'         => [ 'wp-api' ],
+			'dashboard-widget'   => [ self::PREFIX . 'api-client' ],
+			'elementor'          => [ self::PREFIX . 'api-client' ],
+			'indexation'         => [
 				'jquery-ui-core',
 				'jquery-ui-progressbar',
 			],
-			'post-edit'        => [
+			'post-edit'          => [
+				self::PREFIX . 'api-client',
 				self::PREFIX . 'block-editor',
 				self::PREFIX . 'select2',
 			],
-			'reindex-links'    => [
+			'reindex-links'      => [
 				'jquery-ui-core',
 				'jquery-ui-progressbar',
 			],
-			'settings'         => [
+			'settings'           => [
 				'jquery-ui-core',
 				'jquery-ui-progressbar',
 				self::PREFIX . 'api-client',
 				self::PREFIX . 'select2',
 			],
-			'term-edit'        => [
+			'term-edit'          => [
+				self::PREFIX . 'api-client',
 				self::PREFIX . 'classic-editor',
-				self::PREFIX . 'select2'
+				self::PREFIX . 'select2',
 			],
 		];
 
@@ -567,6 +570,9 @@ class WPSEO_Admin_Asset_Manager {
 			[
 				'name' => 'extensions',
 				'src'  => 'yoast-extensions-' . $flat_version,
+				'deps' => [
+					'wp-components',
+				],
 			],
 			[
 				'name' => 'filter-explanation',
