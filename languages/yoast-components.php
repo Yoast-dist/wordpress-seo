@@ -74,13 +74,13 @@ $generated_i18n_strings = array(
 	// Reference: packages/components/src/help-icon/HelpIcon.js:50
 	__( '(Opens in a new browser tab)', 'wordpress-seo' ),
 
-	// Reference: packages/components/src/image-select/ImageSelectButtons.js:32
+	// Reference: packages/components/src/image-select/ImageSelectButtons.js:34
 	__( 'Replace image', 'wordpress-seo' ),
 
-	// Reference: packages/components/src/image-select/ImageSelectButtons.js:33
+	// Reference: packages/components/src/image-select/ImageSelectButtons.js:35
 	__( 'Select image', 'wordpress-seo' ),
 
-	// Reference: packages/components/src/image-select/ImageSelectButtons.js:42
+	// Reference: packages/components/src/image-select/ImageSelectButtons.js:45
 	__( 'Remove image', 'wordpress-seo' ),
 
 	// Reference: packages/components/src/inputs/DurationInput.js:138
