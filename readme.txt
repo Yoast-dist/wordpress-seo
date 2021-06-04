@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.7
-Stable tag: 16.5-RC1
+Stable tag: 16.5-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -239,24 +239,38 @@ Release Date: June 15th, 2021
 
 Enhancements:
 
-* Moves the settings for the Front Page from the Social -> Facebook tab, to Search Appearance -> General.
-* Updates the same settings form to the same editor used by the other forms in Search Appearance, for a more coherent user experience.
-* Introduces a notice to be displayed in Search Appearance > General in place of the Social settings for the Homepage when Open Graph is disabled.
-* Improves the organisation of the Search Appearance -> General tab, with distinct collapsibles for the Title Separator, the Homepage settings and the Schema.org settings.
-* Adds image validation warnings to the Homepage social image and the Default social image.
-* Improves headings and toggle labels readability and clarity in the Search Appearance settings.
-* Improves spacing between groups of related settings in the Search Appearance.
-* Optimizes license checks made by premium addons.
 * Improves passive voice recognition for Turkish.
-* Improves the stemming of words that look like ending in suffix -mente, e.g. "clemente" was incorrectly stemmed to "cl", now it's stemmed to "clement".
-* Improves code quality of the Spanish stemmer and changes the way we stem words ending in -mente.
-* Added diacritics to the list of full form non-passive exceptions for Turkish, adds more non-passive exception words to the list.
+* Moves the social settings for the homepage from the Social > Facebook tab, to Search Appearance > General.
+* Improves the organization of the Search Appearance > General tab, with distinct collapsibles for the Title Separator, the Homepage settings and the Schema.org settings.
+* Introduces a notice to be displayed in Search Appearance > General in place of the Social settings for the Homepage when Open Graph is disabled.
+* Introduces an image validation warning for the Homepage social image and the Default social image to warn about unsupported file extensions.
+* Improves spacing, headings and toggle labels in the Search Appearance settings, and makes the forms more consistent.
+* Optimizes subscription validations made by Premium add-ons.
+* Improves the truncation of the `primary_focus_keyword` field in the database to handle multibyte characters. Props to [rickhurst](https://github.com/rickhurst).
+* Introduces a partial integration of the Yoast SEO meta box in the Web Stories WordPress editor. Props to [swissspidy](https://github.com/swissspidy).
+* Less is more: removes a whole bunch of ads from the Yoast SEO admin screens.
+* Moves the Social templates forms at the end of the settings sections.
+* Fixes a bug where the "New" badges were not displayed for the Social templates forms.
+* Improves accuracy of the Czech passive voice assessment by separating clauses based on punctuation marks and an expanded list of stopwords.
+* Improves the stemming of Spanish words that look like ending in suffix `-mente`, e.g. `"clemente"` was incorrectly stemmed to `"cl"`, now it's stemmed to `"clement"`.
+* Improves code quality of the Spanish stemmer and changes the way we stem words ending in `-mente`.
+* Adds diacritics to the list of full form non-passive exceptions for Turkish.
+* Adds more non-passive exception words to the list of full form non-passive exceptions for Turkish.
+* Implements the new Clause and SentenceNew class to English folder, adds English Clause class, and adjusts related specs.
+* Adapts the language-specific files for passive voice assessment to the new structure for German, Dutch, French, Spanish, Italian, Portuguese, Polish, Hungarian, and Czech.
+* Refactors Sentence and SentencePart classes.
+* Moves passive voice values and some helpers, and the ProminentWord value to different folders in order to improve file organization.
+* Moves an exception check specific to English from the general getClauses file to the English-specific getClauses file.
+* Deletes obsolete files and changes SentenceNew class to Sentence. Also adds an additional check in parse.js to parse classes.
+* Fixes the stopwords list for Czech by adding the correct stopwords. Adds punctuation marks as sentence breakers.
 
 Bugfixes:
 
-* Fixes a bug where `max-image-preview:large` would still be output when a post is set `noimage`.
-* Improved the truncation of the `primary_focus_keyword` field to handle multibyte characters.
-* Integrate Yoast SEO meta box in the Web Stories WordPress editor
+* Fixes a bug where `max-image-preview:large` would be output in the robots meta tag in combination with `noimage`.
+
+Other:
+
+* Moves the 'Force rewrite titles' toggle into a separate paper in the General Search Appearance settings.
 
 = 16.4 =
 Release Date: June 1st, 2021
