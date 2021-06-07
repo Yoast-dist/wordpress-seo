@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.7
-Stable tag: 16.5-RC2
+Stable tag: 16.5-RC3
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -249,8 +249,14 @@ Enhancements:
 * Improves the truncation of the `primary_focus_keyword` field in the database to handle multibyte characters. Props to [rickhurst](https://github.com/rickhurst).
 * Introduces a partial integration of the Yoast SEO meta box in the Web Stories WordPress editor. Props to [swissspidy](https://github.com/swissspidy).
 * Less is more: removes a whole bunch of ads from the Yoast SEO admin screens.
-* Moves the Social templates forms at the end of the settings sections.
-* Fixes a bug where the "New" badges were not displayed for the Social templates forms.
+* Moves the settings for the Front Page from the Social > Facebook tab, to Search Appearance > General.
+* Updates the same settings form to the same editor used by the other forms in Search Appearance, for a more coherent user experience.
+* Adds image validation warnings to the Homepage social image and the Default social image.
+* Improves headings and toggle labels readability and clarity in the Search Appearance settings.
+* Improves spacing between groups of related settings in the Search Appearance.
+* Improves the truncation of the primary_focus_keyword field to handle multibyte characters. Props to [rickhurst](https://github.com/rickhurst).
+* Optimizes license checks made by Premium add-ons.
+* Integrates the Yoast SEO meta box in the Web Stories WordPress editor. Props to [swissspidy](https://github.com/swissspidy).
 * Improves accuracy of the Czech passive voice assessment by separating clauses based on punctuation marks and an expanded list of stopwords.
 * Improves the stemming of Spanish words that look like ending in suffix `-mente`, e.g. `"clemente"` was incorrectly stemmed to `"cl"`, now it's stemmed to `"clement"`.
 * Improves code quality of the Spanish stemmer and changes the way we stem words ending in `-mente`.
@@ -267,10 +273,12 @@ Enhancements:
 Bugfixes:
 
 * Fixes a bug where `max-image-preview:large` would be output in the robots meta tag in combination with `noimage`.
+* Fixes a bug where `max-image-preview:large` would still be output when a post is set `noimage`.
 
 Other:
 
 * Moves the 'Force rewrite titles' toggle into a separate paper in the General Search Appearance settings.
+* Improves the support for 16:9 images by the ImageSelect component.
 
 = 16.4 =
 Release Date: June 1st, 2021
@@ -290,7 +298,7 @@ Enhancements:
 Bugfixes:
 
 * Fixes a bug where new feature notification couldn't be dismissed.
-* Fixes a bug where the primary term for custom post types was not always properly set for posts edited in the Gutenberg editor. 
+* Fixes a bug where the primary term for custom post types was not always properly set for posts edited in the Gutenberg editor.
 * Fixes a bug where the schema output could be incorrect on terms with the same ID as the static posts page.
 
 Other:
