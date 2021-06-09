@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.7
-Stable tag: 16.5-RC3
+Stable tag: 16.5-RC4
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -249,6 +249,7 @@ Enhancements:
 * Improves the truncation of the `primary_focus_keyword` field in the database to handle multibyte characters. Props to [rickhurst](https://github.com/rickhurst).
 * Introduces a partial integration of the Yoast SEO meta box in the Web Stories WordPress editor. Props to [swissspidy](https://github.com/swissspidy).
 * Less is more: removes a whole bunch of ads from the Yoast SEO admin screens.
+* Improves the support for 16:9 images by the ImageSelect component.
 * Moves the settings for the Front Page from the Social > Facebook tab, to Search Appearance > General.
 * Updates the same settings form to the same editor used by the other forms in Search Appearance, for a more coherent user experience.
 * Adds image validation warnings to the Homepage social image and the Default social image.
@@ -278,7 +279,6 @@ Bugfixes:
 Other:
 
 * Moves the 'Force rewrite titles' toggle into a separate paper in the General Search Appearance settings.
-* Improves the support for 16:9 images by the ImageSelect component.
 
 = 16.4 =
 Release Date: June 1st, 2021
