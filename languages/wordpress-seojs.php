@@ -118,25 +118,31 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/CornerstoneToggle.js:26
 	__( 'Mark as cornerstone content', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:234
+	// Reference: packages/js/src/components/Indexation.js:236
 	__( 'This feature includes and replaces the Text Link Counter and Internal Linking Analysis', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:263
+	// Reference: packages/js/src/components/Indexation.js:265
 	__( 'Stop SEO data optimization', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:279
+	// Reference: packages/js/src/components/Indexation.js:281
 	__( 'Start SEO data optimization', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:283
+	// Reference: packages/js/src/components/Indexation.js:285
 	__( 'SEO data optimization is disabled for non-production environments.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:302
+	// Reference: packages/js/src/components/Indexation.js:304
 	__( 'Optimizing SEO data... This may take a while.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:314
+	// Reference: packages/js/src/components/Indexation.js:330
 	__( 'Oops, something has gone wrong and we couldn\'t complete the optimization of your SEO data. Please click the button again to re-start the process.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:349
+	// Reference: packages/js/src/components/Indexation.js:338
+	__( ' If the problem persists, please contact support.', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/Indexation.js:341
+	__( 'Oops, something has gone wrong and we couldn\'t complete the optimization of your SEO data. Please make sure to activate your subscription in MyYoast by completing %1$sthese steps%2$s.', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/Indexation.js:387
 	__( 'SEO data optimization complete', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/LocalSEOUpsell.js:76
