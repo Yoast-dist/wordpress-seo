@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.7
-Stable tag: 16.5-RC6
+Stable tag: 16.5-RC7
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -251,6 +251,7 @@ Enhancements:
 * Less is more: removes a whole bunch of ads from the Yoast SEO admin screens.
 * Optimizes license checks made by Premium add-ons.
 * Improves accuracy of the Czech passive voice assessment by separating clauses based on punctuation marks and an expanded list of stopwords.
+* Changes the breadcrumbs schema output so Google can understand it better.
 * [@yoast/components] Improves the support for 16:9 images by the `ImageSelect` component.
 * Moves the settings for the Front Page from the Social > Facebook tab, to Search Appearance > General.
 * Updates the same settings form to the same editor used by the other forms in Search Appearance, for a more coherent user experience.
