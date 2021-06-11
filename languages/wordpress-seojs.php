@@ -212,29 +212,32 @@ $generated_i18n_strings = array(
 	_n_noop( 'Upon saving, this setting will apply to all of your %1$s. %1$s that are manually configured will be left untouched.', 'Upon saving, these settings will apply to all of your %1$s. %1$s that are manually configured will be left untouched.', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/SchemaTab.js:103
-	// Reference: packages/js/src/containers/SchemaTab.js:53
+	__( 'Read more about Schema.', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/SchemaTab.js:134
+	__( 'What type of page or content is this?', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/SchemaTab.js:136
+	__( 'Learn more about page or content types', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/SchemaTab.js:141
+	// Reference: packages/js/src/containers/SchemaTab.js:55
+	__( 'Page type', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/SchemaTab.js:148
+	// Reference: packages/js/src/containers/SchemaTab.js:54
 	__( 'Article type', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/SchemaTab.js:29
+	// Reference: packages/js/src/components/SchemaTab.js:31
 	/* %1$s expands to the plural name of the current post type, %2$s expands to the current site wide default. */
 	__( 'Default for %1$s (%2$s)', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/SchemaTab.js:48
+	// Reference: packages/js/src/components/SchemaTab.js:50
 	/* %1$s expands to the plural name of the current post type, %2$s and %3$s expand to a link to the Search Appearance Settings page */
 	__( 'You can change the default type for %1$s in your %2$sSearch Appearance Settings%3$s.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/SchemaTab.js:85
+	// Reference: packages/js/src/components/SchemaTab.js:82
 	__( 'Learn more about structured data with Schema.org', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/components/SchemaTab.js:89
-	__( 'What type of page or content is this?', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/components/SchemaTab.js:91
-	__( 'Learn more about page or content types', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/components/SchemaTab.js:96
-	// Reference: packages/js/src/containers/SchemaTab.js:54
-	__( 'Page type', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/SettingsReplacementVariableEditor.js:39
 	__( 'Modify your meta description by editing it right here', 'wordpress-seo' ),
@@ -508,10 +511,10 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/containers/SchemaSettings.js:15
 	__( 'default', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/containers/SchemaTab.js:56
+	// Reference: packages/js/src/containers/SchemaTab.js:57
 	__( 'Yoast SEO automatically describes your pages using schema.org', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/containers/SchemaTab.js:57
+	// Reference: packages/js/src/containers/SchemaTab.js:58
 	__( 'This helps search engines understand your website and your content. You can change some of your settings for this page below.', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/containers/SnippetEditor.js:58
