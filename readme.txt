@@ -249,6 +249,7 @@ Bugfixes:
 * Fixes a bug where an error was shown on the page overview and post overview when the website's MySQL database is run in ANSI-mode. Props to [stodorovic](https://github.com/stodorovic).
 * Adds increased compatibility for LiteSpeed web servers. Props to [J-Rey](https://github.com/J-Rey).
 * Fixes a bug where shortcodes were removed from the Open Graph description even when they were explicitly added. Props to [Lomerill](https://github.com/Lomerill).
+* Fixes a bug that if you used the `wpseo_schema_{@type}` filter you would get a fatal error.
 
 = 16.5 =
 Release Date: June 15th, 2021
