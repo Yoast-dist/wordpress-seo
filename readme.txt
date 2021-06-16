@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.7
-Stable tag: 16.6-RC1
+Stable tag: 16.6-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -239,20 +239,25 @@ Release Date: June 29th, 2021
 
 Enhancements:
 
-* Update `SearchAction` schema to comply with Google's updated specification.
+* Updates `SearchAction` schema to comply with Google's updated specification.
 * Excludes sentences inside tables and table captions from the consecutive sentences assessment.
-* [yoastseo] Filter out table block content from the getSentenceBeginnings research.
+* Adds adjacent relative links for WooCommerce shop pages. Props to [stodorovic](https://github.com/stodorovic).
+* Adds increased compatibility for LiteSpeed web servers. Props to [J-Rey](https://github.com/J-Rey). 
+* [yoastseo] Filters out table block content from the `getSentenceBeginnings` research.
 * [yoastseo] Excludes Table of Contents from the analysis.
 * [Yoast SEO Premium] Excludes Table of Contents from the SEO and readability analysis.
-* Adds adjacent relative links for WooCommerce shop pages. Props to [stodorovic](https://github.com/stodorovic).
 
 Bugfixes:
 
-* [wordpress-seo-premium] Fixes a bug where Premium users with an inactive Premium license were prompted indefinitely to restart their SEO data optimization. We now show an error message informing them how to activate their license.
-* [@yoast/schema-blocks] Fixes a bug where the Schema blocks were misaligned.
 * Fixes a bug where an error was shown on the page overview and post overview when the website's MySQL database is run in ANSI-mode. Props to [stodorovic](https://github.com/stodorovic).
 * Adds increased compatibility for LiteSpeed web servers. Props to [J-Rey](https://github.com/J-Rey).
-* Shortcodes are now only removed from the Open Graph description when it has been generated from the post's excerpt. Props @Lomerill.
+* Fixes a bug where shortcodes were removed from the Open Graph description even when they were explicitly added. Props to [Lomerill](https://github.com/Lomerill).
+* [wordpress-seo-premium] Fixes a bug where Premium users with an inactive Premium license were prompted indefinitely to restart their SEO data optimization. We now show an error message informing them how to activate their license.
+* [@yoast/schema-blocks] Fixes a bug where the Schema blocks were misaligned.
+
+No category:
+
+* Fixes a bug that if you used the `wpseo_schema_{@type}` filter you would get a fatal error.
 
 = 16.5 =
 Release Date: June 15th, 2021
