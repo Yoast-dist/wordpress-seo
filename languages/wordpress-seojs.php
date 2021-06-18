@@ -220,18 +220,18 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/SchemaTab.js:103
 	__( 'Read more about Schema.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/SchemaTab.js:134
+	// Reference: packages/js/src/components/SchemaTab.js:130
 	__( 'What type of page or content is this?', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/SchemaTab.js:136
+	// Reference: packages/js/src/components/SchemaTab.js:132
 	__( 'Learn more about page or content types', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/SchemaTab.js:141
-	// Reference: packages/js/src/containers/SchemaTab.js:55
+	// Reference: packages/js/src/components/SchemaTab.js:137
+	// Reference: packages/js/src/containers/SchemaTab.js:54
 	__( 'Page type', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/SchemaTab.js:148
-	// Reference: packages/js/src/containers/SchemaTab.js:54
+	// Reference: packages/js/src/components/SchemaTab.js:144
+	// Reference: packages/js/src/containers/SchemaTab.js:53
 	__( 'Article type', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/SchemaTab.js:31
@@ -517,10 +517,10 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/containers/SchemaSettings.js:15
 	__( 'default', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/containers/SchemaTab.js:57
+	// Reference: packages/js/src/containers/SchemaTab.js:56
 	__( 'Yoast SEO automatically describes your pages using schema.org', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/containers/SchemaTab.js:58
+	// Reference: packages/js/src/containers/SchemaTab.js:57
 	__( 'This helps search engines understand your website and your content. You can change some of your settings for this page below.', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/containers/SnippetEditor.js:58
