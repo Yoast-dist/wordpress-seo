@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.7
-Stable tag: 16.6-RC3
+Stable tag: 16.6-RC4
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -243,10 +243,10 @@ Enhancements:
 * Excludes sentences inside tables and table captions from the consecutive sentences assessment.
 * Adds adjacent relative links (`rel="prev"` and `rel="next"`) for WooCommerce shop pages. Props to [stodorovic](https://github.com/stodorovic).
 * Adds increased compatibility for LiteSpeed web servers. Props to [J-Rey](https://github.com/J-Rey). 
-* [yoastseo] Filters out table block content from the `getSentenceBeginnings` research.
-* [yoastseo] Excludes Table of Contents from the analysis.
 * [Yoast SEO Premium] Excludes the Table of Contents block from the SEO and readability analysis.
 * Adds adjacent relative links for WooCommerce shop pages. Props to [stodorovic](https://github.com/stodorovic).
+* [yoastseo] Filters out table block content from the `getSentenceBeginnings` research.
+* [yoastseo] Excludes Table of Contents from the analysis.
 
 Bugfixes:
 
@@ -255,6 +255,7 @@ Bugfixes:
 * Fixes a bug where using the `wpseo_schema_{@type}` filter would result in a fatal error.
 * [wordpress-seo-premium] Fixes a bug where Premium users with an inactive Premium license would be prompted indefinitely to restart their SEO data optimization. We now show an error message informing them how to activate their license.
 * [@yoast/schema-blocks] Fixes a bug where the Schema blocks were misaligned.
+* Fixes a bug where the last breadcrumb item is stripped in breadcrumb schema on subsequent pages of a static posts page.
 
 = 16.5 =
 Release Date: June 15th, 2021
