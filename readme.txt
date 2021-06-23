@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.7
-Stable tag: 16.6-RC5
+Stable tag: 16.6-RC6
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -243,10 +243,10 @@ Enhancements:
 * Excludes sentences inside tables and table captions from the consecutive sentences assessment.
 * Adds adjacent relative links (`rel="prev"` and `rel="next"`) for WooCommerce shop pages. Props to [stodorovic](https://github.com/stodorovic).
 * Adds increased compatibility for LiteSpeed web servers. Props to [J-Rey](https://github.com/J-Rey). 
-* [Yoast SEO Premium] Excludes the Table of Contents block from the SEO and readability analysis.
 * Adds adjacent relative links for WooCommerce shop pages. Props to [stodorovic](https://github.com/stodorovic).
 * [yoastseo] Filters out table block content from the `getSentenceBeginnings` research.
 * [yoastseo] Excludes Table of Contents from the analysis.
+* [Yoast SEO Premium] Excludes the Table of Contents block from the SEO and readability analysis.
 
 Bugfixes:
 
