@@ -106,13 +106,13 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/AreaChartTable.js:25
 	__( 'The number of headers and header labels don\'t match.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/CollapsibleCornerstone.js:22
+	// Reference: packages/js/src/components/CollapsibleCornerstone.js:23
 	__( 'Cornerstone content', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/CollapsibleCornerstone.js:25
+	// Reference: packages/js/src/components/CollapsibleCornerstone.js:26
 	__( 'Cornerstone content should be the most important and extensive articles on your site.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/CollapsibleCornerstone.js:27
+	// Reference: packages/js/src/components/CollapsibleCornerstone.js:28
 	__( 'Learn more about Cornerstone Content.', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/CornerstoneToggle.js:26
