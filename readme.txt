@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.7
-Stable tag: 16.7-RC1
+Stable tag: 16.7-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -237,11 +237,6 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 = 16.7 =
 Release Date: July 13th, 2021
-
-Enhancements:
-
-* [@yoast/schema-blocks] Adds the `RecipeInstructions` instruction for adding instructions to a Yoast Recipe block.
-* Updates the Recipe ingredients block and the Recipe instructions block (non-user-facing).
 
 Bugfixes:
 
