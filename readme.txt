@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.7
-Stable tag: 16.7-RC2
+Stable tag: 16.7-RC3
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -238,9 +238,13 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 = 16.7 =
 Release Date: July 13th, 2021
 
+Enhancements:
+
+* Adds yoast meta fields as a JSON object to the html head section when retrieving a post through the WordPress REST API.
+
 Bugfixes:
 
-* Fixes a bug where a database entry would be added in the indexables table every time a WooCommerce order was created. 
+* Fixes a bug where a database entry would be added in the indexables table every time a WooCommerce order was created.
 * Fixes a bug where the SEO optimization could run indefinitely when the database contained at least 25 faulty indexables without a permalink.
 * Fixes a bug where the Advanced section and Schema tab wouldn't be visible in the metabox for Editors. Props to [jordif](https://github.com/jordif).
 
@@ -254,7 +258,7 @@ Enhancements:
 * Updates `SearchAction` schema to comply with Google's updated specification.
 * Excludes sentences inside tables and table captions from the consecutive sentences assessment.
 * Adds adjacent relative links (`rel="prev"` and `rel="next"`) for WooCommerce shop pages. Props to [stodorovic](https://github.com/stodorovic).
-* Adds increased compatibility for LiteSpeed web servers. Props to [J-Rey](https://github.com/J-Rey). 
+* Adds increased compatibility for LiteSpeed web servers. Props to [J-Rey](https://github.com/J-Rey).
 * Adds adjacent relative links for WooCommerce shop pages. Props to [stodorovic](https://github.com/stodorovic).
 
 Bugfixes:
