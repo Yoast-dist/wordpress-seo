@@ -3,19 +3,11 @@
 namespace Yoast\WP\SEO\Actions\Indexables;
 
 use Yoast\WP\SEO\Surfaces\Meta_Surface;
-use Yoast\WP\SEO\Surfaces\Values\Meta;
 
 /**
  * Get head action for indexables.
  */
 class Indexable_Head_Action {
-
-	/**
-	 * Caches the output.
-	 *
-	 * @var mixed
-	 */
-	protected $cache;
 
 	/**
 	 * The meta surface.
@@ -41,7 +33,16 @@ class Indexable_Head_Action {
 	 * @return object Object with head and status properties.
 	 */
 	public function for_url( $url ) {
-		return $this->with_404_fallback( $this->with_cache( 'url', $url ) );
+		$meta = $this->meta_surface->for_url( $url );
+
+		if ( $meta === false ) {
+			return $this->for_404();
+		}
+
+		return (object) [
+			'head'   => $meta->get_head(),
+			'status' => 200,
+		];
 	}
 
 	/**
@@ -52,7 +53,16 @@ class Indexable_Head_Action {
 	 * @return object Object with head and status properties.
 	 */
 	public function for_post( $id ) {
-		return $this->with_404_fallback( $this->with_cache( 'post', $id ) );
+		$meta = $this->meta_surface->for_post( $id );
+
+		if ( $meta === false ) {
+			return $this->for_404();
+		}
+
+		return (object) [
+			'head'   => $meta->get_head(),
+			'status' => 200,
+		];
 	}
 
 	/**
@@ -63,7 +73,16 @@ class Indexable_Head_Action {
 	 * @return object Object with head and status properties.
 	 */
 	public function for_term( $id ) {
-		return $this->with_404_fallback( $this->with_cache( 'term', $id ) );
+		$meta = $this->meta_surface->for_term( $id );
+
+		if ( $meta === false ) {
+			return $this->for_404();
+		}
+
+		return (object) [
+			'head'   => $meta->get_head(),
+			'status' => 200,
+		];
 	}
 
 	/**
@@ -74,7 +93,16 @@ class Indexable_Head_Action {
 	 * @return object Object with head and status properties.
 	 */
 	public function for_author( $id ) {
-		return $this->with_404_fallback( $this->with_cache( 'author', $id ) );
+		$meta = $this->meta_surface->for_author( $id );
+
+		if ( $meta === false ) {
+			return $this->for_404();
+		}
+
+		return (object) [
+			'head'   => $meta->get_head(),
+			'status' => 200,
+		];
 	}
 
 	/**
@@ -85,7 +113,16 @@ class Indexable_Head_Action {
 	 * @return object Object with head and status properties.
 	 */
 	public function for_post_type_archive( $type ) {
-		return $this->with_404_fallback( $this->with_cache( 'post_type_archive', $type ) );
+		$meta = $this->meta_surface->for_post_type_archive( $type );
+
+		if ( $meta === false ) {
+			return $this->for_404();
+		}
+
+		return (object) [
+			'head'   => $meta->get_head(),
+			'status' => 200,
+		];
 	}
 
 	/**
@@ -94,7 +131,16 @@ class Indexable_Head_Action {
 	 * @return object Object with head and status properties.
 	 */
 	public function for_posts_page() {
-		return $this->with_404_fallback( $this->with_cache( 'posts_page' ) );
+		$meta = $this->meta_surface->for_posts_page();
+
+		if ( $meta === false ) {
+			return $this->for_404();
+		}
+
+		return (object) [
+			'head'   => $meta->get_head(),
+			'status' => 200,
+		];
 	}
 
 	/**
@@ -103,69 +149,10 @@ class Indexable_Head_Action {
 	 * @return object Object with head and status properties.
 	 */
 	public function for_404() {
-		$meta = $this->with_cache( '404' );
-
-		if ( ! $meta ) {
-			return (object) [
-				'html'   => '',
-				'json'   => [],
-				'status' => 404,
-			];
-		}
-
-		$head = $meta->get_head();
-
+		$meta = $this->meta_surface->for_404();
 		return (object) [
-			'html'   => $head->html,
-			'json'   => $head->json,
+			'head'   => $meta->get_head(),
 			'status' => 404,
 		];
-	}
-
-	/**
-	 * Retrieves the head for a successful page load.
-	 *
-	 * @param object $head The calculated Yoast head.
-	 *
-	 * @return object The presentations and status code 200.
-	 */
-	protected function for_200( $head ) {
-		return (object) [
-			'html'   => $head->html,
-			'json'   => $head->json,
-			'status' => 200,
-		];
-	}
-
-	/**
-	 * Returns the head with 404 fallback
-	 *
-	 * @param Meta|false $meta The meta object.
-	 *
-	 * @return object The head response.
-	 */
-	protected function with_404_fallback( $meta ) {
-		if ( $meta === false ) {
-			return $this->for_404();
-		}
-		else {
-			return $this->for_200( $meta->get_head() );
-		}
-	}
-
-	/**
-	 * Retrieves a value from the meta surface cached.
-	 *
-	 * @param string $type     The type of value to retrieve.
-	 * @param string $argument Optional. The argument for the value.
-	 *
-	 * @return Meta The meta object.
-	 */
-	protected function with_cache( $type, $argument = '' ) {
-		if ( ! isset( $this->cache[ $type ][ $argument ] ) ) {
-			$this->cache[ $type ][ $argument ] = \call_user_func( [ $this->meta_surface, "for_$type" ], $argument );
-		}
-
-		return $this->cache[ $type ][ $argument ];
 	}
 }

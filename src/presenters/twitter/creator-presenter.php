@@ -10,11 +10,11 @@ use Yoast\WP\SEO\Presenters\Abstract_Indexable_Tag_Presenter;
 class Creator_Presenter extends Abstract_Indexable_Tag_Presenter {
 
 	/**
-	 * The tag key name.
+	 * The tag format including placeholders.
 	 *
 	 * @var string
 	 */
-	protected $key = 'twitter:creator';
+	protected $tag_format = '<meta name="twitter:creator" content="%s" />';
 
 	/**
 	 * Gets the raw value of a presentation.

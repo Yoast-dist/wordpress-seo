@@ -8,13 +8,6 @@ namespace Yoast\WP\SEO\Presenters;
 class Robots_Presenter extends Abstract_Indexable_Presenter {
 
 	/**
-	 * The tag key name.
-	 *
-	 * @var string
-	 */
-	protected $key = 'robots';
-
-	/**
 	 * Returns the robots output.
 	 *
 	 * @return string The robots output tag.

@@ -10,11 +10,11 @@ use Yoast\WP\SEO\Presenters\Abstract_Indexable_Tag_Presenter;
 class Bing_Presenter extends Abstract_Indexable_Tag_Presenter {
 
 	/**
-	 * The tag key name.
+	 * The tag format including placeholders.
 	 *
 	 * @var string
 	 */
-	protected $key = 'msvalidate.01';
+	protected $tag_format = '<meta name="msvalidate.01" content="%s" />';
 
 	/**
 	 * Retrieves the webmaster tool site verification value from the settings.

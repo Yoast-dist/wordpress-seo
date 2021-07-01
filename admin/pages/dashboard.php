@@ -25,8 +25,8 @@ $yform->admin_header( true, 'wpseo' );
 
 do_action( 'wpseo_all_admin_notices' );
 
-$dashboard_tabs = new WPSEO_Option_Tabs( 'dashboard' );
-$dashboard_tabs->add_tab(
+$tabs = new WPSEO_Option_Tabs( 'dashboard' );
+$tabs->add_tab(
 	new WPSEO_Option_Tab(
 		'dashboard',
 		__( 'Dashboard', 'wordpress-seo' ),
@@ -35,28 +35,28 @@ $dashboard_tabs->add_tab(
 		]
 	)
 );
-$dashboard_tabs->add_tab(
+$tabs->add_tab(
 	new WPSEO_Option_Tab(
 		'features',
 		__( 'Features', 'wordpress-seo' )
 	)
 );
-$dashboard_tabs->add_tab(
+$tabs->add_tab(
 	new WPSEO_Option_Tab(
 		'integrations',
 		__( 'Integrations', 'wordpress-seo' )
 	)
 );
-$dashboard_tabs->add_tab(
+$tabs->add_tab(
 	new WPSEO_Option_Tab(
 		'webmaster-tools',
 		__( 'Webmaster Tools', 'wordpress-seo' )
 	)
 );
 
-do_action( 'wpseo_settings_tabs_dashboard', $dashboard_tabs );
+do_action( 'wpseo_settings_tabs_dashboard', $tabs );
 
-$dashboard_tabs->display( $yform );
+$tabs->display( $yform );
 
 do_action( 'wpseo_dashboard' );
 
