@@ -11,11 +11,11 @@ use Yoast\WP\SEO\Presenters\Abstract_Indexable_Tag_Presenter;
 class Image_Presenter extends Abstract_Indexable_Tag_Presenter {
 
 	/**
-	 * The tag key name.
+	 * The tag format including placeholders.
 	 *
 	 * @var string
 	 */
-	protected $key = 'twitter:image';
+	protected $tag_format = '<meta name="twitter:image" content="%s" />';
 
 	/**
 	 * The method of escaping to use.

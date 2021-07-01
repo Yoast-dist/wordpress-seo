@@ -11,11 +11,11 @@ use Yoast\WP\SEO\Presenters\Abstract_Indexable_Tag_Presenter;
 class Description_Presenter extends Abstract_Indexable_Tag_Presenter {
 
 	/**
-	 * The tag key name.
+	 * The tag format including placeholders.
 	 *
 	 * @var string
 	 */
-	protected $key = 'twitter:description';
+	protected $tag_format = '<meta name="twitter:description" content="%s" />';
 
 	/**
 	 * Run the Twitter description through replace vars and the `wpseo_twitter_description` filter.

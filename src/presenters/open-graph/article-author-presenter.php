@@ -11,18 +11,11 @@ use Yoast\WP\SEO\Presenters\Abstract_Indexable_Tag_Presenter;
 class Article_Author_Presenter extends Abstract_Indexable_Tag_Presenter {
 
 	/**
-	 * The tag key name.
-	 *
-	 * @var string
-	 */
-	protected $key = 'article:author';
-
-	/**
 	 * The tag format including placeholders.
 	 *
 	 * @var string
 	 */
-	protected $tag_format = self::META_PROPERTY_CONTENT;
+	protected $tag_format = '<meta property="article:author" content="%s" />';
 
 	/**
 	 * Run the article author's Facebook URL through the `wpseo_opengraph_author_facebook` filter.

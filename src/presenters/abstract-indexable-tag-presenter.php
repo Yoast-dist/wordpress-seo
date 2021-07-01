@@ -4,22 +4,15 @@ namespace Yoast\WP\SEO\Presenters;
 
 /**
  * Abstract presenter class for indexable tag presentations.
- * @phpcs:disable Yoast.NamingConventions.ObjectNameDepth.MaxExceeded
- * @phpcs:disable Yoast.Files.FileName.InvalidClassFileName
  */
 abstract class Abstract_Indexable_Tag_Presenter extends Abstract_Indexable_Presenter {
-
-	const META_PROPERTY_CONTENT = '<meta property="%2$s" content="%1$s" />';
-	const META_NAME_CONTENT     = '<meta name="%2$s" content="%1$s" />';
-	const LINK_REL_HREF         = '<link rel="%2$s" href="%1$s" />';
-	const DEFAULT_TAG_FORMAT    = self::META_NAME_CONTENT;
 
 	/**
 	 * The tag format including placeholders.
 	 *
 	 * @var string
 	 */
-	protected $tag_format = self::DEFAULT_TAG_FORMAT;
+	protected $tag_format = '';
 
 	/**
 	 * The method of escaping to use.
@@ -36,33 +29,27 @@ abstract class Abstract_Indexable_Tag_Presenter extends Abstract_Indexable_Prese
 	public function present() {
 		$value = $this->get();
 
-		if ( ! \is_string( $value ) || $value === '' ) {
-			return '';
+		if ( \is_string( $value ) && $value !== '' ) {
+			return \sprintf( $this->tag_format, $this->escape( $value ) );
 		}
 
-		/**
-		 * There may be some classes that are derived from this class that do not use the $key property
-		 * in their $tag_format string. In that case the key property will simply not be used.
-		 */
-		return \sprintf( $this->tag_format, $this->escape_value( $value ), $this->key );
+		return '';
 	}
 
 	/**
 	 * Escaped the output.
 	 *
-	 * @param string $value The desired method of escaping; 'html', 'url' or 'attribute'.
+	 * @param string $value The value.
 	 *
 	 * @return string The escaped value.
 	 */
-	protected function escape_value( $value ) {
-		switch ( $this->escaping ) {
-			case 'html':
-				return \esc_html( $value );
-			case 'url':
-				return \esc_url( $value );
-			case 'attribute':
-			default:
-				return \esc_attr( $value );
+	protected function escape( $value ) {
+		if ( $this->escaping === 'html' ) {
+			return \esc_html( $value );
 		}
+		if ( $this->escaping === 'url' ) {
+			return \esc_url( $value );
+		}
+		return \esc_attr( $value );
 	}
 }

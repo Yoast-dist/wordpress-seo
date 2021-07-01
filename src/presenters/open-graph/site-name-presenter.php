@@ -11,18 +11,11 @@ use Yoast\WP\SEO\Presenters\Abstract_Indexable_Tag_Presenter;
 class Site_Name_Presenter extends Abstract_Indexable_Tag_Presenter {
 
 	/**
-	 * The tag key name.
-	 *
-	 * @var string
-	 */
-	protected $key = 'og:site_name';
-
-	/**
 	 * The tag format including placeholders.
 	 *
 	 * @var string
 	 */
-	protected $tag_format = self::META_PROPERTY_CONTENT;
+	protected $tag_format = '<meta property="og:site_name" content="%s" />';
 
 	/**
 	 * Runs the site name through the `wpseo_opengraph_site_name` filter.

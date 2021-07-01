@@ -11,11 +11,11 @@ use Yoast\WP\SEO\Presenters\Abstract_Indexable_Tag_Presenter;
 class Title_Presenter extends Abstract_Indexable_Tag_Presenter {
 
 	/**
-	 * The tag key name.
+	 * The tag format including placeholders.
 	 *
 	 * @var string
 	 */
-	protected $key = 'twitter:title';
+	protected $tag_format = '<meta name="twitter:title" content="%s" />';
 
 	/**
 	 * Run the Twitter title through replace vars and the `wpseo_twitter_title` filter.
