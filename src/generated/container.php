@@ -75,6 +75,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\conditionals\\migrations_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Migrations_Conditional',
             'yoast\\wp\\seo\\conditionals\\news_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\News_Conditional',
             'yoast\\wp\\seo\\conditionals\\no_tool_selected_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\No_Tool_Selected_Conditional',
+            'yoast\\wp\\seo\\conditionals\\norwegian_readability_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Norwegian_Readability_Conditional',
             'yoast\\wp\\seo\\conditionals\\open_graph_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Open_Graph_Conditional',
             'yoast\\wp\\seo\\conditionals\\primary_category_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Primary_Category_Conditional',
             'yoast\\wp\\seo\\conditionals\\schema_blocks_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Schema_Blocks_Conditional',
@@ -346,6 +347,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\Migrations_Conditional' => 'getMigrationsConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\News_Conditional' => 'getNewsConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\No_Tool_Selected_Conditional' => 'getNoToolSelectedConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Norwegian_Readability_Conditional' => 'getNorwegianReadabilityConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Open_Graph_Conditional' => 'getOpenGraphConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Primary_Category_Conditional' => 'getPrimaryCategoryConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\SEMrush_Enabled_Conditional' => 'getSEMrushEnabledConditionalService',
@@ -1243,6 +1245,16 @@ class Cached_Container extends Container
     protected function getNoToolSelectedConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\No_Tool_Selected_Conditional'] = new \Yoast\WP\SEO\Conditionals\No_Tool_Selected_Conditional();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Norwegian_Readability_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Norwegian_Readability_Conditional
+     */
+    protected function getNorwegianReadabilityConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Norwegian_Readability_Conditional'] = new \Yoast\WP\SEO\Conditionals\Norwegian_Readability_Conditional();
     }
 
     /**
@@ -2578,7 +2590,7 @@ class Cached_Container extends Container
      */
     protected function getFeatureFlagIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Feature_Flag_Integration'] = new \Yoast\WP\SEO\Integrations\Feature_Flag_Integration(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Addon_Installation_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Addon_Installation_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Addon_Installation_Conditional'] = new \Yoast\WP\SEO\Conditionals\Addon_Installation_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Schema_Blocks_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Schema_Blocks_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Schema_Blocks_Conditional'] = new \Yoast\WP\SEO\Conditionals\Schema_Blocks_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Slovak_Support_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Slovak_Support_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Slovak_Support_Conditional'] = new \Yoast\WP\SEO\Conditionals\Slovak_Support_Conditional())) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Feature_Flag_Integration'] = new \Yoast\WP\SEO\Integrations\Feature_Flag_Integration(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Addon_Installation_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Addon_Installation_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Addon_Installation_Conditional'] = new \Yoast\WP\SEO\Conditionals\Addon_Installation_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Norwegian_Readability_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Norwegian_Readability_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Norwegian_Readability_Conditional'] = new \Yoast\WP\SEO\Conditionals\Norwegian_Readability_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Schema_Blocks_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Schema_Blocks_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Schema_Blocks_Conditional'] = new \Yoast\WP\SEO\Conditionals\Schema_Blocks_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Slovak_Support_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Slovak_Support_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Slovak_Support_Conditional'] = new \Yoast\WP\SEO\Conditionals\Slovak_Support_Conditional())) && false ?: '_'});
     }
 
     /**
