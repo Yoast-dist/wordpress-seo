@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.7
-Stable tag: 16.7-RC7
+Stable tag: 16.7-RC8
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -240,7 +240,8 @@ Release Date: July 13th, 2021
 
 Enhancements:
 
-*  Upgrades our REST API to include individual keys/values for all of our meta tags, data and schema output.
+*  Upgrades our REST API to include individual keys/values for all of our meta tags, data and schema output. Read all about it in [this in-depth explanation about our REST API](https://yoa.st/rest-api).
+* Upgrades our REST API to include individual keys/values for all of our meta tags, data and schema output.
 
 Bugfixes:
 

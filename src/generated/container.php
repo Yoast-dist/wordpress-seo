@@ -180,7 +180,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\helpers\\url_helper' => 'Yoast\\WP\\SEO\\Helpers\\Url_Helper',
             'yoast\\wp\\seo\\helpers\\user_helper' => 'Yoast\\WP\\SEO\\Helpers\\User_Helper',
             'yoast\\wp\\seo\\helpers\\woocommerce_helper' => 'Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper',
-            'yoast\\wp\\seo\\helpers\\wordpress_helper' => 'Yoast\\WP\\SEO\\Helpers\\WordPress_Helper',
+            'yoast\\wp\\seo\\helpers\\wordpress_helper' => 'Yoast\\WP\\SEO\\Helpers\\Wordpress_Helper',
             'yoast\\wp\\seo\\initializers\\disable_core_sitemaps' => 'Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps',
             'yoast\\wp\\seo\\initializers\\migration_runner' => 'Yoast\\WP\\SEO\\Initializers\\Migration_Runner',
             'yoast\\wp\\seo\\integrations\\admin\\addon_installation\\dialog_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Dialog_Integration',
@@ -452,7 +452,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Helpers\\Url_Helper' => 'getUrlHelperService',
             'Yoast\\WP\\SEO\\Helpers\\User_Helper' => 'getUserHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper' => 'getWoocommerceHelperService',
-            'Yoast\\WP\\SEO\\Helpers\\WordPress_Helper' => 'getWordPressHelperService',
+            'Yoast\\WP\\SEO\\Helpers\\Wordpress_Helper' => 'getWordpressHelperService',
             'Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps' => 'getDisableCoreSitemapsService',
             'Yoast\\WP\\SEO\\Initializers\\Migration_Runner' => 'getMigrationRunnerService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Dialog_Integration' => 'getDialogIntegrationService',
@@ -2334,13 +2334,13 @@ class Cached_Container extends Container
     }
 
     /**
-     * Gets the public 'Yoast\WP\SEO\Helpers\WordPress_Helper' shared autowired service.
+     * Gets the public 'Yoast\WP\SEO\Helpers\Wordpress_Helper' shared autowired service.
      *
-     * @return \Yoast\WP\SEO\Helpers\WordPress_Helper
+     * @return \Yoast\WP\SEO\Helpers\Wordpress_Helper
      */
-    protected function getWordPressHelperService()
+    protected function getWordpressHelperService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Helpers\\WordPress_Helper'] = new \Yoast\WP\SEO\Helpers\WordPress_Helper();
+        return $this->services['Yoast\\WP\\SEO\\Helpers\\Wordpress_Helper'] = new \Yoast\WP\SEO\Helpers\Wordpress_Helper();
     }
 
     /**
@@ -2520,7 +2520,7 @@ class Cached_Container extends Container
      */
     protected function getInternalLinkingCategoryService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Blocks\\Internal_Linking_Category'] = new \Yoast\WP\SEO\Integrations\Blocks\Internal_Linking_Category(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\WordPress_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\WordPress_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\WordPress_Helper'] = new \Yoast\WP\SEO\Helpers\WordPress_Helper())) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Blocks\\Internal_Linking_Category'] = new \Yoast\WP\SEO\Integrations\Blocks\Internal_Linking_Category(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Wordpress_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Wordpress_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Wordpress_Helper'] = new \Yoast\WP\SEO\Helpers\Wordpress_Helper())) && false ?: '_'});
     }
 
     /**
