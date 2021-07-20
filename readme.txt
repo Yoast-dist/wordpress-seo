@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.8
-Stable tag: 16.7.1-RC1
+Stable tag: 16.7.1-slovak-hotfix
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -237,12 +237,11 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 == Changelog ==
 
 = 16.7.1 =
-Release Date: August 3rd, 2021
+Release Date: July 20th, 2021
 
 Bugfixes:
 
 * Fixes a bug where the keyphrase assessments would not load when the site language is set to Slovak.
-* [yoastseo] Fixes the Slovak feature flag not working correctly, by only adding 'sk' to array of languages with word form support, function word support and researcher support if the Slovak feature flag is enabled.
 
 = 16.7 =
 Release Date: July 13th, 2021
