@@ -118,32 +118,44 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/CornerstoneToggle.js:26
 	__( 'Mark as cornerstone content', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:236
+	// Reference: packages/js/src/components/Indexation.js:253
 	__( 'This feature includes and replaces the Text Link Counter and Internal Linking Analysis', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:265
+	// Reference: packages/js/src/components/Indexation.js:282
 	__( 'Stop SEO data optimization', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:281
+	// Reference: packages/js/src/components/Indexation.js:298
 	__( 'Start SEO data optimization', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:285
+	// Reference: packages/js/src/components/Indexation.js:302
 	__( 'SEO data optimization is disabled for non-production environments.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:304
+	// Reference: packages/js/src/components/Indexation.js:321
 	__( 'Optimizing SEO data... This may take a while.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:330
-	__( 'Oops, something has gone wrong and we couldn\'t complete the optimization of your SEO data. Please click the button again to re-start the process.', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/components/Indexation.js:338
-	__( ' If the problem persists, please contact support.', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/components/Indexation.js:341
-	__( 'Oops, something has gone wrong and we couldn\'t complete the optimization of your SEO data. Please make sure to activate your subscription in MyYoast by completing %1$sthese steps%2$s.', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/components/Indexation.js:387
+	// Reference: packages/js/src/components/Indexation.js:368
 	__( 'SEO data optimization complete', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/IndexingError.js:89
+	__( 'Error details', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/IndexingError.js:91
+	__( 'Request URL', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/IndexingError.js:92
+	__( 'Request method', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/IndexingError.js:93
+	__( 'Status code', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/IndexingError.js:94
+	__( 'Error message', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/IndexingError.js:95
+	__( 'Response', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/IndexingError.js:96
+	__( 'Error stack trace', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/LocalSEOUpsell.js:76
 	__( 'Serving local customers?', 'wordpress-seo' ),

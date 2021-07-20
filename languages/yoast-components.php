@@ -25,7 +25,7 @@ $generated_i18n_strings = array(
 	// Reference: packages/analysis-report/src/ContentAnalysis.js:97
 	__( 'Problems', 'wordpress-seo' ),
 
-	// Reference: packages/components/src/Alert.js:131
+	// Reference: packages/components/src/Alert.js:135
 	__( 'Dismiss this alert', 'wordpress-seo' ),
 
 	// Reference: packages/components/src/ErrorBoundary.js:51
