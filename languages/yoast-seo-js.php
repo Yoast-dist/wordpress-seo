@@ -151,6 +151,15 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/FunctionWordsInKeyphraseAssessment.js:60
 	__( '%1$sFunction words in keyphrase%3$s: Your keyphrase "%4$s" contains function words only. %2$sLearn more about what makes a good keyphrase.%3$s', 'wordpress-seo' ),
 
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/ImageCountAssessment.js:84
+	__( '%1$sImages%3$s: No images appear on this page. %2$sAdd some%3$s!', 'wordpress-seo' ),
+
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/ImageCountAssessment.js:103
+	_n_noop( '%3$sImages%5$s: Only %1$d image appears on this page. We recommend at least %2$d. %4$sAdd more relevant images%5$s!', '%3$sImages%5$s: Only %1$d images appear on this page. We recommend at least %2$d. %4$sAdd more relevant images%5$s!', 'wordpress-seo' ),
+
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/ImageCountAssessment.js:125
+	__( '%1$sImages%2$s: Good job!', 'wordpress-seo' ),
+
 	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/InternalLinksAssessment.js:89
 	/* Translators: %1$s and %2$s expand to links on yoast.com, %3$s expands to the anchor end tag */
 	__( '%1$sInternal links%3$s: No internal links appear in this page, %2$smake sure to add some%3$s!', 'wordpress-seo' ),
@@ -186,6 +195,25 @@ $generated_i18n_strings = array(
 
 	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseDistributionAssessment.js:146
 	__( '%1$sKeyphrase distribution%2$s: Good job!', 'wordpress-seo' ),
+
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseInImageTextAssessment.js:134
+	__( '%1$sImage Keyphrase%3$s: Images on this page have alt attributes, but you have not set your keyphrase. %2$sFix that%3$s!', 'wordpress-seo' ),
+
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseInImageTextAssessment.js:152
+	__( '%1$sImage Keyphrase%3$s: Images on this page do not have alt attributes with at least half of the words from your keyphrase. %2$sFix that%3$s!', 'wordpress-seo' ),
+
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseInImageTextAssessment.js:173
+	_n_noop( '%3$sImage Keyphrase%5$s: Out of %2$d images on this page, only %1$d has an alt attribute that reflects the topic of your text. %4$sAdd your keyphrase or synonyms to the alt tags of more relevant images%5$s!', '%3$sImage Keyphrase%5$s: Out of %2$d images on this page, only %1$d have alt attributes that reflect the topic of your text. %4$sAdd your keyphrase or synonyms to the alt tags of more relevant images%5$s!', 'wordpress-seo' ),
+
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseInImageTextAssessment.js:202
+	__( '%1$sImage Keyphrase%2$s: Good job!', 'wordpress-seo' ),
+
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseInImageTextAssessment.js:219
+	__( '%3$sImage Keyphrase%5$s: Out of %2$d images on this page, %1$d have alt attributes with words from your keyphrase or synonyms. That\'s a bit much. %4$sOnly include the keyphrase or its synonyms when it really fits the image%5$s.', 'wordpress-seo' ),
+
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseInImageTextAssessment.js:237
+	/* Translators: %1$s and %2$s expand to links on yoast.com, %3$s expands to the anchor end tag */
+	__( '%1$sImage Keyphrase%3$s: Images on this page do not have alt attributes that reflect the topic of your text. %2$sAdd your keyphrase or synonyms to the alt tags of relevant images%3$s!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:93
 	__( '%1$sKeyphrase length%3$s: %2$sSet a keyphrase in order to calculate your SEO score%3$s.', 'wordpress-seo' ),
@@ -292,26 +320,6 @@ $generated_i18n_strings = array(
 
 	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/TextCompetingLinksAssessment.js:92
 	__( '%1$sLink keyphrase%3$s: You\'re linking to another page with the words you want this page to rank for. %2$sDon\'t do that%3$s!', 'wordpress-seo' ),
-
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/TextImagesAssessment.js:133
-	__( '%1$sImage alt attributes%3$s: No images appear on this page. %2$sAdd some%3$s!', 'wordpress-seo' ),
-
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/TextImagesAssessment.js:150
-	__( '%1$sImage alt attributes%3$s: Images on this page have alt attributes, but you have not set your keyphrase. %2$sFix that%3$s!', 'wordpress-seo' ),
-
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/TextImagesAssessment.js:168
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/TextImagesAssessment.js:253
-	/* Translators: %1$s and %2$s expand to links on yoast.com, %3$s expands to the anchor end tag */
-	__( '%1$sImage alt attributes%3$s: Images on this page do not have alt attributes that reflect the topic of your text. %2$sAdd your keyphrase or synonyms to the alt tags of relevant images%3$s!', 'wordpress-seo' ),
-
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/TextImagesAssessment.js:189
-	_n_noop( '%3$sImage alt attributes%5$s: Out of %2$d images on this page, only %1$d has an alt attribute that reflects the topic of your text. %4$sAdd your keyphrase or synonyms to the alt tags of more relevant images%5$s!', '%3$sImage alt attributes%5$s: Out of %2$d images on this page, only %1$d have alt attributes that reflect the topic of your text. %4$sAdd your keyphrase or synonyms to the alt tags of more relevant images%5$s!', 'wordpress-seo' ),
-
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/TextImagesAssessment.js:218
-	__( '%1$sImage alt attributes%2$s: Good job!', 'wordpress-seo' ),
-
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/TextImagesAssessment.js:235
-	__( '%3$sImage alt attributes%5$s: Out of %2$d images on this page, %1$d have alt attributes with words from your keyphrase or synonyms. That\'s a bit much. %4$sOnly include the keyphrase or its synonyms when it really fits the image%5$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:81
 	/* Translators: %1$d expands to the number of words in the text,
