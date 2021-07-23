@@ -151,13 +151,22 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/FunctionWordsInKeyphraseAssessment.js:60
 	__( '%1$sFunction words in keyphrase%3$s: Your keyphrase "%4$s" contains function words only. %2$sLearn more about what makes a good keyphrase.%3$s', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/ImageCountAssessment.js:84
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/ImageCountAssessment.js:91
+	__( '%1$sImages and videos%3$s: No images or videos appear on this page. %2$sAdd some%3$s!', 'wordpress-seo' ),
+
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/ImageCountAssessment.js:105
 	__( '%1$sImages%3$s: No images appear on this page. %2$sAdd some%3$s!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/ImageCountAssessment.js:103
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/ImageCountAssessment.js:124
 	_n_noop( '%3$sImages%5$s: Only %1$d image appears on this page. We recommend at least %2$d. %4$sAdd more relevant images%5$s!', '%3$sImages%5$s: Only %1$d images appear on this page. We recommend at least %2$d. %4$sAdd more relevant images%5$s!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/ImageCountAssessment.js:125
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/ImageCountAssessment.js:146
+	_n_noop( '%3$sImages and videos%5$s: Only %1$d image or video appears on this page. We recommend at least %2$d. %4$sAdd more relevant images or videos%5$s!', '%3$sImages and videos%5$s: Only %1$d images or videos appear on this page. We recommend at least %2$d. %4$sAdd more relevant images or videos%5$s!', 'wordpress-seo' ),
+
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/ImageCountAssessment.js:171
+	__( '%1$sImages and videos%2$s: Good job!', 'wordpress-seo' ),
+
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/ImageCountAssessment.js:187
 	__( '%1$sImages%2$s: Good job!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/InternalLinksAssessment.js:89
