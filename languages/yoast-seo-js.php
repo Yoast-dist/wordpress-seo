@@ -304,16 +304,17 @@ $generated_i18n_strings = array(
 	/* Translators: %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag */
 	__( '%1$sOutbound links%2$s: There are both nofollowed and normal outbound links on this page. Good job!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/PageTitleWidthAssessment.js:108
-	__( '%1$sSEO title width%3$s: The SEO title is too short. %2$sUse the space to add keyphrase variations or create compelling call-to-action copy%3$s.', 'wordpress-seo' ),
-
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/PageTitleWidthAssessment.js:122
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/PageTitleWidthAssessment.js:111
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/PageTitleWidthAssessment.js:135
 	__( '%1$sSEO title width%2$s: Good job!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/PageTitleWidthAssessment.js:134
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/PageTitleWidthAssessment.js:121
+	__( '%1$sSEO title width%3$s: The SEO title is too short. %2$sUse the space to add keyphrase variations or create compelling call-to-action copy%3$s.', 'wordpress-seo' ),
+
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/PageTitleWidthAssessment.js:147
 	__( '%1$sSEO title width%3$s: The SEO title is wider than the viewable limit. %2$sTry to make it shorter%3$s.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/PageTitleWidthAssessment.js:144
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/PageTitleWidthAssessment.js:157
 	/* Translators: %1$s and %2$s expand to links on yoast.com, %3$s expands to the anchor end tag */
 	__( '%1$sSEO title width%3$s: %2$sPlease create an SEO title%3$s.', 'wordpress-seo' ),
 
