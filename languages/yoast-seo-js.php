@@ -116,18 +116,18 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/sentenceLengthInTextAssessment.js:156
 	__( '%1$sSentence length%2$s: %3$s of the sentences contain more than %4$s words, which is more than the recommended maximum of %5$s. %6$sTry to shorten the sentences%2$s.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:132
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:212
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:134
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:214
 	__( '%1$sSubheading distribution%2$s: Great job!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:152
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:175
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:154
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:177
 	_n_noop( '%1$sSubheading distribution%2$s: %3$d section of your text is longer than %4$d words and is not separated by any subheadings. %5$sAdd subheadings to improve readability%2$s.', '%1$sSubheading distribution%2$s: %3$d sections of your text are longer than %4$d words and are not separated by any subheadings. %5$sAdd subheadings to improve readability%2$s.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:195
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:197
 	__( '%1$sSubheading distribution%2$s: You are not using any subheadings, although your text is rather long. %3$sTry and add some subheadings%2$s.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:226
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:228
 	__( '%1$sSubheading distribution%2$s: You are not using any subheadings, but your text is short enough and probably doesn\'t need them.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/textPresenceAssessment.js:27
