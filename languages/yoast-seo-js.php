@@ -92,10 +92,10 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/ListAssessment.js:95
 	__( '%1$sLists%3$s: No lists appear on this page. %2$sAdd at least one ordered or unordered list%3$s!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/paragraphTooLongAssessment.js:67
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/ParagraphTooLongAssessment.js:92
 	__( '%1$sParagraph length%2$s: None of the paragraphs are too long. Great job!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/paragraphTooLongAssessment.js:80
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/ParagraphTooLongAssessment.js:105
 	_n_noop( '%1$sParagraph length%2$s: %3$d of the paragraphs contains more than the recommended maximum of %4$d words. %5$sShorten your paragraphs%2$s!', '%1$sParagraph length%2$s: %3$d of the paragraphs contain more than the recommended maximum of %4$d words. %5$sShorten your paragraphs%2$s!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/passiveVoiceAssessment.js:56
