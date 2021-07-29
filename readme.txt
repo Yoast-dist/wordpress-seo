@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.8
-Stable tag: 16.9-RC1
+Stable tag: 16.9-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -241,28 +241,26 @@ Release Date: August 10th, 2021
 
 Enhancements:
 
+* Splits the `Image alt attributes` assessment into two assessments. The `Images` assessment checks if the page contains at least one image. The `Image Keyphrase` assessment checks if the images have alt texts, and if those alt texts contain the keyphrase.
+* Makes the `Transition Word` assessment not applicable when the text has less than 200 words, as transition words are less relevant for very short texts.
+* Reduces the load time of admin pages, by reducing the number of database queries and optimizing the queries themselves.
+* Improves the performance of large posts in the Block editor, Classic editor and Elementor.
+* Adds error details to the error message if SEO optimization fails for some unforeseen reason.
+* Cleans up indexables for WooCommerce check-out pages from the indexable table, in order to improve performance.
+* Adds post link indexing and term link indexing to the `wp yoast index` WP-CLI command.
 * [yoastseo] Makes `transitionWordsAssessment` not applicable when the text has less than 200 words.
-* Adds shortlinks to yoast.com articles to the feedback text of the Images and Image Keyphrase assessments.
-* [yoastseo] Adds shortlinks to the feedback text of the Images and Image Keyphrase assessments.
 * [yoastseo] Adds text length score boundaries config for product pages to the product page SEO assessors.
 * [yoastseo] Adds custom config for `TitleWidth` assessment for product pages and adds extra feedback string in the assessment file for when short title width is not penalized with a bad score.
 * [yoastseo] Creates a research file that checks if there are lists in the text, and an assessment file that returns a red bullet if there is no list and a green bullet if there is one.
 * [yoastseo] Adds assessors for product pages.
-* [yoastseo] Removes the outbound links and internal links assessments from the SEO analysis on product pages. Removes the Flesch Reading Ease assessment and the consecutive sentences assessment from the readability analysis on product pages.
+* [yoastseo] Removes the outbound links and internal links assessments from the SEO analysis on product pages. 
+* [yoastseo] Removes the Flesch Reading Ease assessment and the consecutive sentences assessment from the readability analysis on product pages.
 * [yoastseo] Includes videos in the `ImageCount` analysis when the `countVideos` value is true.
 * [yoastseo] Passes custom configuration for the images assessment for product pages
-* Improves performance of an SQL query used to find the number of unindexed posts in the indexable table.
-* Adds post link indexing and term link indexing to the `wp yoast index` WP-CLI command.
 * [yoastseo] Splits the `TextImagesAssessment` into two, `KeyphraseInImageTextAssessment` and `ImageCountAssessment`.
-* Splits the `Image alt attributes` assessment into two, `Images` and `ImageKeyphrase`.
-* Prevents some superfluous database queries for our indexables, preventing some unnecessary load on the database.
-* Improves the performance of large posts in the Block editor, Classic editor and Elementor.
-* Adds error details to the error message if SEO optimization fails for some unforeseen reason.
-* Cleans up indexables for WooCommerce check-out pages from the indexable table, in order to improve performance.
 
 Bugfixes:
 
-* Partially fixes a bug where queries due to the background indexation would put a lot of strain on the database.
 * Fixes a bug where the `robots` meta tag could have incorrect values if users called the `wp_robots` filter to set certain values to `false`. Props to [Roy-Orbison](https://github.com/Roy-Orbison).
 
 = 16.8 =
