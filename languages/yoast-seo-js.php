@@ -45,7 +45,7 @@ $generated_i18n_strings = array(
 
 	// Reference: node_modules/yoastseo/src/parsedPaper/assess/TreeAssessor.js:98
 	// Reference: node_modules/yoastseo/src/scoring/assessor.js:209
-	// Reference: node_modules/yoastseo/src/worker/AnalysisWebWorker.js:885
+	// Reference: node_modules/yoastseo/src/worker/AnalysisWebWorker.js:1017
 	/* Translators: %1$s expands to the name of the assessment. */
 	__( 'An error occurred in the \'%1$s\' assessment', 'wordpress-seo' ),
 
