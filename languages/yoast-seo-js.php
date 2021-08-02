@@ -157,6 +157,15 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/FunctionWordsInKeyphraseAssessment.js:60
 	__( '%1$sFunction words in keyphrase%3$s: Your keyphrase "%4$s" contains function words only. %2$sLearn more about what makes a good keyphrase.%3$s', 'wordpress-seo' ),
 
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/ImageAltTagsAssessment.js:88
+	__( '%1$sImage alt tags%3$s: None of the images has alt attributes. %2$sAdd alt attributes to your images%3$s!', 'wordpress-seo' ),
+
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/ImageAltTagsAssessment.js:107
+	_n_noop( '%3$sImage alt tags%5$s: %1$d image out of %2$d doesn\'t have alt attributes. %4$sAdd alt attributes to your images%5$s!', '%3$sImage alt tags%5$s: %1$d images out of %2$d don\'t have alt attributes. %4$sAdd alt attributes to your images%5$s!', 'wordpress-seo' ),
+
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/ImageAltTagsAssessment.js:130
+	__( '%1$sImage alt tags%2$s: All images have alt attributes. Good job!', 'wordpress-seo' ),
+
 	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/ImageCountAssessment.js:91
 	__( '%1$sImages and videos%3$s: No images or videos appear on this page. %2$sAdd some%3$s!', 'wordpress-seo' ),
 
