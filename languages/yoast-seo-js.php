@@ -110,10 +110,10 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/sentenceBeginningsAssessment.js:75
 	__( '%1$sConsecutive sentences%2$s: There is enough variety in your sentences. That\'s great!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/sentenceLengthInTextAssessment.js:145
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/sentenceLengthInTextAssessment.js:146
 	__( '%1$sSentence length%2$s: Great!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/sentenceLengthInTextAssessment.js:156
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/sentenceLengthInTextAssessment.js:157
 	__( '%1$sSentence length%2$s: %3$s of the sentences contain more than %4$s words, which is more than the recommended maximum of %5$s. %6$sTry to shorten the sentences%2$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:134
