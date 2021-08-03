@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.8
-Stable tag: 16.9-RC5
+Stable tag: 16.9-RC6
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -258,6 +258,7 @@ Enhancements:
 * [yoastseo] Includes videos in the `ImageCount` analysis when the `countVideos` value is true.
 * [yoastseo] Passes custom configuration for the images assessment for product pages
 * [yoastseo] Splits the `TextImagesAssessment` into two, `KeyphraseInImageTextAssessment` and `ImageCountAssessment`.
+* Improves overall performance and responsiveness in Gutenberg.
 
 Bugfixes:
 
