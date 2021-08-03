@@ -329,12 +329,12 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/contentAnalysis/SeoAnalysis.js:74
 	__( 'Would you like to add keyphrase synonyms?', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/fills/MetaboxFill.js:47
+	// Reference: packages/js/src/components/fills/MetaboxFill.js:50
 	// Reference: packages/js/src/components/modals/editorModals/GooglePreviewModal.js:16
 	// Reference: packages/js/src/elementor/components/modals/editorModals/GooglePreviewModal.js:16
 	__( 'Google preview', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/fills/MetaboxFill.js:65
+	// Reference: packages/js/src/components/fills/MetaboxFill.js:68
 	// Reference: packages/js/src/components/fills/SidebarFill.js:63
 	// Reference: packages/js/src/elementor/components/fills/ElementorFill.js:76
 	__( 'Advanced', 'wordpress-seo' ),
