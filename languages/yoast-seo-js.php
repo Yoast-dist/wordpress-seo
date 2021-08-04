@@ -98,48 +98,48 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/ParagraphTooLongAssessment.js:105
 	_n_noop( '%1$sParagraph length%2$s: %3$d of the paragraphs contains more than the recommended maximum of %4$d words. %5$sShorten your paragraphs%2$s!', '%1$sParagraph length%2$s: %3$d of the paragraphs contain more than the recommended maximum of %4$d words. %5$sShorten your paragraphs%2$s!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/passiveVoiceAssessment.js:56
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/PassiveVoiceAssessment.js:78
 	__( '%1$sPassive voice%2$s: You\'re using enough active voice. That\'s great!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/passiveVoiceAssessment.js:70
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/PassiveVoiceAssessment.js:92
 	__( '%1$sPassive voice%2$s: %3$s of the sentences contain passive voice, which is more than the recommended maximum of %4$s. %5$sTry to use their active counterparts%2$s.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/sentenceBeginningsAssessment.js:56
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/SentenceBeginningsAssessment.js:77
 	_n_noop( '%1$sConsecutive sentences%2$s: The text contains %3$d consecutive sentences starting with the same word. %5$sTry to mix things up%2$s!', '%1$sConsecutive sentences%2$s: The text contains %4$d instances where %3$d or more consecutive sentences start with the same word. %5$sTry to mix things up%2$s!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/sentenceBeginningsAssessment.js:75
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/SentenceBeginningsAssessment.js:96
 	__( '%1$sConsecutive sentences%2$s: There is enough variety in your sentences. That\'s great!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/sentenceLengthInTextAssessment.js:146
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/SentenceLengthInTextAssessment.js:146
 	__( '%1$sSentence length%2$s: Great!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/sentenceLengthInTextAssessment.js:157
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/SentenceLengthInTextAssessment.js:157
 	__( '%1$sSentence length%2$s: %3$s of the sentences contain more than %4$s words, which is more than the recommended maximum of %5$s. %6$sTry to shorten the sentences%2$s.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:134
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:214
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/SubheadingDistributionTooLongAssessment.js:134
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/SubheadingDistributionTooLongAssessment.js:214
 	__( '%1$sSubheading distribution%2$s: Great job!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:154
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:177
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/SubheadingDistributionTooLongAssessment.js:154
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/SubheadingDistributionTooLongAssessment.js:177
 	_n_noop( '%1$sSubheading distribution%2$s: %3$d section of your text is longer than %4$d words and is not separated by any subheadings. %5$sAdd subheadings to improve readability%2$s.', '%1$sSubheading distribution%2$s: %3$d sections of your text are longer than %4$d words and are not separated by any subheadings. %5$sAdd subheadings to improve readability%2$s.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:197
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/SubheadingDistributionTooLongAssessment.js:197
 	__( '%1$sSubheading distribution%2$s: You are not using any subheadings, although your text is rather long. %3$sTry and add some subheadings%2$s.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/subheadingDistributionTooLongAssessment.js:228
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/SubheadingDistributionTooLongAssessment.js:228
 	__( '%1$sSubheading distribution%2$s: You are not using any subheadings, but your text is short enough and probably doesn\'t need them.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/textPresenceAssessment.js:27
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/TextPresenceAssessment.js:50
 	__( '%1$sNot enough content%2$s: %3$sPlease add some content to enable a good analysis%2$s.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/transitionWordsAssessment.js:72
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/TransitionWordsAssessment.js:94
 	__( '%1$sTransition words%2$s: None of the sentences contain transition words. %3$sUse some%2$s.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/transitionWordsAssessment.js:88
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/TransitionWordsAssessment.js:110
 	__( '%1$sTransition words%2$s: Only %3$s of the sentences contain transition words, which is not enough. %4$sUse more of them%2$s.', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/transitionWordsAssessment.js:103
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/TransitionWordsAssessment.js:126
 	__( '%1$sTransition words%2$s: Well done!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/wordComplexityAssessment.js:64
