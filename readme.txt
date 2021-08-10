@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.8
-Stable tag: 16.9-RC7
+Stable tag: 16.9
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -239,6 +239,8 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 = 16.9 =
 Release Date: August 10th, 2021
 
+Meet Yoast SEO 16.9: This release comes with two new image SEO assessments and improved performance. Happy updating! Read more about what’s new in Yoast SEO 16.9 in [our release post](https://yoa.st/release-16-9)!
+
 Enhancements:
 
 * Splits the `Image alt attributes` assessment into two assessments. The `Images` assessment checks if the page contains at least one image. The `Image Keyphrase` assessment checks if the images have alt texts, and if those alt texts contain the keyphrase.
@@ -248,25 +250,11 @@ Enhancements:
 * Adds error details to the error message if SEO optimization fails for some unforeseen reason.
 * Cleans up indexables for WooCommerce check-out pages from the indexable table, in order to improve performance.
 * Adds post link indexing and term link indexing to the `wp yoast index` WP-CLI command.
-* [yoastseo] Makes `transitionWordsAssessment` not applicable when the text has less than 200 words.
-* [yoastseo] Adds text length score boundaries config for product pages to the product page SEO assessors.
-* [yoastseo] Adds custom config for `TitleWidth` assessment for product pages and adds extra feedback string in the assessment file for when short title width is not penalized with a bad score.
-* [yoastseo] Creates a research file that checks if there are lists in the text, and an assessment file that returns a red bullet if there is no list and a green bullet if there is one.
-* [yoastseo] Adds assessors for product pages.
-* [yoastseo] Removes the outbound links and internal links assessments from the SEO analysis on product pages. 
-* [yoastseo] Removes the Flesch Reading Ease assessment and the consecutive sentences assessment from the readability analysis on product pages.
-* [yoastseo] Includes videos in the `ImageCount` analysis when the `countVideos` value is true.
-* [yoastseo] Passes custom configuration for the images assessment for product pages
-* [yoastseo] Splits the `TextImagesAssessment` into two, `KeyphraseInImageTextAssessment` and `ImageCountAssessment`.
-* Improves overall performance and responsiveness in Gutenberg.
+* Improves the overall performance and responsiveness in Gutenberg.
 
 Bugfixes:
 
 * Fixes a bug where the `robots` meta tag could have incorrect values if users called the `wp_robots` filter to set certain values to `false`. Props to [Roy-Orbison](https://github.com/Roy-Orbison).
-
-No category:
-
-* Improves overall performance and responsiveness in Gutenberg.
 
 = 16.8 =
 Release Date: July 27th, 2021
