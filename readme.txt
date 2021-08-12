@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.8
-Stable tag: 17.0-RC1
+Stable tag: 17.0-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -241,6 +241,9 @@ Release Date: August 24th, 2021
 
 Enhancements:
 
+* Speeds up load times of admin pages by preventing unnecessary counts of unindexed objects.
+* Cleans up items from the database that are not used anymore, thereby reducing the size of your site's database.
+* Improves the overall performance and responsiveness in Gutenberg.
 * [yoastseo] Add correct shortlinks to product assessors.
 * [yoastseo] Adjust recommended text length values for non-cornerstone collections pages so that they are lower than the cornerstone ones.
 * [yoastseo] Adds keyphrase distribution assessment to all relevant product-related assessors.
@@ -249,19 +252,25 @@ Enhancements:
 * [yoastseo] Adds shortlinks to the feedback text of the Lists assessment.
 * [Yoast SEO Premium] Improves word form recognition for stem-changing verbs in Spanish.
 * [yoastseo] Creates `ImageAltTagsAssessment` for product pages.
-* Speeds up load times of admin pages by preventing unnecessary counts of unindexed objects.
 * [yoastseo] Adds custom configuration for the keyphrase length assessment when used for product pages. Adds language-specific configuration parameters for German, Dutch and Swedish.
 * [yoastseo] Refactors the `paragraphTooLong` assessment into class and adds custom config for the assessment when used for product pages.
 * [yoastseo] Refactors the way that the right `config` is set for the sentence length assessment.
 * [yoastseo] Passes appropriate `config` to the sentence length assessment class in the product page content assessors.
 * [yoastseo] Adds an extra check in the `SubheadingsDistributionTooLong` assessment's applicability where we can adjust whether the assessment should appear in a short text analysis or not.
-* Improves the overall performance and responsiveness in Gutenberg.
 * [yoastseo] Adds assessors for store blogs.
 * [yoastseo] Adds functionality for the webworker to load custom assessors for the SEO analysis (regular/cornerstone), the SEO analysis for related keyphrases (regular/cornerstone), and the readability analysis (regular/cornerstone).
 
+Bugfixes:
+
+* Fixes a bug where the `Save all` button in the bulk editor did not work.
+* Fixes a bug where the `Existing` column in the bulk editor did not update after save.
+
 Other:
 
-* Updated the message that recommends you to install WooCommerce SEO when WooCommerce is installed.
+* Updates the message that recommends you to install WooCommerce SEO when WooCommerce is installed.
+* [yoastseo] Removes Flesch Reading Ease assessment from the blog posts and pages assessors.
+* [yoastseo] Removes `Images` assessment from related keyphrase analysis in `productPages`.
+* [yoastseo] Refactors the transition words, passive voice, text presence, and sentence beginnings assessments into classes.
 
 = 16.9 =
 Release Date: August 10th, 2021
@@ -277,7 +286,6 @@ Enhancements:
 * Adds error details to the error message if SEO optimization fails for some unforeseen reason.
 * Cleans up indexables for WooCommerce check-out pages from the indexable table, in order to improve performance.
 * Adds post link indexing and term link indexing to the `wp yoast index` WP-CLI command.
-* Improves the overall performance and responsiveness in Gutenberg.
 
 Bugfixes:
 
