@@ -86,10 +86,10 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/fleschReadingEaseAssessment.js:91
 	__( '%1$sFlesch Reading Ease%2$s: The copy scores %3$s in the test, which is considered %4$s to read. %5$s%6$s%7$s', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/ListAssessment.js:79
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/ListAssessment.js:82
 	__( '%1$sLists%2$s: There is at least one list on this page. Great!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/ListAssessment.js:95
+	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/ListAssessment.js:98
 	__( '%1$sLists%3$s: No lists appear on this page. %2$sAdd at least one ordered or unordered list%3$s!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/scoring/assessments/readability/ParagraphTooLongAssessment.js:92
