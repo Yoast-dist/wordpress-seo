@@ -217,19 +217,19 @@ $generated_i18n_strings = array(
 	// Reference: packages/search-metadata-previews/src/snippet-preview/ProductDataMobile.js:62
 	__( 'Availability', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:474
+	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:475
 	__( 'Please provide a meta description by editing the snippet below. If you don’t, Google will try to find a relevant part of your post to show in the search results.', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:583
+	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:584
 	__( 'Url preview', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:758
+	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:759
 	__( 'Shopping data preview:', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:816
+	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:817
 	__( 'SEO title preview', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:833
+	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:834
 	__( 'Meta description preview:', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/MailchimpSignup.js:119
