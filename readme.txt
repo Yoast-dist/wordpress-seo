@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.8
-Stable tag: 17.1-RC1
+Stable tag: 17.1-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -241,9 +241,10 @@ Release Date: September 7th, 2021
 
 Enhancements:
 
+* Improves the performance of saving posts, especially on posts with a lot of links.
 * Stops showing the SEO Optimization notification on non-production sites.
 * Improves the filtering out of function words in Dutch, English, Indonesian, Russian, and Spanish by including time-related words like 'minute'.
-* Improves the performance of saving posts, especially on posts with a lot of links.
+*  Updates the styling of our Google preview to reflect the updated styling of the Google search results.
 
 = 17.0 =
 Release Date: August 24th, 2021
