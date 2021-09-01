@@ -109,7 +109,7 @@ e.dgettext("js-text-analysis","%1$sKeyphrase length%3$s: No focus keyphrase was 
             %2$d expands to the recommended maximum of words in the keyphrase,
             %3$s and %4$s expand to links on yoast.com,
             %5$s expands to the anchor end tag. */
-e.dgettext("js-text-analysis","%3$sKeyphrase length%5$s: The keyphrase is %1$d word long. That's shorter than the recommended minimum of %2$d words. %4$sMake it longer%5$s!"),this._keyphraseLengthData.keyphraseLength,this._boundaries.recommendedMinimum,this._configToUse.urlTitle,this._configToUse.urlCallToAction,"</a>")};if(this._keyphraseLengthData.keyphraseLength>this._boundaries.acceptableMaximum)return{score:this._configToUse.scores.bad,resultText:e.sprintf(
+e.dngettext("js-text-analysis","%3$sKeyphrase length%5$s: The keyphrase is %1$d word long. That's shorter than the recommended minimum of %2$d words. %4$sMake it longer%5$s!","%3$sKeyphrase length%5$s: The keyphrase is %1$d words long. That's shorter than the recommended minimum of %2$d words. %4$sMake it longer%5$s!",this._keyphraseLengthData.keyphraseLength),this._keyphraseLengthData.keyphraseLength,this._boundaries.recommendedMinimum,this._configToUse.urlTitle,this._configToUse.urlCallToAction,"</a>")};if(this._keyphraseLengthData.keyphraseLength>this._boundaries.acceptableMaximum)return{score:this._configToUse.scores.bad,resultText:e.sprintf(
 /* Translators:
             %1$d expands to the number of words in the keyphrase,
             %2$d expands to the recommended maximum of words in the keyphrase,

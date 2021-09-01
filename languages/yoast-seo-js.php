@@ -240,31 +240,31 @@ $generated_i18n_strings = array(
 	__( '%1$sImage Keyphrase%3$s: Images on this page do not have alt attributes that reflect the topic of your text. %2$sAdd your keyphrase or synonyms to the alt tags of relevant images%3$s!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:113
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:255
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:258
 	__( '%1$sKeyphrase length%3$s: %2$sSet a keyphrase in order to calculate your SEO score%3$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:128
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:270
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:273
 	__( '%1$sKeyphrase length%3$s: No focus keyphrase was set for this page. %2$sSet a keyphrase in order to calculate your SEO score%3$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:149
-	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d word long. That\'s shorter than the recommended minimum of %2$d words. %4$sMake it longer%5$s!', 'wordpress-seo' ),
+	_n_noop( '%3$sKeyphrase length%5$s: The keyphrase is %1$d word long. That\'s shorter than the recommended minimum of %2$d words. %4$sMake it longer%5$s!', '%3$sKeyphrase length%5$s: The keyphrase is %1$d words long. That\'s shorter than the recommended minimum of %2$d words. %4$sMake it longer%5$s!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:171
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:217
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:174
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:220
 	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d words long. That\'s longer than the recommended maximum of %2$d words. %4$sMake it shorter%5$s!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:194
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:197
 	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d words long. That\'s slightly shorter than the recommended minimum of %2$d words. %4$sMake it longer%5$s!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:237
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:286
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:240
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:289
 	__( '%1$sKeyphrase length%2$s: Good job!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:304
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:307
 	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d words long. That\'s more than the recommended maximum of %2$d words. %4$sMake it shorter%5$s!', 'wordpress-seo' ),
 
-	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:326
+	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:329
 	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d words long. That\'s way more than the recommended maximum of %2$d words. %4$sMake it shorter%5$s!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/src/scoring/assessments/seo/KeywordDensityAssessment.js:196
