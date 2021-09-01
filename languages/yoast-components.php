@@ -179,13 +179,13 @@ $generated_i18n_strings = array(
 	// Reference: packages/search-metadata-previews/src/snippet-editor/ModeSwitcher.js:91
 	__( 'Mobile result', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditor.js:256
+	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditor.js:260
 	__( 'Modify your meta description by editing it right here', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditor.js:279
+	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditor.js:283
 	__( 'Close snippet editor', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditor.js:570
+	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditor.js:574
 	__( 'Edit snippet', 'wordpress-seo' ),
 
 	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditorFields.js:292
