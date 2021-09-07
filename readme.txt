@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.8
-Stable tag: 17.1-RC5
+Stable tag: 17.1
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -239,13 +239,15 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 = 17.1 =
 Release Date: September 7th, 2021
 
+Yoast SEO 17.1 is out today! In this release, you’ll find a couple of small changes that’ll help you write great titles that stand up to Google’s scrutiny. It also includes some behind-the-scenes improvements, including several fixes for our indexables data management. For now, please enjoy Yoast SEO and write the best possible content in the language of your choice! Read more about what’s new in Yoast SEO 17.1 in [our release post](https://yoa.st/release-17-1)!
+
 Enhancements:
 
 * Improves the performance of saving posts by excluding unchanged items, especially noticeable on posts with many links.
 * Stops showing the SEO Optimization notification on non-production sites.
 * Improves the filtering of function words in Dutch, English, Indonesian, Russian, and Spanish by including time-related words like 'minute'.
 * Updates the styling of our Google preview, to reflect the updated styling of the Google search results.
-* We no longer warn users when they have short titles, because concise, specific titles are less likely to be altered by Google.
+* Stops warning users when they have short titles, because concise, specific titles are less likely to be altered by Google.
 * Removes the `|` and `~` separator options from titles, because Google frequently replaces these in search results.
 
 = 17.0 =
