@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.8
-Stable tag: 17.2-RC2
+Stable tag: 17.2-RC3
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -249,9 +249,13 @@ Enhancements:
 * Improves the sentence length assessment for Farsi by increasing the maximum recommended sentence length to 25 words.
 * Adds Transition words assessment for Farsi.
 
+Bugfixes:
+
+* Fixes a bug where indexables would be created for `auto-draft` indexables when the SEO optimization is run.
+
 Other:
 
-* Load our help beacon on the workouts page.
+* Loads our help beacon on the workouts page.
 
 = 17.1 =
 Release Date: September 7th, 2021
