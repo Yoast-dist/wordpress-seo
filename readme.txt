@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.8
-Stable tag: 17.3-RC1
+Stable tag: 17.3-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -243,6 +243,7 @@ Enhancements:
 
 * Improves the accuracy of the Keyphrase in slug assessment by correctly detecting multi-word keyphrases with at least one hyphenated word in the slug.
 * Changes the default color for overall scores to red.
+* Fixes a bug where the All in One SEO plugin (version 4) was not detected in our import tool.
 
 Bugfixes:
 
