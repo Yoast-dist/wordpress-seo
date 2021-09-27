@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.8
-Stable tag: 17.3-RC6
+Stable tag: 17.3-RC7
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -241,15 +241,14 @@ Release Date: October 5th, 2021
 
 Enhancements:
 
-* Extends the All in One SEO importer to be compatible with versions 4.0 and up.
 * Improves the accuracy of the Keyphrase in slug assessment by correctly detecting multi-word keyphrases with at least one hyphenated word in the slug.
 * Changes the default color for overall scores to red.
-* Adds the possibility to import data from All in One SEO, version 4.
 
 Bugfixes:
 
 * Fixes a bug where the meta description bar indicator color would not always match the color of the assessment bullet.
 * Fixes a bug where the placement variables Category, Name and Tag would not show up in the snippet preview.
+* Fixes a fatal error in the breadcrumbs block for auto-draft posts.
 
 Other:
 
