@@ -6,7 +6,6 @@ use Yoast\WP\SEO\Exceptions\Indexable\Source_Exception;
 use Yoast\WP\SEO\Helpers\Indexable_Helper;
 use Yoast\WP\SEO\Models\Indexable;
 use Yoast\WP\SEO\Repositories\Indexable_Repository;
-use Yoast\WP\SEO\Services\Indexables\Indexable_Version_Manager;
 
 /**
  * Builder for the indexables.
@@ -93,13 +92,6 @@ class Indexable_Builder {
 	protected $indexable_helper;
 
 	/**
-	 * The Indexable Version Manager.
-	 *
-	 * @var Indexable_Version_Manager
-	 */
-	protected $version_manager;
-
-	/**
 	 * Returns the instance of this class constructed through the ORM Wrapper.
 	 *
 	 * @param Indexable_Author_Builder            $author_builder            The author builder for creating missing indexables.
@@ -112,7 +104,6 @@ class Indexable_Builder {
 	 * @param Indexable_Hierarchy_Builder         $hierarchy_builder         The hierarchy builder for creating the indexable hierarchy.
 	 * @param Primary_Term_Builder                $primary_term_builder      The primary term builder for creating primary terms for posts.
 	 * @param Indexable_Helper                    $indexable_helper          The indexable helper.
-	 * @param Indexable_Version_Manager           $version_manager           The indexable version manager.
 	 */
 	public function __construct(
 		Indexable_Author_Builder $author_builder,
@@ -124,8 +115,7 @@ class Indexable_Builder {
 		Indexable_System_Page_Builder $system_page_builder,
 		Indexable_Hierarchy_Builder $hierarchy_builder,
 		Primary_Term_Builder $primary_term_builder,
-		Indexable_Helper $indexable_helper,
-		Indexable_Version_Manager $version_manager
+		Indexable_Helper $indexable_helper
 	) {
 		$this->author_builder            = $author_builder;
 		$this->post_builder              = $post_builder;
@@ -137,7 +127,6 @@ class Indexable_Builder {
 		$this->hierarchy_builder         = $hierarchy_builder;
 		$this->primary_term_builder      = $primary_term_builder;
 		$this->indexable_helper          = $indexable_helper;
-		$this->version_manager           = $version_manager;
 	}
 
 	/**
@@ -152,19 +141,6 @@ class Indexable_Builder {
 	}
 
 	/**
-	 * Creates a clean copy of an Indexable to allow for later database operations.
-	 *
-	 * @param Indexable $indexable The Indexable to copy.
-	 *
-	 * @return bool|Indexable
-	 */
-	protected function deep_copy_indexable( $indexable ) {
-		return $this->indexable_repository
-			->query()
-			->create( $indexable->as_array() );
-	}
-
-	/**
 	 * Creates an indexable by its ID and type.
 	 *
 	 * @param int            $object_id   The indexable object ID.
@@ -174,12 +150,53 @@ class Indexable_Builder {
 	 * @return bool|Indexable Instance of indexable. False when unable to build.
 	 */
 	public function build_for_id_and_type( $object_id, $object_type, $indexable = false ) {
-		$defaults = [
-			'object_type' => $object_type,
-			'object_id'   => $object_id,
-		];
+		$indexable        = $this->ensure_indexable( $indexable );
+		$indexable_before = $this->indexable_repository
+			->query()
+			->create( $indexable->as_array() );
 
-		$indexable = $this->build( $indexable, $defaults );
+		try {
+			switch ( $object_type ) {
+				case 'post':
+					$indexable = $this->post_builder->build( $object_id, $indexable );
+					if ( $indexable === false ) {
+						// Post was not built for a reason, for example if its post type is excluded.
+						return $indexable;
+					}
+
+					$this->primary_term_builder->build( $object_id );
+
+					$author = $this->indexable_repository->find_by_id_and_type( $indexable->author_id, 'user', false );
+					if ( ! $author ) {
+						$this->build_for_id_and_type( $indexable->author_id, 'user' );
+					}
+
+					break;
+				case 'user':
+					$indexable = $this->author_builder->build( $object_id, $indexable );
+					break;
+				case 'term':
+					$indexable = $this->term_builder->build( $object_id, $indexable );
+					break;
+				default:
+					return $indexable;
+			}
+		}
+		catch ( Source_Exception $exception ) {
+			$indexable = $this->indexable_repository->query()->create(
+				[
+					'object_id'   => $object_id,
+					'object_type' => $object_type,
+					'post_status' => 'unindexed',
+				]
+			);
+		}
+
+		$indexable = $this->save_indexable( $indexable, $indexable_before );
+
+		if ( \in_array( $object_type, [ 'post', 'term' ], true ) && $indexable->post_status !== 'unindexed' ) {
+			$this->hierarchy_builder->build( $indexable );
+		}
 
 		return $indexable;
 	}
@@ -192,7 +209,10 @@ class Indexable_Builder {
 	 * @return Indexable The home page indexable.
 	 */
 	public function build_for_home_page( $indexable = false ) {
-		return $this->build( $indexable, [ 'object_type' => 'home-page' ] );
+		$indexable_before = $this->ensure_indexable( $indexable );
+		$indexable        = $this->home_page_builder->build( $indexable_before );
+
+		return $this->save_indexable( $indexable, $indexable_before );
 	}
 
 	/**
@@ -203,7 +223,10 @@ class Indexable_Builder {
 	 * @return Indexable The date archive indexable.
 	 */
 	public function build_for_date_archive( $indexable = false ) {
-		return $this->build( $indexable, [ 'object_type' => 'date-archive' ] );
+		$indexable = $this->ensure_indexable( $indexable );
+		$indexable = $this->date_archive_builder->build( $indexable );
+
+		return $this->save_indexable( $indexable );
 	}
 
 	/**
@@ -215,40 +238,37 @@ class Indexable_Builder {
 	 * @return Indexable The post type archive indexable.
 	 */
 	public function build_for_post_type_archive( $post_type, $indexable = false ) {
-		$defaults = [
-			'object_type'     => 'post-type-archive',
-			'object_sub_type' => $post_type,
-		];
-		return $this->build( $indexable, $defaults );
+		$indexable_before = $this->ensure_indexable( $indexable );
+		$indexable        = $this->post_type_archive_builder->build( $post_type, $indexable_before );
+
+		return $this->save_indexable( $indexable, $indexable_before );
 	}
 
 	/**
 	 * Creates an indexable for a system page.
 	 *
-	 * @param string         $page_type The type of system page.
-	 * @param Indexable|bool $indexable Optional. An existing indexable to overwrite.
+	 * @param string         $object_sub_type The type of system page.
+	 * @param Indexable|bool $indexable       Optional. An existing indexable to overwrite.
 	 *
 	 * @return Indexable The search result indexable.
 	 */
-	public function build_for_system_page( $page_type, $indexable = false ) {
-		$defaults = [
-			'object_type'     => 'system-page',
-			'object_sub_type' => $page_type,
-		];
-		return $this->build( $indexable, $defaults );
+	public function build_for_system_page( $object_sub_type, $indexable = false ) {
+		$indexable_before = $this->ensure_indexable( $indexable );
+		$indexable        = $this->system_page_builder->build( $object_sub_type, $indexable_before );
+
+		return $this->save_indexable( $indexable, $indexable_before );
 	}
 
 	/**
 	 * Ensures we have a valid indexable. Creates one if false is passed.
 	 *
 	 * @param Indexable|false $indexable The indexable.
-	 * @param array           $defaults  The initial properties of the Indexable.
 	 *
 	 * @return Indexable The indexable.
 	 */
-	private function ensure_indexable( $indexable, $defaults = [] ) {
+	private function ensure_indexable( $indexable ) {
 		if ( ! $indexable ) {
-			return $this->indexable_repository->query()->create( $defaults );
+			return $this->indexable_repository->query()->create();
 		}
 
 		return $indexable;
@@ -262,11 +282,11 @@ class Indexable_Builder {
 	 *
 	 * @return Indexable The indexable.
 	 */
-	protected function save_indexable( $indexable, $indexable_before = null ) {
+	private function save_indexable( $indexable, $indexable_before = null ) {
 		$intend_to_save = $this->indexable_helper->should_index_indexables();
 
 		/**
-		 * Filter: 'wpseo_should_save_indexable' - Allow developers to enable / disable
+		 * Filter: 'wpseo_override_save_indexable' - Allow developers to enable / disable
 		 * saving the indexable when the indexable is updated. Warning: overriding
 		 * the intended action may cause problems when moving from a staging to a
 		 * production environment because indexable permalinks may get set incorrectly.
@@ -297,104 +317,5 @@ class Indexable_Builder {
 		}
 
 		return $indexable;
-	}
-
-	/**
-	 * Rebuilds an Indexable from scratch.
-	 *
-	 * @param Indexable $indexable The Indexable to (re)build.
-	 * @param array     $defaults  The object type of the Indexable.
-	 *
-	 * @return Indexable|false The resulting Indexable.
-	 */
-	public function build( $indexable, $defaults = null ) {
-		// Backup the previous Indexable, if there was one.
-		$indexable_before = ( $indexable ) ? $this->deep_copy_indexable( $indexable ) : null;
-
-		// Make sure we have an Indexable to work with.
-		$indexable = $this->ensure_indexable( $indexable, $defaults );
-
-		try {
-			switch ( $indexable->object_type ) {
-
-				case 'post':
-					$indexable = $this->post_builder->build( $indexable->object_id, $indexable );
-					if ( ! $indexable ) {
-						// Indexable for this Post was not built for a reason; e.g. if its post type is excluded.
-						return $indexable;
-					}
-
-					// Always rebuild the primary term.
-					$this->primary_term_builder->build( $indexable->object_id );
-
-					// Always rebuild the hierarchy; this needs the primary term to run correctly.
-					$this->hierarchy_builder->build( $indexable );
-
-					// Rebuild the author indexable only when necessary.
-					$author_indexable = $this->indexable_repository->find_by_id_and_type(
-						$indexable->author_id,
-						'user',
-						false
-					);
-					if ( ! $author_indexable || $this->version_manager->indexable_needs_upgrade( $author_indexable ) ) {
-						$author_defaults = [
-							'object_type' => 'user',
-							'object_id'   => $indexable->author_id,
-						];
-						$this->build( $author_indexable, $author_defaults );
-					}
-					break;
-
-				case 'user':
-					$indexable = $this->author_builder->build( $indexable->object_id, $indexable );
-					break;
-
-				case 'term':
-					$indexable = $this->term_builder->build( $indexable->object_id, $indexable );
-					$this->hierarchy_builder->build( $indexable );
-					break;
-
-				case 'home-page':
-					$indexable = $this->home_page_builder->build( $indexable );
-					break;
-
-				case 'date-archive':
-					$indexable = $this->date_archive_builder->build( $indexable );
-					break;
-
-				case 'post-type-archive':
-					$indexable = $this->post_type_archive_builder->build( $indexable->object_sub_type, $indexable );
-					break;
-
-				case 'system-page':
-					$indexable = $this->system_page_builder->build( $indexable->object_sub_type, $indexable );
-					break;
-			}
-
-			return $this->save_indexable( $indexable, $indexable_before );
-
-		}
-		catch ( Source_Exception $exception ) {
-			/**
-			 * The current indexable could not be indexed. Create a placeholder indexable, so we can
-			 * skip this indexable in future indexing runs.
-			 *
-			 * @var Indexable $indexable
-			 */
-			$indexable = $this->indexable_repository
-				->query()
-				->create(
-					[
-						'object_id'   => $indexable->object_id,
-						'object_type' => $indexable->object_type,
-						'post_status' => 'unindexed',
-						'version'     => 0,
-					]
-				);
-			// Make sure that the indexing process doesn't get stuck in a loop on this broken indexable.
-			$indexable = $this->version_manager->set_latest( $indexable );
-
-			return $this->save_indexable( $indexable, $indexable_before );
-		}
 	}
 }

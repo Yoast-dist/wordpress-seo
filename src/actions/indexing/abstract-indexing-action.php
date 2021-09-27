@@ -3,7 +3,7 @@
 namespace Yoast\WP\SEO\Actions\Indexing;
 
 /**
- * Base class of indexing actions.
+ * Trait used to calculate unindexed object.
  */
 abstract class Abstract_Indexing_Action implements Indexation_Action_Interface, Limited_Indexing_Action_Interface {
 
