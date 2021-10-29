@@ -186,6 +186,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\helpers\\user_helper' => 'Yoast\\WP\\SEO\\Helpers\\User_Helper',
             'yoast\\wp\\seo\\helpers\\woocommerce_helper' => 'Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper',
             'yoast\\wp\\seo\\helpers\\wordpress_helper' => 'Yoast\\WP\\SEO\\Helpers\\Wordpress_Helper',
+            'yoast\\wp\\seo\\helpers\\wpdb_helper' => 'Yoast\\WP\\SEO\\Helpers\\Wpdb_Helper',
             'yoast\\wp\\seo\\initializers\\disable_core_sitemaps' => 'Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps',
             'yoast\\wp\\seo\\initializers\\migration_runner' => 'Yoast\\WP\\SEO\\Initializers\\Migration_Runner',
             'yoast\\wp\\seo\\integrations\\admin\\addon_installation\\dialog_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Dialog_Integration',
@@ -289,6 +290,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\routes\\supported_features_route' => 'Yoast\\WP\\SEO\\Routes\\Supported_Features_Route',
             'yoast\\wp\\seo\\routes\\yoast_head_rest_field' => 'Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field',
             'yoast\\wp\\seo\\schema_templates\\assets\\icons' => 'Yoast\\WP\\SEO\\Schema_Templates\\Assets\\Icons',
+            'yoast\\wp\\seo\\services\\importing\\importable_detector' => 'Yoast\\WP\\SEO\\Services\\Importing\\Importable_Detector',
             'yoast\\wp\\seo\\services\\indexables\\indexable_version_manager' => 'Yoast\\WP\\SEO\\Services\\Indexables\\Indexable_Version_Manager',
             'yoast\\wp\\seo\\surfaces\\classes_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Classes_Surface',
             'yoast\\wp\\seo\\surfaces\\helpers_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface',
@@ -467,6 +469,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Helpers\\User_Helper' => 'getUserHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper' => 'getWoocommerceHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Wordpress_Helper' => 'getWordpressHelperService',
+            'Yoast\\WP\\SEO\\Helpers\\Wpdb_Helper' => 'getWpdbHelperService',
             'Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps' => 'getDisableCoreSitemapsService',
             'Yoast\\WP\\SEO\\Initializers\\Migration_Runner' => 'getMigrationRunnerService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Dialog_Integration' => 'getDialogIntegrationService',
@@ -570,6 +573,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Routes\\Supported_Features_Route' => 'getSupportedFeaturesRouteService',
             'Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field' => 'getYoastHeadRESTFieldService',
             'Yoast\\WP\\SEO\\Schema_Templates\\Assets\\Icons' => 'getIconsService',
+            'Yoast\\WP\\SEO\\Services\\Importing\\Importable_Detector' => 'getImportableDetectorService',
             'Yoast\\WP\\SEO\\Services\\Indexables\\Indexable_Version_Manager' => 'getIndexableVersionManagerService',
             'Yoast\\WP\\SEO\\Surfaces\\Classes_Surface' => 'getClassesSurfaceService',
             'Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface' => 'getHelpersSurfaceService',
@@ -601,6 +605,7 @@ class Cached_Container extends Container
             'Psr\\Container\\ContainerInterface' => true,
             'YoastSEO_Vendor\\Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
             'YoastSEO_Vendor\\YoastSEO_Vendor\\Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
+            'Yoast\\WP\\SEO\\Actions\\Importing\\Importing_Action_Interface' => true,
             'Yoast\\WP\\SEO\\Commands\\Command_Interface' => true,
             'wpdb' => true,
         ];
@@ -730,7 +735,7 @@ class Cached_Container extends Container
      */
     protected function getAioseoPostsImportingActionService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Actions\\Importing\\Aioseo_Posts_Importing_Action'] = new \Yoast\WP\SEO\Actions\Importing\Aioseo_Posts_Importing_Action(${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'}, ${($_ = isset($this->services['wpdb']) ? $this->services['wpdb'] : $this->getWpdbService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_To_Postmeta_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_To_Postmeta_Helper'] : $this->getIndexableToPostmetaHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Actions\\Importing\\Aioseo_Posts_Importing_Action'] = new \Yoast\WP\SEO\Actions\Importing\Aioseo_Posts_Importing_Action(${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'}, ${($_ = isset($this->services['wpdb']) ? $this->services['wpdb'] : $this->getWpdbService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_To_Postmeta_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_To_Postmeta_Helper'] : $this->getIndexableToPostmetaHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Wpdb_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Wpdb_Helper'] : $this->getWpdbHelperService()) && false ?: '_'});
     }
 
     /**
@@ -2417,6 +2422,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Helpers\Wpdb_Helper' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Helpers\Wpdb_Helper
+     */
+    protected function getWpdbHelperService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Helpers\\Wpdb_Helper'] = new \Yoast\WP\SEO\Helpers\Wpdb_Helper(${($_ = isset($this->services['wpdb']) ? $this->services['wpdb'] : $this->getWpdbService()) && false ?: '_'});
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Initializers\Disable_Core_Sitemaps' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Initializers\Disable_Core_Sitemaps
@@ -3649,6 +3664,16 @@ class Cached_Container extends Container
     protected function getIconsService()
     {
         return $this->services['Yoast\\WP\\SEO\\Schema_Templates\\Assets\\Icons'] = new \Yoast\WP\SEO\Schema_Templates\Assets\Icons();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Services\Importing\Importable_Detector' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Services\Importing\Importable_Detector
+     */
+    protected function getImportableDetectorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Services\\Importing\\Importable_Detector'] = new \Yoast\WP\SEO\Services\Importing\Importable_Detector(${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Importing\\Aioseo_Posts_Importing_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Importing\\Aioseo_Posts_Importing_Action'] : $this->getAioseoPostsImportingActionService()) && false ?: '_'});
     }
 
     /**
