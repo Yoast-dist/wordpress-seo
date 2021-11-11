@@ -823,14 +823,17 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/values/defaultReplaceVariables.js:95
 	__( 'Term description', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:42
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:24
 	__( 'The cornerstone approach', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:43
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:25
 	__( 'Rank with articles you want to rank with', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:44
-	__( 'On your site you have a few articles that are the most important. You want to rank highest in Google with these articles. At Yoast, we call these articles cornerstone articles. Take the following 4 steps in order to start ranking with your cornerstone articles!', 'wordpress-seo' ),
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:27
+	__( 'Make your important articles rank higher', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:28
+	__( 'Bring more visitors to your articles', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/FinishButton.js:14
 	__( 'Revise this step', 'wordpress-seo' ),
@@ -838,13 +841,16 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/workouts/components/FinishButton.js:14
 	__( 'I\'ve finished this step', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:42
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:24
 	__( 'Orphaned content', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:43
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:25
 	__( 'Clean up your unlinked content to make sure people can find it', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:45
-	__( 'Orphaned content is content that doesn’t get any links from other posts or pages on your site. As a result of that, this content is hard to find, for both Google and visitors. Posts and pages need internal links to them, to fit into a site’s structure and to be findable. With this workout we\'ll help you update your orphaned content and make sure you have links pointing towards them!', 'wordpress-seo' )
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:27
+	__( 'Make pages easier for Google and visitors to find', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:28
+	__( 'Add internal links to your posts and pages', 'wordpress-seo' )
 );
 /* THIS IS THE END OF THE GENERATED FILE */
