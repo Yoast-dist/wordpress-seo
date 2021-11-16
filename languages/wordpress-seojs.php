@@ -1,6 +1,10 @@
 <?php
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
+	// Reference: packages/js/src/analysis/PostDataCollector.js:386
+	// Reference: packages/js/src/components/contentAnalysis/SeoAnalysis.js:216
+	__( 'Enter a focus keyphrase to calculate the SEO score', 'wordpress-seo' ),
+
 	// Reference: packages/js/src/analysis/getIndicatorForScore.js:17
 	__( 'Feedback', 'wordpress-seo' ),
 
@@ -38,38 +42,38 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/AddonInstallation.js:84
 	__( 'the following addons', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/AdvancedSettings.js:128
+	// Reference: packages/js/src/components/AdvancedSettings.js:127
 	/* %s translates to the Post Label in singular form */
 	__( 'Should search engines follow links on this %s', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/AdvancedSettings.js:135
+	// Reference: packages/js/src/components/AdvancedSettings.js:134
 	__( 'Learn more about the no-follow setting on our help page.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/AdvancedSettings.js:161
+	// Reference: packages/js/src/components/AdvancedSettings.js:160
 	__( 'Meta robots advanced', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/AdvancedSettings.js:166
+	// Reference: packages/js/src/components/AdvancedSettings.js:165
 	__( 'No Image Index', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/AdvancedSettings.js:167
+	// Reference: packages/js/src/components/AdvancedSettings.js:166
 	__( 'No Archive', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/AdvancedSettings.js:168
+	// Reference: packages/js/src/components/AdvancedSettings.js:167
 	__( 'No Snippet', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/AdvancedSettings.js:172
+	// Reference: packages/js/src/components/AdvancedSettings.js:171
 	__( 'Learn more about advanced meta robots settings on our help page.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/AdvancedSettings.js:195
+	// Reference: packages/js/src/components/AdvancedSettings.js:194
 	__( 'Breadcrumbs Title', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/AdvancedSettings.js:200
+	// Reference: packages/js/src/components/AdvancedSettings.js:199
 	__( 'Learn more about the breadcrumbs title setting on our help page.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/AdvancedSettings.js:224
+	// Reference: packages/js/src/components/AdvancedSettings.js:223
 	__( 'Canonical URL', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/AdvancedSettings.js:229
+	// Reference: packages/js/src/components/AdvancedSettings.js:228
 	__( 'Learn more about canonical URLs on our help page.', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/AdvancedSettings.js:25
@@ -85,11 +89,11 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/AdvancedSettings.js:75
 	__( 'Even though you can set the meta robots setting here, the entire site is set to noindex in the sitewide privacy settings, so these settings won\'t have an effect.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/AdvancedSettings.js:87
+	// Reference: packages/js/src/components/AdvancedSettings.js:86
 	/* %s translates to the Post Label in singular form */
 	__( 'Allow search engines to show this %s in search results?', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/AdvancedSettings.js:95
+	// Reference: packages/js/src/components/AdvancedSettings.js:94
 	__( 'Learn more about the no-index setting on our help page.', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/AnalysisChecklist.js:22
@@ -118,22 +122,22 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/CornerstoneToggle.js:26
 	__( 'Mark as cornerstone content', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:253
+	// Reference: packages/js/src/components/Indexation.js:269
 	__( 'This feature includes and replaces the Text Link Counter and Internal Linking Analysis', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:282
+	// Reference: packages/js/src/components/Indexation.js:298
 	__( 'Stop SEO data optimization', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:298
+	// Reference: packages/js/src/components/Indexation.js:314
 	__( 'Start SEO data optimization', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:302
+	// Reference: packages/js/src/components/Indexation.js:318
 	__( 'SEO data optimization is disabled for non-production environments.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:321
+	// Reference: packages/js/src/components/Indexation.js:337
 	__( 'Optimizing SEO data... This may take a while.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/Indexation.js:368
+	// Reference: packages/js/src/components/Indexation.js:384
 	__( 'SEO data optimization complete', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/IndexingError.js:89
@@ -209,10 +213,10 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/SEMrushRelatedKeyphrasesModalContent.js:57
 	__( 'Sorry, there\'s no data available for that keyphrase/country combination.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/SchemaSettings.js:110
+	// Reference: packages/js/src/components/SchemaSettings.js:109
 	__( 'Default Page type', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/SchemaSettings.js:119
+	// Reference: packages/js/src/components/SchemaSettings.js:118
 	__( 'Default Article type', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/SchemaSettings.js:80
@@ -267,7 +271,7 @@ $generated_i18n_strings = array(
 	/* %1$s expands to WordPress */
 	__( 'You can edit the details shown in meta data, like the social profiles, the name and the description of this user on their %1$s profile page.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WordPressUserSelectorSearchAppearance.js:116
+	// Reference: packages/js/src/components/WordPressUserSelectorSearchAppearance.js:118
 	__( 'Name', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WordPressUserSelectorSearchAppearance.js:69
@@ -313,9 +317,6 @@ $generated_i18n_strings = array(
 
 	// Reference: packages/js/src/components/contentAnalysis/SeoAnalysis.js:155
 	__( 'Add related keyphrase', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/components/contentAnalysis/SeoAnalysis.js:216
-	__( 'Enter a focus keyphrase to calculate the SEO score', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/contentAnalysis/SeoAnalysis.js:227
 	__( 'SEO analysis', 'wordpress-seo' ),
