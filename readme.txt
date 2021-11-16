@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.8
-Stable tag: 17.6-RC4
+Stable tag: 17.6
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -239,6 +239,8 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 = 17.6 =
 Release Date: November 16th, 2021
 
+Yoast SEO 17.6 is out today! This new release brings several fixes and enhancements to improve how the plugin works. And we’re getting it ready for the upcoming WordPress 5.9 release. Go check it out! Read more about what's new in Yoast SEO 17.6 in [our release post in English](https://yoa.st/release-17-6) or [our release post in Spanish](https://yoa.st/release-17-6-spanish)!
+
 Enhancements:
 
 * Enhances the upgrade flow for add-ons by considering the minimum required WP version before showing any available updates.
@@ -249,8 +251,6 @@ Bugfixes:
 
 * Fixes a bug where the `page` post type wasn't allowed to display an `Article` piece in the Schema.
 * Fixes a bug where the content inside of reusable blocks would not be analyzed correctly.
-* Enables the Schema Article type for any post type supporting authors.
-* Deprecates the `wpseo_schema_article_post_types` filter.
 
 Other:
 
