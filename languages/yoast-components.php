@@ -54,13 +54,13 @@ $generated_i18n_strings = array(
 	// Reference: packages/components/src/WordOccurrenceInsights.js:23
 	__( 'Read our %1$sultimate guide to keyword research%2$s to learn more about keyword research and keyword strategy.', 'wordpress-seo' ),
 
-	// Reference: packages/components/src/WordOccurrenceInsights.js:48
+	// Reference: packages/components/src/WordOccurrenceInsights.js:49
 	__( 'Once you add a bit more copy, we\'ll give you a list of words that occur the most in the content. These give an indication of what your content focuses on.', 'wordpress-seo' ),
 
-	// Reference: packages/components/src/WordOccurrenceInsights.js:55
+	// Reference: packages/components/src/WordOccurrenceInsights.js:56
 	__( 'The following words occur the most in the content. These give an indication of what your content focuses on. If the words differ a lot from your topic, you might want to rewrite your content accordingly. ', 'wordpress-seo' ),
 
-	// Reference: packages/components/src/WordOccurrenceInsights.js:71
+	// Reference: packages/components/src/WordOccurrenceInsights.js:74
 	// Reference: packages/components/src/data-model/DataModel.js:50
 	__( 'Prominent words', 'wordpress-seo' ),
 
@@ -107,21 +107,21 @@ $generated_i18n_strings = array(
 	// Reference: packages/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:20
 	__( 'We could not find any relevant articles on your website that you could link to from your post.', 'wordpress-seo' ),
 
-	// Reference: packages/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:26
+	// Reference: packages/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:24
 	/* Text between {{a}} and {{/a}} will be a link to an article about site structure. */
 	__( '{{a}}Read our article about site structure{{/a}} to learn more about how internal linking can help improve your SEO.', 'wordpress-seo' ),
 
-	// Reference: packages/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:32
+	// Reference: packages/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:29
 	/* Text between {{a}} and {{/a}} will be a link to an article about cornerstone content. */
 	__( 'Consider linking to these {{a}}cornerstone articles:{{/a}}', 'wordpress-seo' ),
 
-	// Reference: packages/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:34
+	// Reference: packages/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:31
 	__( 'Consider linking to these articles:', 'wordpress-seo' ),
 
-	// Reference: packages/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:65
+	// Reference: packages/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:62
 	__( 'Copied!', 'wordpress-seo' ),
 
-	// Reference: packages/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:84
+	// Reference: packages/yoast-components/composites/LinkSuggestions/LinkSuggestions.js:81
 	__( 'Not supported!', 'wordpress-seo' ),
 
 	// Reference: packages/yoast-components/composites/Plugin/CornerstoneContent/components/CornerstoneToggle.js:26
@@ -217,16 +217,16 @@ $generated_i18n_strings = array(
 	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:475
 	__( 'Please provide a meta description by editing the snippet below. If you don’t, Google will try to find a relevant part of your post to show in the search results.', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:587
+	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:584
 	__( 'Url preview', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:762
+	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:759
 	__( 'Shopping data preview:', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:820
+	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:817
 	__( 'SEO title preview', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:837
+	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:834
 	__( 'Meta description preview:', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/MailchimpSignup.js:119
