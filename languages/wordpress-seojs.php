@@ -952,7 +952,10 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:629
 	__( 'Sign up for the Yoast newsletter!', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:639
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:640
+	__( 'Before you finish this workout, please start the SEO data optimization in step 1 and wait until it is completed...', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:641
 	__( 'Before you finish this workout, please wait on this page until the SEO data optimization in step 1 is completed...', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkoutCard.js:26
