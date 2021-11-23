@@ -942,16 +942,16 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkoutCard.js:32
 	__( 'Apply the optimal SEO settings to your site', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:24
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:28
 	__( 'The cornerstone approach', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:25
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:29
 	__( 'Rank with articles you want to rank with', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:27
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:31
 	__( 'Make your important articles rank higher', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:28
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:32
 	__( 'Bring more visitors to your articles', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/FinishButton.js:14
@@ -997,16 +997,16 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/workouts/components/OrganizationSection.js:48
 	__( 'Organization logo (important)', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:24
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:28
 	__( 'Orphaned content', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:25
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:29
 	__( 'Clean up your unlinked content to make sure people can find it', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:27
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:31
 	__( 'Make pages easier for Google and visitors to find', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:28
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:32
 	__( 'Add internal links to your posts and pages', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/PersonSection.js:36
@@ -1049,16 +1049,16 @@ $generated_i18n_strings = array(
 	/* %1$s: number of finished steps, %2$s: number of finishable steps */
 	__( '%1$s/%2$s steps completed', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/WorkoutCard.js:50
+	// Reference: packages/js/src/workouts/components/WorkoutCard.js:51
 	__( 'Start workout!', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/WorkoutCard.js:52
+	// Reference: packages/js/src/workouts/components/WorkoutCard.js:53
 	__( 'Continue workout!', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/WorkoutCard.js:54
+	// Reference: packages/js/src/workouts/components/WorkoutCard.js:55
 	__( 'Do workout again', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/WorkoutCard.js:91
+	// Reference: packages/js/src/workouts/components/WorkoutCard.js:73
 	/* %s : Expands to the add-on name. */
 	__( 'Unlock with %s!', 'wordpress-seo' ),
 
@@ -1066,14 +1066,14 @@ $generated_i18n_strings = array(
 	/* %s : Expands to the add-on name. */
 	__( 'Buy %s', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/WorkoutsPage.js:102
+	// Reference: packages/js/src/workouts/components/WorkoutsPage.js:105
+	__( 'SEO workouts', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/workouts/components/WorkoutsPage.js:108
 	__( 'Getting your site in shape and keeping it SEO fit can be hard. We can help you get started! Take these step-by-step workouts, and you’ll be tackling some of the most fundamental SEO challenges!', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/WorkoutsPage.js:110
+	// Reference: packages/js/src/workouts/components/WorkoutsPage.js:116
 	/* %1$s translates to a leftward pointing arrow ( ← ) */
-	__( '%1$sBack to all workouts', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/workouts/components/WorkoutsPage.js:99
-	__( 'SEO workouts', 'wordpress-seo' )
+	__( '%1$sBack to all workouts', 'wordpress-seo' )
 );
 /* THIS IS THE END OF THE GENERATED FILE */
