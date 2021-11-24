@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.8
-Stable tag: 17.7-RC8
+Stable tag: 17.7-RC9
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -244,6 +244,7 @@ Enhancements:
 * Introduces the configuration workout.
 * Adds a link to the archive page for the content types in the search appearance settings. Props to [felipelousantos](https://github.com/felipelousantos).
 * Adds a few more French transition words to be recognised by the transition words assessment. Props to [Cellophile](https://github.com/Cellophile).
+* Fixes a bug where memory issues could occur when indexing a site with large amounts of terms assigned to many posts.
 
 Bugfixes:
 
