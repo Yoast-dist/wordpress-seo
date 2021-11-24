@@ -856,6 +856,9 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:389
 	__( 'Tell Google what kind of site you have and increase the chance it gets features in a Google Knowledge Panel. Select ‘Organization’ if you are working on a site for a business or an organization. Select ‘Person’ if you have, say, a personal blog.', 'wordpress-seo' ),
 
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:400
+	__( 'Does your site represent an Organization or Person?', 'wordpress-seo' ),
+
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:409
 	__( 'Does you site represent an Organization or Person?', 'wordpress-seo' ),
 
