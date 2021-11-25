@@ -28,7 +28,6 @@ class Cached_Container extends Container
             'wpseo_addon_manager' => 'WPSEO_Addon_Manager',
             'wpseo_admin_asset_manager' => 'WPSEO_Admin_Asset_Manager',
             'wpseo_breadcrumbs' => 'WPSEO_Breadcrumbs',
-            'wpseo_frontend' => 'WPSEO_Frontend',
             'wpseo_replace_vars' => 'WPSEO_Replace_Vars',
             'wpseo_shortlinker' => 'WPSEO_Shortlinker',
             'yoast\\wp\\lib\\migrations\\adapter' => 'Yoast\\WP\\Lib\\Migrations\\Adapter',
@@ -332,7 +331,6 @@ class Cached_Container extends Container
             'WPSEO_Addon_Manager' => 'getWPSEOAddonManagerService',
             'WPSEO_Admin_Asset_Manager' => 'getWPSEOAdminAssetManagerService',
             'WPSEO_Breadcrumbs' => 'getWPSEOBreadcrumbsService',
-            'WPSEO_Frontend' => 'getWPSEOFrontendService',
             'WPSEO_Replace_Vars' => 'getWPSEOReplaceVarsService',
             'WPSEO_Shortlinker' => 'getWPSEOShortlinkerService',
             'Yoast\\WP\\Lib\\Migrations\\Adapter' => 'getAdapterService',
@@ -697,16 +695,6 @@ class Cached_Container extends Container
     protected function getWPSEOBreadcrumbsService()
     {
         return $this->services['WPSEO_Breadcrumbs'] = new \WPSEO_Breadcrumbs();
-    }
-
-    /**
-     * Gets the public 'WPSEO_Frontend' shared autowired service.
-     *
-     * @return \WPSEO_Frontend
-     */
-    protected function getWPSEOFrontendService()
-    {
-        return $this->services['WPSEO_Frontend'] = new \WPSEO_Frontend();
     }
 
     /**
