@@ -257,6 +257,74 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/SchemaTab.js:82
 	__( 'Learn more about structured data with Schema.org', 'wordpress-seo' ),
 
+	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:347
+	__( 'Tracking', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:353
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:245
+	__( 'Keyphrase', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:359
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:251
+	__( 'Position', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:365
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:257
+	__( 'Position over time', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:394
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:279
+	/* %s expands to Wincher */
+	__( 'Get more insights over at %s', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:399
+	__( '* focus keyphrase', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:127
+	/* %s expands to Wincher */
+	__( 'Add your existing keyphrases to %s', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:165
+	// Reference: packages/js/src/components/WincherTableRow.js:179
+	__( 'View', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:232
+	__( 'Top performing keyphrases on your site', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:84
+	// Reference: packages/js/src/components/WincherSEOPerformance.js:171
+	/* %s expands to Wincher */
+	__( 'Connect with %s', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherPostPublish.js:34
+	// Reference: packages/js/src/components/WincherSEOPerformance.js:266
+	__( 'SEO performance', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherPostPublish.js:36
+	// Reference: packages/js/src/components/WincherSEOPerformance.js:269
+	__( 'Learn more about the SEO performance feature.', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherPostPublish.js:42
+	__( 'Tracking has already been enabled for one or more keyphrases of this page. Clicking the button below will enable tracking for all of its keyphrases.', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherPostPublish.js:54
+	__( 'Track all keyphrases on this page', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherSEOPerformance.js:227
+	__( 'You can enable / disable tracking the SEO performance for each keyphrase below.', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherSEOPerformanceModal.js:70
+	// Reference: packages/js/src/components/fills/MetaboxFill.js:82
+	__( 'Track SEO performance', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherTableRow.js:39
+	// Reference: packages/js/src/structured-data-blocks/how-to/legacy/utils/8.2.js:31
+	// Reference: packages/js/src/structured-data-blocks/how-to/utils/buildDurationString.js:31
+	_n_noop( '%d day', '%d days', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherTableRow.js:80
+	__( 'Keyphrase position in the last 90 days on a scale from 0 to 100.', 'wordpress-seo' ),
+
 	// Reference: packages/js/src/components/WordPressUserSelector.js:113
 	__( 'Select a user...', 'wordpress-seo' ),
 
@@ -283,12 +351,15 @@ $generated_i18n_strings = array(
 	__( 'Please enter a focus keyphrase first to get related keyphrases', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/contentAnalysis/KeywordInput.js:66
-	__( 'Are you trying to use multiple keyphrases? You should add them separately below.', 'wordpress-seo' ),
+	__( 'Please enter a focus keyphrase first to track keyphrase performance', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/contentAnalysis/KeywordInput.js:70
+	__( 'Are you trying to use multiple keyphrases? You should add them separately below.', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/contentAnalysis/KeywordInput.js:74
 	__( 'Your keyphrase is too long. It can be a maximum of 191 characters.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/contentAnalysis/KeywordInput.js:92
+	// Reference: packages/js/src/components/contentAnalysis/KeywordInput.js:96
 	// Reference: packages/js/src/values/defaultReplaceVariables.js:50
 	__( 'Focus keyphrase', 'wordpress-seo' ),
 
@@ -326,18 +397,18 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/contentAnalysis/SeoAnalysis.js:74
 	__( 'Would you like to add keyphrase synonyms?', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/fills/MetaboxFill.js:50
+	// Reference: packages/js/src/components/fills/MetaboxFill.js:64
 	// Reference: packages/js/src/components/modals/editorModals/GooglePreviewModal.js:16
 	// Reference: packages/js/src/elementor/components/modals/editorModals/GooglePreviewModal.js:16
 	__( 'Google preview', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/fills/MetaboxFill.js:68
-	// Reference: packages/js/src/components/fills/SidebarFill.js:63
-	// Reference: packages/js/src/elementor/components/fills/ElementorFill.js:76
+	// Reference: packages/js/src/components/fills/MetaboxFill.js:95
+	// Reference: packages/js/src/components/fills/SidebarFill.js:64
+	// Reference: packages/js/src/elementor/components/fills/ElementorFill.js:77
 	__( 'Advanced', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/fills/SidebarFill.js:56
-	// Reference: packages/js/src/elementor/components/fills/ElementorFill.js:69
+	// Reference: packages/js/src/components/fills/SidebarFill.js:57
+	// Reference: packages/js/src/elementor/components/fills/ElementorFill.js:70
 	// Reference: packages/js/src/structured-data-blocks/faq/block.js:28
 	// Reference: packages/js/src/structured-data-blocks/how-to/block.js:56
 	__( 'Schema', 'wordpress-seo' ),
@@ -481,6 +552,64 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/modals/SeoAnalysisModal.js:25
 	__( 'Close', 'wordpress-seo' ),
 
+	// Reference: packages/js/src/components/modals/WincherAddedAllAlert.js:18
+	/* %s: Expands to "Wincher". */
+	__( 'Adding all your existing keyphrases to %s has completed successfully', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/modals/WincherAutoTrackingEnabledAlert.js:18
+	/* %s: Expands to "Wincher". */
+	__( 'Automatic tracking of keyphrases is enabled. Your keyphrase(s) will automatically be tracked by %s when you publish your post.', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/modals/WincherConnectExplanation.js:19
+	__( 'Connect %1$s with %2$s to track the ranking position of your site in the search results based on your keyphrase(s). %3$s', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/modals/WincherConnectExplanation.js:39
+	// Reference: packages/js/src/components/modals/WincherExplanation.js:38
+	__( 'Read more about keyphrase tracking with Wincher', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/modals/WincherConnectedAlert.js:18
+	/* %s: Expands to "Wincher". */
+	__( 'You have successfully connected to %s! You can now track the SEO performance for the keyphrase(s) of this page.', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/modals/WincherCurrentlyTrackingAlert.js:18
+	/* %s: Expands to "Wincher". */
+	__( '%s is currently tracking the ranking position(s) of your page. This may take a few minutes. Please wait or check back later.', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/modals/WincherExplanation.js:19
+	__( 'With %1$s you can track the ranking position of your page in the search results based on your keyphrase(s). %2$s', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/modals/WincherLimitReached.js:24
+	/* %d expands to the amount of allowed keyphrases on a free account, %s expands to a link to Wincher plans. */
+	__( 'You\'ve reached the maximum amount of %d keyphrases you can add to your Wincher account. If you wish to add more keyphrases, please %s.', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/modals/WincherLimitReached.js:43
+	/* %s : Expands to "Wincher". */
+	__( 'upgrade your %s plan', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/modals/WincherNoKeyphraseSet.js:15
+	__( 'No keyphrase has been set. Please set a keyphrase first.', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/modals/WincherNoPermalinkAlert.js:15
+	__( 'Before you can track your SEO performance make sure to set either the post’s title and save it as a draft or manually set the post’s slug', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/modals/WincherNoTrackedKeyphrasesAlert.js:18
+	/* %s: Expands to "Wincher". */
+	__( 'Your %s account does not contain any keyphrases for this website yet. ', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/modals/WincherReconnectAlert.js:19
+	/* %s expands to a link to open the Wincher login popup. */
+	__( 'It seems like something went wrong when retrieving your website\'s data. Please %s and try again.', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/modals/WincherReconnectAlert.js:38
+	/* %s : Expands to "Wincher". */
+	__( 'reconnect to %s', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/modals/WincherRequestFailed.js:15
+	__( 'Something went wrong while tracking the ranking position(s) of your page. Please try again later.', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/modals/WincherSEOPerformanceLoading.js:15
+	__( 'Tracking the ranking position...', 'wordpress-seo' ),
+
 	// Reference: packages/js/src/components/modals/editorModals/EditorModal.js:65
 	/* %s translates to the Post Label in singular form */
 	__( 'Make sure to save your %s for changes to take effect', 'wordpress-seo' ),
@@ -564,13 +693,13 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/helpers/addCheckToChecklist.js:61
 	__( 'SEO analysis:', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/initializers/block-editor-integration.js:151
+	// Reference: packages/js/src/initializers/block-editor-integration.js:153
 	__( 'Yoast SEO', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/initializers/block-editor-integration.js:54
+	// Reference: packages/js/src/initializers/block-editor-integration.js:55
 	__( 'Marking links with nofollow/sponsored has been disabled for WordPress installs < 5.4.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/initializers/block-editor-integration.js:57
+	// Reference: packages/js/src/initializers/block-editor-integration.js:58
 	__( 'Please upgrade your WordPress version or install the Gutenberg plugin to get this %1$s feature.', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/initializers/elementor-editor-integration.js:54
@@ -748,10 +877,6 @@ $generated_i18n_strings = array(
 
 	// Reference: packages/js/src/structured-data-blocks/how-to/components/HowToStep.js:347
 	__( 'Enter a step description', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/structured-data-blocks/how-to/legacy/utils/8.2.js:31
-	// Reference: packages/js/src/structured-data-blocks/how-to/utils/buildDurationString.js:31
-	_n_noop( '%d day', '%d days', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/structured-data-blocks/how-to/legacy/utils/8.2.js:34
 	// Reference: packages/js/src/structured-data-blocks/how-to/utils/buildDurationString.js:34

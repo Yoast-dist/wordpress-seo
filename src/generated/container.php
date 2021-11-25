@@ -51,6 +51,9 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\actions\\semrush\\semrush_login_action' => 'Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Login_Action',
             'yoast\\wp\\seo\\actions\\semrush\\semrush_options_action' => 'Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Options_Action',
             'yoast\\wp\\seo\\actions\\semrush\\semrush_phrases_action' => 'Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Phrases_Action',
+            'yoast\\wp\\seo\\actions\\wincher\\wincher_account_action' => 'Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Account_Action',
+            'yoast\\wp\\seo\\actions\\wincher\\wincher_keyphrases_action' => 'Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Keyphrases_Action',
+            'yoast\\wp\\seo\\actions\\wincher\\wincher_login_action' => 'Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Login_Action',
             'yoast\\wp\\seo\\builders\\indexable_author_builder' => 'Yoast\\WP\\SEO\\Builders\\Indexable_Author_Builder',
             'yoast\\wp\\seo\\builders\\indexable_builder' => 'Yoast\\WP\\SEO\\Builders\\Indexable_Builder',
             'yoast\\wp\\seo\\builders\\indexable_date_archive_builder' => 'Yoast\\WP\\SEO\\Builders\\Indexable_Date_Archive_Builder',
@@ -93,6 +96,9 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\conditionals\\third_party\\wpml_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\WPML_Conditional',
             'yoast\\wp\\seo\\conditionals\\third_party\\wpml_wpseo_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\WPML_WPSEO_Conditional',
             'yoast\\wp\\seo\\conditionals\\web_stories_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Web_Stories_Conditional',
+            'yoast\\wp\\seo\\conditionals\\wincher_automatically_track_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Wincher_Automatically_Track_Conditional',
+            'yoast\\wp\\seo\\conditionals\\wincher_enabled_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Wincher_Enabled_Conditional',
+            'yoast\\wp\\seo\\conditionals\\wincher_token_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Wincher_Token_Conditional',
             'yoast\\wp\\seo\\conditionals\\woocommerce_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Conditional',
             'yoast\\wp\\seo\\conditionals\\wp_robots_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\WP_Robots_Conditional',
             'yoast\\wp\\seo\\conditionals\\xmlrpc_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\XMLRPC_Conditional',
@@ -129,6 +135,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\config\\schema_ids' => 'Yoast\\WP\\SEO\\Config\\Schema_IDs',
             'yoast\\wp\\seo\\config\\schema_types' => 'Yoast\\WP\\SEO\\Config\\Schema_Types',
             'yoast\\wp\\seo\\config\\semrush_client' => 'Yoast\\WP\\SEO\\Config\\SEMrush_Client',
+            'yoast\\wp\\seo\\config\\wincher_client' => 'Yoast\\WP\\SEO\\Config\\Wincher_Client',
             'yoast\\wp\\seo\\context\\meta_tags_context' => 'Yoast\\WP\\SEO\\Context\\Meta_Tags_Context',
             'yoast\\wp\\seo\\generators\\breadcrumbs_generator' => 'Yoast\\WP\\SEO\\Generators\\Breadcrumbs_Generator',
             'yoast\\wp\\seo\\generators\\open_graph_image_generator' => 'Yoast\\WP\\SEO\\Generators\\Open_Graph_Image_Generator',
@@ -188,6 +195,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\helpers\\twitter\\image_helper' => 'Yoast\\WP\\SEO\\Helpers\\Twitter\\Image_Helper',
             'yoast\\wp\\seo\\helpers\\url_helper' => 'Yoast\\WP\\SEO\\Helpers\\Url_Helper',
             'yoast\\wp\\seo\\helpers\\user_helper' => 'Yoast\\WP\\SEO\\Helpers\\User_Helper',
+            'yoast\\wp\\seo\\helpers\\wincher_helper' => 'Yoast\\WP\\SEO\\Helpers\\Wincher_Helper',
             'yoast\\wp\\seo\\helpers\\woocommerce_helper' => 'Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper',
             'yoast\\wp\\seo\\helpers\\wordpress_helper' => 'Yoast\\WP\\SEO\\Helpers\\Wordpress_Helper',
             'yoast\\wp\\seo\\helpers\\wpdb_helper' => 'Yoast\\WP\\SEO\\Helpers\\Wpdb_Helper',
@@ -244,6 +252,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\third_party\\the_events_calendar' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\The_Events_Calendar',
             'yoast\\wp\\seo\\integrations\\third_party\\w3_total_cache' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\W3_Total_Cache',
             'yoast\\wp\\seo\\integrations\\third_party\\web_stories' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Web_Stories',
+            'yoast\\wp\\seo\\integrations\\third_party\\wincher_publish' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wincher_Publish',
             'yoast\\wp\\seo\\integrations\\third_party\\woocommerce' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\WooCommerce',
             'yoast\\wp\\seo\\integrations\\third_party\\woocommerce_permalinks' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Woocommerce_Permalinks',
             'yoast\\wp\\seo\\integrations\\third_party\\wpml' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\WPML',
@@ -297,6 +306,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\routes\\indexing_route' => 'Yoast\\WP\\SEO\\Routes\\Indexing_Route',
             'yoast\\wp\\seo\\routes\\semrush_route' => 'Yoast\\WP\\SEO\\Routes\\SEMrush_Route',
             'yoast\\wp\\seo\\routes\\supported_features_route' => 'Yoast\\WP\\SEO\\Routes\\Supported_Features_Route',
+            'yoast\\wp\\seo\\routes\\wincher_route' => 'Yoast\\WP\\SEO\\Routes\\Wincher_Route',
             'yoast\\wp\\seo\\routes\\workouts_route' => 'Yoast\\WP\\SEO\\Routes\\Workouts_Route',
             'yoast\\wp\\seo\\routes\\yoast_head_rest_field' => 'Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field',
             'yoast\\wp\\seo\\schema_templates\\assets\\icons' => 'Yoast\\WP\\SEO\\Schema_Templates\\Assets\\Icons',
@@ -345,6 +355,9 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Login_Action' => 'getSEMrushLoginActionService',
             'Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Options_Action' => 'getSEMrushOptionsActionService',
             'Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Phrases_Action' => 'getSEMrushPhrasesActionService',
+            'Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Account_Action' => 'getWincherAccountActionService',
+            'Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Keyphrases_Action' => 'getWincherKeyphrasesActionService',
+            'Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Login_Action' => 'getWincherLoginActionService',
             'Yoast\\WP\\SEO\\Builders\\Indexable_Author_Builder' => 'getIndexableAuthorBuilderService',
             'Yoast\\WP\\SEO\\Builders\\Indexable_Builder' => 'getIndexableBuilderService',
             'Yoast\\WP\\SEO\\Builders\\Indexable_Date_Archive_Builder' => 'getIndexableDateArchiveBuilderService',
@@ -388,6 +401,9 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\WPML_WPSEO_Conditional' => 'getWPMLWPSEOConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\WP_Robots_Conditional' => 'getWPRobotsConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Web_Stories_Conditional' => 'getWebStoriesConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Wincher_Automatically_Track_Conditional' => 'getWincherAutomaticallyTrackConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Wincher_Enabled_Conditional' => 'getWincherEnabledConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Wincher_Token_Conditional' => 'getWincherTokenConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Conditional' => 'getWooCommerceConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\XMLRPC_Conditional' => 'getXMLRPCConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Yoast_Admin_And_Dashboard_Conditional' => 'getYoastAdminAndDashboardConditionalService',
@@ -423,6 +439,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Config\\SEMrush_Client' => 'getSEMrushClientService',
             'Yoast\\WP\\SEO\\Config\\Schema_IDs' => 'getSchemaIDsService',
             'Yoast\\WP\\SEO\\Config\\Schema_Types' => 'getSchemaTypesService',
+            'Yoast\\WP\\SEO\\Config\\Wincher_Client' => 'getWincherClientService',
             'Yoast\\WP\\SEO\\Context\\Meta_Tags_Context' => 'getMetaTagsContextService',
             'Yoast\\WP\\SEO\\Generators\\Breadcrumbs_Generator' => 'getBreadcrumbsGeneratorService',
             'Yoast\\WP\\SEO\\Generators\\Open_Graph_Image_Generator' => 'getOpenGraphImageGeneratorService',
@@ -482,6 +499,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Helpers\\Twitter\\Image_Helper' => 'getImageHelper4Service',
             'Yoast\\WP\\SEO\\Helpers\\Url_Helper' => 'getUrlHelperService',
             'Yoast\\WP\\SEO\\Helpers\\User_Helper' => 'getUserHelperService',
+            'Yoast\\WP\\SEO\\Helpers\\Wincher_Helper' => 'getWincherHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper' => 'getWoocommerceHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Wordpress_Helper' => 'getWordpressHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Wpdb_Helper' => 'getWpdbHelperService',
@@ -540,6 +558,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\WPML' => 'getWPMLService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\WPML_WPSEO_Notification' => 'getWPMLWPSEONotificationService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Web_Stories' => 'getWebStoriesService',
+            'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wincher_Publish' => 'getWincherPublishService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\WooCommerce' => 'getWooCommerceService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Woocommerce_Permalinks' => 'getWoocommercePermalinksService',
             'Yoast\\WP\\SEO\\Integrations\\Uninstall_Integration' => 'getUninstallIntegrationService',
@@ -591,6 +610,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Routes\\Indexing_Route' => 'getIndexingRouteService',
             'Yoast\\WP\\SEO\\Routes\\SEMrush_Route' => 'getSEMrushRouteService',
             'Yoast\\WP\\SEO\\Routes\\Supported_Features_Route' => 'getSupportedFeaturesRouteService',
+            'Yoast\\WP\\SEO\\Routes\\Wincher_Route' => 'getWincherRouteService',
             'Yoast\\WP\\SEO\\Routes\\Workouts_Route' => 'getWorkoutsRouteService',
             'Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field' => 'getYoastHeadRESTFieldService',
             'Yoast\\WP\\SEO\\Schema_Templates\\Assets\\Icons' => 'getIconsService',
@@ -971,6 +991,36 @@ class Cached_Container extends Container
     protected function getSEMrushPhrasesActionService()
     {
         return $this->services['Yoast\\WP\\SEO\\Actions\\SEMrush\\SEMrush_Phrases_Action'] = new \Yoast\WP\SEO\Actions\SEMrush\SEMrush_Phrases_Action(${($_ = isset($this->services['Yoast\\WP\\SEO\\Config\\SEMrush_Client']) ? $this->services['Yoast\\WP\\SEO\\Config\\SEMrush_Client'] : $this->getSEMrushClientService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Actions\Wincher\Wincher_Account_Action' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Actions\Wincher\Wincher_Account_Action
+     */
+    protected function getWincherAccountActionService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Account_Action'] = new \Yoast\WP\SEO\Actions\Wincher\Wincher_Account_Action(${($_ = isset($this->services['Yoast\\WP\\SEO\\Config\\Wincher_Client']) ? $this->services['Yoast\\WP\\SEO\\Config\\Wincher_Client'] : $this->getWincherClientService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Actions\Wincher\Wincher_Keyphrases_Action' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Actions\Wincher\Wincher_Keyphrases_Action
+     */
+    protected function getWincherKeyphrasesActionService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Keyphrases_Action'] = new \Yoast\WP\SEO\Actions\Wincher\Wincher_Keyphrases_Action(${($_ = isset($this->services['Yoast\\WP\\SEO\\Config\\Wincher_Client']) ? $this->services['Yoast\\WP\\SEO\\Config\\Wincher_Client'] : $this->getWincherClientService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Actions\Wincher\Wincher_Login_Action' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Actions\Wincher\Wincher_Login_Action
+     */
+    protected function getWincherLoginActionService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Login_Action'] = new \Yoast\WP\SEO\Actions\Wincher\Wincher_Login_Action(${($_ = isset($this->services['Yoast\\WP\\SEO\\Config\\Wincher_Client']) ? $this->services['Yoast\\WP\\SEO\\Config\\Wincher_Client'] : $this->getWincherClientService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
     }
 
     /**
@@ -1516,6 +1566,36 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Wincher_Automatically_Track_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Wincher_Automatically_Track_Conditional
+     */
+    protected function getWincherAutomaticallyTrackConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Wincher_Automatically_Track_Conditional'] = new \Yoast\WP\SEO\Conditionals\Wincher_Automatically_Track_Conditional(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Wincher_Enabled_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Wincher_Enabled_Conditional
+     */
+    protected function getWincherEnabledConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Wincher_Enabled_Conditional'] = new \Yoast\WP\SEO\Conditionals\Wincher_Enabled_Conditional(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Wincher_Token_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Wincher_Token_Conditional
+     */
+    protected function getWincherTokenConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Wincher_Token_Conditional'] = new \Yoast\WP\SEO\Conditionals\Wincher_Token_Conditional(${($_ = isset($this->services['Yoast\\WP\\SEO\\Config\\Wincher_Client']) ? $this->services['Yoast\\WP\\SEO\\Config\\Wincher_Client'] : $this->getWincherClientService()) && false ?: '_'});
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Conditionals\WooCommerce_Conditional' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Conditionals\WooCommerce_Conditional
@@ -1863,6 +1943,16 @@ class Cached_Container extends Container
     protected function getSchemaTypesService()
     {
         return $this->services['Yoast\\WP\\SEO\\Config\\Schema_Types'] = new \Yoast\WP\SEO\Config\Schema_Types();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Config\Wincher_Client' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Config\Wincher_Client
+     */
+    protected function getWincherClientService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Config\\Wincher_Client'] = new \Yoast\WP\SEO\Config\Wincher_Client(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Wrappers\\WP_Remote_Handler']) ? $this->services['Yoast\\WP\\SEO\\Wrappers\\WP_Remote_Handler'] : ($this->services['Yoast\\WP\\SEO\\Wrappers\\WP_Remote_Handler'] = new \Yoast\WP\SEO\Wrappers\WP_Remote_Handler())) && false ?: '_'});
     }
 
     /**
@@ -2492,6 +2582,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Helpers\Wincher_Helper' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Helpers\Wincher_Helper
+     */
+    protected function getWincherHelperService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Helpers\\Wincher_Helper'] = new \Yoast\WP\SEO\Helpers\Wincher_Helper();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Helpers\Woocommerce_Helper' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Helpers\Woocommerce_Helper
@@ -3094,6 +3194,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\Third_Party\Wincher_Publish' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\Third_Party\Wincher_Publish
+     */
+    protected function getWincherPublishService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wincher_Publish'] = new \Yoast\WP\SEO\Integrations\Third_Party\Wincher_Publish(${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Wincher_Enabled_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Wincher_Enabled_Conditional'] : $this->getWincherEnabledConditionalService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Keyphrases_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Keyphrases_Action'] : $this->getWincherKeyphrasesActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Account_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Account_Action'] : $this->getWincherAccountActionService()) && false ?: '_'});
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Integrations\Third_Party\WooCommerce' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Integrations\Third_Party\WooCommerce
@@ -3408,6 +3518,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\The_Events_Calendar');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\W3_Total_Cache');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Web_Stories');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wincher_Publish');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Woocommerce_Permalinks');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\WooCommerce');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\WPML_WPSEO_Notification');
@@ -3440,6 +3551,7 @@ class Cached_Container extends Container
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Indexing_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\SEMrush_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Supported_Features_Route');
+        $instance->register_route('Yoast\\WP\\SEO\\Routes\\Wincher_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Workouts_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field');
 
@@ -3791,6 +3903,16 @@ class Cached_Container extends Container
     protected function getSupportedFeaturesRouteService()
     {
         return $this->services['Yoast\\WP\\SEO\\Routes\\Supported_Features_Route'] = new \Yoast\WP\SEO\Routes\Supported_Features_Route();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Routes\Wincher_Route' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Routes\Wincher_Route
+     */
+    protected function getWincherRouteService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Routes\\Wincher_Route'] = new \Yoast\WP\SEO\Routes\Wincher_Route(${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Login_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Login_Action'] : $this->getWincherLoginActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Account_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Account_Action'] : $this->getWincherAccountActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Keyphrases_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Keyphrases_Action'] : $this->getWincherKeyphrasesActionService()) && false ?: '_'});
     }
 
     /**
