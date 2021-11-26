@@ -134,6 +134,7 @@ $generated_i18n_strings = array(
 	__( 'Optimizing SEO data... This may take a while.', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/Indexation.js:384
+	// Reference: packages/js/src/workouts/components/WorkoutIndexation.js:25
 	__( 'SEO data optimization complete', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/IndexingError.js:89
@@ -846,122 +847,130 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:464
 	__( 'Click the button below to optimize your SEO data. It will let us see your site as Google does, so we can give you the best SEO tips and improve technical SEO issues in the background! If you have a lot of content the optimization might take a while. But trust us, it\'s worth it! %1$sLearn more about the benefits of optimized SEO data.%2$s', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:486
-	__( 'Continue', 'wordpress-seo' ),
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:489
+	/* %1$s is replaced by a version number. */
+	__( 'This workout step is currently disabled, because you\'re not running the latest version of Yoast SEO Premium. Please update to the latest version (at least %1$s). ', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:495
-	__( '%1$sImportant:%2$s After you’ve completed (or made any changes to) a step below, please make sure to save your changes by clicking the ‘Save and continue’ button below that step.', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:510
-	__( 'Site representation', 'wordpress-seo' ),
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:499
+	/* %1$s and %2$s are replaced by anchor tags to make a link to the tool section. */
+	__( 'You can still run the SEO data optimization in the %1$sTools section%2$s. Once that is finished, please refresh this workout.', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:511
+	__( 'Continue', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:520
+	__( '%1$sImportant:%2$s After you’ve completed (or made any changes to) a step below, please make sure to save your changes by clicking the ‘Save and continue’ button below that step.', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:535
+	__( 'Site representation', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:536
 	__( 'Tell Google what kind of site you have and increase the chance it gets features in a Google Knowledge Panel. Select ‘Organization’ if you are working on a site for a business or an organization. Select ‘Person’ if you have, say, a personal blog.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:522
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:547
 	__( 'Does your site represent an Organization or Person?', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:531
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:556
 	__( 'Does you site represent an Organization or Person?', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:537
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:562
 	__( 'You need to set an organization name and logo for structured data to work properly.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:552
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:577
 	__( 'You need to set a person name and logo for structured data to work properly.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:568
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:593
 	__( 'Site tagline', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:569
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:594
 	__( 'Add a catchy tagline that describes your site in the best light. Use the keywords you want people to find your site with. Example: %1$s’s tagline is ‘SEO for everyone.’', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:575
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:600
 	__( 'Please be aware that you need to set a name and logo in step 2 for structured data to work properly.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:591
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:616
 	__( 'Social profiles', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:592
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:617
 	__( 'Do you have profiles for your site on social media? Then, add all of their URLs here, so your social profiles may also appear in a Google Knowledge Panel.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:607
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:632
 	__( '%1$sNote%2$s: In this step, you need to add the personal social profiles of the person your site represents. To do that, you should go to the %3$sUsers%4$s > Profile page in a new browser tab.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:629
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:654
 	__( 'On the %1$sUsers%2$s page, hover your mouse over the username you want to edit. Click ‘Edit’ to access the user’s profile. Then, scroll down to the ‘Contact info’ section and fill in the URLs of the personal social profiles you want to add.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:642
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:667
 	__( 'Screenshot:', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:645
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:670
 	__( 'A screenshot of the Contact Info section of a user\'s Profile page', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:660
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:685
 	__( 'Help us improve Yoast SEO', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:665
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:690
 	__( 'To provide the best experience for you, we need your permission to do the following things:', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:669
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:694
 	__( 'collect info about the plugins and themes you have installed;', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:673
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:698
 	/* translates to Yoast SEO. */
 	__( 'see which %s features you use or don\'t use;', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:677
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:702
 	__( 'always load our customer support window so we can immediately assist you when you need help.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:680
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:705
 	__( 'Can we collect anonymous information about your website and how you use it?', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:689
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:714
 	__( 'No, don’t track my site data', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:693
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:718
 	__( 'Yes, you can track my site data', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:699
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:724
 	__( 'Important: We will never sell this data. And of course, as always, we won\'t collect any personal data about you or your visitors!', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:703
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:728
 	__( 'In order to complete this step please select if we are allowed to improve Yoast SEO with your data.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:713
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:738
 	// Reference: packages/js/src/workouts/components/FinishButton.js:14
 	__( 'Revise this step', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:713
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:738
 	__( 'Save and continue', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:720
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:745
 	__( 'Sign up for the Yoast newsletter!', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:726
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:751
 	// Reference: packages/js/src/workouts/components/WorkoutCard.js:55
 	__( 'Do workout again', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:726
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:751
 	__( 'Finish this workout', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:732
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:757
 	__( 'Before you finish this workout, please start the SEO data optimization in step 1 and wait until it is completed...', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:733
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:758
 	__( 'Before you finish this workout, please wait on this page until the SEO data optimization in step 1 is completed...', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:739
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:764
 	__( 'Congratulations!', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:745
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:770
 	/* %1$s is replaced by "Yoast SEO" */
 	__( 'Amazing! You’ve successfully finished the Configuration workout! %1$s now outputs the essential structured data for your site.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:748
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:773
 	__( 'Make sure to also check out our other SEO workouts to really get your site into shape!', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:755
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:780
 	/* %1$s translates to a rightward pointing arrow ( → ) */
 	__( 'View other SEO workouts%1$s', 'wordpress-seo' ),
 
