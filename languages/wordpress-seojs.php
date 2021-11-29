@@ -1070,7 +1070,7 @@ $generated_i18n_strings = array(
 	__( 'Sign up for the Yoast newsletter!', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:835
-	// Reference: packages/js/src/workouts/components/WorkoutCard.js:55
+	// Reference: packages/js/src/workouts/components/WorkoutCard.js:56
 	__( 'Do workout again', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:835
@@ -1106,16 +1106,16 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkoutCard.js:32
 	__( 'Apply the optimal SEO settings to your site', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:28
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:30
 	__( 'The cornerstone approach', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:29
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:31
 	__( 'Rank with articles you want to rank with', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:31
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:33
 	__( 'Make your important articles rank higher', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:32
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:34
 	__( 'Bring more visitors to your articles', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/FinishButton.js:14
@@ -1161,16 +1161,16 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/workouts/components/OrganizationSection.js:48
 	__( 'Organization logo (important)', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:28
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:30
 	__( 'Orphaned content', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:29
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:31
 	__( 'Clean up your unlinked content to make sure people can find it', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:31
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:33
 	__( 'Make pages easier for Google and visitors to find', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:32
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:34
 	__( 'Add internal links to your posts and pages', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/PersonSection.js:36
@@ -1212,17 +1212,23 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/workouts/components/Steps.js:60
 	__( 'Saved!', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/WorkoutCard.js:109
+	// Reference: packages/js/src/workouts/components/WorkoutCard.js:110
 	/* %1$s: number of finished steps, %2$s: number of finishable steps */
 	__( '%1$s/%2$s steps completed', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/WorkoutCard.js:51
+	// Reference: packages/js/src/workouts/components/WorkoutCard.js:122
+	__( 'Configuration required', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/workouts/components/WorkoutCard.js:124
+	__( 'Please finish the Configuration workout first in order for this workout to be effective.', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/workouts/components/WorkoutCard.js:52
 	__( 'Start workout!', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/WorkoutCard.js:53
+	// Reference: packages/js/src/workouts/components/WorkoutCard.js:54
 	__( 'Continue workout!', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/WorkoutCard.js:73
+	// Reference: packages/js/src/workouts/components/WorkoutCard.js:74
 	/* %s : Expands to the add-on name. */
 	__( 'Unlock with %s!', 'wordpress-seo' ),
 
