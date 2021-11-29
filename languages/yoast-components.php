@@ -229,6 +229,27 @@ $generated_i18n_strings = array(
 	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:837
 	__( 'Meta description preview:', 'wordpress-seo' ),
 
+	// Reference: packages/social-metadata-forms/src/SocialMetadataPreviewForm.js:176
+	/* %s expands to the social medium name, i.e. Facebook. */
+	__( '%s image', 'wordpress-seo' ),
+
+	// Reference: packages/social-metadata-forms/src/SocialMetadataPreviewForm.js:178
+	/* %s expands to the social medium name, i.e. Facebook. */
+	__( '%s title', 'wordpress-seo' ),
+
+	// Reference: packages/social-metadata-forms/src/SocialMetadataPreviewForm.js:180
+	/* %s expands to the social medium name, i.e. Facebook. */
+	__( '%s description', 'wordpress-seo' ),
+
+	// Reference: packages/replacement-variable-editor/src/ReplacementVariableEditor.js:97
+	__( 'Insert variable', 'wordpress-seo' ),
+
+	// Reference: packages/replacement-variable-editor/src/ReplacementVariableEditorStandalone.js:312
+	_n_noop( '%d result found, use up and down arrow keys to navigate', '%d results found, use up and down arrow keys to navigate', 'wordpress-seo' ),
+
+	// Reference: packages/replacement-variable-editor/src/ReplacementVariableEditorStandalone.js:323
+	__( 'No results', 'wordpress-seo' ),
+
 	// Reference: packages/js/src/components/MailchimpSignup.js:119
 	__( 'MailChimp signup failed:', 'wordpress-seo' ),
 
