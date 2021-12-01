@@ -170,7 +170,6 @@ class Workouts_Integration implements Integration_Interface {
 				'upsellText'                => $this->get_upsell_text(),
 				'upsellLink'                => $this->get_upsell_link(),
 				'canDoConfigurationWorkout' => $this->user_can_do_configuration_workout(),
-				'canEditWordPressOptions'   => $this->user_can_edit_wordpress_options(),
 			]
 		);
 	}
@@ -206,6 +205,10 @@ class Workouts_Integration implements Integration_Interface {
 		}
 
 		if ( $this->is_configuration_workout_finished() ) {
+			return false;
+		}
+
+		if ( $this->options_helper->get( 'first_time_install', false ) === false ) {
 			return false;
 		}
 
@@ -425,15 +428,6 @@ class Workouts_Integration implements Integration_Interface {
 	 */
 	private function user_can_do_configuration_workout() {
 		return \current_user_can( 'wpseo_manage_options' );
-	}
-
-	/**
-	 * Whether the user can edit WordPress options.
-	 *
-	 * @return bool Whether the current user can edit WordPress options.
-	 */
-	private function user_can_edit_wordpress_options() {
-		return \current_user_can( 'manage_options' );
 	}
 
 	/**

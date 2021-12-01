@@ -165,12 +165,12 @@ class Adapter {
 	/**
 	 * Quotes a table name string.
 	 *
-	 * @param string $text Table name.
+	 * @param string $string Table name.
 	 *
 	 * @return string
 	 */
-	public function quote_table( $text ) {
-		return '`' . $text . '`';
+	public function quote_table( $string ) {
+		return '`' . $string . '`';
 	}
 
 	/**
@@ -387,25 +387,25 @@ class Adapter {
 	/**
 	 * Escapes a string for usage in queries.
 	 *
-	 * @param string $text The string.
+	 * @param string $string The string.
 	 *
 	 * @return string
 	 */
-	public function quote_string( $text ) {
+	public function quote_string( $string ) {
 		global $wpdb;
 
-		return $wpdb->_escape( $text );
+		return $wpdb->_escape( $string );
 	}
 
 	/**
 	 * Returns a quoted string.
 	 *
-	 * @param string $text The string.
+	 * @param string $string The string.
 	 *
 	 * @return string
 	 */
-	public function identifier( $text ) {
-		return '`' . $text . '`';
+	public function identifier( $string ) {
+		return '`' . $string . '`';
 	}
 
 	/**
@@ -998,13 +998,13 @@ class Adapter {
 	 * Detect whether or not the string represents a function call and if so
 	 * do not wrap it in single-quotes, otherwise do wrap in single quotes.
 	 *
-	 * @param string $text The string.
+	 * @param string $string The string.
 	 *
 	 * @return bool Whether or not it's a SQL function call.
 	 */
-	private function is_sql_method_call( $text ) {
-		$text = \trim( $text );
-		if ( \substr( $text, -2, 2 ) === '()' ) {
+	private function is_sql_method_call( $string ) {
+		$string = \trim( $string );
+		if ( \substr( $string, -2, 2 ) === '()' ) {
 			return true;
 		}
 		return false;

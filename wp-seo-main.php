@@ -5,12 +5,6 @@
  * @package WPSEO\Main
  */
 
-use Composer\Autoload\ClassLoader;
-use Yoast\WP\SEO\Actions\Wincher\Wincher_Account_Action;
-use Yoast\WP\SEO\Actions\Wincher\Wincher_Keyphrases_Action;
-use Yoast\WP\SEO\Actions\Wincher\Wincher_Login_Action;
-use Yoast\WP\SEO\Routes\Wincher_Route;
-
 if ( ! function_exists( 'add_filter' ) ) {
 	header( 'Status: 403 Forbidden' );
 	header( 'HTTP/1.1 403 Forbidden' );
@@ -21,7 +15,7 @@ if ( ! function_exists( 'add_filter' ) ) {
  * {@internal Nobody should be able to overrule the real version number as this can cause
  *            serious issues with the options, so no if ( ! defined() ).}}
  */
-define( 'WPSEO_VERSION', '17.8-RC1' );
+define( 'WPSEO_VERSION', '17.7.1-RC1' );
 
 
 if ( ! defined( 'WPSEO_PATH' ) ) {
@@ -224,6 +218,7 @@ function _wpseo_activate() {
 	}
 
 	WPSEO_Options::set( 'indexing_reason', 'first_install' );
+	WPSEO_Options::set( 'first_time_install', true );
 
 	do_action( 'wpseo_register_roles' );
 	WPSEO_Role_Manager_Factory::get()->add();
