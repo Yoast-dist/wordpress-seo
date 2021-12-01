@@ -140,12 +140,6 @@ class Index_Command implements Command_Interface {
 	 * [--skip-confirmation]
 	 * : Skips the confirmations (for automated systems).
 	 *
-	 * [--interval=<interval>]
-	 * : The number of microseconds (millionths of a second) to wait between index actions.
-	 * ---
-	 * default: 500000
-	 * ---
-	 *
 	 * ## EXAMPLES
 	 *
 	 *     wp yoast index
@@ -216,9 +210,8 @@ class Index_Command implements Command_Interface {
 
 		$this->prepare_indexing_action->prepare();
 
-		$interval = (int) $assoc_args['interval'];
 		foreach ( $indexation_actions as $name => $indexation_action ) {
-			$this->run_indexation_action( $name, $indexation_action, $interval );
+			$this->run_indexation_action( $name, $indexation_action );
 		}
 
 		$this->complete_indexation_action->complete();
@@ -229,11 +222,10 @@ class Index_Command implements Command_Interface {
 	 *
 	 * @param string                      $name              The name of the object to be indexed.
 	 * @param Indexation_Action_Interface $indexation_action The indexation action.
-	 * @param int                         $interval          Number of microseconds (millionths of a second) to wait between index actions.
 	 *
 	 * @return void
 	 */
-	protected function run_indexation_action( $name, Indexation_Action_Interface $indexation_action, $interval ) {
+	protected function run_indexation_action( $name, Indexation_Action_Interface $indexation_action ) {
 		$total = $indexation_action->get_total_unindexed();
 		if ( $total > 0 ) {
 			$limit    = $indexation_action->get_limit();
@@ -242,8 +234,6 @@ class Index_Command implements Command_Interface {
 				$indexables = $indexation_action->index();
 				$count      = \count( $indexables );
 				$progress->tick( $count );
-				usleep( $interval );
-				Utils\wp_clear_object_cache();
 			} while ( $count >= $limit );
 			$progress->finish();
 		}
