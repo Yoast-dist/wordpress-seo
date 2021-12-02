@@ -592,7 +592,7 @@ $generated_i18n_strings = array(
 	__( 'No keyphrase has been set. Please set a keyphrase first.', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/modals/WincherNoPermalinkAlert.js:15
-	__( 'Before you can track your SEO performance make sure to set either the post’s title and save it as a draft or manually set the post’s slug', 'wordpress-seo' ),
+	__( 'Before you can track your SEO performance make sure to set either the post’s title and save it as a draft or manually set the post’s slug.', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/modals/WincherNoTrackedKeyphrasesAlert.js:18
 	/* %s: Expands to "Wincher". */
