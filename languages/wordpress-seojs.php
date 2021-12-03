@@ -950,7 +950,7 @@ $generated_i18n_strings = array(
 	__( 'Term description', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:478
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkoutCard.js:24
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkoutCard.js:25
 	__( 'Configuration', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:481
@@ -1055,7 +1055,7 @@ $generated_i18n_strings = array(
 	__( 'Sign up for the Yoast newsletter!', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:794
-	// Reference: packages/js/src/workouts/components/WorkoutCard.js:56
+	// Reference: packages/js/src/workouts/components/WorkoutCard.js:57
 	__( 'Do workout again', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:794
@@ -1081,26 +1081,26 @@ $generated_i18n_strings = array(
 	/* %1$s translates to a rightward pointing arrow ( → ) */
 	__( 'View other SEO workouts%1$s', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkoutCard.js:26
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkoutCard.js:27
 	/* %s translates to Yoast SEO. */
 	__( 'Configure %s', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkoutCard.js:28
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkoutCard.js:29
 	__( 'Configure %s in a few steps', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/ConfigurationWorkoutCard.js:32
+	// Reference: packages/js/src/workouts/components/ConfigurationWorkoutCard.js:33
 	__( 'Apply the optimal SEO settings to your site', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:30
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:31
 	__( 'The cornerstone approach', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:31
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:32
 	__( 'Rank with articles you want to rank with', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:33
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:34
 	__( 'Make your important articles rank higher', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:34
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:35
 	__( 'Bring more visitors to your articles', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/FinishButton.js:14
@@ -1146,16 +1146,16 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/workouts/components/OrganizationSection.js:48
 	__( 'Organization logo (important)', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:30
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:31
 	__( 'Orphaned content', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:31
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:32
 	__( 'Clean up your unlinked content to make sure people can find it', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:33
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:34
 	__( 'Make pages easier for Google and visitors to find', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:34
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:35
 	__( 'Add internal links to your posts and pages', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/PersonSection.js:42
@@ -1219,23 +1219,23 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/workouts/components/Steps.js:60
 	__( 'Saved!', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/WorkoutCard.js:111
+	// Reference: packages/js/src/workouts/components/WorkoutCard.js:112
 	/* %1$s: number of finished steps, %2$s: number of finishable steps */
 	__( '%1$s/%2$s steps completed', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/WorkoutCard.js:123
+	// Reference: packages/js/src/workouts/components/WorkoutCard.js:124
 	__( 'Configuration required', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/WorkoutCard.js:125
+	// Reference: packages/js/src/workouts/components/WorkoutCard.js:126
 	__( 'Please finish the Configuration workout first in order for this workout to be effective.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/WorkoutCard.js:52
+	// Reference: packages/js/src/workouts/components/WorkoutCard.js:53
 	__( 'Start workout!', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/WorkoutCard.js:54
+	// Reference: packages/js/src/workouts/components/WorkoutCard.js:55
 	__( 'Continue workout!', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/WorkoutCard.js:74
+	// Reference: packages/js/src/workouts/components/WorkoutCard.js:75
 	/* %s : Expands to the add-on name. */
 	__( 'Unlock with %s!', 'wordpress-seo' ),
 
