@@ -244,10 +244,10 @@ $generated_i18n_strings = array(
 	// Reference: packages/replacement-variable-editor/src/ReplacementVariableEditor.js:97
 	__( 'Insert variable', 'wordpress-seo' ),
 
-	// Reference: packages/replacement-variable-editor/src/ReplacementVariableEditorStandalone.js:312
+	// Reference: packages/replacement-variable-editor/src/ReplacementVariableEditorStandalone.js:321
 	_n_noop( '%d result found, use up and down arrow keys to navigate', '%d results found, use up and down arrow keys to navigate', 'wordpress-seo' ),
 
-	// Reference: packages/replacement-variable-editor/src/ReplacementVariableEditorStandalone.js:323
+	// Reference: packages/replacement-variable-editor/src/ReplacementVariableEditorStandalone.js:332
 	__( 'No results', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/MailchimpSignup.js:119
