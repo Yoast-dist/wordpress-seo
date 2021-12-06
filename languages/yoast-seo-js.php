@@ -51,13 +51,13 @@ $generated_i18n_strings = array(
 	/* %1$s expands to a link on yoast.com, * %2$s expands to the anchor end tag. */
 	__( '%1$sLists%3$s: No lists appear on this page. %2$sAdd at least one ordered or unordered list%3$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/readability/ParagraphTooLongAssessment.js:106
-	/* %1$s and %5$s expand to a link on yoast.com, %2$s expands to the anchor end tag, %3$d expands to the number of paragraphs over the recommended word limit, %4$d expands to the word limit */
-	_n_noop( '%1$sParagraph length%2$s: %3$d of the paragraphs contains more than the recommended maximum of %4$d words. %5$sShorten your paragraphs%2$s!', '%1$sParagraph length%2$s: %3$d of the paragraphs contain more than the recommended maximum of %4$d words. %5$sShorten your paragraphs%2$s!', 'wordpress-seo' ),
-
-	// Reference: packages/yoastseo/src/scoring/assessments/readability/ParagraphTooLongAssessment.js:91
+	// Reference: packages/yoastseo/src/scoring/assessments/readability/ParagraphTooLongAssessment.js:118
 	/* %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag */
 	__( '%1$sParagraph length%2$s: None of the paragraphs are too long. Great job!', 'wordpress-seo' ),
+
+	// Reference: packages/yoastseo/src/scoring/assessments/readability/ParagraphTooLongAssessment.js:133
+	/* %1$s and %5$s expand to a link on yoast.com, %2$s expands to the anchor end tag, %3$d expands to the number of paragraphs over the recommended word limit, %4$d expands to the word limit */
+	_n_noop( '%1$sParagraph length%2$s: %3$d of the paragraphs contains more than the recommended maximum of %4$d words. %5$sShorten your paragraphs%2$s!', '%1$sParagraph length%2$s: %3$d of the paragraphs contain more than the recommended maximum of %4$d words. %5$sShorten your paragraphs%2$s!', 'wordpress-seo' ),
 
 	// Reference: packages/yoastseo/src/scoring/assessments/readability/PassiveVoiceAssessment.js:76
 	/* %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag. */
