@@ -435,15 +435,15 @@ $generated_i18n_strings = array(
 	/* %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag. */
 	__( '%1$sKeyphrase in title%2$s: The exact match of the focus keyphrase appears at the beginning of the SEO title. Good job!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/UrlKeywordAssessment.js:112
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/UrlKeywordAssessment.js:113
 	/* %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag */
 	__( '%1$sKeyphrase in slug%2$s: More than half of your keyphrase appears in the slug. That\'s great!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/UrlKeywordAssessment.js:125
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/UrlKeywordAssessment.js:126
 	/* %1$s and %2$s expand to links on yoast.com, %3$s expands to the anchor end tag */
 	__( '%1$sKeyphrase in slug%3$s: (Part of) your keyphrase does not appear in the slug. %2$sChange that%3$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/UrlKeywordAssessment.js:82
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/UrlKeywordAssessment.js:83
 	/* %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag */
 	__( '%1$sKeyphrase in slug%2$s: Great work!', 'wordpress-seo' ),
 
