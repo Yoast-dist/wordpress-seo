@@ -1091,16 +1091,16 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkoutCard.js:32
 	__( 'Apply the optimal SEO settings to your site', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:30
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:28
 	__( 'The cornerstone approach', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:31
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:29
 	__( 'Rank with articles you want to rank with', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:33
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:31
 	__( 'Make your important articles rank higher', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:34
+	// Reference: packages/js/src/workouts/components/CornerstoneWorkoutCard.js:32
 	__( 'Bring more visitors to your articles', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/FinishButton.js:14
@@ -1146,16 +1146,16 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/workouts/components/OrganizationSection.js:48
 	__( 'Organization logo (important)', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:30
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:28
 	__( 'Orphaned content', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:31
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:29
 	__( 'Clean up your unlinked content to make sure people can find it', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:33
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:31
 	__( 'Make pages easier for Google and visitors to find', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:34
+	// Reference: packages/js/src/workouts/components/OrphanedWorkoutCard.js:32
 	__( 'Add internal links to your posts and pages', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/PersonSection.js:42
