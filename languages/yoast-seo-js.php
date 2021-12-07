@@ -400,24 +400,24 @@ $generated_i18n_strings = array(
 	/* %1$s and %2$s expand to links on yoast.com, %3$s expands to the anchor end tag */
 	__( '%1$sLink keyphrase%3$s: You\'re linking to another page with the words you want this page to rank for. %2$sDon\'t do that%3$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:113
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:109
+	/* %1$d expands to the number of words in the text, %2$s expands to a link on yoast.com, %3$s expands to the anchor end tag */
+	_n_noop( '%2$sText length%3$s: The text contains %1$d word. Good job!', '%2$sText length%3$s: The text contains %1$d words. Good job!', 'wordpress-seo' ),
+
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:144
 	/* The preceding sentence is "Text length: The text contains x words.", %3$s expands to a link on yoast.com, %4$s expands to the anchor end tag, %5$d expands to the recommended minimum of words. */
 	_n_noop( 'This is far below the recommended minimum of %5$d word. %3$sAdd more content%4$s.', 'This is far below the recommended minimum of %5$d words. %3$sAdd more content%4$s.', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:145
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:176
 	/* The preceding sentence is "Text length: The text contains x words.", %3$s expands to a link on yoast.com, %4$s expands to the anchor end tag, %5$d expands to the recommended minimum of words. */
 	_n_noop( 'This is slightly below the recommended minimum of %5$d word. %3$sAdd a bit more copy%4$s.', 'This is slightly below the recommended minimum of %5$d words. %3$sAdd a bit more copy%4$s.', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:193
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:224
 	_n_noop( '%2$sText length%4$s: The text contains %1$d word.', '%2$sText length%4$s: The text contains %1$d words.', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:205
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:236
 	/* The preceding sentence is "Text length: The text contains x words.", %3$s expands to a link on yoast.com, %4$s expands to the anchor end tag, %5$d expands to the recommended minimum of words. */
 	_n_noop( 'This is below the recommended minimum of %5$d word. %3$sAdd more content%4$s.', 'This is below the recommended minimum of %5$d words. %3$sAdd more content%4$s.', 'wordpress-seo' ),
-
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:78
-	/* %1$d expands to the number of words in the text, %2$s expands to a link on yoast.com, %3$s expands to the anchor end tag */
-	_n_noop( '%2$sText length%3$s: The text contains %1$d word. Good job!', '%2$sText length%3$s: The text contains %1$d words. Good job!', 'wordpress-seo' ),
 
 	// Reference: packages/yoastseo/src/scoring/assessments/seo/TitleKeywordAssessment.js:112
 	/* %1$s and %2$s expand to a link on yoast.com, %3$s expands to the anchor end tag. */
