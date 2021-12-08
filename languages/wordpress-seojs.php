@@ -771,6 +771,10 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/installation-success.js:64
 	__( 'Start configuration workout!', 'wordpress-seo' ),
 
+	// Reference: packages/js/src/installation-success.js:72
+	/* %s expands to ' »'. */
+	__( 'Skip%s', 'wordpress-seo' ),
+
 	// Reference: packages/js/src/structured-data-blocks/faq/block.js:21
 	__( 'Yoast FAQ', 'wordpress-seo' ),
 
