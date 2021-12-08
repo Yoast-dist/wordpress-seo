@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.8
-Stable tag: 17.8-RC4
+Stable tag: 17.8-RC5
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -241,7 +241,7 @@ Release Date: December 14th, 2021
 
 Enhancements:
 
-* Adds a new integration with Wincher for keyphrase performance tracking.
+* Introduces a keyphrase position tracking tool that gives insight into how your content ranks in the search results. Powered by Wincher.
 * Improves the user direction in the configuration workout.
 * Adds a sleep interval to the WP CLI index command to limit server load while this command is running. Props to [roborourke](https://github.com/roborourke).
 * Optimizes and compresses several `.png` images to reduce their size. Props to [lowwebtech](https://github.com/lowwebtech).
