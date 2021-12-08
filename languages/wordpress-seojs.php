@@ -318,7 +318,7 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/WincherSEOPerformance.js:227
 	__( 'You can enable / disable tracking the SEO performance for each keyphrase below.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherSEOPerformanceModal.js:70
+	// Reference: packages/js/src/components/WincherSEOPerformanceModal.js:75
 	// Reference: packages/js/src/components/fills/MetaboxFill.js:82
 	__( 'Track SEO performance', 'wordpress-seo' ),
 
