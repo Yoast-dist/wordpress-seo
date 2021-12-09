@@ -248,26 +248,6 @@ $generated_i18n_strings = array(
 	_n_noop( '%d result found, use up and down arrow keys to navigate', '%d results found, use up and down arrow keys to navigate', 'wordpress-seo' ),
 
 	// Reference: packages/replacement-variable-editor/src/ReplacementVariableEditorStandalone.js:332
-	__( 'No results', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/components/MailchimpSignup.js:119
-	__( 'MailChimp signup failed:', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/components/MailchimpSignup.js:216
-	__( 'Sign Up!', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/components/MailchimpSignup.js:235
-	__( 'Email', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/components/MediaUpload.js:21
-	// Reference: packages/js/src/components/MediaUpload.js:22
-	// Reference: packages/js/src/components/MediaUpload.js:145
-	__( 'Choose an image', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/components/MediaUpload.js:104
-	__( 'Remove the image', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/components/MediaUpload.js:126
-	__( 'image preview', 'wordpress-seo' )
+	__( 'No results', 'wordpress-seo' )
 );
 /* THIS IS THE END OF THE GENERATED FILE */
