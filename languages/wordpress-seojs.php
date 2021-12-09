@@ -695,7 +695,7 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/helpers/addCheckToChecklist.js:61
 	__( 'SEO analysis:', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/initializers/block-editor-integration.js:153
+	// Reference: packages/js/src/initializers/block-editor-integration.js:154
 	__( 'Yoast SEO', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/initializers/block-editor-integration.js:55
