@@ -319,7 +319,7 @@ $generated_i18n_strings = array(
 	__( 'You can enable / disable tracking the SEO performance for each keyphrase below.', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherSEOPerformanceModal.js:75
-	// Reference: packages/js/src/components/fills/MetaboxFill.js:82
+	// Reference: packages/js/src/components/fills/MetaboxFill.js:80
 	__( 'Track SEO performance', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherTableRow.js:39
@@ -332,13 +332,6 @@ $generated_i18n_strings = array(
 
 	// Reference: packages/js/src/components/WordPressUserSelector.js:113
 	__( 'Select a user...', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/components/WordPressUserSelectorOnboardingWizard.js:45
-	__( 'The name of the person', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/components/WordPressUserSelectorOnboardingWizard.js:53
-	/* %1$s expands to WordPress */
-	__( 'You can edit the details shown in meta data, like the social profiles, the name and the description of this user on their %1$s profile page.', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WordPressUserSelectorSearchAppearance.js:118
 	__( 'Name', 'wordpress-seo' ),
@@ -399,18 +392,18 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/contentAnalysis/SeoAnalysis.js:74
 	__( 'Would you like to add keyphrase synonyms?', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/fills/MetaboxFill.js:64
+	// Reference: packages/js/src/components/fills/MetaboxFill.js:62
 	// Reference: packages/js/src/components/modals/editorModals/GooglePreviewModal.js:16
 	// Reference: packages/js/src/elementor/components/modals/editorModals/GooglePreviewModal.js:16
 	__( 'Google preview', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/fills/MetaboxFill.js:95
-	// Reference: packages/js/src/components/fills/SidebarFill.js:64
-	// Reference: packages/js/src/elementor/components/fills/ElementorFill.js:77
+	// Reference: packages/js/src/components/fills/MetaboxFill.js:93
+	// Reference: packages/js/src/components/fills/SidebarFill.js:62
+	// Reference: packages/js/src/elementor/components/fills/ElementorFill.js:75
 	__( 'Advanced', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/fills/SidebarFill.js:57
-	// Reference: packages/js/src/elementor/components/fills/ElementorFill.js:70
+	// Reference: packages/js/src/components/fills/SidebarFill.js:55
+	// Reference: packages/js/src/elementor/components/fills/ElementorFill.js:68
 	// Reference: packages/js/src/structured-data-blocks/faq/block.js:28
 	// Reference: packages/js/src/structured-data-blocks/how-to/block.js:56
 	__( 'Schema', 'wordpress-seo' ),
@@ -698,10 +691,10 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/initializers/block-editor-integration.js:153
 	__( 'Yoast SEO', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/initializers/block-editor-integration.js:55
+	// Reference: packages/js/src/initializers/block-editor-integration.js:54
 	__( 'Marking links with nofollow/sponsored has been disabled for WordPress installs < 5.4.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/initializers/block-editor-integration.js:58
+	// Reference: packages/js/src/initializers/block-editor-integration.js:57
 	__( 'Please upgrade your WordPress version or install the Gutenberg plugin to get this %1$s feature.', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/initializers/elementor-editor-integration.js:54
