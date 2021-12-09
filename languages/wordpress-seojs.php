@@ -750,30 +750,34 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/inline-links/inline.js:229
 	__( 'Open in new tab', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/installation-success.js:22
+	// Reference: packages/js/src/installation-success.js:105
+	/* %s expands to ' »'. */
+	__( 'Skip%s', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/installation-success.js:46
+	/* %s expands to Yoast SEO. */
+	__( 'You\'ve successfully installed %s!', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/installation-success.js:55
 	__( 'Your site is now easy to find for search engines!', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/installation-success.js:26
+	// Reference: packages/js/src/installation-success.js:59
 	/* %s expands to Yoast SEO. */
 	__( '%s rolls out the red carpet for the search bots, which helps your site perform better in search engines.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/installation-success.js:35
+	// Reference: packages/js/src/installation-success.js:68
 	__( 'Man holding a tablet.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/installation-success.js:43
+	// Reference: packages/js/src/installation-success.js:76
 	/* %s expands to Yoast SEO. */
 	__( 'Configure %s!', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/installation-success.js:50
+	// Reference: packages/js/src/installation-success.js:83
 	/* %s expands to Yoast SEO. */
 	__( 'Set the essential %s settings in a few steps.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/installation-success.js:64
+	// Reference: packages/js/src/installation-success.js:97
 	__( 'Start configuration workout!', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/installation-success.js:72
-	/* %s expands to ' »'. */
-	__( 'Skip%s', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/structured-data-blocks/faq/block.js:21
 	__( 'Yoast FAQ', 'wordpress-seo' ),
