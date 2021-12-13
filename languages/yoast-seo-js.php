@@ -419,21 +419,29 @@ $generated_i18n_strings = array(
 	/* The preceding sentence is "Text length: The text contains x words.", %3$s expands to a link on yoast.com, %4$s expands to the anchor end tag, %5$d expands to the recommended minimum of words. */
 	_n_noop( 'This is below the recommended minimum of %5$d word. %3$sAdd more content%4$s.', 'This is below the recommended minimum of %5$d words. %3$sAdd more content%4$s.', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/TitleKeywordAssessment.js:112
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TitleKeywordAssessment.js:110
+	/* %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag. */
+	__( '%1$sKeyphrase in title%2$s: The exact match of the focus keyphrase appears at the beginning of the SEO title. Good job!', 'wordpress-seo' ),
+
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TitleKeywordAssessment.js:124
 	/* %1$s and %2$s expand to a link on yoast.com, %3$s expands to the anchor end tag. */
 	__( '%1$sKeyphrase in title%3$s: The exact match of the focus keyphrase appears in the SEO title, but not at the beginning. %2$sMove it to the beginning for the best results%3$s.', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/TitleKeywordAssessment.js:148
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TitleKeywordAssessment.js:144
+	/* %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag. */
+	__( '%1$sKeyphrase in title%2$s: The focus keyphrase appears at the beginning of the SEO title. Good job!', 'wordpress-seo' ),
+
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TitleKeywordAssessment.js:158
+	/* %1$s and %2$s expand to a link on yoast.com, %3$s expands to the anchor end tag. */
+	__( '%1$sKeyphrase in title%3$s: Title does not begin with the focus keyphrase. %2$sMove your focus keyphrase to the beginning of the title%3$s.', 'wordpress-seo' ),
+
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TitleKeywordAssessment.js:192
 	/* %1$s and %2$s expand to a link on yoast.com, %3$s expands to the anchor end tag. */
 	__( '%1$sKeyphrase in title%3$s: Does not contain the exact match. %2$sTry to write the exact match of your keyphrase in the SEO title and put it at the beginning of the title%3$s.', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/TitleKeywordAssessment.js:166
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TitleKeywordAssessment.js:210
 	/* %1$s and %2$s expand to a link on yoast.com, %3$s expands to the anchor end tag, %4$s expands to the keyword of the article. */
-	__( '%1$sKeyphrase in title%3$s: Not all the words from your keyphrase "%4$s" appear in the SEO title. %2$sFor the best SEO results write the exact match of your keyphrase in the SEO title, and put the keyphrase at the beginning of the title%3$s.', 'wordpress-seo' ),
-
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/TitleKeywordAssessment.js:98
-	/* %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag. */
-	__( '%1$sKeyphrase in title%2$s: The exact match of the focus keyphrase appears at the beginning of the SEO title. Good job!', 'wordpress-seo' ),
+	__( '%1$sKeyphrase in title%3$s: Not all the words from your keyphrase "%4$s" appear in the SEO title. %2$s%5$s%3$s.', 'wordpress-seo' ),
 
 	// Reference: packages/yoastseo/src/scoring/assessments/seo/UrlKeywordAssessment.js:113
 	/* %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag */
