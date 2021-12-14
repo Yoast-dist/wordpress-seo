@@ -266,37 +266,33 @@ $generated_i18n_strings = array(
 	__( 'Tracking', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:353
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:245
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:199
 	__( 'Keyphrase', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:359
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:251
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:205
 	__( 'Position', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:365
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:257
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:211
 	__( 'Position over time', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:394
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:279
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:233
 	/* %s expands to Wincher */
 	__( 'Get more insights over at %s', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:399
 	__( '* focus keyphrase', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:127
-	/* %s expands to Wincher */
-	__( 'Add your existing keyphrases to %s', 'wordpress-seo' ),
-
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:165
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:119
 	// Reference: packages/js/src/components/WincherTableRow.js:179
 	__( 'View', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:232
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:186
 	__( 'Top performing keyphrases on your site', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:84
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:83
 	// Reference: packages/js/src/components/WincherSEOPerformance.js:171
 	/* %s expands to Wincher */
 	__( 'Connect with %s', 'wordpress-seo' ),
@@ -589,7 +585,7 @@ $generated_i18n_strings = array(
 
 	// Reference: packages/js/src/components/modals/WincherNoTrackedKeyphrasesAlert.js:18
 	/* %s: Expands to "Wincher". */
-	__( 'Your %s account does not contain any keyphrases for this website yet. ', 'wordpress-seo' ),
+	__( 'Your %s account does not contain any keyphrases for this website yet. You can track keyphrases by using the "Track SEO Performance" button in the post editor.', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/modals/WincherReconnectAlert.js:19
 	/* %s expands to a link to open the Wincher login popup. */
