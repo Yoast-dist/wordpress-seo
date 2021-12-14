@@ -51,13 +51,27 @@ $generated_i18n_strings = array(
 	/* %1$s expands to a link on yoast.com, * %2$s expands to the anchor end tag. */
 	__( '%1$sLists%3$s: No lists appear on this page. %2$sAdd at least one ordered or unordered list%3$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/readability/ParagraphTooLongAssessment.js:118
+	// Reference: packages/yoastseo/src/scoring/assessments/readability/ParagraphTooLongAssessment.js:119
 	/* %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag */
 	__( '%1$sParagraph length%2$s: None of the paragraphs are too long. Great job!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/readability/ParagraphTooLongAssessment.js:133
-	/* %1$s and %5$s expand to a link on yoast.com, %2$s expands to the anchor end tag, %3$d expands to the number of paragraphs over the recommended word limit, %4$d expands to the word limit */
-	_n_noop( '%1$sParagraph length%2$s: %3$d of the paragraphs contains more than the recommended maximum of %4$d words. %5$sShorten your paragraphs%2$s!', '%1$sParagraph length%2$s: %3$d of the paragraphs contain more than the recommended maximum of %4$d words. %5$sShorten your paragraphs%2$s!', 'wordpress-seo' ),
+	// Reference: packages/yoastseo/src/scoring/assessments/readability/ParagraphTooLongAssessment.js:135
+	/* %1$s and %5$s expand to a link on yoast.com, %2$s expands to the anchor end tag, %3$d expands to the number of paragraphs over the recommended word / character limit, %4$d expands to the word / character limit, %6$s expands to the word 'words' or 'characters'. */
+	_n_noop( '%1$sParagraph length%2$s: %3$d of the paragraphs contains more than the recommended maximum of %4$d %6$s. %5$sShorten your paragraphs%2$s!', '%1$sParagraph length%2$s: %3$d of the paragraphs contain more than the recommended maximum of %4$d %6$s. %5$sShorten your paragraphs%2$s!', 'wordpress-seo' ),
+
+	// Reference: packages/yoastseo/src/scoring/assessments/readability/ParagraphTooLongAssessment.js:201
+	// Reference: packages/yoastseo/src/scoring/assessments/readability/SentenceLengthInTextAssessment.js:63
+	// Reference: packages/yoastseo/src/scoring/assessments/readability/SubheadingDistributionTooLongAssessment.js:62
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:74
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:68
+	__( 'characters', 'wordpress-seo' ),
+
+	// Reference: packages/yoastseo/src/scoring/assessments/readability/ParagraphTooLongAssessment.js:29
+	// Reference: packages/yoastseo/src/scoring/assessments/readability/SentenceLengthInTextAssessment.js:36
+	// Reference: packages/yoastseo/src/scoring/assessments/readability/SubheadingDistributionTooLongAssessment.js:32
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:46
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:37
+	__( 'words', 'wordpress-seo' ),
 
 	// Reference: packages/yoastseo/src/scoring/assessments/readability/PassiveVoiceAssessment.js:76
 	/* %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag. */
@@ -75,27 +89,27 @@ $generated_i18n_strings = array(
 	/* %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag */
 	__( '%1$sConsecutive sentences%2$s: There is enough variety in your sentences. That\'s great!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/readability/SentenceLengthInTextAssessment.js:146
+	// Reference: packages/yoastseo/src/scoring/assessments/readability/SentenceLengthInTextAssessment.js:152
 	/* %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag */
 	__( '%1$sSentence length%2$s: Great!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/readability/SentenceLengthInTextAssessment.js:159
-	/* %1$s and %6$s expand to a link on yoast.com, %2$s expands to the anchor end tag, %3$d expands to percentage of sentences, %4$s expands to the recommended maximum sentence length, %5$s expands to the recommended maximum percentage. */
-	__( '%1$sSentence length%2$s: %3$s of the sentences contain more than %4$s words, which is more than the recommended maximum of %5$s. %6$sTry to shorten the sentences%2$s.', 'wordpress-seo' ),
+	// Reference: packages/yoastseo/src/scoring/assessments/readability/SentenceLengthInTextAssessment.js:165
+	/* %1$s and %6$s expand to a link on yoast.com, %2$s expands to the anchor end tag, %3$d expands to percentage of sentences, %4$s expands to the recommended maximum sentence length, %5$s expands to the recommended maximum percentage, %7$s expands to the word 'words' or 'characters'. */
+	__( '%1$sSentence length%2$s: %3$s of the sentences contain more than %4$s %7$s, which is more than the recommended maximum of %5$s. %6$sTry to shorten the sentences%2$s.', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/readability/SubheadingDistributionTooLongAssessment.js:192
-	/* %1$s and %5$s expand to a link on yoast.com, %3$d to the number of text sections not separated by subheadings, %4$d expands to the recommended number of words following a subheading, %2$s expands to the link closing tag. */
-	_n_noop( '%1$sSubheading distribution%2$s: %3$d section of your text is longer than %4$d words and is not separated by any subheadings. %5$sAdd subheadings to improve readability%2$s.', '%1$sSubheading distribution%2$s: %3$d sections of your text are longer than %4$d words and are not separated by any subheadings. %5$sAdd subheadings to improve readability%2$s.', 'wordpress-seo' ),
+	// Reference: packages/yoastseo/src/scoring/assessments/readability/SubheadingDistributionTooLongAssessment.js:198
+	/* %1$s and %5$s expand to a link on yoast.com, %3$d to the number of text sections not separated by subheadings, %4$d expands to the recommended number of words or characters following a subheading, %6$s expands to the word 'words' or 'characters', %2$s expands to the link closing tag. */
+	_n_noop( '%1$sSubheading distribution%2$s: %3$d section of your text is longer than %4$d %6$s and is not separated by any subheadings. %5$sAdd subheadings to improve readability%2$s.', '%1$sSubheading distribution%2$s: %3$d sections of your text are longer than %4$d %6$s and are not separated by any subheadings. %5$sAdd subheadings to improve readability%2$s.', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/readability/SubheadingDistributionTooLongAssessment.js:213
+	// Reference: packages/yoastseo/src/scoring/assessments/readability/SubheadingDistributionTooLongAssessment.js:220
 	/* %1$s and %3$s expand to a link to https://yoa.st/headings, %2$s expands to the link closing tag. */
 	__( '%1$sSubheading distribution%2$s: You are not using any subheadings, although your text is rather long. %3$sTry and add some subheadings%2$s.', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/readability/SubheadingDistributionTooLongAssessment.js:230
+	// Reference: packages/yoastseo/src/scoring/assessments/readability/SubheadingDistributionTooLongAssessment.js:237
 	/* %1$s expands to a link to https://yoa.st/headings, %2$s expands to the link closing tag. */
 	__( '%1$sSubheading distribution%2$s: Great job!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/readability/SubheadingDistributionTooLongAssessment.js:244
+	// Reference: packages/yoastseo/src/scoring/assessments/readability/SubheadingDistributionTooLongAssessment.js:251
 	/* %1$s expands to a link to https://yoa.st/headings, %2$s expands to the link closing tag. */
 	__( '%1$sSubheading distribution%2$s: You are not using any subheadings, but your text is short enough and probably doesn\'t need them.', 'wordpress-seo' ),
 
@@ -266,37 +280,45 @@ $generated_i18n_strings = array(
 	/* %1$s and %2$s expand to links on yoast.com, %3$s expands to the anchor end tag */
 	__( '%1$sImage Keyphrase%3$s: Images on this page do not have alt attributes that reflect the topic of your text. %2$sAdd your keyphrase or synonyms to the alt tags of relevant images%3$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:144
-	/* %1$d expands to the number of words in the keyphrase, %2$d expands to the recommended maximum of words in the keyphrase, %3$s and %4$s expand to links on yoast.com, %5$s expands to the anchor end tag. */
-	_n_noop( '%3$sKeyphrase length%5$s: The keyphrase is %1$d word long. That\'s shorter than the recommended minimum of %2$d words. %4$sMake it longer%5$s!', '%3$sKeyphrase length%5$s: The keyphrase is %1$d words long. That\'s shorter than the recommended minimum of %2$d words. %4$sMake it longer%5$s!', 'wordpress-seo' ),
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:153
+	/* %1$d expands to the number of words / characters in the keyphrase, %2$d expands to the recommended maximum of words / characters in the keyphrase, %3$s and %4$s expand to links on yoast.com, %5$s expands to the anchor end tag, %6$s expands to the word 'word' or 'character', %7$s expands to the word 'words or 'characters'. */
+	_n_noop( '%3$sKeyphrase length%5$s: The keyphrase is %1$d %6$s long. That\'s shorter than the recommended minimum of %2$d %7$s. %4$sMake it longer%5$s!', '%3$sKeyphrase length%5$s: The keyphrase is %1$d %7$s long. That\'s shorter than the recommended minimum of %2$d %7$s. %4$sMake it longer%5$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:192
-	/* %1$d expands to the number of words in the keyphrase, %2$d expands to the recommended maximum of words in the keyphrase, %3$s and %4$s expand to links on yoast.com, %5$s expands to the anchor end tag. */
-	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d words long. That\'s slightly shorter than the recommended minimum of %2$d words. %4$sMake it longer%5$s!', 'wordpress-seo' ),
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:206
+	/* %1$d expands to the number of words / characters in the keyphrase, %2$d expands to the recommended maximum of words / characters in the keyphrase, %3$s and %4$s expand to links on yoast.com, %5$s expands to the anchor end tag, %6$s expands to the word 'words' or 'characters'. */
+	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d %6$s long. That\'s slightly shorter than the recommended minimum of %2$d %6$s. %4$sMake it longer%5$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:215
-	/* %1$d expands to the number of words in the keyphrase, %2$d expands to the recommended maximum of words in the keyphrase, %3$s and %4$s expand to links on yoast.com, %5$s expands to the anchor end tag. */
-	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d words long. That\'s longer than the recommended maximum of %2$d words. %4$sMake it shorter%5$s!', 'wordpress-seo' ),
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:231
+	/* %1$d expands to the number of words / characters in the keyphrase, %2$d expands to the recommended maximum of words / characters in the keyphrase, %3$s and %4$s expand to links on yoast.com, %5$s expands to the anchor end tag, %6$s expands to the word 'words' or 'characters'. */
+	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d %6$s long. That\'s longer than the recommended maximum of %2$d %6$s. %4$sMake it shorter%5$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:253
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:270
 	/* %1$s and %2$s expand to links on yoast.com, %3$s expands to the anchor end tag */
 	__( '%1$sKeyphrase length%3$s: %2$sSet a keyphrase in order to calculate your SEO score%3$s.', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:267
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:284
 	/* %1$s and %2$s expand to links on yoast.com, %3$s expands to the anchor end tag */
 	__( '%1$sKeyphrase length%3$s: No focus keyphrase was set for this page. %2$sSet a keyphrase in order to calculate your SEO score%3$s.', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:283
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:300
 	/* %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag. */
 	__( '%1$sKeyphrase length%2$s: Good job!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:301
-	/* %1$d expands to the number of words in the keyphrase, %2$d expands to the recommended maximum of words in the keyphrase, %3$s and %4$s expand to links on yoast.com, %5$s expands to the anchor end tag. */
-	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d words long. That\'s more than the recommended maximum of %2$d words. %4$sMake it shorter%5$s!', 'wordpress-seo' ),
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:319
+	/* %1$d expands to the number of words / characters in the keyphrase, %2$d expands to the recommended maximum of words / characters in the keyphrase, %3$s and %4$s expand to links on yoast.com, %5$s expands to the anchor end tag, %6$s expands to the word 'words' or 'characters'. */
+	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d %6$s long. That\'s more than the recommended maximum of %2$d %6$s. %4$sMake it shorter%5$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:323
-	/* %1$d expands to the number of words in the keyphrase, %2$d expands to the recommended maximum of words in the keyphrase, %3$s and %4$s expand to links on yoast.com, %5$s expands to the anchor end tag. */
-	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d words long. That\'s way more than the recommended maximum of %2$d words. %4$sMake it shorter%5$s!', 'wordpress-seo' ),
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:343
+	/* %1$d expands to the number of words / characters in the keyphrase, %2$d expands to the recommended maximum of words / characters in the keyphrase, %3$s and %4$s expand to links on yoast.com, %5$s expands to the anchor end tag, %6$s expands to the word 'words' or 'characters'. */
+	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d %6$s long. That\'s way more than the recommended maximum of %2$d %6$s. %4$sMake it shorter%5$s!', 'wordpress-seo' ),
+
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:45
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:36
+	__( 'word', 'wordpress-seo' ),
+
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:73
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:67
+	__( 'character', 'wordpress-seo' ),
 
 	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeywordDensityAssessment.js:189
 	/* %1$s and %4$s expand to links to Yoast.com, %2$s expands to the anchor end tag, %3$d expands to the recommended minimal number of times the keyphrase should occur in the text. */
@@ -400,24 +422,21 @@ $generated_i18n_strings = array(
 	/* %1$s and %2$s expand to links on yoast.com, %3$s expands to the anchor end tag */
 	__( '%1$sLink keyphrase%3$s: You\'re linking to another page with the words you want this page to rank for. %2$sDon\'t do that%3$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:109
-	/* %1$d expands to the number of words in the text, %2$s expands to a link on yoast.com, %3$s expands to the anchor end tag */
-	_n_noop( '%2$sText length%3$s: The text contains %1$d word. Good job!', '%2$sText length%3$s: The text contains %1$d words. Good job!', 'wordpress-seo' ),
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:121
+	/* %1$d expands to the number of words / characters in the text, %2$s expands to a link on yoast.com, %3$s expands to the anchor end tag, %4$s expands to the word 'words' or 'characters'. */
+	__( '%2$sText length%3$s: The text contains %1$d %4$s. Good job!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:144
-	/* The preceding sentence is "Text length: The text contains x words.", %3$s expands to a link on yoast.com, %4$s expands to the anchor end tag, %5$d expands to the recommended minimum of words. */
-	_n_noop( 'This is far below the recommended minimum of %5$d word. %3$sAdd more content%4$s.', 'This is far below the recommended minimum of %5$d words. %3$sAdd more content%4$s.', 'wordpress-seo' ),
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:147
+	/* %1$d expands to the number of words / characters in the text, %2$s expands to a link on yoast.com, %3$s expands to a link on yoast.com, %4$s expands to the anchor end tag, %5$d expands to the recommended minimum of words / characters, %6$s expands to the word 'word' or 'character', %7$s expands to the word 'words' or 'characters'. */
+	_n_noop( '%2$sText length%4$s: The text contains %1$d %6$s. This is far below the recommended minimum of %5$d %7$s. %3$sAdd more content%4$s.', '%2$sText length%4$s: The text contains %1$d %7$s. This is far below the recommended minimum of %5$d %7$s. %3$sAdd more content%4$s.', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:176
-	/* The preceding sentence is "Text length: The text contains x words.", %3$s expands to a link on yoast.com, %4$s expands to the anchor end tag, %5$d expands to the recommended minimum of words. */
-	_n_noop( 'This is slightly below the recommended minimum of %5$d word. %3$sAdd a bit more copy%4$s.', 'This is slightly below the recommended minimum of %5$d words. %3$sAdd a bit more copy%4$s.', 'wordpress-seo' ),
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:175
+	/* %1$d expands to the number of words / characters in the text, %2$s expands to a link on yoast.com, %3$s expands to a link on yoast.com, %4$s expands to the anchor end tag, %5$d expands to the recommended minimum of words / characters, %6$s expands to the word 'words' or 'characters'. */
+	__( '%2$sText length%4$s: The text contains %1$d %6$s. This is slightly below the recommended minimum of %5$d %6$s. %3$sAdd a bit more copy%4$s.', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:224
-	_n_noop( '%2$sText length%4$s: The text contains %1$d word.', '%2$sText length%4$s: The text contains %1$d words.', 'wordpress-seo' ),
-
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:236
-	/* The preceding sentence is "Text length: The text contains x words.", %3$s expands to a link on yoast.com, %4$s expands to the anchor end tag, %5$d expands to the recommended minimum of words. */
-	_n_noop( 'This is below the recommended minimum of %5$d word. %3$sAdd more content%4$s.', 'This is below the recommended minimum of %5$d words. %3$sAdd more content%4$s.', 'wordpress-seo' ),
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:219
+	/* %1$d expands to the number of words / characters in the text, %2$s expands to a link on yoast.com, %3$s expands to a link on yoast.com, %4$s expands to the anchor end tag, %5$d expands to the recommended minimum of words / characters, %6$s expands to the word 'words' or 'characters'. */
+	__( '%2$sText length%4$s: The text contains %1$d %6$s. This is below the recommended minimum of %5$d %6$s. %3$sAdd more content%4$s.', 'wordpress-seo' ),
 
 	// Reference: packages/yoastseo/src/scoring/assessments/seo/TitleKeywordAssessment.js:110
 	/* %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag. */
