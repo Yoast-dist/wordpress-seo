@@ -266,19 +266,19 @@ $generated_i18n_strings = array(
 	__( 'Tracking', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:353
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:199
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:195
 	__( 'Keyphrase', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:359
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:205
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:201
 	__( 'Position', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:365
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:211
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:207
 	__( 'Position over time', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:394
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:233
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:230
 	/* %s expands to Wincher */
 	__( 'Get more insights over at %s', 'wordpress-seo' ),
 
@@ -289,7 +289,7 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/WincherTableRow.js:179
 	__( 'View', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:186
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:182
 	__( 'Top performing keyphrases on your site', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherPerformanceReport.js:83
