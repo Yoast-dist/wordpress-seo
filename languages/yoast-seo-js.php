@@ -280,35 +280,35 @@ $generated_i18n_strings = array(
 	/* %1$s and %2$s expand to links on yoast.com, %3$s expands to the anchor end tag */
 	__( '%1$sImage Keyphrase%3$s: Images on this page do not have alt attributes that reflect the topic of your text. %2$sAdd your keyphrase or synonyms to the alt tags of relevant images%3$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:153
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:165
 	/* %1$d expands to the number of words / characters in the keyphrase, %2$d expands to the recommended maximum of words / characters in the keyphrase, %3$s and %4$s expand to links on yoast.com, %5$s expands to the anchor end tag, %6$s expands to the word 'word' or 'character', %7$s expands to the word 'words or 'characters'. */
 	_n_noop( '%3$sKeyphrase length%5$s: The keyphrase is %1$d %6$s long. That\'s shorter than the recommended minimum of %2$d %7$s. %4$sMake it longer%5$s!', '%3$sKeyphrase length%5$s: The keyphrase is %1$d %7$s long. That\'s shorter than the recommended minimum of %2$d %7$s. %4$sMake it longer%5$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:206
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:218
 	/* %1$d expands to the number of words / characters in the keyphrase, %2$d expands to the recommended maximum of words / characters in the keyphrase, %3$s and %4$s expand to links on yoast.com, %5$s expands to the anchor end tag, %6$s expands to the word 'words' or 'characters'. */
 	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d %6$s long. That\'s slightly shorter than the recommended minimum of %2$d %6$s. %4$sMake it longer%5$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:231
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:243
 	/* %1$d expands to the number of words / characters in the keyphrase, %2$d expands to the recommended maximum of words / characters in the keyphrase, %3$s and %4$s expand to links on yoast.com, %5$s expands to the anchor end tag, %6$s expands to the word 'words' or 'characters'. */
 	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d %6$s long. That\'s longer than the recommended maximum of %2$d %6$s. %4$sMake it shorter%5$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:270
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:282
 	/* %1$s and %2$s expand to links on yoast.com, %3$s expands to the anchor end tag */
 	__( '%1$sKeyphrase length%3$s: %2$sSet a keyphrase in order to calculate your SEO score%3$s.', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:284
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:296
 	/* %1$s and %2$s expand to links on yoast.com, %3$s expands to the anchor end tag */
 	__( '%1$sKeyphrase length%3$s: No focus keyphrase was set for this page. %2$sSet a keyphrase in order to calculate your SEO score%3$s.', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:300
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:312
 	/* %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag. */
 	__( '%1$sKeyphrase length%2$s: Good job!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:319
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:331
 	/* %1$d expands to the number of words / characters in the keyphrase, %2$d expands to the recommended maximum of words / characters in the keyphrase, %3$s and %4$s expand to links on yoast.com, %5$s expands to the anchor end tag, %6$s expands to the word 'words' or 'characters'. */
 	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d %6$s long. That\'s more than the recommended maximum of %2$d %6$s. %4$sMake it shorter%5$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:343
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeyphraseLengthAssessment.js:355
 	/* %1$d expands to the number of words / characters in the keyphrase, %2$d expands to the recommended maximum of words / characters in the keyphrase, %3$s and %4$s expand to links on yoast.com, %5$s expands to the anchor end tag, %6$s expands to the word 'words' or 'characters'. */
 	__( '%3$sKeyphrase length%5$s: The keyphrase is %1$d %6$s long. That\'s way more than the recommended maximum of %2$d %6$s. %4$sMake it shorter%5$s!', 'wordpress-seo' ),
 
