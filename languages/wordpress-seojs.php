@@ -266,33 +266,40 @@ $generated_i18n_strings = array(
 	__( 'Tracking', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:364
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:201
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:238
 	__( 'Keyphrase', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:370
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:207
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:244
 	__( 'Position', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:376
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:213
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:250
 	__( 'Position over time', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:406
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:237
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:274
 	/* %s expands to Wincher */
 	__( 'Get more insights over at %s', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:411
 	__( '* focus keyphrase', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:124
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:126
 	// Reference: packages/js/src/components/WincherTableRow.js:179
 	__( 'View', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:187
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:181
+	__( 'This overview only shows you keyphrases added to Yoast SEO. There may be other keyphrases added to your %s.', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:194
+	/* %s : Expands to "Wincher". */
+	__( '%s account', 'wordpress-seo' ),
+
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:222
 	__( 'Top performing keyphrases on your site', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherPerformanceReport.js:88
+	// Reference: packages/js/src/components/WincherPerformanceReport.js:90
 	// Reference: packages/js/src/components/WincherSEOPerformance.js:171
 	/* %s expands to Wincher */
 	__( 'Connect with %s', 'wordpress-seo' ),
