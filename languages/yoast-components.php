@@ -45,10 +45,10 @@ $generated_i18n_strings = array(
 	// Reference: packages/components/src/Notification.js:101
 	__( 'Dismiss this notice', 'wordpress-seo' ),
 
-	// Reference: packages/components/src/Toggle.js:146
+	// Reference: packages/components/src/Toggle.js:147
 	__( 'On', 'wordpress-seo' ),
 
-	// Reference: packages/components/src/Toggle.js:146
+	// Reference: packages/components/src/Toggle.js:147
 	__( 'Off', 'wordpress-seo' ),
 
 	// Reference: packages/components/src/WordOccurrenceInsights.js:23
