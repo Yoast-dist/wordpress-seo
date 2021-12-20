@@ -262,27 +262,27 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/SchemaTab.js:82
 	__( 'Learn more about structured data with Schema.org', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:358
+	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:306
 	__( 'Tracking', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:364
+	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:312
 	// Reference: packages/js/src/components/WincherPerformanceReport.js:238
 	__( 'Keyphrase', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:370
+	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:318
 	// Reference: packages/js/src/components/WincherPerformanceReport.js:244
 	__( 'Position', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:376
+	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:324
 	// Reference: packages/js/src/components/WincherPerformanceReport.js:250
 	__( 'Position over time', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:406
+	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:354
 	// Reference: packages/js/src/components/WincherPerformanceReport.js:274
 	/* %s expands to Wincher */
 	__( 'Get more insights over at %s', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:411
+	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:359
 	__( '* focus keyphrase', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherPerformanceReport.js:126
@@ -300,25 +300,25 @@ $generated_i18n_strings = array(
 	__( 'Top performing keyphrases on your site', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherPerformanceReport.js:90
-	// Reference: packages/js/src/components/WincherSEOPerformance.js:171
+	// Reference: packages/js/src/components/WincherSEOPerformance.js:178
 	/* %s expands to Wincher */
 	__( 'Connect with %s', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherPostPublish.js:34
-	// Reference: packages/js/src/components/WincherSEOPerformance.js:266
+	// Reference: packages/js/src/components/WincherPostPublish.js:28
+	// Reference: packages/js/src/components/WincherSEOPerformance.js:271
 	__( 'SEO performance', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherPostPublish.js:36
-	// Reference: packages/js/src/components/WincherSEOPerformance.js:269
+	// Reference: packages/js/src/components/WincherPostPublish.js:30
+	// Reference: packages/js/src/components/WincherSEOPerformance.js:274
 	__( 'Learn more about the SEO performance feature.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherPostPublish.js:42
+	// Reference: packages/js/src/components/WincherPostPublish.js:36
 	__( 'Tracking has already been enabled for one or more keyphrases of this page. Clicking the button below will enable tracking for all of its keyphrases.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherPostPublish.js:54
+	// Reference: packages/js/src/components/WincherPostPublish.js:48
 	__( 'Track all keyphrases on this page', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherSEOPerformance.js:227
+	// Reference: packages/js/src/components/WincherSEOPerformance.js:234
 	__( 'You can enable / disable tracking the SEO performance for each keyphrase below.', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherSEOPerformanceModal.js:75

@@ -320,23 +320,23 @@ $generated_i18n_strings = array(
 	// Reference: packages/yoastseo/src/scoring/assessments/seo/TextLengthAssessment.js:67
 	__( 'character', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeywordDensityAssessment.js:189
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeywordDensityAssessment.js:192
 	/* %1$s and %4$s expand to links to Yoast.com, %2$s expands to the anchor end tag, %3$d expands to the recommended minimal number of times the keyphrase should occur in the text. */
 	__( '%1$sKeyphrase density%2$s: The focus keyphrase was found 0 times. That\'s less than the recommended minimum of %3$d times for a text of this length. %4$sFocus on your keyphrase%2$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeywordDensityAssessment.js:211
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeywordDensityAssessment.js:214
 	/* %1$s and %4$s expand to links to Yoast.com, %2$s expands to the anchor end tag, %3$d expands to the recommended minimal number of times the keyphrase should occur in the text, %5$d expands to the number of times the keyphrase occurred in the text. */
 	_n_noop( '%1$sKeyphrase density%2$s: The focus keyphrase was found %5$d time. That\'s less than the recommended minimum of %3$d times for a text of this length. %4$sFocus on your keyphrase%2$s!', '%1$sKeyphrase density%2$s: The focus keyphrase was found %5$d times. That\'s less than the recommended minimum of %3$d times for a text of this length. %4$sFocus on your keyphrase%2$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeywordDensityAssessment.js:236
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeywordDensityAssessment.js:239
 	/* %1$s expands to a link to Yoast.com, %2$s expands to the anchor end tag, %3$d expands to the number of times the keyphrase occurred in the text. */
 	_n_noop( '%1$sKeyphrase density%2$s: The focus keyphrase was found %3$d time. This is great!', '%1$sKeyphrase density%2$s: The focus keyphrase was found %3$d times. This is great!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeywordDensityAssessment.js:258
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeywordDensityAssessment.js:261
 	/* %1$s and %4$s expand to links to Yoast.com, %2$s expands to the anchor end tag, %3$d expands to the recommended maximal number of times the keyphrase should occur in the text, %5$d expands to the number of times the keyphrase occurred in the text. */
 	_n_noop( '%1$sKeyphrase density%2$s: The focus keyphrase was found %5$d time. That\'s more than the recommended maximum of %3$d times for a text of this length. %4$sDon\'t overoptimize%2$s!', '%1$sKeyphrase density%2$s: The focus keyphrase was found %5$d times. That\'s more than the recommended maximum of %3$d times for a text of this length. %4$sDon\'t overoptimize%2$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeywordDensityAssessment.js:284
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/KeywordDensityAssessment.js:287
 	/* %1$s and %4$s expand to links to Yoast.com, %2$s expands to the anchor end tag, %3$d expands to the recommended maximal number of times the keyphrase should occur in the text, %5$d expands to the number of times the keyphrase occurred in the text. */
 	_n_noop( '%1$sKeyphrase density%2$s: The focus keyphrase was found %5$d time. That\'s way more than the recommended maximum of %3$d times for a text of this length. %4$sDon\'t overoptimize%2$s!', '%1$sKeyphrase density%2$s: The focus keyphrase was found %5$d times. That\'s way more than the recommended maximum of %3$d times for a text of this length. %4$sDon\'t overoptimize%2$s!', 'wordpress-seo' ),
 
