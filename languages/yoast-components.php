@@ -45,10 +45,10 @@ $generated_i18n_strings = array(
 	// Reference: packages/components/src/Notification.js:101
 	__( 'Dismiss this notice', 'wordpress-seo' ),
 
-	// Reference: packages/components/src/Toggle.js:146
+	// Reference: packages/components/src/Toggle.js:147
 	__( 'On', 'wordpress-seo' ),
 
-	// Reference: packages/components/src/Toggle.js:146
+	// Reference: packages/components/src/Toggle.js:147
 	__( 'Off', 'wordpress-seo' ),
 
 	// Reference: packages/components/src/WordOccurrenceInsights.js:23
@@ -126,25 +126,6 @@ $generated_i18n_strings = array(
 
 	// Reference: packages/yoast-components/composites/Plugin/CornerstoneContent/components/CornerstoneToggle.js:26
 	__( 'Mark as cornerstone content', 'wordpress-seo' ),
-
-	// Reference: packages/configuration-wizard/src/ConfigurationWizard.js:191
-	__( 'A problem occurred when saving the current step, {{link}}please file a bug report{{/link}} describing what step you are on and which changes you want to make (if any).', 'wordpress-seo' ),
-
-	// Reference: packages/configuration-wizard/src/ConfigurationWizard.js:278
-	__( 'Close the Wizard', 'wordpress-seo' ),
-
-	// Reference: packages/configuration-wizard/src/ConfigurationWizard.js:361
-	__( 'Previous', 'wordpress-seo' ),
-
-	// Reference: packages/configuration-wizard/src/ConfigurationWizard.js:366
-	__( 'Next', 'wordpress-seo' ),
-
-	// Reference: packages/configuration-wizard/src/ConfigurationWizard.js:375
-	/* %s expands to "Yoast SEO for WordPress". */
-	__( '%s installation wizard', 'wordpress-seo' ),
-
-	// Reference: packages/configuration-wizard/src/StepIndicator.js:52
-	__( 'Step %1$d: %2$s', 'wordpress-seo' ),
 
 	// Reference: packages/helpers/src/social-preview-image-validation/facebookValidation.js:22
 	/* %d expands to the minimum width, %d expands to the minimum hight */
@@ -244,10 +225,10 @@ $generated_i18n_strings = array(
 	// Reference: packages/replacement-variable-editor/src/ReplacementVariableEditor.js:97
 	__( 'Insert variable', 'wordpress-seo' ),
 
-	// Reference: packages/replacement-variable-editor/src/ReplacementVariableEditorStandalone.js:312
+	// Reference: packages/replacement-variable-editor/src/ReplacementVariableEditorStandalone.js:321
 	_n_noop( '%d result found, use up and down arrow keys to navigate', '%d results found, use up and down arrow keys to navigate', 'wordpress-seo' ),
 
-	// Reference: packages/replacement-variable-editor/src/ReplacementVariableEditorStandalone.js:323
+	// Reference: packages/replacement-variable-editor/src/ReplacementVariableEditorStandalone.js:332
 	__( 'No results', 'wordpress-seo' )
 );
 /* THIS IS THE END OF THE GENERATED FILE */

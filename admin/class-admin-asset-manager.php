@@ -317,6 +317,20 @@ class WPSEO_Admin_Asset_Manager {
 			$renamed_scripts
 		);
 
+		$scripts['installation-success'] = [
+			'name' => 'installation-success',
+			'src'  => 'installation-success-' . $flat_version . '.js',
+			'deps' => [
+				'wp-a11y',
+				'wp-dom-ready',
+				'wp-components',
+				'wp-element',
+				'wp-i18n',
+				self::PREFIX . 'yoast-components',
+				self::PREFIX . 'externals-components',
+			],
+		];
+
 		$scripts['post-edit-classic'] = [
 			'name'      => 'post-edit-classic',
 			'src'       => $scripts['post-edit']['src'],
@@ -646,6 +660,11 @@ class WPSEO_Admin_Asset_Manager {
 			[
 				'name' => 'workouts',
 				'src'  => 'workouts-' . $flat_version,
+				'deps' => [ self::PREFIX . 'monorepo' ],
+			],
+			[
+				'name' => 'installation-success',
+				'src'  => 'installation-success-' . $flat_version,
 				'deps' => [ self::PREFIX . 'monorepo' ],
 			],
 		];
