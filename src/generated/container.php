@@ -88,6 +88,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\conditionals\\migrations_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Migrations_Conditional',
             'yoast\\wp\\seo\\conditionals\\news_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\News_Conditional',
             'yoast\\wp\\seo\\conditionals\\no_tool_selected_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\No_Tool_Selected_Conditional',
+            'yoast\\wp\\seo\\conditionals\\non_multisite_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Non_Multisite_Conditional',
             'yoast\\wp\\seo\\conditionals\\open_graph_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Open_Graph_Conditional',
             'yoast\\wp\\seo\\conditionals\\premium_inactive_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Premium_Inactive_Conditional',
             'yoast\\wp\\seo\\conditionals\\primary_category_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Primary_Category_Conditional',
@@ -259,6 +260,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\third_party\\the_events_calendar' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\The_Events_Calendar',
             'yoast\\wp\\seo\\integrations\\third_party\\w3_total_cache' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\W3_Total_Cache',
             'yoast\\wp\\seo\\integrations\\third_party\\web_stories' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Web_Stories',
+            'yoast\\wp\\seo\\integrations\\third_party\\wincher' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wincher',
             'yoast\\wp\\seo\\integrations\\third_party\\wincher_publish' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wincher_Publish',
             'yoast\\wp\\seo\\integrations\\third_party\\woocommerce' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\WooCommerce',
             'yoast\\wp\\seo\\integrations\\third_party\\woocommerce_permalinks' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Woocommerce_Permalinks',
@@ -400,6 +402,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\Migrations_Conditional' => 'getMigrationsConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\News_Conditional' => 'getNewsConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\No_Tool_Selected_Conditional' => 'getNoToolSelectedConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Non_Multisite_Conditional' => 'getNonMultisiteConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Open_Graph_Conditional' => 'getOpenGraphConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Premium_Inactive_Conditional' => 'getPremiumInactiveConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Primary_Category_Conditional' => 'getPrimaryCategoryConditionalService',
@@ -573,6 +576,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\WPML' => 'getWPMLService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\WPML_WPSEO_Notification' => 'getWPMLWPSEONotificationService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Web_Stories' => 'getWebStoriesService',
+            'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wincher' => 'getWincherService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wincher_Publish' => 'getWincherPublishService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\WooCommerce' => 'getWooCommerceService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Woocommerce_Permalinks' => 'getWoocommercePermalinksService',
@@ -1489,6 +1493,16 @@ class Cached_Container extends Container
     protected function getNoToolSelectedConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\No_Tool_Selected_Conditional'] = new \Yoast\WP\SEO\Conditionals\No_Tool_Selected_Conditional();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Non_Multisite_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Non_Multisite_Conditional
+     */
+    protected function getNonMultisiteConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Non_Multisite_Conditional'] = new \Yoast\WP\SEO\Conditionals\Non_Multisite_Conditional();
     }
 
     /**
@@ -2984,7 +2998,7 @@ class Cached_Container extends Container
      */
     protected function getFeatureFlagIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Feature_Flag_Integration'] = new \Yoast\WP\SEO\Integrations\Feature_Flag_Integration(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Addon_Installation_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Addon_Installation_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Addon_Installation_Conditional'] = new \Yoast\WP\SEO\Conditionals\Addon_Installation_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\AIOSEO_V4_Importer_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\AIOSEO_V4_Importer_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\AIOSEO_V4_Importer_Conditional'] = new \Yoast\WP\SEO\Conditionals\AIOSEO_V4_Importer_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Installation_Success_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Installation_Success_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Installation_Success_Conditional'] = new \Yoast\WP\SEO\Conditionals\Installation_Success_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Schema_Blocks_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Schema_Blocks_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Schema_Blocks_Conditional'] = new \Yoast\WP\SEO\Conditionals\Schema_Blocks_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Wincher_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Wincher_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Wincher_Conditional'] = new \Yoast\WP\SEO\Conditionals\Wincher_Conditional())) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Feature_Flag_Integration'] = new \Yoast\WP\SEO\Integrations\Feature_Flag_Integration(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Addon_Installation_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Addon_Installation_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Addon_Installation_Conditional'] = new \Yoast\WP\SEO\Conditionals\Addon_Installation_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\AIOSEO_V4_Importer_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\AIOSEO_V4_Importer_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\AIOSEO_V4_Importer_Conditional'] = new \Yoast\WP\SEO\Conditionals\AIOSEO_V4_Importer_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Installation_Success_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Installation_Success_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Installation_Success_Conditional'] = new \Yoast\WP\SEO\Conditionals\Installation_Success_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Schema_Blocks_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Schema_Blocks_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Schema_Blocks_Conditional'] = new \Yoast\WP\SEO\Conditionals\Schema_Blocks_Conditional())) && false ?: '_'});
     }
 
     /**
@@ -3277,6 +3291,16 @@ class Cached_Container extends Container
     protected function getWebStoriesService()
     {
         return $this->services['Yoast\\WP\\SEO\\Integrations\\Third_Party\\Web_Stories'] = new \Yoast\WP\SEO\Integrations\Third_Party\Web_Stories(${($_ = isset($this->services['Yoast\\WP\\SEO\\Integrations\\Front_End_Integration']) ? $this->services['Yoast\\WP\\SEO\\Integrations\\Front_End_Integration'] : $this->getFrontEndIntegrationService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\Third_Party\Wincher' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\Third_Party\Wincher
+     */
+    protected function getWincherService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wincher'] = new \Yoast\WP\SEO\Integrations\Third_Party\Wincher();
     }
 
     /**
@@ -3606,6 +3630,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\W3_Total_Cache');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Web_Stories');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wincher_Publish');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wincher');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Woocommerce_Permalinks');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\WooCommerce');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\WPML_WPSEO_Notification');
