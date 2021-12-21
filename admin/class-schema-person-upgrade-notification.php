@@ -6,8 +6,7 @@
  */
 
 /**
- * Notifies the user to update the Search Appearance settings when the site is set to represent a Person,
- * but no person (name) has been chosen.
+ * Notifies the user to update the Person on the publish entity in the Configuration Wizard.
  */
 class WPSEO_Schema_Person_Upgrade_Notification implements WPSEO_WordPress_Integration {
 
@@ -56,7 +55,7 @@ class WPSEO_Schema_Person_Upgrade_Notification implements WPSEO_WordPress_Integr
 	 */
 	protected function get_notification() {
 		$message = sprintf(
-			/* translators: %1$s is a link start tag to the Search Appearance settings, %2$s is the link closing tag. */
+			/* translators: %1$s is a link start tag to the Configuration Wizard, %2$s is the link closing tag. */
 			__( 'You have previously set your site to represent a person. We’ve improved our functionality around Schema and the Knowledge Graph, so you should go in and %1$scomplete those settings%2$s.', 'wordpress-seo' ),
 			'<a href="' . esc_url( admin_url( 'admin.php?page=wpseo_titles' ) ) . '">',
 			'</a>'

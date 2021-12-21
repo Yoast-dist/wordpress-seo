@@ -127,6 +127,25 @@ $generated_i18n_strings = array(
 	// Reference: packages/yoast-components/composites/Plugin/CornerstoneContent/components/CornerstoneToggle.js:26
 	__( 'Mark as cornerstone content', 'wordpress-seo' ),
 
+	// Reference: packages/configuration-wizard/src/ConfigurationWizard.js:191
+	__( 'A problem occurred when saving the current step, {{link}}please file a bug report{{/link}} describing what step you are on and which changes you want to make (if any).', 'wordpress-seo' ),
+
+	// Reference: packages/configuration-wizard/src/ConfigurationWizard.js:278
+	__( 'Close the Wizard', 'wordpress-seo' ),
+
+	// Reference: packages/configuration-wizard/src/ConfigurationWizard.js:361
+	__( 'Previous', 'wordpress-seo' ),
+
+	// Reference: packages/configuration-wizard/src/ConfigurationWizard.js:366
+	__( 'Next', 'wordpress-seo' ),
+
+	// Reference: packages/configuration-wizard/src/ConfigurationWizard.js:375
+	/* %s expands to "Yoast SEO for WordPress". */
+	__( '%s installation wizard', 'wordpress-seo' ),
+
+	// Reference: packages/configuration-wizard/src/StepIndicator.js:52
+	__( 'Step %1$d: %2$s', 'wordpress-seo' ),
+
 	// Reference: packages/helpers/src/social-preview-image-validation/facebookValidation.js:22
 	/* %d expands to the minimum width, %d expands to the minimum hight */
 	__( 'Your image dimensions are not suitable. The minimum dimensions are %dx%d pixels.', 'wordpress-seo' ),

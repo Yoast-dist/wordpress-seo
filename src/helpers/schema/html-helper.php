@@ -15,14 +15,6 @@ class HTML_Helper {
 	 * @return string The sanitized HTML.
 	 */
 	public function sanitize( $html ) {
-		if ( ! $this->is_non_empty_string_or_stringable( $html ) ) {
-			if ( \is_int( $html ) || \is_float( $html ) ) {
-				return (string) $html;
-			}
-
-			return '';
-		}
-
 		return \strip_tags( $html, '<h1><h2><h3><h4><h5><h6><br><ol><ul><li><a><p><b><strong><i><em>' );
 	}
 
@@ -34,14 +26,6 @@ class HTML_Helper {
 	 * @return string The sanitized HTML.
 	 */
 	public function smart_strip_tags( $html ) {
-		if ( ! $this->is_non_empty_string_or_stringable( $html ) ) {
-			if ( \is_int( $html ) || \is_float( $html ) ) {
-				return (string) $html;
-			}
-
-			return '';
-		}
-
 		// Replace all new lines with spaces.
 		$html = \preg_replace( '/(\r|\n)/', ' ', $html );
 
@@ -61,16 +45,5 @@ class HTML_Helper {
 		$html = \preg_replace( '!\s+!', ' ', $html );
 
 		return \trim( $html );
-	}
-
-	/**
-	 * Verifies that the received input is either a string or stringable object.
-	 *
-	 * @param string $html The original HTML.
-	 *
-	 * @return bool
-	 */
-	private function is_non_empty_string_or_stringable( $html ) {
-		return ( \is_string( $html ) || \is_object( $html ) && \method_exists( $html, '__toString' ) ) && ! empty( $html );
 	}
 }

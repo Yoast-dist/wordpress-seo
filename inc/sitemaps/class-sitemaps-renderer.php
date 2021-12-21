@@ -130,7 +130,7 @@ class WPSEO_Sitemaps_Renderer {
 	/**
 	 * Produce final XML output with debug information.
 	 *
-	 * @param string $sitemap   Sitemap XML.
+	 * @param string $sitemap Sitemap XML.
 	 *
 	 * @return string
 	 */
@@ -267,9 +267,9 @@ class WPSEO_Sitemaps_Renderer {
 		/**
 		 * Filters the output for the sitemap URL tag.
 		 *
-		 * @api   string $output The output for the sitemap url tag.
-		 *
 		 * @param array $url The sitemap URL array on which the output is based.
+		 *
+		 * @api   string $output The output for the sitemap url tag.
 		 */
 		return apply_filters( 'wpseo_sitemap_url', $output, $url );
 	}
@@ -307,7 +307,7 @@ class WPSEO_Sitemaps_Renderer {
 
 			parse_str( $query, $parsed_query );
 
-			$parsed_query = http_build_query( $parsed_query, '', '&amp;', PHP_QUERY_RFC3986 );
+			$parsed_query = http_build_query( $parsed_query, null, '&amp;', PHP_QUERY_RFC3986 );
 
 			$url = str_replace( $query, $parsed_query, $url );
 		}

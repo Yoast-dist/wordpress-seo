@@ -5,13 +5,35 @@
  * @package WPSEO\XML_Sitemaps
  */
 
-use Yoast\WP\SEO\Helpers\Author_Archive_Helper;
-use Yoast\WP\SEO\Helpers\Wordpress_Helper;
+use Yoast\WP\SEO\Helpers\XML_Sitemap_Helper;
+use Yoast\WP\SEO\Repositories\Indexable_Repository;
 
 /**
  * Sitemap provider for author archives.
  */
 class WPSEO_Author_Sitemap_Provider implements WPSEO_Sitemap_Provider {
+
+	/**
+	 * The indexable repository.
+	 *
+	 * @var Indexable_Repository
+	 */
+	private $repository;
+
+	/**
+	 * The XML sitemap helper.
+	 *
+	 * @var XML_Sitemap_Helper
+	 */
+	private $xml_sitemap_helper;
+
+	/**
+	 * Set up object properties for data reuse.
+	 */
+	public function __construct() {
+		$this->repository         = YoastSEO()->classes->get( Indexable_Repository::class );
+		$this->xml_sitemap_helper = YoastSEO()->helpers->xml_sitemap;
+	}
 
 	/**
 	 * Check if provider supports given item type.
@@ -42,105 +64,37 @@ class WPSEO_Author_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 			return [];
 		}
 
-		// @todo Consider doing this less often / when necessary. R.
-		$this->update_user_meta();
+		$query = $this->repository
+			->query_where_noindex( false, 'user' )
+			->select_many( 'id', 'permalink', 'object_last_modified' )
+			->order_by_asc( 'object_last_modified' );
 
-		$has_exclude_filter = has_filter( 'wpseo_sitemap_exclude_author' );
-
-		$query_arguments = [];
-
-		if ( ! $has_exclude_filter ) { // We only need full users if legacy filter(s) hooked to exclusion logic. R.
-			$query_arguments['fields'] = 'ID';
+		$users_to_exclude = $this->exclude_users();
+		if ( count( $users_to_exclude ) > 0 ) {
+			$query->where_not_in( 'object_id', $users_to_exclude );
 		}
 
-		$users = $this->get_users( $query_arguments );
+		$indexables = $query->find_many();
+		$user_pages = array_chunk( $indexables, $max_entries );
 
-		if ( $has_exclude_filter ) {
-			$users = $this->exclude_users( $users );
-			$users = wp_list_pluck( $users, 'ID' );
-		}
-
-		if ( empty( $users ) ) {
-			return [];
-		}
-
-		$index      = [];
-		$page       = 1;
-		$user_pages = array_chunk( $users, $max_entries );
-
+		$page = 1;
 		if ( count( $user_pages ) === 1 ) {
 			$page = '';
 		}
 
+		$index_links = [];
 		foreach ( $user_pages as $users_page ) {
-
-			$user_id = array_shift( $users_page ); // Time descending, first user on page is most recently updated.
-			$user    = get_user_by( 'id', $user_id );
-			$index[] = [
+			$index_links[] = [
 				'loc'     => WPSEO_Sitemaps_Router::get_base_url( 'author-sitemap' . $page . '.xml' ),
-				'lastmod' => ( $user->_yoast_wpseo_profile_updated ) ? YoastSEO()->helpers->date->format_timestamp( $user->_yoast_wpseo_profile_updated ) : null,
+				'lastmod' => $users_page[0]->object_last_modified,
 			];
 
-			++$page;
+			if ( is_int( $page ) ) {
+				++$page;
+			}
 		}
 
-		return $index;
-	}
-
-	/**
-	 * Retrieve users, taking account of all necessary exclusions.
-	 *
-	 * @param array $arguments Arguments to add.
-	 *
-	 * @return array
-	 */
-	protected function get_users( $arguments = [] ) {
-
-		global $wpdb;
-
-		$defaults = [
-			'capability' => [ 'edit_posts' ],
-			'meta_key'   => '_yoast_wpseo_profile_updated',
-			'orderby'    => 'meta_value_num',
-			'order'      => 'DESC',
-			'meta_query' => [
-				'relation' => 'AND',
-				[
-					'key'     => $wpdb->get_blog_prefix() . 'user_level',
-					'value'   => '0',
-					'compare' => '!=',
-				],
-				[
-					'relation' => 'OR',
-					[
-						'key'     => 'wpseo_noindex_author',
-						'value'   => 'on',
-						'compare' => '!=',
-					],
-					[
-						'key'     => 'wpseo_noindex_author',
-						'compare' => 'NOT EXISTS',
-					],
-				],
-			],
-		];
-
-		$wordpress_helper  = new Wordpress_Helper();
-		$wordpress_version = $wordpress_helper->get_wordpress_version();
-
-		// Capability queries were only introduced in WP 5.9.
-		if ( version_compare( $wordpress_version, '5.8.99', '<' ) ) {
-			$defaults['who'] = 'authors';
-			unset( $defaults['capability'] );
-		}
-
-		if ( WPSEO_Options::get( 'noindex-author-noposts-wpseo', true ) ) {
-			unset( $defaults['who'], $defaults['capability'] ); // Otherwise it cancels out next argument.
-			$author_archive                  = new Author_Archive_Helper();
-			$defaults['has_published_posts'] = $author_archive->get_author_archive_post_types();
-		}
-
-		return get_users( array_merge( $defaults, $arguments ) );
+		return $index_links;
 	}
 
 	/**
@@ -156,116 +110,45 @@ class WPSEO_Author_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	 */
 	public function get_sitemap_links( $type, $max_entries, $current_page ) {
 
-		$links = [];
-
 		if ( ! $this->handles_type( 'author' ) ) {
-			return $links;
+			return [];
 		}
 
-		$user_criteria = [
-			'offset' => ( ( $current_page - 1 ) * $max_entries ),
-			'number' => $max_entries,
-		];
+		$offset = ( ( $current_page - 1 ) * $max_entries );
 
-		$users = $this->get_users( $user_criteria );
+		$query = $this->repository
+			->query_where_noindex( false, 'user' )
+			->select_many( 'id', 'object_id', 'permalink', 'object_last_modified' )
+			->order_by_asc( 'object_last_modified' )
+			->offset( $offset )
+			->limit( $max_entries );
+
+		$users_to_exclude = $this->exclude_users();
+		if ( count( $users_to_exclude ) > 0 ) {
+			$query->where_not_in( 'object_id', $users_to_exclude );
+		}
+
+		$indexables = $query->find_many();
 
 		// Throw an exception when there are no users in the sitemap.
-		if ( count( $users ) === 0 ) {
+		if ( count( $indexables ) === 0 ) {
 			throw new OutOfBoundsException( 'Invalid sitemap page requested' );
 		}
 
-		$users = $this->exclude_users( $users );
-		if ( empty( $users ) ) {
-			$users = [];
-		}
-
-		$time = time();
-
-		foreach ( $users as $user ) {
-
-			$author_link = get_author_posts_url( $user->ID );
-
-			if ( empty( $author_link ) ) {
-				continue;
-			}
-
-			$mod = $time;
-
-			if ( isset( $user->_yoast_wpseo_profile_updated ) ) {
-				$mod = $user->_yoast_wpseo_profile_updated;
-			}
-
-			$url = [
-				'loc' => $author_link,
-				'mod' => date( DATE_W3C, $mod ),
-
-				// Deprecated, kept for backwards data compat. R.
-				'chf' => 'daily',
-				'pri' => 1,
-			];
-
-			/** This filter is documented at inc/sitemaps/class-post-type-sitemap-provider.php */
-			$url = apply_filters( 'wpseo_sitemap_entry', $url, 'user', $user );
-
-			if ( ! empty( $url ) ) {
-				$links[] = $url;
-			}
-		}
-
-		return $links;
-	}
-
-	/**
-	 * Update any users that don't have last profile update timestamp.
-	 *
-	 * @return int Count of users updated.
-	 */
-	protected function update_user_meta() {
-
-		$user_criteria = [
-			'capability' => [ 'edit_posts' ],
-			'meta_query' => [
-				[
-					'key'     => '_yoast_wpseo_profile_updated',
-					'compare' => 'NOT EXISTS',
-				],
-			],
-		];
-
-		$wordpress_helper  = new Wordpress_Helper();
-		$wordpress_version = $wordpress_helper->get_wordpress_version();
-
-		// Capability queries were only introduced in WP 5.9.
-		if ( version_compare( $wordpress_version, '5.8.99', '<' ) ) {
-			$user_criteria['who'] = 'authors';
-			unset( $user_criteria['capability'] );
-		}
-
-		$users = get_users( $user_criteria );
-
-		$time = time();
-
-		foreach ( $users as $user ) {
-			update_user_meta( $user->ID, '_yoast_wpseo_profile_updated', $time );
-		}
-
-		return count( $users );
+		return $this->xml_sitemap_helper->convert_indexables_to_sitemap_links( $indexables, 'user' );
 	}
 
 	/**
 	 * Wrap legacy filter to deduplicate calls.
 	 *
-	 * @param array $users Array of user objects to filter.
-	 *
 	 * @return array
 	 */
-	protected function exclude_users( $users ) {
-
+	protected function exclude_users() {
 		/**
 		 * Filter the authors, included in XML sitemap.
 		 *
 		 * @param array $users Array of user objects to filter.
 		 */
-		return apply_filters( 'wpseo_sitemap_exclude_author', $users );
+		return apply_filters( 'wpseo_sitemap_exclude_author', [ 0 ] );
 	}
 }

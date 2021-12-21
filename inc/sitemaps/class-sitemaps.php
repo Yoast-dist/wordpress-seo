@@ -75,15 +75,6 @@ class WPSEO_Sitemaps {
 	public $renderer;
 
 	/**
-	 * The sitemap cache.
-	 *
-	 * @since 3.2
-	 *
-	 * @var WPSEO_Sitemaps_Cache
-	 */
-	public $cache;
-
-	/**
 	 * The sitemap providers.
 	 *
 	 * @since 3.2
@@ -100,12 +91,10 @@ class WPSEO_Sitemaps {
 		add_action( 'after_setup_theme', [ $this, 'init_sitemaps_providers' ] );
 		add_action( 'after_setup_theme', [ $this, 'reduce_query_load' ], 99 );
 		add_action( 'pre_get_posts', [ $this, 'redirect' ], 1 );
-		add_action( 'wpseo_hit_sitemap_index', [ $this, 'hit_sitemap_index' ] );
 		add_action( 'wpseo_ping_search_engines', [ __CLASS__, 'ping_search_engines' ] );
 
 		$this->router   = new WPSEO_Sitemaps_Router();
 		$this->renderer = new WPSEO_Sitemaps_Renderer();
-		$this->cache    = new WPSEO_Sitemaps_Cache();
 
 		if ( ! empty( $_SERVER['SERVER_PROTOCOL'] ) ) {
 			$this->http_protocol = sanitize_text_field( wp_unslash( $_SERVER['SERVER_PROTOCOL'] ) );
@@ -253,9 +242,7 @@ class WPSEO_Sitemaps {
 
 		$this->set_n( get_query_var( 'sitemap_n' ) );
 
-		if ( ! $this->get_sitemap_from_cache( $type, $this->current_page ) ) {
-			$this->build_sitemap( $type );
-		}
+		$this->build_sitemap( $type );
 
 		if ( $this->bad_sitemap ) {
 			$query->set_404();
@@ -266,60 +253,6 @@ class WPSEO_Sitemaps {
 
 		$this->output();
 		$this->sitemap_close();
-	}
-
-	/**
-	 * Try to get the sitemap from cache.
-	 *
-	 * @param string $type        Sitemap type.
-	 * @param int    $page_number The page number to retrieve.
-	 *
-	 * @return bool If the sitemap has been retrieved from cache.
-	 */
-	private function get_sitemap_from_cache( $type, $page_number ) {
-
-		$this->transient = false;
-
-		if ( $this->cache->is_enabled() !== true ) {
-			return false;
-		}
-
-		/**
-		 * Fires before the attempt to retrieve XML sitemap from the transient cache.
-		 *
-		 * @param WPSEO_Sitemaps $sitemaps Sitemaps object.
-		 */
-		do_action( 'wpseo_sitemap_stylesheet_cache_' . $type, $this );
-
-		$sitemap_cache_data = $this->cache->get_sitemap_data( $type, $page_number );
-
-		// No cache was found, refresh it because cache is enabled.
-		if ( empty( $sitemap_cache_data ) ) {
-			return $this->refresh_sitemap_cache( $type, $page_number );
-		}
-
-		// Cache object was found, parse information.
-		$this->transient = true;
-
-		$this->sitemap     = $sitemap_cache_data->get_sitemap();
-		$this->bad_sitemap = ! $sitemap_cache_data->is_usable();
-
-		return true;
-	}
-
-	/**
-	 * Build and save sitemap to cache.
-	 *
-	 * @param string $type        Sitemap type.
-	 * @param int    $page_number The page number to save to.
-	 *
-	 * @return bool
-	 */
-	private function refresh_sitemap_cache( $type, $page_number ) {
-		$this->set_n( $page_number );
-		$this->build_sitemap( $type );
-
-		return $this->cache->store_sitemap( $type, $page_number, $this->sitemap, ! $this->bad_sitemap );
 	}
 
 	/**
@@ -449,93 +382,6 @@ class WPSEO_Sitemaps {
 	}
 
 	/**
-	 * Makes a request to the sitemap index to cache it before the arrival of the search engines.
-	 *
-	 * @return void
-	 */
-	public function hit_sitemap_index() {
-		if ( ! $this->cache->is_enabled() ) {
-			return;
-		}
-
-		wp_remote_get( WPSEO_Sitemaps_Router::get_base_url( 'sitemap_index.xml' ) );
-	}
-
-	/**
-	 * Get the GMT modification date for the last modified post in the post type.
-	 *
-	 * @since 3.2
-	 *
-	 * @param string|array $post_types Post type or array of types.
-	 * @param bool         $return_all Flag to return array of values.
-	 *
-	 * @return string|array|false
-	 */
-	public static function get_last_modified_gmt( $post_types, $return_all = false ) {
-
-		global $wpdb;
-
-		static $post_type_dates = null;
-
-		if ( ! is_array( $post_types ) ) {
-			$post_types = [ $post_types ];
-		}
-
-		foreach ( $post_types as $post_type ) {
-			if ( ! isset( $post_type_dates[ $post_type ] ) ) { // If we hadn't seen post type before. R.
-				$post_type_dates = null;
-				break;
-			}
-		}
-
-		if ( is_null( $post_type_dates ) ) {
-
-			$post_type_dates = [];
-			$post_type_names = WPSEO_Post_Type::get_accessible_post_types();
-
-			if ( ! empty( $post_type_names ) ) {
-				$post_statuses = array_map( 'esc_sql', self::get_post_statuses() );
-
-				$sql = "
-					SELECT post_type, MAX(post_modified_gmt) AS date
-					FROM $wpdb->posts
-					WHERE post_status IN ('" . implode( "','", $post_statuses ) . "')
-						AND post_type IN ('" . implode( "','", $post_type_names ) . "')
-					GROUP BY post_type
-					ORDER BY date DESC
-				";
-
-				foreach ( $wpdb->get_results( $sql ) as $obj ) {
-					$post_type_dates[ $obj->post_type ] = $obj->date;
-				}
-			}
-		}
-
-		$dates = array_intersect_key( $post_type_dates, array_flip( $post_types ) );
-
-		if ( count( $dates ) > 0 ) {
-			if ( $return_all ) {
-				return $dates;
-			}
-
-			return max( $dates );
-		}
-
-		return false;
-	}
-
-	/**
-	 * Get the modification date for the last modified post in the post type.
-	 *
-	 * @param array $post_types Post types to get the last modification date for.
-	 *
-	 * @return string
-	 */
-	public function get_last_modified( $post_types ) {
-		return YoastSEO()->helpers->date->format( self::get_last_modified_gmt( $post_types ) );
-	}
-
-	/**
 	 * Notify search engines of the updated sitemap.
 	 *
 	 * @param string|null $url Optional URL to make the ping for.
@@ -578,7 +424,7 @@ class WPSEO_Sitemaps {
 		 *
 		 * @param int $entries The maximum number of entries per XML sitemap.
 		 */
-		$entries = (int) apply_filters( 'wpseo_sitemap_entries_per_page', 1000 );
+		$entries = (int) apply_filters( 'Yoast\WP\SEO\xml_sitemaps_entries_per_sitemap', 5000 );
 
 		return $entries;
 	}

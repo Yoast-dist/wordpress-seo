@@ -345,11 +345,8 @@ class Meta_Surface {
 	 */
 	protected function is_date_archive_url( $url ) {
 		$path = \wp_parse_url( $url, \PHP_URL_PATH );
-		if ( $path === null ) {
-			return false;
-		}
+		$path = \ltrim( $path, '/' );
 
-		$path         = \ltrim( $path, '/' );
 		$wp_rewrite   = $this->wp_rewrite_wrapper->get();
 		$date_rewrite = $wp_rewrite->generate_rewrite_rules( $wp_rewrite->get_date_permastruct(), \EP_DATE );
 		$date_rewrite = \apply_filters( 'date_rewrite_rules', $date_rewrite );

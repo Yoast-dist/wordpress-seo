@@ -4,7 +4,6 @@ namespace Yoast\WP\SEO\Integrations\Admin;
 
 use WPSEO_Addon_Manager;
 use WPSEO_Admin_Asset_Manager;
-use WPSEO_Shortlinker;
 use WPSEO_Utils;
 use Yoast\WP\SEO\Conditionals\Admin_Conditional;
 use Yoast\WP\SEO\Helpers\Options_Helper;
@@ -32,13 +31,6 @@ class Configuration_Workout_Integration implements Integration_Interface {
 	private $addon_manager;
 
 	/**
-	 * The shortlinker.
-	 *
-	 * @var WPSEO_Shortlinker
-	 */
-	private $shortlinker;
-
-	/**
 	 * The options' helper.
 	 *
 	 * @var Options_Helper
@@ -64,20 +56,17 @@ class Configuration_Workout_Integration implements Integration_Interface {
 	 *
 	 * @param WPSEO_Admin_Asset_Manager $admin_asset_manager The admin asset manager.
 	 * @param WPSEO_Addon_Manager       $addon_manager       The addon manager.
-	 * @param WPSEO_Shortlinker         $shortlinker         The shortlinker.
 	 * @param Options_Helper            $options_helper      The options helper.
 	 * @param Product_Helper            $product_helper      The product helper.
 	 */
 	public function __construct(
 		WPSEO_Admin_Asset_Manager $admin_asset_manager,
 		WPSEO_Addon_Manager $addon_manager,
-		WPSEO_Shortlinker $shortlinker,
 		Options_Helper $options_helper,
 		Product_Helper $product_helper
 	) {
 		$this->admin_asset_manager = $admin_asset_manager;
 		$this->addon_manager       = $addon_manager;
-		$this->shortlinker         = $shortlinker;
 		$this->options_helper      = $options_helper;
 		$this->product_helper      = $product_helper;
 	}
@@ -168,11 +157,6 @@ class Configuration_Workout_Integration implements Integration_Interface {
 					"companyOrPersonOptions": %s,
 					"shouldForceCompany": %d,
 					"knowledgeGraphMessage": "%s",
-					"shortlinks": {
-						"workoutGuide": "%s",
-						"indexData": "%s",
-						"gdpr": "%s",
-					},
 				};',
 				$this->is_company_or_person(),
 				$selected_option_label,
@@ -194,10 +178,7 @@ class Configuration_Workout_Integration implements Integration_Interface {
 				$this->has_tracking_enabled(),
 				WPSEO_Utils::format_json_encode( $options ),
 				$this->should_force_company(),
-				$knowledge_graph_message,
-				$this->shortlinker->build_shortlink( 'https://yoa.st/config-workout-guide' ),
-				$this->shortlinker->build_shortlink( 'https://yoa.st/config-workout-index-data' ),
-				$this->shortlinker->build_shortlink( 'https://yoa.st/gdpr-config-workout' )
+				$knowledge_graph_message
 			),
 			'before'
 		);
