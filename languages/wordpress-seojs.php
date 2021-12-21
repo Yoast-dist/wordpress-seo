@@ -1134,35 +1134,35 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/workouts/components/FinishButton.js:14
 	__( 'I\'ve finished this step', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:101
+	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:104
 	/* %1$s and %2$s are replaced by opening and closing anchor tags. */
 	__( 'Yoast respects your privacy. Read %1$sour privacy policy%2$s on how we handle your personal information.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:119
+	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:122
 	__( 'Sign up!', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:40
+	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:41
 	__( 'Oops! Something went wrong. Check your email address and try again.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:41
+	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:42
 	__( 'That is not a valid email address. Check your email address and try again.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:42
+	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:43
 	__( 'That email address has already been subscribed.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:43
+	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:44
 	__( 'Thanks! Please click the link in the email we just sent you to confirm your newsletter subscription.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:83
+	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:86
 	__( 'Receive best-practice tips and learn how to rank on search engines', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:84
+	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:87
 	__( 'Stay up-to-date with the latest SEO news', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:85
+	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:88
 	__( 'Get guidance on how to use Yoast SEO to the fullest', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:89
+	// Reference: packages/js/src/workouts/components/NewsletterSignup.js:92
 	__( 'Email address', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/OrganizationSection.js:37
