@@ -304,18 +304,18 @@ $generated_i18n_strings = array(
 	/* %s expands to Wincher */
 	__( 'Connect with %s', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherPostPublish.js:28
+	// Reference: packages/js/src/components/WincherPostPublish.js:29
 	// Reference: packages/js/src/components/WincherSEOPerformance.js:271
 	__( 'SEO performance', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherPostPublish.js:30
+	// Reference: packages/js/src/components/WincherPostPublish.js:31
 	// Reference: packages/js/src/components/WincherSEOPerformance.js:274
 	__( 'Learn more about the SEO performance feature.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherPostPublish.js:36
+	// Reference: packages/js/src/components/WincherPostPublish.js:37
 	__( 'Tracking has already been enabled for one or more keyphrases of this page. Clicking the button below will enable tracking for all of its keyphrases.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherPostPublish.js:48
+	// Reference: packages/js/src/components/WincherPostPublish.js:49
 	__( 'Track all keyphrases on this page', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherSEOPerformance.js:234
