@@ -262,27 +262,27 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/SchemaTab.js:82
 	__( 'Learn more about structured data with Schema.org', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:306
+	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:310
 	__( 'Tracking', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:312
+	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:316
 	// Reference: packages/js/src/components/WincherPerformanceReport.js:238
 	__( 'Keyphrase', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:318
+	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:322
 	// Reference: packages/js/src/components/WincherPerformanceReport.js:244
 	__( 'Position', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:324
+	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:328
 	// Reference: packages/js/src/components/WincherPerformanceReport.js:250
 	__( 'Position over time', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:354
+	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:358
 	// Reference: packages/js/src/components/WincherPerformanceReport.js:274
 	/* %s expands to Wincher */
 	__( 'Get more insights over at %s', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:359
+	// Reference: packages/js/src/components/WincherKeyphrasesTable.js:363
 	__( '* focus keyphrase', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/WincherPerformanceReport.js:126
@@ -321,7 +321,7 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/WincherSEOPerformance.js:234
 	__( 'You can enable / disable tracking the SEO performance for each keyphrase below.', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/WincherSEOPerformanceModal.js:70
+	// Reference: packages/js/src/components/WincherSEOPerformanceModal.js:72
 	// Reference: packages/js/src/components/fills/MetaboxFill.js:80
 	__( 'Track SEO performance', 'wordpress-seo' ),
 
