@@ -89,6 +89,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\conditionals\\news_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\News_Conditional',
             'yoast\\wp\\seo\\conditionals\\no_tool_selected_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\No_Tool_Selected_Conditional',
             'yoast\\wp\\seo\\conditionals\\non_multisite_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Non_Multisite_Conditional',
+            'yoast\\wp\\seo\\conditionals\\not_admin_ajax_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Not_Admin_Ajax_Conditional',
             'yoast\\wp\\seo\\conditionals\\open_graph_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Open_Graph_Conditional',
             'yoast\\wp\\seo\\conditionals\\premium_inactive_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Premium_Inactive_Conditional',
             'yoast\\wp\\seo\\conditionals\\primary_category_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Primary_Category_Conditional',
@@ -101,6 +102,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\conditionals\\third_party\\w3_total_cache_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\W3_Total_Cache_Conditional',
             'yoast\\wp\\seo\\conditionals\\third_party\\wpml_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\WPML_Conditional',
             'yoast\\wp\\seo\\conditionals\\third_party\\wpml_wpseo_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\WPML_WPSEO_Conditional',
+            'yoast\\wp\\seo\\conditionals\\user_can_manage_wpseo_options_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\User_Can_Manage_Wpseo_Options_Conditional',
             'yoast\\wp\\seo\\conditionals\\web_stories_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Web_Stories_Conditional',
             'yoast\\wp\\seo\\conditionals\\wincher_automatically_track_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Wincher_Automatically_Track_Conditional',
             'yoast\\wp\\seo\\conditionals\\wincher_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Wincher_Conditional',
@@ -403,6 +405,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\News_Conditional' => 'getNewsConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\No_Tool_Selected_Conditional' => 'getNoToolSelectedConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Non_Multisite_Conditional' => 'getNonMultisiteConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Not_Admin_Ajax_Conditional' => 'getNotAdminAjaxConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Open_Graph_Conditional' => 'getOpenGraphConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Premium_Inactive_Conditional' => 'getPremiumInactiveConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Primary_Category_Conditional' => 'getPrimaryCategoryConditionalService',
@@ -415,6 +418,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\W3_Total_Cache_Conditional' => 'getW3TotalCacheConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\WPML_Conditional' => 'getWPMLConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\WPML_WPSEO_Conditional' => 'getWPMLWPSEOConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\User_Can_Manage_Wpseo_Options_Conditional' => 'getUserCanManageWpseoOptionsConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\WP_Robots_Conditional' => 'getWPRobotsConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Web_Stories_Conditional' => 'getWebStoriesConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Wincher_Automatically_Track_Conditional' => 'getWincherAutomaticallyTrackConditionalService',
@@ -1506,6 +1510,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Not_Admin_Ajax_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Not_Admin_Ajax_Conditional
+     */
+    protected function getNotAdminAjaxConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Not_Admin_Ajax_Conditional'] = new \Yoast\WP\SEO\Conditionals\Not_Admin_Ajax_Conditional();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Conditionals\Open_Graph_Conditional' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Conditionals\Open_Graph_Conditional
@@ -1623,6 +1637,16 @@ class Cached_Container extends Container
     protected function getWPMLWPSEOConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\WPML_WPSEO_Conditional'] = new \Yoast\WP\SEO\Conditionals\Third_Party\WPML_WPSEO_Conditional();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\User_Can_Manage_Wpseo_Options_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\User_Can_Manage_Wpseo_Options_Conditional
+     */
+    protected function getUserCanManageWpseoOptionsConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\User_Can_Manage_Wpseo_Options_Conditional'] = new \Yoast\WP\SEO\Conditionals\User_Can_Manage_Wpseo_Options_Conditional();
     }
 
     /**
