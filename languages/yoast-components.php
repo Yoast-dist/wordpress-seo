@@ -160,10 +160,10 @@ $generated_i18n_strings = array(
 	// Reference: packages/search-metadata-previews/src/snippet-editor/ModeSwitcher.js:91
 	__( 'Mobile result', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditor.js:294
+	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditor.js:298
 	__( 'Close snippet editor', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditor.js:585
+	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditor.js:589
 	__( 'Edit snippet', 'wordpress-seo' ),
 
 	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditorFields.js:292
