@@ -83,6 +83,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\conditionals\\front_end_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Front_End_Conditional',
             'yoast\\wp\\seo\\conditionals\\get_request_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Get_Request_Conditional',
             'yoast\\wp\\seo\\conditionals\\headless_rest_endpoints_enabled_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Headless_Rest_Endpoints_Enabled_Conditional',
+            'yoast\\wp\\seo\\conditionals\\import_tool_selected_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Import_Tool_Selected_Conditional',
             'yoast\\wp\\seo\\conditionals\\installation_success_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Installation_Success_Conditional',
             'yoast\\wp\\seo\\conditionals\\jetpack_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Jetpack_Conditional',
             'yoast\\wp\\seo\\conditionals\\migrations_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Migrations_Conditional',
@@ -220,6 +221,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\admin\\disable_concatenate_scripts_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Disable_Concatenate_Scripts_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\fix_news_dependencies_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Fix_News_Dependencies_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\helpscout_beacon' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\HelpScout_Beacon',
+            'yoast\\wp\\seo\\integrations\\admin\\import_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Import_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\indexing_notification_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Indexing_Notification_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\indexing_tool_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Indexing_Tool_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\installation_success_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Installation_Success_Integration',
@@ -399,6 +401,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\Front_End_Conditional' => 'getFrontEndConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Get_Request_Conditional' => 'getGetRequestConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Headless_Rest_Endpoints_Enabled_Conditional' => 'getHeadlessRestEndpointsEnabledConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Import_Tool_Selected_Conditional' => 'getImportToolSelectedConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Installation_Success_Conditional' => 'getInstallationSuccessConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Jetpack_Conditional' => 'getJetpackConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Migrations_Conditional' => 'getMigrationsConditionalService',
@@ -536,6 +539,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Disable_Concatenate_Scripts_Integration' => 'getDisableConcatenateScriptsIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Fix_News_Dependencies_Integration' => 'getFixNewsDependenciesIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\HelpScout_Beacon' => 'getHelpScoutBeaconService',
+            'Yoast\\WP\\SEO\\Integrations\\Admin\\Import_Integration' => 'getImportIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Indexing_Notification_Integration' => 'getIndexingNotificationIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Indexing_Tool_Integration' => 'getIndexingToolIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Installation_Success_Integration' => 'getInstallationSuccessIntegrationService',
@@ -1447,6 +1451,16 @@ class Cached_Container extends Container
     protected function getHeadlessRestEndpointsEnabledConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\Headless_Rest_Endpoints_Enabled_Conditional'] = new \Yoast\WP\SEO\Conditionals\Headless_Rest_Endpoints_Enabled_Conditional(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Import_Tool_Selected_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Import_Tool_Selected_Conditional
+     */
+    protected function getImportToolSelectedConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Import_Tool_Selected_Conditional'] = new \Yoast\WP\SEO\Conditionals\Import_Tool_Selected_Conditional();
     }
 
     /**
@@ -2856,6 +2870,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\Admin\Import_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\Admin\Import_Integration
+     */
+    protected function getImportIntegrationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Import_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Import_Integration(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\AIOSEO_V4_Importer_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\AIOSEO_V4_Importer_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\AIOSEO_V4_Importer_Conditional'] = new \Yoast\WP\SEO\Conditionals\AIOSEO_V4_Importer_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Importing\\Importable_Detector']) ? $this->services['Yoast\\WP\\SEO\\Services\\Importing\\Importable_Detector'] : $this->getImportableDetectorService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Routes\\Importing_Route']) ? $this->services['Yoast\\WP\\SEO\\Routes\\Importing_Route'] : $this->getImportingRouteService()) && false ?: '_'});
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Integrations\Admin\Indexing_Notification_Integration' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Integrations\Admin\Indexing_Notification_Integration
@@ -3612,6 +3636,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Disable_Concatenate_Scripts_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Fix_News_Dependencies_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\HelpScout_Beacon');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Import_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Indexing_Notification_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Indexing_Tool_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Installation_Success_Integration');
