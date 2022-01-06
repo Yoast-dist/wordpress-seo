@@ -350,19 +350,19 @@ $generated_i18n_strings = array(
 	// Reference: packages/yoastseo/src/scoring/assessments/seo/MetaDescriptionKeywordAssessment.js:95
 	__( '%1$sKeyphrase in meta description%2$s: The meta description contains the keyphrase %3$s times, which is over the advised maximum of 2 times. %4$sLimit that%5$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/MetaDescriptionLengthAssessment.js:103
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/MetaDescriptionLengthAssessment.js:129
 	/* %1$s and %2$s expand to a links on yoast.com, %3$s expands to the anchor end tag */
 	__( '%1$sMeta description length%3$s:  No meta description has been specified. Search engines will display copy from the page instead. %2$sMake sure to write one%3$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/MetaDescriptionLengthAssessment.js:119
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/MetaDescriptionLengthAssessment.js:145
 	/* %1$s and %2$s expand to links on yoast.com, %3$s expands to the anchor end tag, %4$d expands to the number of characters in the meta description, %5$d expands to the total available number of characters in the meta description */
 	__( '%1$sMeta description length%3$s: The meta description is too short (under %4$d characters). Up to %5$d characters are available. %2$sUse the space%3$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/MetaDescriptionLengthAssessment.js:136
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/MetaDescriptionLengthAssessment.js:162
 	/* %1$s and %2$s expand to links on yoast.com, %3$s expands to the anchor end tag, %4$d expands to	the total available number of characters in the meta description */
 	__( '%1$sMeta description length%3$s: The meta description is over %4$d characters. To ensure the entire description will be visible, %2$syou should reduce the length%3$s!', 'wordpress-seo' ),
 
-	// Reference: packages/yoastseo/src/scoring/assessments/seo/MetaDescriptionLengthAssessment.js:150
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/MetaDescriptionLengthAssessment.js:176
 	/* %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag */
 	__( '%1$sMeta description length%2$s: Well done!', 'wordpress-seo' ),
 
