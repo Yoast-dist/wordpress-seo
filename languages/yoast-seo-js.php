@@ -459,8 +459,14 @@ $generated_i18n_strings = array(
 	__( '%1$sKeyphrase in title%3$s: Does not contain the exact match. %2$sTry to write the exact match of your keyphrase in the SEO title and put it at the beginning of the title%3$s.', 'wordpress-seo' ),
 
 	// Reference: packages/yoastseo/src/scoring/assessments/seo/TitleKeywordAssessment.js:210
-	/* %1$s and %2$s expand to a link on yoast.com, %3$s expands to the anchor end tag, %4$s expands to the keyword of the article. */
+	/* %1$s and %2$s expand to a link on yoast.com, %3$s expands to the anchor end tag, %4$s expands to the keyword of the article, %5$s expands to the call to action text. */
 	__( '%1$sKeyphrase in title%3$s: Not all the words from your keyphrase "%4$s" appear in the SEO title. %2$s%5$s%3$s.', 'wordpress-seo' ),
+
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TitleKeywordAssessment.js:40
+	__( 'For the best SEO results write the exact match of your keyphrase in the SEO title, and put the keyphrase at the beginning of the title', 'wordpress-seo' ),
+
+	// Reference: packages/yoastseo/src/scoring/assessments/seo/TitleKeywordAssessment.js:95
+	__( 'For the best SEO results include all words of your keyphrase in the SEO title, and put the keyphrase at the beginning of the title', 'wordpress-seo' ),
 
 	// Reference: packages/yoastseo/src/scoring/assessments/seo/UrlKeywordAssessment.js:113
 	/* %1$s expands to a link on yoast.com, %2$s expands to the anchor end tag */
