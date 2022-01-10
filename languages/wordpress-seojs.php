@@ -608,11 +608,11 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/modals/WincherSEOPerformanceLoading.js:15
 	__( 'Tracking the ranking position...', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/modals/editorModals/EditorModal.js:65
+	// Reference: packages/js/src/components/modals/editorModals/EditorModal.js:71
 	/* %s translates to the Post Label in singular form */
 	__( 'Make sure to save your %s for changes to take effect', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/modals/editorModals/EditorModal.js:75
+	// Reference: packages/js/src/components/modals/editorModals/EditorModal.js:81
 	/* %s translates to the Post Label in singular form */
 	__( 'Return to your %s', 'wordpress-seo' ),
 
