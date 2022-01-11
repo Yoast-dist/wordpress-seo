@@ -75,14 +75,14 @@ $generated_i18n_strings = array(
 	__( '(Opens in a new browser tab)', 'wordpress-seo' ),
 
 	// Reference: packages/components/src/image-select/ImageSelect.js:43
-	// Reference: packages/components/src/image-select/ImageSelectButtons.js:34
+	// Reference: packages/components/src/image-select/ImageSelectButtons.js:40
 	__( 'Replace image', 'wordpress-seo' ),
 
 	// Reference: packages/components/src/image-select/ImageSelect.js:44
-	// Reference: packages/components/src/image-select/ImageSelectButtons.js:35
+	// Reference: packages/components/src/image-select/ImageSelectButtons.js:41
 	__( 'Select image', 'wordpress-seo' ),
 
-	// Reference: packages/components/src/image-select/ImageSelectButtons.js:45
+	// Reference: packages/components/src/image-select/ImageSelectButtons.js:51
 	__( 'Remove image', 'wordpress-seo' ),
 
 	// Reference: packages/components/src/inputs/DurationInput.js:138
