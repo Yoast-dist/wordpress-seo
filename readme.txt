@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.8
-Stable tag: 18.0-RC1
+Stable tag: 18.0-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -242,12 +242,14 @@ Release Date: January 25th, 2022
 Enhancements:
 
 * Limits a potentially slow query to certain routes, which makes it so it gets called fewer times.
-* Enhances schema presentation for languages that are not alphanumeric. Props to [sous-studio](https://github.com/sous-studio)
+* Enhances schema presentation for languages that are not alphanumeric. Props to [sous-studio](https://github.com/sous-studio).
 
 Bugfixes:
 
-* Fixes a bug where removing an image from our Facebook Preview and Twitter Preview modals could lead to a confusing accessibility experience due to focus loss.
+* Fixes a bug where removing an image from our Facebook Preview and Twitter Preview modals could lead to a confusing experience due to focus loss.
 * Fixes a bug where clicking outside of a Yoast modal in the block editor would not close the modal.
+* Fixes a bug where Japanese keyphrase enclosed in double quotes was failed to be recognised in Keyword in meta description, Keyword density, Keyphrase distribution, Keyphrase in introduction, Keyphrase in image text and in Keyphrase in subheading assessments.
+* Fixes a bug where synonyms enclosed in double quotes in the Link keyphrase assessment were failed to be recognized even when there were exact matches in anchor text.  
 
 = 17.9 =
 Release Date: January 11th, 2022
