@@ -3,6 +3,7 @@
 namespace Yoast\WP\Lib;
 
 use wpdb;
+use ReturnTypeWillChange;
 use Yoast\WP\SEO\Config\Migration_Status;
 
 /**
@@ -509,6 +510,15 @@ class ORM implements \ArrayAccess {
 	 */
 	public function get_update_sql() {
 		return $this->build_update();
+	}
+
+	/**
+	 * Returns the values bound to this query.
+	 *
+	 * @return array The values.
+	 */
+	public function get_values() {
+		return $this->values;
 	}
 
 	/**
@@ -2453,6 +2463,7 @@ class ORM implements \ArrayAccess {
 	 *
 	 * @return bool Whether the data has the key.
 	 */
+	#[ReturnTypeWillChange]
 	public function offsetExists( $key ) {
 		return \array_key_exists( $key, $this->data );
 	}
@@ -2464,6 +2475,7 @@ class ORM implements \ArrayAccess {
 	 *
 	 * @return array|mixed|null The value.
 	 */
+	#[ReturnTypeWillChange]
 	public function offsetGet( $key ) {
 		return $this->get( $key );
 	}
@@ -2474,6 +2486,7 @@ class ORM implements \ArrayAccess {
 	 * @param string|int $key   Key.
 	 * @param mixed      $value Value.
 	 */
+	#[ReturnTypeWillChange]
 	public function offsetSet( $key, $value ) {
 		if ( \is_null( $key ) ) {
 			return;
@@ -2486,6 +2499,7 @@ class ORM implements \ArrayAccess {
 	 *
 	 * @param mixed $key Key.
 	 */
+	#[ReturnTypeWillChange]
 	public function offsetUnset( $key ) {
 		unset( $this->data[ $key ] );
 		unset( $this->dirty_fields[ $key ] );
