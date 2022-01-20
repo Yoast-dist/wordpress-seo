@@ -1074,7 +1074,7 @@ $generated_i18n_strings = array(
 	__( 'In order to complete this step please select if we are allowed to improve Yoast SEO with your data.', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:777
-	// Reference: packages/js/src/workouts/components/Stepper.js:43
+	// Reference: packages/js/src/workouts/components/Stepper.js:25
 	__( 'Save and continue', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:786
@@ -1085,7 +1085,7 @@ $generated_i18n_strings = array(
 	__( 'Do workout again', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:794
-	// Reference: packages/js/src/workouts/components/Stepper.js:44
+	// Reference: packages/js/src/workouts/components/Stepper.js:26
 	__( 'Finish this workout', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/ConfigurationWorkout.js:801
@@ -1243,7 +1243,7 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/workouts/components/SocialInputSection.js:95
 	__( 'YouTube URL', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/workouts/components/Stepper.js:50
+	// Reference: packages/js/src/workouts/components/Stepper.js:32
 	__( 'Go back', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/workouts/components/Steps.js:60
