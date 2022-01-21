@@ -2747,7 +2747,7 @@ class Cached_Container extends Container
      */
     protected function getXMLSitemapHelperService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Helpers\\XML_Sitemap_Helper'] = new \Yoast\WP\SEO\Helpers\XML_Sitemap_Helper(${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\SEO_Links_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\SEO_Links_Repository'] : ($this->services['Yoast\\WP\\SEO\\Repositories\\SEO_Links_Repository'] = new \Yoast\WP\SEO\Repositories\SEO_Links_Repository())) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Helpers\\XML_Sitemap_Helper'] = new \Yoast\WP\SEO\Helpers\XML_Sitemap_Helper(${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\SEO_Links_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\SEO_Links_Repository'] : ($this->services['Yoast\\WP\\SEO\\Repositories\\SEO_Links_Repository'] = new \Yoast\WP\SEO\Repositories\SEO_Links_Repository())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper'] : $this->getImageHelperService()) && false ?: '_'});
     }
 
     /**
