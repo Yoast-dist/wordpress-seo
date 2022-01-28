@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.9
-Stable tag: 18.1-RC1
+Stable tag: 18.1-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -247,7 +247,7 @@ Bugfixes:
 
 * Fixes a bug where images inserted into our FAQ or HowTo blocks would be rendered wider then their respective container when using a Block Theme.
 * Fixes a bug where plugins that would initialize after our plugin would be unable to register certain plugin information or utilize certain hooks.
-* Fixes a bug where capitalized keyphrase would show up twice in the Wincher SEO performance tracking modal. 
+* Fixes a bug where capitalized keyphrases would show up twice in the Wincher SEO performance tracking modal. 
 
 Other:
 
