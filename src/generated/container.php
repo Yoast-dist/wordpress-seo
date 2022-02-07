@@ -3039,7 +3039,7 @@ class Cached_Container extends Container
      */
     protected function getStructuredDataBlocksService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Blocks\\Structured_Data_Blocks'] = new \Yoast\WP\SEO\Integrations\Blocks\Structured_Data_Blocks(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Blocks\\Structured_Data_Blocks'] = new \Yoast\WP\SEO\Integrations\Blocks\Structured_Data_Blocks(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper'] : $this->getImageHelperService()) && false ?: '_'});
     }
 
     /**
