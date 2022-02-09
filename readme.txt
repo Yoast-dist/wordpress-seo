@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.9
-Stable tag: 18.2-RC1
+Stable tag: 18.2-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -241,17 +241,17 @@ Release Date: February 22nd, 2022
 
 Enhancements:
 
-* Optimizes the images in FAQ and How To blocks to be more responsive and load faster.
+* Optimizes the images in FAQ and HowTo blocks to be more responsive and load faster.
 * Replaces indexing at the end of admin requests with WP-Cron if WP-Cron is not disabled on the site.
 
 Bugfixes:
 
-* Fixes bug where the "Save changes" button overlaps the admin sidebar on WordPress.com
+* Fixes a bug where the "Save changes" button would overlap with the admin sidebar on WordPress.com. Props to @DustyReagan.
 * Fixes a bug where a (debug) deprecation message would show in the widget editor on WordPress 5.8 and above.
 
 Other:
 
-* Add an isset magic method to ease working with helper surfaces. Props to @nlemoine.
+* Adds an isset magic method to ease working with helper surfaces. Props to @nlemoine.
 
 = 18.1 =
 Release Date: February 8th, 2022
