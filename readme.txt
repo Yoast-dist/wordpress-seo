@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.9
-Stable tag: 18.2-RC2
+Stable tag: 18.2-RC3
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -243,6 +243,7 @@ Enhancements:
 
 * Optimizes the images in FAQ and HowTo blocks to be more responsive and load faster.
 * Replaces indexing at the end of admin requests with WP-Cron if WP-Cron is not disabled on the site.
+* Adds a filter to enable/disable creating indexables: `Yoast\WP\SEO\should_index_indexables`
 
 Bugfixes:
 
