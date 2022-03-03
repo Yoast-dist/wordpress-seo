@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.9
-Stable tag: 18.3-RC7
+Stable tag: 18.3-RC8
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -243,6 +243,7 @@ Enhancements:
 
 * Improves the importer so you can now import `post_meta`, `robot_txt` and search appearance options when moving from All-In-One SEO to Yoast SEO.
 * New feature: adds a QR code to every page on your site when it's printed, that links back to the page online. Props to [Coywolf](https://coywolf.com/) for [this idea](https://twitter.com/coywolf/status/1493630040256483338?t=juq4vpF0kf4MDS3Y3GfKPg&s=08).
+* Improves feedback strings for the Keyphrase Length assessment by making it explicit that we only count content words for languages with function word support.
 
 Bugfixes:
 
@@ -251,7 +252,6 @@ Bugfixes:
 * Fixes a bug where URLs in the XML sitemaps in certain edge cases would potentially be mangled, most notably when schema-relative URLs were being used.
 * Fixes an issue where HowTo images would not be optimized if they did not start with the site URL.
 * Fixes a bug where HowTo images with custom width would lose their custom width in the Twenty Twenty-One theme.
-* Fixes an unreleased bug where the News Addon settings page would break because of the settings Redux store being unavailable.
 
 = 18.2 =
 Release Date: February 22nd, 2022
