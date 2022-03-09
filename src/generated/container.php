@@ -94,6 +94,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\conditionals\\open_graph_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Open_Graph_Conditional',
             'yoast\\wp\\seo\\conditionals\\premium_inactive_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Premium_Inactive_Conditional',
             'yoast\\wp\\seo\\conditionals\\primary_category_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Primary_Category_Conditional',
+            'yoast\\wp\\seo\\conditionals\\print_qrcode_enabled_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Print_QRCode_Enabled_Conditional',
             'yoast\\wp\\seo\\conditionals\\schema_blocks_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Schema_Blocks_Conditional',
             'yoast\\wp\\seo\\conditionals\\semrush_enabled_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\SEMrush_Enabled_Conditional',
             'yoast\\wp\\seo\\conditionals\\should_index_links_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Should_Index_Links_Conditional',
@@ -255,6 +256,8 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\front_end\\handle_404' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Handle_404',
             'yoast\\wp\\seo\\integrations\\front_end\\indexing_controls' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Indexing_Controls',
             'yoast\\wp\\seo\\integrations\\front_end\\open_graph_oembed' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Open_Graph_OEmbed',
+            'yoast\\wp\\seo\\integrations\\front_end\\print_qrcode_embed' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Print_QRCode_Embed',
+            'yoast\\wp\\seo\\integrations\\front_end\\print_qrcode_render' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Print_QRCode_Render',
             'yoast\\wp\\seo\\integrations\\front_end\\redirects' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Redirects',
             'yoast\\wp\\seo\\integrations\\front_end\\rss_footer_embed' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\RSS_Footer_Embed',
             'yoast\\wp\\seo\\integrations\\front_end\\schema_accessibility_feature' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Schema_Accessibility_Feature',
@@ -431,6 +434,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\Open_Graph_Conditional' => 'getOpenGraphConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Premium_Inactive_Conditional' => 'getPremiumInactiveConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Primary_Category_Conditional' => 'getPrimaryCategoryConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Print_QRCode_Enabled_Conditional' => 'getPrintQRCodeEnabledConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\SEMrush_Enabled_Conditional' => 'getSEMrushEnabledConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Schema_Blocks_Conditional' => 'getSchemaBlocksConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Should_Index_Links_Conditional' => 'getShouldIndexLinksConditionalService',
@@ -592,6 +596,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\Handle_404' => 'getHandle404Service',
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\Indexing_Controls' => 'getIndexingControlsService',
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\Open_Graph_OEmbed' => 'getOpenGraphOEmbedService',
+            'Yoast\\WP\\SEO\\Integrations\\Front_End\\Print_QRCode_Embed' => 'getPrintQRCodeEmbedService',
+            'Yoast\\WP\\SEO\\Integrations\\Front_End\\Print_QRCode_Render' => 'getPrintQRCodeRenderService',
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\RSS_Footer_Embed' => 'getRSSFooterEmbedService',
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\Redirects' => 'getRedirectsService',
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\Schema_Accessibility_Feature' => 'getSchemaAccessibilityFeatureService',
@@ -1620,6 +1626,16 @@ class Cached_Container extends Container
     protected function getPrimaryCategoryConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\Primary_Category_Conditional'] = new \Yoast\WP\SEO\Conditionals\Primary_Category_Conditional(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] : $this->getCurrentPageHelperService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Print_QRCode_Enabled_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Print_QRCode_Enabled_Conditional
+     */
+    protected function getPrintQRCodeEnabledConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Print_QRCode_Enabled_Conditional'] = new \Yoast\WP\SEO\Conditionals\Print_QRCode_Enabled_Conditional(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
     }
 
     /**
@@ -3269,6 +3285,26 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\Front_End\Print_QRCode_Embed' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\Front_End\Print_QRCode_Embed
+     */
+    protected function getPrintQRCodeEmbedService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Front_End\\Print_QRCode_Embed'] = new \Yoast\WP\SEO\Integrations\Front_End\Print_QRCode_Embed(${($_ = isset($this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface']) ? $this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface'] : $this->getMetaSurfaceService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\Front_End\Print_QRCode_Render' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\Front_End\Print_QRCode_Render
+     */
+    protected function getPrintQRCodeRenderService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Front_End\\Print_QRCode_Render'] = new \Yoast\WP\SEO\Integrations\Front_End\Print_QRCode_Render();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Integrations\Front_End\RSS_Footer_Embed' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Integrations\Front_End\RSS_Footer_Embed
@@ -3832,6 +3868,8 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Handle_404');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Indexing_Controls');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Open_Graph_OEmbed');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Print_QRCode_Embed');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Print_QRCode_Render');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Redirects');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\RSS_Footer_Embed');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Schema_Accessibility_Feature');
