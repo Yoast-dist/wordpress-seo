@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.9
-Stable tag: 18.4-RC3
+Stable tag: 18.4-RC4
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -242,7 +242,7 @@ Release Date: March 22nd, 2022
 Enhancements:
 
 * Adds the possibility to timestamp your Privacy Policy page by use of a WordProof certificate.
-* Add a new badge to the WordProof integration toggle
+* Adds a `new` badge to the WordProof integration toggle.
 
 Bugfixes:
 
