@@ -370,6 +370,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\validators\\sanitize_option_validator' => 'Yoast\\WP\\SEO\\Validators\\Sanitize_Option_Validator',
             'yoast\\wp\\seo\\validators\\string_validator' => 'Yoast\\WP\\SEO\\Validators\\String_Validator',
             'yoast\\wp\\seo\\validators\\text_field_validator' => 'Yoast\\WP\\SEO\\Validators\\Text_Field_Validator',
+            'yoast\\wp\\seo\\validators\\twitter_username_validator' => 'Yoast\\WP\\SEO\\Validators\\Twitter_Username_Validator',
             'yoast\\wp\\seo\\validators\\url_validator' => 'Yoast\\WP\\SEO\\Validators\\Url_Validator',
             'yoast\\wp\\seo\\validators\\verification_validator' => 'Yoast\\WP\\SEO\\Validators\\Verification_Validator',
             'yoast\\wp\\seo\\validators\\wp_kses_post_validator' => 'Yoast\\WP\\SEO\\Validators\\Wp_Kses_Post_Validator',
@@ -728,6 +729,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Validators\\Sanitize_Option_Validator' => 'getSanitizeOptionValidatorService',
             'Yoast\\WP\\SEO\\Validators\\String_Validator' => 'getStringValidatorService',
             'Yoast\\WP\\SEO\\Validators\\Text_Field_Validator' => 'getTextFieldValidatorService',
+            'Yoast\\WP\\SEO\\Validators\\Twitter_Username_Validator' => 'getTwitterUsernameValidatorService',
             'Yoast\\WP\\SEO\\Validators\\Url_Validator' => 'getUrlValidatorService',
             'Yoast\\WP\\SEO\\Validators\\Verification_Validator' => 'getVerificationValidatorService',
             'Yoast\\WP\\SEO\\Validators\\Wp_Kses_Post_Validator' => 'getWpKsesPostValidatorService',
@@ -4678,6 +4680,16 @@ class Cached_Container extends Container
     protected function getTextFieldValidatorService()
     {
         return $this->services['Yoast\\WP\\SEO\\Validators\\Text_Field_Validator'] = new \Yoast\WP\SEO\Validators\Text_Field_Validator();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Validators\Twitter_Username_Validator' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Validators\Twitter_Username_Validator
+     */
+    protected function getTwitterUsernameValidatorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Validators\\Twitter_Username_Validator'] = new \Yoast\WP\SEO\Validators\Twitter_Username_Validator(${($_ = isset($this->services['Yoast\\WP\\SEO\\Validators\\Regex_Validator']) ? $this->services['Yoast\\WP\\SEO\\Validators\\Regex_Validator'] : ($this->services['Yoast\\WP\\SEO\\Validators\\Regex_Validator'] = new \Yoast\WP\SEO\Validators\Regex_Validator())) && false ?: '_'});
     }
 
     /**
