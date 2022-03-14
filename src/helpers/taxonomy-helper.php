@@ -30,12 +30,12 @@ class Taxonomy_Helper {
 	 *
 	 * @codeCoverageIgnore It only sets dependencies.
 	 *
-	 * @param Options_Helper $options The options helper.
-	 * @param String_Helper  $string  The string helper.
+	 * @param Options_Helper $options       The options helper.
+	 * @param String_Helper  $string_helper The string helper.
 	 */
-	public function __construct( Options_Helper $options, String_Helper $string ) {
+	public function __construct( Options_Helper $options, String_Helper $string_helper ) {
 		$this->options = $options;
-		$this->string  = $string;
+		$this->string  = $string_helper;
 	}
 
 	/**
@@ -59,6 +59,18 @@ class Taxonomy_Helper {
 	 */
 	public function get_public_taxonomies( $output = 'names' ) {
 		return \get_taxonomies( [ 'public' => true ], $output );
+	}
+
+	/**
+	 * Returns an array with the taxonomies.
+	 *
+	 * @param string $output The output type to use.
+	 *
+	 * @return string[]|WP_Taxonomy[] Array with all the public taxonomies.
+	 *                                The type depends on the specified output variable.
+	 */
+	public function get_taxonomies( $output = 'names' ) {
+		return \get_taxonomies( [], $output );
 	}
 
 	/**
