@@ -2,7 +2,6 @@
 
 namespace Yoast\WP\SEO\Config;
 
-use WPSEO_Utils;
 use Yoast\WP\SEO\Exceptions\OAuth\Authentication_Failed_Exception;
 use Yoast\WP\SEO\Exceptions\OAuth\Tokens\Empty_Property_Exception;
 use Yoast\WP\SEO\Exceptions\OAuth\Tokens\Empty_Token_Exception;
@@ -80,7 +79,7 @@ class Wincher_Client extends OAuth_Client {
 
 		$url = $this->provider->getAuthorizationUrl(
 			[
-				'state' => WPSEO_Utils::format_json_encode( [ 'domain' => $parsed_site_url['host'] ] ),
+				'state' => \WPSEO_Utils::format_json_encode( [ 'domain' => $parsed_site_url['host'] ] ),
 			]
 		);
 
@@ -89,7 +88,7 @@ class Wincher_Client extends OAuth_Client {
 		// Store a session cookie with the PKCE code that we need in order to
 		// exchange the returned code for a token after authorization.
 		$secure = ! empty( $_SERVER['HTTPS'] );
-		\setcookie( self::PKCE_COOKIE_NAME, $pkce_code, 0, '/', '', $secure, true );
+		setcookie( self::PKCE_COOKIE_NAME, $pkce_code, 0, '/', '', $secure, true );
 
 		return $url;
 	}
