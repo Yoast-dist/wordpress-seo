@@ -2,18 +2,13 @@
 
 namespace Yoast\WP\SEO\Services\Health_Check;
 
-// phpcs:disable Yoast.NamingConventions.ObjectNameDepth.MaxExceeded
 /**
  * Presents a set of different messages for the Default_Tagline health check.
+ *
+ * @phpcs:disable Yoast.NamingConventions.ObjectNameDepth.MaxExceeded
  */
-class Default_Tagline_Report_Builder {
-
-	/**
-	 * The builder object that generates WordPress-friendly test results.
-	 *
-	 * @var Report_Builder
-	 */
-	private $report_builder;
+class Default_Tagline_Reports {
+	use Reports_Trait;
 
 	/**
 	 * Constructor
@@ -22,17 +17,7 @@ class Default_Tagline_Report_Builder {
 	 * @return void
 	 */
 	public function __construct( Report_Builder_Factory $report_builder_factory ) {
-		$this->report_builder = $report_builder_factory->create();
-	}
-
-	/**
-	 * Sets the name that WordPress uses to identify this health check.
-	 *
-	 * @param  string $test_identifier The identifier.
-	 * @return void
-	 */
-	public function set_test_identifier( $test_identifier ) {
-		$this->report_builder->set_test_identifier( $test_identifier );
+		$this->report_builder_factory = $report_builder_factory;
 	}
 
 	/**
@@ -41,10 +26,10 @@ class Default_Tagline_Report_Builder {
 	 * @return string[] The message as a WordPress site status report.
 	 */
 	public function get_success_result() {
-		return $this->report_builder
-			->set_label( __( 'You changed the default WordPress tagline', 'wordpress-seo' ) )
+		return $this->get_report_builder()
+			->set_label( \__( 'You changed the default WordPress tagline', 'wordpress-seo' ) )
 			->set_status_good()
-			->set_description( __( 'You are using a custom tagline or an empty one.', 'wordpress-seo' ) )
+			->set_description( \__( 'You are using a custom tagline or an empty one.', 'wordpress-seo' ) )
 			->build();
 	}
 
@@ -54,10 +39,10 @@ class Default_Tagline_Report_Builder {
 	 * @return string[] The message as a WordPress site status report.
 	 */
 	public function get_has_default_tagline_result() {
-		return $this->report_builder
-			->set_label( __( 'You should change the default WordPress tagline', 'wordpress-seo' ) )
+		return $this->get_report_builder()
+			->set_label( \__( 'You should change the default WordPress tagline', 'wordpress-seo' ) )
 			->set_status_recommended()
-			->set_description( __( 'You still have the default WordPress tagline. Even an empty one is probably better.', 'wordpress-seo' ) )
+			->set_description( \__( 'You still have the default WordPress tagline. Even an empty one is probably better.', 'wordpress-seo' ) )
 			->set_actions( $this->get_actions() )
 			->build();
 	}
@@ -71,12 +56,12 @@ class Default_Tagline_Report_Builder {
 		$query_args    = [
 			'autofocus[control]' => 'blogdescription',
 		];
-		$customize_url = add_query_arg( $query_args, wp_customize_url() );
+		$customize_url = \add_query_arg( $query_args, \wp_customize_url() );
 
-		return sprintf(
+		return \sprintf(
 			/* translators: 1: link open tag; 2: link close tag. */
-			esc_html__( '%1$sYou can change the tagline in the customizer%2$s.', 'wordpress-seo' ),
-			'<a href="' . esc_attr( $customize_url ) . '">',
+			\esc_html__( '%1$sYou can change the tagline in the customizer%2$s.', 'wordpress-seo' ),
+			'<a href="' . \esc_url( $customize_url ) . '">',
 			'</a>'
 		);
 	}
