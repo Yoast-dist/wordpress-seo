@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.9
-Stable tag: 18.5-RC1
+Stable tag: 18.5-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -245,16 +245,16 @@ Enhancements:
 * Changes the `@id` for images for `Person` and `Organization`, including the `logo` attribute for the latter, to be more specific to the image.
 * Improves the `ImageObject` schema piece to use the URL of the main image in posts having Open Graph or Twitter images.
 * Adds a `wpseo_schema_graph` filter to allow filtering the entire Schema graph.
-* Adds a preliminary import action validating AIOSEO data before going into the actual import
+* Adds a preliminary import action validating AIOSEO data before going into the actual import.
 
 Bugfixes:
 
-* Fixes a bug where the url preview inside snippet editor doesn't reflect the permalink consistently in Block editor.
+* Fixes a bug where the url preview inside the snippet editor doesn't reflect the permalink consistently in the Block editor.
 * Fixes an incorrect escaping function in our health checks. Props to [BronsonQuick](https://github.com/BronsonQuick).
-* Fixes a bug where in certain edge cases a database error would show during AIOSEO clean up
+* Fixes a bug where in certain edge cases a database error would show during AIOSEO clean up.
 * Fixes a bug where reusable block content would not be updated in our analysis when changed in the editor.
 * Fixes a bug where the Google preview would display wrong breadcrumbs for child pages.
-* Fixes a potential error related to the `has_ancestors` column of our indexables table. Props to @junaidbhura.
+* Fixes a potential error related to the `has_ancestors` column of our indexables table. Props to [junaidbhura](https://github.com/junaidbhura).
 
 Other:
 
