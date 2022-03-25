@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.9
-Stable tag: 18.5-RC2
+Stable tag: 18.5-RC3
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -255,6 +255,8 @@ Bugfixes:
 * Fixes a bug where reusable block content would not be updated in our analysis when changed in the editor.
 * Fixes a bug where the Google preview would display wrong breadcrumbs for child pages.
 * Fixes a potential error related to the `has_ancestors` column of our indexables table. Props to [junaidbhura](https://github.com/junaidbhura).
+* Fixes a fatal error in the search appearance options on WP < 5.8.3 and themes without title-tag support.
+* Fixes an issue where sitemap locations would change once the number of entries exceeded that of the first page.
 
 Other:
 
