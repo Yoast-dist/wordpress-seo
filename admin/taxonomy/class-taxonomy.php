@@ -132,9 +132,11 @@ class WPSEO_Taxonomy {
 		) {
 			wp_enqueue_media(); // Enqueue files needed for upload functionality.
 
+			$term_edit_handle = 'classic-editor';
+
 			$asset_manager->enqueue_style( 'metabox-css' );
 			$asset_manager->enqueue_style( 'scoring' );
-			$asset_manager->enqueue_script( 'term-edit' );
+			$asset_manager->enqueue_script( $term_edit_handle );
 
 			/**
 			 * Remove the emoji script as it is incompatible with both React and any
@@ -142,7 +144,7 @@ class WPSEO_Taxonomy {
 			 */
 			remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 
-			$asset_manager->localize_script( 'term-edit', 'wpseoAdminL10n', WPSEO_Utils::get_admin_l10n() );
+			$asset_manager->localize_script( $term_edit_handle, 'wpseoAdminL10n', WPSEO_Utils::get_admin_l10n() );
 
 			$script_data = [
 				'analysis'         => [
@@ -167,9 +169,10 @@ class WPSEO_Taxonomy {
 				],
 				'metabox'          => $this->localize_term_scraper_script(),
 				'userLanguageCode' => WPSEO_Language_Utils::get_language( \get_user_locale() ),
+				'siteTimezone'     => \wp_timezone_string(),
 				'isTerm'           => true,
 			];
-			$asset_manager->localize_script( 'term-edit', 'wpseoScriptData', $script_data );
+			$asset_manager->localize_script( $term_edit_handle, 'wpseoScriptData', $script_data );
 			$asset_manager->enqueue_user_language_script();
 		}
 
