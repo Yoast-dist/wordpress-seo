@@ -346,7 +346,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\services\\health_check\\links_table_check' => 'Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Check',
             'yoast\\wp\\seo\\services\\health_check\\links_table_reports' => 'Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Reports',
             'yoast\\wp\\seo\\services\\health_check\\links_table_runner' => 'Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Runner',
-            'yoast\\wp\\seo\\services\\health_check\\myyoast_api_request_factory' => 'Yoast\\WP\\SEO\\Services\\Health_Check\\MyYoast_API_Request_Factory',
+            'yoast\\wp\\seo\\services\\health_check\\myyoast_api_request_factory' => 'Yoast\\WP\\SEO\\Services\\Health_Check\\MyYoast_Api_Request_Factory',
             'yoast\\wp\\seo\\services\\health_check\\page_comments_check' => 'Yoast\\WP\\SEO\\Services\\Health_Check\\Page_Comments_Check',
             'yoast\\wp\\seo\\services\\health_check\\page_comments_reports' => 'Yoast\\WP\\SEO\\Services\\Health_Check\\Page_Comments_Reports',
             'yoast\\wp\\seo\\services\\health_check\\page_comments_runner' => 'Yoast\\WP\\SEO\\Services\\Health_Check\\Page_Comments_Runner',
@@ -702,7 +702,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Check' => 'getLinksTableCheckService',
             'Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Reports' => 'getLinksTableReportsService',
             'Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Runner' => 'getLinksTableRunnerService',
-            'Yoast\\WP\\SEO\\Services\\Health_Check\\MyYoast_API_Request_Factory' => 'getMyYoastAPIRequestFactoryService',
+            'Yoast\\WP\\SEO\\Services\\Health_Check\\MyYoast_Api_Request_Factory' => 'getMyYoastApiRequestFactoryService',
             'Yoast\\WP\\SEO\\Services\\Health_Check\\Page_Comments_Check' => 'getPageCommentsCheckService',
             'Yoast\\WP\\SEO\\Services\\Health_Check\\Page_Comments_Reports' => 'getPageCommentsReportsService',
             'Yoast\\WP\\SEO\\Services\\Health_Check\\Page_Comments_Runner' => 'getPageCommentsRunnerService',
@@ -4393,7 +4393,7 @@ class Cached_Container extends Container
      */
     protected function getCurlRunnerService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Curl_Runner'] = new \Yoast\WP\SEO\Services\Health_Check\Curl_Runner(${($_ = isset($this->services['WPSEO_Addon_Manager']) ? $this->services['WPSEO_Addon_Manager'] : $this->getWPSEOAddonManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\MyYoast_API_Request_Factory']) ? $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\MyYoast_API_Request_Factory'] : ($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\MyYoast_API_Request_Factory'] = new \Yoast\WP\SEO\Services\Health_Check\MyYoast_API_Request_Factory())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Curl_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Curl_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Curl_Helper'] = new \Yoast\WP\SEO\Helpers\Curl_Helper())) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Curl_Runner'] = new \Yoast\WP\SEO\Services\Health_Check\Curl_Runner(${($_ = isset($this->services['WPSEO_Addon_Manager']) ? $this->services['WPSEO_Addon_Manager'] : $this->getWPSEOAddonManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\MyYoast_Api_Request_Factory']) ? $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\MyYoast_Api_Request_Factory'] : ($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\MyYoast_Api_Request_Factory'] = new \Yoast\WP\SEO\Services\Health_Check\MyYoast_Api_Request_Factory())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Curl_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Curl_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Curl_Helper'] = new \Yoast\WP\SEO\Helpers\Curl_Helper())) && false ?: '_'});
     }
 
     /**
@@ -4457,13 +4457,13 @@ class Cached_Container extends Container
     }
 
     /**
-     * Gets the public 'Yoast\WP\SEO\Services\Health_Check\MyYoast_API_Request_Factory' shared autowired service.
+     * Gets the public 'Yoast\WP\SEO\Services\Health_Check\MyYoast_Api_Request_Factory' shared autowired service.
      *
-     * @return \Yoast\WP\SEO\Services\Health_Check\MyYoast_API_Request_Factory
+     * @return \Yoast\WP\SEO\Services\Health_Check\MyYoast_Api_Request_Factory
      */
-    protected function getMyYoastAPIRequestFactoryService()
+    protected function getMyYoastApiRequestFactoryService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\MyYoast_API_Request_Factory'] = new \Yoast\WP\SEO\Services\Health_Check\MyYoast_API_Request_Factory();
+        return $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\MyYoast_Api_Request_Factory'] = new \Yoast\WP\SEO\Services\Health_Check\MyYoast_Api_Request_Factory();
     }
 
     /**
