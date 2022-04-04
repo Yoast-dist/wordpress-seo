@@ -9,7 +9,7 @@ use WordProof\SDK\Translations\TranslationsInterface;
  *
  * @package Yoast\WP\SEO\Config
  */
-class Wordproof_Translations implements TranslationsInterface {
+class WordProof_Translations implements TranslationsInterface {
 
 	/**
 	 * Returns no balance notice translation.
