@@ -2,7 +2,8 @@
 
 namespace Yoast\WP\SEO\Helpers;
 
-use Yoast\WP\SEO\Conditionals\Non_Multisite_Conditional;
+use WPSEO_Options;
+use Yoast\WP\SEO\Conditionals\Wincher_Conditional;
 use Yoast\WP\SEO\Config\Wincher_Client;
 use Yoast\WP\SEO\Exceptions\OAuth\Authentication_Failed_Exception;
 use Yoast\WP\SEO\Exceptions\OAuth\Tokens\Empty_Property_Exception;
@@ -14,29 +15,13 @@ use Yoast\WP\SEO\Exceptions\OAuth\Tokens\Empty_Token_Exception;
 class Wincher_Helper {
 
 	/**
-	 * Holds the Options Page helper instance.
+	 * Checks if the integration is active for the current user.
 	 *
-	 * @var Options_Helper
-	 */
-	protected $options;
-
-	/**
-	 * Options_Helper constructor.
-	 *
-	 * @param Options_Helper $options The options helper.
-	 */
-	public function __construct( Options_Helper $options ) {
-		$this->options = $options;
-	}
-
-	/**
-	 * Checks if the integration should be active for the current user.
-	 *
-	 * @return bool Whether the integration is active.
+	 * @return bool Whether or not the integration is active.
 	 */
 	public function is_active() {
-		$conditional = new Non_Multisite_Conditional();
-
+		// If the integration is disabled, Wincher should not be active.
+		$conditional = new Wincher_Conditional();
 		if ( ! $conditional->is_met() ) {
 			return false;
 		}
@@ -45,7 +30,7 @@ class Wincher_Helper {
 			return false;
 		}
 
-		return (bool) $this->options->get( 'wincher_integration_active', true );
+		return (bool) WPSEO_Options::get( 'wincher_integration_active', true );
 	}
 
 	/**
@@ -82,9 +67,9 @@ class Wincher_Helper {
 	 */
 	public function get_admin_global_links() {
 		return [
-			'links.wincher.website' => 'https://www.wincher.com?utm_medium=plugin&utm_source=yoast&referer=yoast&partner=yoast',
-			'links.wincher.pricing' => 'https://www.wincher.com/pricing?utm_medium=plugin&utm_source=yoast&referer=yoast&partner=yoast',
-			'links.wincher.login'   => 'https://app.wincher.com/login?utm_medium=plugin&utm_source=yoast&referer=yoast&partner=yoast',
+			'links.wincher.website'   => 'https://www.wincher.com?utm_medium=plugin&utm_source=yoast&referer=yoast&partner=yoast',
+			'links.wincher.pricing'   => 'https://www.wincher.com/pricing?utm_medium=plugin&utm_source=yoast&referer=yoast&partner=yoast',
+			'links.wincher.login'     => 'https://app.wincher.com/login?utm_medium=plugin&utm_source=yoast&referer=yoast&partner=yoast',
 		];
 	}
 }

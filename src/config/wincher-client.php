@@ -25,7 +25,7 @@ class Wincher_Client extends OAuth_Client {
 	/**
 	 * Name of the temporary PKCE cookie.
 	 */
-	const PKCE_TRANSIENT_NAME = 'yoast_wincher_pkce';
+	const PKCE_COOKIE_NAME = 'yoast_wincher_pkce';
 
 	/**
 	 * The WP_Remote_Handler instance.
@@ -86,9 +86,10 @@ class Wincher_Client extends OAuth_Client {
 
 		$pkce_code = $this->provider->getPkceCode();
 
-		// Store a transient value with the PKCE code that we need in order to
+		// Store a session cookie with the PKCE code that we need in order to
 		// exchange the returned code for a token after authorization.
-		\set_transient( self::PKCE_TRANSIENT_NAME, $pkce_code, \DAY_IN_SECONDS );
+		$secure = ! empty( $_SERVER['HTTPS'] );
+		\setcookie( self::PKCE_COOKIE_NAME, $pkce_code, 0, '/', '', $secure, true );
 
 		return $url;
 	}
@@ -103,7 +104,7 @@ class Wincher_Client extends OAuth_Client {
 	 * @throws Authentication_Failed_Exception Exception thrown if authentication has failed.
 	 */
 	public function request_tokens( $code ) {
-		$pkce_code = \get_transient( self::PKCE_TRANSIENT_NAME );
+		$pkce_code = ! empty( $_COOKIE[ self::PKCE_COOKIE_NAME ] ) ? \sanitize_text_field( \wp_unslash( $_COOKIE[ self::PKCE_COOKIE_NAME ] ) ) : null;
 		if ( $pkce_code ) {
 			$this->provider->setPkceCode( $pkce_code );
 		}
