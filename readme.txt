@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.9
-Stable tag: 18.6-RC2
+Stable tag: 18.6-RC3
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -249,7 +249,6 @@ Bugfixes:
 * Fixes a bug where keyphrases could show up multiple times in Wincher table.
 * Fixes a bug where the Wincher connection flow would fail on certain installations.
 * Fixes a bug where the Wincher integration could throw a fatal error on PHP 8.0+.
-* Fixes a bug where Yoast modals would auto-close after opening in Elementor editor after editing a post in Elementor.
 
 = 18.5.1 =
 Release Date: April 5th, 2022
