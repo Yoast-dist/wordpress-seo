@@ -369,6 +369,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\services\\indexables\\indexable_version_manager' => 'Yoast\\WP\\SEO\\Services\\Indexables\\Indexable_Version_Manager',
             'yoast\\wp\\seo\\services\\options\\multisite_options_service' => 'Yoast\\WP\\SEO\\Services\\Options\\Multisite_Options_Service',
             'yoast\\wp\\seo\\services\\options\\site_options_service' => 'Yoast\\WP\\SEO\\Services\\Options\\Site_Options_Service',
+            'yoast\\wp\\seo\\services\\options\\taxonomy_metadata_service' => 'Yoast\\WP\\SEO\\Services\\Options\\Taxonomy_Metadata_Service',
             'yoast\\wp\\seo\\surfaces\\classes_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Classes_Surface',
             'yoast\\wp\\seo\\surfaces\\helpers_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface',
             'yoast\\wp\\seo\\surfaces\\meta_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Meta_Surface',
@@ -747,6 +748,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Services\\Indexables\\Indexable_Version_Manager' => 'getIndexableVersionManagerService',
             'Yoast\\WP\\SEO\\Services\\Options\\Multisite_Options_Service' => 'getMultisiteOptionsServiceService',
             'Yoast\\WP\\SEO\\Services\\Options\\Site_Options_Service' => 'getSiteOptionsServiceService',
+            'Yoast\\WP\\SEO\\Services\\Options\\Taxonomy_Metadata_Service' => 'getTaxonomyMetadataServiceService',
             'Yoast\\WP\\SEO\\Surfaces\\Classes_Surface' => 'getClassesSurfaceService',
             'Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface' => 'getHelpersSurfaceService',
             'Yoast\\WP\\SEO\\Surfaces\\Meta_Surface' => 'getMetaSurfaceService',
@@ -4756,6 +4758,16 @@ class Cached_Container extends Container
         }
 
         return $this->services['Yoast\\WP\\SEO\\Services\\Options\\Site_Options_Service'] = new \Yoast\WP\SEO\Services\Options\Site_Options_Service(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Validation_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Validation_Helper'] : $this->getValidationHelperService()) && false ?: '_'}, $a, $b);
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Services\Options\Taxonomy_Metadata_Service' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Services\Options\Taxonomy_Metadata_Service
+     */
+    protected function getTaxonomyMetadataServiceService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Services\\Options\\Taxonomy_Metadata_Service'] = new \Yoast\WP\SEO\Services\Options\Taxonomy_Metadata_Service(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Validation_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Validation_Helper'] : $this->getValidationHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] : $this->getPostTypeHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper'] : $this->getTaxonomyHelperService()) && false ?: '_'});
     }
 
     /**
