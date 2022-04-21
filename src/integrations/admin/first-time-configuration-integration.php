@@ -6,17 +6,19 @@ use WPSEO_Addon_Manager;
 use WPSEO_Admin_Asset_Manager;
 use WPSEO_Shortlinker;
 use WPSEO_Utils;
+use WPSEO_Option_Tab;
+
 use Yoast\WP\SEO\Conditionals\Admin_Conditional;
 use Yoast\WP\SEO\Helpers\Options_Helper;
 use Yoast\WP\SEO\Helpers\Product_Helper;
-use Yoast\WP\SEO\Integrations\Admin\Social_Profiles_Helper;
 use Yoast\WP\SEO\Integrations\Integration_Interface;
 use Yoast\WP\SEO\Routes\Indexing_Route;
 
+// phpcs:disable Yoast.NamingConventions.ObjectNameDepth.MaxExceeded -- First time configuration simply has a lot of words.
 /**
- * ConfigurationWorkoutsIntegration class
+ * First_Time_Configuration_Integration class
  */
-class Configuration_Workout_Integration implements Integration_Interface {
+class First_Time_Configuration_Integration implements Integration_Interface {
 
 	/**
 	 * The admin asset manager.
@@ -54,13 +56,6 @@ class Configuration_Workout_Integration implements Integration_Interface {
 	private $product_helper;
 
 	/**
-	 * The social profiles helper.
-	 *
-	 * @var Social_Profiles_Helper
-	 */
-	private $social_profiles_helper;
-
-	/**
 	 * {@inheritDoc}
 	 */
 	public static function get_conditionals() {
@@ -70,27 +65,24 @@ class Configuration_Workout_Integration implements Integration_Interface {
 	/**
 	 * Configuration_Workout_Integration constructor.
 	 *
-	 * @param WPSEO_Admin_Asset_Manager $admin_asset_manager    The admin asset manager.
-	 * @param WPSEO_Addon_Manager       $addon_manager          The addon manager.
-	 * @param WPSEO_Shortlinker         $shortlinker            The shortlinker.
-	 * @param Options_Helper            $options_helper         The options helper.
-	 * @param Product_Helper            $product_helper         The product helper.
-	 * @param Social_Profiles_Helper    $social_profiles_helper The social profiles helper.
+	 * @param WPSEO_Admin_Asset_Manager $admin_asset_manager The admin asset manager.
+	 * @param WPSEO_Addon_Manager       $addon_manager       The addon manager.
+	 * @param WPSEO_Shortlinker         $shortlinker         The shortlinker.
+	 * @param Options_Helper            $options_helper      The options helper.
+	 * @param Product_Helper            $product_helper      The product helper.
 	 */
 	public function __construct(
 		WPSEO_Admin_Asset_Manager $admin_asset_manager,
 		WPSEO_Addon_Manager $addon_manager,
 		WPSEO_Shortlinker $shortlinker,
 		Options_Helper $options_helper,
-		Product_Helper $product_helper,
-		Social_Profiles_Helper $social_profiles_helper
+		Product_Helper $product_helper
 	) {
-		$this->admin_asset_manager    = $admin_asset_manager;
-		$this->addon_manager          = $addon_manager;
-		$this->shortlinker            = $shortlinker;
-		$this->options_helper         = $options_helper;
-		$this->product_helper         = $product_helper;
-		$this->social_profiles_helper = $social_profiles_helper;
+		$this->admin_asset_manager = $admin_asset_manager;
+		$this->addon_manager       = $addon_manager;
+		$this->shortlinker         = $shortlinker;
+		$this->options_helper      = $options_helper;
+		$this->product_helper      = $product_helper;
 	}
 
 	/**
@@ -98,6 +90,22 @@ class Configuration_Workout_Integration implements Integration_Interface {
 	 */
 	public function register_hooks() {
 		\add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
+		\add_action( 'wpseo_settings_tabs_dashboard', [ $this, 'add_first_time_configuration_tab' ] );
+	}
+
+	/**
+	 * Adds a dedicated tab in the General sub-page.
+	 *
+	 * @param WPSEO_Options_Tabs $dashboard_tabs Object representing the tabs of the General sub-page.
+	 */
+	public function add_first_time_configuration_tab( $dashboard_tabs ) {
+		$dashboard_tabs->add_tab(
+			new WPSEO_Option_Tab(
+				'first-time-configuration',
+				__( 'First-time configuration', 'wordpress-seo' ),
+				[ 'save_button' => false ]
+			)
+		);
 	}
 
 	/**
@@ -105,11 +113,12 @@ class Configuration_Workout_Integration implements Integration_Interface {
 	 */
 	public function enqueue_assets() {
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Date is not processed or saved.
-		if ( ! isset( $_GET['page'] ) || $_GET['page'] !== 'wpseo_workouts' ) {
+		if ( ! isset( $_GET['page'] ) || $_GET['page'] !== 'wpseo_dashboard' ) {
 			return;
 		}
 
 		$this->admin_asset_manager->enqueue_script( 'indexation' );
+		$this->admin_asset_manager->enqueue_script( 'first-time-configuration' );
 		$this->admin_asset_manager->enqueue_style( 'admin-css' );
 		$this->admin_asset_manager->enqueue_style( 'monorepo' );
 
@@ -134,8 +143,7 @@ class Configuration_Workout_Integration implements Integration_Interface {
 
 		$this->admin_asset_manager->localize_script( 'indexation', 'yoastIndexingData', $data );
 
-		$social_profiles        = $this->get_social_profiles();
-		$person_social_profiles = $this->social_profiles_helper->get_person_social_profiles( $this->get_person_id() );
+		$social_profiles = $this->get_social_profiles();
 
 		// This filter is documented in admin/views/tabs/metas/paper-content/general/knowledge-graph.php.
 		$knowledge_graph_message = \apply_filters( 'wpseo_knowledge_graph_setting_msg', '' );
@@ -153,16 +161,15 @@ class Configuration_Workout_Integration implements Integration_Interface {
 			$selected_option_label = $selected_option['label'];
 		}
 		$this->admin_asset_manager->add_inline_script(
-			'workouts',
+			'first-time-configuration',
 			\sprintf(
-				'window.wpseoWorkoutsData["configuration"] = {
+				'window.wpseoFirstTimeConfigurationData = {
 					"companyOrPerson": "%s",
 					"companyOrPersonLabel": "%s",
 					"companyName": "%s",
 					"companyLogo": "%s",
 					"companyLogoId": %d,
 					"personId": %d,
-					"canEditUser": %d,
 					"personName": "%s",
 					"personLogo": "%s",
 					"personLogoId": %d,
@@ -171,18 +178,6 @@ class Configuration_Workout_Integration implements Integration_Interface {
 						"facebookUrl": "%s",
 						"twitterUsername": "%s",
 						"otherSocialUrls": %s,
-					},
-					"personSocialProfiles" : {
-						"facebook" : "%s",
-						"instagram" : "%s",
-						"linkedin" : "%s",
-						"myspace" : "%s",
-						"pinterest" : "%s",
-						"soundcloud" : "%s",
-						"tumblr" : "%s",
-						"twitter" : "%s",
-						"youtube" : "%s",
-						"wikipedia" : "%s",
 					},
 					"tracking": %d,
 					"companyOrPersonOptions": %s,
@@ -200,7 +195,6 @@ class Configuration_Workout_Integration implements Integration_Interface {
 				$this->get_company_logo(),
 				$this->get_company_logo_id(),
 				$this->get_person_id(),
-				$this->get_can_edit_user(),
 				$this->get_person_name(),
 				$this->get_person_logo(),
 				$this->get_person_logo_id(),
@@ -208,16 +202,6 @@ class Configuration_Workout_Integration implements Integration_Interface {
 				$social_profiles['facebook_url'],
 				$social_profiles['twitter_username'],
 				WPSEO_Utils::format_json_encode( $social_profiles['other_social_urls'] ),
-				$person_social_profiles['facebook'],
-				$person_social_profiles['instagram'],
-				$person_social_profiles['linkedin'],
-				$person_social_profiles['myspace'],
-				$person_social_profiles['pinterest'],
-				$person_social_profiles['soundcloud'],
-				$person_social_profiles['tumblr'],
-				$person_social_profiles['twitter'],
-				$person_social_profiles['youtube'],
-				$person_social_profiles['wikipedia'],
 				$this->has_tracking_enabled(),
 				WPSEO_Utils::format_json_encode( $options ),
 				$this->should_force_company(),
@@ -299,15 +283,6 @@ class Configuration_Workout_Integration implements Integration_Interface {
 	 */
 	private function get_person_id() {
 		return $this->options_helper->get( 'company_or_person_user_id' );
-	}
-
-	/**
-	 * Gets wether or not current user can edit the selected person.
-	 *
-	 * @return bool Wether or not current user can edit the selected person.
-	 */
-	private function get_can_edit_user() {
-		return \current_user_can( 'edit_user', $this->get_person_id() );
 	}
 
 	/**

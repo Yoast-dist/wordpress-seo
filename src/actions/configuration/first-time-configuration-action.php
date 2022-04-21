@@ -5,10 +5,11 @@ namespace Yoast\WP\SEO\Actions\Configuration;
 use Yoast\WP\SEO\Helpers\Options_Helper;
 use Yoast\WP\SEO\Integrations\Admin\Social_Profiles_Helper;
 
+// phpcs:disable Yoast.NamingConventions.ObjectNameDepth.MaxExceeded -- First time configuration simply has a lot of words.
 /**
- * Class Configuration_Workout_Action.
+ * Class First_Time_Configuration_Action.
  */
-class Configuration_Workout_Action {
+class First_Time_Configuration_Action {
 
 	/**
 	 * The fields for the site representation payload.
@@ -39,7 +40,7 @@ class Configuration_Workout_Action {
 	protected $social_profiles_helper;
 
 	/**
-	 * Configuration_Workout_Action constructor.
+	 * First_Time_Configuration_Action constructor.
 	 *
 	 * @param Options_Helper         $options_helper         The WPSEO options helper.
 	 * @param Social_Profiles_Helper $social_profiles_helper The social profiles helper.
@@ -209,6 +210,70 @@ class Configuration_Workout_Action {
 		return (object) [
 			'success' => false,
 			'status'  => 403,
+		];
+	}
+
+	/**
+	 * Stores the first time configuration state.
+	 *
+	 * @param array $params The values to store.
+	 *
+	 * @return object The response object.
+	 */
+	public function save_configuration_state( $params ) {
+		// If the finishedSteps param is not present in the REST request, it's a malformed request.
+		if ( ! isset( $params['finishedSteps'] ) ) {
+			return (object) [
+				'success' => false,
+				'status'  => 400,
+				'error'   => 'Bad request',
+			];
+		}
+
+		// Sanitize input.
+		$finished_steps = \array_map( '\sanitize_text_field', \wp_unslash( $params['finishedSteps'] ) );
+
+		$success = $this->options_helper->set( 'configuration_finished_steps', $finished_steps );
+
+		if ( ! $success ) {
+			return (object) [
+				'success' => false,
+				'status'  => 500,
+				'error'   => 'Could not save the option in the database',
+			];
+		}
+
+		// If all the five steps of the configuration have been completed, set first_time_install option to false.
+		if ( \count( $params['finishedSteps'] ) === 5 ) {
+			$this->options_helper->set( 'first_time_install', false );
+		}
+
+		return (object) [
+			'success' => true,
+			'status'  => 200,
+		];
+	}
+
+	/**
+	 * Gets the first time configuration state.
+	 *
+	 * @return object The response object.
+	 */
+	public function get_configuration_state() {
+		$configuration_option = $this->options_helper->get( 'configuration_finished_steps' );
+
+		if ( ! is_null( $configuration_option ) ) {
+			return (object) [
+				'success' => true,
+				'status'  => 200,
+				'data'    => $configuration_option,
+			];
+		}
+
+		return (object) [
+			'success' => false,
+			'status'  => 500,
+			'error'   => 'Could not get data from the database',
 		];
 	}
 }
