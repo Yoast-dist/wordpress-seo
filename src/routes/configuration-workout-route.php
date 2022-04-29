@@ -186,6 +186,7 @@ class Configuration_Workout_Route implements Route_Interface {
 		$check_capability_route = [
 			'methods'             => 'GET',
 			'callback'            => [ $this, 'check_capability' ],
+			'permission_callback' => [ $this, 'can_manage_options' ],
 			'args'                => [
 				'user_id' => [
 					'required' => true,
@@ -235,7 +236,9 @@ class Configuration_Workout_Route implements Route_Interface {
 			->configuration_workout_action
 			->set_social_profiles( $request->get_json_params() );
 
-		return new WP_REST_Response( $data, $data->status );
+		return new WP_REST_Response(
+			[ 'json' => $data ]
+		);
 	}
 
 	/**
@@ -265,7 +268,9 @@ class Configuration_Workout_Route implements Route_Interface {
 			->configuration_workout_action
 			->set_person_social_profiles( $request->get_json_params() );
 
-		return new WP_REST_Response( $data, $data->status );
+		return new WP_REST_Response(
+			[ 'json' => $data ]
+		);
 	}
 
 	/**
