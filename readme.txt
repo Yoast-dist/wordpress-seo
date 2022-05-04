@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.9
-Stable tag: 18.8-RC1
+Stable tag: 18.8-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -242,10 +242,10 @@ Release Date: May 17th, 2022
 
 Enhancements:
 
+* Adds an \"installation successful\" page to welcome first-time users.
 * Introduces the First-time configuration, replacing and improving the Configuration Workout.
-* Remove XML sitemap image properties `title` and `caption` as Google has deprecated them.
-* Renamed the main admin menu item to \"Yoast SEO\" instead of \"SEO\".
-* Re-styles Yoast SEO installation successful page by using the Tailwind CSS framework and updated graphics
+* Removes XML sitemap image properties `title` and `caption` following deprecation by Google.
+* Renames the main admin menu item to \"Yoast SEO\" instead of \"SEO\".
 
 Bugfixes:
 
