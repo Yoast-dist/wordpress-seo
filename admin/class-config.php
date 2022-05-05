@@ -121,8 +121,6 @@ class WPSEO_Admin_Pages {
 			$script_data['media'] = [
 				'choose_image' => __( 'Use Image', 'wordpress-seo' ),
 			];
-
-			$script_data['userEditUrl'] = add_query_arg( 'user_id', '{user_id}', admin_url( 'user-edit.php' ) );
 		}
 
 		if ( $page === 'wpseo_tools' ) {

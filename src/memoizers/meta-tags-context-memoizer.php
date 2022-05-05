@@ -10,8 +10,6 @@ use Yoast\WP\SEO\Repositories\Indexable_Repository;
 
 /**
  * The meta tags context memoizer.
- *
- * @phpcs:disable Yoast.NamingConventions.ObjectNameDepth.MaxExceeded -- 4 words is fine.
  */
 class Meta_Tags_Context_Memoizer {
 
@@ -89,10 +87,9 @@ class Meta_Tags_Context_Memoizer {
 	public function for_current_page() {
 		if ( ! isset( $this->cache['current_page'] ) ) {
 			// First reset the query to ensure we actually have the current page.
-			global $wp_query, $post;
+			global $wp_query;
 
 			$old_wp_query = $wp_query;
-			$old_post     = $post;
 			// phpcs:ignore WordPress.WP.DiscouragedFunctions.wp_reset_query_wp_reset_query -- Reason: The recommended function, wp_reset_postdata, doesn't reset wp_query.
 			\wp_reset_query();
 
@@ -107,8 +104,6 @@ class Meta_Tags_Context_Memoizer {
 				// Restore the previous query.
 				// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- Reason: we have to restore the query.
 				$GLOBALS['wp_query'] = $old_wp_query;
-				// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- Reason: we have to restore the post.
-				$GLOBALS['post'] = $old_post;
 
 				return $context;
 			}
@@ -117,8 +112,6 @@ class Meta_Tags_Context_Memoizer {
 			// Restore the previous query.
 			// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- Reason: we have to restore the query.
 			$GLOBALS['wp_query'] = $old_wp_query;
-			// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- Reason: we have to restore the post.
-			$GLOBALS['post'] = $old_post;
 		}
 
 		return $this->cache['current_page'];
