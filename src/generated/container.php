@@ -89,6 +89,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\conditionals\\import_tool_selected_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Import_Tool_Selected_Conditional',
             'yoast\\wp\\seo\\conditionals\\jetpack_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Jetpack_Conditional',
             'yoast\\wp\\seo\\conditionals\\migrations_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Migrations_Conditional',
+            'yoast\\wp\\seo\\conditionals\\multisite_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Multisite_Conditional',
             'yoast\\wp\\seo\\conditionals\\news_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\News_Conditional',
             'yoast\\wp\\seo\\conditionals\\no_tool_selected_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\No_Tool_Selected_Conditional',
             'yoast\\wp\\seo\\conditionals\\non_multisite_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Non_Multisite_Conditional',
@@ -225,6 +226,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\helpers\\wpdb_helper' => 'Yoast\\WP\\SEO\\Helpers\\Wpdb_Helper',
             'yoast\\wp\\seo\\initializers\\disable_core_sitemaps' => 'Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps',
             'yoast\\wp\\seo\\initializers\\migration_runner' => 'Yoast\\WP\\SEO\\Initializers\\Migration_Runner',
+            'yoast\\wp\\seo\\initializers\\network_admin_options_initializer' => 'Yoast\\WP\\SEO\\Initializers\\Network_Admin_Options_Initializer',
             'yoast\\wp\\seo\\integrations\\admin\\addon_installation\\dialog_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Dialog_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\addon_installation\\installation_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Installation_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\admin_columns_cache_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Admin_Columns_Cache_Integration',
@@ -373,6 +375,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\services\\importing\\importable_detector_service' => 'Yoast\\WP\\SEO\\Services\\Importing\\Importable_Detector_Service',
             'yoast\\wp\\seo\\services\\indexables\\indexable_version_manager' => 'Yoast\\WP\\SEO\\Services\\Indexables\\Indexable_Version_Manager',
             'yoast\\wp\\seo\\services\\options\\multisite_options_service' => 'Yoast\\WP\\SEO\\Services\\Options\\Multisite_Options_Service',
+            'yoast\\wp\\seo\\services\\options\\network_admin_options_service' => 'Yoast\\WP\\SEO\\Services\\Options\\Network_Admin_Options_Service',
             'yoast\\wp\\seo\\services\\options\\site_options_service' => 'Yoast\\WP\\SEO\\Services\\Options\\Site_Options_Service',
             'yoast\\wp\\seo\\services\\options\\taxonomy_metadata_service' => 'Yoast\\WP\\SEO\\Services\\Options\\Taxonomy_Metadata_Service',
             'yoast\\wp\\seo\\surfaces\\classes_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Classes_Surface',
@@ -474,6 +477,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\Import_Tool_Selected_Conditional' => 'getImportToolSelectedConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Jetpack_Conditional' => 'getJetpackConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Migrations_Conditional' => 'getMigrationsConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Multisite_Conditional' => 'getMultisiteConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\News_Conditional' => 'getNewsConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\No_Tool_Selected_Conditional' => 'getNoToolSelectedConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Non_Multisite_Conditional' => 'getNonMultisiteConditionalService',
@@ -610,6 +614,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Helpers\\Wpdb_Helper' => 'getWpdbHelperService',
             'Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps' => 'getDisableCoreSitemapsService',
             'Yoast\\WP\\SEO\\Initializers\\Migration_Runner' => 'getMigrationRunnerService',
+            'Yoast\\WP\\SEO\\Initializers\\Network_Admin_Options_Initializer' => 'getNetworkAdminOptionsInitializerService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Dialog_Integration' => 'getDialogIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Installation_Integration' => 'getInstallationIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Admin_Columns_Cache_Integration' => 'getAdminColumnsCacheIntegrationService',
@@ -758,6 +763,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Services\\Importing\\Importable_Detector_Service' => 'getImportableDetectorServiceService',
             'Yoast\\WP\\SEO\\Services\\Indexables\\Indexable_Version_Manager' => 'getIndexableVersionManagerService',
             'Yoast\\WP\\SEO\\Services\\Options\\Multisite_Options_Service' => 'getMultisiteOptionsServiceService',
+            'Yoast\\WP\\SEO\\Services\\Options\\Network_Admin_Options_Service' => 'getNetworkAdminOptionsServiceService',
             'Yoast\\WP\\SEO\\Services\\Options\\Site_Options_Service' => 'getSiteOptionsServiceService',
             'Yoast\\WP\\SEO\\Services\\Options\\Taxonomy_Metadata_Service' => 'getTaxonomyMetadataServiceService',
             'Yoast\\WP\\SEO\\Surfaces\\Classes_Surface' => 'getClassesSurfaceService',
@@ -1686,6 +1692,16 @@ class Cached_Container extends Container
     protected function getMigrationsConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\Migrations_Conditional'] = new \Yoast\WP\SEO\Conditionals\Migrations_Conditional(${($_ = isset($this->services['Yoast\\WP\\SEO\\Config\\Migration_Status']) ? $this->services['Yoast\\WP\\SEO\\Config\\Migration_Status'] : ($this->services['Yoast\\WP\\SEO\\Config\\Migration_Status'] = new \Yoast\WP\SEO\Config\Migration_Status())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Multisite_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Multisite_Conditional
+     */
+    protected function getMultisiteConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Multisite_Conditional'] = new \Yoast\WP\SEO\Conditionals\Multisite_Conditional();
     }
 
     /**
@@ -2763,7 +2779,7 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = $instance = new \Yoast\WP\SEO\Helpers\Options_Helper();
 
-        $instance->set_dependencies(${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Options\\Site_Options_Service']) ? $this->services['Yoast\\WP\\SEO\\Services\\Options\\Site_Options_Service'] : $this->getSiteOptionsServiceService()) && false ?: '_'});
+        $instance->set_dependencies(${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Options\\Site_Options_Service']) ? $this->services['Yoast\\WP\\SEO\\Services\\Options\\Site_Options_Service'] : $this->getSiteOptionsServiceService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Options\\Multisite_Options_Service']) ? $this->services['Yoast\\WP\\SEO\\Services\\Options\\Multisite_Options_Service'] : $this->getMultisiteOptionsServiceService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Options\\Network_Admin_Options_Service']) ? $this->services['Yoast\\WP\\SEO\\Services\\Options\\Network_Admin_Options_Service'] : $this->getNetworkAdminOptionsServiceService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Site_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Site_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Site_Helper'] = new \Yoast\WP\SEO\Helpers\Site_Helper())) && false ?: '_'});
 
         return $instance;
     }
@@ -3098,6 +3114,16 @@ class Cached_Container extends Container
     protected function getMigrationRunnerService()
     {
         return $this->services['Yoast\\WP\\SEO\\Initializers\\Migration_Runner'] = new \Yoast\WP\SEO\Initializers\Migration_Runner(${($_ = isset($this->services['Yoast\\WP\\SEO\\Config\\Migration_Status']) ? $this->services['Yoast\\WP\\SEO\\Config\\Migration_Status'] : ($this->services['Yoast\\WP\\SEO\\Config\\Migration_Status'] = new \Yoast\WP\SEO\Config\Migration_Status())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Loader']) ? $this->services['Yoast\\WP\\SEO\\Loader'] : $this->getLoaderService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\Lib\\Migrations\\Adapter']) ? $this->services['Yoast\\WP\\Lib\\Migrations\\Adapter'] : ($this->services['Yoast\\WP\\Lib\\Migrations\\Adapter'] = new \Yoast\WP\Lib\Migrations\Adapter())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Initializers\Network_Admin_Options_Initializer' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Initializers\Network_Admin_Options_Initializer
+     */
+    protected function getNetworkAdminOptionsInitializerService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Initializers\\Network_Admin_Options_Initializer'] = new \Yoast\WP\SEO\Initializers\Network_Admin_Options_Initializer(${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Options\\Multisite_Options_Service']) ? $this->services['Yoast\\WP\\SEO\\Services\\Options\\Multisite_Options_Service'] : $this->getMultisiteOptionsServiceService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Options\\Network_Admin_Options_Service']) ? $this->services['Yoast\\WP\\SEO\\Services\\Options\\Network_Admin_Options_Service'] : $this->getNetworkAdminOptionsServiceService()) && false ?: '_'});
     }
 
     /**
@@ -4017,6 +4043,7 @@ class Cached_Container extends Container
         $instance->register_migration('free', '20211020091404', 'Yoast\\WP\\SEO\\Config\\Migrations\\AddObjectTimestamps');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Migration_Runner');
+        $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Network_Admin_Options_Initializer');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Dialog_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Installation_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Admin_Columns_Cache_Integration');
@@ -4800,7 +4827,43 @@ class Cached_Container extends Container
      */
     protected function getMultisiteOptionsServiceService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Services\\Options\\Multisite_Options_Service'] = new \Yoast\WP\SEO\Services\Options\Multisite_Options_Service(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Validation_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Validation_Helper'] : $this->getValidationHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] : $this->getPostTypeHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper'] : $this->getTaxonomyHelperService()) && false ?: '_'});
+        $a = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] : $this->getPostTypeHelperService()) && false ?: '_'};
+
+        if (isset($this->services['Yoast\\WP\\SEO\\Services\\Options\\Multisite_Options_Service'])) {
+            return $this->services['Yoast\\WP\\SEO\\Services\\Options\\Multisite_Options_Service'];
+        }
+        $b = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper'] : $this->getTaxonomyHelperService()) && false ?: '_'};
+
+        if (isset($this->services['Yoast\\WP\\SEO\\Services\\Options\\Multisite_Options_Service'])) {
+            return $this->services['Yoast\\WP\\SEO\\Services\\Options\\Multisite_Options_Service'];
+        }
+
+        return $this->services['Yoast\\WP\\SEO\\Services\\Options\\Multisite_Options_Service'] = new \Yoast\WP\SEO\Services\Options\Multisite_Options_Service(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Validation_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Validation_Helper'] : $this->getValidationHelperService()) && false ?: '_'}, $a, $b);
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Services\Options\Network_Admin_Options_Service' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Services\Options\Network_Admin_Options_Service
+     */
+    protected function getNetworkAdminOptionsServiceService()
+    {
+        $a = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] : $this->getPostTypeHelperService()) && false ?: '_'};
+
+        if (isset($this->services['Yoast\\WP\\SEO\\Services\\Options\\Network_Admin_Options_Service'])) {
+            return $this->services['Yoast\\WP\\SEO\\Services\\Options\\Network_Admin_Options_Service'];
+        }
+        $b = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper'] : $this->getTaxonomyHelperService()) && false ?: '_'};
+
+        if (isset($this->services['Yoast\\WP\\SEO\\Services\\Options\\Network_Admin_Options_Service'])) {
+            return $this->services['Yoast\\WP\\SEO\\Services\\Options\\Network_Admin_Options_Service'];
+        }
+
+        $this->services['Yoast\\WP\\SEO\\Services\\Options\\Network_Admin_Options_Service'] = $instance = new \Yoast\WP\SEO\Services\Options\Network_Admin_Options_Service(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Validation_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Validation_Helper'] : $this->getValidationHelperService()) && false ?: '_'}, $a, $b);
+
+        $instance->set_dependencies(${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Options\\Multisite_Options_Service']) ? $this->services['Yoast\\WP\\SEO\\Services\\Options\\Multisite_Options_Service'] : $this->getMultisiteOptionsServiceService()) && false ?: '_'});
+
+        return $instance;
     }
 
     /**
