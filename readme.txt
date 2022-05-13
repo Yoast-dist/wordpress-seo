@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.9
-Stable tag: 18.9-RC5
+Stable tag: 18.9-RC6
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -251,11 +251,13 @@ Enhancements:
 Bugfixes:
 
 * Fixes a bug that would lead to race conditions when using persistent object caching.
+* Fixes a bug where a 403 error page would be thrown when a user tried to access the old configuration wizard.
 * Fixes a bug where our How To and FAQ blocks would not handle focus correctly when using WordPress 6.0.
 * Fixes a bug where the global var $post is sometimes modified unexpectedly. Props to [grantalltodavid](https://github.com/grantalltodavid).
 
 Other:
 
+* Adds a `Premium` badge to the Workout menu item.
 * Updates the look of the Accounts tab in the Social menu.
 
 = 18.8 =
