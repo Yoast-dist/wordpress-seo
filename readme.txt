@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.9
-Stable tag: 19.0-RC1
+Stable tag: 19.0-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -240,6 +240,11 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 Release Date: May 31st, 2022
 
 
+
+Enhancements:
+
+* Adds a feature to remove post comment RSS feeds
+
 Bugfixes:
 
 * Add localization to the First-time configuration steps' titles
@@ -247,12 +252,13 @@ Bugfixes:
 * Fixes a bug where an error in saving the Site representation step of the First-time configuration would not block the advancement to the next step.
 * Fixes a bug where editing an existing post created in Block editor in Elementor would result in an analysis result discrepancy.
 * Fixes a bug where items in lists were not excluded for the readability assessment that checks whether consecutive sentences do not begin with the same words.
-* Fixes a bug where the schema would not be updated with the new logo when the user changed it via the First Time Configuration
-* Fixes a bug where users could leave a step containing errors by clicking another step's edit button
+* Fixes a bug where the schema would not be updated with the new logo when the user changed it via the First Time Configuration.
+* Fixes a bug where users would be able to leave a step containing errors by clicking another step's edit button.
 
 Other:
 
 * Adds a Redirects page with an upsell to Premium.
+* Deprecates the configuration workout classes.
 
 = 18.9 =
 Release Date: May 17th, 2022
