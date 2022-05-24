@@ -93,6 +93,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\conditionals\\non_multisite_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Non_Multisite_Conditional',
             'yoast\\wp\\seo\\conditionals\\not_admin_ajax_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Not_Admin_Ajax_Conditional',
             'yoast\\wp\\seo\\conditionals\\open_graph_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Open_Graph_Conditional',
+            'yoast\\wp\\seo\\conditionals\\openssl_enabled' => 'Yoast\\WP\\SEO\\Conditionals\\OpenSSL_Enabled',
             'yoast\\wp\\seo\\conditionals\\premium_inactive_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Premium_Inactive_Conditional',
             'yoast\\wp\\seo\\conditionals\\primary_category_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Primary_Category_Conditional',
             'yoast\\wp\\seo\\conditionals\\robots_txt_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Robots_Txt_Conditional',
@@ -139,6 +140,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\config\\migrations\\expandindexablecolumnlengths' => 'Yoast\\WP\\SEO\\Config\\Migrations\\ExpandIndexableColumnLengths',
             'yoast\\wp\\seo\\config\\migrations\\expandindexableidcolumnlengths' => 'Yoast\\WP\\SEO\\Config\\Migrations\\ExpandIndexableIDColumnLengths',
             'yoast\\wp\\seo\\config\\migrations\\expandprimarytermidcolumnlengths' => 'Yoast\\WP\\SEO\\Config\\Migrations\\ExpandPrimaryTermIDColumnLengths',
+            'yoast\\wp\\seo\\config\\migrations\\oauthserver' => 'Yoast\\WP\\SEO\\Config\\Migrations\\OAuthServer',
             'yoast\\wp\\seo\\config\\migrations\\replacepermalinkhashindex' => 'Yoast\\WP\\SEO\\Config\\Migrations\\ReplacePermalinkHashIndex',
             'yoast\\wp\\seo\\config\\migrations\\resetindexablehierarchytable' => 'Yoast\\WP\\SEO\\Config\\Migrations\\ResetIndexableHierarchyTable',
             'yoast\\wp\\seo\\config\\migrations\\truncateindexabletables' => 'Yoast\\WP\\SEO\\Config\\Migrations\\TruncateIndexableTables',
@@ -177,6 +179,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\helpers\\curl_helper' => 'Yoast\\WP\\SEO\\Helpers\\Curl_Helper',
             'yoast\\wp\\seo\\helpers\\current_page_helper' => 'Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper',
             'yoast\\wp\\seo\\helpers\\date_helper' => 'Yoast\\WP\\SEO\\Helpers\\Date_Helper',
+            'yoast\\wp\\seo\\helpers\\encryption_helper' => 'Yoast\\WP\\SEO\\Helpers\\Encryption_Helper',
             'yoast\\wp\\seo\\helpers\\environment_helper' => 'Yoast\\WP\\SEO\\Helpers\\Environment_Helper',
             'yoast\\wp\\seo\\helpers\\home_url_helper' => 'Yoast\\WP\\SEO\\Helpers\\Home_Url_Helper',
             'yoast\\wp\\seo\\helpers\\image_helper' => 'Yoast\\WP\\SEO\\Helpers\\Image_Helper',
@@ -271,6 +274,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\front_end\\theme_titles' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Theme_Titles',
             'yoast\\wp\\seo\\integrations\\front_end\\wp_robots_integration' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\WP_Robots_Integration',
             'yoast\\wp\\seo\\integrations\\front_end_integration' => 'Yoast\\WP\\SEO\\Integrations\\Front_End_Integration',
+            'yoast\\wp\\seo\\integrations\\oauth_integration' => 'Yoast\\WP\\SEO\\Integrations\\OAuth_Integration',
             'yoast\\wp\\seo\\integrations\\primary_category' => 'Yoast\\WP\\SEO\\Integrations\\Primary_Category',
             'yoast\\wp\\seo\\integrations\\schema_blocks' => 'Yoast\\WP\\SEO\\Integrations\\Schema_Blocks',
             'yoast\\wp\\seo\\integrations\\third_party\\amp' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\AMP',
@@ -315,6 +319,12 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\loggers\\logger' => 'Yoast\\WP\\SEO\\Loggers\\Logger',
             'yoast\\wp\\seo\\memoizers\\meta_tags_context_memoizer' => 'Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer',
             'yoast\\wp\\seo\\memoizers\\presentation_memoizer' => 'Yoast\\WP\\SEO\\Memoizers\\Presentation_Memoizer',
+            'yoast\\wp\\seo\\oauth\\helpers\\oauth_helper' => 'Yoast\\WP\\SEO\\OAuth\\Helpers\\OAuth_Helper',
+            'yoast\\wp\\seo\\oauth\\repositories\\access_token_repository' => 'Yoast\\WP\\SEO\\OAuth\\Repositories\\Access_Token_Repository',
+            'yoast\\wp\\seo\\oauth\\repositories\\auth_code_repository' => 'Yoast\\WP\\SEO\\OAuth\\Repositories\\Auth_Code_Repository',
+            'yoast\\wp\\seo\\oauth\\repositories\\client_repository' => 'Yoast\\WP\\SEO\\OAuth\\Repositories\\Client_Repository',
+            'yoast\\wp\\seo\\oauth\\repositories\\refresh_token_repository' => 'Yoast\\WP\\SEO\\OAuth\\Repositories\\Refresh_Token_Repository',
+            'yoast\\wp\\seo\\oauth\\repositories\\scope_repository' => 'Yoast\\WP\\SEO\\OAuth\\Repositories\\Scope_Repository',
             'yoast\\wp\\seo\\presentations\\abstract_presentation' => 'Yoast\\WP\\SEO\\Presentations\\Abstract_Presentation',
             'yoast\\wp\\seo\\presentations\\indexable_author_archive_presentation' => 'Yoast\\WP\\SEO\\Presentations\\Indexable_Author_Archive_Presentation',
             'yoast\\wp\\seo\\presentations\\indexable_date_archive_presentation' => 'Yoast\\WP\\SEO\\Presentations\\Indexable_Date_Archive_Presentation',
@@ -337,6 +347,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\routes\\importing_route' => 'Yoast\\WP\\SEO\\Routes\\Importing_Route',
             'yoast\\wp\\seo\\routes\\indexables_head_route' => 'Yoast\\WP\\SEO\\Routes\\Indexables_Head_Route',
             'yoast\\wp\\seo\\routes\\indexing_route' => 'Yoast\\WP\\SEO\\Routes\\Indexing_Route',
+            'yoast\\wp\\seo\\routes\\oauth_routes' => 'Yoast\\WP\\SEO\\Routes\\OAuth_Routes',
             'yoast\\wp\\seo\\routes\\semrush_route' => 'Yoast\\WP\\SEO\\Routes\\SEMrush_Route',
             'yoast\\wp\\seo\\routes\\supported_features_route' => 'Yoast\\WP\\SEO\\Routes\\Supported_Features_Route',
             'yoast\\wp\\seo\\routes\\wincher_route' => 'Yoast\\WP\\SEO\\Routes\\Wincher_Route',
@@ -454,6 +465,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\No_Tool_Selected_Conditional' => 'getNoToolSelectedConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Non_Multisite_Conditional' => 'getNonMultisiteConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Not_Admin_Ajax_Conditional' => 'getNotAdminAjaxConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\OpenSSL_Enabled' => 'getOpenSSLEnabledService',
             'Yoast\\WP\\SEO\\Conditionals\\Open_Graph_Conditional' => 'getOpenGraphConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Premium_Inactive_Conditional' => 'getPremiumInactiveConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Primary_Category_Conditional' => 'getPrimaryCategoryConditionalService',
@@ -501,6 +513,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Config\\Migrations\\ExpandIndexableColumnLengths' => 'getExpandIndexableColumnLengthsService',
             'Yoast\\WP\\SEO\\Config\\Migrations\\ExpandIndexableIDColumnLengths' => 'getExpandIndexableIDColumnLengthsService',
             'Yoast\\WP\\SEO\\Config\\Migrations\\ExpandPrimaryTermIDColumnLengths' => 'getExpandPrimaryTermIDColumnLengthsService',
+            'Yoast\\WP\\SEO\\Config\\Migrations\\OAuthServer' => 'getOAuthServerService',
             'Yoast\\WP\\SEO\\Config\\Migrations\\ReplacePermalinkHashIndex' => 'getReplacePermalinkHashIndexService',
             'Yoast\\WP\\SEO\\Config\\Migrations\\ResetIndexableHierarchyTable' => 'getResetIndexableHierarchyTableService',
             'Yoast\\WP\\SEO\\Config\\Migrations\\TruncateIndexableTables' => 'getTruncateIndexableTablesService',
@@ -539,6 +552,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Helpers\\Curl_Helper' => 'getCurlHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper' => 'getCurrentPageHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Date_Helper' => 'getDateHelperService',
+            'Yoast\\WP\\SEO\\Helpers\\Encryption_Helper' => 'getEncryptionHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Environment_Helper' => 'getEnvironmentHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Home_Url_Helper' => 'getHomeUrlHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Image_Helper' => 'getImageHelperService',
@@ -633,6 +647,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\Theme_Titles' => 'getThemeTitlesService',
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\WP_Robots_Integration' => 'getWPRobotsIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Front_End_Integration' => 'getFrontEndIntegrationService',
+            'Yoast\\WP\\SEO\\Integrations\\OAuth_Integration' => 'getOAuthIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Primary_Category' => 'getPrimaryCategoryService',
             'Yoast\\WP\\SEO\\Integrations\\Schema_Blocks' => 'getSchemaBlocksService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\AMP' => 'getAMPService',
@@ -677,6 +692,12 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Loggers\\Logger' => 'getLoggerService',
             'Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer' => 'getMetaTagsContextMemoizerService',
             'Yoast\\WP\\SEO\\Memoizers\\Presentation_Memoizer' => 'getPresentationMemoizerService',
+            'Yoast\\WP\\SEO\\OAuth\\Helpers\\OAuth_Helper' => 'getOAuthHelperService',
+            'Yoast\\WP\\SEO\\OAuth\\Repositories\\Access_Token_Repository' => 'getAccessTokenRepositoryService',
+            'Yoast\\WP\\SEO\\OAuth\\Repositories\\Auth_Code_Repository' => 'getAuthCodeRepositoryService',
+            'Yoast\\WP\\SEO\\OAuth\\Repositories\\Client_Repository' => 'getClientRepositoryService',
+            'Yoast\\WP\\SEO\\OAuth\\Repositories\\Refresh_Token_Repository' => 'getRefreshTokenRepositoryService',
+            'Yoast\\WP\\SEO\\OAuth\\Repositories\\Scope_Repository' => 'getScopeRepositoryService',
             'Yoast\\WP\\SEO\\Presentations\\Abstract_Presentation' => 'getAbstractPresentationService',
             'Yoast\\WP\\SEO\\Presentations\\Indexable_Author_Archive_Presentation' => 'getIndexableAuthorArchivePresentationService',
             'Yoast\\WP\\SEO\\Presentations\\Indexable_Date_Archive_Presentation' => 'getIndexableDateArchivePresentationService',
@@ -699,6 +720,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Routes\\Importing_Route' => 'getImportingRouteService',
             'Yoast\\WP\\SEO\\Routes\\Indexables_Head_Route' => 'getIndexablesHeadRouteService',
             'Yoast\\WP\\SEO\\Routes\\Indexing_Route' => 'getIndexingRouteService',
+            'Yoast\\WP\\SEO\\Routes\\OAuth_Routes' => 'getOAuthRoutesService',
             'Yoast\\WP\\SEO\\Routes\\SEMrush_Route' => 'getSEMrushRouteService',
             'Yoast\\WP\\SEO\\Routes\\Supported_Features_Route' => 'getSupportedFeaturesRouteService',
             'Yoast\\WP\\SEO\\Routes\\Wincher_Route' => 'getWincherRouteService',
@@ -1673,6 +1695,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\OpenSSL_Enabled' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\OpenSSL_Enabled
+     */
+    protected function getOpenSSLEnabledService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\OpenSSL_Enabled'] = new \Yoast\WP\SEO\Conditionals\OpenSSL_Enabled();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Conditionals\Open_Graph_Conditional' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Conditionals\Open_Graph_Conditional
@@ -2143,6 +2175,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Config\Migrations\OAuthServer' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Config\Migrations\OAuthServer
+     */
+    protected function getOAuthServerService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Config\\Migrations\\OAuthServer'] = new \Yoast\WP\SEO\Config\Migrations\OAuthServer(${($_ = isset($this->services['Yoast\\WP\\Lib\\Migrations\\Adapter']) ? $this->services['Yoast\\WP\\Lib\\Migrations\\Adapter'] : ($this->services['Yoast\\WP\\Lib\\Migrations\\Adapter'] = new \Yoast\WP\Lib\Migrations\Adapter())) && false ?: '_'});
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Config\Migrations\ReplacePermalinkHashIndex' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Config\Migrations\ReplacePermalinkHashIndex
@@ -2520,6 +2562,16 @@ class Cached_Container extends Container
     protected function getDateHelperService()
     {
         return $this->services['Yoast\\WP\\SEO\\Helpers\\Date_Helper'] = new \Yoast\WP\SEO\Helpers\Date_Helper();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Helpers\Encryption_Helper' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Helpers\Encryption_Helper
+     */
+    protected function getEncryptionHelperService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Helpers\\Encryption_Helper'] = new \Yoast\WP\SEO\Helpers\Encryption_Helper();
     }
 
     /**
@@ -3055,7 +3107,7 @@ class Cached_Container extends Container
      */
     protected function getCrawlSettingsIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Crawl_Settings_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Crawl_Settings_Integration();
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Crawl_Settings_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Crawl_Settings_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
     }
 
     /**
@@ -3496,6 +3548,16 @@ class Cached_Container extends Container
     protected function getFrontEndIntegrationService()
     {
         return $this->services['Yoast\\WP\\SEO\\Integrations\\Front_End_Integration'] = new \Yoast\WP\SEO\Integrations\Front_End_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, $this, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Request_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Request_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Request_Helper'] = new \Yoast\WP\SEO\Helpers\Request_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface']) ? $this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface'] : $this->getHelpersSurfaceService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\OAuth_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\OAuth_Integration
+     */
+    protected function getOAuthIntegrationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\OAuth_Integration'] = new \Yoast\WP\SEO\Integrations\OAuth_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Auth_Code_Repository']) ? $this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Auth_Code_Repository'] : ($this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Auth_Code_Repository'] = new \Yoast\WP\SEO\OAuth\Repositories\Auth_Code_Repository())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Access_Token_Repository']) ? $this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Access_Token_Repository'] : ($this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Access_Token_Repository'] = new \Yoast\WP\SEO\OAuth\Repositories\Access_Token_Repository())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Refresh_Token_Repository']) ? $this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Refresh_Token_Repository'] : ($this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Refresh_Token_Repository'] = new \Yoast\WP\SEO\OAuth\Repositories\Refresh_Token_Repository())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Encryption_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Encryption_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Encryption_Helper'] = new \Yoast\WP\SEO\Helpers\Encryption_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\OAuth\\Helpers\\OAuth_Helper']) ? $this->services['Yoast\\WP\\SEO\\OAuth\\Helpers\\OAuth_Helper'] : $this->getOAuthHelperService()) && false ?: '_'});
     }
 
     /**
@@ -3953,6 +4015,7 @@ class Cached_Container extends Container
         $instance->register_migration('free', '20201216141134', 'Yoast\\WP\\SEO\\Config\\Migrations\\ExpandPrimaryTermIDColumnLengths');
         $instance->register_migration('free', '20210817092415', 'Yoast\\WP\\SEO\\Config\\Migrations\\AddVersionColumnToIndexables');
         $instance->register_migration('free', '20211020091404', 'Yoast\\WP\\SEO\\Config\\Migrations\\AddObjectTimestamps');
+        $instance->register_migration('free', '20220429085110', 'Yoast\\WP\\SEO\\Config\\Migrations\\OAuthServer');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Migration_Runner');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Dialog_Integration');
@@ -4003,6 +4066,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Schema_Accessibility_Feature');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Theme_Titles');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\WP_Robots_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\OAuth_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Primary_Category');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Schema_Blocks');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\AMP');
@@ -4047,6 +4111,7 @@ class Cached_Container extends Container
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Importing_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Indexables_Head_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Indexing_Route');
+        $instance->register_route('Yoast\\WP\\SEO\\Routes\\OAuth_Routes');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\SEMrush_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Supported_Features_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Wincher_Route');
@@ -4084,6 +4149,66 @@ class Cached_Container extends Container
     protected function getPresentationMemoizerService()
     {
         return $this->services['Yoast\\WP\\SEO\\Memoizers\\Presentation_Memoizer'] = new \Yoast\WP\SEO\Memoizers\Presentation_Memoizer($this);
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\OAuth\Helpers\OAuth_Helper' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\OAuth\Helpers\OAuth_Helper
+     */
+    protected function getOAuthHelperService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\OAuth\\Helpers\\OAuth_Helper'] = new \Yoast\WP\SEO\OAuth\Helpers\OAuth_Helper(${($_ = isset($this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Client_Repository']) ? $this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Client_Repository'] : ($this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Client_Repository'] = new \Yoast\WP\SEO\OAuth\Repositories\Client_Repository())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Scope_Repository']) ? $this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Scope_Repository'] : ($this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Scope_Repository'] = new \Yoast\WP\SEO\OAuth\Repositories\Scope_Repository())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Access_Token_Repository']) ? $this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Access_Token_Repository'] : ($this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Access_Token_Repository'] = new \Yoast\WP\SEO\OAuth\Repositories\Access_Token_Repository())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Auth_Code_Repository']) ? $this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Auth_Code_Repository'] : ($this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Auth_Code_Repository'] = new \Yoast\WP\SEO\OAuth\Repositories\Auth_Code_Repository())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Refresh_Token_Repository']) ? $this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Refresh_Token_Repository'] : ($this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Refresh_Token_Repository'] = new \Yoast\WP\SEO\OAuth\Repositories\Refresh_Token_Repository())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Encryption_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Encryption_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Encryption_Helper'] = new \Yoast\WP\SEO\Helpers\Encryption_Helper())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\OAuth\Repositories\Access_Token_Repository' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\OAuth\Repositories\Access_Token_Repository
+     */
+    protected function getAccessTokenRepositoryService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Access_Token_Repository'] = new \Yoast\WP\SEO\OAuth\Repositories\Access_Token_Repository();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\OAuth\Repositories\Auth_Code_Repository' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\OAuth\Repositories\Auth_Code_Repository
+     */
+    protected function getAuthCodeRepositoryService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Auth_Code_Repository'] = new \Yoast\WP\SEO\OAuth\Repositories\Auth_Code_Repository();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\OAuth\Repositories\Client_Repository' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\OAuth\Repositories\Client_Repository
+     */
+    protected function getClientRepositoryService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Client_Repository'] = new \Yoast\WP\SEO\OAuth\Repositories\Client_Repository();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\OAuth\Repositories\Refresh_Token_Repository' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\OAuth\Repositories\Refresh_Token_Repository
+     */
+    protected function getRefreshTokenRepositoryService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Refresh_Token_Repository'] = new \Yoast\WP\SEO\OAuth\Repositories\Refresh_Token_Repository();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\OAuth\Repositories\Scope_Repository' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\OAuth\Repositories\Scope_Repository
+     */
+    protected function getScopeRepositoryService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\OAuth\\Repositories\\Scope_Repository'] = new \Yoast\WP\SEO\OAuth\Repositories\Scope_Repository();
     }
 
     /**
@@ -4381,6 +4506,16 @@ class Cached_Container extends Container
     protected function getIndexingRouteService()
     {
         return $this->services['Yoast\\WP\\SEO\\Routes\\Indexing_Route'] = new \Yoast\WP\SEO\Routes\Indexing_Route(${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Post_Indexation_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Post_Indexation_Action'] : $this->getIndexablePostIndexationActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Term_Indexation_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Term_Indexation_Action'] : $this->getIndexableTermIndexationActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Post_Type_Archive_Indexation_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Post_Type_Archive_Indexation_Action'] : $this->getIndexablePostTypeArchiveIndexationActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_General_Indexation_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_General_Indexation_Action'] : $this->getIndexableGeneralIndexationActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Indexing_Complete_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Indexing_Complete_Action'] : $this->getIndexableIndexingCompleteActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexing_Complete_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexing_Complete_Action'] : $this->getIndexingCompleteActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexing_Prepare_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexing_Prepare_Action'] : $this->getIndexingPrepareActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Post_Link_Indexing_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Post_Link_Indexing_Action'] : $this->getPostLinkIndexingActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Term_Link_Indexing_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Term_Link_Indexing_Action'] : $this->getTermLinkIndexingActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexing_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexing_Helper'] : $this->getIndexingHelperService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Routes\OAuth_Routes' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Routes\OAuth_Routes
+     */
+    protected function getOAuthRoutesService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Routes\\OAuth_Routes'] = new \Yoast\WP\SEO\Routes\OAuth_Routes(${($_ = isset($this->services['Yoast\\WP\\SEO\\OAuth\\Helpers\\OAuth_Helper']) ? $this->services['Yoast\\WP\\SEO\\OAuth\\Helpers\\OAuth_Helper'] : $this->getOAuthHelperService()) && false ?: '_'});
     }
 
     /**
