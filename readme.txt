@@ -4,8 +4,8 @@ Donate link: https://yoa.st/1up
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
-Tested up to: 5.9
-Stable tag: 19.0-RC7
+Tested up to: 6.0
+Stable tag: 19.0-RC8
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -259,6 +259,7 @@ Other:
 
 * Adds a Redirects page with an upsell to Premium.
 * Deprecates the configuration workout classes.
+* Sets the WordPress tested up to version to 6.0.
 
 = 18.9 =
 Release Date: May 17th, 2022
