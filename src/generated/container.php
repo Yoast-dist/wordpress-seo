@@ -227,6 +227,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\initializers\\disable_core_sitemaps' => 'Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps',
             'yoast\\wp\\seo\\initializers\\migration_runner' => 'Yoast\\WP\\SEO\\Initializers\\Migration_Runner',
             'yoast\\wp\\seo\\initializers\\network_admin_options_initializer' => 'Yoast\\WP\\SEO\\Initializers\\Network_Admin_Options_Initializer',
+            'yoast\\wp\\seo\\initializers\\options_initializer' => 'Yoast\\WP\\SEO\\Initializers\\Options_Initializer',
             'yoast\\wp\\seo\\integrations\\admin\\addon_installation\\dialog_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Dialog_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\addon_installation\\installation_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Installation_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\admin_columns_cache_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Admin_Columns_Cache_Integration',
@@ -272,7 +273,6 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\front_end\\theme_titles' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\Theme_Titles',
             'yoast\\wp\\seo\\integrations\\front_end\\wp_robots_integration' => 'Yoast\\WP\\SEO\\Integrations\\Front_End\\WP_Robots_Integration',
             'yoast\\wp\\seo\\integrations\\front_end_integration' => 'Yoast\\WP\\SEO\\Integrations\\Front_End_Integration',
-            'yoast\\wp\\seo\\integrations\\options_integration' => 'Yoast\\WP\\SEO\\Integrations\\Options_Integration',
             'yoast\\wp\\seo\\integrations\\primary_category' => 'Yoast\\WP\\SEO\\Integrations\\Primary_Category',
             'yoast\\wp\\seo\\integrations\\schema_blocks' => 'Yoast\\WP\\SEO\\Integrations\\Schema_Blocks',
             'yoast\\wp\\seo\\integrations\\third_party\\amp' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\AMP',
@@ -615,6 +615,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps' => 'getDisableCoreSitemapsService',
             'Yoast\\WP\\SEO\\Initializers\\Migration_Runner' => 'getMigrationRunnerService',
             'Yoast\\WP\\SEO\\Initializers\\Network_Admin_Options_Initializer' => 'getNetworkAdminOptionsInitializerService',
+            'Yoast\\WP\\SEO\\Initializers\\Options_Initializer' => 'getOptionsInitializerService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Dialog_Integration' => 'getDialogIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Installation_Integration' => 'getInstallationIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Admin_Columns_Cache_Integration' => 'getAdminColumnsCacheIntegrationService',
@@ -660,7 +661,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\Theme_Titles' => 'getThemeTitlesService',
             'Yoast\\WP\\SEO\\Integrations\\Front_End\\WP_Robots_Integration' => 'getWPRobotsIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Front_End_Integration' => 'getFrontEndIntegrationService',
-            'Yoast\\WP\\SEO\\Integrations\\Options_Integration' => 'getOptionsIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Primary_Category' => 'getPrimaryCategoryService',
             'Yoast\\WP\\SEO\\Integrations\\Schema_Blocks' => 'getSchemaBlocksService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\AMP' => 'getAMPService',
@@ -3127,6 +3127,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Initializers\Options_Initializer' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Initializers\Options_Initializer
+     */
+    protected function getOptionsInitializerService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Initializers\\Options_Initializer'] = new \Yoast\WP\SEO\Initializers\Options_Initializer(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : $this->getOptionsHelperService()) && false ?: '_'});
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Integrations\Admin\Addon_Installation\Dialog_Integration' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Integrations\Admin\Addon_Installation\Dialog_Integration
@@ -3574,16 +3584,6 @@ class Cached_Container extends Container
     protected function getFrontEndIntegrationService()
     {
         return $this->services['Yoast\\WP\\SEO\\Integrations\\Front_End_Integration'] = new \Yoast\WP\SEO\Integrations\Front_End_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, $this, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : $this->getOptionsHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Request_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Request_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Request_Helper'] = new \Yoast\WP\SEO\Helpers\Request_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface']) ? $this->services['Yoast\\WP\\SEO\\Surfaces\\Helpers_Surface'] : $this->getHelpersSurfaceService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'});
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Integrations\Options_Integration' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Integrations\Options_Integration
-     */
-    protected function getOptionsIntegrationService()
-    {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Options_Integration'] = new \Yoast\WP\SEO\Integrations\Options_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : $this->getOptionsHelperService()) && false ?: '_'});
     }
 
     /**
@@ -4044,6 +4044,7 @@ class Cached_Container extends Container
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Migration_Runner');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Network_Admin_Options_Initializer');
+        $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Options_Initializer');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Dialog_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Installation_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Admin_Columns_Cache_Integration');
@@ -4088,7 +4089,6 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Schema_Accessibility_Feature');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\Theme_Titles');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Front_End\\WP_Robots_Integration');
-        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Options_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Primary_Category');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Schema_Blocks');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\AMP');
