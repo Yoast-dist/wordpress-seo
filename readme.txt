@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.0-RC10
+Stable tag: 19.0-RC11
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -245,7 +245,6 @@ Say hi to Yoast SEO 19.0! In this release, we're introducing more ways to contro
 Enhancements:
 
 * Following a change of policy by Bing, we now reference the XML sitemap in the robots.txt file to make it discoverable for search engines.
-* Introducing a new feature set to manage crawling on your site. In Yoast SEO 19.0, we're starting with an initial crawl setting to turn off RSS feeds of post comments. This will be expanded over time.
 
 Bugfixes:
 

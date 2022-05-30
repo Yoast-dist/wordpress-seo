@@ -205,7 +205,7 @@ class Client implements \YoastSEO_Vendor\GuzzleHttp\ClientInterface
      */
     private function configureDefaults(array $config)
     {
-        $defaults = ['allow_redirects' => \YoastSEO_Vendor\GuzzleHttp\RedirectMiddleware::$defaultSettings, 'http_errors' => \true, 'decode_content' => \true, 'verify' => \true, 'cookies' => \false, 'idn_conversion' => \true];
+        $defaults = ['allow_redirects' => \YoastSEO_Vendor\GuzzleHttp\RedirectMiddleware::$defaultSettings, 'http_errors' => \true, 'decode_content' => \true, 'verify' => \true, 'cookies' => \false, 'idn_conversion' => \false];
         // Use the standard Linux HTTP_PROXY and HTTPS_PROXY if set.
         // We can only trust the HTTP_PROXY environment variable in a CLI
         // process due to the fact that PHP has no reliable mechanism to
