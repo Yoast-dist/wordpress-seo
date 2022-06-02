@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.1-RC2
+Stable tag: 19.1-RC3
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -241,6 +241,7 @@ Release Date: June 14th, 2022
 
 
 
+
 Enhancements:
 
 * Prompts users to set up their site in order to take advantage of all SEO features.
@@ -255,6 +256,7 @@ Bugfixes:
 Other:
 
 * Adds an informative error message to the steps of the First-time configuration should an error occur.
+* Adds dismissable weekly webinar promo banners to Yoast settings pages & block/Elementor editor sidebars.
 * Enhances the Crawl settings tab in the General page with basic cleanup settings
 * Enhances the Crawl settings tab in the General page with more feed cleanup settings
 * Improves handling of OAuth errors in the Wincher integration and clears refresh tokens that seem to be invalid.
