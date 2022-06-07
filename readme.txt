@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.1-RC6
+Stable tag: 19.1-RC7
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -248,7 +248,7 @@ Bugfixes:
 
 * Fixes a bug where focus keyphrase in uppercase that contains a period wouldn't get recognized in the text, e.g. \"ASP.NET\".
 * Fixes a bug where the \"Check links to this URL\" option on admin bar menu would lead to an error page on setups with home URL different from the site URL. Props to @suascat.
-* Fixes a bug where the network setting would default to `Disable` when the super admin saved settings before upgrading/installing Premium
+* Fixes a bug where the network setting for the crawl cleanup feature would default to `Disable` when the super admin saved settings before upgrading/installing Premium.
 * Fixes a bug which caused the Spanish transition word `para ilustrar` to not be recognized by the transition words assessment.
 
 Other:
