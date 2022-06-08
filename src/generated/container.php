@@ -385,6 +385,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\surfaces\\schema_helpers_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Schema_Helpers_Surface',
             'yoast\\wp\\seo\\surfaces\\twitter_helpers_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Twitter_Helpers_Surface',
             'yoast\\wp\\seo\\validators\\array_validator' => 'Yoast\\WP\\SEO\\Validators\\Array_Validator',
+            'yoast\\wp\\seo\\validators\\blog_id_validator' => 'Yoast\\WP\\SEO\\Validators\\Blog_ID_Validator',
             'yoast\\wp\\seo\\validators\\boolean_validator' => 'Yoast\\WP\\SEO\\Validators\\Boolean_Validator',
             'yoast\\wp\\seo\\validators\\email_validator' => 'Yoast\\WP\\SEO\\Validators\\Email_Validator',
             'yoast\\wp\\seo\\validators\\empty_string_validator' => 'Yoast\\WP\\SEO\\Validators\\Empty_String_Validator',
@@ -773,6 +774,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Surfaces\\Schema_Helpers_Surface' => 'getSchemaHelpersSurfaceService',
             'Yoast\\WP\\SEO\\Surfaces\\Twitter_Helpers_Surface' => 'getTwitterHelpersSurfaceService',
             'Yoast\\WP\\SEO\\Validators\\Array_Validator' => 'getArrayValidatorService',
+            'Yoast\\WP\\SEO\\Validators\\Blog_ID_Validator' => 'getBlogIDValidatorService',
             'Yoast\\WP\\SEO\\Validators\\Boolean_Validator' => 'getBooleanValidatorService',
             'Yoast\\WP\\SEO\\Validators\\Email_Validator' => 'getEmailValidatorService',
             'Yoast\\WP\\SEO\\Validators\\Empty_String_Validator' => 'getEmptyStringValidatorService',
@@ -4965,6 +4967,16 @@ class Cached_Container extends Container
     protected function getArrayValidatorService()
     {
         return $this->services['Yoast\\WP\\SEO\\Validators\\Array_Validator'] = new \Yoast\WP\SEO\Validators\Array_Validator();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Validators\Blog_ID_Validator' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Validators\Blog_ID_Validator
+     */
+    protected function getBlogIDValidatorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Validators\\Blog_ID_Validator'] = new \Yoast\WP\SEO\Validators\Blog_ID_Validator();
     }
 
     /**
