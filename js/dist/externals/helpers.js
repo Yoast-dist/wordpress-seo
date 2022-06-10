@@ -19,7 +19,7 @@ window.yoast=window.yoast||{},window.yoast.helpers=function(t){var e={};function
 /* Translators: %d expands to the minimum width, %d expands to the minimum hight */
 Object(Z.__)("Your image dimensions are not suitable. The minimum dimensions are %dx%d pixels.","wordpress-seo"),200,200);return!(e<200||n<200)||r},t=>{const{type:e}=t,n=Object(Z.sprintf)(
 /* Translators: %s expands to the jpg format, %s expands to the png format, %s expands to the gif format. */
-Object(Z.__)("The format of the uploaded image is not supported. The supported formats are: %s, %s and %s.","wordpress-seo"),"JPG","PNG","GIF");return!!["jpg","png","gif","jpeg"].includes(e)||n}]),ot=nt([(t,e)=>{const{width:n,height:r}=t,o=Object(Z.__)("Your image dimensions are not suitable. The minimum dimensions are %dx%d pixels. The maximum dimensions are %dx%d pixels.","wordpress-seo"),i=n>4096||r>4096;
+Object(Z.__)("The format of the uploaded image is not supported. The supported formats are: %s, %s, %s and %s.","wordpress-seo"),"JPG","PNG","WEBP","GIF");return!!["jpg","png","gif","jpeg","webp"].includes(e)||n}]),ot=nt([(t,e)=>{const{width:n,height:r}=t,o=Object(Z.__)("Your image dimensions are not suitable. The minimum dimensions are %dx%d pixels. The maximum dimensions are %dx%d pixels.","wordpress-seo"),i=n>4096||r>4096;
 /* Translators: %d expands to the minimum width, %d expands to the minimum height,
   %d expands to the maximum width, %d expands to the maximum height. */return e&&(n<300||r<157||i)?Object(Z.sprintf)(o,300,157,4096,4096):!(n<200||r<200||i)||Object(Z.sprintf)(o,200,200,4096,4096)},t=>{const{type:e}=t,n=Object(Z.sprintf)(
 /* Translators: %s expands to the gif format, %s expands to the gif format. */
