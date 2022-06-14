@@ -175,6 +175,7 @@ class WPSEO_Tracking_Settings_Data implements WPSEO_Collection {
 		'zapier_api_key',
 		'enable_metabox_insights',
 		'enable_link_suggestions',
+		'enable_index_now',
 		'workouts',
 		'wincher_integration_active',
 		'wincher_tokens',
@@ -200,6 +201,7 @@ class WPSEO_Tracking_Settings_Data implements WPSEO_Collection {
 		'remove_emoji_scripts',
 		'remove_powered_by_header',
 		'remove_pingback_header',
+		'wordproof_integration_active',
 	];
 
 	/**
