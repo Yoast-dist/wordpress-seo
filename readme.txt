@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.2-RC1
+Stable tag: 19.2-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -254,7 +254,7 @@ Enhancements:
 * Improves the sentence recognition by disregarding abbreviations as potential sentence boundaries.
 * Improves the sentence recognition by disregarding initials as potential sentence boundaries.
 * Improves the text analysis by not always splitting on ellipsis &#8230; regardless of whether the next sentence has a valid beginning or not. This previously could also result in score discrepancies when switching to Elementor.
-*  Improves the text analysis by not splitting sentences on semicolon ;.
+* Improves the text analysis by not splitting sentences on semicolon ;.
 
 Bugfixes:
 
