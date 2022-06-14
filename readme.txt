@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.1-RC11
+Stable tag: 19.1
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -36,6 +36,7 @@ Yoast SEO is packed full of features, designed to help visitors and search engin
 * **Faster loading times** for your whole website, due to an innovative way of managing data in WordPress.
 * **[Premium]** E-mail support for our [Yoast SEO Premium](https://yoa.st/1v8) users.
 * **[Premium]** The possibility to expand Yoast SEO with the [News SEO](https://yoa.st/1uv), [Video SEO](https://yoa.st/1uw), [Local SEO](https://yoa.st/1uu) and [WooCommerce SEO](https://yoa.st/3rh) extensions.
+* **[Premium]** **New!** Yoast SEO Premium comes with wide-ranging crawl settings that help you improve how search engines crawl your site.
 
 #### WRITE KILLER CONTENT WITH YOAST SEO
 We know content is king, that's why Yoast SEO is famous for its **state-of-the-art content and SEO analysis**. Yoast SEO gives you:
@@ -239,6 +240,7 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 = 19.1 =
 Release Date: June 14th, 2022
 
+Yoast SEO 19.1 is out today! In this release, we've rolled out some improvements that make the content and SEO analyses more flexible. We've also expanded our range of crawl settings in Premium. Read more about what's new in Yoast SEO 19.1 in [our release post in English](https://yoa.st/release-14-6-22) or [our release post in Spanish](https://yoa.st/release-14-6-22-spanish)!
 
 Enhancements:
 
@@ -247,7 +249,7 @@ Enhancements:
 
 Bugfixes:
 
-* Fixes a bug where the \"Check links to this URL\" option on admin bar menu would lead to an error page on setups with home URL different from the site URL. Props to @suascat.
+* Fixes a bug where the "Check links to this URL" option on admin bar menu would lead to an error page on setups with home URL different from the site URL. Props to @suascat.
 * Fixes a bug where the network setting for the crawl cleanup feature would default to `Disable` when the super admin saved settings before upgrading/installing Premium.
 * Fixes a bug which caused the Spanish transition word `para ilustrar` to not be recognized by the transition words assessment.
 
@@ -255,8 +257,7 @@ Other:
 
 * Adds an informative error message to the steps of the First-time configuration should an error occur.
 * Adds dismissable weekly webinar promo banners to Yoast settings pages & block/Elementor editor sidebars.
-* Enhances the Crawl settings tab in the General page with basic cleanup settings
-* Enhances the Crawl settings tab in the General page with more feed cleanup settings
+* Adds new disabled toggles to the Crawl settings tab in the General page.
 * Improves handling of OAuth errors in the Wincher integration and clears refresh tokens that seem to be invalid.
 
 = 19.0 =
