@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.2-RC6
+Stable tag: 19.2-RC7
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -243,6 +243,7 @@ Release Date: June 28th, 2022
 
 
 
+
 Enhancements:
 
 * Added support for `webp` images for OpenGraph output.
@@ -251,12 +252,14 @@ Enhancements:
 * By adding a `meta author` tag we're making sure LinkedIn picks up the name of a post author properly.
 * By adding the name of the article author to the `author` section of the `Article` schema piece, we make Pinterest detect as it doesn't traverse the graph properly.
 * Enables sorting on the SEO and readability score columns on the post overview page.
+* Ensures the Bing XML sitemap ping is only made if IndexNow is disabled.
 * Improves the content analysis by excluding blockquote HTML elements.
 * Improves the sentence recognition by disregarding abbreviations as potential sentence boundaries.
 * Improves the sentence recognition by disregarding initials as potential sentence boundaries.
 * Improves the text analysis by not always splitting on ellipsis &#8230; regardless of whether the next sentence has a valid beginning or not. This previously could also result in score discrepancies when switching to Elementor.
 * Improves the text analysis by not splitting sentences on semicolon ;.
 * Improves the text analysis by supporting sentence detection for declarative sentences in quotation marks.
+* Prevents XML sitemap pings for blogs that aren't public.
 
 Bugfixes:
 
