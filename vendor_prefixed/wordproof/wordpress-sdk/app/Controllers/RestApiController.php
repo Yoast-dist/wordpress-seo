@@ -207,6 +207,9 @@ class RestApiController
      */
     public static function isValidWebhookRequest(\WP_REST_Request $request)
     {
+        if (!\YoastSEO_Vendor\WordProof\SDK\Helpers\AuthenticationHelper::isAuthenticated()) {
+            return \false;
+        }
         $hashedToken = \hash('sha256', \YoastSEO_Vendor\WordProof\SDK\Helpers\OptionsHelper::accessToken());
         $hmac = \hash_hmac('sha256', $request->get_body(), $hashedToken);
         return $request->get_header('signature') === $hmac;
