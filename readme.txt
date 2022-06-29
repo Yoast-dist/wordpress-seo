@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.3-RC1
+Stable tag: 19.3-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -243,17 +243,18 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 Release Date: July 12th, 2022
 
 
+
 Enhancements:
 
+* Adds an Insights tab to the editors which contains Flesch reading ease score and feedback, (estimated) reading time, and word count.
 * Adds canonical HTTP headers from RSS feeds to their parent URLs (for instance your homepage, or specific categories or tags), so the feeds themselves don't show up in search results.
-* Adds insights to the editors, it contains Flesch reading ease, (estimated) reading time and word count.
+* Changes the `@id` of the main schema `WebPage` node to be just the permalink for the current page, for interoperability with other plugins.
 * Improves sentence recognition for German by disregarding ordinal numbers as potential sentence boundaries.
 * Makes sure the `link` tag in the RSS feeds' `channel` section links to the most specific URL possible (for instance the category or tag the RSS feed is for) instead of the homepage.
 * Makes sure the title separator chosen in Yoast SEO is used for RSS feed titles too.
 * Prefer featured image and in-content images instead of OpenGraph and Twitter images for Schema output.
 * Removes the Flesch reading ease assessment from the readability analysis, since it is now available in the Insights tab.
-* We've changed the `@id` of the main schema `WebPage` node to be just the permalink for the current page, for interoperability with other plugins.
-* When a site has not set a logo in the Yoast SEO settings, but has set a site logo in the customizer, we will now use that logo in our Schema `Organization` output.
+* Uses the site logo set in the customizer as the logo in our Schema `Organization` output when a site has not set a logo in the Yoast SEO settings.
 
 Bugfixes:
 
