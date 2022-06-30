@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.3-RC5
+Stable tag: 19.3-RC6
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -247,6 +247,7 @@ Release Date: July 12th, 2022
 
 
 
+
 Enhancements:
 
 * Adds an Insights tab to the editors which contains Flesch reading ease score and feedback, (estimated) reading time, and word count.
@@ -263,6 +264,7 @@ Bugfixes:
 
 * Fixes a bug in the Wincher integration table on posts and terms where the focus keyphrase was not marked with an asterisk.
 * Fixes a bug where a warning would be triggered when author data wasn't available for a post.
+* Fixes a bug where disabled settings in the General page would be set to `Off` upon saving the settings form
 * Fixes a bug where the desktop preview would show a truncated title, while the title length progress bar and title width assessment would indicate that the title length was still within the limits.
 
 = 19.2 =
