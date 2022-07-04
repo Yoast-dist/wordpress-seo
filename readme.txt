@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.3-RC8
+Stable tag: 19.3-RC9
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -250,12 +250,15 @@ Release Date: July 12th, 2022
 
 
 
+
 Enhancements:
 
 * Adds an Insights tab to the editors which contains Flesch reading ease score and feedback, (estimated) reading time, and word count.
+* Adds a `wpseo_meta_author` hook to filter the content of the author meta tag.
 * Adds canonical HTTP headers from RSS feeds to their parent URLs (for instance your homepage, or specific categories or tags), so the feeds themselves don't show up in search results.
 * Changes the `@id` of the main schema `WebPage` node to be just the permalink for the current page, for interoperability with other plugins.
 * Improves sentence recognition for German by disregarding ordinal numbers as potential sentence boundaries.
+* Improves the author meta tag to be displayed only on posts.
 * Makes sure the `link` tag in the RSS feeds' `channel` section links to the most specific URL possible (for instance the category or tag the RSS feed is for) instead of the homepage.
 * Makes sure the title separator chosen in Yoast SEO is used for RSS feed titles too.
 * Prefer featured image and in-content images instead of OpenGraph and Twitter images for Schema output.
@@ -267,7 +270,7 @@ Bugfixes:
 
 * Fixes a bug in the Wincher integration table on posts and terms where the focus keyphrase was not marked with an asterisk.
 * Fixes a bug where a warning would be triggered when author data wasn't available for a post.
-* Fixes a bug where disabled settings in the General page would be set to `Off` upon saving the settings form
+* Fixes a bug where disabled settings in the General page would be set to `Off` upon saving the settings form.
 * Fixes a bug where the desktop preview would show a truncated title, while the title length progress bar and title width assessment would indicate that the title length was still within the limits.
 
 = 19.2 =
