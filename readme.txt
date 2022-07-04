@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.3-RC7
+Stable tag: 19.3-RC8
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -249,6 +249,7 @@ Release Date: July 12th, 2022
 
 
 
+
 Enhancements:
 
 * Adds an Insights tab to the editors which contains Flesch reading ease score and feedback, (estimated) reading time, and word count.
@@ -259,7 +260,7 @@ Enhancements:
 * Makes sure the title separator chosen in Yoast SEO is used for RSS feed titles too.
 * Prefer featured image and in-content images instead of OpenGraph and Twitter images for Schema output.
 * Removes the Flesch reading ease assessment from the readability analysis, since it is now available in the Insights tab.
-* Updates the Yoast SEO logo
+* Updates the Yoast SEO logo.
 * Uses the site logo set in the customizer as the logo in our Schema `Organization` output when a site has not set a logo in the Yoast SEO settings.
 
 Bugfixes:
