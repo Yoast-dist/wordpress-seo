@@ -276,13 +276,12 @@ class Crawl_Settings_Integration implements Integration_Interface {
 		}
 		foreach ( $settings as $setting => $label ) {
 			$yform->toggle_switch(
-				$setting_prefix . $setting,
+				$setting_prefix . $setting . '_free',
 				$toggles,
 				$label,
 				'',
 				[
-					'disabled'                => true,
-					'preserve_disabled_value' => true,
+					'disabled' => true,
 				]
 			);
 			if ( $setting === 'remove_feed_global_comments' && ! $is_network ) {
@@ -290,6 +289,9 @@ class Crawl_Settings_Integration implements Integration_Interface {
 				echo \esc_html__( 'By removing Global comments feed, Post comments feeds will be removed too.', 'wordpress-seo' );
 				echo '</p>';
 			}
+
+			$setting_name = $setting_prefix . $setting;
+			$yform->hidden( $setting_name, $setting_name );
 		}
 	}
 
