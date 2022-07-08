@@ -70,6 +70,12 @@ class Settings_Conditional implements Conditional {
 			return $post_action === 'update' && $option_page === 'wpseo_settings';
 		}
 
-		return true;
+		if ( $pagenow === 'admin.php' ) {
+			$page = \filter_input( \INPUT_GET, 'page', \FILTER_SANITIZE_STRING );
+
+			return $page === 'wpseo_settings';
+		}
+
+		return false;
 	}
 }
