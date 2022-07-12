@@ -11,6 +11,7 @@ use WPSEO_Replace_Vars;
 use Yoast\WP\SEO\Conditionals\Settings_Conditional;
 use Yoast\WP\SEO\Config\Schema_Types;
 use Yoast\WP\SEO\Helpers\Current_Page_Helper;
+use Yoast\WP\SEO\Helpers\Product_Helper;
 
 /**
  * Class Settings_Integration.
@@ -32,6 +33,20 @@ class Settings_Integration implements Integration_Interface {
 	protected $asset_manager;
 
 	/**
+	 * Holds the WPSEO_Replace_Vars.
+	 *
+	 * @var WPSEO_Replace_Vars
+	 */
+	protected $replace_vars;
+
+	/**
+	 * Holds the Schema_Types.
+	 *
+	 * @var Schema_Types
+	 */
+	protected $schema_types;
+
+	/**
 	 * Holds the Current_Page_Helper.
 	 *
 	 * @var Current_Page_Helper
@@ -39,14 +54,30 @@ class Settings_Integration implements Integration_Interface {
 	protected $current_page_helper;
 
 	/**
+	 * Holds the Product_Helper.
+	 *
+	 * @var Product_Helper
+	 */
+	protected $product_helper;
+
+	/**
 	 * Constructs Settings_Integration.
 	 *
 	 * @param WPSEO_Admin_Asset_Manager $asset_manager       The WPSEO_Admin_Asset_Manager.
 	 * @param Current_Page_Helper       $current_page_helper The Current_Page_Helper.
 	 */
-	public function __construct( WPSEO_Admin_Asset_Manager $asset_manager, Current_Page_Helper $current_page_helper ) {
+	public function __construct(
+		WPSEO_Admin_Asset_Manager $asset_manager,
+		WPSEO_Replace_Vars $replace_vars,
+		Schema_Types $schema_types,
+		Current_Page_Helper $current_page_helper,
+		Product_Helper $product_helper
+	) {
 		$this->asset_manager       = $asset_manager;
+		$this->replace_vars        = $replace_vars;
+		$this->schema_types        = $schema_types;
 		$this->current_page_helper = $current_page_helper;
+		$this->product_helper      = $product_helper;
 	}
 
 	/**
@@ -109,7 +140,7 @@ class Settings_Integration implements Integration_Interface {
 			[
 				'wpseo_dashboard',
 				'',
-				sprintf(
+				\sprintf(
 				// translators: %1$s expands to the opening span tag (styling). %2$s expands to the closing span tag.
 					__( 'Settings %1$sBeta%2$s', 'wordpress-seo' ),
 					'<span class="yoast-badge yoast-beta-badge">',
@@ -137,7 +168,7 @@ class Settings_Integration implements Integration_Interface {
 	 * @return void
 	 */
 	public function enqueue_assets() {
-		wp_enqueue_media();
+		\wp_enqueue_media();
 		$this->asset_manager->enqueue_script( 'new-settings' );
 		$this->asset_manager->enqueue_style( 'new-settings' );
 		$this->asset_manager->localize_script( 'new-settings', 'wpseoScriptData', $this->get_script_data() );
@@ -149,18 +180,16 @@ class Settings_Integration implements Integration_Interface {
 	 * @return array The script data.
 	 */
 	protected function get_script_data() {
-		$replace_vars             = new WPSEO_Replace_Vars();
 		$recommended_replace_vars = new WPSEO_Admin_Recommended_Replace_Vars();
 		$specific_replace_vars    = new WPSEO_Admin_Editor_Specific_Replace_Vars();
-		$schema_types             = new Schema_Types();
+		$replacement_variables    = $this->replace_vars->get_replacement_variables_with_labels();
 
-		$replacement_variables = $replace_vars->get_replacement_variables_with_labels();
-		$data                  = [
+		$data = [
 			'settings'             => [],
 			'endpoint'             => \admin_url( 'options.php' ),
 			'nonce'                => \wp_create_nonce( 'wpseo_settings-options' ),
 			'users'                => \get_users( [ 'fields' => [ 'ID', 'display_name' ] ] ),
-			'userEditUrl'          => admin_url( 'user-edit.php' ),
+			'userEditUrl'          => \admin_url( 'user-edit.php' ),
 			'separators'           => WPSEO_Option_Titles::get_instance()->get_separator_options_for_display(),
 			'replacementVariables' => [
 				'variables'   => $replacement_variables,
@@ -169,8 +198,11 @@ class Settings_Integration implements Integration_Interface {
 				'shared'      => $specific_replace_vars->get_generic( $replacement_variables ),
 			],
 			'schema'               => [
-				'pageTypeOptions'    => $schema_types->get_page_type_options(),
-				'articleTypeOptions' => $schema_types->get_article_type_options(),
+				'pageTypeOptions'    => $this->schema_types->get_page_type_options(),
+				'articleTypeOptions' => $this->schema_types->get_article_type_options(),
+			],
+			'preferences'          => [
+				'isPremium' => $this->product_helper->is_premium(),
 			],
 		];
 
