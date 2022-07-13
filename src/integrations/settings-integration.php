@@ -10,6 +10,7 @@ use WPSEO_Option_Titles;
 use WPSEO_Options;
 use WPSEO_Post_Type;
 use WPSEO_Replace_Vars;
+use WPSEO_Shortlinker;
 use Yoast\WP\SEO\Conditionals\Settings_Conditional;
 use Yoast\WP\SEO\Config\Schema_Types;
 use Yoast\WP\SEO\Helpers\Current_Page_Helper;
@@ -218,7 +219,9 @@ class Settings_Integration implements Integration_Interface {
 				'isPremium'      => $this->product_helper->is_premium(),
 				'isNetworkAdmin' => \is_network_admin(),
 				'isMainSite'     => \is_main_site(),
+				'siteUrl'        => \get_bloginfo( 'url' ),
 			],
+			'linkParams'           => WPSEO_Shortlinker::get_query_params(),
 			'postTypes'            => $this->get_post_types(),
 		];
 	}
