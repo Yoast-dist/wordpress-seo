@@ -200,7 +200,8 @@ class Settings_Integration implements Integration_Interface {
 	 * @return array The script data.
 	 */
 	protected function get_script_data() {
-		$settings = $this->get_settings();
+		$settings   = $this->get_settings();
+		$post_types = $this->get_post_types();
 
 		return [
 			'settings'             => $settings,
@@ -211,10 +212,7 @@ class Settings_Integration implements Integration_Interface {
 			'userEditUrl'          => \admin_url( 'user-edit.php' ),
 			'separators'           => WPSEO_Option_Titles::get_instance()->get_separator_options_for_display(),
 			'replacementVariables' => $this->get_replacement_variables(),
-			'schema'               => [
-				'pageTypeOptions'    => $this->schema_types->get_page_type_options(),
-				'articleTypeOptions' => $this->schema_types->get_article_type_options(),
-			],
+			'schema'               => $this->get_schema( $post_types ),
 			'preferences'          => [
 				'isPremium'      => $this->product_helper->is_premium(),
 				'isNetworkAdmin' => \is_network_admin(),
@@ -222,7 +220,7 @@ class Settings_Integration implements Integration_Interface {
 				'siteUrl'        => \get_bloginfo( 'url' ),
 			],
 			'linkParams'           => WPSEO_Shortlinker::get_query_params(),
-			'postTypes'            => $this->get_post_types(),
+			'postTypes'            => $post_types,
 		];
 	}
 
@@ -238,11 +236,8 @@ class Settings_Integration implements Integration_Interface {
 		// Add Yoast settings.
 		foreach ( WPSEO_Options::$options as $option_name => $instance ) {
 			if ( \in_array( $option_name, self::ALLOWED_OPTION_GROUPS ) ) {
-				$option_instance = WPSEO_Options::get_option_instance( $option_name );
-				if ( $option_instance ) {
-					$defaults[ $option_name ] = $option_instance->get_defaults();
-				}
-
+				$option_instance          = WPSEO_Options::get_option_instance( $option_name );
+				$defaults[ $option_name ] = ( $option_instance ) ? $option_instance->get_defaults() : [];
 				$settings[ $option_name ] = \array_merge( $defaults[ $option_name ], WPSEO_Options::get_option( $option_name ) );
 			}
 		}
@@ -301,6 +296,38 @@ class Settings_Integration implements Integration_Interface {
 	}
 
 	/**
+	 * Retrieves the schema.
+	 *
+	 * @return array The schema.
+	 */
+	protected function get_schema( array $post_types ) {
+		$schema = [];
+
+		foreach ( $this->schema_types->get_article_type_options() as $article_type ) {
+			$schema['articleTypes'][ $article_type['value'] ] = [
+				'label' => $article_type['name'],
+				'value' => $article_type['value'],
+			];
+		}
+
+		foreach ( $this->schema_types->get_page_type_options() as $page_type ) {
+			$schema['pageTypes'][ $page_type['value'] ] = [
+				'label' => $page_type['name'],
+				'value' => $page_type['value'],
+			];
+		}
+
+		$schema['articleTypeDefaults'] = [];
+		$schema['pageTypeDefaults']    = [];
+		foreach ( $post_types as $name => $post_type ) {
+			$schema['articleTypeDefaults'][ $name ] = WPSEO_Options::get_default( 'wpseo_titles', "schema-article-type-$name" );
+			$schema['pageTypeDefaults'][ $name ]    = WPSEO_Options::get_default( 'wpseo_titles', "schema-page-type-$name" );
+		}
+
+		return $schema;
+	}
+
+	/**
 	 * Creates the post types to represent.
 	 *
 	 * @return array The post types.
@@ -309,24 +336,31 @@ class Settings_Integration implements Integration_Interface {
 		$post_types = $this->post_type_helper->get_public_post_types( 'objects' );
 		$post_types = WPSEO_Post_Type::filter_attachment_post_type( $post_types );
 
-		return \array_map(
-			static function ( WP_Post_Type $post_type ) {
-				$route = $post_type->name;
-				if ( $post_type->rewrite ) {
-					$route = $post_type->rewrite['slug'];
-				}
-				if ( $post_type->rest_base ) {
-					$route = $post_type->rest_base;
-				}
+		return \array_map( [ $this, 'transform_post_type' ], $post_types );
+	}
 
-				return [
-					'name'          => $post_type->name,
-					'route'         => $route,
-					'label'         => $post_type->label,
-					'singularLabel' => $post_type->labels->singular_name,
-				];
-			},
-			$post_types
-		);
+	/**
+	 * Transforms a WP_Post_Type to an array with the needed info.
+	 *
+	 * @param WP_Post_Type $post_type The post type.
+	 *
+	 * @return array The transformed post type.
+	 */
+	protected function transform_post_type( WP_Post_Type $post_type ) {
+		$route = $post_type->name;
+		if ( $post_type->rewrite ) {
+			$route = $post_type->rewrite['slug'];
+		}
+		if ( $post_type->rest_base ) {
+			$route = $post_type->rest_base;
+		}
+
+		return [
+			'name'          => $post_type->name,
+			'route'         => $route,
+			'label'         => $post_type->label,
+			'singularLabel' => $post_type->labels->singular_name,
+			'hasArchive'    => $this->post_type_helper->has_archive( $post_type ),
+		];
 	}
 }
