@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.4-RC2
+Stable tag: 19.4-RC3
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -245,9 +245,11 @@ Release Date: July 26th, 2022
 
 
 
+
 Enhancements:
 
 * Allows marking inside of Classic editor blocks in the Block/Gutenberg editor.
+* Enhances the Integrations page and relocates it in the Yoast SEO sidebar menu.
 * Improves Schema for archive pages by using the featured image of the first post as `primaryImageOfPage` and by removing `potentialAction`.
 * Improves Schema for attachment pages by setting the proper `primaryImage` attribute.
 * Improves the text analysis by adding curly (“”) and angular quotation marks («»).
