@@ -118,18 +118,24 @@ class Settings_Integration implements Integration_Interface {
 	 */
 	public function register_hooks() {
 		\add_filter( 'wpseo_submenu_pages', [ $this, 'add_page' ] );
+		\add_filter( 'admin_menu', [ $this, 'add_settings_saved_page' ] );
 
-		// Check we are either saving the settings or on the settings page before registering.
-		$is_saving_settings = false;
+		// Are we saving the settings?
 		if ( $this->current_page_helper->get_current_admin_page() === 'options.php' ) {
 			$post_action = \filter_input( \INPUT_POST, 'action', \FILTER_SANITIZE_STRING );
 			$option_page = \filter_input( \INPUT_POST, 'option_page', \FILTER_SANITIZE_STRING );
 
-			$is_saving_settings = $post_action === 'update' && $option_page === 'wpseo_settings';
+			if ( $post_action === 'update' && $option_page === 'wpseo_settings' ) {
+				\add_action( 'admin_init', [ $this, 'register_setting' ] );
+			}
+
+			return;
 		}
-		if ( $is_saving_settings || $this->current_page_helper->get_current_yoast_seo_page() === 'wpseo_settings' ) {
-			\add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
+
+		// Are we on the settings page?
+		if ( $this->current_page_helper->get_current_yoast_seo_page() === 'wpseo_settings' ) {
 			\add_action( 'admin_init', [ $this, 'register_setting' ] );
+			\add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
 		}
 	}
 
@@ -140,7 +146,9 @@ class Settings_Integration implements Integration_Interface {
 	 */
 	public function register_setting() {
 		foreach ( WPSEO_Options::$options as $name => $instance ) {
-			\register_setting( 'wpseo_settings', $name );
+			if ( \in_array( $name, self::ALLOWED_OPTION_GROUPS ) ) {
+				\register_setting( 'wpseo_settings', $name );
+			}
 		}
 		foreach ( self::WP_OPTIONS as $name ) {
 			\register_setting( 'wpseo_settings', $name );
@@ -170,6 +178,29 @@ class Settings_Integration implements Integration_Interface {
 				'wpseo_settings',
 				[ $this, 'display_page' ],
 			]
+		);
+
+		return $pages;
+	}
+
+	/**
+	 * Adds a dummy page.
+	 *
+	 * Because the options route NEEDS to redirect to something.
+	 *
+	 * @param array $pages The pages.
+	 *
+	 * @return array The pages.
+	 */
+	public function add_settings_saved_page( $pages ) {
+		\add_submenu_page(
+			null,
+			"",
+			null,
+			'wpseo_manage_options',
+			'wpseo_settings_saved',
+			static function() {
+			}
 		);
 
 		return $pages;
