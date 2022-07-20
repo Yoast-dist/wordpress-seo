@@ -243,16 +243,20 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 = 19.4 =
 Release Date: July 26th, 2022
 
-
-
 Enhancements:
 
 * Allows marking inside of Classic editor blocks in the Block/Gutenberg editor.
+* Enhances the Integrations page and relocates it in the Yoast SEO sidebar menu.
 * Improves Schema for archive pages by using the featured image of the first post as `primaryImageOfPage` and by removing `potentialAction`.
 * Improves Schema for attachment pages by setting the proper `primaryImage` attribute.
 * Improves the text analysis by adding curly (“”) and angular quotation marks («»).
 * Improves the text analysis by filtering out all versions of the ampersand (&).
 * Removes the date from the meta description for WooCommerce products.
+
+Bugfixes:
+
+* Fixes a bug where a notice was shown indicating that the Flesch reading ease score has moved from the readability analysis to the Insights for languages that do not have Flesch reading ease support.
+* Fixes a bug where an `Undefined index: SERVER_NAME` warning would be triggered in cronjobs or WP CLI commands.
 
 = 19.3 =
 Release Date: July 12th, 2022
