@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.5-RC6
+Stable tag: 19.5-RC7
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -249,6 +249,7 @@ Release Date: August 9th, 2022
 
 
 
+
 Enhancements:
 
 * Adds the site logo and name as default values in the first time configuration and search appearance.
@@ -259,6 +260,8 @@ Bugfixes:
 
 * Fixes a bug where text which includes the non-breaking space character (`&nbsp;`) is not highlighted correctly.
 * Fixes a bug where the Algolia integration could not be controlled at network level.
+* Fixes a bug where the score indicator in the classic editor would not update the hovering text when the score changed.
+* Fixes a bug where the score indicators of the overview pages and admin bar where inconsistent. The taxonomy overview and admin bar score indicators now uses red to indicate `Focus keyphrase not set`. The admin bar score indicator now shows blue when set to `noindex`.
 
 Other:
 
