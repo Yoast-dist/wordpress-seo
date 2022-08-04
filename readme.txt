@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.5-RC11
+Stable tag: 19.5-RC12
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -254,11 +254,11 @@ Release Date: August 9th, 2022
 
 
 
+
 Enhancements:
 
 * Adds the site logo and name as default values in the first time configuration and search appearance.
 * Changes the order in which Schema nodes are output from `Organization / Person > WebSite > WebPage > Article` to `Article > WebPage > WebSite > Organization / Person`. This fixes validation issues for the Schema validator and puts the most important Schema content first.
-* Fixes a performance issue in the meta description editor that would occur when very large amounts of custom fields were used.
 
 Bugfixes:
 
@@ -271,7 +271,7 @@ Bugfixes:
 Other:
 
 * Hides the \"Save changes\" button in the \"Integrations\" tab in the \"Yoast SEO  > General\" page.
-*  Sets the minimum supported WordPress version to 5.9.
+* Sets the minimum supported WordPress version to 5.9.
 
 = 19.4 =
 Release Date: July 26th, 2022
