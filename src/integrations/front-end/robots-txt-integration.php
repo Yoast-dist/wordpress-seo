@@ -2,6 +2,7 @@
 
 namespace Yoast\WP\SEO\Integrations\Front_End;
 
+use WPSEO_Sitemaps_Router;
 use Yoast\WP\SEO\Conditionals\Robots_Txt_Conditional;
 use Yoast\WP\SEO\Helpers\Options_Helper;
 use Yoast\WP\SEO\Integrations\Integration_Interface;
@@ -95,12 +96,12 @@ class Robots_Txt_Integration implements Integration_Interface {
 			return $robots_txt;
 		}
 
-		$sitemap = 'Sitemap: ' . \esc_url( \WPSEO_Sitemaps_Router::get_base_url( 'sitemap_index.xml' ) );
+		$sitemap = 'Sitemap: ' . \esc_url( WPSEO_Sitemaps_Router::get_base_url( 'sitemap_index.xml' ) );
 
 		// If our sitemap is already output, bail.
 		if ( \strpos( $robots_txt, $sitemap ) !== false ) {
 			return $robots_txt;
-		};
+		}
 
 		return \trim( $robots_txt ) . "\n\n" . $sitemap . "\n";
 	}
@@ -130,7 +131,7 @@ class Robots_Txt_Integration implements Integration_Interface {
 			// If our sitemap is already output, bail.
 			if ( \strpos( $robots_txt, $sitemap ) !== false ) {
 				continue;
-			};
+			}
 
 			$sitemaps .= $sitemap . "\n";
 		}
