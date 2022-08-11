@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.6-RC2
+Stable tag: 19.6-RC3
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -244,11 +244,11 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 Release Date: August 23rd, 2022
 
 
-
 Bugfixes:
 
 * Fixes a bug in the Classic Editor where clicking on the SEO link inside of the Publish box would not scroll the SEO analysis into view when the SEO tab inside of the Yoast metabox was not already open.
 * Fixes a bug where an emoji is not entirely removed when the backspace/delete button is hit.
+* Fixes a bug where the inclusive language feedback in the publish box was not synchronized with the metabox in the classic editor.
 
 Other:
 
