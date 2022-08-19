@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.6-RC9
+Stable tag: 19.6-RC10
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -244,21 +244,16 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 Release Date: August 23rd, 2022
 
 
-
-
-
-
-
 Bugfixes:
 
-* Fixes a bug in the Classic Editor where clicking on the SEO link inside of the Publish box would not scroll the SEO analysis into view when the SEO tab inside of the Yoast metabox was not already open.
-* Fixes a bug where an emoji is not entirely removed when the backspace/delete button is hit.
-* Fixes a bug where a redirect to our installation success page could happen on admin ajax calls.
+* Fixes a bug in the Classic Editor where clicking on the SEO link inside of the publish box would not always scroll the SEO analysis into view.
+* Fixes a bug where an emoji in our replacement variable editors is not entirely removed when the backspace/delete button is hit.
+* Fixes a bug where a redirect to our installation success page could happen on admin AJAX calls.
 
 Other:
 
-* Adds a \"Search engines discouraged\" notification in the Yoast SEO dashboard when indexability is turned off in WordPress settings.
-* Removes the Ryte integration and deprecates all the relevant classes
+* Adds a \"Search engines discouraged\" notification in the Yoast SEO dashboard when the \"Discourage search engines from indexing this site\" WordPress setting is turned on.
+* Removes the Ryte integration and deprecates all the relevant classes. More information about this can be found at yoa.st/ryte-deprecation.
 
 = 19.5.1 =
 Release Date: August 9th, 2022
