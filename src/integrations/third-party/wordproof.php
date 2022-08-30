@@ -2,18 +2,17 @@
 
 namespace Yoast\WP\SEO\Integrations\Third_Party;
 
-use WPSEO_Admin_Asset;
 use WPSEO_Admin_Asset_Manager;
-use Yoast\WP\SEO\Conditionals\Non_Multisite_Conditional;
 use Yoast\WP\SEO\Conditionals\Third_Party\Wordproof_Integration_Active_Conditional;
+use YoastSEO_Vendor\WordProof\SDK\Helpers\CertificateHelper;
+use YoastSEO_Vendor\WordProof\SDK\Helpers\PostMetaHelper;
+use YoastSEO_Vendor\WordProof\SDK\WordPressSDK;
+use Yoast\WP\SEO\Conditionals\Non_Multisite_Conditional;
 use Yoast\WP\SEO\Conditionals\Third_Party\Wordproof_Plugin_Inactive_Conditional;
 use Yoast\WP\SEO\Config\Wordproof_App_Config;
 use Yoast\WP\SEO\Config\Wordproof_Translations;
 use Yoast\WP\SEO\Helpers\Wordproof_Helper;
 use Yoast\WP\SEO\Integrations\Integration_Interface;
-use YoastSEO_Vendor\WordProof\SDK\Helpers\CertificateHelper;
-use YoastSEO_Vendor\WordProof\SDK\Helpers\PostMetaHelper;
-use YoastSEO_Vendor\WordProof\SDK\WordPressSDK;
 
 /**
  * Class WordProof
@@ -32,7 +31,7 @@ class Wordproof implements Integration_Interface {
 	/**
 	 * The WordProof helper instance.
 	 *
-	 * @var Wordproof_Helper
+	 * @var Wordproof_Helper $wordproof The helper instance.
 	 */
 	protected $wordproof;
 
@@ -46,7 +45,7 @@ class Wordproof implements Integration_Interface {
 	/**
 	 * The WordProof integration constructor.
 	 *
-	 * @param Wordproof_Helper          $wordproof     The WordProof helper instance.
+	 * @param Wordproof_Helper          $wordproof The WordProof helper instance.
 	 * @param WPSEO_Admin_Asset_Manager $asset_manager The WPSEO admin asset manager instance.
 	 */
 	public function __construct( Wordproof_Helper $wordproof, WPSEO_Admin_Asset_Manager $asset_manager = null ) {
@@ -154,20 +153,20 @@ class Wordproof implements Integration_Interface {
 	/**
 	 * Return the Yoast post meta key for the SDK to determine if the post should be timestamped.
 	 *
-	 * @param array $meta_keys The array containing meta keys that should be used.
+	 * @param array $array The array containing meta keys that should be used.
 	 * @return array
 	 */
-	public function add_post_meta_key( $meta_keys ) {
+	public function add_post_meta_key( $array ) {
 		return [ $this->post_meta_key ];
 	}
 
 	/**
 	 * Return an empty array to disable automatically timestamping selected post types.
 	 *
-	 * @param array $post_types The array containing post types that should be automatically timestamped.
+	 * @param array $array The array containing post types that should be automatically timestamped.
 	 * @return array
 	 */
-	public function wordproof_timestamp_post_types( $post_types ) {
+	public function wordproof_timestamp_post_types( $array ) {
 		return [];
 	}
 
@@ -215,13 +214,13 @@ class Wordproof implements Integration_Interface {
 	 */
 	public function enqueue_assets() {
 		if ( CertificateHelper::show() ) {
-			$flat_version = $this->asset_manager->flatten_version( \WPSEO_VERSION );
+			$flat_version = $this->asset_manager->flatten_version( WPSEO_VERSION );
 
 			/**
 			 * We are using the Admin asset manager to register and enqueue a file served for all visitors,
 			 * authenticated and unauthenticated users.
 			 */
-			$script = new WPSEO_Admin_Asset(
+			$script = new \WPSEO_Admin_Asset(
 				[
 					'name'    => 'wordproof-uikit',
 					'src'     => 'wordproof-uikit.js',
@@ -237,9 +236,9 @@ class Wordproof implements Integration_Interface {
 	/**
 	 * Adds async to the wordproof-uikit script.
 	 *
-	 * @param string $tag    The script tag for the enqueued script.
+	 * @param string $tag The script tag for the enqueued script.
 	 * @param string $handle The script's registered handle.
-	 * @param string $src    The script's source URL.
+	 * @param string $src The script's source URL.
 	 *
 	 * @return string The script's tag.
 	 *

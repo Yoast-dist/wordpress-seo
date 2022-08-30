@@ -12,7 +12,7 @@ class CoAuthor extends Author {
 	/**
 	 * The user ID of the author we're generating data for.
 	 *
-	 * @var int
+	 * @var int $user_id
 	 */
 	private $user_id;
 
