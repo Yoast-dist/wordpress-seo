@@ -37,10 +37,6 @@ $wpseo_contributors_phrase = sprintf(
 </div>
 
 <div class="tab-block">
-	<div id="wpseo-indexables-page"></div>
-</div>
-
-<div class="tab-block">
 	<h2><?php esc_html_e( 'Credits', 'wordpress-seo' ); ?></h2>
 	<p>
 		<a href="<?php WPSEO_Shortlinker::show( 'https://yoa.st/yoast-seo-credits' ); ?>"><?php echo esc_html( $wpseo_contributors_phrase ); ?></a>

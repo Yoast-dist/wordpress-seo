@@ -571,11 +571,7 @@ class Model implements JsonSerializable {
 	 * @return array
 	 */
 	public function __debugInfo() {
-		if ( $this->orm ) {
-			return $this->orm->as_array();
-		}
-
-		return [];
+		return $this->orm->as_array();
 	}
 
 	/**

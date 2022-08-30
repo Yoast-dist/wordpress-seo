@@ -2,18 +2,17 @@
 
 namespace Yoast\WP\SEO\Integrations\Admin;
 
-use WP_User;
 use WPSEO_Addon_Manager;
 use WPSEO_Admin_Asset_Manager;
-use WPSEO_Option_Tab;
 use WPSEO_Shortlinker;
 use WPSEO_Utils;
+use WPSEO_Option_Tab;
 use Yoast\WP\SEO\Conditionals\Admin_Conditional;
-use Yoast\WP\SEO\Context\Meta_Tags_Context;
 use Yoast\WP\SEO\Helpers\Options_Helper;
 use Yoast\WP\SEO\Helpers\Product_Helper;
 use Yoast\WP\SEO\Integrations\Integration_Interface;
 use Yoast\WP\SEO\Routes\Indexing_Route;
+use Yoast\WP\SEO\Context\Meta_Tags_Context;
 
 /**
  * First_Time_Configuration_Integration class
@@ -65,7 +64,7 @@ class First_Time_Configuration_Integration implements Integration_Interface {
 	/**
 	 * The meta tags context helper.
 	 *
-	 * @var Meta_Tags_Context
+	 * @var \Yoast\WP\SEO\Context\Meta_Tags_Context
 	 */
 	private $meta_tags_context;
 
@@ -122,7 +121,7 @@ class First_Time_Configuration_Integration implements Integration_Interface {
 		$dashboard_tabs->add_tab(
 			new WPSEO_Option_Tab(
 				'first-time-configuration',
-				\__( 'First-time configuration', 'wordpress-seo' ),
+				__( 'First-time configuration', 'wordpress-seo' ),
 				[ 'save_button' => false ]
 			)
 		);
@@ -312,7 +311,7 @@ class First_Time_Configuration_Integration implements Integration_Interface {
 	 *
 	 * @param string $company_name The given company name by the user, default empty string.
 	 *
-	 * @return string|false The company name.
+	 * @return string The company name.
 	 */
 	private function get_fallback_company_name( $company_name ) {
 		if ( $company_name ) {
@@ -345,7 +344,7 @@ class First_Time_Configuration_Integration implements Integration_Interface {
 	 *
 	 * @param string $company_logo The given company logo by the user, default empty.
 	 *
-	 * @return string|false The company logo URL.
+	 * @return {boolean | string} The company logo URL.
 	 */
 	private function get_company_fallback_logo( $company_logo ) {
 		if ( $company_logo ) {
@@ -353,7 +352,7 @@ class First_Time_Configuration_Integration implements Integration_Interface {
 		}
 		$logo_id = $this->meta_tags_context->fallback_to_site_logo();
 
-		return \esc_url( \wp_get_attachment_url( $logo_id ) );
+		return esc_url( wp_get_attachment_url( $logo_id ) );
 	}
 
 	/**
@@ -372,7 +371,7 @@ class First_Time_Configuration_Integration implements Integration_Interface {
 	 */
 	private function get_person_name() {
 		$user = \get_userdata( $this->get_person_id() );
-		if ( $user instanceof WP_User ) {
+		if ( $user instanceof \WP_User ) {
 			return $user->get( 'display_name' );
 		}
 
@@ -393,7 +392,7 @@ class First_Time_Configuration_Integration implements Integration_Interface {
 	 *
 	 * @param string $person_logo The given person logo by the user, default empty.
 	 *
-	 * @return string|false The person logo URL.
+	 * @return {boolean | string} The person logo URL.
 	 */
 	private function get_person_fallback_logo( $person_logo ) {
 		if ( $person_logo ) {
@@ -401,7 +400,7 @@ class First_Time_Configuration_Integration implements Integration_Interface {
 		}
 		$logo_id = $this->meta_tags_context->fallback_to_site_logo();
 
-		return \esc_url( \wp_get_attachment_url( $logo_id ) );
+		return esc_url( wp_get_attachment_url( $logo_id ) );
 	}
 
 	/**
