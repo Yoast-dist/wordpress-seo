@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.7-RC1
+Stable tag: 19.7-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -245,6 +245,7 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 Release Date: September 6th, 2022
 
 
+
 Enhancements:
 
 * Adds an Insights tab to the editors which contains the Flesch reading ease score and feedback, (estimated) reading time, and word count. Since the Flesch reading ease score has been moved to the insights tab, it is removed from the readability analysis.
@@ -256,6 +257,7 @@ Enhancements:
 * Changes the logic of the Schema generation to prefer featured image and in-content images instead of OpenGraph and Twitter images.
 * Changes the order in which Schema nodes are output from `Organization / Person > WebSite > WebPage > Article` to `Article > WebPage > WebSite > Organization / Person`. This fixes validation issues for the Schema validator and puts the most important Schema content first.
 * Fixes an issue in the default editor where image elements would lead to repeated requests for that image source while editing content.
+* Improves handling of fatal errors in the front-end by preventing Yoast SEO to run in the login page, allowing users to access their dashboard.
 * Improves Schema for archive pages by using the featured image of the first post as `primaryImageOfPage` and by removing `potentialAction`.
 * Improves Schema for attachment pages by setting the proper `primaryImage` attribute.
 * Improves sentence recognition for German by disregarding ordinal numbers as potential sentence boundaries.
