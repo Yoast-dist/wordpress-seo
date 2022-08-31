@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.6.1-RC4
+Stable tag: 19.6.1
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -244,21 +244,9 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 = 19.6.1 =
 Release Date: August 31st, 2022
 
-
-
-Enhancements:
-
-* Adds `wpseo_social_template_post_type` and `wpseo_social_template_taxonomy` filters for the social templates in the metabox.
-* Adds `wpseo_wincher_keyphrases_from_post` and `wpseo_wincher_all_keyphrases` filters to enhance the collected keyphrases arrays
-
-Bugfixes:
-
-* Remove Premium code regarding the Frontend Inspector and the additional focus keyphrases
-* Remove Premium code regarding the related keyphrases' assessment
-
 Other:
 
-* Moves the initialization of WP CLI redirect commands to Premium.
+* Fixes compliance with the wordpress.org plugin guidelines.
 
 = 19.6 =
 Release Date: August 23rd, 2022
