@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.7-RC4
+Stable tag: 19.7-RC5
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -262,7 +262,7 @@ Enhancements:
 * Improves Schema for archive pages by using the featured image of the first post as `primaryImageOfPage` and by removing `potentialAction`.
 * Improves Schema for attachment pages by setting the proper `primaryImage` attribute.
 * Improves sentence recognition for German by disregarding ordinal numbers as potential sentence boundaries.
-* Introduces a new filter `wpseo_sitemap_post_type_first_links` that can be used to add
+* Introduces a new filter `wpseo_sitemap_post_type_first_links` that can be used to add links at the start of the first sitemap page for post types. Props to @jamalbou.
 * Makes sure the `link` tag in the RSS feeds' `channel` section links to the most specific URL possible (for instance the category or tag the RSS feed is for) instead of the homepage.
 * Makes sure the title separator chosen in Yoast SEO is used for RSS feed titles too.
 * Removes the date from the meta description for WooCommerce products.
