@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.7-RC11
+Stable tag: 19.7-RC12
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -245,8 +245,6 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 Release Date: September 20th, 2022
 
 
-
-
 Enhancements:
 
 * Adds an Insights tab to the editors which contains the Flesch reading ease score and feedback, (estimated) reading time, and word count. Since the Flesch reading ease score has been moved to the insights tab, it is removed from the readability analysis.
@@ -276,9 +274,9 @@ Bugfixes:
 * Fixes a bug where the Algolia integration could not be controlled at network level.
 * Fixes a bug where the desktop preview would show a truncated title, while the title length progress bar and title width assessment would indicate that the title length was still within the limits.
 * Fixes a bug where the focus keyphrase in the Wincher integration table on posts and terms would not be marked with an asterisk.
-* Minor security improvement
-* Security hardening
-* Use the new WordPress `wp_filesize` function.
+* Introduces a minor security improvement.
+* Introduces security hardening.
+* Uses the new WordPress `wp_filesize` function.
 
 Other:
 
@@ -288,7 +286,7 @@ Other:
 * Changes Yoast SEO Premium sidebar ad to be the same styling as the one on yoast.com.
 * Exclude empty custom post type sitemaps from `sitemap_index.xml`.
 * Hides the \"Save changes\" button in the \"Integrations\" tab in the \"Yoast SEO  > General\" page.
-* Improves compatibility with PHP 8.2
+* Improves compatibility with PHP 8.2.
 * Removes the Ryte integration and deprecates all the relevant classes. More information about this can be found at yoa.st/ryte-deprecation.
 
 = 19.6.1 =
