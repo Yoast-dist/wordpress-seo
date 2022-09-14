@@ -5,8 +5,6 @@
  * @package WPSEO\Admin\Notifications
  */
 
-use Yoast\WP\SEO\Conditionals\Indexables_Page_Conditional;
-
 /**
  * Class Yoast_Notifications.
  */
@@ -98,14 +96,9 @@ class Yoast_Notifications {
 	 * Enqueue assets.
 	 */
 	public function enqueue_assets() {
-		$asset_manager = new WPSEO_Admin_Asset_Manager();
 
-		if ( YoastSEO()->classes->get( Indexables_Page_Conditional::class )->is_met() ) {
-			$asset_manager->enqueue_style( 'notifications-new' );
-		}
-		else {
-			$asset_manager->enqueue_style( 'notifications' );
-		}
+		$asset_manager = new WPSEO_Admin_Asset_Manager();
+		$asset_manager->enqueue_style( 'notifications' );
 	}
 
 	/**
