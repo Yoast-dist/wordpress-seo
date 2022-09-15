@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.7-RC14
+Stable tag: 19.7-RC15
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -254,11 +254,10 @@ Enhancements:
 * Changes the `@id` of the main Schema `WebPage` node to be just the permalink for the current page, for interoperability with other plugins.
 * Changes the logic of the Schema generation to prefer featured image and in-content images instead of OpenGraph and Twitter images.
 * Changes the order in which Schema nodes are output from `Organization / Person > WebSite > WebPage > Article` to `Article > WebPage > WebSite > Organization / Person`. This fixes validation issues for the Schema validator and puts the most important Schema content first.
-* Fixes an issue in the default editor where image elements would lead to repeated requests for that image source while editing content.
-* Improves handling of fatal errors in the front-end by preventing Yoast SEO to run in the login page, allowing users to access their dashboard.
 * Improves Schema for archive pages by using the featured image of the first post as `primaryImageOfPage` and by removing `potentialAction`.
 * Improves Schema for attachment pages by setting the proper `primaryImage` attribute.
 * Improves sentence recognition for German by disregarding ordinal numbers as potential sentence boundaries.
+* Improves the handling of fatal errors in the front-end by preventing Yoast SEO to run in the login page, allowing users to access their dashboard.
 * Introduces a new filter `wpseo_sitemap_post_type_first_links` that can be used to add links at the start of the first sitemap page for post types. Props to @jamalbou.
 * Makes sure the `link` tag in the RSS feeds' `channel` section links to the most specific URL possible (for instance the category or tag the RSS feed is for) instead of the homepage.
 * Makes sure the title separator chosen in Yoast SEO is used for RSS feed titles too.
@@ -274,15 +273,14 @@ Bugfixes:
 * Fixes a bug where the Algolia integration could not be controlled at network level.
 * Fixes a bug where the desktop preview would show a truncated title, while the title length progress bar and title width assessment would indicate that the title length was still within the limits.
 * Fixes a bug where the focus keyphrase in the Wincher integration table on posts and terms would not be marked with an asterisk.
+* Fixes an issue in the default editor where image elements would lead to repeated requests for that image source while editing content.
 * Introduces a minor security improvement.
 * Introduces security hardening.
 * Uses the new WordPress `wp_filesize` function.
 
 Other:
 
-* Adds a helper to help with adding content to the robots.txt file.
 * Adds a \"Search engines discouraged\" notification in the Yoast SEO dashboard when the \"Discourage search engines from indexing this site\" WordPress setting is turned on.
-* Adds options to support the changes in the premium plugin.
 * Changes Yoast SEO Premium sidebar ad to be the same styling as the one on yoast.com.
 * Exclude empty custom post type sitemaps from `sitemap_index.xml`.
 * Hides the \"Save changes\" button in the \"Integrations\" tab in the \"Yoast SEO  > General\" page.
