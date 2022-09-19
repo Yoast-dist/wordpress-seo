@@ -1,5 +1,5 @@
 === Yoast SEO ===
-Contributors: yoast, joostdevalk, omarreiss
+Contributors: yoast, joostdevalk, tdevalk
 Donate link: https://yoa.st/1up
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
@@ -259,7 +259,6 @@ Bugfixes:
 Other:
 
 * Adds new disabled toggles to the Crawl settings tab in the General page.
-* Changes Yoast SEO Premium sidebar ad to be the same styling as the one on yoast.com.
 
 = 19.6.1 =
 Release Date: August 31st, 2022
