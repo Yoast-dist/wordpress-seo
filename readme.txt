@@ -1,11 +1,11 @@
 === Yoast SEO ===
-Contributors: yoast, joostdevalk, omarreiss
+Contributors: yoast, joostdevalk, tdevalk
 Donate link: https://yoa.st/1up
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.6
+Stable tag: 19.7.1
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -241,19 +241,58 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 == Changelog ==
 
-= 19.7 =
-Release Date: September 6th, 2022
-
-
-= 19.6.1 =
-Release Date: August 30th, 2022
-
-
-Enhancements:
-
-* Adds `wpseo_social_template_post_type` and `wpseo_social_template_taxonomy` filters for the social templates in the metabox.
+= 19.7.1 =
+Release Date: September 20th, 2022
 
 Bugfixes:
 
-* Remove Premium code regarding the Frontend Inspector and the additional focus keyphrases
+* Fixes a bug where a fatal error would be thrown in combination with certain plugins that change the standard login page URL.
 
+Other:
+
+* Changes the copy in the `robots.txt` comment. 
+
+= 19.7 =
+Release Date: September 20th, 2022
+
+Yoast SEO 19.7 is out today! We’ve rolled out some general enhancements, bug fixes, and security improvements in this release. Go check it out! Read more about what's new in Yoast SEO 19.7 in [our release post in English](https://yoa.st/release-20-9-22) or [our release post in Spanish](https://yoa.st/release-20-9-22-spanish)!
+
+Enhancements:
+
+* Improves the handling of fatal errors in the front-end by preventing Yoast SEO to run in the login page, allowing users to access their dashboard.
+* Excludes empty custom post type sitemaps from `sitemap_index.xml`.
+* Introduces a new filter `wpseo_sitemap_post_type_first_links` that can be used to add links at the start of the first sitemap page for post types. Props to @jamalbou.
+
+Bugfixes:
+
+* Fixes a bug in the default editor where image elements would lead to repeated requests for that image source while editing content.
+
+Other:
+
+* Adds new disabled toggles to the Crawl settings tab in the General page.
+
+= 19.6.1 =
+Release Date: August 31st, 2022
+
+Other:
+
+* Fixes compliance with the wordpress.org plugin guidelines.
+
+= 19.6 =
+Release Date: August 23rd, 2022
+
+Yoast SEO 19.6 is out today! In this release, we’ve rolled out some general enhancements. In addition, we’ve improved the performance of Yoast SEO on bigger, more complex sites. Read more about what's new in Yoast SEO 19.6 in [our release post in English](https://yoa.st/release-23-8-22) or [our release post in Spanish](https://yoa.st/release-23-8-22-spanish)!
+
+Bugfixes:
+
+* Fixes a bug in the Classic Editor where clicking on the SEO link inside the publish box would not always scroll the SEO analysis into view.
+* Fixes a bug where an emoji in our replacement variable editors would not be entirely removed when the backspace/delete button is hit.
+* Fixes a bug where a redirect to our installation success page could happen on admin AJAX calls.
+
+Other:
+
+* Adds a "Search engines discouraged" notification in the Yoast SEO dashboard when the "Discourage search engines from indexing this site" WordPress setting is turned on.
+* Removes the Ryte integration and deprecates all the relevant classes. More information about this can be found at [yoa.st/ryte-deprecation](https://yoa.st/ryte-deprecation).
+
+= Earlier versions =
+For the changelog of earlier versions, please refer to [the changelog on yoast.com](https://yoa.st/yoast-seo-changelog).

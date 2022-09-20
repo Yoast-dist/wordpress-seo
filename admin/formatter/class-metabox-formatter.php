@@ -53,11 +53,10 @@ class WPSEO_Metabox_Formatter {
 	 * @return array Default settings for the metabox.
 	 */
 	private function get_defaults() {
-		$analysis_seo                = new WPSEO_Metabox_Analysis_SEO();
-		$analysis_readability        = new WPSEO_Metabox_Analysis_Readability();
-		$analysis_inclusive_language = new WPSEO_Metabox_Analysis_Inclusive_Language();
-		$schema_types                = new Schema_Types();
-		$is_wincher_active           = YoastSEO()->helpers->wincher->is_active();
+		$analysis_seo         = new WPSEO_Metabox_Analysis_SEO();
+		$analysis_readability = new WPSEO_Metabox_Analysis_Readability();
+		$schema_types         = new Schema_Types();
+		$is_wincher_active    = YoastSEO()->helpers->wincher->is_active();
 
 		return [
 			'author_name'                     => get_the_author_meta( 'display_name' ),
@@ -77,7 +76,6 @@ class WPSEO_Metabox_Formatter {
 			'metadesc_template'               => '',
 			'contentAnalysisActive'           => $analysis_readability->is_enabled() ? 1 : 0,
 			'keywordAnalysisActive'           => $analysis_seo->is_enabled() ? 1 : 0,
-			'inclusiveLanguageAnalysisActive' => $analysis_inclusive_language->is_enabled() ? 1 : 0,
 			'cornerstoneActive'               => WPSEO_Options::get( 'enable_cornerstone_content', false ) ? 1 : 0,
 			'semrushIntegrationActive'        => WPSEO_Options::get( 'semrush_integration_active', true ) ? 1 : 0,
 			'intl'                            => $this->get_content_analysis_component_translations(),
@@ -96,7 +94,7 @@ class WPSEO_Metabox_Formatter {
 				'pageTypeOptions'    => $schema_types->get_page_type_options(),
 				'articleTypeOptions' => $schema_types->get_article_type_options(),
 			],
-			'twitterCardType'                 => YoastSEO()->helpers->options->get( 'twitter_card_type' ),
+			'twitterCardType'                 => 'summary_large_image',
 
 			/**
 			 * Filter to determine if the markers should be enabled or not.
@@ -162,36 +160,6 @@ class WPSEO_Metabox_Formatter {
 						/* translators: %1$s expands to the opening anchor tag, %2$s to the closing anchor tag, %3$s to the readability score. */
 							__( '%1$sReadability%2$s: %3$s', 'wordpress-seo' ),
 							'<a href="#yoast-readability-analysis-collapsible-metabox">',
-							'</a>',
-							'<strong>' . __( 'Good', 'wordpress-seo' ) . '</strong>'
-						),
-					],
-					'inclusive-language' => [
-						'na'   => sprintf(
-						/* translators: %1$s expands to the opening anchor tag, %2$s to the closing anchor tag, %3$s to the inclusive language score. */
-							__( '%1$sInclusive language%2$s: %3$s', 'wordpress-seo' ),
-							'<a href="#yoast-inclusive-language-analysis-collapsible-metabox">',
-							'</a>',
-							'<strong>' . __( 'Not available', 'wordpress-seo' ) . '</strong>'
-						),
-						'bad'  => sprintf(
-						/* translators: %1$s expands to the opening anchor tag, %2$s to the closing anchor tag, %3$s to the inclusive language score. */
-							__( '%1$sInclusive language%2$s: %3$s', 'wordpress-seo' ),
-							'<a href="#yoast-inclusive-language-analysis-collapsible-metabox">',
-							'</a>',
-							'<strong>' . __( 'Needs improvement', 'wordpress-seo' ) . '</strong>'
-						),
-						'ok'   => sprintf(
-						/* translators: %1$s expands to the opening anchor tag, %2$s to the closing anchor tag, %3$s to the inclusive language score. */
-							__( '%1$sInclusive language%2$s: %3$s', 'wordpress-seo' ),
-							'<a href="#yoast-inclusive-language-analysis-collapsible-metabox">',
-							'</a>',
-							'<strong>' . __( 'OK', 'wordpress-seo' ) . '</strong>'
-						),
-						'good' => sprintf(
-						/* translators: %1$s expands to the opening anchor tag, %2$s to the closing anchor tag, %3$s to the inclusive language score. */
-							__( '%1$sInclusive language%2$s: %3$s', 'wordpress-seo' ),
-							'<a href="#yoast-inclusive-language-analysis-collapsible-metabox">',
 							'</a>',
 							'<strong>' . __( 'Good', 'wordpress-seo' ) . '</strong>'
 						),

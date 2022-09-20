@@ -194,12 +194,6 @@ class Settings_Integration implements Integration_Interface {
 	 * @return void
 	 */
 	public function register_hooks() {
-		// Suppress notifications.
-		\remove_all_actions( 'admin_notices' );
-		\remove_all_actions( 'user_admin_notices' );
-		\remove_all_actions( 'network_admin_notices' );
-		\remove_all_actions( 'all_admin_notices' );
-
 		// Add page.
 		\add_filter( 'wpseo_submenu_pages', [ $this, 'add_page' ] );
 		\add_filter( 'admin_menu', [ $this, 'add_settings_saved_page' ] );
@@ -211,6 +205,7 @@ class Settings_Integration implements Integration_Interface {
 
 			if ( $post_action === 'update' && $option_page === 'wpseo_settings' ) {
 				\add_action( 'admin_init', [ $this, 'register_setting' ] );
+				\add_action( 'in_admin_header', [ $this, 'remove_notices' ], \PHP_INT_MAX );
 			}
 
 			return;
@@ -220,6 +215,7 @@ class Settings_Integration implements Integration_Interface {
 		if ( $this->current_page_helper->get_current_yoast_seo_page() === 'wpseo_settings' ) {
 			\add_action( 'admin_init', [ $this, 'register_setting' ] );
 			\add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
+			\add_action( 'in_admin_header', [ $this, 'remove_notices' ], \PHP_INT_MAX );
 		}
 	}
 
@@ -311,6 +307,18 @@ class Settings_Integration implements Integration_Interface {
 	}
 
 	/**
+	 * Removes all current WP notices.
+	 *
+	 * @return void
+	 */
+	public function remove_notices() {
+		\remove_all_actions( 'admin_notices' );
+		\remove_all_actions( 'user_admin_notices' );
+		\remove_all_actions( 'network_admin_notices' );
+		\remove_all_actions( 'all_admin_notices' );
+	}
+
+	/**
 	 * Creates the script data.
 	 *
 	 * @return array The script data.
@@ -333,6 +341,7 @@ class Settings_Integration implements Integration_Interface {
 			'linkParams'           => WPSEO_Shortlinker::get_query_params(),
 			'postTypes'            => $transformed_post_types,
 			'taxonomies'           => $this->transform_taxonomies( $taxonomies, \array_keys( $transformed_post_types ) ),
+			'fallbacks'            => $this->get_fallbacks(),
 		];
 	}
 
@@ -357,6 +366,7 @@ class Settings_Integration implements Integration_Interface {
 			'isNetworkAdmin'                => \is_network_admin(),
 			'isMainSite'                    => \is_main_site(),
 			'isWooCommerceActive'           => $this->woocommerce_helper->is_active(),
+			'isLocalSeoActive'              => (bool) \defined( 'WPSEO_LOCAL_FILE' ),
 			'siteUrl'                       => \get_bloginfo( 'url' ),
 			'sitemapUrl'                    => WPSEO_Sitemaps_Router::get_base_url( 'sitemap_index.xml' ),
 			'hasWooCommerceShopPage'        => $shop_page_id !== -1,
@@ -367,6 +377,7 @@ class Settings_Integration implements Integration_Interface {
 			'homepagePostsEditUrl'          => \get_edit_post_link( $page_for_posts, 'js' ),
 			'editUserUrl'                   => \admin_url( 'user-edit.php' ),
 			'generalSettingsUrl'            => \admin_url( 'options-general.php' ),
+			'companyOrPersonMessage'        => \apply_filters( 'wpseo_knowledge_graph_setting_msg', '' ),
 		];
 	}
 
@@ -561,5 +572,24 @@ class Settings_Integration implements Integration_Interface {
 		}
 
 		return $route;
+	}
+
+	/**
+	 * Retrieves the fallbacks.
+	 *
+	 * @return array The fallbacks.
+	 */
+	protected function get_fallbacks() {
+		$site_logo_id = \get_option( 'site_logo' );
+		if ( ! $site_logo_id ) {
+			$site_logo_id = \get_theme_mod( 'custom_logo' );
+		}
+		if ( ! $site_logo_id ) {
+			$site_logo_id = '0';
+		}
+
+		return [
+			'siteLogoId' => $site_logo_id,
+		];
 	}
 }

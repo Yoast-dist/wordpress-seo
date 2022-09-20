@@ -90,7 +90,7 @@ class Yoast_Feature_Toggles {
 			(object) [
 				'name'                => __( 'Inclusive language analysis', 'wordpress-seo' ),
 				'premium'             => true,
-				'premium_version'     => '19.2-RC1',
+				'premium_version'     => '19.2.1-RC0',
 				'in_beta'             => true,
 				'supported_languages' => Language_Helper::$languages_with_inclusive_language_support,
 				'setting'             => 'inclusive_language_analysis_active',
@@ -130,7 +130,7 @@ class Yoast_Feature_Toggles {
 				'name'               => __( 'Link suggestions', 'wordpress-seo' ),
 				'premium'            => true,
 				'setting'            => 'enable_link_suggestions',
-				'label'              => __( 'Get relevant internal linking suggestions  — while you’re writing! The link suggestions metabox shows a list of posts on your blog with similar content that might be interesting to link to. ', 'wordpress-seo' ),
+				'label'              => __( 'Get relevant internal linking suggestions — while you’re writing! The link suggestions metabox shows a list of posts on your blog with similar content that might be interesting to link to. ', 'wordpress-seo' ),
 				'read_more_label'    => __( 'Read more about how internal linking can improve your site structure.', 'wordpress-seo' ),
 				'read_more_url'      => 'https://yoa.st/4ev',
 				'premium_url'        => 'https://yoa.st/17g',
