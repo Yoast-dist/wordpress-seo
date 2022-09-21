@@ -244,8 +244,6 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 = 19.8 =
 Release Date: October 4th, 2022
 
-
-
 Enhancements:
 
 * Adds a `X-Robots-Tag: noindex, follow` header to all comment feeds to prevent them from being indexed, reducing duplicate content.
@@ -256,15 +254,14 @@ Bugfixes:
 
 * Fixes a bug where a fatal error would be thrown when the `php_uname()` function is disabled by the web hosting provider and usage tracking is enabled.
 * Fixes a bug where `ListItem` entries would be output in a `BreadcrumbList` even if their text was empty, resulting in Schema validation errors.
-* Fixes a bug where `noindex, nofollow` would not be displayed when `wpseo_robots` filter is set to `false`.
-* Fixes a bug where robots meta would be synchronized between multilingual contents when using a plugin like WPML or Polylang.
 * Fixes a bug where the query parameters from an image URL would be omitted in the sitemap.xml.
+* Fixes a bug where robots meta tags would be unintentionally synchronized between pages in different languages when using multilingual plugins like WPML or Polylang.
+* Fixes a bug where passing __false to the wpseo_robots filter would result in a max-image-preview:large robots meta directive instead of the desired noindex, nofollow directive.
 
 Other:
 
-* Add a setting for disabling crawling of search URLs.
+* Outputs `summary_large_image` for all `twitter:card` meta tags, because it's the only supported format by Twitter.
 * Deprecates the `wpseo_twitter_card_type` filter.
-* Forces the use of the large card, which is the only supported format by Twitter.
 
 = 19.7.1 =
 Release Date: September 20th, 2022
