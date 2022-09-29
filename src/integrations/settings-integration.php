@@ -27,6 +27,8 @@ use Yoast\WP\SEO\Integrations\Admin\Social_Profiles_Helper;
  */
 class Settings_Integration implements Integration_Interface {
 
+	const PAGE = 'wpseo_settings';
+
 	/**
 	 * Holds the included WordPress options.
 	 *
@@ -205,7 +207,7 @@ class Settings_Integration implements Integration_Interface {
 			$post_action = \filter_input( \INPUT_POST, 'action', \FILTER_SANITIZE_STRING );
 			$option_page = \filter_input( \INPUT_POST, 'option_page', \FILTER_SANITIZE_STRING );
 
-			if ( $post_action === 'update' && $option_page === 'wpseo_settings' ) {
+			if ( $post_action === 'update' && $option_page === self::PAGE ) {
 				\add_action( 'admin_init', [ $this, 'register_setting' ] );
 				\add_action( 'in_admin_header', [ $this, 'remove_notices' ], \PHP_INT_MAX );
 			}
@@ -214,7 +216,7 @@ class Settings_Integration implements Integration_Interface {
 		}
 
 		// Are we on the settings page?
-		if ( $this->current_page_helper->get_current_yoast_seo_page() === 'wpseo_settings' ) {
+		if ( $this->current_page_helper->get_current_yoast_seo_page() === self::PAGE ) {
 			\add_action( 'admin_init', [ $this, 'register_setting' ] );
 			\add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
 			\add_action( 'in_admin_header', [ $this, 'remove_notices' ], \PHP_INT_MAX );
@@ -229,11 +231,14 @@ class Settings_Integration implements Integration_Interface {
 	public function register_setting() {
 		foreach ( WPSEO_Options::$options as $name => $instance ) {
 			if ( \in_array( $name, self::ALLOWED_OPTION_GROUPS, true ) ) {
-				\register_setting( 'wpseo_settings', $name );
+				\register_setting( self::PAGE, $name );
 			}
 		}
-		foreach ( self::WP_OPTIONS as $name ) {
-			\register_setting( 'wpseo_settings', $name );
+		// Only register WP options when the user is allowed to manage them.
+		if ( \current_user_can( 'manage_options' ) ) {
+			foreach ( self::WP_OPTIONS as $name ) {
+				\register_setting( self::PAGE, $name );
+			}
 		}
 	}
 
@@ -255,7 +260,7 @@ class Settings_Integration implements Integration_Interface {
 					'',
 					\__( 'Settings', 'wordpress-seo' ),
 					'wpseo_manage_options',
-					'wpseo_settings',
+					self::PAGE,
 					[ $this, 'display_page' ],
 				],
 			]
@@ -279,7 +284,7 @@ class Settings_Integration implements Integration_Interface {
 			'',
 			null,
 			'wpseo_manage_options',
-			'wpseo_settings_saved',
+			self::PAGE . '_saved',
 			static function () {
 			}
 		);
@@ -337,7 +342,7 @@ class Settings_Integration implements Integration_Interface {
 			'defaultSettings'      => $default_settings,
 			'disabledSettings'     => $this->get_disabled_settings( $settings ),
 			'endpoint'             => \admin_url( 'options.php' ),
-			'nonce'                => \wp_create_nonce( 'wpseo_settings-options' ),
+			'nonce'                => \wp_create_nonce( self::PAGE . '-options' ),
 			'separators'           => WPSEO_Option_Titles::get_instance()->get_separator_options_for_display(),
 			'replacementVariables' => $this->get_replacement_variables(),
 			'schema'               => $this->get_schema( $transformed_post_types ),
@@ -382,6 +387,9 @@ class Settings_Integration implements Integration_Interface {
 			'editUserUrl'                   => \admin_url( 'user-edit.php' ),
 			'generalSettingsUrl'            => \admin_url( 'options-general.php' ),
 			'companyOrPersonMessage'        => \apply_filters( 'wpseo_knowledge_graph_setting_msg', '' ),
+			'currentUserId'                 => \get_current_user_id(),
+			'canEditUsers'                  => \current_user_can( 'edit_users' ),
+			'canManageOptions'              => \current_user_can( 'manage_options' ),
 		];
 	}
 
