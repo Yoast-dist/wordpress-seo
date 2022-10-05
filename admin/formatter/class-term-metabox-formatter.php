@@ -130,9 +130,7 @@ class WPSEO_Term_Metabox_Formatter implements WPSEO_Metabox_Formatter_Interface 
 
 		$base_url = home_url( '/', null );
 		if ( ! WPSEO_Options::get( 'stripcategorybase', false ) ) {
-			if ( $this->taxonomy->rewrite ) {
-				$base_url = trailingslashit( $base_url . $this->taxonomy->rewrite['slug'] );
-			}
+			$base_url = trailingslashit( $base_url . $this->taxonomy->rewrite['slug'] );
 		}
 
 		return $base_url;

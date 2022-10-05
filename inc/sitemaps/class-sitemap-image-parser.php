@@ -199,12 +199,7 @@ class WPSEO_Sitemap_Image_Parser {
 				&& preg_match( '|wp-image-(?P<id>\d+)|', $class, $matches )
 				&& get_post_status( $matches['id'] )
 			) {
-				$query_params = wp_parse_url( $src, PHP_URL_QUERY );
-				$src          = $this->image_url( $matches['id'] );
-
-				if ( $query_params ) {
-					$src = $src . '?' . $query_params;
-				}
+				$src = $this->image_url( $matches['id'] );
 			}
 
 			$src = $this->get_absolute_url( $src );
