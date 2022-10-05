@@ -472,7 +472,7 @@ class Meta_Tags_Context extends Abstract_Presentation {
 	 * @return string The twitter card type.
 	 */
 	public function generate_twitter_card() {
-		return $this->options->get( 'twitter_card_type' );
+		return 'summary_large_image';
 	}
 
 	/**
@@ -622,6 +622,10 @@ class Meta_Tags_Context extends Abstract_Presentation {
 			case \is_date():
 			case \is_post_type_archive():
 				if ( ! empty( $GLOBALS['wp_query']->posts ) ) {
+					if ( $GLOBALS['wp_query']->get( 'fields', 'all' ) === 'ids' ) {
+						return $this->get_singular_post_image( $GLOBALS['wp_query']->posts[0] );
+					}
+
 					return $this->get_singular_post_image( $GLOBALS['wp_query']->posts[0]->ID );
 				}
 				return null;
