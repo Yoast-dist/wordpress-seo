@@ -286,6 +286,9 @@ class Settings_Integration implements Integration_Interface {
 			'wpseo_manage_options',
 			self::PAGE . '_saved',
 			static function () {
+				// Add success indication to HTML response.
+				$success = empty( \get_settings_errors() ) ? 'true' : 'false';
+				echo \esc_html( "{{ yoast-success: $success }}" );
 			}
 		);
 
@@ -390,6 +393,7 @@ class Settings_Integration implements Integration_Interface {
 			'currentUserId'                 => \get_current_user_id(),
 			'canEditUsers'                  => \current_user_can( 'edit_users' ),
 			'canManageOptions'              => \current_user_can( 'manage_options' ),
+			'pluginUrl'                     => \plugins_url( '', \WPSEO_FILE ),
 		];
 	}
 
@@ -410,7 +414,7 @@ class Settings_Integration implements Integration_Interface {
 		}
 		// Add WP settings.
 		foreach ( self::WP_OPTIONS as $option_name ) {
-			$defaults[ $option_name ] = "";
+			$defaults[ $option_name ] = '';
 		}
 		// Add person social profiles.
 		$defaults['person_social_profiles'] = $this->social_profiles_helper->get_person_social_profiles( false );
@@ -613,7 +617,7 @@ class Settings_Integration implements Integration_Interface {
 			return \strnatcmp( $a['label'], $b['label'] );
 		}
 
-		return ( $a['menuPosition'] < $b['menuPosition'] ) ? -1 : 1;
+		return ( ( $a['menuPosition'] < $b['menuPosition'] ) ? -1 : 1 );
 	}
 
 	/**
@@ -641,9 +645,12 @@ class Settings_Integration implements Integration_Interface {
 			];
 		}
 
-		\uasort( $transformed, static function ( $a, $b ) {
-			return \strnatcmp( $a['label'], $b['label'] );
-		} );
+		\uasort(
+			$transformed,
+			static function ( $a, $b ) {
+				return \strnatcmp( $a['label'], $b['label'] );
+			}
+		);
 
 		return $transformed;
 	}
