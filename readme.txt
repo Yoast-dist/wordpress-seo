@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.0
-Stable tag: 19.9-RC3
+Stable tag: 19.9-RC4
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -251,26 +251,26 @@ Release Date: October 25th, 2022
 
 
 
+
 Enhancements:
 
 * Adds immediate keyphrase tracking after connecting to Wincher.
-* Google introduced new support for [site names in Google Search](https://developers.google.com/search/blog/2022/10/introducing-site-names-on-search). Yoast SEO already outputs this value correctly, using the WordPress site name. With this change we have increased the control site owners have over this value by adding input fields to overwrite the site name, as well as an extra input field for a (potentially shorter) alternate name.
-* If no social profiles have been added for an Organization, we no longer output an empty array.
+* Adds input fields to overwrite the site name, as well as an extra input field for a (potentially shorter) alternate name. Google introduced new support for [site names in Google Search](https://developers.google.com/search/blog/2022/10/introducing-site-names-on-search). Yoast SEO already outputs this value correctly, using the WordPress site name. With these changes, we have increased the control site owners have over this value.
+* No longer outputs an empty array if no social profiles have been added for an Organization.
 
 Bugfixes:
 
 * Fixes a bug where a fatal error would be thrown when using the `wpseo_breadcrumb_links` filter in the wrong way on PHP 8.0+.
 * Fixes a bug where changes in the replacement variables (e.g. the value of the `%%title%%` replacement variable when the post title changes) would not be reflected in the Meta description length, the SEO title width, and the Keyphrase in SEO title assessments.
-* Fixes a bug where social or canonical URLs containing `@` would lead to encoding issues. Props to @stodorovic.
+* Fixes a bug where social or canonical URLs containing `@` would lead to encoding issues. Props to [@stodorovic](https://github.com/stodorovic).
 * Fixes a bug where the buttons in the FAQ and in the How-To block would be hardly visible when using a dark theme.
 * Fixes a bug where the number of words would be counted incorrectly when using Cyrillic script.
 * Fixes a bug where the _previously used keyphrase_ assessment would also appear under the readability analysis tab when the cornerstone content toggle would be switched on.
 * Fixes a bug where the wrong canonical URL would be set on attachment pages.
-* Fixes a bug where Yoast SEO would conflict with Elementor, when Yoast Premium or Yoast News or Yoast Video is active, throwing console errors.
 
 Other:
 
-* Adds taxonomy information to breadcrumbs of type \"term\" to be able to filter them better with the`wpseo_breadcrumb_links` filter. Props to [@svenvonarx](https://github.com/Yoast/wordpress-seo/pull/18391).
+* Adds taxonomy information to breadcrumbs of type \"term\" to be able to filter them better with the `wpseo_breadcrumb_links` filter. Props to [@svenvonarx](https://github.com/Yoast/wordpress-seo/pull/18391).
 * Adds the possibility to use primary category in post URL at additional admin pages using filter.
 * Reinstates the `wpseo_twitter_card_type` filter that was wrongly deprecated in 19.8.
 
