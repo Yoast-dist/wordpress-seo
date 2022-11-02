@@ -11,7 +11,6 @@ use Yoast\WP\SEO\Helpers\Post_Type_Helper;
 use Yoast\WP\SEO\Models\Indexable;
 use Yoast\WP\SEO\Repositories\Indexable_Repository;
 use Yoast\WP\SEO\Values\Indexables\Indexable_Builder_Versions;
-use Yoast\WP\SEO\Exceptions\Indexable\Post_Not_Built_Exception;
 
 /**
  * Post Builder for the indexables.
@@ -97,11 +96,10 @@ class Indexable_Post_Builder {
 	 * @return bool|Indexable The extended indexable. False when unable to build.
 	 *
 	 * @throws Post_Not_Found_Exception When the post could not be found.
-	 * @throws Post_Not_Built_Exception When the post should not be indexed.
 	 */
 	public function build( $post_id, $indexable ) {
 		if ( ! $this->post_helper->is_post_indexable( $post_id ) ) {
-			throw Post_Not_Built_Exception::because_not_indexable( $post_id );
+			return false;
 		}
 
 		$post = $this->post_helper->get_post( $post_id );
@@ -111,7 +109,7 @@ class Indexable_Post_Builder {
 		}
 
 		if ( $this->should_exclude_post( $post ) ) {
-			throw Post_Not_Built_Exception::because_post_type_excluded( $post_id );
+			return false;
 		}
 
 		$indexable->object_id       = $post_id;

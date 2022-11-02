@@ -5,6 +5,7 @@
  * @package WPSEO\XML_Sitemaps
  */
 
+use Yoast\WP\SEO\Helpers\Author_Archive_Helper;
 use Yoast\WP\SEO\Helpers\Wordpress_Helper;
 
 /**
@@ -130,7 +131,8 @@ class WPSEO_Author_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 
 		if ( WPSEO_Options::get( 'noindex-author-noposts-wpseo', true ) ) {
 			unset( $defaults['who'], $defaults['capability'] ); // Otherwise it cancels out next argument.
-			$defaults['has_published_posts'] = YoastSEO()->helpers->author_archive->get_author_archive_post_types();
+			$author_archive                  = new Author_Archive_Helper();
+			$defaults['has_published_posts'] = $author_archive->get_author_archive_post_types();
 		}
 
 		return get_users( array_merge( $defaults, $arguments ) );
