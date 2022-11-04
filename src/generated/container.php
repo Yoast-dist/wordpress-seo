@@ -318,7 +318,6 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\third_party\\wordproof_integration_toggle' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wordproof_Integration_Toggle',
             'yoast\\wp\\seo\\integrations\\third_party\\wpml' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\WPML',
             'yoast\\wp\\seo\\integrations\\third_party\\wpml_wpseo_notification' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\WPML_WPSEO_Notification',
-            'yoast\\wp\\seo\\integrations\\third_party\\zapier_free' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Zapier_Free',
             'yoast\\wp\\seo\\integrations\\uninstall_integration' => 'Yoast\\WP\\SEO\\Integrations\\Uninstall_Integration',
             'yoast\\wp\\seo\\integrations\\watchers\\addon_update_watcher' => 'Yoast\\WP\\SEO\\Integrations\\Watchers\\Addon_Update_Watcher',
             'yoast\\wp\\seo\\integrations\\watchers\\auto_update_watcher' => 'Yoast\\WP\\SEO\\Integrations\\Watchers\\Auto_Update_Watcher',
@@ -710,7 +709,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Woocommerce_Permalinks' => 'getWoocommercePermalinksService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wordproof' => 'getWordproofService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wordproof_Integration_Toggle' => 'getWordproofIntegrationToggleService',
-            'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Zapier_Free' => 'getZapierFreeService',
             'Yoast\\WP\\SEO\\Integrations\\Uninstall_Integration' => 'getUninstallIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Watchers\\Addon_Update_Watcher' => 'getAddonUpdateWatcherService',
             'Yoast\\WP\\SEO\\Integrations\\Watchers\\Auto_Update_Watcher' => 'getAutoUpdateWatcherService',
@@ -4056,16 +4054,6 @@ class Cached_Container extends Container
     }
 
     /**
-     * Gets the public 'Yoast\WP\SEO\Integrations\Third_Party\Zapier_Free' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Integrations\Third_Party\Zapier_Free
-     */
-    protected function getZapierFreeService()
-    {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Third_Party\\Zapier_Free'] = new \Yoast\WP\SEO\Integrations\Third_Party\Zapier_Free();
-    }
-
-    /**
      * Gets the public 'Yoast\WP\SEO\Integrations\Uninstall_Integration' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Integrations\Uninstall_Integration
@@ -4425,7 +4413,6 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wordproof');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\WPML_WPSEO_Notification');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\WPML');
-        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Zapier_Free');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Uninstall_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Watchers\\Addon_Update_Watcher');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Watchers\\Auto_Update_Watcher');
