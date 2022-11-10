@@ -204,8 +204,10 @@ class Settings_Integration implements Integration_Interface {
 
 		// Are we saving the settings?
 		if ( $this->current_page_helper->get_current_admin_page() === 'options.php' ) {
-			$post_action = \filter_input( \INPUT_POST, 'action', \FILTER_SANITIZE_STRING );
-			$option_page = \filter_input( \INPUT_POST, 'option_page', \FILTER_SANITIZE_STRING );
+			// phpcs:disable WordPress.PHP.NoSilencedErrors.Discouraged -- This deprecation will be addressed later.
+			$post_action = \filter_input( \INPUT_POST, 'action', @\FILTER_SANITIZE_STRING );
+			$option_page = \filter_input( \INPUT_POST, 'option_page', @\FILTER_SANITIZE_STRING );
+			// phpcs:enable
 
 			if ( $post_action === 'update' && $option_page === self::PAGE ) {
 				\add_action( 'admin_init', [ $this, 'register_setting' ] );
@@ -334,13 +336,11 @@ class Settings_Integration implements Integration_Interface {
 	 * @return array The script data.
 	 */
 	protected function get_script_data() {
-		$default_settings         = $this->get_default_settings();
-		$settings                 = $this->get_settings( $default_settings );
-		$post_types               = $this->post_type_helper->get_public_post_types( 'objects' );
-		$taxonomies               = $this->taxonomy_helper->get_public_taxonomies( 'objects' );
-		$transformed_post_types   = $this->transform_post_types( $post_types );
-
-		// var_dump( $this->social_profiles_helper->get_supported_person_social_profiles_fields() );
+		$default_settings       = $this->get_default_settings();
+		$settings               = $this->get_settings( $default_settings );
+		$post_types             = $this->post_type_helper->get_public_post_types( 'objects' );
+		$taxonomies             = $this->taxonomy_helper->get_public_taxonomies( 'objects' );
+		$transformed_post_types = $this->transform_post_types( $post_types );
 
 		return [
 			'settings'             => $this->transform_settings( $settings ),
@@ -491,7 +491,7 @@ class Settings_Integration implements Integration_Interface {
 		/**
 		 * Decode some WP options.
 		 */
-		$settings['blogname'] = \html_entity_decode(
+		$settings['blogname']        = \html_entity_decode(
 			$settings['blogname'],
 			( \ENT_NOQUOTES | \ENT_HTML5 ),
 			'UTF-8'
@@ -690,8 +690,8 @@ class Settings_Integration implements Integration_Interface {
 			$route = $rest_base;
 		}
 		// Always strip leading slashes.
-		while ( substr( $route, 0, 1 ) === '/' ) {
-			$route = substr( $route, 1 );
+		while ( \substr( $route, 0, 1 ) === '/' ) {
+			$route = \substr( $route, 1 );
 		}
 
 		return $route;
