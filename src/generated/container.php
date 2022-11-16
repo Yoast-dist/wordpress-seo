@@ -1902,9 +1902,13 @@ class Cached_Container extends Container
      * Gets the public 'Yoast\WP\SEO\Conditionals\The_Events_Calendar_Conditional' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Conditionals\The_Events_Calendar_Conditional
+     *
+     * @deprecated Yoast\WP\SEO\Conditionals\The_Events_Calendar_Conditional is deprecated since version 19.12!
      */
     protected function getTheEventsCalendarConditionalService()
     {
+        @trigger_error('Yoast\\WP\\SEO\\Conditionals\\The_Events_Calendar_Conditional is deprecated since version 19.12!', E_USER_DEPRECATED);
+
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\The_Events_Calendar_Conditional'] = new \Yoast\WP\SEO\Conditionals\The_Events_Calendar_Conditional();
     }
 
@@ -2622,9 +2626,13 @@ class Cached_Container extends Container
      * Gets the public 'Yoast\WP\SEO\Generators\Schema\Third_Party\Events_Calendar_Schema' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Generators\Schema\Third_Party\Events_Calendar_Schema
+     *
+     * @deprecated Yoast\WP\SEO\Generators\Schema\Third_Party\Events_Calendar_Schema is deprecated since version 19.12!
      */
     protected function getEventsCalendarSchemaService()
     {
+        @trigger_error('Yoast\\WP\\SEO\\Generators\\Schema\\Third_Party\\Events_Calendar_Schema is deprecated since version 19.12!', E_USER_DEPRECATED);
+
         return $this->services['Yoast\\WP\\SEO\\Generators\\Schema\\Third_Party\\Events_Calendar_Schema'] = new \Yoast\WP\SEO\Generators\Schema\Third_Party\Events_Calendar_Schema();
     }
 
@@ -3953,9 +3961,13 @@ class Cached_Container extends Container
      * Gets the public 'Yoast\WP\SEO\Integrations\Third_Party\The_Events_Calendar' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Integrations\Third_Party\The_Events_Calendar
+     *
+     * @deprecated Yoast\WP\SEO\Integrations\Third_Party\The_Events_Calendar is deprecated since version 19.12!
      */
     protected function getTheEventsCalendarService()
     {
+        @trigger_error('Yoast\\WP\\SEO\\Integrations\\Third_Party\\The_Events_Calendar is deprecated since version 19.12!', E_USER_DEPRECATED);
+
         return $this->services['Yoast\\WP\\SEO\\Integrations\\Third_Party\\The_Events_Calendar'] = new \Yoast\WP\SEO\Integrations\Third_Party\The_Events_Calendar();
     }
 
@@ -4428,7 +4440,6 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Exclude_Elementor_Post_Types');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Exclude_WooCommerce_Post_Types');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Jetpack');
-        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\The_Events_Calendar');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\W3_Total_Cache');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Web_Stories_Post_Edit');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Web_Stories');
