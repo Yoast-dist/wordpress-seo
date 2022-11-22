@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.1
-Stable tag: 19.11-RC8
+Stable tag: 19.10
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -251,7 +251,7 @@ Release date: November 29th, 2022
 
 #### Enhancements
 
-* Adds a WP-CLI command to cleanup unused data from our custom database tables:`wp yoast cleanup`
+* Adds a WP-CLI command to clean up unused data from our custom database tables: `wp yoast cleanup`.
 
 #### Bugfixes
 
@@ -262,6 +262,9 @@ Release date: November 29th, 2022
 * Fixes a bug where indexables for users would not get removed when author archives were disabled.
 * Fixes a bug where indexables would be created for users when author archives were disabled.
 * Fixes a bug where indexables would be created for users who did not have any publicly viewable posts.
+
+#### Other
+
 * Introduces the `wpseo_indexable_excluded_taxonomies` filter, to allow manually excluding taxonomies from being indexed.
 
 ## 19.10
