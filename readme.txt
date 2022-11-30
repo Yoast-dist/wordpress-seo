@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.1
-Stable tag: 19.12-RC1
+Stable tag: 19.12-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -254,12 +254,14 @@ Release date: December 13th, 2022
 * Adds a new `Schema API` section to the `Integrations` page.
 * Adds a new `Website name` text field in the `Site Representation` step of the `First-time configuration`.
 * Adds an integration card for `The Events Calendar`.
+* Adds a Schema integration card for the [Seriously Simple Podcasting](https://wordpress.org/plugins/seriously-simple-podcasting/) and the [WP Recipe Maker](https://it.wordpress.org/plugins/wp-recipe-maker/) plugins.
 * Adds highlighting for the _subheading distribution_ assessment.
-* Improves the first time configuration styling.
+* Improves the `First-time configuration` styling.
+* Improves the Integrations page to explain more clearly the different types of integrations.
 * Improves the _subheading distribution_ assessment by also targeting long content before the first subheading.
 * Improves the _transition words_ assessment for Arabic by removing some transition words.
-* Improve the Yoast admin bar menu with more functionality and better links.
-* Moves the _inclusive language_ analysis from Premium to Free.
+* Improves the Yoast admin bar menu with more functionality and better links.
+* Moves the inclusive language analysis from Premium to Free.
 * Removes a notification that prompts users to help with translating the plugin in the language of the site.
 
 #### Bugfixes
@@ -271,21 +273,20 @@ Release date: December 13th, 2022
 * Fixes a bug where the Baidu Webmaster Tools link would go to the wrong page. Props to [@SavPhill](https://github.com/SavPhill).
 * Fixes a bug where the content analysis would not load when editing web stories in the Web Stories plug-in.
 * Fixes a bug where the highlighting functionality would not be working when highlighting content in lists items in the Block editor in WordPress 6.1.
-* Fixes a bug where the `<title>` tag could be missing when publishing a story with the Web Stories plugin. Props to [@swissspidy](https://github.com/swissspidy).
-* Improved line ending handling for robots.txt contents.
+* Fixes a bug where the `<title>` tag would potentially be missing when publishing a story with the Web Stories plugin. Props to [@swissspidy](https://github.com/swissspidy).
+* Improves line ending handling for `robots.txt` contents.
 
 #### Other
 
 * Adds documentation on GitHub about the inclusive language analysis.
-* Allow using the `yoast_seo_development_mode` to override the `wp_get_environment_type()` result to `production`.
+* Allows using the `yoast_seo_development_mode` to override the `wp_get_environment_type()` result to `production`.
 * Corrects the documentation on GitHub about morphology support.
-* Deprecates the integration with The Events Calendar plugin, following the release of its version 6.0.4 which integrates with Yoast SEO.
-* Disallow setting or unsetting any dynamic properties on Abstract_Main.
-* Improve compatibility with PHP 8.2
-* Improved PHP 8.2 compatibility
+* Deprecates the integration with the `The Events Calendar` plugin, following the release of its version 6.0.4 which integrates with Yoast SEO.
+* Disallows setting or unsetting any dynamic properties on `Abstract_Main`.
 * Improve PHP 8.2 compatibility
-* Introduces a notice on the WordPress dashboard and the Yoast SEO dashboard to let users know we're dropping support for PHP < 7.2 starting March 1st, 2023.
-* Reduce noise from PHP 8.1 deprecations
+* Improves compatibility with PHP 8.2.
+* Introduces a notice on the WordPress dashboard and the Yoast SEO dashboard to let users know we are dropping support for PHP < 7.2 starting March 1st, 2023.
+* Reduces noise from PHP 8.1 deprecations.
 * Removes the note in the readability analysis results that tells users that the _Flesch reading ease_ score has moved to the _Insights_ section.
 * Removes the Yoast i18n package.
 * Resolves a typo in the feedback string for the phrase `exotic` in the inclusive language analysis.
