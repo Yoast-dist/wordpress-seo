@@ -64,7 +64,7 @@ Object(n.__)("%1$sSocial media preview%2$s: Facebook & Twitter","wordpress-seo")
 /* translators: %s expands to 'Yoast SEO Premium'. */
 Object(n.__)("Other benefits of %s for you:","wordpress-seo"),"Yoast SEO Premium");return Object(o.createElement)(ae.a,{infoParagraphs:[s,a],benefits:r,upsellButtonText:Object(n.sprintf)(
 /* translators: %s expands to 'Yoast SEO Premium'. */
-Object(n.__)("Get %s","wordpress-seo"),"Yoast SEO Premium"),upsellButton:{href:e.buyLink,className:"yoast-button-upsell",rel:null},upsellButtonLabel:Object(n.__)("1 year free support and updates included!","wordpress-seo")})};le.propTypes={link:c.a.string.isRequired,buyLink:c.a.string.isRequired};var ce=le,ue=s(135);const pe=p.a.button`
+Object(n.__)("Get %s","wordpress-seo"),"Yoast SEO Premium"),upsellButton:{href:e.buyLink,className:"yoast-button-upsell",rel:null,"data-ctb-id":"57d6a568-783c-45e2-a388-847cff155897","data-action":"load-nfd-ctb"},upsellButtonLabel:Object(n.__)("1 year free support and updates included!","wordpress-seo")})};le.propTypes={link:c.a.string.isRequired,buyLink:c.a.string.isRequired};var ce=le,ue=s(135);const pe=p.a.button`
 	// Increase specificity to override WP rules.
 	&& {
 		display: flex;
