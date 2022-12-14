@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.1
-Stable tag: 19.14-RC1
+Stable tag: 19.13-RC1
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -245,24 +245,13 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 == Changelog ==
 
-= 19.14 =
+= 19.13 =
 
 Release date: December 27th, 2022
 
 #### Enhancements
 
-* Avoids a deprecation notice for the Yoast sidebar panel in the block editor.
-* Improves the accuracy of calculating text length in Japanese by excluding all spaces and HTML tags from the character count, and by including domain names.
-* Improves the inclusive language analysis by expanding the number of non-inclusive phrases recognized as well as by improving the feedback, for example by adding more inclusive alternatives or fixing inconsistencies. Specifically, this includes the following changes:
-
-#### Bugfixes
-
-* Fixes a bug where indexable hierarchy wasn't built when the Indexable is built for the first time.
-* Fixes a bug where the highlighting feature in the Classic editor would not work when inline HTML tags were present.
-
-#### Other
-
-* Sets the minimum supported WordPress version to 6.0.
+* Avoids a future incompatibility with Gutenberg rich-formatting `core/unknown` formatting style.
 
 = 19.12 =
 

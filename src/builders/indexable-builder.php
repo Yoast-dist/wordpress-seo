@@ -354,19 +354,18 @@ class Indexable_Builder {
 						return $indexable;
 					}
 
-					// Save indexable, to make sure it can be queried when building related objects like the author indexable and hierarchy.
-					$indexable = $this->save_indexable( $indexable, $indexable_before );
-
 					// Always rebuild the primary term.
 					$this->primary_term_builder->build( $indexable->object_id );
 
 					// Always rebuild the hierarchy; this needs the primary term to run correctly.
 					$this->hierarchy_builder->build( $indexable );
 
+					// Save indexable, to make sure that it can be queried when determining if an author has public posts.
+					$indexable = $this->save_indexable( $indexable, $indexable_before );
+
 					$this->maybe_build_author_indexable( $indexable->author_id );
 
-					// The indexable is already saved, so return early.
-					return $indexable;
+					break;
 
 				case 'user':
 					$indexable = $this->author_builder->build( $indexable->object_id, $indexable );
@@ -375,13 +374,8 @@ class Indexable_Builder {
 				case 'term':
 					$indexable = $this->term_builder->build( $indexable->object_id, $indexable );
 
-					// Save indexable, to make sure it can be queried when building hierarchy.
-					$indexable = $this->save_indexable( $indexable, $indexable_before );
-
 					$this->hierarchy_builder->build( $indexable );
-
-					// The indexable is already saved, so return early.
-					return $indexable;
+					break;
 
 				case 'home-page':
 					$indexable = $this->home_page_builder->build( $indexable );
