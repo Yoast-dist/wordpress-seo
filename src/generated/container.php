@@ -81,6 +81,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\conditionals\\admin\\doing_post_quick_edit_save_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Admin\\Doing_Post_Quick_Edit_Save_Conditional',
             'yoast\\wp\\seo\\conditionals\\admin\\estimated_reading_time_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Admin\\Estimated_Reading_Time_Conditional',
             'yoast\\wp\\seo\\conditionals\\admin\\licenses_page_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Admin\\Licenses_Page_Conditional',
+            'yoast\\wp\\seo\\conditionals\\admin\\non_network_admin_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Admin\\Non_Network_Admin_Conditional',
             'yoast\\wp\\seo\\conditionals\\admin\\post_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Admin\\Post_Conditional',
             'yoast\\wp\\seo\\conditionals\\admin\\posts_overview_or_ajax_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Admin\\Posts_Overview_Or_Ajax_Conditional',
             'yoast\\wp\\seo\\conditionals\\admin_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Admin_Conditional',
@@ -268,6 +269,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\admin\\migration_error_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Migration_Error_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\old_configuration_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Old_Configuration_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\old_premium_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Old_Premium_Integration',
+            'yoast\\wp\\seo\\integrations\\admin\\redirect_old_features_tab_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirect_Old_Features_Tab_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\redirects_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirects_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\social_profiles_helper' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Social_Profiles_Helper',
             'yoast\\wp\\seo\\integrations\\admin\\social_templates_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Social_Templates_Integration',
@@ -473,6 +475,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\Admin\\Doing_Post_Quick_Edit_Save_Conditional' => 'getDoingPostQuickEditSaveConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Admin\\Estimated_Reading_Time_Conditional' => 'getEstimatedReadingTimeConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Admin\\Licenses_Page_Conditional' => 'getLicensesPageConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Admin\\Non_Network_Admin_Conditional' => 'getNonNetworkAdminConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Admin\\Post_Conditional' => 'getPostConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Admin\\Posts_Overview_Or_Ajax_Conditional' => 'getPostsOverviewOrAjaxConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Admin_Conditional' => 'getAdminConditionalService',
@@ -660,6 +663,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Migration_Error_Integration' => 'getMigrationErrorIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Old_Configuration_Integration' => 'getOldConfigurationIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Old_Premium_Integration' => 'getOldPremiumIntegrationService',
+            'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirect_Old_Features_Tab_Integration' => 'getRedirectOldFeaturesTabIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirects_Integration' => 'getRedirectsIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Social_Profiles_Helper' => 'getSocialProfilesHelperService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Social_Templates_Integration' => 'getSocialTemplatesIntegrationService',
@@ -1623,6 +1627,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Admin\Non_Network_Admin_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Admin\Non_Network_Admin_Conditional
+     */
+    protected function getNonNetworkAdminConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Admin\\Non_Network_Admin_Conditional'] = new \Yoast\WP\SEO\Conditionals\Admin\Non_Network_Admin_Conditional();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Conditionals\Admin\Post_Conditional' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Conditionals\Admin\Post_Conditional
@@ -1873,7 +1887,7 @@ class Cached_Container extends Container
      */
     protected function getSettingsConditionalService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Settings_Conditional'] = new \Yoast\WP\SEO\Conditionals\Settings_Conditional(${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\New_Settings_Ui_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\New_Settings_Ui_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\New_Settings_Ui_Conditional'] = new \Yoast\WP\SEO\Conditionals\New_Settings_Ui_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\User_Can_Manage_Wpseo_Options_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\User_Can_Manage_Wpseo_Options_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\User_Can_Manage_Wpseo_Options_Conditional'] = new \Yoast\WP\SEO\Conditionals\User_Can_Manage_Wpseo_Options_Conditional())) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Settings_Conditional'] = new \Yoast\WP\SEO\Conditionals\Settings_Conditional(${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\User_Can_Manage_Wpseo_Options_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\User_Can_Manage_Wpseo_Options_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\User_Can_Manage_Wpseo_Options_Conditional'] = new \Yoast\WP\SEO\Conditionals\User_Can_Manage_Wpseo_Options_Conditional())) && false ?: '_'});
     }
 
     /**
@@ -3554,6 +3568,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\Admin\Redirect_Old_Features_Tab_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\Admin\Redirect_Old_Features_Tab_Integration
+     */
+    protected function getRedirectOldFeaturesTabIntegrationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Redirect_Old_Features_Tab_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Redirect_Old_Features_Tab_Integration(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'});
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Integrations\Admin\Redirects_Integration' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Integrations\Admin\Redirects_Integration
@@ -4413,6 +4437,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Migration_Error_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Old_Configuration_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Old_Premium_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Redirect_Old_Features_Tab_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Redirects_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Social_Templates_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Unsupported_PHP_Version');
