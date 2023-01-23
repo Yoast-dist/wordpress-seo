@@ -113,7 +113,6 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\conditionals\\the_events_calendar_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\The_Events_Calendar_Conditional',
             'yoast\\wp\\seo\\conditionals\\third_party\\coauthors_plus_activated_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\CoAuthors_Plus_Activated_Conditional',
             'yoast\\wp\\seo\\conditionals\\third_party\\coauthors_plus_flag_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\CoAuthors_Plus_Flag_Conditional',
-            'yoast\\wp\\seo\\conditionals\\third_party\\edd_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\EDD_Conditional',
             'yoast\\wp\\seo\\conditionals\\third_party\\elementor_activated_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Elementor_Activated_Conditional',
             'yoast\\wp\\seo\\conditionals\\third_party\\elementor_edit_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Elementor_Edit_Conditional',
             'yoast\\wp\\seo\\conditionals\\third_party\\polylang_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Polylang_Conditional',
@@ -309,7 +308,6 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\third_party\\amp' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\AMP',
             'yoast\\wp\\seo\\integrations\\third_party\\bbpress' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\BbPress',
             'yoast\\wp\\seo\\integrations\\third_party\\coauthors_plus' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\CoAuthors_Plus',
-            'yoast\\wp\\seo\\integrations\\third_party\\edd' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\EDD',
             'yoast\\wp\\seo\\integrations\\third_party\\elementor' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Elementor',
             'yoast\\wp\\seo\\integrations\\third_party\\exclude_elementor_post_types' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Exclude_Elementor_Post_Types',
             'yoast\\wp\\seo\\integrations\\third_party\\exclude_woocommerce_post_types' => 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Exclude_WooCommerce_Post_Types',
@@ -513,7 +511,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\The_Events_Calendar_Conditional' => 'getTheEventsCalendarConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\CoAuthors_Plus_Activated_Conditional' => 'getCoAuthorsPlusActivatedConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\CoAuthors_Plus_Flag_Conditional' => 'getCoAuthorsPlusFlagConditionalService',
-            'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\EDD_Conditional' => 'getEDDConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Elementor_Activated_Conditional' => 'getElementorActivatedConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Elementor_Edit_Conditional' => 'getElementorEditConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Polylang_Conditional' => 'getPolylangConditionalService',
@@ -709,7 +706,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\AMP' => 'getAMPService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\BbPress' => 'getBbPressService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\CoAuthors_Plus' => 'getCoAuthorsPlusService',
-            'Yoast\\WP\\SEO\\Integrations\\Third_Party\\EDD' => 'getEDDService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Elementor' => 'getElementorService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Exclude_Elementor_Post_Types' => 'getExcludeElementorPostTypesService',
             'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Exclude_WooCommerce_Post_Types' => 'getExcludeWooCommercePostTypesService',
@@ -1972,16 +1968,6 @@ class Cached_Container extends Container
         @trigger_error('Yoast\\WP\\SEO\\Conditionals\\Third_Party\\CoAuthors_Plus_Flag_Conditional is deprecated since version 19.12!', E_USER_DEPRECATED);
 
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\CoAuthors_Plus_Flag_Conditional'] = new \Yoast\WP\SEO\Conditionals\Third_Party\CoAuthors_Plus_Flag_Conditional();
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Conditionals\Third_Party\EDD_Conditional' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Conditionals\Third_Party\EDD_Conditional
-     */
-    protected function getEDDConditionalService()
-    {
-        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\EDD_Conditional'] = new \Yoast\WP\SEO\Conditionals\Third_Party\EDD_Conditional();
     }
 
     /**
@@ -4004,16 +3990,6 @@ class Cached_Container extends Container
     }
 
     /**
-     * Gets the public 'Yoast\WP\SEO\Integrations\Third_Party\EDD' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Integrations\Third_Party\EDD
-     */
-    protected function getEDDService()
-    {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Third_Party\\EDD'] = new \Yoast\WP\SEO\Integrations\Third_Party\EDD(${($_ = isset($this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface']) ? $this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface'] : $this->getMetaSurfaceService()) && false ?: '_'});
-    }
-
-    /**
      * Gets the public 'Yoast\WP\SEO\Integrations\Third_Party\Elementor' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Integrations\Third_Party\Elementor
@@ -4534,7 +4510,6 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Settings_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\AMP');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\BbPress');
-        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\EDD');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Elementor');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Exclude_Elementor_Post_Types');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Exclude_WooCommerce_Post_Types');
