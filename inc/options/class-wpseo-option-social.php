@@ -45,7 +45,6 @@ class WPSEO_Option_Social extends WPSEO_Option {
 		'youtube_url'           => '',
 		'wikipedia_url'         => '',
 		'other_social_urls'     => [],
-		'mastodon_url'          => '',
 	];
 
 	/**
@@ -152,7 +151,6 @@ class WPSEO_Option_Social extends WPSEO_Option {
 				case 'og_frontpage_image':
 				case 'youtube_url':
 				case 'wikipedia_url':
-				case 'mastodon_url':
 					$this->validate_url( $key, $dirty, $old, $clean );
 					break;
 

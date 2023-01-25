@@ -401,10 +401,9 @@ class Front_End_Integration implements Integration_Interface {
 		/**
 		 * Filter 'wpseo_frontend_presenter_classes' - Allow filtering presenters in or out of the request.
 		 *
-		 * @param array  $presenters List of presenters.
-		 * @param string $page_type  The current page type.
+		 * @api array List of presenters.
 		 */
-		$presenters = \apply_filters( 'wpseo_frontend_presenter_classes', $presenters, $page_type );
+		$presenters = \apply_filters( 'wpseo_frontend_presenter_classes', $presenters );
 
 		return $presenters;
 	}
