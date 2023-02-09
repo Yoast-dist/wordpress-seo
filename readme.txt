@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.1
-Stable tag: 20.2-RC1
+Stable tag: 20.2-RC2
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -250,6 +250,50 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 = 20.2 =
 
 Release date: 2023-02-21
+
+#### Enhancements:
+
+* Improves the Settings' search modal accessibility.
+* Improves accessibility for the extra other profiles in the Settings' Site representation when Organisation is selected.
+* Removes person's social profiles form from first time configuration.
+* Changes the copy for notices in social profiles for person.
+* Changes replacement variable name from Page number to Page in the Settings page.
+* Improves the indexables creation mechanism by avoiding duplicate unindexed entries when multiple invalid posts and terms are being used.
+* Stops creating indexables for attachments when attachment pages are disabled, thus decreasing the size of the database.
+* Improves handling of image schema creation for really large images.
+
+#### Bugfixes:
+
+* Fixes a bug where the settings page of a post type would not load when a special character like ט was added as permalink.
+
+#### Other:
+
+* Hides "Enable SEO controls and assessments" option from taxonomies that has no standard WP UI.
+* Adds a `wpseo_indexable_forced_included_post_types` filter to force creation of indexables for post types.
+
+
+#### Enhancements
+
+* Changes replacement variable name from `Page number` to `Page` in the `Settings` page.
+* Changes the copy for notices in social profiles for person.
+* Improves accessibility for the extra other profiles in the Settings' Site representation when Organisation is selected.
+* Improves handling of image schema creation for really large images.
+* Improves the indexables creation mechanism by avoiding duplicate `unindexed` entries when multiple invalid posts and terms are being used.
+* Improves the Settings' search modal accessibility.
+* Removes person's social profiles form from first time configuration.
+* Stops creating indexables for attachments when attachment pages are disabled, thus decreasing the size of the database.
+
+#### Bugfixes
+
+* Fixes a bug where a fatal error would be thrown when building a hierarchy indexable when the parent indexable did not exists.
+* Fixes a bug where a fatal error would be thrown when the post type `posts` was excluded and the post overview was visited.
+* Fixes a bug where the settings page of a post type would not load when a special character like ט was added as permalink.
+* Fixes an unreleased bug where using double quotes in an alt text of an image inside `Yoast How-to` or `Yoast FAQ` blocks would make the block crash.
+
+#### Other
+
+* Adds a `wpseo_indexable_forced_included_post_types` filter to force creation of indexables for post types.
+* Hides \"Enable SEO controls and assessments\" option from taxonomies that has no standard WP UI.
 
 = 20.1 =
 
