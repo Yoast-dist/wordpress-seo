@@ -87,7 +87,6 @@ class First_Time_Configuration_Action {
 				'status'  => 200,
 			];
 		}
-
 		return (object) [
 			'success'  => false,
 			'status'   => 500,
@@ -145,7 +144,6 @@ class First_Time_Configuration_Action {
 				'status'  => 200,
 			];
 		}
-
 		return (object) [
 			'success'  => false,
 			'status'   => 200,
@@ -182,7 +180,6 @@ class First_Time_Configuration_Action {
 		$option_value = $this->options_helper->get( 'tracking' );
 
 		if ( $option_value !== $params['tracking'] ) {
-			$this->options_helper->set( 'toggled_tracking', true );
 			$success = $this->options_helper->set( 'tracking', $params['tracking'] );
 		}
 
@@ -192,7 +189,6 @@ class First_Time_Configuration_Action {
 				'status'  => 200,
 			];
 		}
-
 		return (object) [
 			'success' => false,
 			'status'  => 500,
