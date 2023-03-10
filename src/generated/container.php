@@ -3723,7 +3723,7 @@ class Cached_Container extends Container
      */
     protected function getInternalLinkingCategoryService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Blocks\\Internal_Linking_Category'] = new \Yoast\WP\SEO\Integrations\Blocks\Internal_Linking_Category(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Wordpress_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Wordpress_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Wordpress_Helper'] = new \Yoast\WP\SEO\Helpers\Wordpress_Helper())) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Blocks\\Internal_Linking_Category'] = new \Yoast\WP\SEO\Integrations\Blocks\Internal_Linking_Category();
     }
 
     /**
