@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.1
-Stable tag: 20.4-RC2
+Stable tag: 20.4-RC3
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -258,6 +258,7 @@ Release date: 2023-03-28
 #### Bugfixes
 
 * Adds a hook to adapt the meta query used to filter the post overview based on the focus keyphrase.
+* Fixes a bug where a fatal error related to HelpScout would be thrown when using a more-than-2-year-old Yoast addon.
 * Fixes a bug where a PHP warning would be thrown when exporting Yoast settings.
 * Fixes a bug where the _previously used keyword_ assessment would potentially link to an empty page of results when the focus keyphrase had been used across different post types.
 
