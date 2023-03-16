@@ -17,9 +17,6 @@ use Yoast\WP\SEO\Routes\Indexing_Route;
 
 /**
  * Indexables_Page_Integration class
- *
- * @deprecated 20.4
- * @codeCoverageIgnore
  */
 class Indexables_Page_Integration implements Integration_Interface {
 
@@ -74,12 +71,8 @@ class Indexables_Page_Integration implements Integration_Interface {
 
 	/**
 	 * {@inheritDoc}
-	 *
-	 * @deprecated 20.4
-	 * @codeCoverageIgnore
 	 */
 	public static function get_conditionals() {
-		\_deprecated_function( __METHOD__, 'Yoast SEO 20.4' );
 		return [
 			Admin_Conditional::class,
 			Indexables_Page_Conditional::class,
@@ -106,8 +99,6 @@ class Indexables_Page_Integration implements Integration_Interface {
 		Options_Helper $options_helper,
 		Product_Helper $product_helper
 	) {
-		\_deprecated_function( __METHOD__, 'Yoast SEO 20.4' );
-
 		$this->admin_asset_manager    = $admin_asset_manager;
 		$this->addon_manager          = $addon_manager;
 		$this->shortlinker            = $shortlinker;
@@ -119,25 +110,15 @@ class Indexables_Page_Integration implements Integration_Interface {
 
 	/**
 	 * {@inheritDoc}
-	 *
-	 * @deprecated 20.4
-	 * @codeCoverageIgnore
 	 */
 	public function register_hooks() {
-		\_deprecated_function( __METHOD__, 'Yoast SEO 20.4' );
-
 		\add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
 	}
 
 	/**
 	 * Enqueues assets for the Indexables Page.
-	 *
-	 * @deprecated 20.4
-	 * @codeCoverageIgnore
 	 */
 	public function enqueue_assets() {
-		\_deprecated_function( __METHOD__, 'Yoast SEO 20.4' );
-
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Date is not processed or saved.
 		if ( ! isset( $_GET['page'] ) || $_GET['page'] !== 'wpseo_dashboard' || \is_network_admin() ) {
 			return;
@@ -202,9 +183,6 @@ class Indexables_Page_Integration implements Integration_Interface {
 	/**
 	 * Retrieves a list of the endpoints to use.
 	 *
-	 * @deprecated 20.4
-	 * @codeCoverageIgnore
-	 *
 	 * @return array The endpoints.
 	 */
 	protected function get_endpoints() {
@@ -228,9 +206,6 @@ class Indexables_Page_Integration implements Integration_Interface {
 
 	/**
 	 * The error to show if optimization failed.
-	 *
-	 * @deprecated 20.4
-	 * @codeCoverageIgnore
 	 *
 	 * @return string The error to show if optimization failed.
 	 */
