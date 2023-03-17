@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.1
-Stable tag: 20.4-RC5
+Stable tag: 20.4-RC6
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -253,7 +253,7 @@ Release date: 2023-03-28
 
 #### Enhancements
 
-* Makes the crawl optimization functionalities accessible to users of Yoast SEO.
+* NEW in Free: Adds the crawl optimization features to Yoast SEO Free, enabling 13M+ users to reduce their website's carbon footprint!
 
 #### Bugfixes
 
@@ -266,7 +266,6 @@ Release date: 2023-03-28
 #### Other
 
 * Adds Jetpack Boost to the recommended integrations.
-* Opens the upsell links for the _keyphrase distribution_ and _word complexity_ assessments in a new tab.
 
 = 20.3 =
 
