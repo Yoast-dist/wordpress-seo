@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.2
-Stable tag: 20.5-RC1
+Stable tag: 20.5-RC2
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -255,12 +255,11 @@ Release date: 2023-04-11
 
 * Cleans up indexables that got orphaned because posts/terms/users got deleted while Yoast SEO was deactivated.
 * Improves the recognition of keyphrases starting with a period (e.g., \".net developer\") by the _keyphrase in title_ assessment.
-* Updates copy of the notification centre message when you don't have a valid subscription.
-* Updates copy of the update notification when there is a new update and you don't have a valid subscription.
-* Updates mobile and desktop Google snippet previews to be in line with current Google's styling.
+* Updates mobile and desktop Google snippet previews to be in line with Google's current styling.
 
 #### Bugfixes
 
+* Fixes a bug where a fatal error would be thrown when upgrading Yoast SEO while having Local SEO active but never executed.
 * Fixes a bug where, if a content pertaining to a deleted user is re-assigned to another user, the indexables related to the deleted user are not updated with the new `author_id`
 * Fixes a bug where posts in Elementor would persistently require an update when a related keyphrase was added.
 * Fixes a bug where the Google preview would show a duplicate slug in the breadcrumbs when the slug included encoded characters.
@@ -272,8 +271,7 @@ Release date: 2023-04-11
 #### Other
 
 * Changes the last step of the `First-time configuration` to highlight the free webinar availability.
-* Drops compatibility with PHP 5.6, 7.0 and 7.1
-* Updates the copy of the `Get the most out of Yoast SEO` notification.
+* Drops compatibility with PHP 5.6, 7.0 and 7.1.
 
 = 20.4 =
 
