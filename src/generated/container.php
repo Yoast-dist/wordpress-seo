@@ -394,7 +394,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\routes\\wincher_route' => 'Yoast\\WP\\SEO\\Routes\\Wincher_Route',
             'yoast\\wp\\seo\\routes\\workouts_route' => 'Yoast\\WP\\SEO\\Routes\\Workouts_Route',
             'yoast\\wp\\seo\\routes\\yoast_head_rest_field' => 'Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field',
-            'yoast\\wp\\seo\\schema\\framework\\search_result_integration' => 'Yoast\\WP\\SEO\\Schema\\Framework\\Search_Result_Integration',
+            'yoast\\wp\\seo\\schema\\user_interface\\search_result_integration' => 'Yoast\\WP\\SEO\\Schema\\User_Interface\\Search_Result_Integration',
             'yoast\\wp\\seo\\schema_templates\\assets\\icons' => 'Yoast\\WP\\SEO\\Schema_Templates\\Assets\\Icons',
             'yoast\\wp\\seo\\services\\health_check\\default_tagline_check' => 'Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Check',
             'yoast\\wp\\seo\\services\\health_check\\default_tagline_reports' => 'Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Reports',
@@ -803,7 +803,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Routes\\Wincher_Route' => 'getWincherRouteService',
             'Yoast\\WP\\SEO\\Routes\\Workouts_Route' => 'getWorkoutsRouteService',
             'Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field' => 'getYoastHeadRESTFieldService',
-            'Yoast\\WP\\SEO\\Schema\\Framework\\Search_Result_Integration' => 'getSearchResultIntegrationService',
+            'Yoast\\WP\\SEO\\Schema\\User_Interface\\Search_Result_Integration' => 'getSearchResultIntegrationService',
             'Yoast\\WP\\SEO\\Schema_Templates\\Assets\\Icons' => 'getIconsService',
             'Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Check' => 'getDefaultTaglineCheckService',
             'Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Reports' => 'getDefaultTaglineReportsService',
@@ -4708,7 +4708,7 @@ class Cached_Container extends Container
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Wincher_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Workouts_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field');
-        $instance->register_integration('Yoast\\WP\\SEO\\Schema\\Framework\\Search_Result_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\Schema\\User_Interface\\Search_Result_Integration');
 
         return $instance;
     }
@@ -5125,13 +5125,13 @@ class Cached_Container extends Container
     }
 
     /**
-     * Gets the public 'Yoast\WP\SEO\Schema\Framework\Search_Result_Integration' shared autowired service.
+     * Gets the public 'Yoast\WP\SEO\Schema\User_Interface\Search_Result_Integration' shared autowired service.
      *
-     * @return \Yoast\WP\SEO\Schema\Framework\Search_Result_Integration
+     * @return \Yoast\WP\SEO\Schema\User_Interface\Search_Result_Integration
      */
     protected function getSearchResultIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Schema\\Framework\\Search_Result_Integration'] = new \Yoast\WP\SEO\Schema\Framework\Search_Result_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] : $this->getCurrentPageHelperService()) && false ?: '_'}, new \Yoast\WP\SEO\Schema\Application\Generate_Search_Result_Schema_Piece_Handler());
+        return $this->services['Yoast\\WP\\SEO\\Schema\\User_Interface\\Search_Result_Integration'] = new \Yoast\WP\SEO\Schema\User_Interface\Search_Result_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] : $this->getCurrentPageHelperService()) && false ?: '_'}, new \Yoast\WP\SEO\Schema\Application\Generate_Search_Result_Schema_Piece_Handler());
     }
 
     /**
