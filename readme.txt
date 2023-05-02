@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.2
-Stable tag: 20.7-RC3
+Stable tag: 20.7-RC4
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -255,6 +255,7 @@ Release date: 2023-05-09
 
 * Adds a link to a taxonomy edit page in its settings section when the taxonomy has no public post types associated.
 * Adds an academy page in the Yoast menu.
+* Ensures compatibility with upcoming Elementor accessibility improvements.
 
 #### Bugfixes
 
