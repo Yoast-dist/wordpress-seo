@@ -2,11 +2,12 @@
 
 namespace Yoast\WP\SEO\Repositories;
 
-use Yoast\WP\Lib\ORM;
+use mysqli_result;
 use Yoast\WP\Lib\Model;
-use Yoast\WP\SEO\Helpers\Taxonomy_Helper;
-use Yoast\WP\SEO\Helpers\Post_Type_Helper;
+use Yoast\WP\Lib\ORM;
 use Yoast\WP\SEO\Helpers\Author_Archive_Helper;
+use Yoast\WP\SEO\Helpers\Post_Type_Helper;
+use Yoast\WP\SEO\Helpers\Taxonomy_Helper;
 
 /**
  * Repository containing all cleanup queries.
@@ -422,7 +423,7 @@ class Indexable_Cleanup_Repository {
 	/**
 	 * Counts total amount of indexables for authors without archives.
 	 *
-	 * @return bool|int|\mysqli_result|resource|null
+	 * @return bool|int|mysqli_result|resource|null
 	 */
 	public function count_indexables_for_authors_without_archive() {
 		global $wpdb;
@@ -664,7 +665,7 @@ class Indexable_Cleanup_Repository {
 
 		// This is a workaround for the fact that the array_column function does not work on objects in PHP 5.6.
 		$reassigned_authors_array = \array_map(
-			function ( $obj ) {
+			static function ( $obj ) {
 				return (array) $obj;
 			},
 			$reassigned_authors_objs
