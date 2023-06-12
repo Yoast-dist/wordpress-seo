@@ -37,7 +37,7 @@ class Missing_Indexable_Bucket {
 	 *
 	 * @return array
 	 */
-	public function to_array() {
+	public function to_array(): array {
 		return \array_map(
 			static function ( $item ) {
 				return $item->to_array();
