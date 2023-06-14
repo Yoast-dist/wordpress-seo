@@ -253,9 +253,13 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\helpers\\wordpress_helper' => 'Yoast\\WP\\SEO\\Helpers\\Wordpress_Helper',
             'yoast\\wp\\seo\\helpers\\wordproof_helper' => 'Yoast\\WP\\SEO\\Helpers\\Wordproof_Helper',
             'yoast\\wp\\seo\\helpers\\wpdb_helper' => 'Yoast\\WP\\SEO\\Helpers\\Wpdb_Helper',
+            'yoast\\wp\\seo\\indexables\\application\\cron_verification_gate' => 'Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate',
+            'yoast\\wp\\seo\\indexables\\application\\verification_cron_batch_handler' => 'Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Batch_Handler',
+            'yoast\\wp\\seo\\indexables\\application\\verification_cron_schedule_handler' => 'Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler',
             'yoast\\wp\\seo\\indexables\\user_interface\\mark_deactivation_integration' => 'Yoast\\WP\\SEO\\Indexables\\User_Interface\\Mark_Deactivation_Integration',
             'yoast\\wp\\seo\\indexables\\user_interface\\schedule_verification_cron_integration' => 'Yoast\\WP\\SEO\\Indexables\\User_Interface\\Schedule_Verification_Cron_Integration',
             'yoast\\wp\\seo\\indexables\\user_interface\\verification_cron_callback_integration' => 'Yoast\\WP\\SEO\\Indexables\\User_Interface\\Verification_Cron_Callback_Integration',
+            'yoast\\wp\\seo\\indexables\\user_interface\\verification_posts_cron_callback_integration' => 'Yoast\\WP\\SEO\\Indexables\\User_Interface\\Verification_Posts_Cron_Callback_Integration',
             'yoast\\wp\\seo\\initializers\\crawl_cleanup_permalinks' => 'Yoast\\WP\\SEO\\Initializers\\Crawl_Cleanup_Permalinks',
             'yoast\\wp\\seo\\initializers\\disable_core_sitemaps' => 'Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps',
             'yoast\\wp\\seo\\initializers\\migration_runner' => 'Yoast\\WP\\SEO\\Initializers\\Migration_Runner',
@@ -670,9 +674,13 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Helpers\\Wordpress_Helper' => 'getWordpressHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Wordproof_Helper' => 'getWordproofHelperService',
             'Yoast\\WP\\SEO\\Helpers\\Wpdb_Helper' => 'getWpdbHelperService',
+            'Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate' => 'getCronVerificationGateService',
+            'Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Batch_Handler' => 'getVerificationCronBatchHandlerService',
+            'Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler' => 'getVerificationCronScheduleHandlerService',
             'Yoast\\WP\\SEO\\Indexables\\User_Interface\\Mark_Deactivation_Integration' => 'getMarkDeactivationIntegrationService',
             'Yoast\\WP\\SEO\\Indexables\\User_Interface\\Schedule_Verification_Cron_Integration' => 'getScheduleVerificationCronIntegrationService',
             'Yoast\\WP\\SEO\\Indexables\\User_Interface\\Verification_Cron_Callback_Integration' => 'getVerificationCronCallbackIntegrationService',
+            'Yoast\\WP\\SEO\\Indexables\\User_Interface\\Verification_Posts_Cron_Callback_Integration' => 'getVerificationPostsCronCallbackIntegrationService',
             'Yoast\\WP\\SEO\\Initializers\\Crawl_Cleanup_Permalinks' => 'getCrawlCleanupPermalinksService',
             'Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps' => 'getDisableCoreSitemapsService',
             'Yoast\\WP\\SEO\\Initializers\\Migration_Runner' => 'getMigrationRunnerService',
@@ -860,6 +868,9 @@ class Cached_Container extends Container
         ];
         $this->privates = [
             'YoastSEO_Vendor\\YoastSEO_Vendor\\Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
+            'Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate' => true,
+            'Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Batch_Handler' => true,
+            'Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler' => true,
         ];
         $this->aliases = [
             'YoastSEO_Vendor\\YoastSEO_Vendor\\Symfony\\Component\\DependencyInjection\\ContainerInterface' => 'service_container',
@@ -887,7 +898,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler' => true,
             'Yoast\\WP\\SEO\\Indexables\\Application\\actions\\Verify_Indexable_Action_Factory' => true,
             'Yoast\\WP\\SEO\\Indexables\\Domain\\Actions\\Verify_Indexable_Action_Factory_Interface' => true,
-            'Yoast\\WP\\SEO\\Indexables\\Domain\\Actions\\Verify_Indexables_Action_Interface' => true,
             'Yoast\\WP\\SEO\\Indexables\\Domain\\Batch_Size' => true,
             'Yoast\\WP\\SEO\\Indexables\\Domain\\Current_Verification_Action' => true,
             'Yoast\\WP\\SEO\\Indexables\\Domain\\Exceptions\\No_Non_Timestamped_Objects_Found_Exception' => true,
@@ -897,6 +907,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Indexables\\Domain\\Last_Batch_Count' => true,
             'Yoast\\WP\\SEO\\Indexables\\Domain\\Outdated_Post_Indexables_List' => true,
             'Yoast\\WP\\SEO\\Indexables\\Domain\\Plugin_Deactivated_Timestamp' => true,
+            'Yoast\\WP\\SEO\\Indexables\\Infrastructure\\Actions\\Verify_General_Indexables_Action' => true,
+            'Yoast\\WP\\SEO\\Indexables\\Infrastructure\\Actions\\Verify_Post_Type_Archives_Indexables_Action' => true,
             'Yoast\\WP\\SEO\\Indexables\\Infrastructure\\Actions\\Verify_Term_Indexables_Action' => true,
             'Yoast\\WP\\SEO\\Indexables\\infrastructure\\Outdated_Post_Indexables_Repository' => true,
             'Yoast\\WP\\SEO\\Presenters\\Robots_Txt_Presenter' => true,
@@ -3516,7 +3528,7 @@ class Cached_Container extends Container
      */
     protected function getScheduleVerificationCronIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Indexables\\User_Interface\\Schedule_Verification_Cron_Integration'] = new \Yoast\WP\SEO\Indexables\User_Interface\Schedule_Verification_Cron_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Indexables\\User_Interface\\Schedule_Verification_Cron_Integration'] = new \Yoast\WP\SEO\Indexables\User_Interface\Schedule_Verification_Cron_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler']) ? $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler'] : $this->getVerificationCronScheduleHandlerService()) && false ?: '_'});
     }
 
     /**
@@ -3526,13 +3538,38 @@ class Cached_Container extends Container
      */
     protected function getVerificationCronCallbackIntegrationService()
     {
-        $a = new \Yoast\WP\SEO\Indexables\Application\Cron_Verification_Gate(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : $this->getIndexableHelperService()) && false ?: '_'});
-        $b = new \Yoast\WP\SEO\Indexables\Application\Verification_Cron_Schedule_Handler($a);
-        $c = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'};
-        $d = new \Yoast\WP\SEO\Indexables\Application\Verification_Cron_Batch_Handler($c);
-        $e = new \Yoast\WP\SEO\Indexables\Application\Next_Verification_Action_Handler($c);
+        $a = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler']) ? $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler'] : $this->getVerificationCronScheduleHandlerService()) && false ?: '_'};
+        $b = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'};
+        $c = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Batch_Handler']) ? $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Batch_Handler'] : $this->getVerificationCronBatchHandlerService()) && false ?: '_'};
+        $d = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'};
 
-        return $this->services['Yoast\\WP\\SEO\\Indexables\\User_Interface\\Verification_Cron_Callback_Integration'] = new \Yoast\WP\SEO\Indexables\User_Interface\Verification_Cron_Callback_Integration($a, $b, $c, $d, new \Yoast\WP\SEO\Indexables\Application\Commands\Verify_Non_Timestamp_Indexables_Command_Handler($b, $d, new \Yoast\WP\SEO\Indexables\Application\actions\Verify_Indexable_Action_Factory(), $e), $e);
+        $e = new \Yoast\WP\SEO\Indexables\Infrastructure\Actions\Verify_Term_Indexables_Action(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper'] : $this->getTaxonomyHelperService()) && false ?: '_'}, $d);
+
+        $f = ${($_ = isset($this->services['wpdb']) ? $this->services['wpdb'] : $this->getWpdbService()) && false ?: '_'};
+
+        $e->set_wpdb($f);
+        $g = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder']) ? $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] : $this->getIndexableBuilderService()) && false ?: '_'};
+
+        $h = new \Yoast\WP\SEO\Indexables\Infrastructure\Actions\Verify_General_Indexables_Action($d, $g);
+        $h->set_wpdb($f);
+        $i = new \Yoast\WP\SEO\Indexables\Infrastructure\Actions\Verify_Post_Type_Archives_Indexables_Action(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] : $this->getPostTypeHelperService()) && false ?: '_'}, $g, $d);
+        $i->set_wpdb($f);
+        $j = new \Yoast\WP\SEO\Indexables\Application\Next_Verification_Action_Handler($b);
+
+        return $this->services['Yoast\\WP\\SEO\\Indexables\\User_Interface\\Verification_Cron_Callback_Integration'] = new \Yoast\WP\SEO\Indexables\User_Interface\Verification_Cron_Callback_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate']) ? $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate'] : $this->getCronVerificationGateService()) && false ?: '_'}, $a, $b, $c, new \Yoast\WP\SEO\Indexables\Application\Commands\Verify_Non_Timestamp_Indexables_Command_Handler($a, $c, new \Yoast\WP\SEO\Indexables\Application\actions\Verify_Indexable_Action_Factory($e, $h, $i), $j), $j);
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Indexables\User_Interface\Verification_Posts_Cron_Callback_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Indexables\User_Interface\Verification_Posts_Cron_Callback_Integration
+     */
+    protected function getVerificationPostsCronCallbackIntegrationService()
+    {
+        $a = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler']) ? $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler'] : $this->getVerificationCronScheduleHandlerService()) && false ?: '_'};
+        $b = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Batch_Handler']) ? $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Batch_Handler'] : $this->getVerificationCronBatchHandlerService()) && false ?: '_'};
+
+        return $this->services['Yoast\\WP\\SEO\\Indexables\\User_Interface\\Verification_Posts_Cron_Callback_Integration'] = new \Yoast\WP\SEO\Indexables\User_Interface\Verification_Posts_Cron_Callback_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate']) ? $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate'] : $this->getCronVerificationGateService()) && false ?: '_'}, $a, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, $b, new \Yoast\WP\SEO\Indexables\Application\Commands\Verify_Post_Indexables_Command_Handler(new \Yoast\WP\SEO\Indexables\infrastructure\Outdated_Post_Indexables_Repository(${($_ = isset($this->services['wpdb']) ? $this->services['wpdb'] : $this->getWpdbService()) && false ?: '_'}), $a, $b, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Post_Builder']) ? $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Post_Builder'] : $this->getIndexablePostBuilderService()) && false ?: '_'}));
     }
 
     /**
@@ -4730,6 +4767,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Indexables\\User_Interface\\Mark_Deactivation_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Indexables\\User_Interface\\Schedule_Verification_Cron_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Indexables\\User_Interface\\Verification_Cron_Callback_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\Indexables\\User_Interface\\Verification_Posts_Cron_Callback_Integration');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Crawl_Cleanup_Permalinks');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Migration_Runner');
@@ -5640,5 +5678,35 @@ class Cached_Container extends Container
     protected function getWpdbService()
     {
         return $this->services['wpdb'] = \Yoast\WP\SEO\WordPress\Wrapper::get_wpdb();
+    }
+
+    /**
+     * Gets the private 'Yoast\WP\SEO\Indexables\Application\Cron_Verification_Gate' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Indexables\Application\Cron_Verification_Gate
+     */
+    protected function getCronVerificationGateService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate'] = new \Yoast\WP\SEO\Indexables\Application\Cron_Verification_Gate(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : $this->getIndexableHelperService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the private 'Yoast\WP\SEO\Indexables\Application\Verification_Cron_Batch_Handler' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Indexables\Application\Verification_Cron_Batch_Handler
+     */
+    protected function getVerificationCronBatchHandlerService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Batch_Handler'] = new \Yoast\WP\SEO\Indexables\Application\Verification_Cron_Batch_Handler(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the private 'Yoast\WP\SEO\Indexables\Application\Verification_Cron_Schedule_Handler' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Indexables\Application\Verification_Cron_Schedule_Handler
+     */
+    protected function getVerificationCronScheduleHandlerService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler'] = new \Yoast\WP\SEO\Indexables\Application\Verification_Cron_Schedule_Handler(${($_ = isset($this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate']) ? $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate'] : $this->getCronVerificationGateService()) && false ?: '_'});
     }
 }
