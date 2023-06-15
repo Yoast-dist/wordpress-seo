@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.2
-Stable tag: 20.10-RC1
+Stable tag: 20.10-RC2
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -252,8 +252,7 @@ Release date: 2023-06-27
 #### Enhancements
 
 * Adds a support page to the Yoast admin.
-* Add the Wincher upgrade callout to the Wincher performance report on the dashboard.
-* Add the Wincher upgrade callout to the Wincher SEO performance on the edit post page.
+* Adds the Wincher upgrade callout to the Wincher performance report on the dashboard and to the Wincher SEO performance on the edit post page.
 * Excludes the Yoast SEO Breadcrumbs widget from the content analysis in Elementor Pro.
 * Expands the list of HTML elements excluded from the content analysis.
 * Introduces a new setting for crawl optimization, that disallows AdsBot crawling when enabled.
@@ -277,7 +276,7 @@ In Yoast SEO 20.9, you'll find improvements to our Wincher integration. We've ad
 
 #### Enhancements
 
-* Adds a new widget on the dasboard that shows your top keywords added to Yoast SEO with Wincher. Provides a connection button if you haven't yet connected your site to Wincher.
+* Adds a new widget on the dashboard that shows your top keywords added to Yoast SEO with Wincher. Provides a connection button if you haven't yet connected your site to Wincher.
 * Tightens crawl optimization site search blocking rules.
 * We now automatically schedule background performance optimization processes (via WP Cron).
 
