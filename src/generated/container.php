@@ -910,6 +910,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Indexables\\Infrastructure\\Actions\\Verify_General_Indexables_Action' => true,
             'Yoast\\WP\\SEO\\Indexables\\Infrastructure\\Actions\\Verify_Post_Type_Archives_Indexables_Action' => true,
             'Yoast\\WP\\SEO\\Indexables\\Infrastructure\\Actions\\Verify_Term_Indexables_Action' => true,
+            'Yoast\\WP\\SEO\\Indexables\\Infrastructure\\Actions\\Verify_Term_Links_Indexables_Action' => true,
             'Yoast\\WP\\SEO\\Indexables\\infrastructure\\Outdated_Post_Indexables_Repository' => true,
             'Yoast\\WP\\SEO\\Presenters\\Robots_Txt_Presenter' => true,
         ];
@@ -3541,22 +3542,25 @@ class Cached_Container extends Container
         $a = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler']) ? $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler'] : $this->getVerificationCronScheduleHandlerService()) && false ?: '_'};
         $b = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'};
         $c = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Batch_Handler']) ? $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Batch_Handler'] : $this->getVerificationCronBatchHandlerService()) && false ?: '_'};
-        $d = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'};
+        $d = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper'] : $this->getTaxonomyHelperService()) && false ?: '_'};
+        $e = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'};
 
-        $e = new \Yoast\WP\SEO\Indexables\Infrastructure\Actions\Verify_Term_Indexables_Action(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper'] : $this->getTaxonomyHelperService()) && false ?: '_'}, $d);
+        $f = new \Yoast\WP\SEO\Indexables\Infrastructure\Actions\Verify_Term_Indexables_Action($d, $e);
 
-        $f = ${($_ = isset($this->services['wpdb']) ? $this->services['wpdb'] : $this->getWpdbService()) && false ?: '_'};
+        $g = ${($_ = isset($this->services['wpdb']) ? $this->services['wpdb'] : $this->getWpdbService()) && false ?: '_'};
 
-        $e->set_wpdb($f);
-        $g = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder']) ? $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] : $this->getIndexableBuilderService()) && false ?: '_'};
+        $f->set_wpdb($g);
+        $h = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder']) ? $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] : $this->getIndexableBuilderService()) && false ?: '_'};
 
-        $h = new \Yoast\WP\SEO\Indexables\Infrastructure\Actions\Verify_General_Indexables_Action($d, $g);
-        $h->set_wpdb($f);
-        $i = new \Yoast\WP\SEO\Indexables\Infrastructure\Actions\Verify_Post_Type_Archives_Indexables_Action(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] : $this->getPostTypeHelperService()) && false ?: '_'}, $g, $d);
-        $i->set_wpdb($f);
-        $j = new \Yoast\WP\SEO\Indexables\Application\Next_Verification_Action_Handler($b);
+        $i = new \Yoast\WP\SEO\Indexables\Infrastructure\Actions\Verify_General_Indexables_Action($e, $h);
+        $i->set_wpdb($g);
+        $j = new \Yoast\WP\SEO\Indexables\Infrastructure\Actions\Verify_Post_Type_Archives_Indexables_Action(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] : $this->getPostTypeHelperService()) && false ?: '_'}, $h, $e);
+        $j->set_wpdb($g);
+        $k = new \Yoast\WP\SEO\Indexables\Infrastructure\Actions\Verify_Term_Links_Indexables_Action($d, $e, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Link_Builder']) ? $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Link_Builder'] : $this->getIndexableLinkBuilderService()) && false ?: '_'});
+        $k->set_wpdb($g);
+        $l = new \Yoast\WP\SEO\Indexables\Application\Next_Verification_Action_Handler($b);
 
-        return $this->services['Yoast\\WP\\SEO\\Indexables\\User_Interface\\Verification_Cron_Callback_Integration'] = new \Yoast\WP\SEO\Indexables\User_Interface\Verification_Cron_Callback_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate']) ? $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate'] : $this->getCronVerificationGateService()) && false ?: '_'}, $a, $b, $c, new \Yoast\WP\SEO\Indexables\Application\Commands\Verify_Non_Timestamp_Indexables_Command_Handler($a, $c, new \Yoast\WP\SEO\Indexables\Application\actions\Verify_Indexable_Action_Factory($e, $h, $i), $j), $j);
+        return $this->services['Yoast\\WP\\SEO\\Indexables\\User_Interface\\Verification_Cron_Callback_Integration'] = new \Yoast\WP\SEO\Indexables\User_Interface\Verification_Cron_Callback_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate']) ? $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate'] : $this->getCronVerificationGateService()) && false ?: '_'}, $a, $b, $c, new \Yoast\WP\SEO\Indexables\Application\Commands\Verify_Non_Timestamp_Indexables_Command_Handler($a, $c, new \Yoast\WP\SEO\Indexables\Application\actions\Verify_Indexable_Action_Factory($f, $i, $j, $k), $l), $l);
     }
 
     /**
