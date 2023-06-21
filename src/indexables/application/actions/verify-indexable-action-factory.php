@@ -1,8 +1,9 @@
 <?php
 
-namespace Yoast\WP\SEO\Indexables\Application\actions;
+// phpcs:disable Yoast.NamingConventions.NamespaceName.TooLong -- Given it's a very specific case.
+namespace Yoast\WP\SEO\Indexables\Application\Actions;
 
-use Yoast\WP\SEO\Indexables\Domain\Actions\Verify_Indexable_Action_Factory_Interface;
+use Yoast\WP\SEO\Indexables\Domain\Actions\Verify_Indexables_Action_Factory_Interface;
 use Yoast\WP\SEO\Indexables\Domain\Actions\Verify_Indexables_Action_Interface;
 use Yoast\WP\SEO\Indexables\Domain\Current_Verification_Action;
 use Yoast\WP\SEO\Indexables\Domain\Exceptions\No_Verification_Action_Left_Exception;
@@ -14,9 +15,9 @@ use Yoast\WP\SEO\Indexables\Infrastructure\Actions\Verify_Term_Indexables_Action
 use Yoast\WP\SEO\Indexables\Infrastructure\Actions\Verify_Term_Links_Indexables_Action;
 
 /**
- *
+ * The Verify_Indexable_Action_Factory class
  */
-class Verify_Indexable_Action_Factory implements Verify_Indexable_Action_Factory_Interface {
+class Verify_Indexable_Action_Factory implements Verify_Indexables_Action_Factory_Interface {
 
 	/**
 	 * The list of verification options.
@@ -28,6 +29,7 @@ class Verify_Indexable_Action_Factory implements Verify_Indexable_Action_Factory
 		'term_links',
 		'post_links',
 	];
+
 	/**
 	 * The Verify Term Indexable action instance.
 	 *
@@ -56,8 +58,9 @@ class Verify_Indexable_Action_Factory implements Verify_Indexable_Action_Factory
 	 */
 	private $verify_term_links_indexables_action;
 
-
 	/**
+	 * The constructor.
+	 *
 	 * @param Verify_Term_Indexables_Action               $verify_term_indexables_action The instance.
 	 * @param Verify_General_Indexables_Action            $verify_general_indexables_action The instance.
 	 * @param Verify_Post_Type_Archives_Indexables_Action $verify_post_type_archives_indexables_action The instance.
@@ -80,7 +83,7 @@ class Verify_Indexable_Action_Factory implements Verify_Indexable_Action_Factory
 	 *
 	 * @param Current_Verification_Action $verification_action The Verification action.
 	 *
-	 * @throws Verify_Action_Not_Found_Exception
+	 * @throws Verify_Action_Not_Found_Exception When the given verification action does not exists.
 	 * @return Verify_Indexables_Action_Interface
 	 */
 	public function get( Current_Verification_Action $verification_action ): Verify_Indexables_Action_Interface {
@@ -89,7 +92,7 @@ class Verify_Indexable_Action_Factory implements Verify_Indexable_Action_Factory
 				return $this->verify_term_indexables_action;
 			case 'general':
 				return $this->verify_general_indexables_action;
-			case'post-type-archives':
+			case 'post-type-archives':
 				return $this->verify_post_type_archives_indexables_action;
 			case 'term-links':
 				return $this->verify_term_links_indexables_action;
@@ -103,15 +106,15 @@ class Verify_Indexable_Action_Factory implements Verify_Indexable_Action_Factory
 	 *
 	 * @param Current_Verification_Action $current_verification_action_object The current verification object to determine the next one for.
 	 *
-	 * @throws No_Verification_Action_Left_Exception
+	 * @throws No_Verification_Action_Left_Exception Throws when there are no verification actions left.
 	 * @return Current_Verification_Action
 	 */
 	public function determine_next_verify_action( Current_Verification_Action $current_verification_action_object
 	): Current_Verification_Action {
 		$current_verification_action = $current_verification_action_object->get_action();
 
-		if ( \in_array( $current_verification_action, self::VERIFICATION_MAPPING ) ) {
-			$key = array_search( $current_verification_action, self::VERIFICATION_MAPPING );
+		if ( \in_array( $current_verification_action, self::VERIFICATION_MAPPING, true ) ) {
+			$key = array_search( $current_verification_action, self::VERIFICATION_MAPPING, true );
 			if ( isset( self::VERIFICATION_MAPPING[ ++$key ] ) ) {
 				return new Current_Verification_Action( self::VERIFICATION_MAPPING[ $key ] );
 			}

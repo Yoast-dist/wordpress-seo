@@ -1,6 +1,6 @@
 <?php
 
-
+// phpcs:disable Yoast.NamingConventions.NamespaceName.TooLong -- Given it's a very specific case.
 namespace Yoast\WP\SEO\Indexables\Application\Commands;
 
 use Yoast\WP\SEO\Builders\Indexable_Builder;
@@ -16,18 +16,21 @@ class Verify_Post_Indexables_Command_Handler {
 
 	/**
 	 * The Outdated_Post_Indexables_Repository_Interface instance.
+	 *
 	 * @var Outdated_Post_Indexables_Repository_Interface
 	 */
 	protected $outdated_post_indexables_repository;
 
 	/**
 	 * The Verification_Cron_Batch_Handler instance.
+	 *
 	 * @var Verification_Cron_Batch_Handler
 	 */
 	protected $verification_cron_batch_handler;
 
 	/**
 	 * The Verification_Cron_Schedule_Handler instance.
+	 *
 	 * @var Verification_Cron_Schedule_Handler
 	 */
 	private $cron_schedule_handler;
@@ -42,10 +45,10 @@ class Verify_Post_Indexables_Command_Handler {
 	/**
 	 * The constructor.
 	 *
-	 * @param \Yoast\WP\SEO\Indexables\Application\Ports\Outdated_Post_Indexables_Repository_Interface $outdated_post_indexables_repository
-	 * @param \Yoast\WP\SEO\Indexables\Application\Verification_Cron_Schedule_Handler                  $cron_schedule_handler
-	 * @param \Yoast\WP\SEO\Indexables\Application\Verification_Cron_Batch_Handler                     $verification_cron_batch_handler
-	 * @param \Yoast\WP\SEO\Builders\Indexable_Builder                                                 $indexable_builder
+	 * @param Outdated_Post_Indexables_Repository_Interface $outdated_post_indexables_repository The outdated post indexables repository.
+	 * @param Verification_Cron_Schedule_Handler            $cron_schedule_handler The cron schedule handler.
+	 * @param Verification_Cron_Batch_Handler               $verification_cron_batch_handler The verification cron batch handler.
+	 * @param Indexable_Builder                             $indexable_builder The indexable builder.
 	 */
 	public function __construct(
 		Outdated_Post_Indexables_Repository_Interface $outdated_post_indexables_repository,
@@ -85,7 +88,7 @@ class Verify_Post_Indexables_Command_Handler {
 			return;
 		}
 
-		$next_batch = $verify_post_indexables_command->get_last_batch_count()->get_last_batch() + $verify_post_indexables_command->get_batch_size()->get_batch_size();
+		$next_batch = ( $verify_post_indexables_command->get_last_batch_count()->get_last_batch() + $verify_post_indexables_command->get_batch_size()->get_batch_size() );
 		$this->verification_cron_batch_handler->set_current_post_indexables_batch( $next_batch );
 	}
 }
