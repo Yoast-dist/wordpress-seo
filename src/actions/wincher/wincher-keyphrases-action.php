@@ -345,7 +345,7 @@ class Wincher_Keyphrases_Action {
 	 */
 	protected function to_result_object( $result ) {
 		if ( \array_key_exists( 'data', $result ) ) {
-			$result['results'] = (object) $result['data'];
+			$result['results'] = $result['data'];
 
 			unset( $result['data'] );
 		}
