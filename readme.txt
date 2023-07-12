@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.2
-Stable tag: 20.12-RC1
+Stable tag: 20.12-RC2
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -252,7 +252,7 @@ Release date: 2023-07-25
 #### Enhancements
 
 * Adds information to the \"Remove unregistered URL parameters\" setting in the crawl settings about which URL parameters are always allowed.
-* Adds `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, `utm_content`, `gclid` and
+* Adds `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, `utm_content`, `gclid` and `gtm_debug` to the default allowlist for the \"Remove unregistered URL parameters\" setting.
 * Excludes separator and site title from _SEO title width_ assessment and from the calculation in the SEO title progress bar.
 
 #### Bugfixes
@@ -263,6 +263,8 @@ Release date: 2023-07-25
 
 #### Other
 
+* Improves the copy in the final step of the first time configuration.
+* Updates copy of our free webinar notification.
 * Updates the verification link to the Google Search Console in the Site connections section in Settings.
 
 = 20.11 =
