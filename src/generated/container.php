@@ -438,6 +438,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\surfaces\\open_graph_helpers_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Open_Graph_Helpers_Surface',
             'yoast\\wp\\seo\\surfaces\\schema_helpers_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Schema_Helpers_Surface',
             'yoast\\wp\\seo\\surfaces\\twitter_helpers_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Twitter_Helpers_Surface',
+            'yoast\\wp\\seo\\user_profiles_additions\\user_interface\\user_profiles_additions_ui' => 'Yoast\\WP\\SEO\\User_Profiles_Additions\\User_Interface\\User_Profiles_Additions_Ui',
             'yoast\\wp\\seo\\values\\images' => 'Yoast\\WP\\SEO\\Values\\Images',
             'yoast\\wp\\seo\\values\\indexables\\indexable_builder_versions' => 'Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions',
             'yoast\\wp\\seo\\values\\open_graph\\images' => 'Yoast\\WP\\SEO\\Values\\Open_Graph\\Images',
@@ -861,6 +862,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Surfaces\\Open_Graph_Helpers_Surface' => 'getOpenGraphHelpersSurfaceService',
             'Yoast\\WP\\SEO\\Surfaces\\Schema_Helpers_Surface' => 'getSchemaHelpersSurfaceService',
             'Yoast\\WP\\SEO\\Surfaces\\Twitter_Helpers_Surface' => 'getTwitterHelpersSurfaceService',
+            'Yoast\\WP\\SEO\\User_Profiles_Additions\\User_Interface\\User_Profiles_Additions_Ui' => 'getUserProfilesAdditionsUiService',
             'Yoast\\WP\\SEO\\Values\\Images' => 'getImagesService',
             'Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions' => 'getIndexableBuilderVersionsService',
             'Yoast\\WP\\SEO\\Values\\Open_Graph\\Images' => 'getImages2Service',
@@ -4888,6 +4890,7 @@ class Cached_Container extends Container
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Wincher_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Workouts_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field');
+        $instance->register_integration('Yoast\\WP\\SEO\\User_Profiles_Additions\\User_Interface\\User_Profiles_Additions_Ui');
 
         return $instance;
     }
@@ -5595,6 +5598,16 @@ class Cached_Container extends Container
     protected function getTwitterHelpersSurfaceService()
     {
         return $this->services['Yoast\\WP\\SEO\\Surfaces\\Twitter_Helpers_Surface'] = new \Yoast\WP\SEO\Surfaces\Twitter_Helpers_Surface($this);
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\User_Profiles_Additions\User_Interface\User_Profiles_Additions_Ui' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\User_Profiles_Additions\User_Interface\User_Profiles_Additions_Ui
+     */
+    protected function getUserProfilesAdditionsUiService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\User_Profiles_Additions\\User_Interface\\User_Profiles_Additions_Ui'] = new \Yoast\WP\SEO\User_Profiles_Additions\User_Interface\User_Profiles_Additions_Ui();
     }
 
     /**
