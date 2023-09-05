@@ -294,6 +294,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\admin\\social_templates_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Social_Templates_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\workouts_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Workouts_Integration',
             'yoast\\wp\\seo\\integrations\\alerts\\jetpack_boost_pre_publish' => 'Yoast\\WP\\SEO\\Integrations\\Alerts\\Jetpack_Boost_Pre_Publish',
+            'yoast\\wp\\seo\\integrations\\alerts\\time_constrained_notification' => 'Yoast\\WP\\SEO\\Integrations\\Alerts\\Time_Constrained_Notification',
             'yoast\\wp\\seo\\integrations\\alerts\\webinar_promo_notification' => 'Yoast\\WP\\SEO\\Integrations\\Alerts\\Webinar_Promo_Notification',
             'yoast\\wp\\seo\\integrations\\blocks\\breadcrumbs_block' => 'Yoast\\WP\\SEO\\Integrations\\Blocks\\Breadcrumbs_Block',
             'yoast\\wp\\seo\\integrations\\blocks\\internal_linking_category' => 'Yoast\\WP\\SEO\\Integrations\\Blocks\\Internal_Linking_Category',
@@ -394,6 +395,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\presentations\\indexable_static_posts_page_presentation' => 'Yoast\\WP\\SEO\\Presentations\\Indexable_Static_Posts_Page_Presentation',
             'yoast\\wp\\seo\\presentations\\indexable_term_archive_presentation' => 'Yoast\\WP\\SEO\\Presentations\\Indexable_Term_Archive_Presentation',
             'yoast\\wp\\seo\\promotions\\application\\promotion_manager' => 'Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager',
+            'yoast\\wp\\seo\\promotions\\domain\\black_friday_checklist_promotion' => 'Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Checklist_Promotion',
             'yoast\\wp\\seo\\promotions\\domain\\black_friday_promotion' => 'Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Promotion',
             'yoast\\wp\\seo\\repositories\\indexable_cleanup_repository' => 'Yoast\\WP\\SEO\\Repositories\\Indexable_Cleanup_Repository',
             'yoast\\wp\\seo\\repositories\\indexable_hierarchy_repository' => 'Yoast\\WP\\SEO\\Repositories\\Indexable_Hierarchy_Repository',
@@ -722,6 +724,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Social_Templates_Integration' => 'getSocialTemplatesIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Workouts_Integration' => 'getWorkoutsIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Alerts\\Jetpack_Boost_Pre_Publish' => 'getJetpackBoostPrePublishService',
+            'Yoast\\WP\\SEO\\Integrations\\Alerts\\Time_Constrained_Notification' => 'getTimeConstrainedNotificationService',
             'Yoast\\WP\\SEO\\Integrations\\Alerts\\Webinar_Promo_Notification' => 'getWebinarPromoNotificationService',
             'Yoast\\WP\\SEO\\Integrations\\Blocks\\Breadcrumbs_Block' => 'getBreadcrumbsBlockService',
             'Yoast\\WP\\SEO\\Integrations\\Blocks\\Internal_Linking_Category' => 'getInternalLinkingCategoryService',
@@ -822,6 +825,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Presentations\\Indexable_Static_Posts_Page_Presentation' => 'getIndexableStaticPostsPagePresentationService',
             'Yoast\\WP\\SEO\\Presentations\\Indexable_Term_Archive_Presentation' => 'getIndexableTermArchivePresentationService',
             'Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager' => 'getPromotionManagerService',
+            'Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Checklist_Promotion' => 'getBlackFridayChecklistPromotionService',
             'Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Promotion' => 'getBlackFridayPromotionService',
             'Yoast\\WP\\SEO\\Repositories\\Indexable_Cleanup_Repository' => 'getIndexableCleanupRepositoryService',
             'Yoast\\WP\\SEO\\Repositories\\Indexable_Hierarchy_Repository' => 'getIndexableHierarchyRepositoryService',
@@ -905,7 +909,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Introductions\\Domain\\Introductions_Bucket' => true,
             'Yoast\\WP\\SEO\\Presenters\\Robots_Txt_Presenter' => true,
             'Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager_Interface' => true,
-            'Yoast\\WP\\SEO\\Promotions\\Domain\\Promotion_Interface' => true,
             'Yoast\\WP\\SEO\\Promotions\\Domain\\Time_Interval' => true,
         ];
     }
@@ -3919,6 +3922,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\Alerts\Time_Constrained_Notification' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\Alerts\Time_Constrained_Notification
+     */
+    protected function getTimeConstrainedNotificationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Alerts\\Time_Constrained_Notification'] = new \Yoast\WP\SEO\Integrations\Alerts\Time_Constrained_Notification();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Integrations\Alerts\Webinar_Promo_Notification' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Integrations\Alerts\Webinar_Promo_Notification
@@ -4833,6 +4846,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Redirects_Page_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Workouts_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Alerts\\Jetpack_Boost_Pre_Publish');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Alerts\\Time_Constrained_Notification');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Alerts\\Webinar_Promo_Notification');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Blocks\\Internal_Linking_Category');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Blocks\\Breadcrumbs_Block');
@@ -5146,7 +5160,17 @@ class Cached_Container extends Container
      */
     protected function getPromotionManagerService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager'] = new \Yoast\WP\SEO\Promotions\Application\Promotion_Manager(${($_ = isset($this->services['Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Promotion']) ? $this->services['Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Promotion'] : ($this->services['Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Promotion'] = new \Yoast\WP\SEO\Promotions\Domain\Black_Friday_Promotion())) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager'] = new \Yoast\WP\SEO\Promotions\Application\Promotion_Manager(${($_ = isset($this->services['Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Checklist_Promotion']) ? $this->services['Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Checklist_Promotion'] : ($this->services['Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Checklist_Promotion'] = new \Yoast\WP\SEO\Promotions\Domain\Black_Friday_Checklist_Promotion())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Promotion']) ? $this->services['Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Promotion'] : ($this->services['Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Promotion'] = new \Yoast\WP\SEO\Promotions\Domain\Black_Friday_Promotion())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Promotions\Domain\Black_Friday_Checklist_Promotion' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Promotions\Domain\Black_Friday_Checklist_Promotion
+     */
+    protected function getBlackFridayChecklistPromotionService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Checklist_Promotion'] = new \Yoast\WP\SEO\Promotions\Domain\Black_Friday_Checklist_Promotion();
     }
 
     /**
