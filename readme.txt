@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.3
-Stable tag: 21.3-RC2
+Stable tag: 21.3-RC3
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -352,6 +352,7 @@ Release date: 2023-10-03
 #### Bugfixes
 
 * Fixes a bug where the notifications counter of the admin bar menu would not show with the correct style on the frontend.
+* Fixes a bug where the slug in the search appearance editor would not be set when published posts were edited in the classic editor and the \"core/editor\" store was available.
 
 = 21.2 =
 
