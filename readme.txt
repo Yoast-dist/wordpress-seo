@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.3
-Stable tag: 21.4-RC1
+Stable tag: 21.4-RC2
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -361,10 +361,6 @@ Release date: 2023-10-17
 * Fixes a bug where sentences would not be highlighted when square brackets were present in the same sentence.
 * Fixes a bug where the first-time configuration' site representation logo button would not be translated. Props to [fxbenard](https://github.com/fxbenard).
 * Fixes a bug where the _single title_ assessment would be triggered when adding a H1 without text.
-
-#### Other
-
-* Adds a Black Friday banner to the sidebar upsale.
 
 = 21.3 =
 
