@@ -4,8 +4,8 @@ Donate link: https://yoa.st/1up
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
-Tested up to: 6.3
-Stable tag: 21.5-RC2
+Tested up to: 6.4
+Stable tag: 21.5-RC3
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -352,14 +352,15 @@ Release date: 2023-10-31
 
 #### Bugfixes
 
-*  Specifies the correct prop type for props that can contain an interpolated string.
+* Fixes a bug where console warnings about incorrect prop types would be shown on the integrations page.
 
 #### Other
 
 * Adds indexation exclusion for Gutenberg Patterns taxonomy.
 * Improves the FAQ block description by removing any reference to the previous restriction of one block per post.
-* Improves the inline documentation for the `WPSEO_Option` class. Props to @costdev.
+* Improves the inline documentation for the `WPSEO_Option` class. Props to [costdev](https://github.com/costdev).
 * Leverages Script Strategy feature to add the async attribute to the `wordproof` script in case WordPress version is 6.3 or higher. Props to [adamsilverstein](https://github.com/adamsilverstein).
+* Sets the WordPress tested up to version to 6.4.
 
 = 21.4 =
 
