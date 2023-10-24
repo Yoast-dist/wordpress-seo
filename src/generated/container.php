@@ -5699,7 +5699,7 @@ class Cached_Container extends Container
      */
     protected function getUserProfilesAdditionsUiService()
     {
-        return $this->services['Yoast\\WP\\SEO\\User_Profiles_Additions\\User_Interface\\User_Profiles_Additions_Ui'] = new \Yoast\WP\SEO\User_Profiles_Additions\User_Interface\User_Profiles_Additions_Ui();
+        return $this->services['Yoast\\WP\\SEO\\User_Profiles_Additions\\User_Interface\\User_Profiles_Additions_Ui'] = new \Yoast\WP\SEO\User_Profiles_Additions\User_Interface\User_Profiles_Additions_Ui(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())) && false ?: '_'});
     }
 
     /**
