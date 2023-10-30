@@ -37,22 +37,17 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 		'indexables_indexing_completed'                     => false,
 		'index_now_key'                                     => '',
 		// Non-form field, should only be set via validation routine.
-		'version'                                           => '',
-		// Leave default as empty to ensure activation/upgrade works.
+		'version'                                           => '', // Leave default as empty to ensure activation/upgrade works.
 		'previous_version'                                  => '',
 		// Form fields.
 		'disableadvanced_meta'                              => true,
 		'enable_headless_rest_endpoints'                    => true,
 		'ryte_indexability'                                 => false,
-		'baiduverify'                                       => '',
-		// Text field.
-		'googleverify'                                      => '',
-		// Text field.
-		'msverify'                                          => '',
-		// Text field.
+		'baiduverify'                                       => '', // Text field.
+		'googleverify'                                      => '', // Text field.
+		'msverify'                                          => '', // Text field.
 		'yandexverify'                                      => '',
-		'site_type'                                         => '',
-		// List of options.
+		'site_type'                                         => '', // List of options.
 		'has_multiple_authors'                              => '',
 		'environment_type'                                  => '',
 		'content_analysis_active'                           => true,
@@ -63,6 +58,7 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 		'enable_xml_sitemap'                                => true,
 		'enable_text_link_counter'                          => true,
 		'enable_index_now'                                  => true,
+		'enable_ai_generator'                               => false,
 		'show_onboarding_notice'                            => false,
 		'first_activated_on'                                => false,
 		'myyoast-oauth'                                     => [
@@ -131,6 +127,9 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 		'deny_search_crawling'                              => false,
 		'deny_wp_json_crawling'                             => false,
 		'deny_adsbot_crawling'                              => false,
+		'deny_ccbot_crawling'                               => false,
+		'deny_google_extended_crawling'                     => false,
+		'deny_gptbot_crawling'                              => false,
 		'redirect_search_pretty_urls'                       => false,
 		'least_readability_ignore_list'                     => [],
 		'least_seo_score_ignore_list'                       => [],
@@ -262,7 +261,7 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 	public function add_option_filters() {
 		parent::add_option_filters();
 
-		[ $hookname, $callback, $priority ] = $this->get_verify_features_option_filter_hook();
+		list( $hookname, $callback, $priority ) = $this->get_verify_features_option_filter_hook();
 
 		if ( has_filter( $hookname, $callback ) === false ) {
 			add_filter( $hookname, $callback, $priority );
@@ -278,7 +277,7 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 	public function remove_option_filters() {
 		parent::remove_option_filters();
 
-		[ $hookname, $callback, $priority ] = $this->get_verify_features_option_filter_hook();
+		list( $hookname, $callback, $priority ) = $this->get_verify_features_option_filter_hook();
 
 		remove_filter( $hookname, $callback, $priority );
 	}
@@ -291,7 +290,7 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 	public function add_default_filters() {
 		parent::add_default_filters();
 
-		[ $hookname, $callback, $priority ] = $this->get_verify_features_default_option_filter_hook();
+		list( $hookname, $callback, $priority ) = $this->get_verify_features_default_option_filter_hook();
 
 		if ( has_filter( $hookname, $callback ) === false ) {
 			add_filter( $hookname, $callback, $priority );
@@ -307,7 +306,7 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 	public function remove_default_filters() {
 		parent::remove_default_filters();
 
-		[ $hookname, $callback, $priority ] = $this->get_verify_features_default_option_filter_hook();
+		list( $hookname, $callback, $priority ) = $this->get_verify_features_default_option_filter_hook();
 
 		remove_filter( $hookname, $callback, $priority );
 	}
@@ -523,6 +522,9 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 				 *  'search_cleanup_patterns'
 				 *  'deny_wp_json_crawling'
 				 *  'deny_adsbot_crawling'
+				 *  'deny_ccbot_crawling'
+				 *  'deny_google_extended_crawling'
+				 *  'deny_gptbot_crawling'
 				 *  'redirect_search_pretty_urls'
 				 *  'should_redirect_after_install_free'
 				 *  'show_new_content_type_notification'
@@ -572,6 +574,7 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 			'remove_feed_global_comments'        => false,
 			'remove_feed_post_comments'          => false,
 			'enable_index_now'                   => false,
+			'enable_ai_generator'                => false,
 			'remove_feed_authors'                => false,
 			'remove_feed_categories'             => false,
 			'remove_feed_tags'                   => false,
@@ -618,8 +621,7 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 	}
 
 	/**
-	 * Gets the filter hook name and callback for adjusting the default option value against the network-allowed
-	 * features.
+	 * Gets the filter hook name and callback for adjusting the default option value against the network-allowed features.
 	 *
 	 * @return array Array where the first item is the hook name, the second is the hook callback,
 	 *               and the third is the hook priority.
@@ -656,8 +658,7 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 		];
 
 		foreach ( $value_change as $key ) {
-			if (
-				isset( $option_value[ $key ] )
+			if ( isset( $option_value[ $key ] )
 				&& in_array( $option_value[ $key ], $target_values, true )
 			) {
 				$option_value[ $key ] = true;
