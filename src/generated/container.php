@@ -376,6 +376,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\xmlrpc' => 'Yoast\\WP\\SEO\\Integrations\\XMLRPC',
             'yoast\\wp\\seo\\introductions\\infrastructure\\wistia_embed_permission_repository' => 'Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Wistia_Embed_Permission_Repository',
             'yoast\\wp\\seo\\introductions\\user_interface\\introductions_integration' => 'Yoast\\WP\\SEO\\Introductions\\User_Interface\\Introductions_Integration',
+            'yoast\\wp\\seo\\introductions\\user_interface\\introductions_seen_route' => 'Yoast\\WP\\SEO\\Introductions\\User_Interface\\Introductions_Seen_Route',
             'yoast\\wp\\seo\\introductions\\user_interface\\wistia_embed_permission_route' => 'Yoast\\WP\\SEO\\Introductions\\User_Interface\\Wistia_Embed_Permission_Route',
             'yoast\\wp\\seo\\loader' => 'Yoast\\WP\\SEO\\Loader',
             'yoast\\wp\\seo\\loggers\\logger' => 'Yoast\\WP\\SEO\\Loggers\\Logger',
@@ -803,6 +804,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\XMLRPC' => 'getXMLRPCService',
             'Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Wistia_Embed_Permission_Repository' => 'getWistiaEmbedPermissionRepositoryService',
             'Yoast\\WP\\SEO\\Introductions\\User_Interface\\Introductions_Integration' => 'getIntroductionsIntegrationService',
+            'Yoast\\WP\\SEO\\Introductions\\User_Interface\\Introductions_Seen_Route' => 'getIntroductionsSeenRouteService',
             'Yoast\\WP\\SEO\\Introductions\\User_Interface\\Wistia_Embed_Permission_Route' => 'getWistiaEmbedPermissionRouteService',
             'Yoast\\WP\\SEO\\Loader' => 'getLoaderService',
             'Yoast\\WP\\SEO\\Loggers\\Logger' => 'getLoggerService',
@@ -903,6 +905,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Introductions\\Domain\\Introduction_Interface' => true,
             'Yoast\\WP\\SEO\\Introductions\\Domain\\Introduction_Item' => true,
             'Yoast\\WP\\SEO\\Introductions\\Domain\\Introductions_Bucket' => true,
+            'Yoast\\WP\\SEO\\Introductions\\Domain\\Invalid_User_Id_Exception' => true,
+            'Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Introductions_Seen_Repository' => true,
             'Yoast\\WP\\SEO\\Presenters\\Robots_Txt_Presenter' => true,
             'Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager_Interface' => true,
             'Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Checklist_Promotion' => true,
@@ -4760,6 +4764,18 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Introductions\User_Interface\Introductions_Seen_Route' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Introductions\User_Interface\Introductions_Seen_Route
+     */
+    protected function getIntroductionsSeenRouteService()
+    {
+        $a = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper())) && false ?: '_'};
+
+        return $this->services['Yoast\\WP\\SEO\\Introductions\\User_Interface\\Introductions_Seen_Route'] = new \Yoast\WP\SEO\Introductions\User_Interface\Introductions_Seen_Route(new \Yoast\WP\SEO\Introductions\Infrastructure\Introductions_Seen_Repository($a), $a);
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Introductions\User_Interface\Wistia_Embed_Permission_Route' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Introductions\User_Interface\Wistia_Embed_Permission_Route
@@ -4917,6 +4933,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Watchers\\Search_Engines_Discouraged_Watcher');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\XMLRPC');
         $instance->register_integration('Yoast\\WP\\SEO\\Introductions\\User_Interface\\Introductions_Integration');
+        $instance->register_route('Yoast\\WP\\SEO\\Introductions\\User_Interface\\Introductions_Seen_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Introductions\\User_Interface\\Wistia_Embed_Permission_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Alert_Dismissal_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\First_Time_Configuration_Route');
