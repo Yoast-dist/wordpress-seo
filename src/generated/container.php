@@ -260,7 +260,6 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\indexables\\application\\cron_verification_gate' => 'Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate',
             'yoast\\wp\\seo\\indexables\\application\\verification_cron_batch_handler' => 'Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Batch_Handler',
             'yoast\\wp\\seo\\indexables\\application\\verification_cron_schedule_handler' => 'Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler',
-            'yoast\\wp\\seo\\indexables\\user_interface\\mark_deactivation_integration' => 'Yoast\\WP\\SEO\\Indexables\\User_Interface\\Mark_Deactivation_Integration',
             'yoast\\wp\\seo\\indexables\\user_interface\\schedule_verification_cron_integration' => 'Yoast\\WP\\SEO\\Indexables\\User_Interface\\Schedule_Verification_Cron_Integration',
             'yoast\\wp\\seo\\indexables\\user_interface\\verification_no_timestamp_cron_callback_integration' => 'Yoast\\WP\\SEO\\Indexables\\User_Interface\\Verification_No_Timestamp_Cron_Callback_Integration',
             'yoast\\wp\\seo\\indexables\\user_interface\\verification_posts_cron_callback_integration' => 'Yoast\\WP\\SEO\\Indexables\\User_Interface\\Verification_Posts_Cron_Callback_Integration',
@@ -694,7 +693,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate' => 'getCronVerificationGateService',
             'Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Batch_Handler' => 'getVerificationCronBatchHandlerService',
             'Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler' => 'getVerificationCronScheduleHandlerService',
-            'Yoast\\WP\\SEO\\Indexables\\User_Interface\\Mark_Deactivation_Integration' => 'getMarkDeactivationIntegrationService',
             'Yoast\\WP\\SEO\\Indexables\\User_Interface\\Schedule_Verification_Cron_Integration' => 'getScheduleVerificationCronIntegrationService',
             'Yoast\\WP\\SEO\\Indexables\\User_Interface\\Verification_No_Timestamp_Cron_Callback_Integration' => 'getVerificationNoTimestampCronCallbackIntegrationService',
             'Yoast\\WP\\SEO\\Indexables\\User_Interface\\Verification_Posts_Cron_Callback_Integration' => 'getVerificationPostsCronCallbackIntegrationService',
@@ -934,7 +932,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Indexables\\Domain\\Exceptions\\Verify_Action_Not_Found_Exception' => true,
             'Yoast\\WP\\SEO\\Indexables\\Domain\\Last_Batch_Count' => true,
             'Yoast\\WP\\SEO\\Indexables\\Domain\\Outdated_Post_Indexables_List' => true,
-            'Yoast\\WP\\SEO\\Indexables\\Domain\\Plugin_Deactivated_Timestamp' => true,
             'Yoast\\WP\\SEO\\Indexables\\Infrastructure\\Actions\\Verify_General_Indexables_Action' => true,
             'Yoast\\WP\\SEO\\Indexables\\Infrastructure\\Actions\\Verify_Post_Type_Archives_Indexables_Action' => true,
             'Yoast\\WP\\SEO\\Indexables\\Infrastructure\\Actions\\Verify_Term_Indexables_Action' => true,
@@ -3576,16 +3573,6 @@ class Cached_Container extends Container
     }
 
     /**
-     * Gets the public 'Yoast\WP\SEO\Indexables\User_Interface\Mark_Deactivation_Integration' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Indexables\User_Interface\Mark_Deactivation_Integration
-     */
-    protected function getMarkDeactivationIntegrationService()
-    {
-        return $this->services['Yoast\\WP\\SEO\\Indexables\\User_Interface\\Mark_Deactivation_Integration'] = new \Yoast\WP\SEO\Indexables\User_Interface\Mark_Deactivation_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
-    }
-
-    /**
      * Gets the public 'Yoast\WP\SEO\Indexables\User_Interface\Schedule_Verification_Cron_Integration' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Indexables\User_Interface\Schedule_Verification_Cron_Integration
@@ -4913,7 +4900,6 @@ class Cached_Container extends Container
         $instance->register_migration('free', '20230417083836', 'Yoast\\WP\\SEO\\Config\\Migrations\\AddInclusiveLanguageScore');
         $instance->register_integration('Yoast\\WP\\SEO\\Content_Type_Visibility\\Application\\Content_Type_Visibility_Watcher_Actions');
         $instance->register_route('Yoast\\WP\\SEO\\Content_Type_Visibility\\User_Interface\\Content_Type_Visibility_Dismiss_New_Route');
-        $instance->register_integration('Yoast\\WP\\SEO\\Indexables\\User_Interface\\Mark_Deactivation_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Indexables\\User_Interface\\Schedule_Verification_Cron_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Indexables\\User_Interface\\Verification_No_Timestamp_Cron_Callback_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Indexables\\User_Interface\\Verification_Posts_Cron_Callback_Integration');
