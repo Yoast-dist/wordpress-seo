@@ -3579,7 +3579,7 @@ class Cached_Container extends Container
      */
     protected function getScheduleVerificationCronIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Indexables\\User_Interface\\Schedule_Verification_Cron_Integration'] = new \Yoast\WP\SEO\Indexables\User_Interface\Schedule_Verification_Cron_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler']) ? $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler'] : $this->getVerificationCronScheduleHandlerService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Indexables\\User_Interface\\Schedule_Verification_Cron_Integration'] = new \Yoast\WP\SEO\Indexables\User_Interface\Schedule_Verification_Cron_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler']) ? $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler'] : $this->getVerificationCronScheduleHandlerService()) && false ?: '_'});
     }
 
     /**
@@ -5877,6 +5877,6 @@ class Cached_Container extends Container
      */
     protected function getVerificationCronScheduleHandlerService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler'] = new \Yoast\WP\SEO\Indexables\Application\Verification_Cron_Schedule_Handler(${($_ = isset($this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate']) ? $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate'] : $this->getCronVerificationGateService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Verification_Cron_Schedule_Handler'] = new \Yoast\WP\SEO\Indexables\Application\Verification_Cron_Schedule_Handler(${($_ = isset($this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate']) ? $this->services['Yoast\\WP\\SEO\\Indexables\\Application\\Cron_Verification_Gate'] : $this->getCronVerificationGateService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
     }
 }
