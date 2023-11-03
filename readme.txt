@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.4
-Stable tag: 21.6-RC1
+Stable tag: 21.6-RC2
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -344,7 +344,7 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 = 21.6 =
 
-Release date: 2023-11-14
+Release date: 2023-11-28
 
 #### Enhancements
 
@@ -354,6 +354,11 @@ Release date: 2023-11-14
 
 * Fixes a bug where encoded characters would be stripped from canonical URLs in the taxonomy metabox. Props to [@stodorovic](https://github.com/stodorovic).
 * Fixes a bug where the Wincher integration would cause PHP warnings with PHP 8+.
+
+#### Other
+
+* Adds defensive coding to the supress warnings on archive pages with the `/%category%/%postname%/` permalink structure. Props to [@Mte90](https://github.com/Mte90).
+* Adds notification when WooCommerce new beta product editor is enabled.
 
 = 21.5 =
 
