@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.4
-Stable tag: 21.6-RC4
+Stable tag: 21.5
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -386,7 +386,7 @@ Yoast SEO 21.5 is out today! In this release, you'll find improvements to our in
 
 #### Other
 
-* Adds indexation exclusion for Gutenberg Patterns taxonomy.
+* Prevents the Pattern Category taxonomy (introduced in WordPress 6.4) to be indexed and hides it in the settings page.
 * Improves the FAQ block description by removing any reference to the previous restriction of one block per post.
 * Improves the inline documentation for the `WPSEO_Option` class. Props to [costdev](https://github.com/costdev).
 * Leverages Script Strategy feature to add the async attribute to the `wordproof` script in case WordPress version is 6.3 or higher. Props to [adamsilverstein](https://github.com/adamsilverstein).
