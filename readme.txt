@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.4
-Stable tag: 21.6-RC5
+Stable tag: 21.6-RC6
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -357,8 +357,8 @@ Release date: 2023-11-28
 
 #### Other
 
-* Adds defensive coding to the supress warnings on archive pages with the `/%category%/%postname%/` permalink structure. Props to [@Mte90](https://github.com/Mte90).
-* Adds notification when WooCommerce new beta product editor is enabled.
+* Adds a notification when WooCommerce's new beta product editor is enabled.
+* Adds defensive coding to the suppress warnings on archive pages with the `/%category%/%postname%/` permalink structure. Props to [@Mte90](https://github.com/Mte90).
 
 = 21.5 =
 
