@@ -930,7 +930,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Indexables\\Domain\\Actions\\Verify_Indexables_Action_Factory_Interface' => true,
             'Yoast\\WP\\SEO\\Indexables\\Domain\\Batch_Size' => true,
             'Yoast\\WP\\SEO\\Indexables\\Domain\\Current_Verification_Action' => true,
-            'Yoast\\WP\\SEO\\Indexables\\Domain\\Exceptions\\No_Non_Timestamped_Objects_Found_Exception' => true,
             'Yoast\\WP\\SEO\\Indexables\\Domain\\Exceptions\\No_Outdated_Posts_Found_Exception' => true,
             'Yoast\\WP\\SEO\\Indexables\\Domain\\Exceptions\\No_Verification_Action_Left_Exception' => true,
             'Yoast\\WP\\SEO\\Indexables\\Domain\\Exceptions\\Verify_Action_Not_Found_Exception' => true,
