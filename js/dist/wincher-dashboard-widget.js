@@ -24,6 +24,9 @@
 `,j=b.a.div`
 	display: flex;
 	align-items: center;
+	& > a {
+		box-sizing: border-box;
+	}
 `,O=b.a.button`
 	background: none;
 	color: inherit;
