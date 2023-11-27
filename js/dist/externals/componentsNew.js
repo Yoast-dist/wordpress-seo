@@ -463,9 +463,11 @@ const t=Object(U.sprintf)(Object(U.__)("%d occurrences","wordpress-seo"),e.numbe
 		${e.color?`fill: ${e.color};`:""}
 		flex: 0 0 auto;
 	`,o=Ft()(e,["icon","width","height","color"]);return Object(r.createElement)(t,B()({role:"img","aria-hidden":"true",focusable:"false"},o))};eo.propTypes={icon:l.a.func.isRequired,width:l.a.string,height:l.a.string,color:l.a.string},eo.defaultProps={width:"16px",height:"16px"};var to=eo;const oo=c.a.button`
+	align-items: center;
+	justify-content: center;
 	box-sizing: border-box;
 	min-width: 32px;
-	display: inline-block;
+	display: inline-flex;
 	border: 1px solid ${d.colors.$color_button_border};
 	background-color: ${e=>e.pressed?e.pressedBackground:e.unpressedBackground};
 	box-shadow: ${e=>e.pressed?"inset 0 2px 0 "+Object(d.rgba)(e.pressedBoxShadowColor,.7):"0 1px 0 "+Object(d.rgba)(e.unpressedBoxShadowColor,.7)};
