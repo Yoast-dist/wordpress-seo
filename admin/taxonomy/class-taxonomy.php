@@ -164,8 +164,7 @@ class WPSEO_Taxonomy {
 							'scope'                    => $this->determine_scope(),
 						],
 						'shortcodes' => [
-							'wpseo_shortcode_tags'          => $this->get_valid_shortcode_tags(),
-							'wpseo_filter_shortcodes_nonce' => \wp_create_nonce( 'wpseo-filter-shortcodes' ),
+							'wpseo_shortcode_tags' => $this->get_valid_shortcode_tags(),
 						],
 					],
 					'worker'  => [
