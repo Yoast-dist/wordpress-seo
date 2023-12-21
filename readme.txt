@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.4
-Stable tag: 21.8-RC5
+Stable tag: 21.8-RC6
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -344,7 +344,7 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 = 21.8 =
 
-Release date: 2023-12-26
+Release date: 2024-01-09
 
 #### Enhancements
 
@@ -354,7 +354,7 @@ Release date: 2023-12-26
 
 * Adds a JavaScript action (`yoast.analysis.applyMarks`) that allow users to implement the highlighting functionality in other editors.
 * Adds a notification in the sidebar to leave a quick review.
-* Removes a set of Elementor widgets from the content analysis.
+* Removes a set of Elementor widgets from the content analysis to make the analysis results more accurate.
 * Re-orders menu items in block editor metabox and sidebar, classic editor metabox and Elementor editor sidebar to be consistent with Yoast SEO Premium.
 
 = 21.7 =
