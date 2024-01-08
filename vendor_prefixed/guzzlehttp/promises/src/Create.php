@@ -1,6 +1,5 @@
 <?php
 
-declare (strict_types=1);
 namespace YoastSEO_Vendor\GuzzleHttp\Promise;
 
 final class Create
@@ -9,8 +8,10 @@ final class Create
      * Creates a promise for a value if the value is not a promise.
      *
      * @param mixed $value Promise or value.
+     *
+     * @return PromiseInterface
      */
-    public static function promiseFor($value) : \YoastSEO_Vendor\GuzzleHttp\Promise\PromiseInterface
+    public static function promiseFor($value)
     {
         if ($value instanceof \YoastSEO_Vendor\GuzzleHttp\Promise\PromiseInterface) {
             return $value;
@@ -30,8 +31,10 @@ final class Create
      * If the provided reason is a promise, then it is returned as-is.
      *
      * @param mixed $reason Promise or reason.
+     *
+     * @return PromiseInterface
      */
-    public static function rejectionFor($reason) : \YoastSEO_Vendor\GuzzleHttp\Promise\PromiseInterface
+    public static function rejectionFor($reason)
     {
         if ($reason instanceof \YoastSEO_Vendor\GuzzleHttp\Promise\PromiseInterface) {
             return $reason;
@@ -42,10 +45,12 @@ final class Create
      * Create an exception for a rejected promise value.
      *
      * @param mixed $reason
+     *
+     * @return \Exception|\Throwable
      */
-    public static function exceptionFor($reason) : \Throwable
+    public static function exceptionFor($reason)
     {
-        if ($reason instanceof \Throwable) {
+        if ($reason instanceof \Exception || $reason instanceof \Throwable) {
             return $reason;
         }
         return new \YoastSEO_Vendor\GuzzleHttp\Promise\RejectionException($reason);
@@ -54,8 +59,10 @@ final class Create
      * Returns an iterator for the given value.
      *
      * @param mixed $value
+     *
+     * @return \Iterator
      */
-    public static function iterFor($value) : \Iterator
+    public static function iterFor($value)
     {
         if ($value instanceof \Iterator) {
             return $value;

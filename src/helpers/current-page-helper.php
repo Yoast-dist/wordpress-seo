@@ -412,13 +412,14 @@ class Current_Page_Helper {
 	 * @return bool True when current page is a yoast seo plugin page.
 	 */
 	public function is_yoast_seo_page() {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reason: We are not processing form information.
-		if ( isset( $_GET['page'] ) && \is_string( $_GET['page'] ) ) {
-			// phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Reason: We are not processing form information, We are only using the variable in the strpos function.
-			$current_page = \wp_unslash( $_GET['page'] );
-			return \strpos( $current_page, 'wpseo_' ) === 0;
+		static $is_yoast_seo;
+
+		if ( $is_yoast_seo === null ) {
+			$current_page = \filter_input( \INPUT_GET, 'page' );
+			$is_yoast_seo = ( \is_string( $current_page ) && \strpos( $current_page, 'wpseo_' ) === 0 );
 		}
-		return false;
+
+		return $is_yoast_seo;
 	}
 
 	/**
@@ -428,13 +429,13 @@ class Current_Page_Helper {
 	 * @return string The current Yoast SEO page.
 	 */
 	public function get_current_yoast_seo_page() {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reason: We are not processing form information.
-		if ( isset( $_GET['page'] ) && \is_string( $_GET['page'] ) ) {
-			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reason: We are not processing form information.
-			return \sanitize_text_field( \wp_unslash( $_GET['page'] ) );
+		static $current_yoast_seo_page;
+
+		if ( $current_yoast_seo_page === null ) {
+			$current_yoast_seo_page = \filter_input( \INPUT_GET, 'page' );
 		}
 
-		return '';
+		return $current_yoast_seo_page;
 	}
 
 	/**
@@ -482,12 +483,10 @@ class Current_Page_Helper {
 	 * @return int The amoumt of queried terms.
 	 */
 	protected function count_queried_terms() {
-		$wp_query = $this->wp_query_wrapper->get_main_query();
-		$term     = $wp_query->get_queried_object();
-
-
+		$wp_query      = $this->wp_query_wrapper->get_main_query();
+		$term          = $wp_query->get_queried_object();
 		$queried_terms = $wp_query->tax_query->queried_terms;
-		if ( is_null( $term ) || empty( $queried_terms[ $term->taxonomy ]['terms'] ) ) {
+		if ( empty( $queried_terms[ $term->taxonomy ]['terms'] ) ) {
 			return 0;
 		}
 

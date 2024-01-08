@@ -1,6 +1,5 @@
 <?php
 
-declare (strict_types=1);
 namespace YoastSEO_Vendor\GuzzleHttp\Psr7;
 
 use YoastSEO_Vendor\Psr\Http\Message\UriInterface;
@@ -14,8 +13,10 @@ final class UriComparator
     /**
      * Determines if a modified URL should be considered cross-origin with
      * respect to an original URL.
+     *
+     * @return bool
      */
-    public static function isCrossOrigin(\YoastSEO_Vendor\Psr\Http\Message\UriInterface $original, \YoastSEO_Vendor\Psr\Http\Message\UriInterface $modified) : bool
+    public static function isCrossOrigin(\YoastSEO_Vendor\Psr\Http\Message\UriInterface $original, \YoastSEO_Vendor\Psr\Http\Message\UriInterface $modified)
     {
         if (\strcasecmp($original->getHost(), $modified->getHost()) !== 0) {
             return \true;
@@ -28,7 +29,10 @@ final class UriComparator
         }
         return \false;
     }
-    private static function computePort(\YoastSEO_Vendor\Psr\Http\Message\UriInterface $uri) : int
+    /**
+     * @return int
+     */
+    private static function computePort(\YoastSEO_Vendor\Psr\Http\Message\UriInterface $uri)
     {
         $port = $uri->getPort();
         if (null !== $port) {

@@ -28,9 +28,8 @@ class Authentication
          * Login with user if v2 plugin data exist.
          */
         $accessToken = \YoastSEO_Vendor\WordProof\SDK\Helpers\TransientHelper::get('wordproof_v2_authenticate_with_token');
-        $sourceId = \YoastSEO_Vendor\WordProof\SDK\Helpers\TransientHelper::get('wordproof_v2_get_existing_source');
-        if ($accessToken && $sourceId) {
-            $data = \array_merge($data, ['access_token_login' => $accessToken, 'source_id' => $sourceId]);
+        if ($accessToken) {
+            $data = \array_merge($data, ['access_token_login' => $accessToken]);
         } else {
             $data = \array_merge($data, ['confirm_account' => \true]);
         }

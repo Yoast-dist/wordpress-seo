@@ -89,6 +89,7 @@ class Yoast_Feature_Toggles {
 			],
 			(object) [
 				'name'                => __( 'Inclusive language analysis', 'wordpress-seo' ),
+				'in_beta'             => true,
 				'supported_languages' => Language_Helper::$languages_with_inclusive_language_support,
 				'setting'             => 'inclusive_language_analysis_active',
 				'label'               => __( 'The inclusive language analysis offers suggestions to write more inclusive copy.', 'wordpress-seo' ),
@@ -201,17 +202,6 @@ class Yoast_Feature_Toggles {
 				'premium_url'        => 'https://yoa.st/index-now-feature',
 				'premium_upsell_url' => 'https://yoa.st/get-indexnow',
 				'order'              => 110,
-			],
-			(object) [
-				'name'               => __( 'AI title & description generator', 'wordpress-seo' ),
-				'premium'            => true,
-				'setting'            => 'enable_ai_generator',
-				'label'              => __( 'Use the power of Yoast AI to automatically generate compelling titles and descriptions for your posts and pages.', 'wordpress-seo' ),
-				'read_more_label'    => __( 'Learn more', 'wordpress-seo' ),
-				'read_more_url'      => 'https://yoa.st/ai-generator-read-more',
-				'premium_url'        => 'https://yoa.st/ai-generator-feature',
-				'premium_upsell_url' => 'https://yoa.st/get-ai-generator',
-				'order'              => 115,
 			],
 		];
 

@@ -39,3 +39,4 @@ class Page_Comments_Runner implements Runner_Interface {
 		return $this->comments_on_single_page;
 	}
 }
+

@@ -2,7 +2,6 @@
 
 namespace Yoast\WP\SEO\Generators\Schema;
 
-use WP_User;
 use Yoast\WP\SEO\Config\Schema_IDs;
 
 /**
@@ -50,7 +49,7 @@ class Article extends Abstract_Schema_Piece {
 			'@id'              => $this->context->canonical . Schema_IDs::ARTICLE_HASH,
 			'isPartOf'         => [ '@id' => $this->context->main_schema_id ],
 			'author'           => [
-				'name' => ( $author instanceof WP_User ) ? $this->helpers->schema->html->smart_strip_tags( $author->display_name ) : '',
+				'name' => $this->helpers->schema->html->smart_strip_tags( $author->display_name ),
 				'@id'  => $this->helpers->schema->id->get_user_schema_id( $this->context->post->post_author, $this->context ),
 			],
 			'headline'         => $this->helpers->schema->html->smart_strip_tags( $this->helpers->post->get_post_title_with_fallback( $this->context->id ) ),
@@ -225,6 +224,9 @@ class Article extends Abstract_Schema_Piece {
 			$characters  = \implode( '', $characters );
 			$characters .= \mb_strtoupper( $characters );
 		}
+
+
+
 
 		// Remove characters from HTML entities.
 		$post_content = \preg_replace( '@&[a-z0-9]+;@i', ' ', \htmlentities( $post_content ) );

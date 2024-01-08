@@ -70,15 +70,6 @@ class WPSEO_Image_Utils {
 		$id = attachment_url_to_postid( $url );
 
 		if ( empty( $id ) ) {
-			/**
-			 * If no ID was found, maybe we're dealing with a scaled big image. So, let's try that.
-			 *
-			 * @see https://core.trac.wordpress.org/ticket/51058
-			 */
-			$id = self::get_scaled_image_id( $url );
-		}
-
-		if ( empty( $id ) ) {
 			wp_cache_set( $cache_key, 'not_found', '', ( 12 * HOUR_IN_SECONDS + wp_rand( 0, ( 4 * HOUR_IN_SECONDS ) ) ) );
 			return 0;
 		}
@@ -86,24 +77,6 @@ class WPSEO_Image_Utils {
 		// We have the Post ID, but it's not in the cache yet. We do that here and return.
 		wp_cache_set( $cache_key, $id, '', ( 24 * HOUR_IN_SECONDS + wp_rand( 0, ( 12 * HOUR_IN_SECONDS ) ) ) );
 		return $id;
-	}
-
-	/**
-	 * Tries getting the ID of a potentially scaled image.
-	 *
-	 * @param string $url The URL of the image.
-	 *
-	 * @return int|false The ID of the image or false for failure.
-	 */
-	protected static function get_scaled_image_id( $url ) {
-		$path_parts = pathinfo( $url );
-		if ( isset( $path_parts['dirname'], $path_parts['filename'], $path_parts['extension'] ) ) {
-			$scaled_url = trailingslashit( $path_parts['dirname'] ) . $path_parts['filename'] . '-scaled.' . $path_parts['extension'];
-
-			return attachment_url_to_postid( $scaled_url );
-		}
-
-		return false;
 	}
 
 	/**
@@ -202,7 +175,7 @@ class WPSEO_Image_Utils {
 	 * Find the right version of an image based on size.
 	 *
 	 * @param int          $attachment_id Attachment ID.
-	 * @param string|array $size          Size name, or array of width and height in pixels (e.g [800,400]).
+	 * @param string|array $size     Size name, or array of width and height in pixels (e.g [800,400]).
 	 *
 	 * @return array|false Returns an array with image data on success, false on failure.
 	 */
@@ -496,20 +469,14 @@ class WPSEO_Image_Utils {
 	 */
 	public static function get_attachment_id_from_settings( $setting ) {
 		$image_id = WPSEO_Options::get( $setting . '_id', false );
-		if ( $image_id ) {
-			return $image_id;
-		}
-
-		$image = WPSEO_Options::get( $setting, false );
-		if ( $image ) {
-			// There is not an option to put a URL in an image field in the settings anymore, only to upload it through the media manager.
-			// This means an attachment always exists, so doing this is only needed once.
-			$image_id = self::get_attachment_by_url( $image );
-		}
-
-		// Only store a new ID if it is not 0, to prevent an update loop.
-		if ( $image_id ) {
-			WPSEO_Options::set( $setting . '_id', $image_id );
+		if ( ! $image_id ) {
+			$image = WPSEO_Options::get( $setting, false );
+			if ( $image ) {
+				// There is not an option to put a URL in an image field in the settings anymore, only to upload it through the media manager.
+				// This means an attachment always exists, so doing this is only needed once.
+				$image_id = self::get_attachment_by_url( $image );
+				WPSEO_Options::set( $setting . '_id', $image_id );
+			}
 		}
 
 		return $image_id;

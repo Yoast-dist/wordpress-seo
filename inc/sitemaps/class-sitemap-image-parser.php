@@ -457,7 +457,7 @@ class WPSEO_Sitemap_Image_Parser {
 		);
 
 		$gallery_attachments = [];
-		foreach ( $attachments as $val ) {
+		foreach ( $attachments as $key => $val ) {
 			$gallery_attachments[ $val->ID ] = $val;
 		}
 

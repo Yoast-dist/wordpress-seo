@@ -2,7 +2,6 @@
 
 namespace YoastSEO_Vendor\GuzzleHttp;
 
-use YoastSEO_Vendor\GuzzleHttp\Promise as P;
 use YoastSEO_Vendor\GuzzleHttp\Promise\EachPromise;
 use YoastSEO_Vendor\GuzzleHttp\Promise\PromiseInterface;
 use YoastSEO_Vendor\GuzzleHttp\Promise\PromisorInterface;
@@ -17,28 +16,27 @@ use YoastSEO_Vendor\Psr\Http\Message\RequestInterface;
  * When a function is yielded by the iterator, the function is provided the
  * "request_options" array that should be merged on top of any existing
  * options, and the function MUST then return a wait-able promise.
- *
- * @final
  */
 class Pool implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromisorInterface
 {
-    /**
-     * @var EachPromise
-     */
+    /** @var EachPromise */
     private $each;
     /**
      * @param ClientInterface $client   Client used to send the requests.
      * @param array|\Iterator $requests Requests or functions that return
      *                                  requests to send concurrently.
      * @param array           $config   Associative array of options
-     *                                  - concurrency: (int) Maximum number of requests to send concurrently
-     *                                  - options: Array of request options to apply to each request.
-     *                                  - fulfilled: (callable) Function to invoke when a request completes.
-     *                                  - rejected: (callable) Function to invoke when a request is rejected.
+     *     - concurrency: (int) Maximum number of requests to send concurrently
+     *     - options: Array of request options to apply to each request.
+     *     - fulfilled: (callable) Function to invoke when a request completes.
+     *     - rejected: (callable) Function to invoke when a request is rejected.
      */
     public function __construct(\YoastSEO_Vendor\GuzzleHttp\ClientInterface $client, $requests, array $config = [])
     {
-        if (!isset($config['concurrency'])) {
+        // Backwards compatibility.
+        if (isset($config['pool_size'])) {
+            $config['concurrency'] = $config['pool_size'];
+        } elseif (!isset($config['concurrency'])) {
             $config['concurrency'] = 25;
         }
         if (isset($config['options'])) {
@@ -47,15 +45,15 @@ class Pool implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromisorInterface
         } else {
             $opts = [];
         }
-        $iterable = \YoastSEO_Vendor\GuzzleHttp\Promise\Create::iterFor($requests);
-        $requests = static function () use($iterable, $client, $opts) {
+        $iterable = \YoastSEO_Vendor\GuzzleHttp\Promise\iter_for($requests);
+        $requests = function () use($iterable, $client, $opts) {
             foreach ($iterable as $key => $rfn) {
                 if ($rfn instanceof \YoastSEO_Vendor\Psr\Http\Message\RequestInterface) {
                     (yield $key => $client->sendAsync($rfn, $opts));
                 } elseif (\is_callable($rfn)) {
                     (yield $key => $rfn($opts));
                 } else {
-                    throw new \InvalidArgumentException('Each value yielded by the iterator must be a Psr7\\Http\\Message\\RequestInterface or a callable that returns a promise that fulfills with a Psr7\\Message\\Http\\ResponseInterface object.');
+                    throw new \InvalidArgumentException('Each value yielded by ' . 'the iterator must be a Psr7\\Http\\Message\\RequestInterface ' . 'or a callable that returns a promise that fulfills ' . 'with a Psr7\\Message\\Http\\ResponseInterface object.');
                 }
             }
         };
@@ -63,8 +61,10 @@ class Pool implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromisorInterface
     }
     /**
      * Get promise
+     *
+     * @return PromiseInterface
      */
-    public function promise() : \YoastSEO_Vendor\GuzzleHttp\Promise\PromiseInterface
+    public function promise()
     {
         return $this->each->promise();
     }
@@ -79,14 +79,13 @@ class Pool implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromisorInterface
      * @param ClientInterface $client   Client used to send the requests
      * @param array|\Iterator $requests Requests to send concurrently.
      * @param array           $options  Passes through the options available in
-     *                                  {@see \GuzzleHttp\Pool::__construct}
+     *                                  {@see GuzzleHttp\Pool::__construct}
      *
      * @return array Returns an array containing the response or an exception
      *               in the same order that the requests were sent.
-     *
      * @throws \InvalidArgumentException if the event format is incorrect.
      */
-    public static function batch(\YoastSEO_Vendor\GuzzleHttp\ClientInterface $client, $requests, array $options = []) : array
+    public static function batch(\YoastSEO_Vendor\GuzzleHttp\ClientInterface $client, $requests, array $options = [])
     {
         $res = [];
         self::cmpCallback($options, 'fulfilled', $res);
@@ -98,16 +97,18 @@ class Pool implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromisorInterface
     }
     /**
      * Execute callback(s)
+     *
+     * @return void
      */
-    private static function cmpCallback(array &$options, string $name, array &$results) : void
+    private static function cmpCallback(array &$options, $name, array &$results)
     {
         if (!isset($options[$name])) {
-            $options[$name] = static function ($v, $k) use(&$results) {
+            $options[$name] = function ($v, $k) use(&$results) {
                 $results[$k] = $v;
             };
         } else {
             $currentFn = $options[$name];
-            $options[$name] = static function ($v, $k) use(&$results, $currentFn) {
+            $options[$name] = function ($v, $k) use(&$results, $currentFn) {
                 $currentFn($v, $k);
                 $results[$k] = $v;
             };

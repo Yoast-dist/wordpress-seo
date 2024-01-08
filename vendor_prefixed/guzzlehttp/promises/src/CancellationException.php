@@ -1,6 +1,5 @@
 <?php
 
-declare (strict_types=1);
 namespace YoastSEO_Vendor\GuzzleHttp\Promise;
 
 /**

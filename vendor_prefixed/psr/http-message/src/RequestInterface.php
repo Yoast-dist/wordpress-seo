@@ -39,7 +39,7 @@ interface RequestInterface extends \YoastSEO_Vendor\Psr\Http\Message\MessageInte
      *
      * @return string
      */
-    public function getRequestTarget() : string;
+    public function getRequestTarget();
     /**
      * Return an instance with the specific request-target.
      *
@@ -54,16 +54,16 @@ interface RequestInterface extends \YoastSEO_Vendor\Psr\Http\Message\MessageInte
      *
      * @link http://tools.ietf.org/html/rfc7230#section-5.3 (for the various
      *     request-target forms allowed in request messages)
-     * @param string $requestTarget
+     * @param mixed $requestTarget
      * @return static
      */
-    public function withRequestTarget(string $requestTarget) : \YoastSEO_Vendor\Psr\Http\Message\RequestInterface;
+    public function withRequestTarget($requestTarget);
     /**
      * Retrieves the HTTP method of the request.
      *
      * @return string Returns the request method.
      */
-    public function getMethod() : string;
+    public function getMethod();
     /**
      * Return an instance with the provided HTTP method.
      *
@@ -79,7 +79,7 @@ interface RequestInterface extends \YoastSEO_Vendor\Psr\Http\Message\MessageInte
      * @return static
      * @throws \InvalidArgumentException for invalid HTTP methods.
      */
-    public function withMethod(string $method) : \YoastSEO_Vendor\Psr\Http\Message\RequestInterface;
+    public function withMethod($method);
     /**
      * Retrieves the URI instance.
      *
@@ -89,7 +89,7 @@ interface RequestInterface extends \YoastSEO_Vendor\Psr\Http\Message\MessageInte
      * @return UriInterface Returns a UriInterface instance
      *     representing the URI of the request.
      */
-    public function getUri() : \YoastSEO_Vendor\Psr\Http\Message\UriInterface;
+    public function getUri();
     /**
      * Returns an instance with the provided URI.
      *
@@ -120,5 +120,5 @@ interface RequestInterface extends \YoastSEO_Vendor\Psr\Http\Message\MessageInte
      * @param bool $preserveHost Preserve the original state of the Host header.
      * @return static
      */
-    public function withUri(\YoastSEO_Vendor\Psr\Http\Message\UriInterface $uri, bool $preserveHost = \false) : \YoastSEO_Vendor\Psr\Http\Message\RequestInterface;
+    public function withUri(\YoastSEO_Vendor\Psr\Http\Message\UriInterface $uri, $preserveHost = \false);
 }

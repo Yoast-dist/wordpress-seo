@@ -163,9 +163,7 @@ class WPSEO_MyYoast_Proxy implements WPSEO_WordPress_Integration {
 	 * @return bool True when the page request parameter equals the proxy page.
 	 */
 	protected function is_proxy_page() {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reason: We are not processing form information.
-		$page = isset( $_GET['page'] ) && is_string( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
-		return $page === self::PAGE_IDENTIFIER;
+		return filter_input( INPUT_GET, 'page' ) === self::PAGE_IDENTIFIER;
 	}
 
 	/**
@@ -173,15 +171,11 @@ class WPSEO_MyYoast_Proxy implements WPSEO_WordPress_Integration {
 	 *
 	 * @codeCoverageIgnore
 	 *
-	 * @return string The sanitized file request parameter or an empty string if it does not exist.
+	 * @return string The sanitized file request parameter.
 	 */
 	protected function get_proxy_file() {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reason: We are not processing form information.
-		if ( isset( $_GET['file'] ) && is_string( $_GET['file'] ) ) {
-			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reason: We are not processing form information.
-			return sanitize_text_field( wp_unslash( $_GET['file'] ) );
-		}
-		return '';
+		// phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- This deprecation will be addressed later.
+		return filter_input( INPUT_GET, 'file', @FILTER_SANITIZE_STRING );
 	}
 
 	/**
@@ -189,17 +183,15 @@ class WPSEO_MyYoast_Proxy implements WPSEO_WordPress_Integration {
 	 *
 	 * @codeCoverageIgnore
 	 *
-	 * @return string The sanitized plugin_version request parameter or an empty string if it does not exist.
+	 * @return string The sanitized plugin_version request parameter.
 	 */
 	protected function get_plugin_version() {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reason: We are not processing form information.
-		if ( isset( $_GET['plugin_version'] ) && is_string( $_GET['plugin_version'] ) ) {
-			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reason: We are not processing form information.
-			$plugin_version = sanitize_text_field( wp_unslash( $_GET['plugin_version'] ) );
-			// Replace slashes to secure against requiring a file from another path.
-			return str_replace( [ '/', '\\' ], '_', $plugin_version );
-		}
-		return '';
+		// phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- This deprecation will be addressed later.
+		$plugin_version = filter_input( INPUT_GET, 'plugin_version', @FILTER_SANITIZE_STRING );
+		// Replace slashes to secure against requiring a file from another path.
+		$plugin_version = str_replace( [ '/', '\\' ], '_', $plugin_version );
+
+		return $plugin_version;
 	}
 
 	/**

@@ -94,3 +94,4 @@ class SEMrush_Phrases_Action {
 		];
 	}
 }
+

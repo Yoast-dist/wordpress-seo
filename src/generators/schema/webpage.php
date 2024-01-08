@@ -48,7 +48,7 @@ class WebPage extends Abstract_Schema_Piece {
 			}
 		}
 
-		$data = $this->add_image( $data );
+		$this->add_image( $data );
 
 		if ( $this->context->indexable->object_type === 'post' ) {
 			$data['datePublished'] = $this->helpers->date->format( $this->context->post->post_date_gmt );
@@ -100,13 +100,12 @@ class WebPage extends Abstract_Schema_Piece {
 	 *
 	 * @param array $data WebPage schema data.
 	 */
-	public function add_image( $data ) {
+	public function add_image( &$data ) {
 		if ( $this->context->has_image ) {
 			$data['primaryImageOfPage'] = [ '@id' => $this->context->canonical . Schema_IDs::PRIMARY_IMAGE_HASH ];
 			$data['image']              = [ '@id' => $this->context->canonical . Schema_IDs::PRIMARY_IMAGE_HASH ];
 			$data['thumbnailUrl']       = $this->context->main_image_url;
 		}
-		return $data;
 	}
 
 	/**

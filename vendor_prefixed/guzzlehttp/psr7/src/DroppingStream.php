@@ -1,30 +1,28 @@
 <?php
 
-declare (strict_types=1);
 namespace YoastSEO_Vendor\GuzzleHttp\Psr7;
 
 use YoastSEO_Vendor\Psr\Http\Message\StreamInterface;
 /**
  * Stream decorator that begins dropping data once the size of the underlying
  * stream becomes too full.
+ *
+ * @final
  */
-final class DroppingStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInterface
+class DroppingStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInterface
 {
     use StreamDecoratorTrait;
-    /** @var int */
     private $maxLength;
-    /** @var StreamInterface */
-    private $stream;
     /**
      * @param StreamInterface $stream    Underlying stream to decorate.
      * @param int             $maxLength Maximum size before dropping data.
      */
-    public function __construct(\YoastSEO_Vendor\Psr\Http\Message\StreamInterface $stream, int $maxLength)
+    public function __construct(\YoastSEO_Vendor\Psr\Http\Message\StreamInterface $stream, $maxLength)
     {
         $this->stream = $stream;
         $this->maxLength = $maxLength;
     }
-    public function write($string) : int
+    public function write($string)
     {
         $diff = $this->maxLength - $this->stream->getSize();
         // Begin returning 0 when the underlying stream is too large.

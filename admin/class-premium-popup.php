@@ -78,8 +78,7 @@ class WPSEO_Premium_Popup {
 		$assets_uri = trailingslashit( plugin_dir_url( WPSEO_FILE ) );
 
 		/* translators: %s expands to Yoast SEO Premium */
-		$cta_text = esc_html( sprintf( __( 'Get %s', 'wordpress-seo' ), 'Yoast SEO Premium' ) );
-		/* translators: Hidden accessibility text. */
+		$cta_text        = esc_html( sprintf( __( 'Get %s', 'wordpress-seo' ), 'Yoast SEO Premium' ) );
 		$new_tab_message = '<span class="screen-reader-text">' . esc_html__( '(Opens in a new browser tab)', 'wordpress-seo' ) . '</span>';
 		$caret_icon      = '<span aria-hidden="true" class="yoast-button-upsell__caret"></span>';
 		$classes         = '';

@@ -37,7 +37,6 @@ class Primary_Category_Conditional implements Conditional {
 		if ( ! \is_admin() ) {
 			return true;
 		}
-
 		/**
 		 * Filter: Adds the possibility to use primary category at additional admin pages.
 		 *

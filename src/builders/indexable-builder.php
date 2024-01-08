@@ -80,13 +80,6 @@ class Indexable_Builder {
 	private $primary_term_builder;
 
 	/**
-	 * The link builder
-	 *
-	 * @var Indexable_Link_Builder
-	 */
-	private $link_builder;
-
-	/**
 	 * The indexable repository.
 	 *
 	 * @var Indexable_Repository
@@ -121,7 +114,6 @@ class Indexable_Builder {
 	 * @param Primary_Term_Builder                $primary_term_builder      The primary term builder for creating primary terms for posts.
 	 * @param Indexable_Helper                    $indexable_helper          The indexable helper.
 	 * @param Indexable_Version_Manager           $version_manager           The indexable version manager.
-	 * @param Indexable_Link_Builder              $link_builder              The link builder for creating missing SEO links.
 	 */
 	public function __construct(
 		Indexable_Author_Builder $author_builder,
@@ -134,8 +126,7 @@ class Indexable_Builder {
 		Indexable_Hierarchy_Builder $hierarchy_builder,
 		Primary_Term_Builder $primary_term_builder,
 		Indexable_Helper $indexable_helper,
-		Indexable_Version_Manager $version_manager,
-		Indexable_Link_Builder $link_builder
+		Indexable_Version_Manager $version_manager
 	) {
 		$this->author_builder            = $author_builder;
 		$this->post_builder              = $post_builder;
@@ -148,7 +139,6 @@ class Indexable_Builder {
 		$this->primary_term_builder      = $primary_term_builder;
 		$this->indexable_helper          = $indexable_helper;
 		$this->version_manager           = $version_manager;
-		$this->link_builder              = $link_builder;
 	}
 
 	/**
@@ -257,7 +247,7 @@ class Indexable_Builder {
 	 *
 	 * @return Indexable The indexable.
 	 */
-	protected function ensure_indexable( $indexable, $defaults = [] ) {
+	private function ensure_indexable( $indexable, $defaults = [] ) {
 		if ( ! $indexable ) {
 			return $this->indexable_repository->query()->create( $defaults );
 		}
@@ -334,17 +324,6 @@ class Indexable_Builder {
 		return $author_indexable;
 	}
 
-	/**
-	 * Checks if the indexable type is one that is not supposed to have object ID for.
-	 *
-	 * @param string $type The type of the indexable.
-	 *
-	 * @return bool Whether the indexable type is one that is not supposed to have object ID for.
-	 */
-	protected function is_type_with_no_id( $type ) {
-		return \in_array( $type, [ 'home-page', 'date-archive', 'post-type-archive', 'system-page' ], true );
-	}
-
 	// phpcs:disable Squiz.Commenting.FunctionCommentThrowTag.Missing -- Exceptions are handled by the catch statement in the method.
 
 	/**
@@ -370,14 +349,13 @@ class Indexable_Builder {
 
 				case 'post':
 					$indexable = $this->post_builder->build( $indexable->object_id, $indexable );
+					if ( ! $indexable ) {
+						// Indexable for this Post was not built for a reason; e.g. if its post type is excluded.
+						return $indexable;
+					}
 
 					// Save indexable, to make sure it can be queried when building related objects like the author indexable and hierarchy.
 					$indexable = $this->save_indexable( $indexable, $indexable_before );
-
-					// For attachments, we have to make sure to patch any potentially previously cleaned up SEO links.
-					if ( \is_a( $indexable, Indexable::class ) && $indexable->object_sub_type === 'attachment' ) {
-						$this->link_builder->patch_seo_links( $indexable );
-					}
 
 					// Always rebuild the primary term.
 					$this->primary_term_builder->build( $indexable->object_id );
@@ -425,10 +403,6 @@ class Indexable_Builder {
 			return $this->save_indexable( $indexable, $indexable_before );
 		}
 		catch ( Source_Exception $exception ) {
-			if ( ! $this->is_type_with_no_id( $indexable->object_type ) && ( ! isset( $indexable->object_id ) || \is_null( $indexable->object_id ) ) ) {
-				return false;
-			}
-
 			/**
 			 * The current indexable could not be indexed. Create a placeholder indexable, so we can
 			 * skip this indexable in future indexing runs.

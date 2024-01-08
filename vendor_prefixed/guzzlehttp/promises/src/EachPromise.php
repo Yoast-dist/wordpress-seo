@@ -1,13 +1,10 @@
 <?php
 
-declare (strict_types=1);
 namespace YoastSEO_Vendor\GuzzleHttp\Promise;
 
 /**
  * Represents a promise that iterates over many promises and invokes
  * side-effect functions in the process.
- *
- * @final
  */
 class EachPromise implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromisorInterface
 {
@@ -60,7 +57,7 @@ class EachPromise implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromisorInterfa
         }
     }
     /** @psalm-suppress InvalidNullableReturnType */
-    public function promise() : \YoastSEO_Vendor\GuzzleHttp\Promise\PromiseInterface
+    public function promise()
     {
         if ($this->aggregate) {
             return $this->aggregate;
@@ -71,17 +68,28 @@ class EachPromise implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromisorInterfa
             $this->iterable->rewind();
             $this->refillPending();
         } catch (\Throwable $e) {
+            /**
+             * @psalm-suppress NullReference
+             * @phpstan-ignore-next-line
+             */
+            $this->aggregate->reject($e);
+        } catch (\Exception $e) {
+            /**
+             * @psalm-suppress NullReference
+             * @phpstan-ignore-next-line
+             */
             $this->aggregate->reject($e);
         }
         /**
          * @psalm-suppress NullableReturnStatement
+         * @phpstan-ignore-next-line
          */
         return $this->aggregate;
     }
-    private function createPromise() : void
+    private function createPromise()
     {
         $this->mutex = \false;
-        $this->aggregate = new \YoastSEO_Vendor\GuzzleHttp\Promise\Promise(function () : void {
+        $this->aggregate = new \YoastSEO_Vendor\GuzzleHttp\Promise\Promise(function () {
             if ($this->checkIfFinished()) {
                 return;
             }
@@ -97,14 +105,14 @@ class EachPromise implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromisorInterfa
             }
         });
         // Clear the references when the promise is resolved.
-        $clearFn = function () : void {
+        $clearFn = function () {
             $this->iterable = $this->concurrency = $this->pending = null;
             $this->onFulfilled = $this->onRejected = null;
             $this->nextPendingIndex = 0;
         };
         $this->aggregate->then($clearFn, $clearFn);
     }
-    private function refillPending() : void
+    private function refillPending()
     {
         if (!$this->concurrency) {
             // Add all pending promises.
@@ -128,7 +136,7 @@ class EachPromise implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromisorInterfa
         while (--$concurrency && $this->advanceIterator() && $this->addPending()) {
         }
     }
-    private function addPending() : bool
+    private function addPending()
     {
         if (!$this->iterable || !$this->iterable->valid()) {
             return \false;
@@ -138,12 +146,12 @@ class EachPromise implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromisorInterfa
         // Iterable keys may not be unique, so we use a counter to
         // guarantee uniqueness
         $idx = $this->nextPendingIndex++;
-        $this->pending[$idx] = $promise->then(function ($value) use($idx, $key) : void {
+        $this->pending[$idx] = $promise->then(function ($value) use($idx, $key) {
             if ($this->onFulfilled) {
                 \call_user_func($this->onFulfilled, $value, $key, $this->aggregate);
             }
             $this->step($idx);
-        }, function ($reason) use($idx, $key) : void {
+        }, function ($reason) use($idx, $key) {
             if ($this->onRejected) {
                 \call_user_func($this->onRejected, $reason, $key, $this->aggregate);
             }
@@ -151,7 +159,7 @@ class EachPromise implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromisorInterfa
         });
         return \true;
     }
-    private function advanceIterator() : bool
+    private function advanceIterator()
     {
         // Place a lock on the iterator so that we ensure to not recurse,
         // preventing fatal generator errors.
@@ -167,9 +175,13 @@ class EachPromise implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromisorInterfa
             $this->aggregate->reject($e);
             $this->mutex = \false;
             return \false;
+        } catch (\Exception $e) {
+            $this->aggregate->reject($e);
+            $this->mutex = \false;
+            return \false;
         }
     }
-    private function step(int $idx) : void
+    private function step($idx)
     {
         // If the promise was already resolved, then ignore this step.
         if (\YoastSEO_Vendor\GuzzleHttp\Promise\Is::settled($this->aggregate)) {
@@ -184,7 +196,7 @@ class EachPromise implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromisorInterfa
             $this->refillPending();
         }
     }
-    private function checkIfFinished() : bool
+    private function checkIfFinished()
     {
         if (!$this->pending && !$this->iterable->valid()) {
             // Resolve the promise if there's nothing left to do.

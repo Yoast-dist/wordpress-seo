@@ -12,8 +12,6 @@ class AuthenticationHelper
     public static function logout()
     {
         \YoastSEO_Vendor\WordProof\SDK\Helpers\OptionsHelper::resetAuthentication();
-        \YoastSEO_Vendor\WordProof\SDK\Helpers\TransientHelper::getOnce('wordproof_v2_authenticate_with_token');
-        \YoastSEO_Vendor\WordProof\SDK\Helpers\TransientHelper::getOnce('wordproof_v2_get_existing_source');
     }
     /**
      * Returns if the user is authenticated.

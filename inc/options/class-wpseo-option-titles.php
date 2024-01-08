@@ -93,14 +93,6 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 		'open_graph_frontpage_image'       => '', // Text field.
 		'open_graph_frontpage_image_id'    => 0,
 
-		'publishing_principles_id'         => 0,
-		'ownership_funding_info_id'        => 0,
-		'actionable_feedback_policy_id'    => 0,
-		'corrections_policy_id'            => 0,
-		'ethics_policy_id'                 => 0,
-		'diversity_policy_id'              => 0,
-		'diversity_staffing_report_id'     => 0,
-
 		/*
 		 * Uses enrich_defaults to add more along the lines of:
 		 * - 'title-' . $pt->name                => ''; // Text field.
@@ -587,13 +579,6 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 				case 'person_logo_id':
 				case 'social-image-id-':
 				case 'open_graph_frontpage_image_id':
-				case 'publishing_principles_id':
-				case 'ownership_funding_info_id':
-				case 'actionable_feedback_policy_id':
-				case 'corrections_policy_id':
-				case 'ethics_policy_id':
-				case 'diversity_policy_id':
-				case 'diversity_staffing_report_id':
 					if ( isset( $dirty[ $key ] ) ) {
 						$int = WPSEO_Utils::validate_int( $dirty[ $key ] );
 						if ( $int !== false && $int >= 0 ) {
@@ -607,6 +592,7 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 						}
 					}
 					break;
+
 				/* Separator field - Radio. */
 				case 'separator':
 					if ( isset( $dirty[ $key ] ) && $dirty[ $key ] !== '' ) {
@@ -778,10 +764,12 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 		}
 		unset( $old_option );
 
+
 		// Fix wrongness created by buggy version 1.2.2.
 		if ( isset( $option_value['title-home'] ) && $option_value['title-home'] === '%%sitename%% - %%sitedesc%% - 12345' ) {
 			$option_value['title-home-wpseo'] = '%%sitename%% - %%sitedesc%%';
 		}
+
 
 		/*
 		 * Renaming these options to avoid ever overwritting these if a (bloody stupid) user /
@@ -810,6 +798,7 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 			}
 		}
 		unset( $rename, $old, $new );
+
 
 		/*
 		 * {@internal This clean-up action can only be done effectively once the taxonomies
@@ -964,11 +953,11 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 				'label'  => __( 'Dash', 'wordpress-seo' ),
 			],
 			'sc-ndash'  => [
-				'option' => '&#8211;',
+				'option' => '&ndash;',
 				'label'  => __( 'En dash', 'wordpress-seo' ),
 			],
 			'sc-mdash'  => [
-				'option' => '&#8212;',
+				'option' => '&mdash;',
 				'label'  => __( 'Em dash', 'wordpress-seo' ),
 			],
 			'sc-colon'  => [
@@ -976,11 +965,11 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 				'label'  => __( 'Colon', 'wordpress-seo' ),
 			],
 			'sc-middot' => [
-				'option' => '&#183;',
+				'option' => '&middot;',
 				'label'  => __( 'Middle dot', 'wordpress-seo' ),
 			],
 			'sc-bull'   => [
-				'option' => '&#8226;',
+				'option' => '&bull;',
 				'label'  => __( 'Bullet', 'wordpress-seo' ),
 			],
 			'sc-star'   => [
@@ -1000,19 +989,19 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 				'label'  => __( 'Small tilde', 'wordpress-seo' ),
 			],
 			'sc-laquo'  => [
-				'option' => '&#171;',
+				'option' => '&laquo;',
 				'label'  => __( 'Left angle quotation mark', 'wordpress-seo' ),
 			],
 			'sc-raquo'  => [
-				'option' => '&#187;',
+				'option' => '&raquo;',
 				'label'  => __( 'Right angle quotation mark', 'wordpress-seo' ),
 			],
 			'sc-lt'     => [
-				'option' => '&#062;',
+				'option' => '&lt;',
 				'label'  => __( 'Less than sign', 'wordpress-seo' ),
 			],
 			'sc-gt'     => [
-				'option' => '&#060;',
+				'option' => '&gt;',
 				'label'  => __( 'Greater than sign', 'wordpress-seo' ),
 			],
 		];

@@ -1,6 +1,5 @@
 <?php
 
-declare (strict_types=1);
 namespace YoastSEO_Vendor\GuzzleHttp\Psr7;
 
 use YoastSEO_Vendor\Psr\Http\Message\StreamInterface;
@@ -8,16 +7,15 @@ use YoastSEO_Vendor\Psr\Http\Message\StreamInterface;
  * Reads from multiple streams, one after the other.
  *
  * This is a read-only stream decorator.
+ *
+ * @final
  */
-final class AppendStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInterface
+class AppendStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInterface
 {
     /** @var StreamInterface[] Streams being decorated */
     private $streams = [];
-    /** @var bool */
     private $seekable = \true;
-    /** @var int */
     private $current = 0;
-    /** @var int */
     private $pos = 0;
     /**
      * @param StreamInterface[] $streams Streams to decorate. Each stream must
@@ -29,16 +27,12 @@ final class AppendStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInte
             $this->addStream($stream);
         }
     }
-    public function __toString() : string
+    public function __toString()
     {
         try {
             $this->rewind();
             return $this->getContents();
-        } catch (\Throwable $e) {
-            if (\PHP_VERSION_ID >= 70400) {
-                throw $e;
-            }
-            \trigger_error(\sprintf('%s::__toString exception: %s', self::class, (string) $e), \E_USER_ERROR);
+        } catch (\Exception $e) {
             return '';
         }
     }
@@ -49,7 +43,7 @@ final class AppendStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInte
      *
      * @throws \InvalidArgumentException if the stream is not readable
      */
-    public function addStream(\YoastSEO_Vendor\Psr\Http\Message\StreamInterface $stream) : void
+    public function addStream(\YoastSEO_Vendor\Psr\Http\Message\StreamInterface $stream)
     {
         if (!$stream->isReadable()) {
             throw new \InvalidArgumentException('Each stream must be readable');
@@ -60,14 +54,16 @@ final class AppendStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInte
         }
         $this->streams[] = $stream;
     }
-    public function getContents() : string
+    public function getContents()
     {
         return \YoastSEO_Vendor\GuzzleHttp\Psr7\Utils::copyToString($this);
     }
     /**
      * Closes each attached stream.
+     *
+     * {@inheritdoc}
      */
-    public function close() : void
+    public function close()
     {
         $this->pos = $this->current = 0;
         $this->seekable = \true;
@@ -80,6 +76,8 @@ final class AppendStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInte
      * Detaches each attached stream.
      *
      * Returns null as it's not clear which underlying stream resource to return.
+     *
+     * {@inheritdoc}
      */
     public function detach()
     {
@@ -91,7 +89,7 @@ final class AppendStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInte
         $this->streams = [];
         return null;
     }
-    public function tell() : int
+    public function tell()
     {
         return $this->pos;
     }
@@ -100,8 +98,10 @@ final class AppendStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInte
      *
      * If any of the streams do not return a valid number, then the size of the
      * append stream cannot be determined and null is returned.
+     *
+     * {@inheritdoc}
      */
-    public function getSize() : ?int
+    public function getSize()
     {
         $size = 0;
         foreach ($this->streams as $stream) {
@@ -113,18 +113,20 @@ final class AppendStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInte
         }
         return $size;
     }
-    public function eof() : bool
+    public function eof()
     {
         return !$this->streams || $this->current >= \count($this->streams) - 1 && $this->streams[$this->current]->eof();
     }
-    public function rewind() : void
+    public function rewind()
     {
         $this->seek(0);
     }
     /**
      * Attempts to seek to the given position. Only supports SEEK_SET.
+     *
+     * {@inheritdoc}
      */
-    public function seek($offset, $whence = \SEEK_SET) : void
+    public function seek($offset, $whence = \SEEK_SET)
     {
         if (!$this->seekable) {
             throw new \RuntimeException('This AppendStream is not seekable');
@@ -150,8 +152,10 @@ final class AppendStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInte
     }
     /**
      * Reads from all of the appended streams until the length is met or EOF.
+     *
+     * {@inheritdoc}
      */
-    public function read($length) : string
+    public function read($length)
     {
         $buffer = '';
         $total = \count($this->streams) - 1;
@@ -164,10 +168,11 @@ final class AppendStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInte
                 if ($this->current === $total) {
                     break;
                 }
-                ++$this->current;
+                $this->current++;
             }
             $result = $this->streams[$this->current]->read($remaining);
-            if ($result === '') {
+            // Using a loose comparison here to match on '', false, and null
+            if ($result == null) {
                 $progressToNext = \true;
                 continue;
             }
@@ -177,25 +182,22 @@ final class AppendStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInte
         $this->pos += \strlen($buffer);
         return $buffer;
     }
-    public function isReadable() : bool
+    public function isReadable()
     {
         return \true;
     }
-    public function isWritable() : bool
+    public function isWritable()
     {
         return \false;
     }
-    public function isSeekable() : bool
+    public function isSeekable()
     {
         return $this->seekable;
     }
-    public function write($string) : int
+    public function write($string)
     {
         throw new \RuntimeException('Cannot write to an AppendStream');
     }
-    /**
-     * @return mixed
-     */
     public function getMetadata($key = null)
     {
         return $key ? null : [];

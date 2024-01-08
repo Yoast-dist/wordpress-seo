@@ -182,11 +182,10 @@ class Wincher_Keyphrases_Action {
 	 *
 	 * @param array|null  $used_keyphrases The currently used keyphrases. Optional.
 	 * @param string|null $permalink       The current permalink. Optional.
-	 * @param string|null $start_at        The position start date. Optional.
 	 *
 	 * @return object The keyphrase chart data.
 	 */
-	public function get_tracked_keyphrases( $used_keyphrases = null, $permalink = null, $start_at = null ) {
+	public function get_tracked_keyphrases( $used_keyphrases = null, $permalink = null ) {
 		try {
 			if ( $used_keyphrases === null ) {
 				$used_keyphrases = $this->collect_all_keyphrases();
@@ -214,7 +213,6 @@ class Wincher_Keyphrases_Action {
 					[
 						'keywords' => $used_keyphrases,
 						'url'      => $permalink,
-						'start_at' => $start_at,
 					]
 				),
 				[
@@ -277,6 +275,8 @@ class Wincher_Keyphrases_Action {
 	 * @return array
 	 */
 	protected function collect_all_keyphrases() {
+		global $wpdb;
+
 		// Collect primary keyphrases first.
 		$keyphrases = \array_column(
 			$this->indexable_repository
@@ -347,7 +347,7 @@ class Wincher_Keyphrases_Action {
 	 */
 	protected function to_result_object( $result ) {
 		if ( \array_key_exists( 'data', $result ) ) {
-			$result['results'] = (object) $result['data'];
+			$result['results'] = $result['data'];
 
 			unset( $result['data'] );
 		}
