@@ -58,19 +58,13 @@ class First_Time_Configuration_Action {
 	 * @return object The response object.
 	 */
 	public function set_site_representation( $params ) {
-		$failures = [];
+		$failures   = [];
+		$old_values = $this->get_old_values( self::SITE_REPRESENTATION_FIELDS );
 
 		foreach ( self::SITE_REPRESENTATION_FIELDS as $field_name ) {
 			if ( isset( $params[ $field_name ] ) ) {
-				if ( $field_name === 'description' && \current_user_can( 'manage_options' ) ) {
-					$result = \update_option( 'blogdescription', $params['description'] );
-					if ( ! $result && $params['description'] === \get_option( 'blogdescription' ) ) {
-						$result = true;
-					}
-				}
-				else {
-					$result = $this->options_helper->set( $field_name, $params[ $field_name ] );
-				}
+				$result = $this->options_helper->set( $field_name, $params[ $field_name ] );
+
 				if ( ! $result ) {
 					$failures[] = $field_name;
 				}
@@ -81,12 +75,24 @@ class First_Time_Configuration_Action {
 		$this->options_helper->set( 'company_logo_meta', false );
 		$this->options_helper->set( 'person_logo_meta', false );
 
+		/**
+		 * Action: 'wpseo_post_update_site_representation' - Allows for Hiive event tracking.
+		 *
+		 * @param array The new values of the options.
+		 * @param array The old values of the options.
+		 * @param array The options that failed to be saved.
+		 *
+		 * @internal
+		 */
+		\do_action( 'wpseo_ftc_post_update_site_representation', $params, $old_values, $failures );
+
 		if ( \count( $failures ) === 0 ) {
 			return (object) [
 				'success' => true,
 				'status'  => 200,
 			];
 		}
+
 		return (object) [
 			'success'  => false,
 			'status'   => 500,
@@ -103,7 +109,19 @@ class First_Time_Configuration_Action {
 	 * @return object The response object.
 	 */
 	public function set_social_profiles( $params ) {
-		$failures = $this->social_profiles_helper->set_organization_social_profiles( $params );
+		$old_values = $this->get_old_values( \array_keys( $this->social_profiles_helper->get_organization_social_profile_fields() ) );
+		$failures   = $this->social_profiles_helper->set_organization_social_profiles( $params );
+
+		/**
+		 * Action: 'wpseo_post_update_social_profiles' - Allows for Hiive event tracking.
+		 *
+		 * @param array The new values of the options.
+		 * @param array The old values of the options.
+		 * @param array The options that failed to be saved.
+		 *
+		 * @internal
+		 */
+		\do_action( 'wpseo_ftc_post_update_social_profiles', $params, $old_values, $failures );
 
 		if ( empty( $failures ) ) {
 			return (object) [
@@ -144,6 +162,7 @@ class First_Time_Configuration_Action {
 				'status'  => 200,
 			];
 		}
+
 		return (object) [
 			'success'  => false,
 			'status'   => 200,
@@ -180,8 +199,21 @@ class First_Time_Configuration_Action {
 		$option_value = $this->options_helper->get( 'tracking' );
 
 		if ( $option_value !== $params['tracking'] ) {
+			$this->options_helper->set( 'toggled_tracking', true );
 			$success = $this->options_helper->set( 'tracking', $params['tracking'] );
 		}
+
+		/**
+		 * Action: 'wpseo_post_update_enable_tracking' - Allows for Hiive event tracking.
+		 *
+		 * @param array The new value.
+		 * @param array The old value.
+		 * @param bool  Whether the option failed to be stored.
+		 *
+		 * @internal
+		 */
+		// $success is negated to be aligned with the other two actions which pass $failures.
+		\do_action( 'wpseo_ftc_post_update_enable_tracking', $params['tracking'], $option_value, ! $success );
 
 		if ( $success ) {
 			return (object) [
@@ -189,6 +221,7 @@ class First_Time_Configuration_Action {
 				'status'  => 200,
 			];
 		}
+
 		return (object) [
 			'success' => false,
 			'status'  => 500,
@@ -204,7 +237,7 @@ class First_Time_Configuration_Action {
 	 * @return object The response object.
 	 */
 	public function check_capability( $user_id ) {
-		if ( $this->social_profiles_helper->can_edit_profile( $user_id ) ) {
+		if ( $this->can_edit_profile( $user_id ) ) {
 			return (object) [
 				'success' => true,
 				'status'  => 200,
@@ -279,5 +312,33 @@ class First_Time_Configuration_Action {
 			'status'  => 500,
 			'error'   => 'Could not get data from the database',
 		];
+	}
+
+	/**
+	 * Checks if the current user has the capability to edit a specific user.
+	 *
+	 * @param int $person_id The id of the person to edit.
+	 *
+	 * @return bool
+	 */
+	private function can_edit_profile( $person_id ) {
+		return \current_user_can( 'edit_user', $person_id );
+	}
+
+	/**
+	 * Gets the old values for the given fields.
+	 *
+	 * @param array $fields_names The fields to get the old values for.
+	 *
+	 * @return array The old values.
+	 */
+	private function get_old_values( array $fields_names ) : array {
+		$old_values = [];
+
+		foreach ( $fields_names as $field_name ) {
+			$old_values[ $field_name ] = $this->options_helper->get( $field_name );
+		}
+
+		return $old_values;
 	}
 }

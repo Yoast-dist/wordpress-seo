@@ -5,7 +5,6 @@
  * @package WPSEO\Admin
  */
 
-use Yoast\WP\SEO\Helpers\Wordpress_Helper;
 use Yoast\WP\SEO\Integrations\Settings_Integration;
 
 /**
@@ -87,7 +86,8 @@ class WPSEO_Admin {
 		}
 
 		$this->admin_features = [
-			'dashboard_widget' => new Yoast_Dashboard_Widget(),
+			'dashboard_widget'         => new Yoast_Dashboard_Widget(),
+			'wincher_dashboard_widget' => new Wincher_Dashboard_Widget(),
 		];
 
 		if ( WPSEO_Metabox::is_post_overview( $pagenow ) || WPSEO_Metabox::is_post_edit( $pagenow ) ) {
@@ -140,7 +140,9 @@ class WPSEO_Admin {
 	 * Register assets needed on admin pages.
 	 */
 	public function enqueue_assets() {
-		if ( filter_input( INPUT_GET, 'page' ) === 'wpseo_licenses' ) {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reason: We are not processing form data.
+		$page = isset( $_GET['page'] ) && is_string( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
+		if ( $page === 'wpseo_licenses' ) {
 			$asset_manager = new WPSEO_Admin_Asset_Manager();
 			$asset_manager->enqueue_style( 'extensions' );
 		}
@@ -237,7 +239,6 @@ class WPSEO_Admin {
 			array_unshift( $links, $ftc_link );
 		}
 
-
 		$addon_manager = new WPSEO_Addon_Manager();
 		if ( YoastSEO()->helpers->product->is_premium() ) {
 
@@ -263,7 +264,7 @@ class WPSEO_Admin {
 		}
 
 		// Add link to premium landing page.
-		$premium_link = '<a style="font-weight: bold;" href="' . esc_url( WPSEO_Shortlinker::get( 'https://yoa.st/1yb' ) ) . '" target="_blank" data-action="load-nfd-ctb" data-ctb-id="57d6a568-783c-45e2-a388-847cff155897">' . __( 'Get Premium', 'wordpress-seo' ) . '</a>';
+		$premium_link = '<a style="font-weight: bold;" href="' . esc_url( WPSEO_Shortlinker::get( 'https://yoa.st/1yb' ) ) . '" target="_blank" data-action="load-nfd-ctb" data-ctb-id="f6a84663-465f-4cb5-8ba5-f7a6d72224b2">' . __( 'Get Premium', 'wordpress-seo' ) . '</a>';
 		array_unshift( $links, $premium_link );
 
 		return $links;
@@ -314,16 +315,8 @@ class WPSEO_Admin {
 	 * Log the updated timestamp for user profiles when theme is changed.
 	 */
 	public function switch_theme() {
-		$wordpress_helper  = new Wordpress_Helper();
-		$wordpress_version = $wordpress_helper->get_wordpress_version();
 
-		// Capability queries were only introduced in WP 5.9.
-		if ( version_compare( $wordpress_version, '5.8.99', '<' ) ) {
-			$users = get_users( [ 'who' => 'authors' ] );
-		}
-		else {
-			$users = get_users( [ 'capability' => [ 'edit_posts' ] ] );
-		}
+		$users = get_users( [ 'capability' => [ 'edit_posts' ] ] );
 
 		if ( is_array( $users ) && $users !== [] ) {
 			foreach ( $users as $user ) {

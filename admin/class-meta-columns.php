@@ -97,11 +97,19 @@ class WPSEO_Meta_Columns {
 		$added_columns = [];
 
 		if ( $this->analysis_seo->is_enabled() ) {
-			$added_columns['wpseo-score'] = '<span class="yoast-column-seo-score yoast-column-header-has-tooltip" data-tooltip-text="' . esc_attr__( 'SEO score', 'wordpress-seo' ) . '"><span class="screen-reader-text">' . __( 'SEO score', 'wordpress-seo' ) . '</span></span></span>';
+			$added_columns['wpseo-score'] = '<span class="yoast-column-seo-score yoast-column-header-has-tooltip" data-tooltip-text="' .
+											esc_attr__( 'SEO score', 'wordpress-seo' ) .
+											'"><span class="screen-reader-text">' .
+											__( 'SEO score', 'wordpress-seo' ) .
+											'</span></span></span>';
 		}
 
 		if ( $this->analysis_readability->is_enabled() ) {
-			$added_columns['wpseo-score-readability'] = '<span class="yoast-column-readability yoast-column-header-has-tooltip" data-tooltip-text="' . esc_attr__( 'Readability score', 'wordpress-seo' ) . '"><span class="screen-reader-text">' . __( 'Readability score', 'wordpress-seo' ) . '</span></span></span>';
+			$added_columns['wpseo-score-readability'] = '<span class="yoast-column-readability yoast-column-header-has-tooltip" data-tooltip-text="' .
+														esc_attr__( 'Readability score', 'wordpress-seo' ) .
+														'"><span class="screen-reader-text">' .
+														__( 'Readability score', 'wordpress-seo' ) .
+														'</span></span></span>';
 		}
 
 		$added_columns['wpseo-title']    = __( 'SEO Title', 'wordpress-seo' );
@@ -139,15 +147,22 @@ class WPSEO_Meta_Columns {
 				return;
 
 			case 'wpseo-title':
-				echo esc_html( $this->get_meta( $post_id )->title );
+				$meta = $this->get_meta( $post_id );
+				if ( $meta ) {
+					echo esc_html( $meta->title );
+				}
 
 				return;
 
 			case 'wpseo-metadesc':
-				$metadesc_val = $this->get_meta( $post_id )->meta_description;
-
+				$metadesc_val = '';
+				$meta         = $this->get_meta( $post_id );
+				if ( $meta ) {
+					$metadesc_val = $meta->meta_description;
+				}
 				if ( $metadesc_val === '' ) {
 					echo '<span aria-hidden="true">&#8212;</span><span class="screen-reader-text">',
+					/* translators: Hidden accessibility text. */
 					esc_html__( 'Meta description not set.', 'wordpress-seo' ),
 					'</span>';
 
@@ -163,6 +178,7 @@ class WPSEO_Meta_Columns {
 
 				if ( $focuskw_val === '' ) {
 					echo '<span aria-hidden="true">&#8212;</span><span class="screen-reader-text">',
+					/* translators: Hidden accessibility text. */
 					esc_html__( 'Focus keyphrase not set.', 'wordpress-seo' ),
 					'</span>';
 
@@ -232,6 +248,7 @@ class WPSEO_Meta_Columns {
 
 		$ranks = WPSEO_Rank::get_all_ranks();
 
+		/* translators: Hidden accessibility text. */
 		echo '<label class="screen-reader-text" for="wpseo-filter">' . esc_html__( 'Filter by SEO Score', 'wordpress-seo' ) . '</label>';
 		echo '<select name="seo_filter" id="wpseo-filter">';
 
@@ -260,6 +277,7 @@ class WPSEO_Meta_Columns {
 
 		$ranks = WPSEO_Rank::get_all_readability_ranks();
 
+		/* translators: Hidden accessibility text. */
 		echo '<label class="screen-reader-text" for="wpseo-readability-filter">' . esc_html__( 'Filter by Readability Score', 'wordpress-seo' ) . '</label>';
 		echo '<select name="readability_filter" id="wpseo-readability-filter">';
 
@@ -389,13 +407,37 @@ class WPSEO_Meta_Columns {
 		}
 
 		if ( $this->is_valid_filter( $current_keyword_filter ) ) {
-			$active_filters = array_merge(
-				$active_filters,
-				$this->get_keyword_filter( $current_keyword_filter )
+			/**
+			 * Adapt the meta query used to filter the post overview on keyphrase.
+			 *
+			 * @internal
+			 *
+			 * @api array $keyword_filter The current keyword filter.
+			 *
+			 * @param array $keyphrase The keyphrase used in the filter.
+			 */
+			$keyphrase_filter = \apply_filters(
+				'wpseo_change_keyphrase_filter_in_request',
+				$this->get_keyword_filter( $current_keyword_filter ),
+				$current_keyword_filter
 			);
+
+			if ( \is_array( $keyphrase_filter ) ) {
+				$active_filters = array_merge(
+					$active_filters,
+					[ $keyphrase_filter ]
+				);
+			}
 		}
 
-		return $active_filters;
+		/**
+		 * Adapt the active applicable filters on the posts overview.
+		 *
+		 * @internal
+		 *
+		 * @param array $active_filters The current applicable filters.
+		 */
+		return \apply_filters( 'wpseo_change_applicable_filters', $active_filters );
 	}
 
 	/**
@@ -408,8 +450,22 @@ class WPSEO_Meta_Columns {
 	public function column_sort_orderby( $vars ) {
 		$collected_filters = $this->collect_filters();
 
-		if ( isset( $vars['orderby'] ) ) {
-			$vars = array_merge( $vars, $this->filter_order_by( $vars['orderby'] ) );
+		$order_by_column = $vars['orderby'];
+		if ( isset( $order_by_column ) ) {
+			// Based on the selected column, create a meta query.
+			$order_by = $this->filter_order_by( $order_by_column );
+
+			/**
+			 * Adapt the order by part of the query on the posts overview.
+			 *
+			 * @internal
+			 *
+			 * @param array  $order_by        The current order by.
+			 * @param string $order_by_column The current order by column.
+			 */
+			$order_by = \apply_filters( 'wpseo_change_order_by', $order_by, $order_by_column );
+
+			$vars = array_merge( $vars, $order_by );
 		}
 
 		return $this->build_filter_query( $vars, $collected_filters );
@@ -690,7 +746,9 @@ class WPSEO_Meta_Columns {
 	private function parse_column_score( $post_id ) {
 		$meta = $this->get_meta( $post_id );
 
-		return $this->score_icon_helper->for_seo( $meta->indexable, '', __( 'Post is set to noindex.', 'wordpress-seo' ) );
+		if ( $meta ) {
+			return $this->score_icon_helper->for_seo( $meta->indexable, '', __( 'Post is set to noindex.', 'wordpress-seo' ) );
+		}
 	}
 
 	/**
@@ -702,8 +760,9 @@ class WPSEO_Meta_Columns {
 	 */
 	private function parse_column_score_readability( $post_id ) {
 		$meta = $this->get_meta( $post_id );
-
-		return $this->score_icon_helper->for_readability( $meta->indexable->readability_score );
+		if ( $meta ) {
+			return $this->score_icon_helper->for_readability( $meta->indexable->readability_score );
+		}
 	}
 
 	/**
