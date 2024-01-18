@@ -61,8 +61,6 @@ class Short_Link_Helper {
 	 * Echoes a version of the URL with a utm_content with the current version.
 	 *
 	 * @param string $url The URL to build upon.
-	 *
-	 * @return void
 	 */
 	public function show( $url ) {
 		echo \esc_url( $this->get( $url ) );

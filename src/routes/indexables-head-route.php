@@ -18,14 +18,14 @@ class Indexables_Head_Route implements Route_Interface {
 	 *
 	 * @var string
 	 */
-	public const HEAD_FOR_URL_ROUTE = 'get_head';
+	const HEAD_FOR_URL_ROUTE = 'get_head';
 
 	/**
 	 * The full posts route constant.
 	 *
 	 * @var string
 	 */
-	public const FULL_HEAD_FOR_URL_ROUTE = Main::API_V1_NAMESPACE . '/' . self::HEAD_FOR_URL_ROUTE;
+	const FULL_HEAD_FOR_URL_ROUTE = Main::API_V1_NAMESPACE . '/' . self::HEAD_FOR_URL_ROUTE;
 
 	/**
 	 * The head action.

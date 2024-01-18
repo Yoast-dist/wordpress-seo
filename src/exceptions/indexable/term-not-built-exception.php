@@ -13,7 +13,7 @@ class Term_Not_Built_Exception extends Not_Built_Exception {
 	 *
 	 * @param int $term_id ID of the term.
 	 *
-	 * @return Term_Not_Built_Exception
+	 * @throws Term_Not_Built_Exception When the term is not built.
 	 */
 	public static function because_not_indexable( $term_id ) {
 		/* translators: %s: expands to the term id */

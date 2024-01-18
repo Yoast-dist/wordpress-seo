@@ -20,42 +20,42 @@ class SEMrush_Route implements Route_Interface {
 	 *
 	 * @var string
 	 */
-	public const ROUTE_PREFIX = 'semrush';
+	const ROUTE_PREFIX = 'semrush';
 
 	/**
 	 * The authenticate route constant.
 	 *
 	 * @var string
 	 */
-	public const AUTHENTICATION_ROUTE = self::ROUTE_PREFIX . '/authenticate';
+	const AUTHENTICATION_ROUTE = self::ROUTE_PREFIX . '/authenticate';
 
 	/**
 	 * The country code option route constant.
 	 *
 	 * @var string
 	 */
-	public const COUNTRY_CODE_OPTION_ROUTE = self::ROUTE_PREFIX . '/country_code';
+	const COUNTRY_CODE_OPTION_ROUTE = self::ROUTE_PREFIX . '/country_code';
 
 	/**
 	 * The request related keyphrases route constant.
 	 *
 	 * @var string
 	 */
-	public const RELATED_KEYPHRASES_ROUTE = self::ROUTE_PREFIX . '/related_keyphrases';
+	const RELATED_KEYPHRASES_ROUTE = self::ROUTE_PREFIX . '/related_keyphrases';
 
 	/**
 	 * The full login route constant.
 	 *
 	 * @var string
 	 */
-	public const FULL_AUTHENTICATION_ROUTE = Main::API_V1_NAMESPACE . '/' . self::AUTHENTICATION_ROUTE;
+	const FULL_AUTHENTICATION_ROUTE = Main::API_V1_NAMESPACE . '/' . self::AUTHENTICATION_ROUTE;
 
 	/**
 	 * The full country code option route constant.
 	 *
 	 * @var string
 	 */
-	public const FULL_COUNTRY_CODE_OPTION_ROUTE = Main::API_V1_NAMESPACE . '/' . self::COUNTRY_CODE_OPTION_ROUTE;
+	const FULL_COUNTRY_CODE_OPTION_ROUTE = Main::API_V1_NAMESPACE . '/' . self::COUNTRY_CODE_OPTION_ROUTE;
 
 	/**
 	 * The login action.

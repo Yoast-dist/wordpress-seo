@@ -4,3 +4,4 @@
  *
  * @package WPSEO\Deprecated
  */
+

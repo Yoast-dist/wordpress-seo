@@ -106,8 +106,6 @@ class Table {
 	 * @param string $column_name The column name.
 	 * @param string $type        The column type.
 	 * @param array  $options     The options.
-	 *
-	 * @return void
 	 */
 	public function column( $column_name, $type, $options = [] ) {
 		// If there is already a column by the same name then silently fail and continue.
@@ -138,8 +136,6 @@ class Table {
 	 *
 	 * @param string $created_column_name Created at column name.
 	 * @param string $updated_column_name Updated at column name.
-	 *
-	 * @return void
 	 */
 	public function timestamps( $created_column_name = 'created_at', $updated_column_name = 'updated_at' ) {
 		$this->column( $created_column_name, 'datetime' );
@@ -190,11 +186,13 @@ class Table {
 		if ( \is_array( $this->options ) && \array_key_exists( 'options', $this->options ) ) {
 			$opt_str = $this->options['options'];
 		}
-		elseif ( isset( $this->adapter->db_info['charset'] ) ) {
-			$opt_str = ' DEFAULT CHARSET=' . $this->adapter->db_info['charset'];
-		}
 		else {
-			$opt_str = ' DEFAULT CHARSET=utf8';
+			if ( isset( $this->adapter->db_info['charset'] ) ) {
+				$opt_str = ' DEFAULT CHARSET=' . $this->adapter->db_info['charset'];
+			}
+			else {
+				$opt_str = ' DEFAULT CHARSET=utf8';
+			}
 		}
 		$close_sql        = \sprintf( ') %s;', $opt_str );
 		$create_table_sql = $this->sql;
@@ -240,8 +238,6 @@ class Table {
 	 *
 	 * @param string $name    The name.
 	 * @param array  $options The options.
-	 *
-	 * @return void
 	 */
 	private function init_sql( $name, $options ) {
 		// Are we forcing table creation? If so, drop it first.

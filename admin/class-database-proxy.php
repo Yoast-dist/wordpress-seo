@@ -46,13 +46,6 @@ class WPSEO_Database_Proxy {
 	protected $database;
 
 	/**
-	 * Holds the table prefix.
-	 *
-	 * @var string
-	 */
-	protected $table_prefix;
-
-	/**
 	 * Sets the class attributes and registers the table.
 	 *
 	 * @param wpdb   $database           The database object.
@@ -127,7 +120,7 @@ class WPSEO_Database_Proxy {
 	 *
 	 * @return false|int False when the upsert request is invalid, int on number of rows changed.
 	 */
-	public function upsert( array $data, ?array $where = null, $format = null, $where_format = null ) {
+	public function upsert( array $data, array $where = null, $format = null, $where_format = null ) {
 		if ( $where_format !== null ) {
 			_deprecated_argument( __METHOD__, '7.7.0', 'The where_format argument is deprecated' );
 		}
@@ -233,8 +226,6 @@ class WPSEO_Database_Proxy {
 
 	/**
 	 * Executed before a query will be ran.
-	 *
-	 * @return void
 	 */
 	protected function pre_execution() {
 		if ( $this->suppress_errors ) {
@@ -244,8 +235,6 @@ class WPSEO_Database_Proxy {
 
 	/**
 	 * Executed after a query has been ran.
-	 *
-	 * @return void
 	 */
 	protected function post_execution() {
 		if ( $this->suppress_errors ) {

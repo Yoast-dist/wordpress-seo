@@ -19,8 +19,6 @@ class WpYoastDropIndexableMetaTableIfExists extends Migration {
 
 	/**
 	 * Migration up.
-	 *
-	 * @return void
 	 */
 	public function up() {
 		$table_name = $this->get_table_name();
@@ -31,8 +29,6 @@ class WpYoastDropIndexableMetaTableIfExists extends Migration {
 
 	/**
 	 * Migration down.
-	 *
-	 * @return void
 	 */
 	public function down() {
 		// No down required. This specific table should never exist.

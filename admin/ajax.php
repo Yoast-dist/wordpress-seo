@@ -15,8 +15,6 @@ if ( ! defined( 'WPSEO_VERSION' ) ) {
  * Convenience function to JSON encode and echo results and then die.
  *
  * @param array $results Results array for encoding.
- *
- * @return void
  */
 function wpseo_ajax_json_echo_die( $results ) {
 	// phpcs:ignore WordPress.Security.EscapeOutput -- Reason: WPSEO_Utils::format_json_encode is safe.
@@ -26,8 +24,6 @@ function wpseo_ajax_json_echo_die( $results ) {
 
 /**
  * Function used from AJAX calls, takes it variables from $_POST, dies on exit.
- *
- * @return void
  */
 function wpseo_set_option() {
 	if ( ! current_user_can( 'manage_options' ) ) {
@@ -58,8 +54,6 @@ add_action( 'wp_ajax_yoast_dismiss_notification', [ 'Yoast_Notification_Center',
 
 /**
  * Function used to remove the admin notices for several purposes, dies on exit.
- *
- * @return void
  */
 function wpseo_set_ignore() {
 	if ( ! current_user_can( 'manage_options' ) ) {
@@ -82,8 +76,6 @@ add_action( 'wp_ajax_wpseo_set_ignore', 'wpseo_set_ignore' );
 
 /**
  * Save an individual SEO title from the Bulk Editor.
- *
- * @return void
  */
 function wpseo_save_title() {
 	wpseo_save_what( 'title' );
@@ -93,8 +85,6 @@ add_action( 'wp_ajax_wpseo_save_title', 'wpseo_save_title' );
 
 /**
  * Save an individual meta description from the Bulk Editor.
- *
- * @return void
  */
 function wpseo_save_description() {
 	wpseo_save_what( 'metadesc' );
@@ -106,8 +96,6 @@ add_action( 'wp_ajax_wpseo_save_metadesc', 'wpseo_save_description' );
  * Save titles & descriptions.
  *
  * @param string $what Type of item to save (title, description).
- *
- * @return void
  */
 function wpseo_save_what( $what ) {
 	check_ajax_referer( 'wpseo-bulk-editor' );
@@ -218,8 +206,6 @@ function wpseo_upsert_meta( $post_id, $new_meta_value, $orig_meta_value, $meta_k
 
 /**
  * Save all titles sent from the Bulk Editor.
- *
- * @return void
  */
 function wpseo_save_all_titles() {
 	wpseo_save_all( 'title' );
@@ -229,8 +215,6 @@ add_action( 'wp_ajax_wpseo_save_all_titles', 'wpseo_save_all_titles' );
 
 /**
  * Save all description sent from the Bulk Editor.
- *
- * @return void
  */
 function wpseo_save_all_descriptions() {
 	wpseo_save_all( 'metadesc' );
@@ -242,8 +226,6 @@ add_action( 'wp_ajax_wpseo_save_all_descriptions', 'wpseo_save_all_descriptions'
  * Utility function to save values.
  *
  * @param string $what Type of item so save.
- *
- * @return void
  */
 function wpseo_save_all( $what ) {
 	check_ajax_referer( 'wpseo-bulk-editor' );
@@ -282,8 +264,6 @@ function wpseo_upsert_new( $what, $post_id, $new_value, $original ) {
 
 /**
  * Retrieves the post ids where the keyword is used before as well as the types of those posts.
- *
- * @return void
  */
 function ajax_get_keyword_usage_and_post_types() {
 	check_ajax_referer( 'wpseo-keyword-usage-and-post-types', 'nonce' );
@@ -326,8 +306,6 @@ add_action( 'wp_ajax_get_focus_keyword_usage_and_post_types', 'ajax_get_keyword_
 
 /**
  * Retrieves the keyword for the keyword doubles of the termpages.
- *
- * @return void
  */
 function ajax_get_term_keyword_usage() {
 	check_ajax_referer( 'wpseo-keyword-usage', 'nonce' );
@@ -392,8 +370,6 @@ new WPSEO_Taxonomy_Columns();
 
 /**
  * Retrieves the keyword for the keyword doubles.
- *
- * @return void
  */
 function ajax_get_keyword_usage() {
 	_deprecated_function( __METHOD__, 'WPSEO 20.4' );

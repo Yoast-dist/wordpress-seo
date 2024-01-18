@@ -86,8 +86,6 @@ class Indexable_Permalink_Watcher implements Integration_Interface {
 
 	/**
 	 * Resets the permalinks for everything that is related to the permalink structure.
-	 *
-	 * @return void
 	 */
 	public function reset_permalinks() {
 
@@ -113,8 +111,6 @@ class Indexable_Permalink_Watcher implements Integration_Interface {
 	 * Resets the permalink for the given post type.
 	 *
 	 * @param string $post_type The post type to reset.
-	 *
-	 * @return void
 	 */
 	public function reset_permalinks_post_type( $post_type ) {
 		$this->indexable_helper->reset_permalink_indexables( 'post', $post_type );
@@ -127,8 +123,6 @@ class Indexable_Permalink_Watcher implements Integration_Interface {
 	 * @param string $old_value Unused. The old option value.
 	 * @param string $new_value Unused. The new option value.
 	 * @param string $type      The option name.
-	 *
-	 * @return void
 	 */
 	public function reset_permalinks_term( $old_value, $new_value, $type ) {
 		$subtype = $type;

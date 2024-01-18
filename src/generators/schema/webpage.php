@@ -99,8 +99,6 @@ class WebPage extends Abstract_Schema_Piece {
 	 * If we have an image, make it the primary image of the page.
 	 *
 	 * @param array $data WebPage schema data.
-	 *
-	 * @return array
 	 */
 	public function add_image( $data ) {
 		if ( $this->context->has_image ) {
@@ -140,7 +138,7 @@ class WebPage extends Abstract_Schema_Piece {
 		/**
 		 * Filter: 'wpseo_schema_webpage_potential_action_target' - Allows filtering of the schema WebPage potentialAction target.
 		 *
-		 * @param array $targets The URLs for the WebPage potentialAction target.
+		 * @api array $targets The URLs for the WebPage potentialAction target.
 		 */
 		$targets = \apply_filters( 'wpseo_schema_webpage_potential_action_target', [ $url ] );
 

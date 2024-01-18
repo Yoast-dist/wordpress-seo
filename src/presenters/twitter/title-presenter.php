@@ -26,8 +26,9 @@ class Title_Presenter extends Abstract_Indexable_Tag_Presenter {
 		/**
 		 * Filter: 'wpseo_twitter_title' - Allow changing the Twitter title.
 		 *
-		 * @param string                 $twitter_title The Twitter title.
-		 * @param Indexable_Presentation $presentation  The presentation of an indexable.
+		 * @api string $twitter_title The Twitter title.
+		 *
+		 * @param Indexable_Presentation $presentation The presentation of an indexable.
 		 */
 		return \trim( \apply_filters( 'wpseo_twitter_title', $this->replace_vars( $this->presentation->twitter_title ), $this->presentation ) );
 	}

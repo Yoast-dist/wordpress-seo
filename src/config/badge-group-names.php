@@ -10,12 +10,12 @@ namespace Yoast\WP\SEO\Config;
  */
 class Badge_Group_Names {
 
-	public const GROUP_GLOBAL_TEMPLATES = 'global-templates';
+	const GROUP_GLOBAL_TEMPLATES = 'global-templates';
 
 	/**
 	 * Constant describing when certain groups of new badges will no longer be shown.
 	 */
-	public const GROUP_NAMES = [
+	const GROUP_NAMES = [
 		self::GROUP_GLOBAL_TEMPLATES => '16.7-beta0',
 	];
 

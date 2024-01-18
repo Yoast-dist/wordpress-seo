@@ -165,8 +165,6 @@ class Background_Indexing_Integration implements Integration_Interface {
 
 	/**
 	 * Register hooks.
-	 *
-	 * @return void
 	 */
 	public function register_hooks() {
 		\add_action( 'admin_init', [ $this, 'register_shutdown_indexing' ] );
@@ -240,7 +238,7 @@ class Background_Indexing_Integration implements Integration_Interface {
 		}
 
 		$schedules['fifteen_minutes'] = [
-			'interval' => ( 15 * \MINUTE_IN_SECONDS ),
+			'interval' => ( 15 * MINUTE_IN_SECONDS ),
 			'display'  => \esc_html__( 'Every fifteen minutes', 'wordpress-seo' ),
 		];
 
@@ -257,8 +255,7 @@ class Background_Indexing_Integration implements Integration_Interface {
 		 * Filter: 'wpseo_unindexed_count_queries_ran' - Informs whether the expensive unindexed count queries have been ran already.
 		 *
 		 * @internal
-		 *
-		 * @param bool $have_queries_ran
+		 * @api bool
 		 */
 		$have_queries_ran = \apply_filters( 'wpseo_unindexed_count_queries_ran', false );
 
@@ -283,7 +280,7 @@ class Background_Indexing_Integration implements Integration_Interface {
 			/**
 			 * Filter: 'wpseo_cron_indexing_limit_size' - Adds the possibility to limit the number of items that are indexed when in cron action.
 			 *
-			 * @param int $limit Maximum number of indexables to be indexed per indexing action.
+			 * @api int $limit Maximum number of indexables to be indexed per indexing action.
 			 */
 			return \apply_filters( 'wpseo_cron_indexing_limit_size', 15 );
 		}
@@ -303,7 +300,7 @@ class Background_Indexing_Integration implements Integration_Interface {
 			/**
 			 * Filter: 'wpseo_cron_link_indexing_limit_size' - Adds the possibility to limit the number of links that are indexed when in cron action.
 			 *
-			 * @param int $limit Maximum number of link indexables to be indexed per link indexing action.
+			 * @api int $limit Maximum number of link indexables to be indexed per link indexing action.
 			 */
 			return \apply_filters( 'wpseo_cron_link_indexing_limit_size', 3 );
 		}
@@ -366,7 +363,7 @@ class Background_Indexing_Integration implements Integration_Interface {
 		/**
 		 * Filter 'wpseo_shutdown_indexation_limit' - Allow filtering the number of objects that can be indexed during shutdown.
 		 *
-		 * @param int $limit The maximum number of objects indexed.
+		 * @api int The maximum number of objects indexed.
 		 */
 		return \apply_filters( 'wpseo_shutdown_indexation_limit', 25 );
 	}

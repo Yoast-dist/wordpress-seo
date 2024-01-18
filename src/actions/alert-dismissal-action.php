@@ -9,7 +9,7 @@ use Yoast\WP\SEO\Helpers\User_Helper;
  */
 class Alert_Dismissal_Action {
 
-	public const USER_META_KEY = '_yoast_alerts_dismissed';
+	const USER_META_KEY = '_yoast_alerts_dismissed';
 
 	/**
 	 * Holds the user helper instance.
@@ -196,7 +196,7 @@ class Alert_Dismissal_Action {
 		/**
 		 * Filter: 'wpseo_allowed_dismissable_alerts' - List of allowed dismissable alerts.
 		 *
-		 * @param string[] $allowed_dismissable_alerts Allowed dismissable alerts list.
+		 * @api string[] $allowed_dismissable_alerts Allowed dismissable alerts list.
 		 */
 		$allowed_dismissable_alerts = \apply_filters( 'wpseo_allowed_dismissable_alerts', [] );
 

@@ -22,7 +22,7 @@ class Open_Graph_Locale_Generator implements Generator_Interface {
 		 *
 		 * Note that this filter is different from `wpseo_og_locale`, which is run _after_ the OG specific filtering.
 		 *
-		 * @param string $locale Locale string.
+		 * @api string Locale string.
 		 */
 		$locale = \apply_filters( 'wpseo_locale', \get_locale() );
 

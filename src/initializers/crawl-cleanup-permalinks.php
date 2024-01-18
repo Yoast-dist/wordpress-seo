@@ -98,8 +98,6 @@ class Crawl_Cleanup_Permalinks implements Initializer_Interface {
 
 	/**
 	 * Redirect utm variables away.
-	 *
-	 * @return void
 	 */
 	public function utm_redirect() {
 		// Prevents WP CLI from throwing an error.

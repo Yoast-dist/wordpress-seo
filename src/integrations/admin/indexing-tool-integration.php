@@ -128,8 +128,6 @@ class Indexing_Tool_Integration implements Integration_Interface {
 
 	/**
 	 * Register hooks.
-	 *
-	 * @return void
 	 */
 	public function register_hooks() {
 		\add_action( 'wpseo_tools_overview_list_items_internal', [ $this, 'render_indexing_list_item' ], 10 );

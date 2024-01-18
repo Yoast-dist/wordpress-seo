@@ -72,8 +72,6 @@ abstract class WPSEO_Abstract_Metabox_Tab_With_Sections implements WPSEO_Metabox
 
 	/**
 	 * Outputs the section link if any section has been added.
-	 *
-	 * @return void
 	 */
 	public function display_link() {
 		if ( $this->has_sections() ) {

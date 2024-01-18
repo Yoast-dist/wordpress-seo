@@ -68,8 +68,6 @@ class Crawl_Settings_Integration implements Integration_Interface {
 	 * Returns the conditionals based in which this loadable should be active.
 	 *
 	 * In this case: when on an admin page.
-	 *
-	 * @return array<string>
 	 */
 	public static function get_conditionals() {
 		return [ Admin_Conditional::class ];
@@ -88,8 +86,6 @@ class Crawl_Settings_Integration implements Integration_Interface {
 
 	/**
 	 * Registers an action to add a new tab to the General page.
-	 *
-	 * @return void
 	 */
 	public function register_hooks() {
 		$this->register_setting_labels();
@@ -100,8 +96,6 @@ class Crawl_Settings_Integration implements Integration_Interface {
 
 	/**
 	 * Enqueue the workouts app.
-	 *
-	 * @return void
 	 */
 	public function enqueue_assets() {
 		if ( ! \is_network_admin() ) {
@@ -171,8 +165,6 @@ class Crawl_Settings_Integration implements Integration_Interface {
 	 * @codeCoverageIgnore
 	 *
 	 * @param Yoast_Form $yform The yoast form object.
-	 *
-	 * @return void
 	 */
 	public function add_crawl_settings_tab_content( $yform ) {
 		\_deprecated_function( __METHOD__, 'Yoast SEO 20.4' );
@@ -183,8 +175,6 @@ class Crawl_Settings_Integration implements Integration_Interface {
 	 * Adds content to the Crawl Cleanup network tab.
 	 *
 	 * @param Yoast_Form $yform The yoast form object.
-	 *
-	 * @return void
 	 */
 	public function add_crawl_settings_tab_content_network( $yform ) {
 		$this->add_crawl_settings( $yform );
@@ -296,7 +286,7 @@ class Crawl_Settings_Integration implements Integration_Interface {
 			if ( $this->should_feature_be_disabled_permalink( $setting ) ) {
 				echo '<p class="yoast-crawl-settings-help">';
 				if ( \current_user_can( 'manage_options' ) ) {
-					\printf(
+					echo \sprintf(
 					/* translators: 1: Link start tag to the Permalinks settings page, 2: Link closing tag. */
 						\esc_html__( 'This feature is disabled when your site is not using %1$spretty permalinks%2$s.', 'wordpress-seo' ),
 						'<a href="' . \esc_url( \admin_url( 'options-permalink.php' ) ) . '">',

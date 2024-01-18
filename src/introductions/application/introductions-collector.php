@@ -66,9 +66,7 @@ class Introductions_Collector {
 		 * Filter: Adds the possibility to add additional introductions to be included.
 		 *
 		 * @internal
-		 *
-		 * @param Introduction_Interface $introductions This filter expects a list of Introduction_Interface instances and
-		 *                                              expects only Introduction_Interface implementations to be added to the list.
+		 * @api Introduction_Interface This filter expects a list of Introduction_Interface instances and expects only Introduction_Interface implementations to be added to the list.
 		 */
 		$filtered_introductions = (array) \apply_filters( 'wpseo_introductions', $introductions );
 

@@ -22,8 +22,6 @@ class WPSEO_Admin_Menu extends WPSEO_Base_Menu {
 
 	/**
 	 * Registers the menu item submenus.
-	 *
-	 * @return void
 	 */
 	public function register_settings_page() {
 		$manage_capability   = $this->get_manage_capability();
@@ -101,7 +99,7 @@ class WPSEO_Admin_Menu extends WPSEO_Base_Menu {
 		/**
 		 * Filter: 'wpseo_submenu_pages' - Collects all submenus that need to be shown.
 		 *
-		 * @param array $submenu_pages List with all submenu pages.
+		 * @api array $submenu_pages List with all submenu pages.
 		 */
 		return (array) apply_filters( 'wpseo_submenu_pages', $submenu_pages );
 	}

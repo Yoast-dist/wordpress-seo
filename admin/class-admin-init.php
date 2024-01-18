@@ -53,8 +53,6 @@ class WPSEO_Admin_Init {
 
 	/**
 	 * Enqueue our styling for dismissible yoast notifications.
-	 *
-	 * @return void
 	 */
 	public function enqueue_dismissible() {
 		$this->asset_manager->enqueue_style( 'dismissible' );
@@ -134,7 +132,7 @@ class WPSEO_Admin_Init {
 		 * the WPSEO metaboxes are only registered on the typical pages (lean loading) or always
 		 * registered when in admin.
 		 *
-		 * @param bool $register_metaboxes Whether to always register the metaboxes or not. Defaults to false.
+		 * @api bool Whether to always register the metaboxes or not. Defaults to false.
 		 */
 		if ( apply_filters( 'wpseo_always_register_metaboxes_on_admin', false ) ) {
 			return true;
@@ -155,8 +153,6 @@ class WPSEO_Admin_Init {
 
 	/**
 	 * Determine whether we should load the meta box class and if so, load it.
-	 *
-	 * @return void
 	 */
 	private function load_meta_boxes() {
 		if ( $this->should_load_meta_boxes() ) {
@@ -167,8 +163,6 @@ class WPSEO_Admin_Init {
 
 	/**
 	 * Determine if we should load our taxonomy edit class and if so, load it.
-	 *
-	 * @return void
 	 */
 	private function load_taxonomy_class() {
 		if (
@@ -183,8 +177,6 @@ class WPSEO_Admin_Init {
 	 * Determine if we should load our admin pages class and if so, load it.
 	 *
 	 * Loads admin page class for all admin pages starting with `wpseo_`.
-	 *
-	 * @return void
 	 */
 	private function load_admin_user_class() {
 		if ( in_array( $this->pagenow, [ 'user-edit.php', 'profile.php' ], true )
@@ -198,8 +190,6 @@ class WPSEO_Admin_Init {
 	 * Determine if we should load our admin pages class and if so, load it.
 	 *
 	 * Loads admin page class for all admin pages starting with `wpseo_`.
-	 *
-	 * @return void
 	 */
 	private function load_admin_page_class() {
 
@@ -224,8 +214,6 @@ class WPSEO_Admin_Init {
 
 	/**
 	 * Loads the plugin suggestions.
-	 *
-	 * @return void
 	 */
 	private function load_plugin_suggestions() {
 		$suggestions = new WPSEO_Suggested_Plugins( new WPSEO_Plugin_Availability(), Yoast_Notification_Center::get() );
@@ -246,8 +234,6 @@ class WPSEO_Admin_Init {
 
 	/**
 	 * See if we should start our XML Sitemaps Admin class.
-	 *
-	 * @return void
 	 */
 	private function load_xml_sitemaps_admin() {
 		if ( WPSEO_Options::get( 'enable_xml_sitemap', false ) ) {
@@ -257,8 +243,6 @@ class WPSEO_Admin_Init {
 
 	/**
 	 * Shows deprecation warnings to the user if a plugin has registered a filter we have deprecated.
-	 *
-	 * @return void
 	 */
 	public function show_hook_deprecation_warnings() {
 		global $wp_filter;
@@ -333,8 +317,6 @@ class WPSEO_Admin_Init {
 
 	/**
 	 * Shows a notice on the permalink settings page.
-	 *
-	 * @return void
 	 */
 	public function permalink_settings_notice() {
 		global $pagenow;
@@ -359,7 +341,7 @@ class WPSEO_Admin_Init {
 	/**
 	 * Adds a custom Yoast section within the Classic Editor publish box.
 	 *
-	 * @param WP_Post $post The current post object.
+	 * @param \WP_Post $post The current post object.
 	 *
 	 * @return void
 	 */
@@ -371,7 +353,7 @@ class WPSEO_Admin_Init {
 			/**
 			 * Fires after the post time/date setting in the Publish meta box.
 			 *
-			 * @param WP_Post $post The current post object.
+			 * @api \WP_Post The current post object.
 			 */
 			do_action( 'wpseo_publishbox_misc_actions', $post );
 		}

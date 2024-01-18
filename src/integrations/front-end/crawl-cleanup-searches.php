@@ -95,8 +95,6 @@ class Crawl_Cleanup_Searches implements Integration_Interface {
 
 	/**
 	 * Redirect pretty search URLs to the "raw" equivalent
-	 *
-	 * @return void
 	 */
 	public function maybe_redirect_searches() {
 		if ( ! \is_search() ) {

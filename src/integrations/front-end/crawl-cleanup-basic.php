@@ -87,8 +87,6 @@ class Crawl_Cleanup_Basic implements Integration_Interface {
 
 	/**
 	 * Removes X-Pingback and X-Powered-By headers as they're unneeded.
-	 *
-	 * @return void
 	 */
 	public function clean_headers() {
 		if ( \headers_sent() ) {
@@ -117,8 +115,10 @@ class Crawl_Cleanup_Basic implements Integration_Interface {
 					unset( $hints[ $key ] );
 				}
 			}
-			elseif ( \strpos( $hint, '//s.w.org' ) !== false ) {
+			else {
+				if ( \strpos( $hint, '//s.w.org' ) !== false ) {
 					unset( $hints[ $key ] );
+				}
 			}
 		}
 
