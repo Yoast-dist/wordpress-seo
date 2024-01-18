@@ -16,7 +16,7 @@ class Indexable_System_Page_Builder {
 	/**
 	 * Mapping of object type to title option keys.
 	 */
-	public const OPTION_MAPPING = [
+	const OPTION_MAPPING = [
 		'search-result' => [
 			'title'            => 'title-search-wpseo',
 		],

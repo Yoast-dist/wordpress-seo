@@ -28,8 +28,6 @@ class WPSEO_Admin_Settings_Changed_Listener implements WPSEO_WordPress_Integrati
 
 	/**
 	 * Checks and overwrites the wp_settings_errors global to determine whether the Yoast SEO settings have been saved.
-	 *
-	 * @return void
 	 */
 	public function intercept_save_update_notification() {
 		global $pagenow;
@@ -76,8 +74,6 @@ class WPSEO_Admin_Settings_Changed_Listener implements WPSEO_WordPress_Integrati
 
 	/**
 	 * Renders a success message if the Yoast SEO settings have been saved.
-	 *
-	 * @return void
 	 */
 	public function show_success_message() {
 		if ( $this->have_settings_been_saved() ) {

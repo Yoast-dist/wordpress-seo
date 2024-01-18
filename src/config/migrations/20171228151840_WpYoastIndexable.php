@@ -37,8 +37,6 @@ class WpYoastIndexable extends Migration {
 
 	/**
 	 * Creates the indexable table.
-	 *
-	 * @return void
 	 */
 	private function add_table() {
 		$table_name = $this->get_table_name();
@@ -329,8 +327,6 @@ class WpYoastIndexable extends Migration {
 	 * Adds indexes to the indexable table.
 	 *
 	 * @param string $indexable_table_name The name of the indexable table.
-	 *
-	 * @return void
 	 */
 	private function add_indexes( $indexable_table_name ) {
 		$this->add_index(

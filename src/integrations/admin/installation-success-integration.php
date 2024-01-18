@@ -113,8 +113,6 @@ class Installation_Success_Integration implements Integration_Interface {
 
 	/**
 	 * Enqueue assets on the Installation success page.
-	 *
-	 * @return void
 	 */
 	public function enqueue_assets() {
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Date is not processed or saved.
@@ -139,8 +137,6 @@ class Installation_Success_Integration implements Integration_Interface {
 
 	/**
 	 * Renders the installation success page.
-	 *
-	 * @return void
 	 */
 	public function render_page() {
 		echo '<div id="wpseo-installation-successful-free" class="yoast"></div>';
@@ -148,8 +144,6 @@ class Installation_Success_Integration implements Integration_Interface {
 
 	/**
 	 * Wrap the `exit` function to make unit testing easier.
-	 *
-	 * @return void
 	 */
 	public function terminate_execution() {
 		exit;

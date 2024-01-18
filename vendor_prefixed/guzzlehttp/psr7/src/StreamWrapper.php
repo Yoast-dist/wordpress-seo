@@ -97,21 +97,7 @@ final class StreamWrapper
         return $resource ?? \false;
     }
     /**
-     * @return array{
-     *   dev: int,
-     *   ino: int,
-     *   mode: int,
-     *   nlink: int,
-     *   uid: int,
-     *   gid: int,
-     *   rdev: int,
-     *   size: int,
-     *   atime: int,
-     *   mtime: int,
-     *   ctime: int,
-     *   blksize: int,
-     *   blocks: int
-     * }
+     * @return array<int|string, int>
      */
     public function stream_stat() : array
     {
@@ -119,21 +105,7 @@ final class StreamWrapper
         return ['dev' => 0, 'ino' => 0, 'mode' => $modeMap[$this->mode], 'nlink' => 0, 'uid' => 0, 'gid' => 0, 'rdev' => 0, 'size' => $this->stream->getSize() ?: 0, 'atime' => 0, 'mtime' => 0, 'ctime' => 0, 'blksize' => 0, 'blocks' => 0];
     }
     /**
-     * @return array{
-     *   dev: int,
-     *   ino: int,
-     *   mode: int,
-     *   nlink: int,
-     *   uid: int,
-     *   gid: int,
-     *   rdev: int,
-     *   size: int,
-     *   atime: int,
-     *   mtime: int,
-     *   ctime: int,
-     *   blksize: int,
-     *   blocks: int
-     * }
+     * @return array<int|string, int>
      */
     public function url_stat(string $path, int $flags) : array
     {

@@ -15,42 +15,42 @@ class WPSEO_Admin_Asset {
 	 *
 	 * @var string
 	 */
-	public const TYPE_JS = 'js';
+	const TYPE_JS = 'js';
 
 	/**
 	 * Constant used to identify file type as a CSS file.
 	 *
 	 * @var string
 	 */
-	public const TYPE_CSS = 'css';
+	const TYPE_CSS = 'css';
 
 	/**
 	 * The name option identifier.
 	 *
 	 * @var string
 	 */
-	public const NAME = 'name';
+	const NAME = 'name';
 
 	/**
 	 * The source option identifier.
 	 *
 	 * @var string
 	 */
-	public const SRC = 'src';
+	const SRC = 'src';
 
 	/**
 	 * The dependencies option identifier.
 	 *
 	 * @var string
 	 */
-	public const DEPS = 'deps';
+	const DEPS = 'deps';
 
 	/**
 	 * The version option identifier.
 	 *
 	 * @var string
 	 */
-	public const VERSION = 'version';
+	const VERSION = 'version';
 
 	/* Style specific. */
 
@@ -59,14 +59,14 @@ class WPSEO_Admin_Asset {
 	 *
 	 * @var string
 	 */
-	public const MEDIA = 'media';
+	const MEDIA = 'media';
 
 	/**
 	 * The rtl option identifier.
 	 *
 	 * @var string
 	 */
-	public const RTL = 'rtl';
+	const RTL = 'rtl';
 
 	/* Script specific. */
 
@@ -75,7 +75,7 @@ class WPSEO_Admin_Asset {
 	 *
 	 * @var string
 	 */
-	public const IN_FOOTER = 'in_footer';
+	const IN_FOOTER = 'in_footer';
 
 	/**
 	 * Asset identifier.

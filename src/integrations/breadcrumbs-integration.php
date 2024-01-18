@@ -57,8 +57,6 @@ class Breadcrumbs_Integration implements Integration_Interface {
 	 * Registers the `wpseo_breadcrumb` shortcode.
 	 *
 	 * @codeCoverageIgnore
-	 *
-	 * @return void
 	 */
 	public function register_hooks() {
 		\add_shortcode( 'wpseo_breadcrumb', [ $this, 'render' ] );

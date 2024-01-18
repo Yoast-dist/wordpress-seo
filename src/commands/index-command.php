@@ -270,8 +270,6 @@ class Index_Command implements Command_Interface {
 
 	/**
 	 * Clears the database related to the indexables.
-	 *
-	 * @return void
 	 */
 	protected function clear() {
 		global $wpdb;

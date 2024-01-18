@@ -78,8 +78,6 @@ class Import_Integration implements Integration_Interface {
 
 	/**
 	 * Enqueues the Import script.
-	 *
-	 * @return void
 	 */
 	public function enqueue_import_script() {
 		\wp_enqueue_style( 'dashicons' );

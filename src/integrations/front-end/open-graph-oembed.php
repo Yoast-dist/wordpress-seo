@@ -100,8 +100,6 @@ class Open_Graph_OEmbed implements Integration_Interface {
 
 	/**
 	 * Sets the OpenGraph title if configured.
-	 *
-	 * @return void
 	 */
 	protected function set_title() {
 		$opengraph_title = $this->post_meta->open_graph_title;
@@ -113,8 +111,6 @@ class Open_Graph_OEmbed implements Integration_Interface {
 
 	/**
 	 * Sets the OpenGraph description if configured.
-	 *
-	 * @return void
 	 */
 	protected function set_description() {
 		$opengraph_description = $this->post_meta->open_graph_description;
@@ -126,8 +122,6 @@ class Open_Graph_OEmbed implements Integration_Interface {
 
 	/**
 	 * Sets the image if it has been configured.
-	 *
-	 * @return void
 	 */
 	protected function set_image() {
 		$images = $this->post_meta->open_graph_images;

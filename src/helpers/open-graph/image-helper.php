@@ -55,8 +55,9 @@ class Image_Helper {
 		/**
 		 * Filter: 'wpseo_opengraph_is_valid_image_url' - Allows extra validation for an image url.
 		 *
-		 * @param bool   $is_valid Current validation result.
-		 * @param string $url      The image url to validate.
+		 * @api bool - Current validation result.
+		 *
+		 * @param string $url The image url to validate.
 		 */
 		return (bool) \apply_filters( 'wpseo_opengraph_is_valid_image_url', $is_valid, $image['url'] );
 	}
@@ -79,7 +80,7 @@ class Image_Helper {
 		 * can be used to add an image size that needs to be taken into consideration
 		 * within our own logic.
 		 *
-		 * @param string|false $size Size string.
+		 * @api string|false $size Size string.
 		 */
 		return \apply_filters( 'wpseo_opengraph_image_size', null );
 	}

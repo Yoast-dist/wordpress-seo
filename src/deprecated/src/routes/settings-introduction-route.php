@@ -23,21 +23,21 @@ class Settings_Introduction_Route implements Route_Interface {
 	 *
 	 * @var string
 	 */
-	public const ROUTE_PREFIX = '/settings_introduction';
+	const ROUTE_PREFIX = '/settings_introduction';
 
 	/**
 	 * Represents the Wistia embed permission.
 	 *
 	 * @var string
 	 */
-	public const WISTIA_EMBED_PERMISSION = self::ROUTE_PREFIX . '/wistia_embed_permission';
+	const WISTIA_EMBED_PERMISSION = self::ROUTE_PREFIX . '/wistia_embed_permission';
 
 	/**
 	 * Represents showing the introduction.
 	 *
 	 * @var string
 	 */
-	public const SHOW = self::ROUTE_PREFIX . '/show';
+	const SHOW = self::ROUTE_PREFIX . '/show';
 
 	/**
 	 * Holds the Settings_Introduction_Action.

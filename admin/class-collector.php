@@ -21,8 +21,6 @@ class WPSEO_Collector {
 	 * Adds a collection object to the collections.
 	 *
 	 * @param WPSEO_Collection $collection The collection object to add.
-	 *
-	 * @return void
 	 */
 	public function add_collection( WPSEO_Collection $collection ) {
 		$this->collections[] = $collection;

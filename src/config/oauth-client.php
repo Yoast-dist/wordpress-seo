@@ -72,7 +72,7 @@ abstract class OAuth_Client {
 				$tokens['expires'],
 				$tokens['has_expired'],
 				$tokens['created_at'],
-				( $tokens['error_count'] ?? 0 )
+				isset( $tokens['error_count'] ) ? $tokens['error_count'] : 0
 			);
 		}
 	}

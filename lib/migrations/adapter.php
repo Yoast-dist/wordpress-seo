@@ -125,8 +125,6 @@ class Adapter {
 
 	/**
 	 * Create the schema table, if necessary.
-	 *
-	 * @return void
 	 */
 	public function create_schema_version_table() {
 		if ( ! $this->has_table( $this->get_schema_version_table_name() ) ) {
@@ -139,8 +137,6 @@ class Adapter {
 
 	/**
 	 * Starts a transaction.
-	 *
-	 * @return void
 	 */
 	public function start_transaction() {
 		if ( $this->in_transaction() === false ) {
@@ -150,8 +146,6 @@ class Adapter {
 
 	/**
 	 * Commits a transaction.
-	 *
-	 * @return void
 	 */
 	public function commit_transaction() {
 		if ( $this->in_transaction() ) {
@@ -161,8 +155,6 @@ class Adapter {
 
 	/**
 	 * Rollbacks a transaction.
-	 *
-	 * @return void
 	 */
 	public function rollback_transaction() {
 		if ( $this->in_transaction() ) {
@@ -301,7 +293,7 @@ class Adapter {
 		$query_type = $this->determine_query_type( $query );
 		$data       = [];
 		if ( $query_type === Constants::SQL_SELECT || $query_type === Constants::SQL_SHOW ) {
-			$data = $wpdb->get_results( $query, \ARRAY_A );
+			$data = $wpdb->get_results( $query, ARRAY_A );
 			if ( $data === false ) {
 				return false;
 			}
@@ -802,8 +794,10 @@ class Adapter {
 					$column_type_sql .= \sprintf( '(%d)', $precision );
 				}
 			}
-			elseif ( $scale ) {
-				throw new Exception( "Error adding $type column: precision cannot be empty if scale is specified" );
+			else {
+				if ( $scale ) {
+					throw new Exception( "Error adding $type column: precision cannot be empty if scale is specified" );
+				}
 			}
 		}
 		elseif ( $type === 'enum' ) {

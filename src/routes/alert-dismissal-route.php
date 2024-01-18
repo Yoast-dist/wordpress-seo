@@ -20,21 +20,21 @@ class Alert_Dismissal_Route implements Route_Interface {
 	 *
 	 * @var string
 	 */
-	public const ROUTE_PREFIX = 'alerts';
+	const ROUTE_PREFIX = 'alerts';
 
 	/**
 	 * Represents the dismiss route.
 	 *
 	 * @var string
 	 */
-	public const DISMISS_ROUTE = self::ROUTE_PREFIX . '/dismiss';
+	const DISMISS_ROUTE = self::ROUTE_PREFIX . '/dismiss';
 
 	/**
 	 * Represents the full dismiss route.
 	 *
 	 * @var string
 	 */
-	public const FULL_DISMISS_ROUTE = Main::API_V1_NAMESPACE . '/' . self::DISMISS_ROUTE;
+	const FULL_DISMISS_ROUTE = Main::API_V1_NAMESPACE . '/' . self::DISMISS_ROUTE;
 
 	/**
 	 * Represents the alert dismissal action.

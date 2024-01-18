@@ -53,8 +53,6 @@ class Admin_Columns_Cache_Integration implements Integration_Interface {
 	 *
 	 * This cache is used in showing the Yoast SEO columns on the posts overview
 	 * page (e.g. keyword score, incoming link count, etc.)
-	 *
-	 * @return void
 	 */
 	public function register_hooks() {
 		// Hook into tablenav to calculate links and linked.
@@ -65,8 +63,6 @@ class Admin_Columns_Cache_Integration implements Integration_Interface {
 	 * Makes sure we calculate all values in one query by filling our cache beforehand.
 	 *
 	 * @param string $target Extra table navigation location which is triggered.
-	 *
-	 * @return void
 	 */
 	public function maybe_fill_cache( $target ) {
 		if ( $target === 'top' ) {
@@ -76,8 +72,6 @@ class Admin_Columns_Cache_Integration implements Integration_Interface {
 
 	/**
 	 * Fills the cache of indexables for all known post IDs.
-	 *
-	 * @return void
 	 */
 	public function fill_cache() {
 		global $wp_query;

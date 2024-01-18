@@ -13,7 +13,7 @@ class Indexable_General_Indexation_Action implements Indexation_Action_Interface
 	/**
 	 * The transient cache key.
 	 */
-	public const UNINDEXED_COUNT_TRANSIENT = 'wpseo_total_unindexed_general_items';
+	const UNINDEXED_COUNT_TRANSIENT = 'wpseo_total_unindexed_general_items';
 
 	/**
 	 * Represents the indexables repository.

@@ -18,7 +18,7 @@ final class Marker_Close_Presenter extends Abstract_Indexable_Presenter {
 		/**
 		 * Filter: 'wpseo_debug_markers' - Allow disabling the debug markers.
 		 *
-		 * @param bool $show_markers True when the debug markers should be shown.
+		 * @api bool $show_markers True when the debug markers should be shown.
 		 */
 		if ( ! \apply_filters( 'wpseo_debug_markers', true ) ) {
 			return '';

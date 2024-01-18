@@ -13,13 +13,15 @@ use Yoast_Notification_Center;
 
 /**
  * Shows a notification for users who have Woocommerce product beta editor enabled.
+ *
+ * @class Woocommerce_Beta_Editor_Watcher
  */
 class Woocommerce_Beta_Editor_Watcher implements Integration_Interface {
 
 	/**
 	 * The notification ID.
 	 */
-	public const NOTIFICATION_ID = 'wpseo-woocommerce-beta-editor-warning';
+	const NOTIFICATION_ID = 'wpseo-woocommerce-beta-editor-warning';
 
 	/**
 	 * The short link helper.
@@ -54,7 +56,7 @@ class Woocommerce_Beta_Editor_Watcher implements Integration_Interface {
 	 *
 	 * @param Yoast_Notification_Center $notification_center The notification center.
 	 * @param Notification_Helper       $notification_helper The notification helper.
-	 * @param Short_Link_Helper         $short_link_helper   The short link helper.
+	 * @param Short_Link_Helper         $short_link_helper The short link helper.
 	 */
 	public function __construct(
 		Yoast_Notification_Center $notification_center,

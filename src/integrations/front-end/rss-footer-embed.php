@@ -95,8 +95,9 @@ class RSS_Footer_Embed implements Integration_Interface {
 		/**
 		 * Filter: 'wpseo_include_rss_footer' - Allow the RSS footer to be dynamically shown/hidden.
 		 *
-		 * @param bool   $show_embed Indicates if the RSS footer should be shown or not.
-		 * @param string $context    The context of the RSS content - 'full' or 'excerpt'.
+		 * @api boolean $show_embed Indicates if the RSS footer should be shown or not.
+		 *
+		 * @param string $context The context of the RSS content - 'full' or 'excerpt'.
 		 */
 		if ( ! \apply_filters( 'wpseo_include_rss_footer', true, $context ) ) {
 			return false;
@@ -183,9 +184,9 @@ class RSS_Footer_Embed implements Integration_Interface {
 		 * Filter: 'nofollow_rss_links' - Allow the developer to determine whether or not to follow the links in
 		 * the bits Yoast SEO adds to the RSS feed, defaults to false.
 		 *
-		 * @since 1.4.20
+		 * @api bool $unsigned Whether or not to follow the links in RSS feed, defaults to true.
 		 *
-		 * @param bool $unsigned Whether or not to follow the links in RSS feed, defaults to true.
+		 * @since 1.4.20
 		 */
 		if ( \apply_filters( 'nofollow_rss_links', false ) ) {
 			return '<a rel="nofollow" href="%1$s">%2$s</a>';

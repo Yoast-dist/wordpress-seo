@@ -17,7 +17,7 @@ class WPSEO_Menu implements WPSEO_WordPress_Integration {
 	 *
 	 * @var string
 	 */
-	public const PAGE_IDENTIFIER = 'wpseo_dashboard';
+	const PAGE_IDENTIFIER = 'wpseo_dashboard';
 
 	/**
 	 * List of classes that add admin functionality.

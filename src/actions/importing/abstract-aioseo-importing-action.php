@@ -21,14 +21,14 @@ abstract class Abstract_Aioseo_Importing_Action implements Importing_Action_Inte
 	 *
 	 * @var string
 	 */
-	public const PLUGIN = null;
+	const PLUGIN = null;
 
 	/**
 	 * The type the class deals with.
 	 *
 	 * @var string
 	 */
-	public const TYPE = null;
+	const TYPE = null;
 
 	/**
 	 * The AIOSEO helper.
@@ -111,8 +111,6 @@ abstract class Abstract_Aioseo_Importing_Action implements Importing_Action_Inte
 	 * @required
 	 *
 	 * @param Aioseo_Helper $aioseo_helper The AIOSEO helper.
-	 *
-	 * @return void
 	 */
 	public function set_aioseo_helper( Aioseo_Helper $aioseo_helper ) {
 		$this->aioseo_helper = $aioseo_helper;
@@ -126,7 +124,7 @@ abstract class Abstract_Aioseo_Importing_Action implements Importing_Action_Inte
 	 * @throws Exception If the PLUGIN constant is not set in the child class.
 	 */
 	public function get_plugin() {
-		$class  = static::class;
+		$class  = \get_class( $this );
 		$plugin = $class::PLUGIN;
 
 		if ( $plugin === null ) {
@@ -144,7 +142,7 @@ abstract class Abstract_Aioseo_Importing_Action implements Importing_Action_Inte
 	 * @throws Exception If the TYPE constant is not set in the child class.
 	 */
 	public function get_type() {
-		$class = static::class;
+		$class = \get_class( $this );
 		$type  = $class::TYPE;
 
 		if ( $type === null ) {

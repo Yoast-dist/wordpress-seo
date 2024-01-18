@@ -19,8 +19,6 @@ class WPSEO_Metabox_Section_Readability implements WPSEO_Metabox_Section {
 
 	/**
 	 * Outputs the section link.
-	 *
-	 * @return void
 	 */
 	public function display_link() {
 		printf(
@@ -33,8 +31,6 @@ class WPSEO_Metabox_Section_Readability implements WPSEO_Metabox_Section {
 
 	/**
 	 * Outputs the section content.
-	 *
-	 * @return void
 	 */
 	public function display_content() {
 		printf(

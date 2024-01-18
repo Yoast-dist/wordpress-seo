@@ -22,8 +22,6 @@ class WPSEO_Schema_Person_Upgrade_Notification implements WPSEO_WordPress_Integr
 
 	/**
 	 * Handles if the notification should be added or removed.
-	 *
-	 * @return void
 	 */
 	public function handle_notification() {
 		$company_or_person_user_id = WPSEO_Options::get( 'company_or_person_user_id', false );
@@ -37,8 +35,6 @@ class WPSEO_Schema_Person_Upgrade_Notification implements WPSEO_WordPress_Integr
 
 	/**
 	 * Adds a notification to the notification center.
-	 *
-	 * @return void
 	 */
 	protected function add_notification() {
 		$notification_center = Yoast_Notification_Center::get();
@@ -47,8 +43,6 @@ class WPSEO_Schema_Person_Upgrade_Notification implements WPSEO_WordPress_Integr
 
 	/**
 	 * Removes a notification to the notification center.
-	 *
-	 * @return void
 	 */
 	protected function remove_notification() {
 		$notification_center = Yoast_Notification_Center::get();
