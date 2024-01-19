@@ -19,17 +19,17 @@ class Aioseo_General_Settings_Importing_Action extends Abstract_Aioseo_Settings_
 	/**
 	 * The plugin of the action.
 	 */
-	public const PLUGIN = 'aioseo';
+	const PLUGIN = 'aioseo';
 
 	/**
 	 * The type of the action.
 	 */
-	public const TYPE = 'general_settings';
+	const TYPE = 'general_settings';
 
 	/**
 	 * The option_name of the AIOSEO option that contains the settings.
 	 */
-	public const SOURCE_OPTION_NAME = 'aioseo_options';
+	const SOURCE_OPTION_NAME = 'aioseo_options';
 
 	/**
 	 * The map of aioseo_options to yoast settings.

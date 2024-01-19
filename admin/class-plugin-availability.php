@@ -19,8 +19,6 @@ class WPSEO_Plugin_Availability {
 
 	/**
 	 * Registers the plugins so we can access them.
-	 *
-	 * @return void
 	 */
 	public function register() {
 		$this->register_yoast_plugins();
@@ -29,8 +27,6 @@ class WPSEO_Plugin_Availability {
 
 	/**
 	 * Registers all the available Yoast SEO plugins.
-	 *
-	 * @return void
 	 */
 	protected function register_yoast_plugins() {
 		$this->plugins = [
@@ -101,8 +97,6 @@ class WPSEO_Plugin_Availability {
 
 	/**
 	 * Sets certain plugin properties based on WordPress' status.
-	 *
-	 * @return void
 	 */
 	protected function register_yoast_plugins_status() {
 

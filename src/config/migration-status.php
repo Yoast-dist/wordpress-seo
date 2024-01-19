@@ -14,7 +14,7 @@ class Migration_Status {
 	 *
 	 * @var string
 	 */
-	public const MIGRATION_OPTION_KEY = 'yoast_migrations_';
+	const MIGRATION_OPTION_KEY = 'yoast_migrations_';
 
 	/**
 	 * The migration options.

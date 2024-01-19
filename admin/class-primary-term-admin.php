@@ -12,8 +12,6 @@ class WPSEO_Primary_Term_Admin implements WPSEO_WordPress_Integration {
 
 	/**
 	 * Constructor.
-	 *
-	 * @return void
 	 */
 	public function register_hooks() {
 		add_filter( 'wpseo_content_meta_section_content', [ $this, 'add_input_fields' ] );
@@ -96,8 +94,6 @@ class WPSEO_Primary_Term_Admin implements WPSEO_WordPress_Integration {
 
 	/**
 	 * Adds primary term templates.
-	 *
-	 * @return void
 	 */
 	public function wp_footer() {
 		$taxonomies = $this->get_primary_term_taxonomies();
@@ -177,8 +173,6 @@ class WPSEO_Primary_Term_Admin implements WPSEO_WordPress_Integration {
 
 	/**
 	 * Includes templates file.
-	 *
-	 * @return void
 	 */
 	protected function include_js_templates() {
 		include_once WPSEO_PATH . 'admin/views/js-templates-primary-term.php';
@@ -199,7 +193,8 @@ class WPSEO_Primary_Term_Admin implements WPSEO_WordPress_Integration {
 		/**
 		 * Filters which taxonomies for which the user can choose the primary term.
 		 *
-		 * @param array  $taxonomies     An array of taxonomy objects that are primary_term enabled.
+		 * @api array    $taxonomies An array of taxonomy objects that are primary_term enabled.
+		 *
 		 * @param string $post_type      The post type for which to filter the taxonomies.
 		 * @param array  $all_taxonomies All taxonomies for this post types, even ones that don't have primary term
 		 *                               enabled.

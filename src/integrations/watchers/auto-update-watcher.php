@@ -16,7 +16,7 @@ class Auto_Update_Watcher implements Integration_Interface {
 	/**
 	 * The notification ID.
 	 */
-	public const NOTIFICATION_ID = 'wpseo-auto-update';
+	const NOTIFICATION_ID = 'wpseo-auto-update';
 
 	/**
 	 * The Yoast notification center.

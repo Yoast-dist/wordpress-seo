@@ -21,8 +21,6 @@ class WPSEO_Shortcode_Filter {
 
 	/**
 	 * Parse the shortcodes.
-	 *
-	 * @return void
 	 */
 	public function do_filter() {
 		check_ajax_referer( 'wpseo-filter-shortcodes', 'nonce' );

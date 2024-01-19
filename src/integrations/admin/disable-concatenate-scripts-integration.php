@@ -23,8 +23,6 @@ class Disable_Concatenate_Scripts_Integration implements Integration_Interface {
 
 	/**
 	 * Registers an action to disable script concatenation.
-	 *
-	 * @return void
 	 */
 	public function register_hooks() {
 		\add_action( 'wp_print_scripts', [ $this, 'disable_concatenate_scripts' ] );

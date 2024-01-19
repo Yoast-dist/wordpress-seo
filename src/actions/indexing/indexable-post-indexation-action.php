@@ -20,14 +20,14 @@ class Indexable_Post_Indexation_Action extends Abstract_Indexing_Action {
 	 *
 	 * @var string
 	 */
-	public const UNINDEXED_COUNT_TRANSIENT = 'wpseo_total_unindexed_posts';
+	const UNINDEXED_COUNT_TRANSIENT = 'wpseo_total_unindexed_posts';
 
 	/**
 	 * The transient cache key for limited counts.
 	 *
 	 * @var string
 	 */
-	public const UNINDEXED_LIMITED_COUNT_TRANSIENT = self::UNINDEXED_COUNT_TRANSIENT . '_limited';
+	const UNINDEXED_LIMITED_COUNT_TRANSIENT = self::UNINDEXED_COUNT_TRANSIENT . '_limited';
 
 	/**
 	 * The post type helper.
@@ -120,7 +120,7 @@ class Indexable_Post_Indexation_Action extends Abstract_Indexing_Action {
 		/**
 		 * Filter 'wpseo_post_indexation_limit' - Allow filtering the amount of posts indexed during each indexing pass.
 		 *
-		 * @param int $limit The maximum number of posts indexed.
+		 * @api int The maximum number of posts indexed.
 		 */
 		$limit = \apply_filters( 'wpseo_post_indexation_limit', 25 );
 

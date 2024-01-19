@@ -53,8 +53,6 @@ class Post_Helper {
 	 * @required
 	 *
 	 * @param Indexable_Repository $repository The indexable repository.
-	 *
-	 * @return void
 	 */
 	public function set_indexable_repository( Indexable_Repository $repository ) {
 		$this->repository = $repository;
@@ -221,7 +219,7 @@ class Post_Helper {
 		/**
 		 * Filter: 'wpseo_public_post_statuses' - List of public post statuses.
 		 *
-		 * @param array $post_statuses Post status list, defaults to array( 'publish' ).
+		 * @api array $post_statuses Post status list, defaults to array( 'publish' ).
 		 */
 		return \apply_filters( 'wpseo_public_post_statuses', [ 'publish' ] );
 	}

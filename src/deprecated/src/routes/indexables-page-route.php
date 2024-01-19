@@ -23,77 +23,77 @@ class Indexables_Page_Route implements Route_Interface {
 	 *
 	 * @var string
 	 */
-	public const SETUP_INFO = '/setup_info';
+	const SETUP_INFO = '/setup_info';
 
 	/**
 	 * Represents the least readability route.
 	 *
 	 * @var string
 	 */
-	public const LEAST_READABILITY_ROUTE = '/least_readability';
+	const LEAST_READABILITY_ROUTE = '/least_readability';
 
 	/**
 	 * Represents the least SEO score route.
 	 *
 	 * @var string
 	 */
-	public const LEAST_SEO_SCORE_ROUTE = '/least_seo_score';
+	const LEAST_SEO_SCORE_ROUTE = '/least_seo_score';
 
 	/**
 	 * Represents the most linked route.
 	 *
 	 * @var string
 	 */
-	public const MOST_LINKED_ROUTE = '/most_linked';
+	const MOST_LINKED_ROUTE = '/most_linked';
 
 	/**
 	 * Represents the least linked route.
 	 *
 	 * @var string
 	 */
-	public const LEAST_LINKED_ROUTE = '/least_linked';
+	const LEAST_LINKED_ROUTE = '/least_linked';
 
 	/**
 	 * Allows to mark an indexable to be ignored.
 	 *
 	 * @var string
 	 */
-	public const UPDATE_IGNORED_INDEXABLES_ROUTE = '/update_ignored_indexables';
+	const UPDATE_IGNORED_INDEXABLES_ROUTE = '/update_ignored_indexables';
 
 	/**
 	 * Allows to restore an indexable previously ignored.
 	 *
 	 * @var string
 	 */
-	public const RESTORE_INDEXABLE_ROUTE = '/restore_indexable';
+	const RESTORE_INDEXABLE_ROUTE = '/restore_indexable';
 
 	/**
 	 * Allows to restore all indexables previously ignored.
 	 *
 	 * @var string
 	 */
-	public const RESTORE_ALL_INDEXABLES_ROUTE = '/restore_all_indexables';
+	const RESTORE_ALL_INDEXABLES_ROUTE = '/restore_all_indexables';
 
 	/**
 	 * Allows to restore all indexables previously ignored for a certain list.
 	 *
 	 * @var string
 	 */
-	public const RESTORE_ALL_INDEXABLES_FOR_LIST_ROUTE = '/restore_all_indexables_for_list';
+	const RESTORE_ALL_INDEXABLES_FOR_LIST_ROUTE = '/restore_all_indexables_for_list';
 
 	/**
 	 * Gets the reading list state.
 	 *
 	 * @var string
 	 */
-	public const GET_READING_LIST_STATE = '/get_reading_list';
+	const GET_READING_LIST_STATE = '/get_reading_list';
 
 	/**
 	 * Sets the reading list state.
 	 *
 	 * @var string
 	 */
-	public const SET_READING_LIST_STATE = '/set_reading_list';
+	const SET_READING_LIST_STATE = '/set_reading_list';
 
 	/**
 	 * The indexable actions.

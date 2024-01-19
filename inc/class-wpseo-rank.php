@@ -15,35 +15,35 @@ class WPSEO_Rank {
 	 *
 	 * @var string
 	 */
-	public const BAD = 'bad';
+	const BAD = 'bad';
 
 	/**
 	 * Constant used for determining an OK SEO rating.
 	 *
 	 * @var string
 	 */
-	public const OK = 'ok';
+	const OK = 'ok';
 
 	/**
 	 * Constant used for determining a good SEO rating.
 	 *
 	 * @var string
 	 */
-	public const GOOD = 'good';
+	const GOOD = 'good';
 
 	/**
 	 * Constant used for determining that no focus keyphrase is set.
 	 *
 	 * @var string
 	 */
-	public const NO_FOCUS = 'na';
+	const NO_FOCUS = 'na';
 
 	/**
 	 * Constant used for determining that this content is not indexed.
 	 *
 	 * @var string
 	 */
-	public const NO_INDEX = 'noindex';
+	const NO_INDEX = 'noindex';
 
 	/**
 	 * All possible ranks.

@@ -20,8 +20,6 @@ class AddHasAncestorsColumn extends Migration {
 
 	/**
 	 * Migration up.
-	 *
-	 * @return void
 	 */
 	public function up() {
 		$this->add_column(
@@ -44,8 +42,6 @@ class AddHasAncestorsColumn extends Migration {
 
 	/**
 	 * Migration down.
-	 *
-	 * @return void
 	 */
 	public function down() {
 		$this->remove_column( Model::get_table_name( 'Indexable' ), 'has_ancestors' );

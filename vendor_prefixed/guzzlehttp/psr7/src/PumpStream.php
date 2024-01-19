@@ -16,7 +16,7 @@ use YoastSEO_Vendor\Psr\Http\Message\StreamInterface;
  */
 final class PumpStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInterface
 {
-    /** @var callable(int): (string|false|null)|null */
+    /** @var callable|null */
     private $source;
     /** @var int|null */
     private $size;
@@ -134,9 +134,9 @@ final class PumpStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInterf
     }
     private function pump(int $length) : void
     {
-        if ($this->source !== null) {
+        if ($this->source) {
             do {
-                $data = ($this->source)($length);
+                $data = \call_user_func($this->source, $length);
                 if ($data === \false || $data === null) {
                     $this->source = null;
                     return;

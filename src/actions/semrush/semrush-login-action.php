@@ -49,8 +49,6 @@ class SEMrush_Login_Action {
 
 	/**
 	 * Performs the login request, if necessary.
-	 *
-	 * @return void
 	 */
 	public function login() {
 		if ( $this->client->has_valid_tokens() ) {

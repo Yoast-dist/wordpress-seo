@@ -20,21 +20,21 @@ class First_Time_Configuration_Route implements Route_Interface {
 	 *
 	 * @var string
 	 */
-	public const CONFIGURATION_ROUTE = '/configuration';
+	const CONFIGURATION_ROUTE = '/configuration';
 
 	/**
 	 * Represents a site representation route.
 	 *
 	 * @var string
 	 */
-	public const SITE_REPRESENTATION_ROUTE = '/site_representation';
+	const SITE_REPRESENTATION_ROUTE = '/site_representation';
 
 	/**
 	 * Represents a social profiles route.
 	 *
 	 * @var string
 	 */
-	public const SOCIAL_PROFILES_ROUTE = '/social_profiles';
+	const SOCIAL_PROFILES_ROUTE = '/social_profiles';
 
 	/**
 	 * Represents a person's social profiles route.
@@ -42,35 +42,35 @@ class First_Time_Configuration_Route implements Route_Interface {
 	 * @deprecated 20.2
 	 * @var string
 	 */
-	public const PERSON_SOCIAL_PROFILES_ROUTE = '/person_social_profiles';
+	const PERSON_SOCIAL_PROFILES_ROUTE = '/person_social_profiles';
 
 	/**
 	 * Represents a route to enable/disable tracking.
 	 *
 	 * @var string
 	 */
-	public const ENABLE_TRACKING_ROUTE = '/enable_tracking';
+	const ENABLE_TRACKING_ROUTE = '/enable_tracking';
 
 	/**
 	 * Represents a route to check if current user has the correct capabilities to edit another user's profile.
 	 *
 	 * @var string
 	 */
-	public const CHECK_CAPABILITY_ROUTE = '/check_capability';
+	const CHECK_CAPABILITY_ROUTE = '/check_capability';
 
 	/**
 	 * Represents a route to save the first time configuration state.
 	 *
 	 * @var string
 	 */
-	public const SAVE_CONFIGURATION_STATE_ROUTE = '/save_configuration_state';
+	const SAVE_CONFIGURATION_STATE_ROUTE = '/save_configuration_state';
 
 	/**
 	 * Represents a route to save the first time configuration state.
 	 *
 	 * @var string
 	 */
-	public const GET_CONFIGURATION_STATE_ROUTE = '/get_configuration_state';
+	const GET_CONFIGURATION_STATE_ROUTE = '/get_configuration_state';
 
 	/**
 	 *  The first tinme configuration action.

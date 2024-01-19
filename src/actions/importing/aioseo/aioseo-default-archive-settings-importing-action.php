@@ -13,17 +13,17 @@ class Aioseo_Default_Archive_Settings_Importing_Action extends Abstract_Aioseo_S
 	/**
 	 * The plugin of the action.
 	 */
-	public const PLUGIN = 'aioseo';
+	const PLUGIN = 'aioseo';
 
 	/**
 	 * The type of the action.
 	 */
-	public const TYPE = 'default_archive_settings';
+	const TYPE = 'default_archive_settings';
 
 	/**
 	 * The option_name of the AIOSEO option that contains the settings.
 	 */
-	public const SOURCE_OPTION_NAME = 'aioseo_options';
+	const SOURCE_OPTION_NAME = 'aioseo_options';
 
 	/**
 	 * The map of aioseo_options to yoast settings.

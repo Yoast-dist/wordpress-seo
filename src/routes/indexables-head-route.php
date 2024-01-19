@@ -4,7 +4,6 @@ namespace Yoast\WP\SEO\Routes;
 
 use WP_REST_Request;
 use WP_REST_Response;
-use WPSEO_Utils;
 use Yoast\WP\SEO\Actions\Indexables\Indexable_Head_Action;
 use Yoast\WP\SEO\Conditionals\Headless_Rest_Endpoints_Enabled_Conditional;
 use Yoast\WP\SEO\Main;
@@ -19,14 +18,14 @@ class Indexables_Head_Route implements Route_Interface {
 	 *
 	 * @var string
 	 */
-	public const HEAD_FOR_URL_ROUTE = 'get_head';
+	const HEAD_FOR_URL_ROUTE = 'get_head';
 
 	/**
 	 * The full posts route constant.
 	 *
 	 * @var string
 	 */
-	public const FULL_HEAD_FOR_URL_ROUTE = Main::API_V1_NAMESPACE . '/' . self::HEAD_FOR_URL_ROUTE;
+	const FULL_HEAD_FOR_URL_ROUTE = Main::API_V1_NAMESPACE . '/' . self::HEAD_FOR_URL_ROUTE;
 
 	/**
 	 * The head action.
@@ -47,7 +46,7 @@ class Indexables_Head_Route implements Route_Interface {
 	/**
 	 * Returns the conditionals based in which this loadable should be active.
 	 *
-	 * @return array<string>
+	 * @return array
 	 */
 	public static function get_conditionals() {
 		return [ Headless_Rest_Endpoints_Enabled_Conditional::class ];
@@ -95,8 +94,7 @@ class Indexables_Head_Route implements Route_Interface {
 	 * @return bool Whether or not the url is valid.
 	 */
 	public function is_valid_url( $url ) {
-		$url = WPSEO_Utils::sanitize_url( \utf8_uri_encode( $url ) );
-		if ( \filter_var( $url, \FILTER_VALIDATE_URL ) === false ) {
+		if ( \filter_var( \utf8_uri_encode( $url ), \FILTER_VALIDATE_URL ) === false ) {
 			return false;
 		}
 		return true;

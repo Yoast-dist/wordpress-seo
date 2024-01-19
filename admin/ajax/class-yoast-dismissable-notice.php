@@ -16,21 +16,21 @@ class Yoast_Dismissable_Notice_Ajax {
 	 *
 	 * @var string
 	 */
-	public const FOR_USER = 'user_meta';
+	const FOR_USER = 'user_meta';
 
 	/**
 	 * Notice type toggle value for network notices.
 	 *
 	 * @var string
 	 */
-	public const FOR_NETWORK = 'site_option';
+	const FOR_NETWORK = 'site_option';
 
 	/**
 	 * Notice type toggle value for site notices.
 	 *
 	 * @var string
 	 */
-	public const FOR_SITE = 'option';
+	const FOR_SITE = 'option';
 
 	/**
 	 * Name of the notice that will be dismissed.
@@ -61,8 +61,6 @@ class Yoast_Dismissable_Notice_Ajax {
 
 	/**
 	 * Handles the dismiss notice request.
-	 *
-	 * @return void
 	 */
 	public function dismiss_notice() {
 		check_ajax_referer( 'wpseo-dismiss-' . $this->notice_name );
@@ -74,8 +72,6 @@ class Yoast_Dismissable_Notice_Ajax {
 
 	/**
 	 * Storing the dismissed value in the database. The target location is based on the set notification type.
-	 *
-	 * @return void
 	 */
 	private function save_dismissed() {
 		if ( $this->notice_type === self::FOR_SITE ) {

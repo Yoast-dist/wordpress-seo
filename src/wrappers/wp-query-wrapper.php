@@ -31,8 +31,6 @@ class WP_Query_Wrapper {
 	 * Sets the global WP_Query object.
 	 *
 	 * @param WP_Query $wp_query The WP Query.
-	 *
-	 * @return void
 	 */
 	public function set_query( WP_Query $wp_query ) {
 		// phpcs:ignore WordPress.WP.GlobalVariablesOverride -- This is a deliberate action.
@@ -41,8 +39,6 @@ class WP_Query_Wrapper {
 
 	/**
 	 * Resets the global WP_Query object.
-	 *
-	 * @return void
 	 */
 	public function reset_query() {
 		\wp_reset_query();

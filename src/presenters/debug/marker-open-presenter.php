@@ -18,7 +18,7 @@ final class Marker_Open_Presenter extends Abstract_Indexable_Presenter {
 		/**
 		 * Filter: 'wpseo_debug_markers' - Allow disabling the debug markers.
 		 *
-		 * @param bool $show_markers True when the debug markers should be shown.
+		 * @api bool $show_markers True when the debug markers should be shown.
 		 */
 		if ( ! \apply_filters( 'wpseo_debug_markers', true ) ) {
 			return '';
@@ -45,7 +45,7 @@ final class Marker_Open_Presenter extends Abstract_Indexable_Presenter {
 		/**
 		 * Filter: 'wpseo_hide_version' - can be used to hide the Yoast SEO version in the debug marker (only available in Yoast SEO Premium).
 		 *
-		 * @param bool $hide_version
+		 * @api bool
 		 */
 		if ( \apply_filters( 'wpseo_hide_version', false ) ) {
 			return '';

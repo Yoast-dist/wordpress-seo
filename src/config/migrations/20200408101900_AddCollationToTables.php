@@ -19,8 +19,6 @@ class AddCollationToTables extends Migration {
 
 	/**
 	 * Migration up.
-	 *
-	 * @return void
 	 */
 	public function up() {
 		global $wpdb;
@@ -44,8 +42,6 @@ class AddCollationToTables extends Migration {
 
 	/**
 	 * Migration down.
-	 *
-	 * @return void
 	 */
 	public function down() {
 		// No down required.

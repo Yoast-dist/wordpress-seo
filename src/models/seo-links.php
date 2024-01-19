@@ -27,28 +27,28 @@ class SEO_Links extends Model {
 	 *
 	 * @var string
 	 */
-	public const TYPE_INTERNAL = 'internal';
+	const TYPE_INTERNAL = 'internal';
 
 	/**
 	 * Indicates that the link is internal.
 	 *
 	 * @var string
 	 */
-	public const TYPE_EXTERNAL = 'external';
+	const TYPE_EXTERNAL = 'external';
 
 	/**
 	 * Indicates the link is an internal image.
 	 *
 	 * @var string
 	 */
-	public const TYPE_INTERNAL_IMAGE = 'image-in';
+	const TYPE_INTERNAL_IMAGE = 'image-in';
 
 	/**
 	 * Indicates the link is an external image.
 	 *
 	 * @var string
 	 */
-	public const TYPE_EXTERNAL_IMAGE = 'image-ex';
+	const TYPE_EXTERNAL_IMAGE = 'image-ex';
 
 	/**
 	 * Holds the parsed URL. May not be set.
