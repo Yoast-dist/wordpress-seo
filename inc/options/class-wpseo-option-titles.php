@@ -26,7 +26,7 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 	 *
 	 * {@internal Note: Some of the default values are added via the translate_defaults() method.}}
 	 *
-	 * @var string[]
+	 * @var array
 	 */
 	protected $defaults = [
 		// Form fields.
@@ -101,20 +101,6 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 		'diversity_policy_id'              => 0,
 		'diversity_staffing_report_id'     => 0,
 
-		'org-description'                  => '',
-		'org-email'                        => '',
-		'org-phone'                        => '',
-		'org-legal-name'                   => '',
-		'org-founding-date'                => '',
-		'org-number-employees'             => '',
-
-		'org-vat-id'                       => '',
-		'org-tax-id'                       => '',
-		'org-iso'                          => '',
-		'org-duns'                         => '',
-		'org-leicode'                      => '',
-		'org-naics'                        => '',
-
 		/*
 		 * Uses enrich_defaults to add more along the lines of:
 		 * - 'title-' . $pt->name                => ''; // Text field.
@@ -140,14 +126,14 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 	/**
 	 * Used for "caching" during pageload.
 	 *
-	 * @var string[]
+	 * @var array
 	 */
 	protected $enriched_defaults = null;
 
 	/**
 	 * Array of variable option name patterns for the option.
 	 *
-	 * @var string[]
+	 * @var array
 	 */
 	protected $variable_array_key_patterns = [
 		'title-',
@@ -163,13 +149,12 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 		'social-description-',
 		'social-image-url-',
 		'social-image-id-',
-		'org-',
 	];
 
 	/**
 	 * Array of sub-options which should not be overloaded with multi-site defaults.
 	 *
-	 * @var string[]
+	 * @var array
 	 */
 	public $ms_exclude = [
 		'forcerewritetitle',
@@ -220,7 +205,7 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 	/**
 	 * Get the available separator options.
 	 *
-	 * @return string[]
+	 * @return array
 	 */
 	public function get_separator_options() {
 		$separators = wp_list_pluck( self::get_separator_option_list(), 'option' );
@@ -242,7 +227,7 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 	/**
 	 * Get the available separator options aria-labels.
 	 *
-	 * @return string[] Array with the separator options aria-labels.
+	 * @return array Array with the separator options aria-labels.
 	 */
 	public function get_separator_options_for_display() {
 		$separators     = $this->get_separator_options();
@@ -380,11 +365,11 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 	/**
 	 * Validate the option.
 	 *
-	 * @param string[] $dirty New value for the option.
-	 * @param string[] $clean Clean value for the option, normally the defaults.
-	 * @param string[] $old   Old value of the option.
+	 * @param array $dirty New value for the option.
+	 * @param array $clean Clean value for the option, normally the defaults.
+	 * @param array $old   Old value of the option.
 	 *
-	 * @return string[] Validated clean value for the option to be saved to the database.
+	 * @return array Validated clean value for the option to be saved to the database.
 	 */
 	protected function validate_option( $dirty, $clean, $old ) {
 		$allowed_post_types = $this->get_allowed_post_types();
@@ -430,7 +415,6 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 				 *  'social-title-author-wpseo', 'social-title-archive-wpseo'
 				 *  'open_graph_frontpage_title'
 				 */
-				case 'org-':
 				case 'website_name':
 				case 'alternate_website_name':
 				case 'title-':
@@ -712,7 +696,7 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 	 *
 	 * {@internal Don't make static as new types may still be registered.}}
 	 *
-	 * @return string[]
+	 * @return array
 	 */
 	protected function get_allowed_post_types() {
 		$allowed_post_types = [];
@@ -740,11 +724,14 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 	/**
 	 * Clean a given option value.
 	 *
-	 * @param string[]      $option_value          Old (not merged with defaults or filtered) option value to clean according to the rules for this option.
-	 * @param string[]|null $current_version       Optional. Version from which to upgrade, if not set, version specific upgrades will be disregarded.
-	 * @param string[]|null $all_old_option_values Optional. Only used when importing old options to have access to the real old values, in contrast to the saved ones.
+	 * @param array       $option_value          Old (not merged with defaults or filtered) option value to
+	 *                                           clean according to the rules for this option.
+	 * @param string|null $current_version       Optional. Version from which to upgrade, if not set,
+	 *                                           version specific upgrades will be disregarded.
+	 * @param array|null  $all_old_option_values Optional. Only used when importing old options to have
+	 *                                           access to the real old values, in contrast to the saved ones.
 	 *
-	 * @return string[] Cleaned option.
+	 * @return array Cleaned option.
 	 */
 	protected function clean_option( $option_value, $current_version = null, $all_old_option_values = null ) {
 		static $original = null;
@@ -925,12 +912,12 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 	 *            variable key does not get removed. IMPORTANT: keep this method in line with
 	 *            the parent on which it is based!}}
 	 *
-	 * @param string[] $dirty Original option as retrieved from the database.
-	 * @param string[] $clean Filtered option where any options which shouldn't be in our option
+	 * @param array $dirty Original option as retrieved from the database.
+	 * @param array $clean Filtered option where any options which shouldn't be in our option
 	 *                     have already been removed and any options which weren't set
 	 *                     have been set to their defaults.
 	 *
-	 * @return string[]
+	 * @return array
 	 */
 	protected function retain_variable_keys( $dirty, $clean ) {
 		if ( ( is_array( $this->variable_array_key_patterns ) && $this->variable_array_key_patterns !== [] ) && ( is_array( $dirty ) && $dirty !== [] ) ) {
@@ -968,7 +955,7 @@ class WPSEO_Option_Titles extends WPSEO_Option {
 	/**
 	 * Retrieves a list of separator options.
 	 *
-	 * @return string[] An array of the separator options.
+	 * @return array An array of the separator options.
 	 */
 	protected static function get_separator_option_list() {
 		$separators = [
