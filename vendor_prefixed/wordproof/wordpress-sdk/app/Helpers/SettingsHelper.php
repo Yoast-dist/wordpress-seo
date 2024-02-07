@@ -38,7 +38,7 @@ class SettingsHelper
     }
     public static function selectedPostTypes()
     {
-        return self::get('selected_post_types');
+        return \apply_filters('wordproof_timestamp_post_types', self::get('selected_post_types'));
     }
     public static function postTypeIsInSelectedPostTypes($postType)
     {
