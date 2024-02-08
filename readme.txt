@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.4
-Stable tag: 22.1-RC1
+Stable tag: 22.1-RC2
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -348,6 +348,7 @@ Release date: 2024-02-20
 
 #### Enhancements
 
+* Add filter `wpseo_sitemap_urlset` to easily filter `<urlset>`'s for all XML sitemaps. Props to @jdevalk.
 * Encodes possible spaces in URLs used in `@id` and `url` `WebPage` schema piece properties when the schema represents a search results page.
 * Lowers the minimum amount of characters needed to use the search functionality on the settings page.
 * Makes the section headings stand out visually in the _SEO_, _readability_ and _inclusive language_ analysis tabs.
@@ -355,9 +356,9 @@ Release date: 2024-02-20
 #### Bugfixes
 
 * Fixes a bug where ending a _How-To_ or _FAQ_ block element with a backslash would generate errors when re-opening a saved post.
+* Fixes a bug where fatal errors occurred when using a plugin that hooks into `views_edit-{$post_type}` but did not return an array as expected.
 * Fixes a bug where next and prev links in query loop would be wrong when disabling `Inherit query from template`.
 * Fixes a bug where the `ProfilePage` schema node would not be valid when it was manually chosen for a page.
-* Prevents fatal errors when used together with a plugin which hooks into `views_edit-{$post_type}` but does not return an array as expected.
 
 #### Other
 
