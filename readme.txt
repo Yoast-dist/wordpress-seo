@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.4
-Stable tag: 22.1-RC2
+Stable tag: 22.1-RC3
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -348,7 +348,7 @@ Release date: 2024-02-20
 
 #### Enhancements
 
-* Add filter `wpseo_sitemap_urlset` to easily filter `<urlset>`'s for all XML sitemaps. Props to @jdevalk.
+* Adds the filter `wpseo_sitemap_urlset` to easily filter `<urlset>`'s for all XML sitemaps. Props to @jdevalk.
 * Encodes possible spaces in URLs used in `@id` and `url` `WebPage` schema piece properties when the schema represents a search results page.
 * Lowers the minimum amount of characters needed to use the search functionality on the settings page.
 * Makes the section headings stand out visually in the _SEO_, _readability_ and _inclusive language_ analysis tabs.
