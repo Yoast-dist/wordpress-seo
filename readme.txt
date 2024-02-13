@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.4
-Stable tag: 22.1-RC3
+Stable tag: 22.1-RC4
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -358,6 +358,7 @@ Release date: 2024-02-20
 * Fixes a bug where ending a _How-To_ or _FAQ_ block element with a backslash would generate errors when re-opening a saved post.
 * Fixes a bug where fatal errors occurred when using a plugin that hooks into `views_edit-{$post_type}` but did not return an array as expected.
 * Fixes a bug where next and prev links in query loop would be wrong when disabling `Inherit query from template`.
+* Fixes a bug where some custom post types such as Divi layouts could be experiencing problems after activation or deactivation of Yoast SEO.
 * Fixes a bug where the `ProfilePage` schema node would not be valid when it was manually chosen for a page.
 
 #### Other
