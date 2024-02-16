@@ -442,6 +442,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\values\\images' => 'Yoast\\WP\\SEO\\Values\\Images',
             'yoast\\wp\\seo\\values\\indexables\\indexable_builder_versions' => 'Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions',
             'yoast\\wp\\seo\\values\\open_graph\\images' => 'Yoast\\WP\\SEO\\Values\\Open_Graph\\Images',
+            'yoast\\wp\\seo\\woocommerce_editor\\user_interface\\woocommerce_editor_seo_group' => 'Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Group',
             'yoast\\wp\\seo\\wrappers\\wp_query_wrapper' => 'Yoast\\WP\\SEO\\Wrappers\\WP_Query_Wrapper',
             'yoast\\wp\\seo\\wrappers\\wp_remote_handler' => 'Yoast\\WP\\SEO\\Wrappers\\WP_Remote_Handler',
             'yoast\\wp\\seo\\wrappers\\wp_rewrite_wrapper' => 'Yoast\\WP\\SEO\\Wrappers\\WP_Rewrite_Wrapper',
@@ -866,6 +867,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Values\\Images' => 'getImagesService',
             'Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions' => 'getIndexableBuilderVersionsService',
             'Yoast\\WP\\SEO\\Values\\Open_Graph\\Images' => 'getImages2Service',
+            'Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Group' => 'getWooCommerceEditorSEOGroupService',
             'Yoast\\WP\\SEO\\Wrappers\\WP_Query_Wrapper' => 'getWPQueryWrapperService',
             'Yoast\\WP\\SEO\\Wrappers\\WP_Remote_Handler' => 'getWPRemoteHandlerService',
             'Yoast\\WP\\SEO\\Wrappers\\WP_Rewrite_Wrapper' => 'getWPRewriteWrapperService',
@@ -4863,6 +4865,7 @@ class Cached_Container extends Container
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Workouts_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field');
         $instance->register_integration('Yoast\\WP\\SEO\\User_Profiles_Additions\\User_Interface\\User_Profiles_Additions_Ui');
+        $instance->register_integration('Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Group');
 
         return $instance;
     }
@@ -5624,6 +5627,16 @@ class Cached_Container extends Container
         $instance->set_helpers(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Open_Graph\\Image_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Open_Graph\\Image_Helper'] : $this->getImageHelper2Service()) && false ?: '_'});
 
         return $instance;
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\WooCommerce_Editor\User_Interface\WooCommerce_Editor_SEO_Group' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\WooCommerce_Editor\User_Interface\WooCommerce_Editor_SEO_Group
+     */
+    protected function getWooCommerceEditorSEOGroupService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Group'] = new \Yoast\WP\SEO\WooCommerce_Editor\User_Interface\WooCommerce_Editor_SEO_Group();
     }
 
     /**
