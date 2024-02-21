@@ -442,6 +442,8 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\values\\images' => 'Yoast\\WP\\SEO\\Values\\Images',
             'yoast\\wp\\seo\\values\\indexables\\indexable_builder_versions' => 'Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions',
             'yoast\\wp\\seo\\values\\open_graph\\images' => 'Yoast\\WP\\SEO\\Values\\Open_Graph\\Images',
+            'yoast\\wp\\seo\\woocommerce_editor\\framework\\woocommerce_product_block_editor_conditional' => 'Yoast\\WP\\SEO\\WooCommerce_Editor\\Framework\\WooCommerce_Product_Block_Editor_Conditional',
+            'yoast\\wp\\seo\\woocommerce_editor\\user_interface\\woocommerce_editor_seo_block' => 'Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Block',
             'yoast\\wp\\seo\\woocommerce_editor\\user_interface\\woocommerce_editor_seo_group' => 'Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Group',
             'yoast\\wp\\seo\\wrappers\\wp_query_wrapper' => 'Yoast\\WP\\SEO\\Wrappers\\WP_Query_Wrapper',
             'yoast\\wp\\seo\\wrappers\\wp_remote_handler' => 'Yoast\\WP\\SEO\\Wrappers\\WP_Remote_Handler',
@@ -867,6 +869,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Values\\Images' => 'getImagesService',
             'Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions' => 'getIndexableBuilderVersionsService',
             'Yoast\\WP\\SEO\\Values\\Open_Graph\\Images' => 'getImages2Service',
+            'Yoast\\WP\\SEO\\WooCommerce_Editor\\Framework\\WooCommerce_Product_Block_Editor_Conditional' => 'getWooCommerceProductBlockEditorConditionalService',
+            'Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Block' => 'getWooCommerceEditorSEOBlockService',
             'Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Group' => 'getWooCommerceEditorSEOGroupService',
             'Yoast\\WP\\SEO\\Wrappers\\WP_Query_Wrapper' => 'getWPQueryWrapperService',
             'Yoast\\WP\\SEO\\Wrappers\\WP_Remote_Handler' => 'getWPRemoteHandlerService',
@@ -4865,6 +4869,7 @@ class Cached_Container extends Container
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Workouts_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field');
         $instance->register_integration('Yoast\\WP\\SEO\\User_Profiles_Additions\\User_Interface\\User_Profiles_Additions_Ui');
+        $instance->register_integration('Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Block');
         $instance->register_integration('Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Group');
 
         return $instance;
@@ -5627,6 +5632,26 @@ class Cached_Container extends Container
         $instance->set_helpers(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Open_Graph\\Image_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Open_Graph\\Image_Helper'] : $this->getImageHelper2Service()) && false ?: '_'});
 
         return $instance;
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\WooCommerce_Editor\Framework\WooCommerce_Product_Block_Editor_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\WooCommerce_Editor\Framework\WooCommerce_Product_Block_Editor_Conditional
+     */
+    protected function getWooCommerceProductBlockEditorConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\WooCommerce_Editor\\Framework\\WooCommerce_Product_Block_Editor_Conditional'] = new \Yoast\WP\SEO\WooCommerce_Editor\Framework\WooCommerce_Product_Block_Editor_Conditional();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\WooCommerce_Editor\User_Interface\WooCommerce_Editor_SEO_Block' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\WooCommerce_Editor\User_Interface\WooCommerce_Editor_SEO_Block
+     */
+    protected function getWooCommerceEditorSEOBlockService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Block'] = new \Yoast\WP\SEO\WooCommerce_Editor\User_Interface\WooCommerce_Editor_SEO_Block();
     }
 
     /**
