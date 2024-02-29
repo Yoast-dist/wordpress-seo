@@ -443,6 +443,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\values\\indexables\\indexable_builder_versions' => 'Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions',
             'yoast\\wp\\seo\\values\\open_graph\\images' => 'Yoast\\WP\\SEO\\Values\\Open_Graph\\Images',
             'yoast\\wp\\seo\\woocommerce_editor\\framework\\woocommerce_product_block_editor_conditional' => 'Yoast\\WP\\SEO\\WooCommerce_Editor\\Framework\\WooCommerce_Product_Block_Editor_Conditional',
+            'yoast\\wp\\seo\\woocommerce_editor\\user_interface\\woocommerce_editor_integration' => 'Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_Integration',
             'yoast\\wp\\seo\\woocommerce_editor\\user_interface\\woocommerce_editor_seo_block' => 'Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Block',
             'yoast\\wp\\seo\\woocommerce_editor\\user_interface\\woocommerce_editor_seo_group' => 'Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Group',
             'yoast\\wp\\seo\\wrappers\\wp_query_wrapper' => 'Yoast\\WP\\SEO\\Wrappers\\WP_Query_Wrapper',
@@ -870,6 +871,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions' => 'getIndexableBuilderVersionsService',
             'Yoast\\WP\\SEO\\Values\\Open_Graph\\Images' => 'getImages2Service',
             'Yoast\\WP\\SEO\\WooCommerce_Editor\\Framework\\WooCommerce_Product_Block_Editor_Conditional' => 'getWooCommerceProductBlockEditorConditionalService',
+            'Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_Integration' => 'getWooCommerceEditorIntegrationService',
             'Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Block' => 'getWooCommerceEditorSEOBlockService',
             'Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Group' => 'getWooCommerceEditorSEOGroupService',
             'Yoast\\WP\\SEO\\Wrappers\\WP_Query_Wrapper' => 'getWPQueryWrapperService',
@@ -911,6 +913,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Checklist_Promotion' => true,
             'Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Promotion' => true,
             'Yoast\\WP\\SEO\\Promotions\\Domain\\Time_Interval' => true,
+            'Yoast\\WP\\SEO\\WooCommerce_Editor\\Framework\\WooCommerce_Editor_Admin_L10n' => true,
+            'Yoast\\WP\\SEO\\WooCommerce_Editor\\Framework\\WooCommerce_Editor_Script_Data' => true,
         ];
     }
 
@@ -4869,6 +4873,7 @@ class Cached_Container extends Container
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Workouts_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field');
         $instance->register_integration('Yoast\\WP\\SEO\\User_Profiles_Additions\\User_Interface\\User_Profiles_Additions_Ui');
+        $instance->register_integration('Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Block');
         $instance->register_integration('Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Group');
 
@@ -5642,6 +5647,16 @@ class Cached_Container extends Container
     protected function getWooCommerceProductBlockEditorConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\WooCommerce_Editor\\Framework\\WooCommerce_Product_Block_Editor_Conditional'] = new \Yoast\WP\SEO\WooCommerce_Editor\Framework\WooCommerce_Product_Block_Editor_Conditional();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\WooCommerce_Editor\User_Interface\WooCommerce_Editor_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\WooCommerce_Editor\User_Interface\WooCommerce_Editor_Integration
+     */
+    protected function getWooCommerceEditorIntegrationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_Integration'] = new \Yoast\WP\SEO\WooCommerce_Editor\User_Interface\WooCommerce_Editor_Integration(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] : $this->getCurrentPageHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Wincher_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Wincher_Helper'] : $this->getWincherHelperService()) && false ?: '_'}, new \Yoast\WP\SEO\WooCommerce_Editor\Framework\WooCommerce_Editor_Admin_L10n(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}), new \Yoast\WP\SEO\WooCommerce_Editor\Framework\WooCommerce_Editor_Script_Data(${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Alert_Dismissal_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Alert_Dismissal_Action'] : $this->getAlertDismissalActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Asset_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Asset_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Asset_Helper'] = new \Yoast\WP\SEO\Helpers\Asset_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface']) ? $this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface'] : $this->getMetaSurfaceService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] : $this->getPostTypeHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager']) ? $this->services['Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager'] : $this->getPromotionManagerService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Replace_Vars']) ? $this->services['WPSEO_Replace_Vars'] : $this->getWPSEOReplaceVarsService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper'] : $this->getShortLinkHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Wistia_Embed_Permission_Repository']) ? $this->services['Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Wistia_Embed_Permission_Repository'] : $this->getWistiaEmbedPermissionRepositoryService()) && false ?: '_'}));
     }
 
     /**
