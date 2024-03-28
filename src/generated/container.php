@@ -443,6 +443,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\values\\images' => 'Yoast\\WP\\SEO\\Values\\Images',
             'yoast\\wp\\seo\\values\\indexables\\indexable_builder_versions' => 'Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions',
             'yoast\\wp\\seo\\values\\open_graph\\images' => 'Yoast\\WP\\SEO\\Values\\Open_Graph\\Images',
+            'yoast\\wp\\seo\\values\\twitter\\images' => 'Yoast\\WP\\SEO\\Values\\Twitter\\Images',
             'yoast\\wp\\seo\\woocommerce_editor\\framework\\woocommerce_product_block_editor_conditional' => 'Yoast\\WP\\SEO\\WooCommerce_Editor\\Framework\\WooCommerce_Product_Block_Editor_Conditional',
             'yoast\\wp\\seo\\woocommerce_editor\\user_interface\\woocommerce_editor_integration' => 'Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_Integration',
             'yoast\\wp\\seo\\woocommerce_editor\\user_interface\\woocommerce_editor_seo_block' => 'Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Block',
@@ -872,6 +873,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Values\\Images' => 'getImagesService',
             'Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions' => 'getIndexableBuilderVersionsService',
             'Yoast\\WP\\SEO\\Values\\Open_Graph\\Images' => 'getImages2Service',
+            'Yoast\\WP\\SEO\\Values\\Twitter\\Images' => 'getImages3Service',
             'Yoast\\WP\\SEO\\WooCommerce_Editor\\Framework\\WooCommerce_Product_Block_Editor_Conditional' => 'getWooCommerceProductBlockEditorConditionalService',
             'Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_Integration' => 'getWooCommerceEditorIntegrationService',
             'Yoast\\WP\\SEO\\WooCommerce_Editor\\User_Interface\\WooCommerce_Editor_SEO_Block' => 'getWooCommerceEditorSEOBlockService',
@@ -5658,6 +5660,20 @@ class Cached_Container extends Container
         $this->services['Yoast\\WP\\SEO\\Values\\Open_Graph\\Images'] = $instance = new \Yoast\WP\SEO\Values\Open_Graph\Images(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper'] : $this->getImageHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] = new \Yoast\WP\SEO\Helpers\Url_Helper())) && false ?: '_'});
 
         $instance->set_helpers(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Open_Graph\\Image_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Open_Graph\\Image_Helper'] : $this->getImageHelper2Service()) && false ?: '_'});
+
+        return $instance;
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Values\Twitter\Images' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Values\Twitter\Images
+     */
+    protected function getImages3Service()
+    {
+        $this->services['Yoast\\WP\\SEO\\Values\\Twitter\\Images'] = $instance = new \Yoast\WP\SEO\Values\Twitter\Images(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper'] : $this->getImageHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] = new \Yoast\WP\SEO\Helpers\Url_Helper())) && false ?: '_'});
+
+        $instance->set_helpers(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Twitter\\Image_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Twitter\\Image_Helper'] : $this->getImageHelper4Service()) && false ?: '_'});
 
         return $instance;
     }
