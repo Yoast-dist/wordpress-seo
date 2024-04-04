@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.5
-Stable tag: 22.5-RC1
+Stable tag: 22.5-RC2
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -321,6 +321,7 @@ Release date: 2024-04-16
 
 #### Enhancements
 
+* Adds an AI for SEO academy card to the Academy page.
 * Deprecates unused method `is_image_url_valid`.
 * Fixes an incompatibility with `ES_WP_Query` library used by WordPress VIP Enterprise Search.
 * Introduces a check for allowed MIME types when uploading social templates images.
