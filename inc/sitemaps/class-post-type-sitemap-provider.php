@@ -163,7 +163,7 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 			throw new OutOfBoundsException( 'Invalid sitemap page requested' );
 		}
 
-		$steps  = min( 100, $max_entries );
+		$max_links_per_page  = min( 100, $max_entries );
 		$offset = ( $current_page > 1 ) ? ( ( $current_page - 1 ) * $max_entries ) : 0;
 		$total  = ( $offset + $max_entries );
 
@@ -190,9 +190,10 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 
 		while ( $total > $offset ) {
 
-			$posts = $this->get_posts( $post_type, $steps, $offset );
+			$posts = $this->get_posts( $post_type, $max_links_per_page, $offset );
+			$last_id = (int)  current(array_slice( $posts, -1 ))->ID;
 
-			$offset += $steps;
+			$offset = $last_id + 1;
 
 			if ( empty( $posts ) ) {
 				continue;
@@ -506,7 +507,6 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	 * @return object[]
 	 */
 	protected function get_posts( $post_type, $count, $offset ) {
-
 		global $wpdb;
 
 		static $filters = [];
@@ -536,6 +536,8 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 		$where_filter = $filters[ $post_type ]['where'];
 		$where        = $this->get_sql_where_clause( $post_type );
 
+
+
 		/*
 		 * Optimized query per this thread:
 		 * {@link http://wordpress.org/support/topic/plugin-wordpress-seo-by-yoast-performance-suggestion}.
@@ -549,12 +551,12 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 				{$join_filter}
 				{$where}
 					{$where_filter}
-				ORDER BY {$wpdb->posts}.post_modified ASC LIMIT %d OFFSET %d
+					AND {$wpdb->posts}.ID >= %d
+				ORDER BY {$wpdb->posts}.ID ASC LIMIT %d
 			)
 			o JOIN {$wpdb->posts} l ON l.ID = o.ID
 		";
-
-		$posts = $wpdb->get_results( $wpdb->prepare( $sql, $count, $offset ) );
+		$posts = $wpdb->get_results( $wpdb->prepare( $sql, $offset, $count ) );
 
 		$post_ids = [];
 
