@@ -73,7 +73,7 @@ class WPSEO_Meta {
 	 *   in the relevant child classes (WPSEO_Metabox and WPSEO_Social_admin) as they are only needed there.
 	 * - Beware: even though the meta keys are divided into subsets, they still have to be uniquely named!}}
 	 *
-	 * @var array
+	 * @var array<string,array<string,array<string,mixed>>>
 	 *            Array format:
 	 *                (required)       'type'          => (string) field type. i.e. text / textarea / checkbox /
 	 *                                                    radio / select / multiselect / upload etc.
@@ -240,7 +240,7 @@ class WPSEO_Meta {
 	 *         ['subset']    => (string) primary index
 	 *         ['key']       => (string) internal key
 	 *
-	 * @var array
+	 * @var array<string,array<string,string>>
 	 */
 	public static $fields_index = [];
 
@@ -248,7 +248,7 @@ class WPSEO_Meta {
 	 * Helper property - array containing only the defaults in the format:
 	 * [full meta key including prefix]    => (string) default value
 	 *
-	 * @var array
+	 * @var array<string>
 	 */
 	public static $defaults = [];
 
@@ -281,7 +281,7 @@ class WPSEO_Meta {
 	 */
 	public static function init() {
 		foreach ( self::$social_networks as $option => $network ) {
-			if ( WPSEO_Options::get( $option, true ) === true ) {
+			if ( WPSEO_Options::get( $option, false ) === true ) {
 				foreach ( self::$social_fields as $box => $type ) {
 					self::$meta_fields['social'][ $network . '-' . $box ] = [
 						'type'          => $type,
@@ -325,10 +325,12 @@ class WPSEO_Meta {
 					self::$meta_prefix . $key,
 					[
 						'sanitize_callback' => [ self::class, 'sanitize_post_meta' ],
-						'show_in_rest'      => true,
+						'show_in_rest'      => ( $field_def['type'] ) ? true : false,
+						'auth_callback'     => static function () {
+							return current_user_can( 'edit_posts' );
+						},
 						'type'              => 'string',
 						'single'            => true,
-						'default'           => ( $field_def['default_value'] ?? '' ),
 					]
 				);
 
@@ -362,7 +364,7 @@ class WPSEO_Meta {
 	 * @param string $tab       Tab for which to retrieve the field definitions.
 	 * @param string $post_type Post type of the current post.
 	 *
-	 * @return array Array containing the meta box field definitions.
+	 * @return array<array<array<string|int>>> Array containing the meta box field definitions.
 	 */
 	public static function get_meta_field_defs( $tab, $post_type = 'post' ) {
 		if ( ! isset( self::$meta_fields[ $tab ] ) ) {

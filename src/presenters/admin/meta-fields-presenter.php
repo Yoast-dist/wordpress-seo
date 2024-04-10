@@ -48,15 +48,9 @@ class Meta_Fields_Presenter extends Abstract_Presenter {
 		$output = '';
 
 		foreach ( $this->meta_fields as $key => $meta_field ) {
-			$form_key   = \esc_attr( WPSEO_Meta::$form_prefix . $key );
-			$meta_value = WPSEO_Meta::get_value( $key, $this->post->ID );
+			$form_key = \esc_attr( WPSEO_Meta::$form_prefix . $key );
 
-			$default = '';
-			if ( isset( $meta_field['default'] ) ) {
-				$default = \sprintf( ' data-default="%s"', \esc_attr( $meta_field['default'] ) );
-			}
-
-			$output .= '<input type="hidden" id="' . $form_key . '" name="' . $form_key . '" value="' . \esc_attr( $meta_value ) . '"' . $default . '/>' . "\n";
+			$output .= '<input type="hidden" id="' . $form_key . '" name="' . $form_key . '"/>' . "\n";
 		}
 
 		return $output;
