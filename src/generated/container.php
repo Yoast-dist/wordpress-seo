@@ -289,6 +289,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\admin\\redirect_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirect_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\redirects_page_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirects_Page_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\social_templates_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Social_Templates_Integration',
+            'yoast\\wp\\seo\\integrations\\admin\\unsupported_php_version_notice' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Unsupported_PHP_Version_Notice',
             'yoast\\wp\\seo\\integrations\\admin\\workouts_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Workouts_Integration',
             'yoast\\wp\\seo\\integrations\\alerts\\black_friday_product_editor_checklist_notification' => 'Yoast\\WP\\SEO\\Integrations\\Alerts\\Black_Friday_Product_Editor_Checklist_Notification',
             'yoast\\wp\\seo\\integrations\\alerts\\black_friday_promotion_notification' => 'Yoast\\WP\\SEO\\Integrations\\Alerts\\Black_Friday_Promotion_Notification',
@@ -722,6 +723,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirect_Integration' => 'getRedirectIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirects_Page_Integration' => 'getRedirectsPageIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Social_Templates_Integration' => 'getSocialTemplatesIntegrationService',
+            'Yoast\\WP\\SEO\\Integrations\\Admin\\Unsupported_PHP_Version_Notice' => 'getUnsupportedPHPVersionNoticeService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Workouts_Integration' => 'getWorkoutsIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Alerts\\Black_Friday_Product_Editor_Checklist_Notification' => 'getBlackFridayProductEditorChecklistNotificationService',
             'Yoast\\WP\\SEO\\Integrations\\Alerts\\Black_Friday_Promotion_Notification' => 'getBlackFridayPromotionNotificationService',
@@ -935,13 +937,13 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Facebook' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Instagram' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Linkedin' => true,
-            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\MySpace' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Myspace' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Pinterest' => true,
-            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\SoundCloud' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Soundcloud' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Tumblr' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Wikipedia' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\X' => true,
-            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\YouTube' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Youtube' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Author_Metadesc' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Author_Title' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Content_Analysis_Disable' => true,
@@ -3889,6 +3891,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\Admin\Unsupported_PHP_Version_Notice' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\Admin\Unsupported_PHP_Version_Notice
+     */
+    protected function getUnsupportedPHPVersionNoticeService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Unsupported_PHP_Version_Notice'] = new \Yoast\WP\SEO\Integrations\Admin\Unsupported_PHP_Version_Notice();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Integrations\Admin\Workouts_Integration' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Integrations\Admin\Workouts_Integration
@@ -4843,6 +4855,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Old_Configuration_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Redirect_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Redirects_Page_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Unsupported_PHP_Version_Notice');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Workouts_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Alerts\\Black_Friday_Product_Editor_Checklist_Notification');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Alerts\\Black_Friday_Promotion_Notification');
@@ -5668,7 +5681,7 @@ class Cached_Container extends Container
      */
     protected function getAdditionalContactmethodsRepositoryService()
     {
-        return $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Repository'] = new \Yoast\WP\SEO\User_Meta\Application\Additional_Contactmethods_Repository(new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Facebook(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Instagram(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Linkedin(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\MySpace(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Pinterest(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\SoundCloud(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Tumblr(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Wikipedia(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\X(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\YouTube());
+        return $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Repository'] = new \Yoast\WP\SEO\User_Meta\Application\Additional_Contactmethods_Repository(new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Facebook(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Instagram(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Linkedin(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Myspace(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Pinterest(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Soundcloud(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Tumblr(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Wikipedia(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\X(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Youtube());
     }
 
     /**
