@@ -287,6 +287,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\admin\\redirect_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirect_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\redirects_page_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirects_Page_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\social_templates_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Social_Templates_Integration',
+            'yoast\\wp\\seo\\integrations\\admin\\unsupported_php_version_notice' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Unsupported_PHP_Version_Notice',
             'yoast\\wp\\seo\\integrations\\admin\\workouts_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Workouts_Integration',
             'yoast\\wp\\seo\\integrations\\alerts\\black_friday_product_editor_checklist_notification' => 'Yoast\\WP\\SEO\\Integrations\\Alerts\\Black_Friday_Product_Editor_Checklist_Notification',
             'yoast\\wp\\seo\\integrations\\alerts\\black_friday_promotion_notification' => 'Yoast\\WP\\SEO\\Integrations\\Alerts\\Black_Friday_Promotion_Notification',
@@ -443,6 +444,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\values\\images' => 'Yoast\\WP\\SEO\\Values\\Images',
             'yoast\\wp\\seo\\values\\indexables\\indexable_builder_versions' => 'Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions',
             'yoast\\wp\\seo\\values\\open_graph\\images' => 'Yoast\\WP\\SEO\\Values\\Open_Graph\\Images',
+            'yoast\\wp\\seo\\values\\twitter\\images' => 'Yoast\\WP\\SEO\\Values\\Twitter\\Images',
             'yoast\\wp\\seo\\wrappers\\wp_query_wrapper' => 'Yoast\\WP\\SEO\\Wrappers\\WP_Query_Wrapper',
             'yoast\\wp\\seo\\wrappers\\wp_remote_handler' => 'Yoast\\WP\\SEO\\Wrappers\\WP_Remote_Handler',
             'yoast\\wp\\seo\\wrappers\\wp_rewrite_wrapper' => 'Yoast\\WP\\SEO\\Wrappers\\WP_Rewrite_Wrapper',
@@ -712,6 +714,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirect_Integration' => 'getRedirectIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirects_Page_Integration' => 'getRedirectsPageIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Social_Templates_Integration' => 'getSocialTemplatesIntegrationService',
+            'Yoast\\WP\\SEO\\Integrations\\Admin\\Unsupported_PHP_Version_Notice' => 'getUnsupportedPHPVersionNoticeService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Workouts_Integration' => 'getWorkoutsIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Alerts\\Black_Friday_Product_Editor_Checklist_Notification' => 'getBlackFridayProductEditorChecklistNotificationService',
             'Yoast\\WP\\SEO\\Integrations\\Alerts\\Black_Friday_Promotion_Notification' => 'getBlackFridayPromotionNotificationService',
@@ -868,6 +871,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Values\\Images' => 'getImagesService',
             'Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions' => 'getIndexableBuilderVersionsService',
             'Yoast\\WP\\SEO\\Values\\Open_Graph\\Images' => 'getImages2Service',
+            'Yoast\\WP\\SEO\\Values\\Twitter\\Images' => 'getImages3Service',
             'Yoast\\WP\\SEO\\Wrappers\\WP_Query_Wrapper' => 'getWPQueryWrapperService',
             'Yoast\\WP\\SEO\\Wrappers\\WP_Remote_Handler' => 'getWPRemoteHandlerService',
             'Yoast\\WP\\SEO\\Wrappers\\WP_Rewrite_Wrapper' => 'getWPRewriteWrapperService',
@@ -3836,6 +3840,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\Admin\Unsupported_PHP_Version_Notice' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\Admin\Unsupported_PHP_Version_Notice
+     */
+    protected function getUnsupportedPHPVersionNoticeService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Unsupported_PHP_Version_Notice'] = new \Yoast\WP\SEO\Integrations\Admin\Unsupported_PHP_Version_Notice();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Integrations\Admin\Workouts_Integration' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Integrations\Admin\Workouts_Integration
@@ -4666,7 +4680,7 @@ class Cached_Container extends Container
      */
     protected function getWoocommerceBetaEditorWatcherService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Watchers\\Woocommerce_Beta_Editor_Watcher'] = new \Yoast\WP\SEO\Integrations\Watchers\Woocommerce_Beta_Editor_Watcher(${($_ = isset($this->services['Yoast_Notification_Center']) ? $this->services['Yoast_Notification_Center'] : $this->getYoastNotificationCenterService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Notification_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Notification_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Notification_Helper'] = new \Yoast\WP\SEO\Helpers\Notification_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper'] : $this->getShortLinkHelperService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Watchers\\Woocommerce_Beta_Editor_Watcher'] = new \Yoast\WP\SEO\Integrations\Watchers\Woocommerce_Beta_Editor_Watcher(${($_ = isset($this->services['Yoast_Notification_Center']) ? $this->services['Yoast_Notification_Center'] : $this->getYoastNotificationCenterService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Notification_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Notification_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Notification_Helper'] = new \Yoast\WP\SEO\Helpers\Notification_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper'] : $this->getShortLinkHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Conditional'] = new \Yoast\WP\SEO\Conditionals\WooCommerce_Conditional())) && false ?: '_'});
     }
 
     /**
@@ -4790,6 +4804,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Old_Configuration_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Redirect_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Redirects_Page_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Unsupported_PHP_Version_Notice');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Workouts_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Alerts\\Black_Friday_Product_Editor_Checklist_Notification');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Alerts\\Black_Friday_Promotion_Notification');
@@ -5645,6 +5660,20 @@ class Cached_Container extends Container
         $this->services['Yoast\\WP\\SEO\\Values\\Open_Graph\\Images'] = $instance = new \Yoast\WP\SEO\Values\Open_Graph\Images(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper'] : $this->getImageHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] = new \Yoast\WP\SEO\Helpers\Url_Helper())) && false ?: '_'});
 
         $instance->set_helpers(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Open_Graph\\Image_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Open_Graph\\Image_Helper'] : $this->getImageHelper2Service()) && false ?: '_'});
+
+        return $instance;
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Values\Twitter\Images' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Values\Twitter\Images
+     */
+    protected function getImages3Service()
+    {
+        $this->services['Yoast\\WP\\SEO\\Values\\Twitter\\Images'] = $instance = new \Yoast\WP\SEO\Values\Twitter\Images(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper'] : $this->getImageHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] = new \Yoast\WP\SEO\Helpers\Url_Helper())) && false ?: '_'});
+
+        $instance->set_helpers(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Twitter\\Image_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Twitter\\Image_Helper'] : $this->getImageHelper4Service()) && false ?: '_'});
 
         return $instance;
     }
