@@ -126,8 +126,10 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\conditionals\\third_party\\wpml_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\WPML_Conditional',
             'yoast\\wp\\seo\\conditionals\\third_party\\wpml_wpseo_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\WPML_WPSEO_Conditional',
             'yoast\\wp\\seo\\conditionals\\updated_importer_framework_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Updated_Importer_Framework_Conditional',
+            'yoast\\wp\\seo\\conditionals\\user_can_edit_users_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\User_Can_Edit_Users_Conditional',
             'yoast\\wp\\seo\\conditionals\\user_can_manage_wpseo_options_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\User_Can_Manage_Wpseo_Options_Conditional',
             'yoast\\wp\\seo\\conditionals\\user_can_publish_posts_and_pages_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\User_Can_Publish_Posts_And_Pages_Conditional',
+            'yoast\\wp\\seo\\conditionals\\user_edit_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\User_Edit_Conditional',
             'yoast\\wp\\seo\\conditionals\\user_profile_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\User_Profile_Conditional',
             'yoast\\wp\\seo\\conditionals\\web_stories_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Web_Stories_Conditional',
             'yoast\\wp\\seo\\conditionals\\wincher_automatically_track_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Wincher_Automatically_Track_Conditional',
@@ -440,6 +442,11 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\surfaces\\open_graph_helpers_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Open_Graph_Helpers_Surface',
             'yoast\\wp\\seo\\surfaces\\schema_helpers_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Schema_Helpers_Surface',
             'yoast\\wp\\seo\\surfaces\\twitter_helpers_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Twitter_Helpers_Surface',
+            'yoast\\wp\\seo\\user_meta\\application\\additional_contactmethods_collector' => 'Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Collector',
+            'yoast\\wp\\seo\\user_meta\\application\\custom_meta_collector' => 'Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Collector',
+            'yoast\\wp\\seo\\user_meta\\user_interface\\additional_contactmethods_integration' => 'Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Additional_Contactmethods_Integration',
+            'yoast\\wp\\seo\\user_meta\\user_interface\\cleanup_integration' => 'Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Cleanup_Integration',
+            'yoast\\wp\\seo\\user_meta\\user_interface\\custom_meta_integration' => 'Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Custom_Meta_Integration',
             'yoast\\wp\\seo\\user_profiles_additions\\user_interface\\user_profiles_additions_ui' => 'Yoast\\WP\\SEO\\User_Profiles_Additions\\User_Interface\\User_Profiles_Additions_Ui',
             'yoast\\wp\\seo\\values\\images' => 'Yoast\\WP\\SEO\\Values\\Images',
             'yoast\\wp\\seo\\values\\indexables\\indexable_builder_versions' => 'Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions',
@@ -553,8 +560,10 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Wordproof_Integration_Active_Conditional' => 'getWordproofIntegrationActiveConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Wordproof_Plugin_Inactive_Conditional' => 'getWordproofPluginInactiveConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Updated_Importer_Framework_Conditional' => 'getUpdatedImporterFrameworkConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\User_Can_Edit_Users_Conditional' => 'getUserCanEditUsersConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\User_Can_Manage_Wpseo_Options_Conditional' => 'getUserCanManageWpseoOptionsConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\User_Can_Publish_Posts_And_Pages_Conditional' => 'getUserCanPublishPostsAndPagesConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\User_Edit_Conditional' => 'getUserEditConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\User_Profile_Conditional' => 'getUserProfileConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\WP_CRON_Enabled_Conditional' => 'getWPCRONEnabledConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\WP_Robots_Conditional' => 'getWPRobotsConditionalService',
@@ -867,6 +876,11 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Surfaces\\Open_Graph_Helpers_Surface' => 'getOpenGraphHelpersSurfaceService',
             'Yoast\\WP\\SEO\\Surfaces\\Schema_Helpers_Surface' => 'getSchemaHelpersSurfaceService',
             'Yoast\\WP\\SEO\\Surfaces\\Twitter_Helpers_Surface' => 'getTwitterHelpersSurfaceService',
+            'Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Collector' => 'getAdditionalContactmethodsCollectorService',
+            'Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Collector' => 'getCustomMetaCollectorService',
+            'Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Additional_Contactmethods_Integration' => 'getAdditionalContactmethodsIntegrationService',
+            'Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Cleanup_Integration' => 'getCleanupIntegration2Service',
+            'Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Custom_Meta_Integration' => 'getCustomMetaIntegrationService',
             'Yoast\\WP\\SEO\\User_Profiles_Additions\\User_Interface\\User_Profiles_Additions_Ui' => 'getUserProfilesAdditionsUiService',
             'Yoast\\WP\\SEO\\Values\\Images' => 'getImagesService',
             'Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions' => 'getIndexableBuilderVersionsService',
@@ -919,6 +933,24 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Checklist_Promotion' => true,
             'Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Promotion' => true,
             'Yoast\\WP\\SEO\\Promotions\\Domain\\Time_Interval' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Application\\Cleanup_Service' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Facebook' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Instagram' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Linkedin' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Myspace' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Pinterest' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Soundcloud' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Tumblr' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Wikipedia' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\X' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Youtube' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Author_Metadesc' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Author_Title' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Content_Analysis_Disable' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Inclusive_Language_Analysis_Disable' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Keyword_Analysis_Disable' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Noindex_Author' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Infrastructure\\Cleanup_Repository' => true,
         ];
     }
 
@@ -2184,6 +2216,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\User_Can_Edit_Users_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\User_Can_Edit_Users_Conditional
+     */
+    protected function getUserCanEditUsersConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\User_Can_Edit_Users_Conditional'] = new \Yoast\WP\SEO\Conditionals\User_Can_Edit_Users_Conditional();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Conditionals\User_Can_Manage_Wpseo_Options_Conditional' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Conditionals\User_Can_Manage_Wpseo_Options_Conditional
@@ -2201,6 +2243,16 @@ class Cached_Container extends Container
     protected function getUserCanPublishPostsAndPagesConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\User_Can_Publish_Posts_And_Pages_Conditional'] = new \Yoast\WP\SEO\Conditionals\User_Can_Publish_Posts_And_Pages_Conditional();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\User_Edit_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\User_Edit_Conditional
+     */
+    protected function getUserEditConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\User_Edit_Conditional'] = new \Yoast\WP\SEO\Conditionals\User_Edit_Conditional();
     }
 
     /**
@@ -4900,6 +4952,9 @@ class Cached_Container extends Container
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Wincher_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Workouts_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field');
+        $instance->register_integration('Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Additional_Contactmethods_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Cleanup_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Custom_Meta_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\User_Profiles_Additions\\User_Interface\\User_Profiles_Additions_Ui');
 
         return $instance;
@@ -5618,6 +5673,56 @@ class Cached_Container extends Container
     protected function getTwitterHelpersSurfaceService()
     {
         return $this->services['Yoast\\WP\\SEO\\Surfaces\\Twitter_Helpers_Surface'] = new \Yoast\WP\SEO\Surfaces\Twitter_Helpers_Surface($this);
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\User_Meta\Application\Additional_Contactmethods_Collector' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\User_Meta\Application\Additional_Contactmethods_Collector
+     */
+    protected function getAdditionalContactmethodsCollectorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Collector'] = new \Yoast\WP\SEO\User_Meta\Application\Additional_Contactmethods_Collector(new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Facebook(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Instagram(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Linkedin(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Myspace(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Pinterest(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Soundcloud(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Tumblr(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Wikipedia(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\X(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Youtube());
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\User_Meta\Application\Custom_Meta_Collector' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\User_Meta\Application\Custom_Meta_Collector
+     */
+    protected function getCustomMetaCollectorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Collector'] = new \Yoast\WP\SEO\User_Meta\Application\Custom_Meta_Collector(new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Author_Metadesc(), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Author_Title(), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Content_Analysis_Disable(), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Inclusive_Language_Analysis_Disable(), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Keyword_Analysis_Disable(), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Noindex_Author());
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\User_Meta\User_Interface\Additional_Contactmethods_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\User_Meta\User_Interface\Additional_Contactmethods_Integration
+     */
+    protected function getAdditionalContactmethodsIntegrationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Additional_Contactmethods_Integration'] = new \Yoast\WP\SEO\User_Meta\User_Interface\Additional_Contactmethods_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Collector']) ? $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Collector'] : $this->getAdditionalContactmethodsCollectorService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\User_Meta\User_Interface\Cleanup_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\User_Meta\User_Interface\Cleanup_Integration
+     */
+    protected function getCleanupIntegration2Service()
+    {
+        return $this->services['Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Cleanup_Integration'] = new \Yoast\WP\SEO\User_Meta\User_Interface\Cleanup_Integration(new \Yoast\WP\SEO\User_Meta\Application\Cleanup_Service(${($_ = isset($this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Collector']) ? $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Collector'] : $this->getAdditionalContactmethodsCollectorService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Collector']) ? $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Collector'] : $this->getCustomMetaCollectorService()) && false ?: '_'}, new \Yoast\WP\SEO\User_Meta\Infrastructure\Cleanup_Repository()));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\User_Meta\User_Interface\Custom_Meta_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\User_Meta\User_Interface\Custom_Meta_Integration
+     */
+    protected function getCustomMetaIntegrationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Custom_Meta_Integration'] = new \Yoast\WP\SEO\User_Meta\User_Interface\Custom_Meta_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Collector']) ? $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Collector'] : $this->getCustomMetaCollectorService()) && false ?: '_'});
     }
 
     /**
