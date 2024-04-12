@@ -442,8 +442,8 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\surfaces\\open_graph_helpers_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Open_Graph_Helpers_Surface',
             'yoast\\wp\\seo\\surfaces\\schema_helpers_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Schema_Helpers_Surface',
             'yoast\\wp\\seo\\surfaces\\twitter_helpers_surface' => 'Yoast\\WP\\SEO\\Surfaces\\Twitter_Helpers_Surface',
-            'yoast\\wp\\seo\\user_meta\\application\\additional_contactmethods_repository' => 'Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Repository',
-            'yoast\\wp\\seo\\user_meta\\application\\custom_meta_repository' => 'Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Repository',
+            'yoast\\wp\\seo\\user_meta\\application\\additional_contactmethods_collector' => 'Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Collector',
+            'yoast\\wp\\seo\\user_meta\\application\\custom_meta_collector' => 'Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Collector',
             'yoast\\wp\\seo\\user_meta\\user_interface\\additional_contactmethods_integration' => 'Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Additional_Contactmethods_Integration',
             'yoast\\wp\\seo\\user_meta\\user_interface\\cleanup_integration' => 'Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Cleanup_Integration',
             'yoast\\wp\\seo\\user_meta\\user_interface\\custom_meta_integration' => 'Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Custom_Meta_Integration',
@@ -876,8 +876,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Surfaces\\Open_Graph_Helpers_Surface' => 'getOpenGraphHelpersSurfaceService',
             'Yoast\\WP\\SEO\\Surfaces\\Schema_Helpers_Surface' => 'getSchemaHelpersSurfaceService',
             'Yoast\\WP\\SEO\\Surfaces\\Twitter_Helpers_Surface' => 'getTwitterHelpersSurfaceService',
-            'Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Repository' => 'getAdditionalContactmethodsRepositoryService',
-            'Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Repository' => 'getCustomMetaRepositoryService',
+            'Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Collector' => 'getAdditionalContactmethodsCollectorService',
+            'Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Collector' => 'getCustomMetaCollectorService',
             'Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Additional_Contactmethods_Integration' => 'getAdditionalContactmethodsIntegrationService',
             'Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Cleanup_Integration' => 'getCleanupIntegration2Service',
             'Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Custom_Meta_Integration' => 'getCustomMetaIntegrationService',
@@ -933,7 +933,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Checklist_Promotion' => true,
             'Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Promotion' => true,
             'Yoast\\WP\\SEO\\Promotions\\Domain\\Time_Interval' => true,
-            'Yoast\\WP\\SEO\\User_Meta\\Application\\Cleanup_Repository' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Application\\Cleanup_Service' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Facebook' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Instagram' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Linkedin' => true,
@@ -950,6 +950,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Inclusive_Language_Analysis_Disable' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Keyword_Analysis_Disable' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Noindex_Author' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Infrastructure\\Cleanup_Repository' => true,
         ];
     }
 
@@ -5675,23 +5676,23 @@ class Cached_Container extends Container
     }
 
     /**
-     * Gets the public 'Yoast\WP\SEO\User_Meta\Application\Additional_Contactmethods_Repository' shared autowired service.
+     * Gets the public 'Yoast\WP\SEO\User_Meta\Application\Additional_Contactmethods_Collector' shared autowired service.
      *
-     * @return \Yoast\WP\SEO\User_Meta\Application\Additional_Contactmethods_Repository
+     * @return \Yoast\WP\SEO\User_Meta\Application\Additional_Contactmethods_Collector
      */
-    protected function getAdditionalContactmethodsRepositoryService()
+    protected function getAdditionalContactmethodsCollectorService()
     {
-        return $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Repository'] = new \Yoast\WP\SEO\User_Meta\Application\Additional_Contactmethods_Repository(new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Facebook(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Instagram(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Linkedin(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Myspace(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Pinterest(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Soundcloud(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Tumblr(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Wikipedia(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\X(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Youtube());
+        return $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Collector'] = new \Yoast\WP\SEO\User_Meta\Application\Additional_Contactmethods_Collector(new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Facebook(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Instagram(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Linkedin(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Myspace(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Pinterest(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Soundcloud(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Tumblr(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Wikipedia(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\X(), new \Yoast\WP\SEO\User_Meta\Framework\Additional_Contactmethods\Youtube());
     }
 
     /**
-     * Gets the public 'Yoast\WP\SEO\User_Meta\Application\Custom_Meta_Repository' shared autowired service.
+     * Gets the public 'Yoast\WP\SEO\User_Meta\Application\Custom_Meta_Collector' shared autowired service.
      *
-     * @return \Yoast\WP\SEO\User_Meta\Application\Custom_Meta_Repository
+     * @return \Yoast\WP\SEO\User_Meta\Application\Custom_Meta_Collector
      */
-    protected function getCustomMetaRepositoryService()
+    protected function getCustomMetaCollectorService()
     {
-        return $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Repository'] = new \Yoast\WP\SEO\User_Meta\Application\Custom_Meta_Repository(new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Author_Metadesc(), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Author_Title(), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Content_Analysis_Disable(), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Inclusive_Language_Analysis_Disable(), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Keyword_Analysis_Disable(), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Noindex_Author());
+        return $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Collector'] = new \Yoast\WP\SEO\User_Meta\Application\Custom_Meta_Collector(new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Author_Metadesc(), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Author_Title(), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Content_Analysis_Disable(), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Inclusive_Language_Analysis_Disable(), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Keyword_Analysis_Disable(), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Noindex_Author());
     }
 
     /**
@@ -5701,7 +5702,7 @@ class Cached_Container extends Container
      */
     protected function getAdditionalContactmethodsIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Additional_Contactmethods_Integration'] = new \Yoast\WP\SEO\User_Meta\User_Interface\Additional_Contactmethods_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Repository']) ? $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Repository'] : $this->getAdditionalContactmethodsRepositoryService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Additional_Contactmethods_Integration'] = new \Yoast\WP\SEO\User_Meta\User_Interface\Additional_Contactmethods_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Collector']) ? $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Collector'] : $this->getAdditionalContactmethodsCollectorService()) && false ?: '_'});
     }
 
     /**
@@ -5711,7 +5712,7 @@ class Cached_Container extends Container
      */
     protected function getCleanupIntegration2Service()
     {
-        return $this->services['Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Cleanup_Integration'] = new \Yoast\WP\SEO\User_Meta\User_Interface\Cleanup_Integration(new \Yoast\WP\SEO\User_Meta\Application\Cleanup_Repository(${($_ = isset($this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Repository']) ? $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Repository'] : $this->getAdditionalContactmethodsRepositoryService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Repository']) ? $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Repository'] : $this->getCustomMetaRepositoryService()) && false ?: '_'}));
+        return $this->services['Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Cleanup_Integration'] = new \Yoast\WP\SEO\User_Meta\User_Interface\Cleanup_Integration(new \Yoast\WP\SEO\User_Meta\Application\Cleanup_Service(${($_ = isset($this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Collector']) ? $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Collector'] : $this->getAdditionalContactmethodsCollectorService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Collector']) ? $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Collector'] : $this->getCustomMetaCollectorService()) && false ?: '_'}, new \Yoast\WP\SEO\User_Meta\Infrastructure\Cleanup_Repository()));
     }
 
     /**
@@ -5721,7 +5722,7 @@ class Cached_Container extends Container
      */
     protected function getCustomMetaIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Custom_Meta_Integration'] = new \Yoast\WP\SEO\User_Meta\User_Interface\Custom_Meta_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Repository']) ? $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Repository'] : $this->getCustomMetaRepositoryService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Custom_Meta_Integration'] = new \Yoast\WP\SEO\User_Meta\User_Interface\Custom_Meta_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Collector']) ? $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Collector'] : $this->getCustomMetaCollectorService()) && false ?: '_'});
     }
 
     /**
