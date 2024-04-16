@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.5
-Stable tag: 22.5-RC2
+Stable tag: 22.5
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -319,21 +319,25 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 Release date: 2024-04-16
 
+Yoast SEO 22.5 brings general maintenance updates across the plugin, improved guidance around best practice for taxonomies and a more effortless user experience overall. For more details about the release check out [the release post for 22.5](https://yoa.st/release-16-4-24).
+
 #### Enhancements
 
-* Adds an AI for SEO academy card to the Academy page.
-* Deprecates unused method `is_image_url_valid`.
-* Fixes an incompatibility with `ES_WP_Query` library used by WordPress VIP Enterprise Search.
-* Introduces a check for allowed MIME types when uploading social templates images.
 * Prevents image formats other than JPG, GIF, PNG and WEBP to be used for the `twitter:image` meta tag.
 * Recalibrates the recommended length of the text on taxonomy pages for the _text length_ assessment.
 
+#### Bugfixes
+
+* Fixes an incompatibility with `ES_WP_Query` library used by the WordPress VIP Enterprise Search.
+
 #### Other
 
-* Removes the link to the now-retired Google Mobile-Friendly Test from the admin bar menu.
 * Renames all user-facing `Twitter` references to `X`, including the X profile's `sameAs` schema output URL.
-* Renames the `leiCode` fields to `LEI code` in the plugin's settings
+* Adds an "AI for SEO" course card to the Academy page.
+* Removes the link to the now-retired Google Mobile-Friendly Test from the admin bar menu.
+* Renames the `leiCode` fields to `LEI code` in the plugin's settings.
 * Resolves a typo in the list of German transition words. Props to [magnusmartin85](https://github.com/magnusmartin85).
+* Deprecates unused method `is_image_url_valid`.
 
 = 22.4 =
 
