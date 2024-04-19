@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.5
-Stable tag: 22.6-RC1
+Stable tag: 22.6-RC2
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -322,13 +322,14 @@ Release date: 2024-04-30
 #### Enhancements
 
 * Adds helpful error messages in case of plugin/theme conflicts in the Yoast sidebars and metabox, avoiding leaving them or, in the worst case, the entire page blank.
-* Improves performance on the users' meta, most visible in the author sitemap creation.
-* Improves the keyphrase detection in SEO title for Arabic and Hebrew. For example, when the keyphrase is \"باندا حمراء\" and the SEO title starts with \"الباندا الحمراء\", we now recognize this as an exact match and give a good result for the _Keyphrase in SEO title_ assessment.
+* Improves performance on the users' metadata, most visible in the author sitemap creation.
+* Improves the keyphrase detection in SEO title for Arabic and Hebrew. For example, when the keyphrase is \"باندا حمراء\" and the SEO title starts with \"الباندا الحمراء\", we now recognize this as an exact match and give a good result for the _keyphrase in SEO title_ assessment.
 
 #### Bugfixes
 
+* Fixes a bug where a PHP notice in the settings would influence the styling of some of our inputs.
 * Fixes a bug where the inserted variables in the search appearance would not show correctly when using Elementor.
-* Fixes a bug where there would be a fatal error when deleting post meta in php 8.1 and higher. props to @izzygld
+* Fixes a bug where there would be a fatal error when deleting post meta in PHP 8.1 and higher. Props to @izzygld.
 
 #### Other
 
