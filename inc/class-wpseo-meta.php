@@ -73,7 +73,7 @@ class WPSEO_Meta {
 	 *   in the relevant child classes (WPSEO_Metabox and WPSEO_Social_admin) as they are only needed there.
 	 * - Beware: even though the meta keys are divided into subsets, they still have to be uniquely named!}}
 	 *
-	 * @var array<string,array<string,array<string,mixed>>>
+	 * @var array
 	 *            Array format:
 	 *                (required)       'type'          => (string) field type. i.e. text / textarea / checkbox /
 	 *                                                    radio / select / multiselect / upload etc.
@@ -147,12 +147,6 @@ class WPSEO_Meta {
 				'type'          => 'hidden',
 				'title'         => 'is_cornerstone',
 				'default_value' => 'false',
-				'description'   => '',
-			],
-			'estimated-reading-time-minutes' => [
-				'type'          => 'hidden',
-				'title'         => 'estimated-reading-time-minutes',
-				'default_value' => '0',
 				'description'   => '',
 			],
 		],
@@ -240,7 +234,7 @@ class WPSEO_Meta {
 	 *         ['subset']    => (string) primary index
 	 *         ['key']       => (string) internal key
 	 *
-	 * @var array<string,array<string,string>>
+	 * @var array
 	 */
 	public static $fields_index = [];
 
@@ -248,7 +242,7 @@ class WPSEO_Meta {
 	 * Helper property - array containing only the defaults in the format:
 	 * [full meta key including prefix]    => (string) default value
 	 *
-	 * @var array<string>
+	 * @var array
 	 */
 	public static $defaults = [];
 
@@ -296,7 +290,7 @@ class WPSEO_Meta {
 
 		/**
 		 * Allow add-on plugins to register their meta fields for management by this class.
-		 * Calls to add_filter() must be made before plugins_loaded prio 14, use in an initialzer class.
+		 * Calls to add_filter() must be made before plugins_loaded prio 14.
 		 */
 		$extra_fields = apply_filters( 'add_extra_wpseo_meta_fields', [] );
 		if ( is_array( $extra_fields ) ) {
@@ -304,34 +298,13 @@ class WPSEO_Meta {
 		}
 		unset( $extra_fields );
 
-		// register meta data for taxonomies.
-		self::$meta_fields['primary_terms'] = [];
-
-		$taxonomies = get_taxonomies( [ 'hierarchical' => true ], 'names' );
-		foreach ( $taxonomies as $taxonomy_name ) {
-			self::$meta_fields['primary_terms'][ 'primary_' . $taxonomy_name ] = [
-				'type'          => 'hidden',
-				'title'         => '',
-				'default_value' => '',
-				'description'   => '',
-			];
-		}
-
 		foreach ( self::$meta_fields as $subset => $field_group ) {
 			foreach ( $field_group as $key => $field_def ) {
 
 				register_meta(
 					'post',
 					self::$meta_prefix . $key,
-					[
-						'sanitize_callback' => [ self::class, 'sanitize_post_meta' ],
-						'show_in_rest'      => self::get_show_in_rest_args( $field_def['type'] ),
-						'auth_callback'     => static function () {
-							return current_user_can( 'edit_posts' );
-						},
-						'type'              => 'string',
-						'single'            => true,
-					]
+					[ 'sanitize_callback' => [ self::class, 'sanitize_post_meta' ] ]
 				);
 
 				// Set the $fields_index property for efficiency.
@@ -359,30 +332,12 @@ class WPSEO_Meta {
 	}
 
 	/**
-	 * Get show_in_rest args for a meta field.
-	 *
-	 * @param string|null $type The type of the field.
-	 * @return bool|array<array<string>|string> $args The show_in_rest args.
-	 */
-	public static function get_show_in_rest_args( $type ) {
-		if ( ! $type ) {
-			return false;
-		}
-		return [
-			'schema' => [
-				'type'    => 'string',
-				'context' => [ 'edit' ],
-			],
-		];
-	}
-
-	/**
 	 * Retrieve the meta box form field definitions for the given tab and post type.
 	 *
 	 * @param string $tab       Tab for which to retrieve the field definitions.
 	 * @param string $post_type Post type of the current post.
 	 *
-	 * @return array<array<array<string|int>>> Array containing the meta box field definitions.
+	 * @return array Array containing the meta box field definitions.
 	 */
 	public static function get_meta_field_defs( $tab, $post_type = 'post' ) {
 		if ( ! isset( self::$meta_fields[ $tab ] ) ) {
@@ -438,7 +393,7 @@ class WPSEO_Meta {
 					return [];
 				}
 
-				$field_defs['schema_page_type']['default_value'] = WPSEO_Options::get( 'schema-page-type-' . $post_type );
+				$field_defs['schema_page_type']['default'] = WPSEO_Options::get( 'schema-page-type-' . $post_type );
 
 				$article_helper = new Article_Helper();
 				if ( $article_helper->is_article_post_type( $post_type ) ) {
@@ -450,7 +405,7 @@ class WPSEO_Meta {
 					if ( ! array_key_exists( $default_schema_article_type, $allowed_article_types ) ) {
 						$default_schema_article_type = WPSEO_Options::get_default( 'wpseo_titles', 'schema-article-type-' . $post_type );
 					}
-					$field_defs['schema_article_type']['default_value'] = $default_schema_article_type;
+					$field_defs['schema_article_type']['default'] = $default_schema_article_type;
 				}
 				else {
 					unset( $field_defs['schema_article_type'] );
@@ -1042,7 +997,7 @@ class WPSEO_Meta {
 	 * @param string $keyword The keyword to be counted.
 	 * @param int    $post_id The id of the post to which the keyword belongs.
 	 *
-	 * @return array<int>
+	 * @return array
 	 */
 	public static function keyword_usage( $keyword, $post_id ) {
 
@@ -1092,9 +1047,9 @@ class WPSEO_Meta {
 	/**
 	 * Returns the post types for the given post ids.
 	 *
-	 * @param array<int> $post_ids The post ids to get the post types for.
+	 * @param array $post_ids The post ids to get the post types for.
 	 *
-	 * @return array<string> The post types.
+	 * @return array The post types.
 	 */
 	public static function post_types_for_ids( $post_ids ) {
 

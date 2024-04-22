@@ -61,7 +61,7 @@ class Wordproof implements Integration_Interface {
 	/**
 	 * Returns the conditionals based in which this loadable should be active.
 	 *
-	 * @return array<object>
+	 * @return array
 	 */
 	public static function get_conditionals() {
 		return [
@@ -127,6 +127,11 @@ class Wordproof implements Integration_Interface {
 		 * Called by the WordProof WordPress SDK to determine if the certificate should be shown.
 		 */
 		\add_filter( 'wordproof_timestamp_show_certificate', [ $this, 'show_certificate' ], 10, 2 );
+
+		/**
+		 * Called by WPSEO_Meta to add extra meta fields to the ones defined there.
+		 */
+		\add_filter( 'add_extra_wpseo_meta_fields', [ $this, 'add_meta_field' ] );
 	}
 
 	/**
@@ -162,8 +167,8 @@ class Wordproof implements Integration_Interface {
 	/**
 	 * Return the Yoast post meta key for the SDK to determine if the post should be timestamped.
 	 *
-	 * @param array<string> $meta_keys The array containing meta keys that should be used.
-	 * @return array<string>
+	 * @param array $meta_keys The array containing meta keys that should be used.
+	 * @return array
 	 */
 	public function add_post_meta_key( $meta_keys ) {
 		return [ $this->post_meta_key ];
@@ -172,8 +177,8 @@ class Wordproof implements Integration_Interface {
 	/**
 	 * Return an empty array to disable automatically timestamping selected post types.
 	 *
-	 * @param array<string> $post_types The array containing post types that should be automatically timestamped.
-	 * @return array<null> Empty array.
+	 * @param array $post_types The array containing post types that should be automatically timestamped.
+	 * @return array
 	 */
 	public function wordproof_timestamp_post_types( $post_types ) {
 		return [];
@@ -196,6 +201,24 @@ class Wordproof implements Integration_Interface {
 		}
 
 		return \boolval( PostMetaHelper::get( $post->ID, $this->post_meta_key ) );
+	}
+
+	/**
+	 * Adds the WordProof integration toggle to the array.
+	 *
+	 * @param array $fields The currently registered meta fields.
+	 *
+	 * @return array A new array with meta fields.
+	 */
+	public function add_meta_field( $fields ) {
+		$fields['advanced']['wordproof_timestamp'] = [
+			'type'          => 'hidden',
+			'title'         => '',
+			'default_value' => '',
+			'description'   => '0',
+		];
+
+		return $fields;
 	}
 
 	/**

@@ -13,7 +13,7 @@ class WPSEO_Taxonomy_Fields_Presenter {
 	/**
 	 * The taxonomy meta data for the current term.
 	 *
-	 * @var array<string>
+	 * @var array
 	 */
 	private $tax_meta;
 
@@ -29,7 +29,7 @@ class WPSEO_Taxonomy_Fields_Presenter {
 	/**
 	 * Displaying the form fields.
 	 *
-	 * @param array<array<string>> $fields Array with the fields that will be displayed.
+	 * @param array $fields Array with the fields that will be displayed.
 	 *
 	 * @return string
 	 */
@@ -44,8 +44,8 @@ class WPSEO_Taxonomy_Fields_Presenter {
 	/**
 	 * Create a row in the form table.
 	 *
-	 * @param string        $field_name          Variable the row controls.
-	 * @param array<string> $field_configuration Array with the field configuration.
+	 * @param string $field_name          Variable the row controls.
+	 * @param array  $field_configuration Array with the field configuration.
 	 *
 	 * @return string
 	 */
@@ -70,10 +70,10 @@ class WPSEO_Taxonomy_Fields_Presenter {
 	/**
 	 * Generates the html for the given field config.
 	 *
-	 * @param string        $field_type  The fieldtype, e.g: text, checkbox, etc.
-	 * @param string        $field_name  The name of the field.
-	 * @param string        $field_value The value of the field.
-	 * @param array<string> $options     Array with additional options.
+	 * @param string $field_type  The fieldtype, e.g: text, checkbox, etc.
+	 * @param string $field_name  The name of the field.
+	 * @param string $field_value The value of the field.
+	 * @param array  $options     Array with additional options.
 	 *
 	 * @return string
 	 */
@@ -149,7 +149,7 @@ class WPSEO_Taxonomy_Fields_Presenter {
 				}
 				break;
 			case 'hidden':
-				$field .= '<input name="' . $field_name . '" id="hidden_' . $field_name . '" type="hidden" />';
+				$field .= '<input name="' . $field_name . '" id="hidden_' . $field_name . '" type="hidden" value="' . esc_attr( $field_value ) . '" />';
 				break;
 		}
 
@@ -163,7 +163,7 @@ class WPSEO_Taxonomy_Fields_Presenter {
 	 *
 	 * @return string
 	 */
-	public function get_field_value( $field_name ) {
+	private function get_field_value( $field_name ) {
 		if ( isset( $this->tax_meta[ $field_name ] ) && $this->tax_meta[ $field_name ] !== '' ) {
 			return $this->tax_meta[ $field_name ];
 		}
@@ -174,7 +174,7 @@ class WPSEO_Taxonomy_Fields_Presenter {
 	/**
 	 * Getting the class attributes if $options contains a class key.
 	 *
-	 * @param array<string> $options The array with field options.
+	 * @param array $options The array with field options.
 	 *
 	 * @return string
 	 */
