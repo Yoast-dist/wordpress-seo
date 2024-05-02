@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.5
-Stable tag: 22.7-RC1
+Stable tag: 22.7-RC2
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -321,7 +321,7 @@ Release date: 2024-05-14
 
 #### Enhancements
 
-* Converts the Yoast _how to_ and _FAQ_ blocks to use the Blocks V3 API.
+* Converts the Yoast _How-to_ and _FAQ_ blocks to use the Blocks V3 API.
 * Introduces a `date` and a `separator` snippet variable to the meta description text field, to make clear that both the date and a separator are automatically added to the character count of the meta description. Hovering over the variables reveals a tooltip with more explanation.
 
 #### Bugfixes
