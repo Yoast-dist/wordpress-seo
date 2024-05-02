@@ -12,7 +12,7 @@ use Yoast\WP\SEO\Surfaces\Helpers_Surface;
 /**
  * Siblings block class
  */
-class Breadcrumbs_Block extends Dynamic_Block {
+class Breadcrumbs_Block extends Dynamic_Block_V3 {
 
 	/**
 	 * The name of the block.
@@ -84,6 +84,8 @@ class Breadcrumbs_Block extends Dynamic_Block {
 		$this->helpers              = $helpers;
 		$this->indexable_repository = $indexable_repository;
 		$this->request_helper       = $request_helper;
+
+		$this->base_path = \WPSEO_PATH . 'blocks/dynamic-blocks/';
 	}
 
 	/**
