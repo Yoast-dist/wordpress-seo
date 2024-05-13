@@ -304,11 +304,13 @@ class Image_Helper {
 	 */
 	public function get_attachment_by_url( $url, $use_link_table = true ) {
 		// Don't try to do this for external URLs.
-		if ( $this->url_helper->get_link_type( $url ) === SEO_Links::TYPE_EXTERNAL ) {
+		$parsed_url = \wp_parse_url( $url );
+		if ( $this->url_helper->get_link_type( $parsed_url ) === SEO_Links::TYPE_EXTERNAL ) {
 			return 0;
 		}
 
-		if ( ! $this->options_helper->get( 'disable-attachment' ) ) {
+		/** The `wpseo_force_creating_and_using_attachment_indexables` filter is documented in indexable-link-builder.php */
+		if ( ! $this->options_helper->get( 'disable-attachment' ) || \apply_filters( 'wpseo_force_creating_and_using_attachment_indexables', false ) ) {
 			// Strip out the size part of an image URL.
 			$url = \preg_replace( '/(.*)-\d+x\d+\.(jpeg|jpg|png|gif)$/', '$1.$2', $url );
 
@@ -331,8 +333,15 @@ class Image_Helper {
 		if ( ! $use_link_table ) {
 			return WPSEO_Image_Utils::get_attachment_by_url( $url );
 		}
+		$cache_key = 'attachment_seo_link_object_' . \md5( $url );
 
-		$link = $this->seo_links_repository->find_one_by_url( $url );
+		$found = false;
+		$link  = \wp_cache_get( $cache_key, 'yoast-seo-attachment-link', false, $found );
+
+		if ( $found === false ) {
+			$link = $this->seo_links_repository->find_one_by_url( $url );
+			\wp_cache_set( $cache_key, $link, 'yoast-seo-attachment-link', \MINUTE_IN_SECONDS );
+		}
 		if ( ! \is_a( $link, SEO_Links::class ) ) {
 			return WPSEO_Image_Utils::get_attachment_by_url( $url );
 		}
