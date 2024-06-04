@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.5
-Stable tag: 22.9-RC2
+Stable tag: 22.9-RC3
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -321,7 +321,13 @@ Release date: 2024-06-18
 
 #### Enhancements
 
+* Adds additional filter options for the `og:image` meta tags.
 * Helps guide Elementor users to Yoast when they have the new editor top bar activated.
+* Improves compatibility with custom RSS feeds. Props to @gsusI.
+
+#### Bugfixes
+
+* Fixes a bug where a PHP notice would be thrown on RSS feeds when a canonical URL can not be created for its parent page.
 
 = 22.8 =
 
