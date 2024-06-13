@@ -93,54 +93,15 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	 * @return array
 	 */
 	public function get_index_links( $max_entries ) {
-		global $wpdb;
-		$post_types          = WPSEO_Post_Type::get_accessible_post_types();
-		$post_types          = array_filter( $post_types, [ $this, 'is_valid_post_type' ] );
-		$last_modified_times = WPSEO_Sitemaps::get_last_modified_gmt( $post_types, true );
-		$index               = [];
+		$post_types  = WPSEO_Post_Type::get_accessible_post_types();
+		$post_types  = array_filter( $post_types, [ $this, 'is_valid_post_type' ] );
+		$index_links = [];
 
 		foreach ( $post_types as $post_type ) {
-
-			$total_count = $this->get_post_type_count( $post_type );
-
-			if ( $total_count === 0 ) {
-				continue;
-			}
-
-			$max_pages = 1;
-			if ( $total_count > $max_entries ) {
-				$max_pages = (int) ceil( $total_count / $max_entries );
-			}
-
-			$all_dates = [];
-
-			if ( $max_pages > 1 ) {
-				$all_dates = version_compare( $wpdb->db_version(), '8.0', '>=' ) ? $this->get_all_dates_using_with_clause( $post_type, $max_entries ) : $this->get_all_dates( $post_type, $max_entries );
-			}
-
-			for ( $page_counter = 0; $page_counter < $max_pages; $page_counter++ ) {
-
-				$current_page = ( $page_counter === 0 ) ? '' : ( $page_counter + 1 );
-				$date         = false;
-
-				if ( empty( $current_page ) || $current_page === $max_pages ) {
-
-					if ( ! empty( $last_modified_times[ $post_type ] ) ) {
-						$date = $last_modified_times[ $post_type ];
-					}
-				}
-				else {
-					$date = $all_dates[ $page_counter ];
-				}
-
-				$index[] = [
-					'loc'     => WPSEO_Sitemaps_Router::get_base_url( $post_type . '-sitemap' . $current_page . '.xml' ),
-					'lastmod' => $date,
-				];
-			}
+			$index_links = array_merge( $index_links, $this->get_index_links_for_post_type( $post_type, $max_entries ) );
 		}
 
-		return $index;
+		return $index_links;
 	}
 
 	/**
@@ -155,52 +116,40 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	 * @throws OutOfBoundsException When an invalid page is requested.
 	 */
 	public function get_sitemap_links( $type, $max_entries, $current_page ) {
-
-		$links     = [];
-		$post_type = $type;
+		$links        = [];
+		$post_type    = $type;
+		$current_page = max( $current_page, 1 );
 
 		if ( ! $this->is_valid_post_type( $post_type ) ) {
 			throw new OutOfBoundsException( 'Invalid sitemap page requested' );
 		}
 
-		$max_links_per_page  = min( 100, $max_entries );
-		$offset = ( $current_page > 1 ) ? ( ( $current_page - 1 ) * $max_entries ) : 0;
-		$total  = ( $offset + $max_entries );
-
-		$post_type_entries = $this->get_post_type_count( $post_type );
-
-		if ( $total > $post_type_entries ) {
-			$total = $post_type_entries;
-		}
-
 		if ( $current_page === 1 ) {
-			$links = array_merge( $links, $this->get_first_links( $post_type ) );
+			$links = $this->get_first_links( $post_type );
 		}
 
-		// If total post type count is lower than the offset, an invalid page is requested.
-		if ( $post_type_entries < $offset ) {
-			throw new OutOfBoundsException( 'Invalid sitemap page requested' );
-		}
-
-		if ( $post_type_entries === 0 ) {
-			return $links;
+		// Even if we don't have posts for the page, we might have some first-page links to show.
+		try {
+			$page_boundaries = $this->get_page_boundaries( $post_type, $current_page, $max_entries );
+		} catch ( OutOfBoundsException $e ) {
+			if ( count( $links ) > 0 ) {
+				return $links;
+			}
+			throw $e;
 		}
 
 		$posts_to_exclude = $this->get_excluded_posts( $type );
-
-		while ( $total > $offset ) {
-
-			$posts = $this->get_posts( $post_type, $max_links_per_page, $offset );
-			$last_id = (int)  current(array_slice( $posts, -1 ))->ID;
-
-			$offset = $last_id + 1;
-
+		$start_post_id    = $page_boundaries['start'];
+		while ( $start_post_id <= $page_boundaries['end'] ) {
+			$posts = $this->get_posts( $post_type, $max_entries, $start_post_id, $page_boundaries['end'] );
 			if ( empty( $posts ) ) {
-				continue;
+				break;
 			}
 
-			foreach ( $posts as $post ) {
+			$last_id       = (int) current( array_slice( $posts, -1 ) )->ID;
+			$start_post_id = ( $last_id + 1 );
 
+			foreach ( $posts as $post ) {
 				if ( in_array( $post->ID, $posts_to_exclude, true ) ) {
 					continue;
 				}
@@ -228,8 +177,6 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 					$links[] = $url;
 				}
 			}
-
-			unset( $post, $url );
 		}
 
 		return $links;
@@ -310,46 +257,6 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	}
 
 	/**
-	 * Get count of posts for post type.
-	 *
-	 * @param string $post_type Post type to retrieve count for.
-	 *
-	 * @return int
-	 */
-	protected function get_post_type_count( $post_type ) {
-
-		global $wpdb;
-
-		/**
-		 * Filter JOIN query part for type count of post type.
-		 *
-		 * @param string $join      SQL part, defaults to empty string.
-		 * @param string $post_type Post type name.
-		 */
-		$join_filter = apply_filters( 'wpseo_typecount_join', '', $post_type );
-
-		/**
-		 * Filter WHERE query part for type count of post type.
-		 *
-		 * @param string $where     SQL part, defaults to empty string.
-		 * @param string $post_type Post type name.
-		 */
-		$where_filter = apply_filters( 'wpseo_typecount_where', '', $post_type );
-
-		$where = $this->get_sql_where_clause( $post_type );
-
-		$sql = "
-			SELECT COUNT({$wpdb->posts}.ID)
-			FROM {$wpdb->posts}
-			{$join_filter}
-			{$where}
-				{$where_filter}
-		";
-
-		return (int) $wpdb->get_var( $sql );
-	}
-
-	/**
 	 * Produces set of links to prepend at start of first sitemap page.
 	 *
 	 * @param string $post_type Post type to produce links for.
@@ -357,9 +264,7 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	 * @return array
 	 */
 	protected function get_first_links( $post_type ) {
-
-		$links       = [];
-		$archive_url = false;
+		$links = [];
 
 		if ( $post_type === 'page' ) {
 
@@ -385,7 +290,8 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 			/**
 			 * Filter images to be included for the term in XML sitemap.
 			 *
-			 * @param array  $images Array of image items.
+			 * @param array $images Array of image items.
+			 *
 			 * @return array $image_list Array of image items.
 			 */
 			$image_list = apply_filters( 'wpseo_sitemap_urlimages_front_page', $images );
@@ -395,30 +301,29 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 
 			$links[] = $front_page;
 		}
-		elseif ( $post_type !== 'page' ) {
+		else {
 			/**
 			 * Filter the URL Yoast SEO uses in the XML sitemap for this post type archive.
 			 *
 			 * @param string $archive_url The URL of this archive
 			 * @param string $post_type   The post type this archive is for.
 			 */
-			$archive_url = apply_filters(
+			$archive_url = (string) apply_filters(
 				'wpseo_sitemap_post_type_archive_link',
 				$this->get_post_type_archive_link( $post_type ),
 				$post_type
 			);
-		}
 
-		if ( $archive_url ) {
+			if ( $archive_url !== '' ) {
+				$links[] = [
+					'loc' => $archive_url,
+					'mod' => WPSEO_Sitemaps::get_last_modified_gmt( $post_type ),
 
-			$links[] = [
-				'loc' => $archive_url,
-				'mod' => WPSEO_Sitemaps::get_last_modified_gmt( $post_type ),
-
-				// Deprecated, kept for backwards data compat. R.
-				'chf' => 'daily',
-				'pri' => 1,
-			];
+					// Deprecated, kept for backwards data compat. R.
+					'chf' => 'daily',
+					'pri' => 1,
+				];
+			}
 		}
 
 		/**
@@ -500,17 +405,45 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	/**
 	 * Retrieve set of posts with optimized query routine.
 	 *
-	 * @param string $post_type Post type to retrieve.
-	 * @param int    $count     Count of posts to retrieve.
-	 * @param int    $offset    Starting offset.
+	 * @param string   $post_type   Post type to retrieve.
+	 * @param int      $count       Count of posts to retrieve.
+	 * @param int      $offset      Starting offset.
+	 * @param int|null $max_post_id The maximum post ID to retrieve.
 	 *
-	 * @return object[]
+	 * @return WP_Post[]
 	 */
-	protected function get_posts( $post_type, $count, $offset ) {
+	protected function get_posts( $post_type, $count, $offset, $max_post_id = null ) {
+		$raw_post_data = $this->get_raw_post_data( $post_type, $count, $offset, $max_post_id );
+		$posts         = [];
+		$post_ids      = [];
+		foreach ( $raw_post_data as $row_index => $post_data ) {
+			$post_data->post_type = $post_type;
+			$sanitized_post       = sanitize_post( $post_data, 'raw' );
+			$posts[ $row_index ]  = new WP_Post( $sanitized_post );
+
+			$post_ids[] = $sanitized_post->ID;
+		}
+
+		// We'll need meta values for individual posts, so let's prime the cache with a single query instead of one per post.
+		update_meta_cache( 'post', $post_ids );
+
+		return $posts;
+	}
+
+	/**
+	 * Retrieve raw post data for a given post type within a range of post IDs.
+	 *
+	 * @param string   $post_type   The post type to retrieve posts for.
+	 * @param int      $count       The maximum number of posts to retrieve.
+	 * @param int      $offset      The starting post ID.
+	 * @param int|null $max_post_id The maximum post ID to retrieve.
+	 *
+	 * @return stdClass[]
+	 */
+	protected function get_raw_post_data( $post_type, $count, $offset, $max_post_id = null ) {
 		global $wpdb;
 
 		static $filters = [];
-
 		if ( ! isset( $filters[ $post_type ] ) ) {
 			// Make sure you're wpdb->preparing everything you throw into this!!
 			$filters[ $post_type ] = [
@@ -536,15 +469,16 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 		$where_filter = $filters[ $post_type ]['where'];
 		$where        = $this->get_sql_where_clause( $post_type );
 
-
+		$page_limit_clause = ( $max_post_id ) ? "AND {$wpdb->posts}.ID <= {$max_post_id}" : '';
 
 		/*
 		 * Optimized query per this thread:
 		 * {@link http://wordpress.org/support/topic/plugin-wordpress-seo-by-yoast-performance-suggestion}.
 		 * Also see {@link http://explainextended.com/2009/10/23/mysql-order-by-limit-performance-late-row-lookups/}.
 		 */
+
 		$sql = "
-			SELECT l.ID, post_title, post_content, post_name, post_parent, post_author, post_status, post_modified_gmt, post_date, post_date_gmt
+			SELECT l.ID, post_title, post_content, post_name, post_parent, post_author, post_status, post_modified_gmt, post_date, post_date_gmt, post_password
 			FROM (
 				SELECT {$wpdb->posts}.ID
 				FROM {$wpdb->posts}
@@ -552,25 +486,54 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 				{$where}
 					{$where_filter}
 					AND {$wpdb->posts}.ID >= %d
+					{$page_limit_clause}
 				ORDER BY {$wpdb->posts}.ID ASC LIMIT %d
 			)
 			o JOIN {$wpdb->posts} l ON l.ID = o.ID
 		";
-		$posts = $wpdb->get_results( $wpdb->prepare( $sql, $offset, $count ) );
 
-		$post_ids = [];
+		// phpcs:disable WordPress.DB.DirectDatabaseQuery.NoCaching,WordPress.DB.DirectDatabaseQuery.DirectQuery -- Can't do this with WP queries. Caching is done on the sitemap level.
+		$raw_post_data = $wpdb->get_results( $wpdb->prepare( $sql, $offset, $count ) );
+		// phpcs:enable
 
-		foreach ( $posts as $post_index => $post ) {
-			$post->post_type      = $post_type;
-			$sanitized_post       = sanitize_post( $post, 'raw' );
-			$posts[ $post_index ] = new WP_Post( $sanitized_post );
+		return array_values( $raw_post_data );
+	}
 
-			$post_ids[] = $sanitized_post->ID;
-		}
+	/**
+	 * Gets the first id of the post of all pages.
+	 *
+	 * @param string $post_type        The post type to retrieve posts for.
+	 * @param int    $entries_per_page The maximum number of posts per page.
+	 * @param int    $starting_post_id The lowest post ID to get the pages for.
+	 *
+	 * @return string[]
+	 */
+	protected function get_raw_page_data( $post_type, $entries_per_page, $starting_post_id ) {
+		global $wpdb;
 
-		update_meta_cache( 'post', $post_ids );
+		$where = $this->get_sql_where_clause( $post_type );
 
-		return $posts;
+		/*
+		 * Optimized query per this thread:
+		 * {@link http://wordpress.org/support/topic/plugin-wordpress-seo-by-yoast-performance-suggestion}.
+		 * Also see {@link http://explainextended.com/2009/10/23/mysql-order-by-limit-performance-late-row-lookups/}.
+		 */
+		$sql = "
+			SELECT l.ID as first_id_on_page
+			FROM (
+				SELECT {$wpdb->posts}.ID
+				FROM ( SELECT @rownum:=-1 ) as init
+				JOIN {$wpdb->posts} USE INDEX (`type_status_date`)
+				{$where}
+				AND {$wpdb->posts}.ID >= %d
+				ORDER BY {$wpdb->posts}.ID ASC
+			)
+			o JOIN {$wpdb->posts} l ON l.ID = o.ID
+			WHERE (@rownum:=@rownum+1) %% %d = 0
+		";
+		// phpcs:disable WordPress.DB.DirectDatabaseQuery.NoCaching,WordPress.DB.DirectDatabaseQuery.DirectQuery -- Can't do this with WP queries. Caching is done on the sitemap level.
+		return $wpdb->get_col( $wpdb->prepare( $sql, $starting_post_id, $entries_per_page ) );
+		// phpcs:enable
 	}
 
 	/**
@@ -670,99 +633,304 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	}
 
 	/**
-	 * Get all dates for a post type by using the WITH clause for performance.
+	 * Gets the boundaries of a single post sitemap page of a post type.
 	 *
-	 * @param string $post_type   Post type to retrieve dates for.
-	 * @param int    $max_entries Maximum number of entries to retrieve.
+	 * @param string $post_type            The post type to get the boundaries for.
+	 * @param int    $page_number          The page number to get the boundaries for. Starting at 1.
+	 * @param int    $max_entries_per_page The maximum number of links that should be visible on a page.
 	 *
-	 * @return array Array of dates.
+	 * @return int[]
+	 * @throws OutOfBoundsException When an invalid page is requested.
 	 */
-	private function get_all_dates_using_with_clause( $post_type, $max_entries ) {
-		global $wpdb;
+	private function get_page_boundaries( $post_type, $page_number, $max_entries_per_page ) {
+		$map = $this->get_pagination_map( $post_type, $max_entries_per_page );
+		if ( ! isset( $map[ $page_number ] ) ) {
+			throw new OutOfBoundsException( 'Invalid sitemap page requested' );
+		}
 
-		$post_statuses = array_map( 'esc_sql', WPSEO_Sitemaps::get_post_statuses( $post_type ) );
+		return $map[ $page_number ];
+	}
 
-		$replacements = array_merge(
-			[
-				'ordering',
-				'post_modified_gmt',
-				$wpdb->posts,
-				'type_status_date',
-				'post_status',
-			],
-			$post_statuses,
-			[
-				'post_type',
+	/**
+	 * Gets a full pagination map for a post type.
+	 * The map is an array of page numbers with the starting and ending post id of the page.
+	 * When the map is malformed or missing, it will be rebuilt.
+	 * When the map is incomplete, it will be completed.
+	 *
+	 * @param string $post_type            The post type to get the map for.
+	 * @param int    $max_entries_per_page The maximum number of links that should be visible on a page.
+	 *
+	 * @return array<int, array{start: int, end: int}>
+	 */
+	private function get_pagination_map( $post_type, $max_entries_per_page ) {
+		$pagination = get_option( "wpseo_{$post_type}_sitemap_pagination", [] );
+		$aggregates = $this->get_aggregates( $post_type );
+
+		if ( $this->pagination_is_malformed( $pagination ) || $this->map_needs_to_be_rebuilt( $pagination, $aggregates, $max_entries_per_page ) ) {
+			$pagination_map = $this->create_map(
 				$post_type,
-				'post_modified_gmt',
-				'post_modified_gmt',
-				'ordering',
-				$max_entries,
-			]
-		);
+				$max_entries_per_page,
+				$aggregates['min_post_id'],
+				$aggregates['max_post_id']
+			);
+			$this->save_pagination( $post_type, $pagination_map, $aggregates, $max_entries_per_page );
 
-		//phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- We need to use a direct query here.
-		//phpcs:disable WordPress.DB.DirectDatabaseQuery.NoCaching -- Reason: No relevant caches.
-		return $wpdb->get_col(
-			//phpcs:disable WordPress.DB.PreparedSQLPlaceholders -- %i placeholder is still not recognized.
-			$wpdb->prepare(
-				'
-			WITH %i AS (SELECT ROW_NUMBER() OVER (ORDER BY %i) AS n, post_modified_gmt
-							  FROM %i USE INDEX ( %i )
-							  WHERE %i IN (' . implode( ', ', array_fill( 0, count( $post_statuses ), '%s' ) ) . ')
-								 AND %i = %s
-							  ORDER BY %i)
-			SELECT %i
-			FROM %i
-			WHERE MOD(n, %d) = 0;
-			',
-				$replacements
+			return $pagination_map;
+		}
+
+		// If the map is outdated, replace the last page with an updated version and complete the map.
+		if ( $this->map_is_missing_posts( $pagination, $aggregates ) ) {
+			$pagination_map = $pagination['map'];
+			// The existing map might be empty. E.g., when a post_type only has password protected posts.
+			if ( empty( $pagination_map ) ) {
+				$last_known_page       = 1;
+				$first_id_on_last_page = $aggregates['min_post_id'];
+			}
+			else {
+				$last_known_page       = max( array_keys( $pagination_map ) );
+				$first_id_on_last_page = $pagination_map[ $last_known_page ]['start'];
+			}
+			array_pop( $pagination_map );
+
+			$final_pages = $this->create_map(
+				$post_type,
+				$max_entries_per_page,
+				$first_id_on_last_page,
+				$aggregates['max_post_id'],
+				$last_known_page
+			);
+
+			// Loop over pages instead of using array_merge to avoid losing array keys.
+			foreach ( $final_pages as $page_number => $page_boundaries ) {
+				$pagination_map[ $page_number ] = $page_boundaries;
+			}
+
+			$this->save_pagination( $post_type, $pagination_map, $aggregates, $max_entries_per_page );
+
+			return $pagination_map;
+		}
+
+		return $pagination['map'];
+	}
+
+	/**
+	 * Gets a map of the starting and ending post id of sitemap pages for a post_type.
+	 *
+	 * @param string $post_type            The post type to create the map for.
+	 * @param int    $max_entries_per_page The maximum number of links that should be visible on a page.
+	 * @param int    $min_post_id          The minimum post id to start the map from. The lowest known post ID when creating a new map.
+	 * @param int    $max_post_id          The highest known post ID.
+	 * @param int    $starting_page        The page number to start the map from. Defaults to 1.
+	 *
+	 * @return array<int, array{start: int, end: int}>
+	 */
+	private function create_map( $post_type, $max_entries_per_page, $min_post_id, $max_post_id, $starting_page = 1 ) {
+		$map             = [];
+		$current_page_id = max( $starting_page, 1 );
+
+		$page_starting_ids = $this->get_raw_page_data( $post_type, $max_entries_per_page, $min_post_id );
+		foreach ( $page_starting_ids as $index => $page_starting_id ) {
+			$next_page_starting_id   = isset( $page_starting_ids[ ( $index + 1 ) ] ) ? ( $page_starting_ids[ ( $index + 1 ) ] ) : null;
+			$map[ $current_page_id ] = [
+				'start' => (int) $page_starting_id,
+				'end'   => $next_page_starting_id ? ( $next_page_starting_id - 1 ) : $max_post_id,
+			];
+			++$current_page_id;
+		}
+
+		return $map;
+	}
+
+	/**
+	 * Checks the structure of the pagination object.
+	 *
+	 * @param array<int, array{start: int, end: int}> $stored_pagination The stored pagination object to validate.
+	 *
+	 * @return bool
+	 */
+	private function pagination_is_malformed( $stored_pagination ): bool {
+		return (
+			! isset(
+				$stored_pagination['min_post_id'],
+				$stored_pagination['max_post_id'],
+				$stored_pagination['total_number_of_posts'],
+				$stored_pagination['max_entries_per_page'],
+				$stored_pagination['map']
 			)
+			|| $this->map_is_malformed( $stored_pagination['map'] )
 		);
 	}
 
 	/**
-	 * Get all dates for a post type.
+	 * Checks the structure of the pagination map.
+	 * A map is malformed when it is not an array or when it contains pages with a start ID higher than the end ID.
 	 *
-	 * @param string $post_type   Post type to retrieve dates for.
-	 * @param int    $max_entries Maximum number of entries to retrieve.
+	 * @param array{start: int, end: int} $map The map.
 	 *
-	 * @return array Array of dates.
+	 * @return bool
 	 */
-	private function get_all_dates( $post_type, $max_entries ) {
-		global $wpdb;
+	private function map_is_malformed( $map ): bool {
+		if ( ! is_array( $map ) ) {
+			return true;
+		}
+		foreach ( $map as $page ) {
+			if ( ! isset( $page['start'], $page['end'] ) || $page['end'] < $page['start'] ) {
+				return true;
+			}
+		}
 
-		$post_statuses = array_map( 'esc_sql', WPSEO_Sitemaps::get_post_statuses( $post_type ) );
-		$replacements  = array_merge(
+		return false;
+	}
+
+	/**
+	 * Checks if the map in a pagination object needs to be rebuilt completely.
+	 * This is the case when:
+	 * 1. posts exists with a lower ID than what the pagination object knows about;
+	 * 2. the map has pages for posts with a higher ID than the highest ID in the database for this post type;
+	 * 3. the total number of posts shrunk since creating the last pagination object.
+	 *    This can happen when posts are deleted, but could also hint at bigger site structure changes.
+	 * 4. the site has been migrated to a different domain.
+	 *
+	 * This will trigger some false positives, causing some unnecessary rebuilds,
+	 * but this will cover cases where bigger structural changes have been made that would otherwise go undetected.
+	 *
+	 * @param array                                                                 $stored_pagination    The stored pagination object.
+	 * @param array{min_post_id: int, max_post_id: int, total_number_of_posts: int} $current_aggregates   The current aggregates for the post type.
+	 * @param int                                                                   $max_entries_per_page The maximum number of links that should be visible on a page.
+	 *
+	 * @return bool
+	 */
+	private function map_needs_to_be_rebuilt( $stored_pagination, $current_aggregates, $max_entries_per_page ): bool {
+		return $stored_pagination['min_post_id'] !== $current_aggregates['min_post_id']
+				|| $stored_pagination['max_post_id'] > $current_aggregates['max_post_id']
+				|| $stored_pagination['total_number_of_posts'] > $current_aggregates['total_number_of_posts']
+				|| $stored_pagination['max_entries_per_page'] !== $max_entries_per_page
+				|| $stored_pagination['site_url'] !== get_site_url();
+	}
+
+	/**
+	 * Checks if the map in a pagination object is missing posts that have been published since the last update of the pagination object.
+	 *
+	 * @param array                                                                 $stored_pagination  The stored pagination object.
+	 * @param array{min_post_id: int, max_post_id: int, total_number_of_posts: int} $current_aggregates The current aggregates for the post type.
+	 *
+	 * @return bool
+	 */
+	private function map_is_missing_posts( $stored_pagination, $current_aggregates ): bool {
+		return $stored_pagination['max_post_id'] < $current_aggregates['max_post_id'];
+	}
+
+	/**
+	 * Saves a pagination object to the database.
+	 *
+	 * @param string                                                                $post_type            The post type to save the pagination object for.
+	 * @param array<int, array{start: int, end: int}>                               $pagination_map       The map to save as part of the pagination object.
+	 * @param array{min_post_id: int, max_post_id: int, total_number_of_posts: int} $aggregates           The aggregates that were used when creating the map.
+	 * @param int                                                                   $max_entries_per_page The maximum number of links that should be visible on a page.
+	 *
+	 * @return void
+	 */
+	private function save_pagination( $post_type, $pagination_map, $aggregates, $max_entries_per_page ): void {
+		update_option(
+			"wpseo_{$post_type}_sitemap_pagination",
 			[
-				'post_modified_gmt',
-				$wpdb->posts,
-				'type_status_date',
-				'post_status',
-			],
-			$post_statuses,
-			[
-				'post_type',
-				$post_type,
-				$max_entries,
-				'post_modified_gmt',
+				'map'                   => $pagination_map,
+				'min_post_id'           => $aggregates['min_post_id'],
+				'max_post_id'           => $aggregates['max_post_id'],
+				'total_number_of_posts' => $aggregates['total_number_of_posts'],
+				'max_entries_per_page'  => $max_entries_per_page,
+				'site_url'              => get_site_url(),
 			]
 		);
+	}
 
-		return $wpdb->get_col(
-			//phpcs:disable WordPress.DB.PreparedSQLPlaceholders -- %i placeholder is still not recognized.
+	/**
+	 * Gets links to show on the sitemap index/overview for a particular post type.
+	 *
+	 * @param string $post_type   The post type to get index links for.
+	 * @param int    $max_entries The maximum number of links that should be visible on a page.
+	 *
+	 * @return array{loc: string, lastmod: string}
+	 */
+	protected function get_index_links_for_post_type( string $post_type, int $max_entries ): array {
+		$index_links    = [];
+		$pagination_map = $this->get_pagination_map( $post_type, $max_entries );
+
+		// Ensure a first page, so we can check for first links.
+		$pages = array_unique( array_merge( [ 1 ], array_keys( $pagination_map ) ) );
+		foreach ( $pages as $page_number ) {
+			$page_link_suffix = ( $page_number > 1 ) ? $page_number : '';
+			$last_mod_gmt     = null;
+			$raw_post_data    = null;
+			if ( isset( $pagination_map[ $page_number ] ) ) {
+				$page_boundaries = $pagination_map[ $page_number ];
+				$raw_post_data = $this->get_raw_post_data( $post_type, $max_entries, $page_boundaries['start'], $page_boundaries['end'] );
+
+				$last_mod_gmt = array_reduce(
+					$raw_post_data,
+					static function ( $carry, $post ) {
+						return max( $post->post_modified_gmt, $carry );
+					},
+					$raw_post_data[0]->post_modified_gmt
+				);
+			}
+
+			if ( $page_number === 1 ) {
+				$first_links = $this->get_first_links( $post_type );
+
+				if ( ! $first_links && ! $raw_post_data ) {
+					continue;
+				}
+
+				$last_mod_gmt = array_reduce(
+					$first_links,
+					static function ( $carry, $link ) {
+						if ( ! isset( $link['mod'] ) ) {
+							return $carry;
+						}
+
+						return max( $link['mod'], $carry );
+					},
+					$last_mod_gmt
+				);
+			}
+
+			$index_links[] = [
+				'loc'     => WPSEO_Sitemaps_Router::get_base_url( $post_type . '-sitemap' . $page_link_suffix . '.xml' ),
+				'lastmod' => $last_mod_gmt,
+			];
+		}
+
+		return $index_links;
+	}
+
+	/**
+	 * Gets current aggregates for a post type.
+	 *
+	 * @param string $post_type The post type to get aggregates for.
+	 *
+	 * @return array{min_post_id: int, max_post_id: int, total_number_of_posts: int}
+	 */
+	protected function get_aggregates( $post_type ): array {
+		global $wpdb;
+		// phpcs:disable WordPress.DB.DirectDatabaseQuery.NoCaching,WordPress.DB.DirectDatabaseQuery.DirectQuery -- Can't do this with WP queries. Caching is done on the sitemap level.
+		$aggregates = (array) $wpdb->get_row(
 			$wpdb->prepare(
-				'
-			SELECT %i
-			    FROM ( SELECT @rownum:=0 ) init
-			    JOIN %i USE INDEX( %i )
-			    WHERE %i IN (' . implode( ', ', array_fill( 0, count( $post_statuses ), '%s' ) ) . ')
-			      AND %i = %s
-			      AND ( @rownum:=@rownum+1 ) %% %d = 0
-			    ORDER BY %i ASC
-			',
-				$replacements
+				"SELECT
+					MIN( ID ) AS min_post_id,
+					MAX( ID ) AS max_post_id,
+					COUNT( ID ) AS total_number_of_posts
+				FROM {$wpdb->posts}
+					WHERE post_type = %s",
+				$post_type
 			)
 		);
+
+		// phpcs:enable
+		return [
+			'min_post_id'           => (int) $aggregates['min_post_id'],
+			'max_post_id'           => (int) $aggregates['max_post_id'],
+			'total_number_of_posts' => (int) $aggregates['total_number_of_posts'],
+		];
 	}
 }

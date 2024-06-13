@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.5
-Stable tag: 22.4
+Stable tag: 22.8
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -315,49 +315,47 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 == Changelog ==
 
-= 22.4 =
+= 22.9 =
 
-Release date: 2024-04-03
-
-Yoast SEO 22.4 brings optimizations and bug fixes. Our customers who use Elementor can wave goodbye to that unnecessary redirect when saving a post for the first time. Find more about Yoast SEO 22.4 in [our release post](https://yoa.st/release-3-4-24)!
+Release date: 2024-06-18
 
 #### Enhancements
 
-* Removes a duplicated database query on author pages with internal images.
-* Removes two unnecessary database queries on pages where external images are of SEO interest, like author pages with Gravatar author images.
+* Helps guide Elementor users to Yoast when they have the new editor top bar activated.
+* Adds additional filter options for the `og:image` meta tags.
+* Improves compatibility with custom RSS feeds. Props to @gsusI.
 
 #### Bugfixes
 
-* Fixes a bug where an unneeded redirect would be created when a post was first published in Elementor.
+* Fixes a bug where a PHP notice would be thrown on RSS feeds when a canonical URL can not be created for its parent page.
 
-#### Other
+#### Others
 
-* Deprecates the slug of the `_dependencies` property of the private `$plugins` property in the `WPSEO_Plugin_Availability` class.
-* Fixes the width of the `Page type` dropdown field in the `Settings` page.
-* Replaces `.substr()` with `.substring()` in JS files since it's deprecated.
-* Stops showing deprecation warnings when retrieving data for paid add-ons goes wrong.
-* Stops showing notifications about incompatibility with the WooCommerce's new beta product editor, after WooCommerce is deactivated.
-* Stops showing a notification prompting to install Yoast Woo SEO, after WooCommerce is deactivated.
+* Changes the copy in the admin sidebar from `Premium` to `Upgrades`.
 
-= 22.3 =
+= 22.8 =
 
-Release date: 2024-03-19
+Release date: 2024-05-28
 
-Yoast SEO 22.3 is out today. In this release, you’ll find various fixes and improvements for a better user experience. Find out more about what's new in Yoast SEO 22.3 in [our release post](https://yoa.st/release-19-3-24)!
+Yoast SEO 22.8 brings enhancements and bugfixes. [Find more information about our software releases and updates here](https://yoa.st/release-28-5-24).
 
 #### Enhancements
 
-* Removes an unnecessary query relating to breadcrumb schema generation on the homepage.
+* Converts the Yoast _Breadcrumbs_ block to use the Blocks V3 API.
 
 #### Bugfixes
 
-* Adds `x.com` as a possible domain for the Twitter validation in our first time configuration social profiles settings.
-* Fixes a bug where the `Or go to your SEO dashboard` link in the final step of our first time configuration would not be focusable using tab.
+* Fixes a bug preventing multiple _FAQ_ blocks from being added to a post/page.
+* Fixes a bug where a class was missing in the output of the _FAQ_ and _How-To_ blocks.
+* Fixes a bug where a "Failed to retrieve media" error could prevent selecting a different image or removing the current selection.
+* Fixes a bug where our modals would not open when visiting our sidebar in Elementor for the second time.
+* Fixes a bug where some Yoast SEO settings could not be imported correctly.
 
 #### Other
 
-* Removes the autofill for taxonomy keyphrases.
-* Sets the WordPress tested up to version to 6.5.
+* Removes the fixed date and separator snippet variables from the meta description text field.
+* Removes the Yoast SEO Breadcrumbs panel from the Customizer to improve compatibility with block-based themes. Users can always change the options for the breadcrumbs under Yoast SEO > Settings > Advanced > Breadcrumbs.
+* Deprecates the `WPSEO_Customizer` class.
 
 = Earlier versions =
 For the changelog of earlier versions, please refer to [the changelog on yoast.com](https://yoa.st/yoast-seo-changelog).
