@@ -1,6 +1,6 @@
 (()=>{var e={74102:(e,t,r)=>{"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var o=l(r(98487)),n=r(37188),a=l(r(64213));function l(e){return e&&e.__esModule?e:{default:e}}const s="#A5B4FC",i="to bottom right",u={defaultStateBackground:`linear-gradient(${i}, #FAF3F7, #EEF2FF)`,defaultStateBorder:`linear-gradient(${i}, #CD82AB, ${s}) 1`,hoverStateBackground:`linear-gradient(${i}, #F3E5ED, #E0E7FF)`,pressedStateBackground:`linear-gradient(${i}, #A61E69, #6366F1)`},d=(0,o.default)(a.default)`
-	overflow: hidden;
-	border: ${e=>e.pressed?"none":`1px solid ${s}`}; /*indigo-300*/
+	position: relative;
+	border: ${e=>e.pressed?"none":`1px solid ${s}`};
 	background-image: ${e=>e.pressed?u.pressedStateBackground:u.defaultStateBackground} !important;
 	box-shadow: ${e=>e.pressed?"inset 0 -2px 0 #B94986":`0 1px 0 ${(0,n.rgba)(e.unpressedBoxShadowColor,.7)}`};
 	&:hover {
