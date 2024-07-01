@@ -182,6 +182,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\editors\\application\\integrations\\integration_information_repository' => 'Yoast\\WP\\SEO\\Editors\\Application\\Integrations\\Integration_Information_Repository',
             'yoast\\wp\\seo\\editors\\application\\seo\\post_seo_information_repository' => 'Yoast\\WP\\SEO\\Editors\\Application\\Seo\\Post_Seo_Information_Repository',
             'yoast\\wp\\seo\\editors\\application\\seo\\term_seo_information_repository' => 'Yoast\\WP\\SEO\\Editors\\Application\\Seo\\Term_Seo_Information_Repository',
+            'yoast\\wp\\seo\\editors\\application\\site\\website_information_repository' => 'Yoast\\WP\\SEO\\Editors\\Application\\Site\\Website_Information_Repository',
             'yoast\\wp\\seo\\generators\\breadcrumbs_generator' => 'Yoast\\WP\\SEO\\Generators\\Breadcrumbs_Generator',
             'yoast\\wp\\seo\\generators\\open_graph_image_generator' => 'Yoast\\WP\\SEO\\Generators\\Open_Graph_Image_Generator',
             'yoast\\wp\\seo\\generators\\open_graph_locale_generator' => 'Yoast\\WP\\SEO\\Generators\\Open_Graph_Locale_Generator',
@@ -610,6 +611,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Editors\\Application\\Integrations\\Integration_Information_Repository' => 'getIntegrationInformationRepositoryService',
             'Yoast\\WP\\SEO\\Editors\\Application\\Seo\\Post_Seo_Information_Repository' => 'getPostSeoInformationRepositoryService',
             'Yoast\\WP\\SEO\\Editors\\Application\\Seo\\Term_Seo_Information_Repository' => 'getTermSeoInformationRepositoryService',
+            'Yoast\\WP\\SEO\\Editors\\Application\\Site\\Website_Information_Repository' => 'getWebsiteInformationRepositoryService',
             'Yoast\\WP\\SEO\\Generators\\Breadcrumbs_Generator' => 'getBreadcrumbsGeneratorService',
             'Yoast\\WP\\SEO\\Generators\\Open_Graph_Image_Generator' => 'getOpenGraphImageGeneratorService',
             'Yoast\\WP\\SEO\\Generators\\Open_Graph_Locale_Generator' => 'getOpenGraphLocaleGeneratorService',
@@ -924,6 +926,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Editors\\Framework\\Seo\\Terms\\Keyphrase_Data_Provider' => true,
             'Yoast\\WP\\SEO\\Editors\\Framework\\Seo\\Terms\\Social_Data_Provider' => true,
             'Yoast\\WP\\SEO\\Editors\\Framework\\Seo\\Terms\\Title_Data_Provider' => true,
+            'Yoast\\WP\\SEO\\Editors\\Framework\\Site\\Post_Site_Information' => true,
+            'Yoast\\WP\\SEO\\Editors\\Framework\\Site\\Term_Site_Information' => true,
             'Yoast\\WP\\SEO\\Editors\\Framework\\Word_Form_Recognition' => true,
             'Yoast\\WP\\SEO\\Introductions\\Application\\Ai_Generate_Titles_And_Descriptions_Introduction_Upsell' => true,
             'Yoast\\WP\\SEO\\Introductions\\Application\\Introductions_Collector' => true,
@@ -2809,6 +2813,21 @@ class Cached_Container extends Container
     protected function getTermSeoInformationRepositoryService()
     {
         return $this->services['Yoast\\WP\\SEO\\Editors\\Application\\Seo\\Term_Seo_Information_Repository'] = new \Yoast\WP\SEO\Editors\Application\Seo\Term_Seo_Information_Repository(new \Yoast\WP\SEO\Editors\Framework\Seo\Terms\Description_Data_Provider(), new \Yoast\WP\SEO\Editors\Framework\Seo\Terms\Keyphrase_Data_Provider(), new \Yoast\WP\SEO\Editors\Framework\Seo\Terms\Social_Data_Provider(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper'] : $this->getImageHelperService()) && false ?: '_'}), new \Yoast\WP\SEO\Editors\Framework\Seo\Terms\Title_Data_Provider());
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Editors\Application\Site\Website_Information_Repository' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Editors\Application\Site\Website_Information_Repository
+     */
+    protected function getWebsiteInformationRepositoryService()
+    {
+        $a = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper'] : $this->getShortLinkHelperService()) && false ?: '_'};
+        $b = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Wistia_Embed_Permission_Repository']) ? $this->services['Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Wistia_Embed_Permission_Repository'] : $this->getWistiaEmbedPermissionRepositoryService()) && false ?: '_'};
+        $c = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface']) ? $this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface'] : $this->getMetaSurfaceService()) && false ?: '_'};
+        $d = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())) && false ?: '_'};
+
+        return $this->services['Yoast\\WP\\SEO\\Editors\\Application\\Site\\Website_Information_Repository'] = new \Yoast\WP\SEO\Editors\Application\Site\Website_Information_Repository(new \Yoast\WP\SEO\Editors\Framework\Site\Post_Site_Information(${($_ = isset($this->services['Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager']) ? $this->services['Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager'] : $this->getPromotionManagerService()) && false ?: '_'}, $a, $b, $c, $d, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Alert_Dismissal_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Alert_Dismissal_Action'] : $this->getAlertDismissalActionService()) && false ?: '_'}), new \Yoast\WP\SEO\Editors\Framework\Site\Term_Site_Information(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, $a, $b, $c, $d));
     }
 
     /**
