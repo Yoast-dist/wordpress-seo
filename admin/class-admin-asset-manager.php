@@ -18,7 +18,7 @@ class WPSEO_Admin_Asset_Manager {
 	 *
 	 * @var string
 	 */
-	const PREFIX = 'yoast-seo-';
+	public const PREFIX = 'yoast-seo-';
 
 	/**
 	 * Class that manages the assets' location.
@@ -40,7 +40,7 @@ class WPSEO_Admin_Asset_Manager {
 	 * @param WPSEO_Admin_Asset_Location|null $asset_location The provider of the asset location.
 	 * @param string                          $prefix         The prefix for naming assets.
 	 */
-	public function __construct( WPSEO_Admin_Asset_Location $asset_location = null, $prefix = self::PREFIX ) {
+	public function __construct( ?WPSEO_Admin_Asset_Location $asset_location = null, $prefix = self::PREFIX ) {
 		if ( $asset_location === null ) {
 			$asset_location = self::create_default_location();
 		}
@@ -53,6 +53,8 @@ class WPSEO_Admin_Asset_Manager {
 	 * Enqueues scripts.
 	 *
 	 * @param string $script The name of the script to enqueue.
+	 *
+	 * @return void
 	 */
 	public function enqueue_script( $script ) {
 		wp_enqueue_script( $this->prefix . $script );
@@ -62,6 +64,8 @@ class WPSEO_Admin_Asset_Manager {
 	 * Enqueues styles.
 	 *
 	 * @param string $style The name of the style to enqueue.
+	 *
+	 * @return void
 	 */
 	public function enqueue_style( $style ) {
 		wp_enqueue_style( $this->prefix . $style );
@@ -69,6 +73,8 @@ class WPSEO_Admin_Asset_Manager {
 
 	/**
 	 * Enqueues the appropriate language for the user.
+	 *
+	 * @return void
 	 */
 	public function enqueue_user_language_script() {
 		$this->enqueue_script( 'language-' . YoastSEO()->helpers->language->get_researcher_language() );
@@ -78,6 +84,8 @@ class WPSEO_Admin_Asset_Manager {
 	 * Registers scripts based on it's parameters.
 	 *
 	 * @param WPSEO_Admin_Asset $script The script to register.
+	 *
+	 * @return void
 	 */
 	public function register_script( WPSEO_Admin_Asset $script ) {
 		$url = $script->get_src() ? $this->get_url( $script, WPSEO_Admin_Asset::TYPE_JS ) : false;
@@ -99,6 +107,8 @@ class WPSEO_Admin_Asset_Manager {
 	 * Registers styles based on it's parameters.
 	 *
 	 * @param WPSEO_Admin_Asset $style The style to register.
+	 *
+	 * @return void
 	 */
 	public function register_style( WPSEO_Admin_Asset $style ) {
 		wp_register_style(
@@ -112,6 +122,8 @@ class WPSEO_Admin_Asset_Manager {
 
 	/**
 	 * Calls the functions that register scripts and styles with the scripts and styles to be registered as arguments.
+	 *
+	 * @return void
 	 */
 	public function register_assets() {
 		$this->register_scripts( $this->scripts_to_be_registered() );
@@ -122,6 +134,8 @@ class WPSEO_Admin_Asset_Manager {
 	 * Registers all the scripts passed to it.
 	 *
 	 * @param array $scripts The scripts passed to it.
+	 *
+	 * @return void
 	 */
 	public function register_scripts( $scripts ) {
 		foreach ( $scripts as $script ) {
@@ -134,6 +148,8 @@ class WPSEO_Admin_Asset_Manager {
 	 * Registers all the styles it receives.
 	 *
 	 * @param array $styles Styles that need to be registered.
+	 *
+	 * @return void
 	 */
 	public function register_styles( $styles ) {
 		foreach ( $styles as $style ) {
@@ -148,9 +164,11 @@ class WPSEO_Admin_Asset_Manager {
 	 * @param string $handle      The script handle.
 	 * @param string $object_name The object name.
 	 * @param array  $data        The l10n data.
+	 *
+	 * @return void
 	 */
 	public function localize_script( $handle, $object_name, $data ) {
-		\wp_localize_script( $this->prefix . $handle, $object_name, $data );
+		wp_localize_script( $this->prefix . $handle, $object_name, $data );
 	}
 
 	/**
@@ -159,9 +177,11 @@ class WPSEO_Admin_Asset_Manager {
 	 * @param string $handle   The script handle.
 	 * @param string $data     The l10n data.
 	 * @param string $position Optional. Whether to add the inline script before the handle or after.
+	 *
+	 * @return void
 	 */
 	public function add_inline_script( $handle, $data, $position = 'after' ) {
-		\wp_add_inline_script( $this->prefix . $handle, $data, $position );
+		wp_add_inline_script( $this->prefix . $handle, $data, $position );
 	}
 
 	/**
@@ -219,7 +239,7 @@ class WPSEO_Admin_Asset_Manager {
 	 * @return bool True when the script is enqueued.
 	 */
 	public function is_script_enqueued( $script ) {
-		return \wp_script_is( $this->prefix . $script );
+		return wp_script_is( $this->prefix . $script );
 	}
 
 	/**
@@ -241,15 +261,11 @@ class WPSEO_Admin_Asset_Manager {
 		$additional_dependencies = [
 			'analysis-worker'          => [ self::PREFIX . 'analysis-package' ],
 			'api-client'               => [ 'wp-api' ],
+			'crawl-settings'           => [ 'jquery' ],
 			'dashboard-widget'         => [ self::PREFIX . 'api-client' ],
+			'wincher-dashboard-widget' => [ self::PREFIX . 'api-client' ],
 			'editor-modules'           => [ 'jquery' ],
 			'elementor'                => [
-				self::PREFIX . 'api-client',
-				self::PREFIX . 'externals-components',
-				self::PREFIX . 'externals-contexts',
-				self::PREFIX . 'externals-redux',
-			],
-			'indexables-page'          => [
 				self::PREFIX . 'api-client',
 				self::PREFIX . 'externals-components',
 				self::PREFIX . 'externals-contexts',
@@ -345,7 +361,7 @@ class WPSEO_Admin_Asset_Manager {
 				'wp-components',
 				'wp-element',
 				'wp-i18n',
-				self::PREFIX . 'yoast-components',
+				self::PREFIX . 'components-new-package',
 				self::PREFIX . 'externals-components',
 			],
 			'version' => $scripts['installation-success']['version'],
@@ -355,7 +371,7 @@ class WPSEO_Admin_Asset_Manager {
 			'name'      => 'post-edit-classic',
 			'src'       => $scripts['post-edit']['src'],
 			'deps'      => array_map(
-				static function( $dep ) {
+				static function ( $dep ) {
 					if ( $dep === self::PREFIX . 'block-editor' ) {
 						return self::PREFIX . 'classic-editor';
 					}
@@ -386,7 +402,7 @@ class WPSEO_Admin_Asset_Manager {
 				self::PREFIX . 'externals-redux',
 				self::PREFIX . 'analysis',
 				self::PREFIX . 'react-select',
-				self::PREFIX . 'yoast-components',
+				self::PREFIX . 'components-new-package',
 			],
 			'version' => $scripts['workouts']['version'],
 		];
@@ -486,7 +502,7 @@ class WPSEO_Admin_Asset_Manager {
 			'feature-flag'                => 'feature-flag-package',
 			'helpers'                     => 'helpers-package',
 			'jed'                         => 'jed-package',
-			'legacy-components'           => 'components-package',
+			'chart.js'                    => 'chart.js-package',
 			'network-admin-script'        => 'network-admin',
 			'redux'                       => 'redux-package',
 			'replacement-variable-editor' => 'replacement-variable-editor-package',
@@ -537,10 +553,6 @@ class WPSEO_Admin_Asset_Manager {
 				'src'  => 'notifications-' . $flat_version,
 			],
 			[
-				'name' => 'notifications-new',
-				'src'  => 'notifications-new-' . $flat_version,
-			],
-			[
 				'name' => 'alert',
 				'src'  => 'alerts-' . $flat_version,
 			],
@@ -557,8 +569,22 @@ class WPSEO_Admin_Asset_Manager {
 				'src'  => 'metabox-' . $flat_version,
 				'deps' => [
 					self::PREFIX . 'admin-css',
+					self::PREFIX . 'tailwind',
 					'wp-components',
 				],
+			],
+			[
+				'name' => 'ai-generator',
+				'src'  => 'ai-generator-' . $flat_version,
+				'deps' => [
+					self::PREFIX . 'tailwind',
+					self::PREFIX . 'introductions',
+				],
+			],
+			[
+				'name' => 'introductions',
+				'src'  => 'introductions-' . $flat_version,
+				'deps' => [ self::PREFIX . 'tailwind' ],
 			],
 			[
 				'name' => 'wp-dashboard',
@@ -584,10 +610,6 @@ class WPSEO_Admin_Asset_Manager {
 				'src'  => 'admin-global-' . $flat_version,
 			],
 			[
-				'name' => 'yoast-components',
-				'src'  => 'yoast-components-' . $flat_version,
-			],
-			[
 				'name' => 'extensions',
 				'src'  => 'yoast-extensions-' . $flat_version,
 				'deps' => [
@@ -599,24 +621,17 @@ class WPSEO_Admin_Asset_Manager {
 				'src'  => 'filter-explanation-' . $flat_version,
 			],
 			[
-				'name' => 'search-appearance',
-				'src'  => 'search-appearance-' . $flat_version,
-				'deps' => [
-					self::PREFIX . 'monorepo',
-				],
-			],
-			[
 				'name' => 'monorepo',
 				'src'  => 'monorepo-' . $flat_version,
 			],
 			[
 				'name' => 'structured-data-blocks',
 				'src'  => 'structured-data-blocks-' . $flat_version,
-				'deps' => [ 'wp-edit-blocks' ],
-			],
-			[
-				'name' => 'schema-blocks',
-				'src'  => 'schema-blocks-' . $flat_version,
+				'deps' => [
+					'dashicons',
+					'forms',
+					'wp-edit-blocks',
+				],
 			],
 			[
 				'name' => 'elementor',
@@ -629,6 +644,22 @@ class WPSEO_Admin_Asset_Manager {
 			[
 				'name' => 'new-settings',
 				'src'  => 'new-settings-' . $flat_version,
+				'deps' => [ self::PREFIX . 'tailwind' ],
+			],
+			[
+				'name' => 'black-friday-banner',
+				'src'  => 'black-friday-banner-' . $flat_version,
+				'deps' => [ self::PREFIX . 'tailwind' ],
+			],
+			[
+				'name' => 'academy',
+				'src'  => 'academy-' . $flat_version,
+				'deps' => [ self::PREFIX . 'tailwind' ],
+			],
+			[
+				'name' => 'support',
+				'src'  => 'support-' . $flat_version,
+				'deps' => [ self::PREFIX . 'tailwind' ],
 			],
 			[
 				'name' => 'workouts',
@@ -636,6 +667,11 @@ class WPSEO_Admin_Asset_Manager {
 				'deps' => [
 					self::PREFIX . 'monorepo',
 				],
+			],
+			[
+				'name' => 'first-time-configuration',
+				'src'  => 'first-time-configuration-' . $flat_version,
+				'deps' => [ self::PREFIX . 'tailwind' ],
 			],
 			[
 				'name' => 'inside-editor',

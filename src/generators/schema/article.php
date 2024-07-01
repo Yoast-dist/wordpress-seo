@@ -2,6 +2,7 @@
 
 namespace Yoast\WP\SEO\Generators\Schema;
 
+use WP_User;
 use Yoast\WP\SEO\Config\Schema_IDs;
 
 /**
@@ -49,7 +50,7 @@ class Article extends Abstract_Schema_Piece {
 			'@id'              => $this->context->canonical . Schema_IDs::ARTICLE_HASH,
 			'isPartOf'         => [ '@id' => $this->context->main_schema_id ],
 			'author'           => [
-				'name' => ( $author instanceof \WP_User ) ? $this->helpers->schema->html->smart_strip_tags( $author->display_name ) : '',
+				'name' => ( $author instanceof WP_User ) ? $this->helpers->schema->html->smart_strip_tags( $author->display_name ) : '',
 				'@id'  => $this->helpers->schema->id->get_user_schema_id( $this->context->post->post_author, $this->context ),
 			],
 			'headline'         => $this->helpers->schema->html->smart_strip_tags( $this->helpers->post->get_post_title_with_fallback( $this->context->id ) ),
@@ -90,7 +91,7 @@ class Article extends Abstract_Schema_Piece {
 		/**
 		 * Filter: 'wpseo_schema_article_keywords_taxonomy' - Allow changing the taxonomy used to assign keywords to a post type Article data.
 		 *
-		 * @api string $taxonomy The chosen taxonomy.
+		 * @param string $taxonomy The chosen taxonomy.
 		 */
 		$taxonomy = \apply_filters( 'wpseo_schema_article_keywords_taxonomy', 'post_tag' );
 
@@ -108,7 +109,7 @@ class Article extends Abstract_Schema_Piece {
 		/**
 		 * Filter: 'wpseo_schema_article_sections_taxonomy' - Allow changing the taxonomy used to assign keywords to a post type Article data.
 		 *
-		 * @api string $taxonomy The chosen taxonomy.
+		 * @param string $taxonomy The chosen taxonomy.
 		 */
 		$taxonomy = \apply_filters( 'wpseo_schema_article_sections_taxonomy', 'category' );
 
@@ -131,7 +132,7 @@ class Article extends Abstract_Schema_Piece {
 			return $data;
 		}
 
-		$callback = static function( $term ) {
+		$callback = static function ( $term ) {
 			// We are using the WordPress internal translation.
 			return $term->name !== \__( 'Uncategorized', 'default' );
 		};
@@ -175,7 +176,7 @@ class Article extends Abstract_Schema_Piece {
 		/**
 		 * Filter: 'wpseo_schema_article_potential_action_target' - Allows filtering of the schema Article potentialAction target.
 		 *
-		 * @api array $targets The URLs for the Article potentialAction target.
+		 * @param array $targets The URLs for the Article potentialAction target.
 		 */
 		$targets = \apply_filters( 'wpseo_schema_article_potential_action_target', [ $this->context->canonical . '#respond' ] );
 
@@ -224,9 +225,6 @@ class Article extends Abstract_Schema_Piece {
 			$characters  = \implode( '', $characters );
 			$characters .= \mb_strtoupper( $characters );
 		}
-
-
-
 
 		// Remove characters from HTML entities.
 		$post_content = \preg_replace( '@&[a-z0-9]+;@i', ' ', \htmlentities( $post_content ) );

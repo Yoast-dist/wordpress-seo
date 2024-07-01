@@ -61,6 +61,13 @@ class WPSEO_Tracking_Settings_Data implements WPSEO_Collection {
 		'most_linked_ignore_list',
 		'least_linked_ignore_list',
 		'indexables_page_reading_list',
+		'publishing_principles_id',
+		'ownership_funding_info_id',
+		'actionable_feedback_policy_id',
+		'corrections_policy_id',
+		'ethics_policy_id',
+		'diversity_policy_id',
+		'diversity_staffing_report_id',
 	];
 
 	/**
@@ -185,6 +192,7 @@ class WPSEO_Tracking_Settings_Data implements WPSEO_Collection {
 		'enable_metabox_insights',
 		'enable_link_suggestions',
 		'enable_index_now',
+		'enable_ai_generator',
 		'workouts',
 		'wincher_integration_active',
 		'wincher_tokens',
@@ -218,10 +226,14 @@ class WPSEO_Tracking_Settings_Data implements WPSEO_Collection {
 		'search_cleanup_patterns',
 		'search_character_limit',
 		'redirect_search_pretty_urls',
-		'wordproof_integration_active',
 		'indexables_overview_state',
 		'deny_search_crawling',
 		'deny_wp_json_crawling',
+		'deny_adsbot_crawling',
+		'deny_ccbot_crawling',
+		'deny_google_extended_crawling',
+		'deny_gptbot_crawling',
+		'last_known_no_unindexed',
 	];
 
 	/**
@@ -233,7 +245,7 @@ class WPSEO_Tracking_Settings_Data implements WPSEO_Collection {
 		/**
 		 * Filter: 'wpseo_tracking_settings_include_list' - Allow filtering the settings included in tracking.
 		 *
-		 * @api string $include_list the list with included setting names.
+		 * @param string $include_list The list with included setting names.
 		 */
 		$this->include_list = apply_filters( 'wpseo_tracking_settings_include_list', $this->include_list );
 

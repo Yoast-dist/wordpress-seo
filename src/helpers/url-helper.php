@@ -106,13 +106,29 @@ class Url_Helper {
 	 */
 	public function get_url_path( $url ) {
 		if ( \is_string( $url ) === false
-			&& \is_object( $url ) === false
-			|| ( \is_object( $url ) === true && \method_exists( $url, '__toString' ) === false )
+			&& ( \is_object( $url ) === false || \method_exists( $url, '__toString' ) === false )
 		) {
 			return '';
 		}
 
 		return (string) \wp_parse_url( $url, \PHP_URL_PATH );
+	}
+
+	/**
+	 * Gets the host from the passed URL.
+	 *
+	 * @param string $url The URL to get the host from.
+	 *
+	 * @return string The host of the URL. Returns an empty string if URL parsing fails.
+	 */
+	public function get_url_host( $url ) {
+		if ( \is_string( $url ) === false
+			&& ( \is_object( $url ) === false || \method_exists( $url, '__toString' ) === false )
+		) {
+			return '';
+		}
+
+		return (string) \wp_parse_url( $url, \PHP_URL_HOST );
 	}
 
 	/**
@@ -260,5 +276,20 @@ class Url_Helper {
 		}
 
 		return $current_url;
+	}
+
+	/**
+	 * Parses a URL and returns its components, this wrapper function was created to support unit tests.
+	 *
+	 * @param string $parsed_url The URL to parse.
+	 * @return array The parsed components of the URL.
+	 */
+	public function parse_str_params( $parsed_url ) {
+		$array = [];
+
+		// @todo parse_str changes spaces in param names into `_`, we should find a better way to support them.
+		\wp_parse_str( $parsed_url, $array );
+
+		return $array;
 	}
 }

@@ -2,7 +2,6 @@
 
 namespace Yoast\WP\SEO\Integrations\Watchers;
 
-use Yoast_Notification_Center;
 use Yoast\WP\SEO\Actions\Indexing\Indexable_Post_Indexation_Action;
 use Yoast\WP\SEO\Conditionals\Migrations_Conditional;
 use Yoast\WP\SEO\Config\Indexing_Reasons;
@@ -10,6 +9,7 @@ use Yoast\WP\SEO\Helpers\Attachment_Cleanup_Helper;
 use Yoast\WP\SEO\Helpers\Indexing_Helper;
 use Yoast\WP\SEO\Integrations\Cleanup_Integration;
 use Yoast\WP\SEO\Integrations\Integration_Interface;
+use Yoast_Notification_Center;
 
 /**
  * Watches the disable-attachment key in wpseo_titles, in order to clear the permalink of the category indexables.
@@ -106,6 +106,11 @@ class Indexable_Attachment_Watcher implements Integration_Interface {
 			\delete_transient( Indexable_Post_Indexation_Action::UNINDEXED_COUNT_TRANSIENT );
 			\delete_transient( Indexable_Post_Indexation_Action::UNINDEXED_LIMITED_COUNT_TRANSIENT );
 
+			// Set this core option (introduced in WP 6.4) to ensure consistency.
+			if ( \get_option( 'wp_attachment_pages_enabled' ) !== false ) {
+				\update_option( 'wp_attachment_pages_enabled', (int) ! $new_value['disable-attachment'] );
+			}
+
 			switch ( $new_value['disable-attachment'] ) {
 				case false:
 					$this->indexing_helper->set_reason( Indexing_Reasons::REASON_ATTACHMENTS_MADE_ENABLED );
@@ -116,10 +121,8 @@ class Indexable_Attachment_Watcher implements Integration_Interface {
 
 					if ( ! \wp_next_scheduled( Cleanup_Integration::START_HOOK ) ) {
 						// This just schedules the cleanup routine cron again.
-						\wp_schedule_single_event( ( time() + ( MINUTE_IN_SECONDS * 5 ) ), Cleanup_Integration::START_HOOK );
+						\wp_schedule_single_event( ( \time() + ( \MINUTE_IN_SECONDS * 5 ) ), Cleanup_Integration::START_HOOK );
 					}
-					return;
-				default:
 					return;
 			}
 		}

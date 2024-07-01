@@ -29,7 +29,7 @@ class Indexing_Notification_Integration implements Integration_Interface {
 	/**
 	 * The notification ID.
 	 */
-	const NOTIFICATION_ID = 'wpseo-reindex';
+	public const NOTIFICATION_ID = 'wpseo-reindex';
 
 	/**
 	 * The Yoast notification center.
@@ -154,6 +154,8 @@ class Indexing_Notification_Integration implements Integration_Interface {
 	/**
 	 * Checks whether the notification should be shown and adds
 	 * it to the notification center if this is the case.
+	 *
+	 * @return void
 	 */
 	public function maybe_create_notification() {
 		if ( ! $this->should_show_notification() ) {
@@ -170,6 +172,8 @@ class Indexing_Notification_Integration implements Integration_Interface {
 	/**
 	 * Checks whether the notification should not be shown anymore and removes
 	 * it from the notification center if this is the case.
+	 *
+	 * @return void
 	 */
 	public function maybe_cleanup_notification() {
 		$notification = $this->notification_center->get_notification_by_id( self::NOTIFICATION_ID );
@@ -198,6 +202,9 @@ class Indexing_Notification_Integration implements Integration_Interface {
 		if ( $this->indexing_helper->get_started() > 0 ) {
 			return false;
 		}
+
+		// We're about to perform expensive queries, let's inform.
+		\add_filter( 'wpseo_unindexed_count_queries_ran', '__return_true' );
 
 		// Never show a notification when nothing should be indexed.
 		return $this->indexing_helper->get_limited_filtered_unindexed_count( 1 ) > 0;

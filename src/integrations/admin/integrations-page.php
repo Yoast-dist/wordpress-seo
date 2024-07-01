@@ -2,11 +2,18 @@
 
 namespace Yoast\WP\SEO\Integrations\Admin;
 
+use Easy_Digital_Downloads;
+use SeriouslySimplePodcasting\Integrations\Yoast\Schema\PodcastEpisode;
+use TEC\Events\Integrations\Plugins\WordPress_SEO\Events_Schema;
+use WP_Recipe_Maker;
 use WPSEO_Admin_Asset_Manager;
 use WPSEO_Plugin_Availability;
+use WPSEO_Shortlinker;
 use Yoast\WP\SEO\Conditionals\Admin_Conditional;
 use Yoast\WP\SEO\Conditionals\Jetpack_Conditional;
 use Yoast\WP\SEO\Conditionals\Third_Party\Elementor_Activated_Conditional;
+use Yoast\WP\SEO\Conditionals\Third_Party\Jetpack_Boost_Active_Conditional;
+use Yoast\WP\SEO\Conditionals\Third_Party\Jetpack_Boost_Not_Premium_Conditional;
 use Yoast\WP\SEO\Conditionals\WooCommerce_Conditional;
 use Yoast\WP\SEO\Helpers\Options_Helper;
 use Yoast\WP\SEO\Integrations\Integration_Interface;
@@ -83,6 +90,8 @@ class Integrations_Page implements Integration_Interface {
 
 	/**
 	 * Enqueue the integrations app.
+	 *
+	 * @return void
 	 */
 	public function enqueue_assets() {
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Date is not processed or saved.
@@ -96,15 +105,19 @@ class Integrations_Page implements Integration_Interface {
 
 		$this->admin_asset_manager->enqueue_script( 'integrations-page' );
 
-		$elementor_conditional   = new Elementor_Activated_Conditional();
-		$jetpack_conditional     = new Jetpack_Conditional();
-		$woocommerce_conditional = new WooCommerce_Conditional();
+		$elementor_conditional                 = new Elementor_Activated_Conditional();
+		$jetpack_conditional                   = new Jetpack_Conditional();
+		$woocommerce_conditional               = new WooCommerce_Conditional();
+		$jetpack_boost_active_conditional      = new Jetpack_Boost_Active_Conditional();
+		$jetpack_boost_not_premium_conditional = new Jetpack_Boost_Not_Premium_Conditional();
 
 		$woocommerce_seo_file = 'wpseo-woocommerce/wpseo-woocommerce.php';
 		$acf_seo_file         = 'acf-content-analysis-for-yoast-seo/yoast-acf-analysis.php';
 		$acf_seo_file_github  = 'yoast-acf-analysis/yoast-acf-analysis.php';
 		$algolia_file         = 'wp-search-with-algolia/algolia.php';
 		$old_algolia_file     = 'search-by-algolia-instant-relevant-results/algolia.php';
+
+		$host = \YoastSEO()->helpers->url->get_url_host( \get_site_url() );
 
 		$wpseo_plugin_availability_checker = new WPSEO_Plugin_Availability();
 		$woocommerce_seo_installed         = \file_exists( \WP_PLUGIN_DIR . '/' . $woocommerce_seo_file );
@@ -116,11 +129,13 @@ class Integrations_Page implements Integration_Interface {
 		$acf_seo_github_active             = $wpseo_plugin_availability_checker->is_active( $acf_seo_file_github );
 		$acf_active                        = \class_exists( 'acf' );
 		$algolia_active                    = $wpseo_plugin_availability_checker->is_active( $algolia_file );
-		$edd_active                        = \class_exists( \Easy_Digital_Downloads::class );
+		$edd_active                        = \class_exists( Easy_Digital_Downloads::class );
+		$jetpack_boost_active              = $jetpack_boost_active_conditional->is_met();
+		$jetpack_boost_premium             = ( ! $jetpack_boost_not_premium_conditional->is_met() );
 		$old_algolia_active                = $wpseo_plugin_availability_checker->is_active( $old_algolia_file );
-		$tec_active                        = \class_exists( \TEC\Events\Integrations\Plugins\WordPress_SEO\Events_Schema::class );
-		$ssp_active                        = \class_exists( \SeriouslySimplePodcasting\Integrations\Yoast\Schema\PodcastEpisode::class );
-		$wp_recipe_maker_active            = \class_exists( \WP_Recipe_Maker::class );
+		$tec_active                        = \class_exists( Events_Schema::class );
+		$ssp_active                        = \class_exists( PodcastEpisode::class );
+		$wp_recipe_maker_active            = \class_exists( WP_Recipe_Maker::class );
 		$mastodon_active                   = $this->is_mastodon_active();
 
 		$woocommerce_seo_activate_url = \wp_nonce_url(
@@ -152,14 +167,10 @@ class Integrations_Page implements Integration_Interface {
 			[
 				'semrush_integration_active'         => $this->options_helper->get( 'semrush_integration_active', true ),
 				'allow_semrush_integration'          => $this->options_helper->get( 'allow_semrush_integration_active', true ),
-				'zapier_integration_active'          => $this->options_helper->get( 'zapier_integration_active', false ),
-				'allow_zapier_integration'           => $this->options_helper->get( 'allow_zapier_integration_active', true ),
 				'algolia_integration_active'         => $this->options_helper->get( 'algolia_integration_active', false ),
 				'allow_algolia_integration'          => $this->options_helper->get( 'allow_algolia_integration_active', true ),
 				'wincher_integration_active'         => $this->options_helper->get( 'wincher_integration_active', true ),
 				'allow_wincher_integration'          => null,
-				'wordproof_integration_active'       => $this->options_helper->get( 'wordproof_integration_active', true ),
-				'allow_wordproof_integration'        => null,
 				'elementor_integration_active'       => $elementor_conditional->is_met(),
 				'jetpack_integration_active'         => $jetpack_conditional->is_met(),
 				'woocommerce_seo_installed'          => $woocommerce_seo_installed,
@@ -179,12 +190,20 @@ class Integrations_Page implements Integration_Interface {
 				'mastodon_active'                    => $mastodon_active,
 				'is_multisite'                       => \is_multisite(),
 				'plugin_url'                         => \plugins_url( '', \WPSEO_FILE ),
+				'jetpack-boost_active'               => $jetpack_boost_active,
+				'jetpack-boost_premium'              => $jetpack_boost_premium,
+				'jetpack-boost_logo_link'            => WPSEO_Shortlinker::get( 'https://yoa.st/integrations-logo-jetpack-boost' ),
+				'jetpack-boost_get_link'             => WPSEO_Shortlinker::get( 'https://yoa.st/integrations-get-jetpack-boost?domain=' . $host ),
+				'jetpack-boost_upgrade_link'         => WPSEO_Shortlinker::get( 'https://yoa.st/integrations-upgrade-jetpack-boost?domain=' . $host ),
+				'jetpack-boost_learn_more_link'      => \admin_url( 'admin.php?page=jetpack-boost' ),
 			]
 		);
 	}
 
 	/**
 	 * Renders the target for the React to mount to.
+	 *
+	 * @return void
 	 */
 	public function render_target() {
 		?>

@@ -65,9 +65,10 @@ class Structured_Data_Blocks implements Integration_Interface {
 
 	/**
 	 * Registers hooks for Structured Data Blocks with WordPress.
+	 *
+	 * @return void
 	 */
 	public function register_hooks() {
-		\add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_assets' ] );
 		$this->register_blocks();
 	}
 
@@ -77,84 +78,27 @@ class Structured_Data_Blocks implements Integration_Interface {
 	 * @return void
 	 */
 	public function register_blocks() {
-		\register_block_type(
-			'yoast/faq-block',
-			[
-				'render_callback' => [ $this, 'optimize_faq_images' ],
-				'attributes'      => [
-					'className' => [
-						'default' => '',
-						'type'    => 'string',
-					],
-					'questions' => [
-						'type' => 'array',
-					],
-					'additionalListCssClasses' => [
-						'type' => 'string',
-					],
-				],
-			]
-		);
-		\register_block_type(
-			'yoast/how-to-block',
-			[
-				'render_callback' => [ $this, 'optimize_how_to_images' ],
-				'attributes'      => [
-					'hasDuration' => [
-						'type' => 'boolean',
-					],
-					'days' => [
-						'type' => 'string',
-					],
-					'hours' => [
-						'type' => 'string',
-					],
-					'minutes' => [
-						'type' => 'string',
-					],
-					'description' => [
-						'type'     => 'array',
-						'source'   => 'children',
-						'selector' => '.schema-how-to-description',
-					],
-					'jsonDescription' => [
-						'type' => 'string',
-					],
-					'steps' => [
-						'type' => 'array',
-					],
-					'additionalListCssClasses' => [
-						'type' => 'string',
-					],
-					'unorderedList' => [
-						'type' => 'boolean',
-					],
-					'durationText' => [
-						'type' => 'string',
-					],
-					'defaultDurationText' => [
-						'type' => 'string',
-					],
-				],
-			]
-		);
-	}
-
-	/**
-	 * Enqueue Gutenberg block assets for backend editor.
-	 */
-	public function enqueue_block_editor_assets() {
 		/**
 		 * Filter: 'wpseo_enable_structured_data_blocks' - Allows disabling Yoast's schema blocks entirely.
 		 *
-		 * @api bool If false, our structured data blocks won't show.
+		 * @param bool $enable If false, our structured data blocks won't show.
 		 */
 		if ( ! \apply_filters( 'wpseo_enable_structured_data_blocks', true ) ) {
 			return;
 		}
 
-		$this->asset_manager->enqueue_script( 'structured-data-blocks' );
-		$this->asset_manager->enqueue_style( 'structured-data-blocks' );
+		\register_block_type(
+			\WPSEO_PATH . 'blocks/structured-data-blocks/faq/block.json',
+			[
+				'render_callback' => [ $this, 'optimize_faq_images' ],
+			]
+		);
+		\register_block_type(
+			\WPSEO_PATH . 'blocks/structured-data-blocks/how-to/block.json',
+			[
+				'render_callback' => [ $this, 'optimize_how_to_images' ],
+			]
+		);
 	}
 
 	/**
@@ -174,6 +118,100 @@ class Structured_Data_Blocks implements Integration_Interface {
 	}
 
 	/**
+	 * Transforms the durations into a translated string containing the count, and either singular or plural unit.
+	 * For example (in en-US): If 'days' is 1, it returns "1 day". If 'days' is 2, it returns "2 days".
+	 * If a number value is 0, we don't output the string.
+	 *
+	 * @param number $days    Number of days.
+	 * @param number $hours   Number of hours.
+	 * @param number $minutes Number of minutes.
+	 * @return array Array of pluralized durations.
+	 */
+	private function transform_duration_to_string( $days, $hours, $minutes ) {
+		$strings = [];
+		if ( $days ) {
+			$strings[] = \sprintf(
+			/* translators: %d expands to the number of day/days. */
+				\_n( '%d day', '%d days', $days, 'wordpress-seo' ),
+				$days
+			);
+		}
+		if ( $hours ) {
+			$strings[] = \sprintf(
+			/* translators: %d expands to the number of hour/hours. */
+				\_n( '%d hour', '%d hours', $hours, 'wordpress-seo' ),
+				$hours
+			);
+		}
+		if ( $minutes ) {
+			$strings[] = \sprintf(
+			/* translators: %d expands to the number of minute/minutes. */
+				\_n( '%d minute', '%d minutes', $minutes, 'wordpress-seo' ),
+				$minutes
+			);
+		}
+		return $strings;
+	}
+
+	/**
+	 * Formats the durations into a translated string.
+	 *
+	 * @param array $attributes The attributes.
+	 * @return string The formatted duration.
+	 */
+	private function build_duration_string( $attributes ) {
+		$days            = ( $attributes['days'] ?? 0 );
+		$hours           = ( $attributes['hours'] ?? 0 );
+		$minutes         = ( $attributes['minutes'] ?? 0 );
+		$elements        = $this->transform_duration_to_string( $days, $hours, $minutes );
+		$elements_length = \count( $elements );
+
+		switch ( $elements_length ) {
+			case 1:
+				return $elements[0];
+			case 2:
+				return \sprintf(
+				/* translators: %s expands to a unit of time (e.g. 1 day). */
+					\__( '%1$s and %2$s', 'wordpress-seo' ),
+					...$elements
+				);
+			case 3:
+				return \sprintf(
+				/* translators: %s expands to a unit of time (e.g. 1 day). */
+					\__( '%1$s, %2$s and %3$s', 'wordpress-seo' ),
+					...$elements
+				);
+			default:
+				return '';
+		}
+	}
+
+	/**
+	 * Presents the duration text of the How-To block in the site language.
+	 *
+	 * @param array  $attributes The attributes.
+	 * @param string $content    The content.
+	 *
+	 * @return string The content with the duration text in the site language.
+	 */
+	public function present_duration_text( $attributes, $content ) {
+		$duration = $this->build_duration_string( $attributes );
+		// 'Time needed:' is the default duration text that will be shown if a user doesn't add one.
+		$duration_text = \__( 'Time needed:', 'wordpress-seo' );
+
+		if ( isset( $attributes['durationText'] ) && $attributes['durationText'] !== '' ) {
+			$duration_text = $attributes['durationText'];
+		}
+
+		return \preg_replace(
+			'/(<p class="schema-how-to-total-time">)(<span class="schema-how-to-duration-time-text">.*<\/span>)(.[^\/p>]*)(<\/p>)/',
+			'<p class="schema-how-to-total-time"><span class="schema-how-to-duration-time-text">' . $duration_text . '&nbsp;</span>' . $duration . '</p>',
+			$content,
+			1
+		);
+	}
+
+	/**
 	 * Optimizes images in the How-To blocks.
 	 *
 	 * @param array  $attributes The attributes.
@@ -185,6 +223,8 @@ class Structured_Data_Blocks implements Integration_Interface {
 		if ( ! isset( $attributes['steps'] ) ) {
 			return $content;
 		}
+
+		$content = $this->present_duration_text( $attributes, $content );
 
 		return $this->optimize_images( $attributes['steps'], 'text', $content );
 	}
@@ -346,7 +386,7 @@ class Structured_Data_Blocks implements Integration_Interface {
 			if ( ! isset( $element[ $key ] ) ) {
 				continue;
 			}
-			if ( isset( $element[ $key ] ) && is_array( $element[ $key ] ) ) {
+			if ( isset( $element[ $key ] ) && \is_array( $element[ $key ] ) ) {
 				foreach ( $element[ $key ] as $part ) {
 					if ( ! \is_array( $part ) || ! isset( $part['type'] ) || $part['type'] !== 'img' ) {
 						continue;
@@ -367,5 +407,19 @@ class Structured_Data_Blocks implements Integration_Interface {
 		else {
 			$this->used_caches[ $post_id ] = $images;
 		}
+	}
+
+	/* DEPRECATED METHODS */
+
+	/**
+	 * Enqueue Gutenberg block assets for backend editor.
+	 *
+	 * @deprecated 22.7
+	 * @codeCoverageIgnore
+	 *
+	 * @return void
+	 */
+	public function enqueue_block_editor_assets() {
+		\_deprecated_function( __METHOD__, 'Yoast SEO 22.7' );
 	}
 }

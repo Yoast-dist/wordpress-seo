@@ -116,9 +116,7 @@ class WPSEO_Term_Metabox_Formatter implements WPSEO_Metabox_Formatter_Interface 
 	 * @return string
 	 */
 	private function edit_url() {
-		global $wp_version;
-		$script_filename = version_compare( $wp_version, '4.5', '<' ) ? 'edit-tags' : 'term';
-		return admin_url( $script_filename . '.php?action=edit&taxonomy=' . $this->term->taxonomy . '&tag_ID={id}' );
+		return admin_url( 'term.php?action=edit&taxonomy=' . $this->term->taxonomy . '&tag_ID={id}' );
 	}
 
 	/**
@@ -243,7 +241,7 @@ class WPSEO_Term_Metabox_Formatter implements WPSEO_Metabox_Formatter_Interface 
 		 * @param string $template_option_name The subname of the option in which the template you want to get is saved.
 		 * @param string $taxonomy             The name of the taxonomy.
 		 */
-		return \apply_filters( 'wpseo_social_template_taxonomy', '', $template_option_name, $this->term->taxonomy );
+		return apply_filters( 'wpseo_social_template_taxonomy', '', $template_option_name, $this->term->taxonomy );
 	}
 
 	/**

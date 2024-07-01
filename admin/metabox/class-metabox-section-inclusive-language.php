@@ -5,8 +5,6 @@
  * @package WPSEO\Admin
  */
 
-use Yoast\WP\SEO\Presenters\Admin\Beta_Badge_Presenter;
-
 /**
  * Generates and displays the React root element for a metabox section.
  */
@@ -21,6 +19,8 @@ class WPSEO_Metabox_Section_Inclusive_Language implements WPSEO_Metabox_Section 
 
 	/**
 	 * Outputs the section link.
+	 *
+	 * @return void
 	 */
 	public function display_link() {
 		printf(
@@ -33,6 +33,8 @@ class WPSEO_Metabox_Section_Inclusive_Language implements WPSEO_Metabox_Section 
 
 	/**
 	 * Outputs the section content.
+	 *
+	 * @return void
 	 */
 	public function display_content() {
 		printf(
