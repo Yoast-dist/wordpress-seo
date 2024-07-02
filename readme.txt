@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.5
-Stable tag: 23.0-RC2
+Stable tag: 23.0
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -331,8 +331,8 @@ Yoast SEO 23.0 brings more enhancements and bugfixes. [Find more information abo
 
 #### Other
 
-* Deprecates the following classes: `Wordproof`, `Wordproof_App_Config`, `Wordproof_Helper`, `Wordproof_Integration_Active_Conditional`, `Wordproof_Plugin_Inactive_Conditional`,  `Wordproof_Translations`.
 * Deprecates the Wordproof feature.
+* Deprecates the following classes: `Wordproof`, `Wordproof_App_Config`, `Wordproof_Helper`, `Wordproof_Integration_Active_Conditional`, `Wordproof_Plugin_Inactive_Conditional`,  `Wordproof_Translations`.
 
 = 22.9 =
 
