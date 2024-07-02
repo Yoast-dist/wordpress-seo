@@ -319,13 +319,15 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 Release date: 2024-07-02
 
+Yoast SEO 23.0 brings more enhancements and bugfixes. [Find more information about our software releases and updates here](https://yoa.st/release-2-7-24).
+
 #### Enhancements
 
 * Removes a redundant database write query, when saving a post.
 
 #### Bugfixes
 
-* Fixes a bug where unnecessary data was written in the Yoast database when on non-production sites (or when the relevant `Yoast\WP\SEO\should_index_indexables` filter was used to disable such a behavior)
+* Fixes a bug where unnecessary data was written in the Yoast database on non-production sites (or when the relevant `Yoast\WP\SEO\should_index_indexables` filter was used to disable such a behavior).
 
 #### Other
 
