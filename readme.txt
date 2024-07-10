@@ -4,8 +4,8 @@ Donate link: https://yoa.st/1up
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
-Tested up to: 6.5
-Stable tag: 23.1-RC3
+Tested up to: 6.6
+Stable tag: 23.1-RC4
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -321,8 +321,12 @@ Release date: 2024-07-16
 
 #### Enhancements
 
-* Disabled an unneeded cleanup cronjob when indexables are disabled.
-* Removes unnecessary query when indexables are disabled.
+* Disables an unneeded cleanup cron job when indexables are disabled.
+* Removes an unnecessary query when indexables are disabled.
+
+#### Other
+
+* Sets the \"WordPress tested up to\" version to 6.6.
 
 = 23.0 =
 
