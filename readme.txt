@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.6
-Stable tag: 23.2-RC1
+Stable tag: 23.2-RC2
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -317,7 +317,7 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 = 23.2 =
 
-Release date: 2024-07-30
+Release date: 2024-08-06
 
 #### Enhancements
 
@@ -328,11 +328,12 @@ Release date: 2024-07-30
 #### Other
 
 * Deprecates the `Ai_Generate_Titles_And_Descriptions_Introduction_Upsell` class.
+* Fix gradient background for AI title and description generator introduction modal.
 * Sets the \"WordPress tested up to\" version to 6.6.
 
 = 23.1 =
 
-Release date: 2024-07-16
+Release date: 2024-07-23
 
 #### Enhancements
 
