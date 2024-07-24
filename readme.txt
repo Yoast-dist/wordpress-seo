@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.6
-Stable tag: 23.2-RC4
+Stable tag: 23.2-RC5
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -276,6 +276,10 @@ Release date: 2024-08-06
 #### Enhancements
 
 * Excludes image captions from the _keyphrase in introduction_ assessment: image captions at the beginning of a post will not be treated as an introduction anymore.
+
+#### Bugfixes
+
+* Fixes a bug where the `wpseo_posts_for_related_keywords` filter would not work anymore since it was accidentally renamed.
 
 #### Other
 
