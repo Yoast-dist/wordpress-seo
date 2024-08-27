@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.6
-Stable tag: 23.4-RC2
+Stable tag: 23.4-RC3
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -280,13 +280,14 @@ Release date: 2024-09-03
 
 #### Enhancements
 
-* Adds support for discarding the changes when switching to a post, using the Top bar feature.
+* Adds support for discarding the changes when switching to a post, using the Top bar feature in Elementor.
 * Adds _так_ to the words recognized by the _transition words_ assessment in Russian. Props to @pavelmai83.
 * Improves the schema output by following the specification for the _SearchAction_ more strictly.
 * Re-enables the script concatenation that was disabled to prevent a bug with WordPress 5.5.
 
 #### Bugfixes
 
+* Fixes a bug where an image caption inside a classic block would be considered the introduction when using the _keyphrase in introduction_ assessment in the default editor.
 * Fixes a bug where the first tag instead of the primary tag would be shown in a permalink when adding a link in the Classic editor.
 * Fixes a bug where the Yoast tab would disappear when opening and closing the Site Settings in Elementor.
 * Fixes a bug where the Yoast user settings would be wiped out after a user profile update when the respective global settings were disabled.
