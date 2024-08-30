@@ -15,7 +15,7 @@ if ( ! function_exists( 'add_filter' ) ) {
  * {@internal Nobody should be able to overrule the real version number as this can cause
  *            serious issues with the options, so no if ( ! defined() ).}}
  */
-define( 'WPSEO_VERSION', '21.9-RC2' );
+define( 'WPSEO_VERSION', '23.4-RC3' );
 
 
 if ( ! defined( 'WPSEO_PATH' ) ) {
@@ -35,8 +35,8 @@ define( 'YOAST_VENDOR_DEFINE_PREFIX', 'YOASTSEO_VENDOR__' );
 define( 'YOAST_VENDOR_PREFIX_DIRECTORY', 'vendor_prefixed' );
 
 define( 'YOAST_SEO_PHP_REQUIRED', '7.2.5' );
-define( 'YOAST_SEO_WP_TESTED', '6.4.2' );
-define( 'YOAST_SEO_WP_REQUIRED', '6.3' );
+define( 'YOAST_SEO_WP_TESTED', '6.6.1' );
+define( 'YOAST_SEO_WP_REQUIRED', '6.4' );
 
 if ( ! defined( 'WPSEO_NAMESPACES' ) ) {
 	define( 'WPSEO_NAMESPACES', true );
@@ -226,7 +226,7 @@ function _wpseo_activate() {
 			$GLOBALS['wpseo_rewrite'] = new WPSEO_Rewrite();
 		}
 	}
-	add_action( 'shutdown', 'flush_rewrite_rules' );
+	add_action( 'shutdown', [ 'WPSEO_Utils', 'clear_rewrites' ] );
 
 	WPSEO_Options::set( 'indexing_reason', 'first_install' );
 	WPSEO_Options::set( 'first_time_install', true );
@@ -261,7 +261,7 @@ function _wpseo_activate() {
 function _wpseo_deactivate() {
 	require_once WPSEO_PATH . 'inc/wpseo-functions.php';
 
-	add_action( 'shutdown', 'flush_rewrite_rules' );
+	add_action( 'shutdown', [ 'WPSEO_Utils', 'clear_rewrites' ] );
 
 	// Register capabilities, to make sure they are cleaned up.
 	do_action( 'wpseo_register_roles' );
@@ -342,28 +342,9 @@ function wpseo_init() {
 	WPSEO_Meta::init();
 
 	if ( version_compare( WPSEO_Options::get( 'version', 1 ), WPSEO_VERSION, '<' ) ) {
-		require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
-		require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
-		require_once ABSPATH . 'wp-admin/includes/file.php';
-		WP_Filesystem();
-
-		/*
-		 * We invalidate each subdir and the main files instead of the whole `wordpress-seo` dir
-		 * to avoid any timeout or resource exhaustion when building from source.
-		 */
-		if ( function_exists( 'wp_opcache_invalidate' ) ) {
-			// Since WP 5.5.
-			wp_opcache_invalidate( WPSEO_PATH . 'wp-seo-main.php' );
-			wp_opcache_invalidate( WPSEO_PATH . 'wp-seo.php' );
-		}
-		if ( function_exists( 'wp_opcache_invalidate_directory' ) ) {
-			// Since WP 6.2.
-			wp_opcache_invalidate_directory( WPSEO_PATH . 'admin' );
-			wp_opcache_invalidate_directory( WPSEO_PATH . 'inc' );
-			wp_opcache_invalidate_directory( WPSEO_PATH . 'lib' );
-			wp_opcache_invalidate_directory( WPSEO_PATH . 'src' );
-			wp_opcache_invalidate_directory( WPSEO_PATH . 'vendor' );
-			wp_opcache_invalidate_directory( WPSEO_PATH . 'vendor_prefixed' );
+		if ( function_exists( 'opcache_reset' ) ) {
+			// phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- Prevent notices when opcache.restrict_api is set.
+			@opcache_reset();
 		}
 
 		new WPSEO_Upgrade();
@@ -381,9 +362,6 @@ function wpseo_init() {
 	if ( ! wp_doing_ajax() ) {
 		require_once WPSEO_PATH . 'inc/wpseo-non-ajax-functions.php';
 	}
-
-	// Init it here because the filter must be present on the frontend as well or it won't work in the customizer.
-	new WPSEO_Customizer();
 
 	$integrations   = [];
 	$integrations[] = new WPSEO_Slug_Change_Watcher();
@@ -427,17 +405,12 @@ function wpseo_admin_init() {
 
 /* ***************************** BOOTSTRAP / HOOK INTO WP *************************** */
 $spl_autoload_exists = function_exists( 'spl_autoload_register' );
-$filter_exists       = function_exists( 'filter_input' );
 
 if ( ! $spl_autoload_exists ) {
 	add_action( 'admin_init', 'yoast_wpseo_missing_spl', 1 );
 }
 
-if ( ! $filter_exists ) {
-	add_action( 'admin_init', 'yoast_wpseo_missing_filter', 1 );
-}
-
-if ( ! wp_installing() && ( $spl_autoload_exists && $filter_exists ) ) {
+if ( ! wp_installing() && ( $spl_autoload_exists ) ) {
 	add_action( 'plugins_loaded', 'wpseo_init', 14 );
 	add_action( 'setup_theme', [ 'Yoast_Dynamic_Rewrites', 'instance' ], 1 );
 	add_action( 'rest_api_init', 'wpseo_init_rest_api' );
@@ -561,25 +534,25 @@ function yoast_wpseo_missing_autoload_notice() {
  * Throw an error if the filter extension is disabled (prevent white screens) and self-deactivate plugin.
  *
  * @since 2.0
+ * @deprecated 23.3
+ * @codeCoverageIgnore
  *
  * @return void
  */
 function yoast_wpseo_missing_filter() {
-	if ( is_admin() ) {
-		add_action( 'admin_notices', 'yoast_wpseo_missing_filter_notice' );
-
-		yoast_wpseo_self_deactivate();
-	}
+	_deprecated_function( __FUNCTION__, 'Yoast SEO 23.3' );
 }
 
 /**
  * Returns the notice in case of missing filter extension.
  *
+ * @deprecated 23.3
+ * @codeCoverageIgnore
+ *
  * @return void
  */
 function yoast_wpseo_missing_filter_notice() {
-	$message = esc_html__( 'The filter extension seem to be unavailable. Please ask your web host to enable it.', 'wordpress-seo' );
-	yoast_wpseo_activation_failed_notice( $message );
+	_deprecated_function( __FUNCTION__, 'Yoast SEO 23.3' );
 }
 
 /**

@@ -450,11 +450,6 @@ class WPSEO_Admin_Bar_Menu implements WPSEO_WordPress_Integration {
 				'title' => __( 'Google Page Speed Test', 'wordpress-seo' ),
 				'href'  => '//developers.google.com/speed/pagespeed/insights/?url=' . $encoded_url,
 			],
-			[
-				'id'    => 'wpseo-google-mobile-friendly',
-				'title' => __( 'Mobile-Friendly Test', 'wordpress-seo' ),
-				'href'  => 'https://www.google.com/webmasters/tools/mobile-friendly/?url=' . $encoded_url,
-			],
 		];
 
 		$this->add_submenu_items( $submenu_items, $wp_admin_bar, self::ANALYSIS_SUBMENU_IDENTIFIER );
@@ -595,7 +590,7 @@ class WPSEO_Admin_Bar_Menu implements WPSEO_WordPress_Integration {
 		if ( YoastSEO()->classes->get( Promotion_Manager::class )->is( 'black-friday-2023-promotion' ) ) {
 			$sale_percentage = sprintf(
 				'<span class="admin-bar-premium-promotion">%1$s</span>',
-				__( '-30%', 'wordpress-seo' )
+				esc_html__( '-30%', 'wordpress-seo' )
 			);
 		}
 		$wp_admin_bar->add_menu(
@@ -605,8 +600,8 @@ class WPSEO_Admin_Bar_Menu implements WPSEO_WordPress_Integration {
 				// Circumvent an issue in the WP admin bar API in order to pass `data` attributes. See https://core.trac.wordpress.org/ticket/38636.
 				'title'  => sprintf(
 					'<a href="%1$s" target="_blank" data-action="load-nfd-ctb" data-ctb-id="f6a84663-465f-4cb5-8ba5-f7a6d72224b2" style="padding:0;">%2$s &raquo; %3$s</a>',
-					$this->shortlinker->build_shortlink( 'https://yoa.st/admin-bar-get-premium' ),
-					__( 'Get Yoast SEO Premium', 'wordpress-seo' ),
+					esc_url( $this->shortlinker->build_shortlink( 'https://yoa.st/admin-bar-get-premium' ) ),
+					esc_html__( 'Get Yoast SEO Premium', 'wordpress-seo' ),
 					$sale_percentage
 				),
 				'meta'   => [
@@ -903,7 +898,8 @@ class WPSEO_Admin_Bar_Menu implements WPSEO_WordPress_Integration {
 	 * @return bool True if capabilities are sufficient, false otherwise.
 	 */
 	protected function can_manage_options() {
-		return is_network_admin() && current_user_can( 'wpseo_manage_network_options' ) || ! is_network_admin() && WPSEO_Capability_Utils::current_user_can( 'wpseo_manage_options' );
+		return ( is_network_admin() && current_user_can( 'wpseo_manage_network_options' ) )
+			|| ( ! is_network_admin() && WPSEO_Capability_Utils::current_user_can( 'wpseo_manage_options' ) );
 	}
 
 	/**

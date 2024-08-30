@@ -112,10 +112,6 @@ class WPSEO_Admin_Pages {
 		if ( in_array( $page, [ WPSEO_Admin::PAGE_IDENTIFIER, 'wpseo_workouts' ], true ) ) {
 			wp_enqueue_media();
 
-			$script_data['media'] = [
-				'choose_image' => __( 'Use Image', 'wordpress-seo' ),
-			];
-
 			$script_data['userEditUrl'] = add_query_arg( 'user_id', '{user_id}', admin_url( 'user-edit.php' ) );
 		}
 
@@ -125,30 +121,6 @@ class WPSEO_Admin_Pages {
 
 		$this->asset_manager->localize_script( 'settings', 'wpseoScriptData', $script_data );
 		$this->asset_manager->enqueue_user_language_script();
-	}
-
-	/**
-	 * Retrieves some variables that are needed for replacing variables in JS.
-	 *
-	 * @deprecated 20.3
-	 * @codeCoverageIgnore
-	 *
-	 * @return array The replacement and recommended replacement variables.
-	 */
-	public function get_replace_vars_script_data() {
-		_deprecated_function( __METHOD__, 'Yoast SEO 20.3' );
-		$replace_vars                 = new WPSEO_Replace_Vars();
-		$recommended_replace_vars     = new WPSEO_Admin_Recommended_Replace_Vars();
-		$editor_specific_replace_vars = new WPSEO_Admin_Editor_Specific_Replace_Vars();
-		$replace_vars_list            = $replace_vars->get_replacement_variables_list();
-
-		return [
-			'replace_vars'                 => $replace_vars_list,
-			'recommended_replace_vars'     => $recommended_replace_vars->get_recommended_replacevars(),
-			'editor_specific_replace_vars' => $editor_specific_replace_vars->get(),
-			'shared_replace_vars'          => $editor_specific_replace_vars->get_generic( $replace_vars_list ),
-			'hidden_replace_vars'          => $replace_vars->get_hidden_replace_vars(),
-		];
 	}
 
 	/**
