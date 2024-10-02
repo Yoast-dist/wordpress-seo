@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.6
-Stable tag: 23.6-RC2
+Stable tag: 23.6-RC3
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -289,6 +289,10 @@ Release date: 2024-10-08
 * Fixes a bug where the content analysis would error when removing an image caption in the default editor.
 * Fixes a bug where the link popover would be hidden when editing a post in tablet/mobile view. Props to [stokesman](https://github.com/stokesman).
 * Fixes a visual inconsistency where the descriptions of the disabled Premium policy settings would look enabled, when they are not enabled.
+
+#### Other
+
+* Sets the minimum supported WordPress version to 6.5.
 
 = 23.5 =
 
