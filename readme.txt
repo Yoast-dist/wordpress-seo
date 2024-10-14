@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.6
-Stable tag: 23.7-RC1
+Stable tag: 23.7-RC2
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -285,7 +285,7 @@ Release date: 2024-10-22
 #### Bugfixes
 
 * Fixes a bug where a database error would occur when there were no public taxonomies available for indexing.
-* Fixes a bug where another plugin running the `exit()` function inside the `plugin_loaded` hook would result in a fatal error. Props to @menno-ll.
+* Fixes a bug where another plugin running the `exit()` function inside the `plugin_loaded` hook would result in a fatal error. Props to [menno-ll](https://github.com/menno-ll).
 
 #### Other
 
