@@ -280,8 +280,8 @@ Release date: 2024-11-05
 
 #### Enhancements
 
+* Introduces a new, redesigned General page.
 * Adds a notification to inform the user when an error occurs while changing the visibility of a notification or a problem.
-* Introduces the new, redesigned General page.
 
 #### Bugfixes
 
@@ -289,7 +289,7 @@ Release date: 2024-11-05
 
 #### Other
 
-* Sets the _WordPress tested up to_ version to 6.7
+* Sets the _WordPress tested up to_ version to 6.7.
 
 = 23.7 =
 
