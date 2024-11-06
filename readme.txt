@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.7
-Stable tag: 23.9-RC1
+Stable tag: 23.9-RC2
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -281,7 +281,8 @@ Release date: 2024-11-19
 #### Enhancements
 
 * Adds a maximum width to the problems and notifications in the dashboard.
-* improves the compatibility with WordPress 6.7 Iframe editor.
+* Adds new columns and design to the related key phrase suggestions table.
+* Improves the compatibility of the Yoast blocks with WordPress 6.7.
 
 #### Bugfixes
 
