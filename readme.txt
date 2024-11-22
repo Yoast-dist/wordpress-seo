@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.7
-Stable tag: 24.0-RC2
+Stable tag: 24.0-RC3
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -283,6 +283,7 @@ Release date: 2024-12-03
 * Allows to set OpenGraph image `width`, `height `and `type` HTML metadata to `null` in order to don't show them. Props to [GiovanniMounir](https://github.com/GiovanniMounir).
 * Improves the _transition words_ assessment for Portuguese and English by updating the relevant lists of transitions words. Props to [BrunoAseff](https://github.com/BrunoAseff).
 * Shows an error message in the Yoast _General_ page in case of JavaScript errors.
+* Updates the design and translations of the country selector in the related keyphrase suggestion modal.
 
 #### Bugfixes
 
