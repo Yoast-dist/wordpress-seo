@@ -944,6 +944,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Results\\Current_Score' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Results\\Current_Scores_List' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Results\\Score_Result' => true,
+            'Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Results\\Score_Results_Not_Found_Exception' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Domain\\Taxonomies\\Taxonomy' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Content_Types\\Content_Types_Collector' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Endpoints\\Readability_Scores_Endpoint' => true,
