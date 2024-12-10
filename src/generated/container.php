@@ -1775,11 +1775,11 @@ class Cached_Container extends Container
      *
      * @return \Yoast\WP\SEO\Conditionals\Third_Party\Wordproof_Integration_Active_Conditional
      *
-     * @deprecated Yoast\WP\SEO\Conditionals\Third_Party\Wordproof_Integration_Active_Conditional is deprecated since version 22.10!
+     * @deprecated Since Yoast\WP\SEO\Conditionals\Third_Party\Wordproof_Integration_Active_Conditional 22.10: Yoast\WP\SEO\Conditionals\Third_Party\Wordproof_Integration_Active_Conditional is deprecated since version 22.10!
      */
     protected function getWordproofIntegrationActiveConditionalService()
     {
-        trigger_deprecation('', '', 'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Wordproof_Integration_Active_Conditional is deprecated since version 22.10!');
+        trigger_deprecation('Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Wordproof_Integration_Active_Conditional', '22.10', 'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Wordproof_Integration_Active_Conditional is deprecated since version 22.10!');
 
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Wordproof_Integration_Active_Conditional'] = new \Yoast\WP\SEO\Conditionals\Third_Party\Wordproof_Integration_Active_Conditional(($this->services['Yoast\\WP\\SEO\\Helpers\\Wordproof_Helper'] ?? $this->getWordproofHelperService()));
     }
@@ -1789,11 +1789,11 @@ class Cached_Container extends Container
      *
      * @return \Yoast\WP\SEO\Conditionals\Third_Party\Wordproof_Plugin_Inactive_Conditional
      *
-     * @deprecated Yoast\WP\SEO\Conditionals\Third_Party\Wordproof_Plugin_Inactive_Conditional is deprecated since version 22.10!
+     * @deprecated Since Yoast\WP\SEO\Conditionals\Third_Party\Wordproof_Plugin_Inactive_Conditional 22.10: Yoast\WP\SEO\Conditionals\Third_Party\Wordproof_Plugin_Inactive_Conditional is deprecated since version 22.10!
      */
     protected function getWordproofPluginInactiveConditionalService()
     {
-        trigger_deprecation('', '', 'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Wordproof_Plugin_Inactive_Conditional is deprecated since version 22.10!');
+        trigger_deprecation('Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Wordproof_Plugin_Inactive_Conditional', '22.10', 'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Wordproof_Plugin_Inactive_Conditional is deprecated since version 22.10!');
 
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Wordproof_Plugin_Inactive_Conditional'] = new \Yoast\WP\SEO\Conditionals\Third_Party\Wordproof_Plugin_Inactive_Conditional();
     }
@@ -2303,11 +2303,11 @@ class Cached_Container extends Container
      *
      * @return \Yoast\WP\SEO\Config\Wordproof_App_Config
      *
-     * @deprecated Yoast\WP\SEO\Config\Wordproof_App_Config is deprecated since version 22.10!
+     * @deprecated Since Yoast\WP\SEO\Config\Wordproof_App_Config 22.10: Yoast\WP\SEO\Config\Wordproof_App_Config is deprecated since version 22.10!
      */
     protected function getWordproofAppConfigService()
     {
-        trigger_deprecation('', '', 'Yoast\\WP\\SEO\\Config\\Wordproof_App_Config is deprecated since version 22.10!');
+        trigger_deprecation('Yoast\\WP\\SEO\\Config\\Wordproof_App_Config', '22.10', 'Yoast\\WP\\SEO\\Config\\Wordproof_App_Config is deprecated since version 22.10!');
 
         return $this->services['Yoast\\WP\\SEO\\Config\\Wordproof_App_Config'] = new \Yoast\WP\SEO\Config\Wordproof_App_Config();
     }
@@ -2317,11 +2317,11 @@ class Cached_Container extends Container
      *
      * @return \Yoast\WP\SEO\Config\Wordproof_Translations
      *
-     * @deprecated Yoast\WP\SEO\Config\Wordproof_Translations is deprecated since version 22.10!
+     * @deprecated Since Yoast\WP\SEO\Config\Wordproof_Translations 22.10: Yoast\WP\SEO\Config\Wordproof_Translations is deprecated since version 22.10!
      */
     protected function getWordproofTranslationsService()
     {
-        trigger_deprecation('', '', 'Yoast\\WP\\SEO\\Config\\Wordproof_Translations is deprecated since version 22.10!');
+        trigger_deprecation('Yoast\\WP\\SEO\\Config\\Wordproof_Translations', '22.10', 'Yoast\\WP\\SEO\\Config\\Wordproof_Translations is deprecated since version 22.10!');
 
         return $this->services['Yoast\\WP\\SEO\\Config\\Wordproof_Translations'] = new \Yoast\WP\SEO\Config\Wordproof_Translations();
     }
@@ -2973,11 +2973,11 @@ class Cached_Container extends Container
      *
      * @return \Yoast\WP\SEO\Helpers\Request_Helper
      *
-     * @deprecated Yoast\WP\SEO\Helpers\Request_Helper is deprecated since version 23.6!
+     * @deprecated Since Yoast\WP\SEO\Helpers\Request_Helper 23.6: Yoast\WP\SEO\Helpers\Request_Helper is deprecated since version 23.6!
      */
     protected function getRequestHelperService()
     {
-        trigger_deprecation('', '', 'Yoast\\WP\\SEO\\Helpers\\Request_Helper is deprecated since version 23.6!');
+        trigger_deprecation('Yoast\\WP\\SEO\\Helpers\\Request_Helper', '23.6', 'Yoast\\WP\\SEO\\Helpers\\Request_Helper is deprecated since version 23.6!');
 
         return $this->services['Yoast\\WP\\SEO\\Helpers\\Request_Helper'] = new \Yoast\WP\SEO\Helpers\Request_Helper();
     }
@@ -3213,11 +3213,11 @@ class Cached_Container extends Container
      *
      * @return \Yoast\WP\SEO\Helpers\Wordproof_Helper
      *
-     * @deprecated Yoast\WP\SEO\Helpers\Wordproof_Helper is deprecated since version 22.10!
+     * @deprecated Since Yoast\WP\SEO\Helpers\Wordproof_Helper 22.10: Yoast\WP\SEO\Helpers\Wordproof_Helper is deprecated since version 22.10!
      */
     protected function getWordproofHelperService()
     {
-        trigger_deprecation('', '', 'Yoast\\WP\\SEO\\Helpers\\Wordproof_Helper is deprecated since version 22.10!');
+        trigger_deprecation('Yoast\\WP\\SEO\\Helpers\\Wordproof_Helper', '22.10', 'Yoast\\WP\\SEO\\Helpers\\Wordproof_Helper is deprecated since version 22.10!');
 
         return $this->services['Yoast\\WP\\SEO\\Helpers\\Wordproof_Helper'] = new \Yoast\WP\SEO\Helpers\Wordproof_Helper(($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] ?? $this->getCurrentPageHelperService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper'] = new \Yoast\WP\SEO\Helpers\Woocommerce_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())));
     }
@@ -3387,11 +3387,11 @@ class Cached_Container extends Container
      *
      * @return \Yoast\WP\SEO\Integrations\Admin\Disable_Concatenate_Scripts_Integration
      *
-     * @deprecated Yoast\WP\SEO\Integrations\Admin\Disable_Concatenate_Scripts_Integration is deprecated since version 23.2!
+     * @deprecated Since Yoast\WP\SEO\Integrations\Admin\Disable_Concatenate_Scripts_Integration 23.2: Yoast\WP\SEO\Integrations\Admin\Disable_Concatenate_Scripts_Integration is deprecated since version 23.2!
      */
     protected function getDisableConcatenateScriptsIntegrationService()
     {
-        trigger_deprecation('', '', 'Yoast\\WP\\SEO\\Integrations\\Admin\\Disable_Concatenate_Scripts_Integration is deprecated since version 23.2!');
+        trigger_deprecation('Yoast\\WP\\SEO\\Integrations\\Admin\\Disable_Concatenate_Scripts_Integration', '23.2', 'Yoast\\WP\\SEO\\Integrations\\Admin\\Disable_Concatenate_Scripts_Integration is deprecated since version 23.2!');
 
         return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Disable_Concatenate_Scripts_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Disable_Concatenate_Scripts_Integration();
     }
@@ -3551,11 +3551,11 @@ class Cached_Container extends Container
      *
      * @return \Yoast\WP\SEO\Integrations\Admin\Old_Premium_Integration
      *
-     * @deprecated Yoast\WP\SEO\Integrations\Admin\Old_Premium_Integration is deprecated since version 20.10!
+     * @deprecated Since Yoast\WP\SEO\Integrations\Admin\Old_Premium_Integration 20.10: Yoast\WP\SEO\Integrations\Admin\Old_Premium_Integration is deprecated since version 20.10!
      */
     protected function getOldPremiumIntegrationService()
     {
-        trigger_deprecation('', '', 'Yoast\\WP\\SEO\\Integrations\\Admin\\Old_Premium_Integration is deprecated since version 20.10!');
+        trigger_deprecation('Yoast\\WP\\SEO\\Integrations\\Admin\\Old_Premium_Integration', '20.10', 'Yoast\\WP\\SEO\\Integrations\\Admin\\Old_Premium_Integration is deprecated since version 20.10!');
 
         return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Old_Premium_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Old_Premium_Integration(($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())), ($this->services['WPSEO_Admin_Asset_Manager'] ?? $this->getWPSEOAdminAssetManagerService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] ?? $this->getCurrentPageHelperService()));
     }
@@ -3715,11 +3715,11 @@ class Cached_Container extends Container
      *
      * @return \Yoast\WP\SEO\Integrations\Duplicate_Post_Integration
      *
-     * @deprecated Yoast\WP\SEO\Integrations\Duplicate_Post_Integration is deprecated since version 23.4!
+     * @deprecated Since Yoast\WP\SEO\Integrations\Duplicate_Post_Integration 23.4: Yoast\WP\SEO\Integrations\Duplicate_Post_Integration is deprecated since version 23.4!
      */
     protected function getDuplicatePostIntegrationService()
     {
-        trigger_deprecation('', '', 'Yoast\\WP\\SEO\\Integrations\\Duplicate_Post_Integration is deprecated since version 23.4!');
+        trigger_deprecation('Yoast\\WP\\SEO\\Integrations\\Duplicate_Post_Integration', '23.4', 'Yoast\\WP\\SEO\\Integrations\\Duplicate_Post_Integration is deprecated since version 23.4!');
 
         return $this->services['Yoast\\WP\\SEO\\Integrations\\Duplicate_Post_Integration'] = new \Yoast\WP\SEO\Integrations\Duplicate_Post_Integration();
     }
@@ -4081,11 +4081,11 @@ class Cached_Container extends Container
      *
      * @return \Yoast\WP\SEO\Integrations\Third_Party\Wincher
      *
-     * @deprecated Yoast\WP\SEO\Integrations\Third_Party\Wincher is deprecated since version 21.6!
+     * @deprecated Since Yoast\WP\SEO\Integrations\Third_Party\Wincher 21.6: Yoast\WP\SEO\Integrations\Third_Party\Wincher is deprecated since version 21.6!
      */
     protected function getWincherService()
     {
-        trigger_deprecation('', '', 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wincher is deprecated since version 21.6!');
+        trigger_deprecation('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wincher', '21.6', 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wincher is deprecated since version 21.6!');
 
         return $this->services['Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wincher'] = new \Yoast\WP\SEO\Integrations\Third_Party\Wincher(($this->services['Yoast\\WP\\SEO\\Helpers\\Wincher_Helper'] ?? $this->getWincherHelperService()));
     }
@@ -4135,11 +4135,11 @@ class Cached_Container extends Container
      *
      * @return \Yoast\WP\SEO\Integrations\Third_Party\Wordproof
      *
-     * @deprecated Yoast\WP\SEO\Integrations\Third_Party\Wordproof is deprecated since version 22.10!
+     * @deprecated Since Yoast\WP\SEO\Integrations\Third_Party\Wordproof 22.10: Yoast\WP\SEO\Integrations\Third_Party\Wordproof is deprecated since version 22.10!
      */
     protected function getWordproofService()
     {
-        trigger_deprecation('', '', 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wordproof is deprecated since version 22.10!');
+        trigger_deprecation('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wordproof', '22.10', 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wordproof is deprecated since version 22.10!');
 
         return $this->services['Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wordproof'] = new \Yoast\WP\SEO\Integrations\Third_Party\Wordproof(($this->services['Yoast\\WP\\SEO\\Helpers\\Wordproof_Helper'] ?? $this->getWordproofHelperService()), ($this->services['WPSEO_Admin_Asset_Manager'] ?? $this->getWPSEOAdminAssetManagerService()));
     }
@@ -4149,11 +4149,11 @@ class Cached_Container extends Container
      *
      * @return \Yoast\WP\SEO\Integrations\Third_Party\Wordproof_Integration_Toggle
      *
-     * @deprecated Yoast\WP\SEO\Integrations\Third_Party\Wordproof_Integration_Toggle is deprecated since version 21.6!
+     * @deprecated Since Yoast\WP\SEO\Integrations\Third_Party\Wordproof_Integration_Toggle 21.6: Yoast\WP\SEO\Integrations\Third_Party\Wordproof_Integration_Toggle is deprecated since version 21.6!
      */
     protected function getWordproofIntegrationToggleService()
     {
-        trigger_deprecation('', '', 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wordproof_Integration_Toggle is deprecated since version 21.6!');
+        trigger_deprecation('Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wordproof_Integration_Toggle', '21.6', 'Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wordproof_Integration_Toggle is deprecated since version 21.6!');
 
         return $this->services['Yoast\\WP\\SEO\\Integrations\\Third_Party\\Wordproof_Integration_Toggle'] = new \Yoast\WP\SEO\Integrations\Third_Party\Wordproof_Integration_Toggle(($this->services['Yoast\\WP\\SEO\\Helpers\\Wordproof_Helper'] ?? $this->getWordproofHelperService()));
     }
@@ -4433,11 +4433,11 @@ class Cached_Container extends Container
      *
      * @return \Yoast\WP\SEO\Introductions\Application\Ai_Generate_Titles_And_Descriptions_Introduction_Upsell
      *
-     * @deprecated Yoast\WP\SEO\Introductions\Application\Ai_Generate_Titles_And_Descriptions_Introduction_Upsell is deprecated since version 23.2!
+     * @deprecated Since Yoast\WP\SEO\Introductions\Application\Ai_Generate_Titles_And_Descriptions_Introduction_Upsell 23.2: Yoast\WP\SEO\Introductions\Application\Ai_Generate_Titles_And_Descriptions_Introduction_Upsell is deprecated since version 23.2!
      */
     protected function getAiGenerateTitlesAndDescriptionsIntroductionUpsellService()
     {
-        trigger_deprecation('', '', 'Yoast\\WP\\SEO\\Introductions\\Application\\Ai_Generate_Titles_And_Descriptions_Introduction_Upsell is deprecated since version 23.2!');
+        trigger_deprecation('Yoast\\WP\\SEO\\Introductions\\Application\\Ai_Generate_Titles_And_Descriptions_Introduction_Upsell', '23.2', 'Yoast\\WP\\SEO\\Introductions\\Application\\Ai_Generate_Titles_And_Descriptions_Introduction_Upsell is deprecated since version 23.2!');
 
         return $this->services['Yoast\\WP\\SEO\\Introductions\\Application\\Ai_Generate_Titles_And_Descriptions_Introduction_Upsell'] = new \Yoast\WP\SEO\Introductions\Application\Ai_Generate_Titles_And_Descriptions_Introduction_Upsell(($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())));
     }
