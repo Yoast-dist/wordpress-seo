@@ -27,6 +27,7 @@ class Check_Required_Version implements Integration_Interface {
 		\add_filter( 'upgrader_source_selection', [ $this, 'check_required_version' ], 10, 3 );
 		\add_filter( 'install_plugin_overwrite_comparison', [ $this, 'update_comparison_table' ], 10, 3 );
 	}
+
 	/**
 	 * Checks if the required version of Yoast SEO is installed.
 	 *
