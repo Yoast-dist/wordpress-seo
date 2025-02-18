@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.7
-Stable tag: 24.5-RC1
+Stable tag: 24.5
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -278,13 +278,15 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 Release date: 2025-02-18
 
+Yoast SEO 24.5 brings more enhancements and bugfixes. [Find more information about our software releases and updates here](https://yoa.st/releases).
+
 #### Enhancements
 
 * Issues a warning message when the image automatically selected for a post social preview is in the unsupported AVIF format.
 
 #### Bugfixes
 
-* Fixes deprecation notice thrown by the canonical presenter in environments running PHP >= 8.1. Props to [aanduque](https://github.com/aanduque).
+* Fixes a bug where the canonical presenter would throw a deprecation notice when the environments run PHP >= 8.1. Props to [aanduque](https://github.com/aanduque).
 
 #### Other
 
