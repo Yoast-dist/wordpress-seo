@@ -184,14 +184,16 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\dashboard\\domain\\score_groups\\seo_score_groups\\good_seo_score_group' => 'Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Good_SEO_Score_Group',
             'yoast\\wp\\seo\\dashboard\\domain\\score_groups\\seo_score_groups\\no_seo_score_group' => 'Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\No_SEO_Score_Group',
             'yoast\\wp\\seo\\dashboard\\domain\\score_groups\\seo_score_groups\\ok_seo_score_group' => 'Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Ok_SEO_Score_Group',
+            'yoast\\wp\\seo\\dashboard\\infrastructure\\configuration\\permanently_dismissed_site_kit_configuration_repository' => 'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Permanently_Dismissed_Site_Kit_Configuration_Repository',
+            'yoast\\wp\\seo\\dashboard\\infrastructure\\configuration\\site_kit_consent_repository' => 'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Site_Kit_Consent_Repository',
             'yoast\\wp\\seo\\dashboard\\infrastructure\\content_types\\content_types_collector' => 'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Content_Types\\Content_Types_Collector',
+            'yoast\\wp\\seo\\dashboard\\infrastructure\\endpoints\\site_kit_consent_management_endpoint' => 'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Endpoints\\Site_Kit_Consent_Management_Endpoint',
             'yoast\\wp\\seo\\dashboard\\infrastructure\\integrations\\site_kit' => 'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit',
-            'yoast\\wp\\seo\\dashboard\\infrastructure\\search_console\\site_kit_search_console_adapter' => 'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Search_Console\\Site_Kit_Search_Console_Adapter',
             'yoast\\wp\\seo\\dashboard\\user_interface\\configuration\\site_kit_configuration_dismissal_route' => 'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Configuration\\Site_Kit_Configuration_Dismissal_Route',
+            'yoast\\wp\\seo\\dashboard\\user_interface\\configuration\\site_kit_consent_management_route' => 'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Configuration\\Site_Kit_Consent_Management_Route',
             'yoast\\wp\\seo\\dashboard\\user_interface\\scores\\readability_scores_route' => 'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Scores\\Readability_Scores_Route',
             'yoast\\wp\\seo\\dashboard\\user_interface\\scores\\seo_scores_route' => 'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Scores\\SEO_Scores_Route',
-            'yoast\\wp\\seo\\dashboard\\user_interface\\search_rankings\\top_page_route' => 'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Search_Rankings\\Top_Page_Route',
-            'yoast\\wp\\seo\\dashboard\\user_interface\\search_rankings\\top_query_route' => 'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Search_Rankings\\Top_Query_Route',
+            'yoast\\wp\\seo\\dashboard\\user_interface\\time_based_seo_metrics\\time_based_seo_metrics_route' => 'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Time_Based_SEO_Metrics\\Time_Based_SEO_Metrics_Route',
             'yoast\\wp\\seo\\editors\\application\\analysis_features\\enabled_analysis_features_repository' => 'Yoast\\WP\\SEO\\Editors\\Application\\Analysis_Features\\Enabled_Analysis_Features_Repository',
             'yoast\\wp\\seo\\editors\\application\\integrations\\integration_information_repository' => 'Yoast\\WP\\SEO\\Editors\\Application\\Integrations\\Integration_Information_Repository',
             'yoast\\wp\\seo\\editors\\application\\seo\\post_seo_information_repository' => 'Yoast\\WP\\SEO\\Editors\\Application\\Seo\\Post_Seo_Information_Repository',
@@ -631,14 +633,16 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Good_SEO_Score_Group' => 'getGoodSEOScoreGroupService',
             'Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\No_SEO_Score_Group' => 'getNoSEOScoreGroupService',
             'Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Ok_SEO_Score_Group' => 'getOkSEOScoreGroupService',
+            'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Permanently_Dismissed_Site_Kit_Configuration_Repository' => 'getPermanentlyDismissedSiteKitConfigurationRepositoryService',
+            'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Site_Kit_Consent_Repository' => 'getSiteKitConsentRepositoryService',
             'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Content_Types\\Content_Types_Collector' => 'getContentTypesCollectorService',
+            'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Endpoints\\Site_Kit_Consent_Management_Endpoint' => 'getSiteKitConsentManagementEndpointService',
             'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit' => 'getSiteKitService',
-            'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Search_Console\\Site_Kit_Search_Console_Adapter' => 'getSiteKitSearchConsoleAdapterService',
             'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Configuration\\Site_Kit_Configuration_Dismissal_Route' => 'getSiteKitConfigurationDismissalRouteService',
+            'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Configuration\\Site_Kit_Consent_Management_Route' => 'getSiteKitConsentManagementRouteService',
             'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Scores\\Readability_Scores_Route' => 'getReadabilityScoresRouteService',
             'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Scores\\SEO_Scores_Route' => 'getSEOScoresRouteService',
-            'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Search_Rankings\\Top_Page_Route' => 'getTopPageRouteService',
-            'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Search_Rankings\\Top_Query_Route' => 'getTopQueryRouteService',
+            'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Time_Based_SEO_Metrics\\Time_Based_SEO_Metrics_Route' => 'getTimeBasedSEOMetricsRouteService',
             'Yoast\\WP\\SEO\\Editors\\Application\\Analysis_Features\\Enabled_Analysis_Features_Repository' => 'getEnabledAnalysisFeaturesRepositoryService',
             'Yoast\\WP\\SEO\\Editors\\Application\\Integrations\\Integration_Information_Repository' => 'getIntegrationInformationRepositoryService',
             'Yoast\\WP\\SEO\\Editors\\Application\\Seo\\Post_Seo_Information_Repository' => 'getPostSeoInformationRepositoryService',
@@ -927,9 +931,11 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Good_SEO_Score_Group' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\No_SEO_Score_Group' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Ok_SEO_Score_Group' => true,
+            'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Permanently_Dismissed_Site_Kit_Configuration_Repository' => true,
+            'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Site_Kit_Consent_Repository' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Content_Types\\Content_Types_Collector' => true,
+            'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Endpoints\\Site_Kit_Consent_Management_Endpoint' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit' => true,
-            'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Search_Console\\Site_Kit_Search_Console_Adapter' => true,
             'Yoast\\WP\\SEO\\Introductions\\Application\\Introductions_Collector' => true,
         ];
         $this->aliases = [
@@ -981,14 +987,17 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Dashboard\\Domain\\Search_Rankings\\Search_Data' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Domain\\Search_Rankings\\Top_Page_Data' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Domain\\Taxonomies\\Taxonomy' => true,
+            'Yoast\\WP\\SEO\\Dashboard\\Domain\\Time_Based_SEO_Metrics\\Repository_Not_Found_Exception' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Permanently_Dismissed_Site_Kit_Configuration_Repository' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Permanently_Dismissed_Site_Kit_Configuration_Repository_Interface' => true,
+            'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Site_Kit_Consent_Repository' => true,
+            'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Site_Kit_Consent_Repository_Interface' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Content_Types\\Content_Types_Collector' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Endpoints\\Readability_Scores_Endpoint' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Endpoints\\SEO_Scores_Endpoint' => true,
-            'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Endpoints\\Search_Rankings\\Top_Page_Endpoint' => true,
-            'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Endpoints\\Search_Rankings\\Top_Query_Endpoint' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Endpoints\\Site_Kit_Configuration_Dismissal_Endpoint' => true,
+            'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Endpoints\\Site_Kit_Consent_Management_Endpoint' => true,
+            'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Endpoints\\Time_Based_SEO_Metrics_Endpoint' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Indexables\\Top_Page_Indexable_Collector' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Nonces\\Nonce_Repository' => true,
@@ -2878,7 +2887,17 @@ class Cached_Container extends Container
      */
     protected function getSiteKitConfigurationDismissalRouteService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Configuration\\Site_Kit_Configuration_Dismissal_Route'] = new \Yoast\WP\SEO\Dashboard\User_Interface\Configuration\Site_Kit_Configuration_Dismissal_Route(new \Yoast\WP\SEO\Dashboard\Infrastructure\Configuration\Permanently_Dismissed_Site_Kit_Configuration_Repository(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}));
+        return $this->services['Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Configuration\\Site_Kit_Configuration_Dismissal_Route'] = new \Yoast\WP\SEO\Dashboard\User_Interface\Configuration\Site_Kit_Configuration_Dismissal_Route(${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Permanently_Dismissed_Site_Kit_Configuration_Repository']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Permanently_Dismissed_Site_Kit_Configuration_Repository'] : $this->getPermanentlyDismissedSiteKitConfigurationRepositoryService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Dashboard\User_Interface\Configuration\Site_Kit_Consent_Management_Route' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Dashboard\User_Interface\Configuration\Site_Kit_Consent_Management_Route
+     */
+    protected function getSiteKitConsentManagementRouteService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Configuration\\Site_Kit_Consent_Management_Route'] = new \Yoast\WP\SEO\Dashboard\User_Interface\Configuration\Site_Kit_Consent_Management_Route(${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Site_Kit_Consent_Repository']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Site_Kit_Consent_Repository'] : $this->getSiteKitConsentRepositoryService()) && false ?: '_'});
     }
 
     /**
@@ -2918,23 +2937,15 @@ class Cached_Container extends Container
     }
 
     /**
-     * Gets the public 'Yoast\WP\SEO\Dashboard\User_Interface\Search_Rankings\Top_Page_Route' shared autowired service.
+     * Gets the public 'Yoast\WP\SEO\Dashboard\User_Interface\Time_Based_SEO_Metrics\Time_Based_SEO_Metrics_Route' shared autowired service.
      *
-     * @return \Yoast\WP\SEO\Dashboard\User_Interface\Search_Rankings\Top_Page_Route
+     * @return \Yoast\WP\SEO\Dashboard\User_Interface\Time_Based_SEO_Metrics\Time_Based_SEO_Metrics_Route
      */
-    protected function getTopPageRouteService()
+    protected function getTimeBasedSEOMetricsRouteService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Search_Rankings\\Top_Page_Route'] = new \Yoast\WP\SEO\Dashboard\User_Interface\Search_Rankings\Top_Page_Route(new \Yoast\WP\SEO\Dashboard\Application\Search_Rankings\Top_Page_Repository(${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Search_Console\\Site_Kit_Search_Console_Adapter']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Search_Console\\Site_Kit_Search_Console_Adapter'] : ($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Search_Console\\Site_Kit_Search_Console_Adapter'] = new \Yoast\WP\SEO\Dashboard\Infrastructure\Search_Console\Site_Kit_Search_Console_Adapter())) && false ?: '_'}, new \Yoast\WP\SEO\Dashboard\Infrastructure\Indexables\Top_Page_Indexable_Collector(${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'}, new \Yoast\WP\SEO\Dashboard\Application\Score_Groups\SEO_Score_Groups\SEO_Score_Groups_Repository(${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Bad_SEO_Score_Group']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Bad_SEO_Score_Group'] : ($this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Bad_SEO_Score_Group'] = new \Yoast\WP\SEO\Dashboard\Domain\Score_Groups\SEO_Score_Groups\Bad_SEO_Score_Group())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Good_SEO_Score_Group']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Good_SEO_Score_Group'] : ($this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Good_SEO_Score_Group'] = new \Yoast\WP\SEO\Dashboard\Domain\Score_Groups\SEO_Score_Groups\Good_SEO_Score_Group())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\No_SEO_Score_Group']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\No_SEO_Score_Group'] : ($this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\No_SEO_Score_Group'] = new \Yoast\WP\SEO\Dashboard\Domain\Score_Groups\SEO_Score_Groups\No_SEO_Score_Group())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Ok_SEO_Score_Group']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Ok_SEO_Score_Group'] : ($this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Ok_SEO_Score_Group'] = new \Yoast\WP\SEO\Dashboard\Domain\Score_Groups\SEO_Score_Groups\Ok_SEO_Score_Group())) && false ?: '_'}))));
-    }
+        $a = new \Yoast\WP\SEO\Dashboard\Infrastructure\Search_Console\Site_Kit_Search_Console_Adapter();
 
-    /**
-     * Gets the public 'Yoast\WP\SEO\Dashboard\User_Interface\Search_Rankings\Top_Query_Route' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Dashboard\User_Interface\Search_Rankings\Top_Query_Route
-     */
-    protected function getTopQueryRouteService()
-    {
-        return $this->services['Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Search_Rankings\\Top_Query_Route'] = new \Yoast\WP\SEO\Dashboard\User_Interface\Search_Rankings\Top_Query_Route(new \Yoast\WP\SEO\Dashboard\Application\Search_Rankings\Top_Query_Repository(${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Search_Console\\Site_Kit_Search_Console_Adapter']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Search_Console\\Site_Kit_Search_Console_Adapter'] : ($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Search_Console\\Site_Kit_Search_Console_Adapter'] = new \Yoast\WP\SEO\Dashboard\Infrastructure\Search_Console\Site_Kit_Search_Console_Adapter())) && false ?: '_'}));
+        return $this->services['Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Time_Based_SEO_Metrics\\Time_Based_SEO_Metrics_Route'] = new \Yoast\WP\SEO\Dashboard\User_Interface\Time_Based_SEO_Metrics\Time_Based_SEO_Metrics_Route(new \Yoast\WP\SEO\Dashboard\Application\Search_Rankings\Top_Page_Repository($a, new \Yoast\WP\SEO\Dashboard\Infrastructure\Indexables\Top_Page_Indexable_Collector(${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'}, new \Yoast\WP\SEO\Dashboard\Application\Score_Groups\SEO_Score_Groups\SEO_Score_Groups_Repository(${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Bad_SEO_Score_Group']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Bad_SEO_Score_Group'] : ($this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Bad_SEO_Score_Group'] = new \Yoast\WP\SEO\Dashboard\Domain\Score_Groups\SEO_Score_Groups\Bad_SEO_Score_Group())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Good_SEO_Score_Group']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Good_SEO_Score_Group'] : ($this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Good_SEO_Score_Group'] = new \Yoast\WP\SEO\Dashboard\Domain\Score_Groups\SEO_Score_Groups\Good_SEO_Score_Group())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\No_SEO_Score_Group']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\No_SEO_Score_Group'] : ($this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\No_SEO_Score_Group'] = new \Yoast\WP\SEO\Dashboard\Domain\Score_Groups\SEO_Score_Groups\No_SEO_Score_Group())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Ok_SEO_Score_Group']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Ok_SEO_Score_Group'] : ($this->services['Yoast\\WP\\SEO\\Dashboard\\Domain\\Score_Groups\\SEO_Score_Groups\\Ok_SEO_Score_Group'] = new \Yoast\WP\SEO\Dashboard\Domain\Score_Groups\SEO_Score_Groups\Ok_SEO_Score_Group())) && false ?: '_'}))), new \Yoast\WP\SEO\Dashboard\Application\Search_Rankings\Top_Query_Repository($a));
     }
 
     /**
@@ -3009,7 +3020,7 @@ class Cached_Container extends Container
      */
     protected function getGeneralPageIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\General\\User_Interface\\General_Page_Integration'] = new \Yoast\WP\SEO\General\User_Interface\General_Page_Integration(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] : $this->getCurrentPageHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper'] : $this->getShortLinkHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Notification_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Notification_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Notification_Helper'] = new \Yoast\WP\SEO\Helpers\Notification_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Alert_Dismissal_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Alert_Dismissal_Action'] : $this->getAlertDismissalActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager']) ? $this->services['Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager'] : $this->getPromotionManagerService()) && false ?: '_'}, new \Yoast\WP\SEO\Dashboard\Application\Configuration\Dashboard_Configuration(new \Yoast\WP\SEO\Dashboard\Application\Content_Types\Content_Types_Repository(${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Content_Types\\Content_Types_Collector']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Content_Types\\Content_Types_Collector'] : $this->getContentTypesCollectorService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Application\\Taxonomies\\Taxonomies_Repository']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Application\\Taxonomies\\Taxonomies_Repository'] : $this->getTaxonomiesRepositoryService()) && false ?: '_'}), ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : $this->getIndexableHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Editors\\Application\\Analysis_Features\\Enabled_Analysis_Features_Repository']) ? $this->services['Yoast\\WP\\SEO\\Editors\\Application\\Analysis_Features\\Enabled_Analysis_Features_Repository'] : $this->getEnabledAnalysisFeaturesRepositoryService()) && false ?: '_'}, new \Yoast\WP\SEO\Dashboard\Application\Endpoints\Endpoints_Repository(new \Yoast\WP\SEO\Dashboard\Infrastructure\Endpoints\Readability_Scores_Endpoint(), new \Yoast\WP\SEO\Dashboard\Infrastructure\Endpoints\Search_Rankings\Top_Page_Endpoint(), new \Yoast\WP\SEO\Dashboard\Infrastructure\Endpoints\Search_Rankings\Top_Query_Endpoint(), new \Yoast\WP\SEO\Dashboard\Infrastructure\Endpoints\SEO_Scores_Endpoint(), new \Yoast\WP\SEO\Dashboard\Infrastructure\Endpoints\Site_Kit_Configuration_Dismissal_Endpoint()), new \Yoast\WP\SEO\Dashboard\Infrastructure\Nonces\Nonce_Repository()));
+        return $this->services['Yoast\\WP\\SEO\\General\\User_Interface\\General_Page_Integration'] = new \Yoast\WP\SEO\General\User_Interface\General_Page_Integration(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] : $this->getCurrentPageHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper'] : $this->getShortLinkHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Notification_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Notification_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Notification_Helper'] = new \Yoast\WP\SEO\Helpers\Notification_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Alert_Dismissal_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Alert_Dismissal_Action'] : $this->getAlertDismissalActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager']) ? $this->services['Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager'] : $this->getPromotionManagerService()) && false ?: '_'}, new \Yoast\WP\SEO\Dashboard\Application\Configuration\Dashboard_Configuration(new \Yoast\WP\SEO\Dashboard\Application\Content_Types\Content_Types_Repository(${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Content_Types\\Content_Types_Collector']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Content_Types\\Content_Types_Collector'] : $this->getContentTypesCollectorService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Application\\Taxonomies\\Taxonomies_Repository']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Application\\Taxonomies\\Taxonomies_Repository'] : $this->getTaxonomiesRepositoryService()) && false ?: '_'}), ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : $this->getIndexableHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Editors\\Application\\Analysis_Features\\Enabled_Analysis_Features_Repository']) ? $this->services['Yoast\\WP\\SEO\\Editors\\Application\\Analysis_Features\\Enabled_Analysis_Features_Repository'] : $this->getEnabledAnalysisFeaturesRepositoryService()) && false ?: '_'}, new \Yoast\WP\SEO\Dashboard\Application\Endpoints\Endpoints_Repository(new \Yoast\WP\SEO\Dashboard\Infrastructure\Endpoints\Readability_Scores_Endpoint(), new \Yoast\WP\SEO\Dashboard\Infrastructure\Endpoints\SEO_Scores_Endpoint(), new \Yoast\WP\SEO\Dashboard\Infrastructure\Endpoints\Site_Kit_Configuration_Dismissal_Endpoint(), ${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Endpoints\\Site_Kit_Consent_Management_Endpoint']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Endpoints\\Site_Kit_Consent_Management_Endpoint'] : ($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Endpoints\\Site_Kit_Consent_Management_Endpoint'] = new \Yoast\WP\SEO\Dashboard\Infrastructure\Endpoints\Site_Kit_Consent_Management_Endpoint())) && false ?: '_'}, new \Yoast\WP\SEO\Dashboard\Infrastructure\Endpoints\Time_Based_SEO_Metrics_Endpoint()), new \Yoast\WP\SEO\Dashboard\Infrastructure\Nonces\Nonce_Repository(), ${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit'] : $this->getSiteKitService()) && false ?: '_'}));
     }
 
     /**
@@ -4048,7 +4059,7 @@ class Cached_Container extends Container
      */
     protected function getIntegrationsPageService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Integrations_Page'] = new \Yoast\WP\SEO\Integrations\Admin\Integrations_Page(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper'] = new \Yoast\WP\SEO\Helpers\Woocommerce_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Elementor_Activated_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Elementor_Activated_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Elementor_Activated_Conditional'] = new \Yoast\WP\SEO\Conditionals\Third_Party\Elementor_Activated_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Jetpack_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Jetpack_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Jetpack_Conditional'] = new \Yoast\WP\SEO\Conditionals\Jetpack_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit'] : $this->getSiteKitService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Integrations_Page'] = new \Yoast\WP\SEO\Integrations\Admin\Integrations_Page(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper'] = new \Yoast\WP\SEO\Helpers\Woocommerce_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Elementor_Activated_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Elementor_Activated_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Elementor_Activated_Conditional'] = new \Yoast\WP\SEO\Conditionals\Third_Party\Elementor_Activated_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Jetpack_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Jetpack_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Jetpack_Conditional'] = new \Yoast\WP\SEO\Conditionals\Jetpack_Conditional())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit'] : $this->getSiteKitService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Endpoints\\Site_Kit_Consent_Management_Endpoint']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Endpoints\\Site_Kit_Consent_Management_Endpoint'] : ($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Endpoints\\Site_Kit_Consent_Management_Endpoint'] = new \Yoast\WP\SEO\Dashboard\Infrastructure\Endpoints\Site_Kit_Consent_Management_Endpoint())) && false ?: '_'});
     }
 
     /**
@@ -5068,10 +5079,10 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Content_Type_Visibility\\Application\\Content_Type_Visibility_Watcher_Actions');
         $instance->register_route('Yoast\\WP\\SEO\\Content_Type_Visibility\\User_Interface\\Content_Type_Visibility_Dismiss_New_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Configuration\\Site_Kit_Configuration_Dismissal_Route');
+        $instance->register_route('Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Configuration\\Site_Kit_Consent_Management_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Scores\\Readability_Scores_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Scores\\SEO_Scores_Route');
-        $instance->register_route('Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Search_Rankings\\Top_Page_Route');
-        $instance->register_route('Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Search_Rankings\\Top_Query_Route');
+        $instance->register_route('Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Time_Based_SEO_Metrics\\Time_Based_SEO_Metrics_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\General\\User_Interface\\General_Page_Integration');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Crawl_Cleanup_Permalinks');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps');
@@ -6128,6 +6139,26 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the private 'Yoast\WP\SEO\Dashboard\Infrastructure\Configuration\Permanently_Dismissed_Site_Kit_Configuration_Repository' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Dashboard\Infrastructure\Configuration\Permanently_Dismissed_Site_Kit_Configuration_Repository
+     */
+    protected function getPermanentlyDismissedSiteKitConfigurationRepositoryService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Permanently_Dismissed_Site_Kit_Configuration_Repository'] = new \Yoast\WP\SEO\Dashboard\Infrastructure\Configuration\Permanently_Dismissed_Site_Kit_Configuration_Repository(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the private 'Yoast\WP\SEO\Dashboard\Infrastructure\Configuration\Site_Kit_Consent_Repository' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Dashboard\Infrastructure\Configuration\Site_Kit_Consent_Repository
+     */
+    protected function getSiteKitConsentRepositoryService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Site_Kit_Consent_Repository'] = new \Yoast\WP\SEO\Dashboard\Infrastructure\Configuration\Site_Kit_Consent_Repository(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
+    }
+
+    /**
      * Gets the private 'Yoast\WP\SEO\Dashboard\Infrastructure\Content_Types\Content_Types_Collector' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Dashboard\Infrastructure\Content_Types\Content_Types_Collector
@@ -6138,23 +6169,23 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the private 'Yoast\WP\SEO\Dashboard\Infrastructure\Endpoints\Site_Kit_Consent_Management_Endpoint' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Dashboard\Infrastructure\Endpoints\Site_Kit_Consent_Management_Endpoint
+     */
+    protected function getSiteKitConsentManagementEndpointService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Endpoints\\Site_Kit_Consent_Management_Endpoint'] = new \Yoast\WP\SEO\Dashboard\Infrastructure\Endpoints\Site_Kit_Consent_Management_Endpoint();
+    }
+
+    /**
      * Gets the private 'Yoast\WP\SEO\Dashboard\Infrastructure\Integrations\Site_Kit' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Dashboard\Infrastructure\Integrations\Site_Kit
      */
     protected function getSiteKitService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit'] = new \Yoast\WP\SEO\Dashboard\Infrastructure\Integrations\Site_Kit(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
-    }
-
-    /**
-     * Gets the private 'Yoast\WP\SEO\Dashboard\Infrastructure\Search_Console\Site_Kit_Search_Console_Adapter' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Dashboard\Infrastructure\Search_Console\Site_Kit_Search_Console_Adapter
-     */
-    protected function getSiteKitSearchConsoleAdapterService()
-    {
-        return $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Search_Console\\Site_Kit_Search_Console_Adapter'] = new \Yoast\WP\SEO\Dashboard\Infrastructure\Search_Console\Site_Kit_Search_Console_Adapter();
+        return $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit'] = new \Yoast\WP\SEO\Dashboard\Infrastructure\Integrations\Site_Kit(${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Site_Kit_Consent_Repository']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Site_Kit_Consent_Repository'] : $this->getSiteKitConsentRepositoryService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Permanently_Dismissed_Site_Kit_Configuration_Repository']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Permanently_Dismissed_Site_Kit_Configuration_Repository'] : $this->getPermanentlyDismissedSiteKitConfigurationRepositoryService()) && false ?: '_'});
     }
 
     /**
