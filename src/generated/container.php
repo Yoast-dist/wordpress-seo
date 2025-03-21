@@ -4160,11 +4160,11 @@ class Cached_Container extends Container
      *
      * @return \Yoast\WP\SEO\Integrations\Admin\Unsupported_PHP_Version_Notice
      *
-     * @deprecated Yoast\WP\SEO\Integrations\Admin\Unsupported_PHP_Version_Notice is deprecated since version 24.7!
+     * @deprecated Yoast\WP\SEO\Integrations\Admin\Unsupported_PHP_Version_Notice is deprecated since version 25.0!
      */
     protected function getUnsupportedPHPVersionNoticeService()
     {
-        @trigger_error('Yoast\\WP\\SEO\\Integrations\\Admin\\Unsupported_PHP_Version_Notice is deprecated since version 24.7!', E_USER_DEPRECATED);
+        @trigger_error('Yoast\\WP\\SEO\\Integrations\\Admin\\Unsupported_PHP_Version_Notice is deprecated since version 25.0!', E_USER_DEPRECATED);
 
         return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Unsupported_PHP_Version_Notice'] = new \Yoast\WP\SEO\Integrations\Admin\Unsupported_PHP_Version_Notice();
     }
