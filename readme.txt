@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.7
-Stable tag: 24.8
+Stable tag: 24.8.1-RC1
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -273,6 +273,14 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 8. The inclusive language analysis in Yoast SEO.
 
 == Changelog ==
+
+= 24.8.1 =
+
+Release date: 2025-04-01
+
+#### Bugfixes
+
+* Fixes a potential fatal error on the dashboard page.
 
 = 24.8 =
 
