@@ -76,7 +76,9 @@ class First_Time_Configuration_Route implements Route_Interface {
 	 *
 	 * @param First_Time_Configuration_Action $first_time_configuration_action The first-time configuration action.
 	 */
-	public function __construct( First_Time_Configuration_Action $first_time_configuration_action ) {
+	public function __construct(
+		First_Time_Configuration_Action $first_time_configuration_action
+	) {
 		$this->first_time_configuration_action = $first_time_configuration_action;
 	}
 

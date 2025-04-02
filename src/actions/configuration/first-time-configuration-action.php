@@ -299,7 +299,7 @@ class First_Time_Configuration_Action {
 	public function get_configuration_state() {
 		$configuration_option = $this->options_helper->get( 'configuration_finished_steps' );
 
-		if ( $configuration_option !== null ) {
+		if ( ! \is_null( $configuration_option ) ) {
 			return (object) [
 				'success' => true,
 				'status'  => 200,

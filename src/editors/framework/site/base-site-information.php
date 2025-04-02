@@ -18,42 +18,42 @@ abstract class Base_Site_Information {
 	/**
 	 * The short link helper.
 	 *
-	 * @var Short_Link_Helper
+	 * @var Short_Link_Helper $shortlink_helper
 	 */
 	protected $short_link_helper;
 
 	/**
 	 * The wistia embed permission repository.
 	 *
-	 * @var Wistia_Embed_Permission_Repository
+	 * @var Wistia_Embed_Permission_Repository $wistia_embed_permission_repository
 	 */
 	protected $wistia_embed_permission_repository;
 
 	/**
 	 * The meta surface.
 	 *
-	 * @var Meta_Surface
+	 * @var Meta_Surface $meta
 	 */
 	protected $meta;
 
 	/**
 	 * The product helper.
 	 *
-	 * @var Product_Helper
+	 * @var Product_Helper $product_helper
 	 */
 	protected $product_helper;
 
 	/**
 	 * The options helper.
 	 *
-	 * @var Options_Helper
+	 * @var Options_Helper $options_helper
 	 */
 	protected $options_helper;
 
 	/**
 	 * The promotion manager.
 	 *
-	 * @var Promotion_Manager
+	 * @var Promotion_Manager $promotion_manager
 	 */
 	protected $promotion_manager;
 
@@ -87,9 +87,8 @@ abstract class Base_Site_Information {
 	/**
 	 * Returns site information that is the
 	 *
-	 * @return array<string, string|array<string, string>>
-	 *
 	 * @throws Exception If an invalid user ID is supplied to the wistia repository.
+	 * @return array<string|string,string[]>
 	 */
 	public function get_site_information(): array {
 		return [
@@ -118,9 +117,8 @@ abstract class Base_Site_Information {
 	/**
 	 * Returns site information that is the
 	 *
-	 * @return array<string, string|array<string, string|array<string, string>>>
-	 *
 	 * @throws Exception If an invalid user ID is supplied to the wistia repository.
+	 * @return array<string|string,string[]>
 	 */
 	public function get_legacy_site_information(): array {
 		return [

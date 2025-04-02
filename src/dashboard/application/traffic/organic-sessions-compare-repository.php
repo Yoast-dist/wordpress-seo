@@ -17,14 +17,14 @@ class Organic_Sessions_Compare_Repository implements Dashboard_Repository_Interf
 	/**
 	 * The adapter.
 	 *
-	 * @var Site_Kit_Analytics_4_Adapter
+	 * @var Site_Kit_Analytics_4_Adapter $site_kit_analytics_4_adapter
 	 */
 	private $site_kit_analytics_4_adapter;
 
 	/**
 	 * The site kit configuration object.
 	 *
-	 * @var Site_Kit
+	 * @var Site_Kit $site_kit_configuration
 	 */
 	private $site_kit_configuration;
 

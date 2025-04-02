@@ -18,18 +18,16 @@ class Yoast_Form {
 	/**
 	 * Instance of this class
 	 *
-	 * @since 2.0
-	 *
 	 * @var Yoast_Form
+	 * @since 2.0
 	 */
 	public static $instance;
 
 	/**
 	 * The short name of the option to use for the current page.
 	 *
-	 * @since 2.0
-	 *
 	 * @var string
+	 * @since 2.0
 	 */
 	public $option_name;
 
@@ -593,7 +591,7 @@ class Yoast_Form {
 	 * @return void
 	 */
 	public function hidden( $variable, $id = '', $val = null ) {
-		if ( $val === null ) {
+		if ( is_null( $val ) ) {
 			$val = $this->get_field_value( $variable, '' );
 		}
 

@@ -30,7 +30,7 @@ abstract class Abstract_Exclude_Post_Type implements Integration_Interface {
 	/**
 	 * This integration is only active when the child class's conditionals are met.
 	 *
-	 * @return string[] The conditionals.
+	 * @return array|string[] The conditionals.
 	 */
 	public static function get_conditionals() {
 		return [];

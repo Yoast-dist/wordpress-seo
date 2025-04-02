@@ -21,7 +21,9 @@ class Readability_Scores_Route extends Abstract_Scores_Route {
 	 *
 	 * @param Readability_Score_Results_Repository $readability_score_results_repository The readability score results repository.
 	 */
-	public function __construct( Readability_Score_Results_Repository $readability_score_results_repository ) {
+	public function __construct(
+		Readability_Score_Results_Repository $readability_score_results_repository
+	) {
 		$this->score_results_repository = $readability_score_results_repository;
 	}
 }

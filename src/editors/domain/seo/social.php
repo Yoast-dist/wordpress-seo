@@ -10,28 +10,28 @@ class Social implements Seo_Plugin_Data_Interface {
 	/**
 	 * The Social title template.
 	 *
-	 * @var string
+	 * @var string $social_title_template
 	 */
 	private $social_title_template;
 
 	/**
 	 * The Social description template.
 	 *
-	 * @var string
+	 * @var string $social_description_template
 	 */
 	private $social_description_template;
 
 	/**
 	 * The Social image template.
 	 *
-	 * @var string
+	 * @var string $social_image_template
 	 */
 	private $social_image_template;
 
 	/**
 	 * The first content image for the social preview.
 	 *
-	 * @var string
+	 * @var string $social_first_content_image
 	 */
 	private $social_first_content_image;
 

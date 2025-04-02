@@ -319,7 +319,7 @@ class Front_End_Integration implements Integration_Interface {
 		}
 
 		// Check $this->next or $this->prev for existing links.
-		if ( $this->$rel === null ) {
+		if ( \is_null( $this->$rel ) ) {
 			return $link;
 		}
 
@@ -433,7 +433,7 @@ class Front_End_Integration implements Integration_Interface {
 	 * @return Abstract_Indexable_Presenter[] The presenters.
 	 */
 	public function get_presenters( $page_type, $context = null ) {
-		if ( $context === null ) {
+		if ( \is_null( $context ) ) {
 			$context = $this->context_memoizer->for_current_page();
 		}
 

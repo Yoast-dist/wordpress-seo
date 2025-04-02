@@ -10,14 +10,14 @@ class Description implements Seo_Plugin_Data_Interface {
 	/**
 	 * The formatted description date.
 	 *
-	 * @var string
+	 * @var string $description_date
 	 */
 	private $description_date;
 
 	/**
 	 * The description template.
 	 *
-	 * @var string
+	 * @var string $description_template
 	 */
 	private $description_template;
 

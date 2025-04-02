@@ -14,7 +14,7 @@ class Custom_Meta_Collector {
 	/**
 	 * All custom meta.
 	 *
-	 * @var array<Custom_Meta_Interface>
+	 * @var array<Custom_Meta_Interface> $custom_meta
 	 */
 	private $custom_meta;
 

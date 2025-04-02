@@ -528,7 +528,7 @@ class WPSEO_Taxonomy_Meta extends WPSEO_Option {
 	/**
 	 * Getting the meta from the options.
 	 *
-	 * @return array|void
+	 * @return void|array
 	 */
 	private static function get_tax_meta() {
 		return get_option( self::$name );

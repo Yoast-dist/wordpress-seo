@@ -145,7 +145,7 @@ class WPSEO_Taxonomy {
 
 		if (
 			self::is_term_edit( $pagenow )
-			&& $tag_id !== null
+			&& ! is_null( $tag_id )
 		) {
 			wp_enqueue_media(); // Enqueue files needed for upload functionality.
 
@@ -191,7 +191,7 @@ class WPSEO_Taxonomy {
 			/**
 			 * The website information repository.
 			 *
-			 * @var Website_Information_Repository $repo
+			 * @var $repo Website_Information_Repository
 			 */
 			$repo             = YoastSEO()->classes->get( Website_Information_Repository::class );
 			$term_information = $repo->get_term_site_information();

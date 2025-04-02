@@ -21,7 +21,7 @@ if ( ! defined( 'WPSEO_VERSION' ) ) {
 function wpseo_ajax_json_echo_die( $results ) {
 	// phpcs:ignore WordPress.Security.EscapeOutput -- Reason: WPSEO_Utils::format_json_encode is safe.
 	echo WPSEO_Utils::format_json_encode( $results );
-	exit();
+	die();
 }
 
 /**
@@ -31,22 +31,22 @@ function wpseo_ajax_json_echo_die( $results ) {
  */
 function wpseo_set_option() {
 	if ( ! current_user_can( 'manage_options' ) ) {
-		exit( '-1' );
+		die( '-1' );
 	}
 
 	check_ajax_referer( 'wpseo-setoption' );
 
 	if ( ! isset( $_POST['option'] ) || ! is_string( $_POST['option'] ) ) {
-		exit( '-1' );
+		die( '-1' );
 	}
 
 	$option = sanitize_text_field( wp_unslash( $_POST['option'] ) );
 	if ( $option !== 'page_comments' ) {
-		exit( '-1' );
+		die( '-1' );
 	}
 
 	update_option( $option, 0 );
-	exit( '1' );
+	die( '1' );
 }
 
 add_action( 'wp_ajax_wpseo_set_option', 'wpseo_set_option' );
@@ -63,19 +63,19 @@ add_action( 'wp_ajax_yoast_dismiss_notification', [ 'Yoast_Notification_Center',
  */
 function wpseo_set_ignore() {
 	if ( ! current_user_can( 'manage_options' ) ) {
-		exit( '-1' );
+		die( '-1' );
 	}
 
 	check_ajax_referer( 'wpseo-ignore' );
 
 	if ( ! isset( $_POST['option'] ) || ! is_string( $_POST['option'] ) ) {
-		exit( '-1' );
+		die( '-1' );
 	}
 
 	$ignore_key = sanitize_text_field( wp_unslash( $_POST['option'] ) );
 	WPSEO_Options::set( 'ignore_' . $ignore_key, true );
 
-	exit( '1' );
+	die( '1' );
 }
 
 add_action( 'wp_ajax_wpseo_set_ignore', 'wpseo_set_ignore' );
@@ -113,7 +113,7 @@ function wpseo_save_what( $what ) {
 	check_ajax_referer( 'wpseo-bulk-editor' );
 
 	if ( ! isset( $_POST['new_value'], $_POST['wpseo_post_id'], $_POST['existing_value'] ) || ! is_string( $_POST['new_value'] ) || ! is_string( $_POST['existing_value'] ) ) {
-		exit( '-1' );
+		die( '-1' );
 	}
 
 	$new = sanitize_text_field( wp_unslash( $_POST['new_value'] ) );
@@ -122,7 +122,7 @@ function wpseo_save_what( $what ) {
 	$original = sanitize_text_field( wp_unslash( $_POST['existing_value'] ) );
 
 	if ( $post_id === 0 ) {
-		exit( '-1' );
+		die( '-1' );
 	}
 
 	$results = wpseo_upsert_new( $what, $post_id, $new, $original );
@@ -289,14 +289,14 @@ function ajax_get_keyword_usage_and_post_types() {
 	check_ajax_referer( 'wpseo-keyword-usage-and-post-types', 'nonce' );
 
 	if ( ! isset( $_POST['post_id'], $_POST['keyword'] ) || ! is_string( $_POST['keyword'] ) ) {
-		exit( '-1' );
+		die( '-1' );
 	}
 
 	// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- We are casting to an integer.
 	$post_id = (int) wp_unslash( $_POST['post_id'] );
 
 	if ( $post_id === 0 || ! current_user_can( 'edit_post', $post_id ) ) {
-		exit( '-1' );
+		die( '-1' );
 	}
 
 	$keyword = sanitize_text_field( wp_unslash( $_POST['keyword'] ) );
@@ -400,14 +400,14 @@ function ajax_get_keyword_usage() {
 	check_ajax_referer( 'wpseo-keyword-usage', 'nonce' );
 
 	if ( ! isset( $_POST['post_id'], $_POST['keyword'] ) || ! is_string( $_POST['keyword'] ) ) {
-		exit( '-1' );
+		die( '-1' );
 	}
 
 	// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- We are casting to an integer.
 	$post_id = (int) wp_unslash( $_POST['post_id'] );
 
 	if ( $post_id === 0 || ! current_user_can( 'edit_post', $post_id ) ) {
-		exit( '-1' );
+		die( '-1' );
 	}
 
 	$keyword = sanitize_text_field( wp_unslash( $_POST['keyword'] ) );

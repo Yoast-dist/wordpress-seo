@@ -33,9 +33,8 @@ class SEO_Scores_Endpoint implements Endpoint_Interface {
 	/**
 	 * Gets the route.
 	 *
-	 * @return string
-	 *
 	 * @throws Exception If the route prefix is not overwritten this throws.
+	 * @return string
 	 */
 	public function get_route(): string {
 		return SEO_Scores_Route::get_route_prefix();

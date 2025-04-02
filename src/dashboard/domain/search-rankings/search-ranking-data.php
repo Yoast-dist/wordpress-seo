@@ -12,28 +12,28 @@ class Search_Ranking_Data implements Data_Interface {
 	/**
 	 * The amount of clicks a `subject` gets.
 	 *
-	 * @var int
+	 * @var int $clicks
 	 */
 	private $clicks;
 
 	/**
 	 * The click-through rate a `subject` gets.
 	 *
-	 * @var float
+	 * @var float $clicks
 	 */
 	private $ctr;
 
 	/**
 	 * The amount of impressions a `subject` gets.
 	 *
-	 * @var int
+	 * @var int $impressions
 	 */
 	private $impressions;
 
 	/**
 	 * The average position for the given `subject`.
 	 *
-	 * @var float
+	 * @var float $position
 	 */
 	private $position;
 

@@ -15,14 +15,14 @@ class Term_Seo_Information_Repository {
 	/**
 	 * The term.
 	 *
-	 * @var WP_Term
+	 * @var WP_Term $term
 	 */
 	private $term;
 
 	/**
 	 * The data providers.
 	 *
-	 * @var Abstract_Term_Seo_Data_Provider
+	 * @var Abstract_Term_Seo_Data_Provider $seo_data_providers
 	 */
 	private $seo_data_providers;
 

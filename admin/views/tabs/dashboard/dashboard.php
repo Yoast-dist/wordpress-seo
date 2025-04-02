@@ -10,7 +10,7 @@
  *
  * @noinspection PhpUnusedLocalVariableInspection
  *
- * @var array $notifications_data
+ * @var array
  */
 $notifications_data = Yoast_Notifications::get_template_variables();
 

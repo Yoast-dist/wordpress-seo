@@ -429,7 +429,7 @@ class Elementor implements Integration_Interface {
 		/**
 		 * The website information repository.
 		 *
-		 * @var Website_Information_Repository $repo
+		 * @var $repo Website_Information_Repository
 		 */
 		$repo             = \YoastSEO()->classes->get( Website_Information_Repository::class );
 		$site_information = $repo->get_post_site_information();

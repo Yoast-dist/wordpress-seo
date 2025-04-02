@@ -91,21 +91,21 @@ class WPSEO_Admin_Bar_Menu implements WPSEO_WordPress_Integration {
 	/**
 	 * Whether SEO Score is enabled.
 	 *
-	 * @var bool|null
+	 * @var bool
 	 */
 	protected $is_seo_enabled = null;
 
 	/**
 	 * Whether readability is enabled.
 	 *
-	 * @var bool|null
+	 * @var bool
 	 */
 	protected $is_readability_enabled = null;
 
 	/**
 	 * The indexable for the current WordPress page, if found.
 	 *
-	 * @var Indexable|bool|null
+	 * @var bool|Indexable
 	 */
 	protected $current_indexable = null;
 
@@ -154,7 +154,7 @@ class WPSEO_Admin_Bar_Menu implements WPSEO_WordPress_Integration {
 	 * @return bool True if SEO score is enabled, false otherwise.
 	 */
 	protected function get_is_seo_enabled() {
-		if ( $this->is_seo_enabled === null ) {
+		if ( is_null( $this->is_seo_enabled ) ) {
 			$this->is_seo_enabled = ( new WPSEO_Metabox_Analysis_SEO() )->is_enabled();
 		}
 
@@ -167,7 +167,7 @@ class WPSEO_Admin_Bar_Menu implements WPSEO_WordPress_Integration {
 	 * @return bool True if readability is enabled, false otherwise.
 	 */
 	protected function get_is_readability_enabled() {
-		if ( $this->is_readability_enabled === null ) {
+		if ( is_null( $this->is_readability_enabled ) ) {
 			$this->is_readability_enabled = ( new WPSEO_Metabox_Analysis_Readability() )->is_enabled();
 		}
 
@@ -180,7 +180,7 @@ class WPSEO_Admin_Bar_Menu implements WPSEO_WordPress_Integration {
 	 * @return bool|Indexable The indexable, false if none could be found.
 	 */
 	protected function get_current_indexable() {
-		if ( $this->current_indexable === null ) {
+		if ( is_null( $this->current_indexable ) ) {
 			$this->current_indexable = $this->indexable_repository->for_current_page();
 		}
 
@@ -227,7 +227,7 @@ class WPSEO_Admin_Bar_Menu implements WPSEO_WordPress_Integration {
 				$indexable = $this->get_current_indexable();
 
 				if ( $is_seo_enabled ) {
-					$focus_keyword = ( ! is_a( $indexable, 'Yoast\WP\SEO\Models\Indexable' ) || $indexable->primary_focus_keyword === null ) ? __( 'not set', 'wordpress-seo' ) : $indexable->primary_focus_keyword;
+					$focus_keyword = ( ! is_a( $indexable, 'Yoast\WP\SEO\Models\Indexable' ) || is_null( $indexable->primary_focus_keyword ) ) ? __( 'not set', 'wordpress-seo' ) : $indexable->primary_focus_keyword;
 
 					$wp_admin_bar->add_menu(
 						[

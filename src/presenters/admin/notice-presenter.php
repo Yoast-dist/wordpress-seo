@@ -110,13 +110,13 @@ class Notice_Presenter extends Abstract_Presenter {
 		$out .= '</div>';
 		$out .= '<div class="notice-yoast-content">';
 		$out .= '<p>' . $this->content . '</p>';
-		if ( $this->button !== null ) {
+		if ( ! \is_null( $this->button ) ) {
 			$out .= '<p>' . $this->button . '</p>';
 		}
 		$out .= '</div>';
 		$out .= '</div>';
 
-		if ( $this->image_filename !== null ) {
+		if ( ! \is_null( $this->image_filename ) ) {
 			$out .= '<img src="' . \esc_url( \plugin_dir_url( \WPSEO_FILE ) . 'images/' . $this->image_filename ) . '" alt="" height="60" width="75"/>';
 		}
 

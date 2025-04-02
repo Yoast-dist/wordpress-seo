@@ -165,7 +165,7 @@ class Indexable_To_Postmeta_Helper {
 	 * @return void
 	 */
 	public function noindex_map( $indexable, $post_meta_key ) {
-		if ( $indexable->is_robots_noindex === null ) {
+		if ( \is_null( $indexable->is_robots_noindex ) ) {
 			$this->meta->delete( $post_meta_key, $indexable->object_id );
 			return;
 		}
@@ -188,7 +188,7 @@ class Indexable_To_Postmeta_Helper {
 	 * @return void
 	 */
 	public function nofollow_map( $indexable, $post_meta_key ) {
-		if ( $indexable->is_robots_nofollow === null || $indexable->is_robots_nofollow === false ) {
+		if ( \is_null( $indexable->is_robots_nofollow ) || $indexable->is_robots_nofollow === false ) {
 			$this->meta->delete( $post_meta_key, $indexable->object_id );
 		}
 

@@ -24,7 +24,9 @@ class Content_Types_Collector {
 	 *
 	 * @param Post_Type_Helper $post_type_helper The post type helper.
 	 */
-	public function __construct( Post_Type_Helper $post_type_helper ) {
+	public function __construct(
+		Post_Type_Helper $post_type_helper
+	) {
 		$this->post_type_helper = $post_type_helper;
 	}
 

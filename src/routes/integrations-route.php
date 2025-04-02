@@ -41,7 +41,9 @@ class Integrations_Route implements Route_Interface {
 	 *
 	 * @param Integrations_Action $integrations_action The integrations action.
 	 */
-	public function __construct( Integrations_Action $integrations_action ) {
+	public function __construct(
+		Integrations_Action $integrations_action
+	) {
 		$this->integrations_action = $integrations_action;
 	}
 

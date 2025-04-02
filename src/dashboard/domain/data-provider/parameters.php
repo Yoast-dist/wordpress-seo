@@ -10,35 +10,35 @@ abstract class Parameters {
 	/**
 	 * The start date.
 	 *
-	 * @var string
+	 * @var string $start_date
 	 */
 	private $start_date;
 
 	/**
 	 * The end date.
 	 *
-	 * @var string
+	 * @var string $end_date
 	 */
 	private $end_date;
 
 	/**
 	 * The amount of results.
 	 *
-	 * @var int
+	 * @var int $limit
 	 */
 	private $limit = 0;
 
 	/**
 	 * The compare start date.
 	 *
-	 * @var string
+	 * @var string $compare_start_date
 	 */
 	private $compare_start_date;
 
 	/**
 	 * The compare end date.
 	 *
-	 * @var string
+	 * @var string $compare_end_date
 	 */
 	private $compare_end_date;
 

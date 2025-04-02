@@ -28,7 +28,7 @@ class Wincher_PKCE_Provider extends GenericProvider {
 	/**
 	 * The method to use.
 	 *
-	 * @var string|null
+	 * @var string
 	 */
 	protected $pkceMethod = null;
 

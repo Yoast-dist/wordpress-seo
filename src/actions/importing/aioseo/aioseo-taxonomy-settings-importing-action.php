@@ -40,9 +40,9 @@ class Aioseo_Taxonomy_Settings_Importing_Action extends Abstract_Aioseo_Settings
 	/**
 	 * Additional mapping between AiOSEO replace vars and Yoast replace vars.
 	 *
-	 * @see https://yoast.com/help/list-available-snippet-variables-yoast-seo/
-	 *
 	 * @var array
+	 *
+	 * @see https://yoast.com/help/list-available-snippet-variables-yoast-seo/
 	 */
 	protected $replace_vars_edited_map = [
 		'#breadcrumb_404_error_format'         => '', // Empty string, as AIOSEO shows nothing for that tag.

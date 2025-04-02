@@ -14,7 +14,7 @@ class Additional_Contactmethods_Collector {
 	/**
 	 * All additional contactmethods.
 	 *
-	 * @var array<Additional_Contactmethod_Interface>
+	 * @var array<Additional_Contactmethod_Interface> $additional_contactmethods
 	 */
 	private $additional_contactmethods;
 

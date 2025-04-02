@@ -112,7 +112,7 @@ class WPSEO_Image_Utils {
 	 * @param array $image         Image array with URL and metadata.
 	 * @param int   $attachment_id Attachment ID.
 	 *
-	 * @return array|false {
+	 * @return false|array {
 	 *     Array of image data
 	 *
 	 *     @type string $alt      Image's alt text.

@@ -17,14 +17,14 @@ class Description_Data_Provider extends Abstract_Post_Seo_Data_Provider implemen
 	/**
 	 * The date helper.
 	 *
-	 * @var Date_Helper
+	 * @var Date_Helper $date_helper
 	 */
 	private $date_helper;
 
 	/**
 	 * The options helper.
 	 *
-	 * @var Options_Helper
+	 * @var Options_Helper $options_helper
 	 */
 	private $options_helper;
 

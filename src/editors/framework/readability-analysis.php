@@ -9,7 +9,6 @@ use Yoast\WP\SEO\Helpers\Options_Helper;
  * This class describes the Readability analysis feature.
  */
 class Readability_Analysis implements Analysis_Feature_Interface {
-
 	public const NAME = 'readabilityAnalysis';
 
 	/**

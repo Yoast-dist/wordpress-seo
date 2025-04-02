@@ -32,9 +32,8 @@ class Site_Kit_Consent_Management_Endpoint implements Endpoint_Interface {
 	/**
 	 * Gets the route.
 	 *
-	 * @return string
-	 *
 	 * @throws Exception If the route prefix is not overwritten this throws.
+	 * @return string
 	 */
 	public function get_route(): string {
 		return Site_Kit_Consent_Management_Route::ROUTE_PREFIX;

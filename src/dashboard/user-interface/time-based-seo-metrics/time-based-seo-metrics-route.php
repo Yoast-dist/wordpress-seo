@@ -43,35 +43,35 @@ final class Time_Based_SEO_Metrics_Route implements Route_Interface {
 	/**
 	 * The data provider for page based search rankings.
 	 *
-	 * @var Top_Page_Repository
+	 * @var Top_Page_Repository $top_page_repository
 	 */
 	private $top_page_repository;
 
 	/**
 	 * The data provider for query based search rankings.
 	 *
-	 * @var Top_Query_Repository
+	 * @var Top_Query_Repository $top_query_repository
 	 */
 	private $top_query_repository;
 
 	/**
 	 * The data provider for comparison organic session traffic.
 	 *
-	 * @var Organic_Sessions_Compare_Repository
+	 * @var Organic_Sessions_Compare_Repository $organic_sessions_compare_repository
 	 */
 	private $organic_sessions_compare_repository;
 
 	/**
 	 * The data provider for daily organic session traffic.
 	 *
-	 * @var Organic_Sessions_Daily_Repository
+	 * @var Organic_Sessions_Daily_Repository $organic_sessions_daily_repository
 	 */
 	private $organic_sessions_daily_repository;
 
 	/**
 	 * The data provider for searching ranking comparison.
 	 *
-	 * @var Search_Ranking_Compare_Repository
+	 * @var Search_Ranking_Compare_Repository $search_ranking_compare_repository
 	 */
 	private $search_ranking_compare_repository;
 
@@ -159,9 +159,9 @@ final class Time_Based_SEO_Metrics_Route implements Route_Interface {
 	 *
 	 * @param WP_REST_Request $request The request object.
 	 *
-	 * @return WP_REST_Response The success or failure response.
-	 *
 	 * @throws Repository_Not_Found_Exception When the given widget name is not implemented yet.
+	 *
+	 * @return WP_REST_Response The success or failure response.
 	 */
 	public function get_time_based_seo_metrics( WP_REST_Request $request ): WP_REST_Response {
 		try {

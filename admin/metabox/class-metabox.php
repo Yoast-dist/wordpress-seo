@@ -52,7 +52,7 @@ class WPSEO_Metabox extends WPSEO_Meta {
 	/**
 	 * The Metabox post.
 	 *
-	 * @var WP_Post|null
+	 * @var WP_Post
 	 */
 	protected $post = null;
 
@@ -275,7 +275,7 @@ class WPSEO_Metabox extends WPSEO_Meta {
 	/**
 	 * Passes variables to js for use with the post-scraper.
 	 *
-	 * @return array<string, string|array<string|int|bool>|bool|int>
+	 * @return array<string,string|array<string|int|bool>|bool|int>
 	 */
 	public function get_metabox_script_data() {
 		$permalink = $this->get_permalink();
@@ -896,7 +896,7 @@ class WPSEO_Metabox extends WPSEO_Meta {
 		/**
 		 * The website information repository.
 		 *
-		 * @var Website_Information_Repository $repo
+		 * @var $repo Website_Information_Repository
 		 */
 		$repo             = YoastSEO()->classes->get( Website_Information_Repository::class );
 		$site_information = $repo->get_post_site_information();

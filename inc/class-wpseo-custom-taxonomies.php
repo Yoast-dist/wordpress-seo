@@ -13,7 +13,7 @@ class WPSEO_Custom_Taxonomies {
 	/**
 	 * Custom taxonomies cache.
 	 *
-	 * @var array|null
+	 * @var array
 	 */
 	protected static $custom_taxonomies = null;
 
@@ -24,7 +24,7 @@ class WPSEO_Custom_Taxonomies {
 	 */
 	public static function get_custom_taxonomies() {
 		// Use cached value if available.
-		if ( self::$custom_taxonomies !== null ) {
+		if ( ! is_null( self::$custom_taxonomies ) ) {
 			return self::$custom_taxonomies;
 		}
 

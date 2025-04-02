@@ -40,7 +40,7 @@ interface Custom_Meta_Interface {
 	/**
 	 * Returns whether the respective global setting is enabled.
 	 *
-	 * @return bool
+	 * @return string
 	 */
 	public function is_setting_enabled(): bool;
 

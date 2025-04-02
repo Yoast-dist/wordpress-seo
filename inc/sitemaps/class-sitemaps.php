@@ -230,7 +230,7 @@ class WPSEO_Sitemaps {
 	 */
 	public function sitemap_close() {
 		remove_all_actions( 'wp_footer' );
-		exit();
+		die();
 	}
 
 	/**
@@ -518,7 +518,7 @@ class WPSEO_Sitemaps {
 			}
 		}
 
-		if ( $post_type_dates === null ) {
+		if ( is_null( $post_type_dates ) ) {
 
 			$post_type_dates = [];
 			$post_type_names = WPSEO_Post_Type::get_accessible_post_types();

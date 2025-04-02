@@ -14,7 +14,7 @@ class Exclude_Oembed_Cache_Post_Type extends Abstract_Exclude_Post_Type {
 	/**
 	 * This integration is only active when the database migrations have been run.
 	 *
-	 * @return string[] The conditionals.
+	 * @return array|string[] The conditionals.
 	 */
 	public static function get_conditionals() {
 		return [ Migrations_Conditional::class ];

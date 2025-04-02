@@ -31,7 +31,7 @@ class Social_Data_Provider extends Abstract_Post_Seo_Data_Provider implements So
 	/**
 	 * The options helper.
 	 *
-	 * @var Options_Helper
+	 * @var Options_Helper $options_helper
 	 */
 	private $options_helper;
 

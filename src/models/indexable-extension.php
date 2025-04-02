@@ -12,7 +12,7 @@ abstract class Indexable_Extension extends Model {
 	/**
 	 * Holds the Indexable instance.
 	 *
-	 * @var Indexable|null
+	 * @var Indexable
 	 */
 	protected $indexable = null;
 

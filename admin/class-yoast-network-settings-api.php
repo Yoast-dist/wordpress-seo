@@ -27,7 +27,7 @@ class Yoast_Network_Settings_API {
 	/**
 	 * The singleton instance of this class.
 	 *
-	 * @var Yoast_Network_Settings_API|null
+	 * @var Yoast_Network_Settings_API
 	 */
 	private static $instance = null;
 

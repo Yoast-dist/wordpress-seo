@@ -84,7 +84,7 @@ class OAuth_Token {
 
 		$this->expires = $expires;
 
-		if ( $has_expired === null ) {
+		if ( \is_null( $has_expired ) ) {
 			throw new Empty_Property_Exception( 'has_expired' );
 		}
 

@@ -23,7 +23,9 @@ class Indexing_Prepare_Action {
 	 *
 	 * @param Indexing_Helper $indexing_helper The indexing helper.
 	 */
-	public function __construct( Indexing_Helper $indexing_helper ) {
+	public function __construct(
+		Indexing_Helper $indexing_helper
+	) {
 		$this->indexing_helper = $indexing_helper;
 	}
 

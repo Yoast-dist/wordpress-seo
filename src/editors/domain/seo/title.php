@@ -10,14 +10,14 @@ class Title implements Seo_Plugin_Data_Interface {
 	/**
 	 * The title template.
 	 *
-	 * @var string
+	 * @var string $title_template
 	 */
 	private $title_template;
 
 	/**
 	 * The title template without the fallback.
 	 *
-	 * @var string
+	 * @var string $title_template_no_fallback
 	 */
 	private $title_template_no_fallback;
 
