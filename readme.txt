@@ -4,8 +4,8 @@ Donate link: https://yoa.st/1up
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
-Tested up to: 6.7
-Stable tag: 24.9-RC2
+Tested up to: 6.8
+Stable tag: 24.9-RC3
 Requires PHP: 7.2.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -278,6 +278,8 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 Release date: 2025-04-15
 
+Yoast SEO 24.9 brings more enhancements and bugfixes. [Find more information about our software releases and updates here](https://yoa.st/releases).
+
 #### Enhancements
 
 * Changes the applicability criteria of readability assessments so that they are shown even if there is little or no text.
@@ -294,6 +296,7 @@ Release date: 2025-04-15
 #### Other
 
 * Adds a space before the closing slash in self-closing HTML tags to comply with recommended coding standards. Props to [laxman1192](https://github.com/laxman1192).
+* Sets the _WordPress tested up to_ version to 6.8.
 * Updates the Google AI bot name in the _crawl optimization_ settings from _Google Bard_ to _Google Gemini_.
 
 = 24.8.1 =
