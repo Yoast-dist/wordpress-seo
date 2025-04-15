@@ -195,6 +195,8 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\dashboard\\user_interface\\configuration\\site_kit_consent_management_route' => 'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Configuration\\Site_Kit_Consent_Management_Route',
             'yoast\\wp\\seo\\dashboard\\user_interface\\scores\\readability_scores_route' => 'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Scores\\Readability_Scores_Route',
             'yoast\\wp\\seo\\dashboard\\user_interface\\scores\\seo_scores_route' => 'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Scores\\SEO_Scores_Route',
+            'yoast\\wp\\seo\\dashboard\\user_interface\\setup\\setup_flow_interceptor' => 'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Setup\\Setup_Flow_Interceptor',
+            'yoast\\wp\\seo\\dashboard\\user_interface\\setup\\setup_url_interceptor' => 'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Setup\\Setup_Url_Interceptor',
             'yoast\\wp\\seo\\dashboard\\user_interface\\time_based_seo_metrics\\time_based_seo_metrics_route' => 'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Time_Based_SEO_Metrics\\Time_Based_SEO_Metrics_Route',
             'yoast\\wp\\seo\\dashboard\\user_interface\\tracking\\setup_steps_tracking_route' => 'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Tracking\\Setup_Steps_Tracking_Route',
             'yoast\\wp\\seo\\editors\\application\\analysis_features\\enabled_analysis_features_repository' => 'Yoast\\WP\\SEO\\Editors\\Application\\Analysis_Features\\Enabled_Analysis_Features_Repository',
@@ -647,6 +649,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Configuration\\Site_Kit_Consent_Management_Route' => 'getSiteKitConsentManagementRouteService',
             'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Scores\\Readability_Scores_Route' => 'getReadabilityScoresRouteService',
             'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Scores\\SEO_Scores_Route' => 'getSEOScoresRouteService',
+            'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Setup\\Setup_Flow_Interceptor' => 'getSetupFlowInterceptorService',
+            'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Setup\\Setup_Url_Interceptor' => 'getSetupUrlInterceptorService',
             'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Time_Based_SEO_Metrics\\Time_Based_SEO_Metrics_Route' => 'getTimeBasedSEOMetricsRouteService',
             'Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Tracking\\Setup_Steps_Tracking_Route' => 'getSetupStepsTrackingRouteService',
             'Yoast\\WP\\SEO\\Editors\\Application\\Analysis_Features\\Enabled_Analysis_Features_Repository' => 'getEnabledAnalysisFeaturesRepositoryService',
@@ -2965,6 +2969,26 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Dashboard\User_Interface\Setup\Setup_Flow_Interceptor' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Dashboard\User_Interface\Setup\Setup_Flow_Interceptor
+     */
+    protected function getSetupFlowInterceptorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Setup\\Setup_Flow_Interceptor'] = new \Yoast\WP\SEO\Dashboard\User_Interface\Setup\Setup_Flow_Interceptor(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] : $this->getCurrentPageHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Redirect_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Redirect_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Redirect_Helper'] = new \Yoast\WP\SEO\Helpers\Redirect_Helper())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Dashboard\User_Interface\Setup\Setup_Url_Interceptor' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Dashboard\User_Interface\Setup\Setup_Url_Interceptor
+     */
+    protected function getSetupUrlInterceptorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Setup\\Setup_Url_Interceptor'] = new \Yoast\WP\SEO\Dashboard\User_Interface\Setup\Setup_Url_Interceptor(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] : $this->getCurrentPageHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit'] : $this->getSiteKitService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Redirect_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Redirect_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Redirect_Helper'] = new \Yoast\WP\SEO\Helpers\Redirect_Helper())) && false ?: '_'});
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Dashboard\User_Interface\Time_Based_SEO_Metrics\Time_Based_SEO_Metrics_Route' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Dashboard\User_Interface\Time_Based_SEO_Metrics\Time_Based_SEO_Metrics_Route
@@ -5126,6 +5150,8 @@ class Cached_Container extends Container
         $instance->register_route('Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Configuration\\Site_Kit_Consent_Management_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Scores\\Readability_Scores_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Scores\\SEO_Scores_Route');
+        $instance->register_integration('Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Setup\\Setup_Flow_Interceptor');
+        $instance->register_integration('Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Setup\\Setup_Url_Interceptor');
         $instance->register_route('Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Time_Based_SEO_Metrics\\Time_Based_SEO_Metrics_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Tracking\\Setup_Steps_Tracking_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\General\\User_Interface\\General_Page_Integration');
