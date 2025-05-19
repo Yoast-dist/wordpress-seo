@@ -406,6 +406,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\llms_txt\\application\\file\\llms_txt_cron_scheduler' => 'Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Llms_Txt_Cron_Scheduler',
             'yoast\\wp\\seo\\llms_txt\\infrastructure\\file\\wordpress_file_system_adapter' => 'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_File_System_Adapter',
             'yoast\\wp\\seo\\llms_txt\\infrastructure\\file\\wordpress_llms_txt_permission_gate' => 'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_Llms_Txt_Permission_Gate',
+            'yoast\\wp\\seo\\llms_txt\\user_interface\\cleanup_llms_txt_on_deactivation' => 'Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Cleanup_Llms_Txt_On_Deactivation',
             'yoast\\wp\\seo\\llms_txt\\user_interface\\enable_llms_txt_option_watcher' => 'Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Enable_Llms_Txt_Option_Watcher',
             'yoast\\wp\\seo\\llms_txt\\user_interface\\llms_txt_cron_callback_integration' => 'Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Llms_Txt_Cron_Callback_Integration',
             'yoast\\wp\\seo\\llms_txt\\user_interface\\schedule_population_on_activation_integration' => 'Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Schedule_Population_On_Activation_Integration',
@@ -869,6 +870,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Llms_Txt_Cron_Scheduler' => 'getLlmsTxtCronSchedulerService',
             'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_File_System_Adapter' => 'getWordPressFileSystemAdapterService',
             'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_Llms_Txt_Permission_Gate' => 'getWordPressLlmsTxtPermissionGateService',
+            'Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Cleanup_Llms_Txt_On_Deactivation' => 'getCleanupLlmsTxtOnDeactivationService',
             'Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Enable_Llms_Txt_Option_Watcher' => 'getEnableLlmsTxtOptionWatcherService',
             'Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Llms_Txt_Cron_Callback_Integration' => 'getLlmsTxtCronCallbackIntegrationService',
             'Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Schedule_Population_On_Activation_Integration' => 'getSchedulePopulationOnActivationIntegrationService',
@@ -5176,6 +5178,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Llms_Txt\User_Interface\Cleanup_Llms_Txt_On_Deactivation' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Llms_Txt\User_Interface\Cleanup_Llms_Txt_On_Deactivation
+     */
+    protected function getCleanupLlmsTxtOnDeactivationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Cleanup_Llms_Txt_On_Deactivation'] = new \Yoast\WP\SEO\Llms_Txt\User_Interface\Cleanup_Llms_Txt_On_Deactivation(${($_ = isset($this->services['Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Commands\\Remove_File_Command_Handler']) ? $this->services['Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Commands\\Remove_File_Command_Handler'] : $this->getRemoveFileCommandHandlerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Llms_Txt_Cron_Scheduler']) ? $this->services['Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Llms_Txt_Cron_Scheduler'] : $this->getLlmsTxtCronSchedulerService()) && false ?: '_'});
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Llms_Txt\User_Interface\Enable_Llms_Txt_Option_Watcher' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Llms_Txt\User_Interface\Enable_Llms_Txt_Option_Watcher
@@ -5202,7 +5214,7 @@ class Cached_Container extends Container
      */
     protected function getSchedulePopulationOnActivationIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Schedule_Population_On_Activation_Integration'] = new \Yoast\WP\SEO\Llms_Txt\User_Interface\Schedule_Population_On_Activation_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Llms_Txt_Cron_Scheduler']) ? $this->services['Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Llms_Txt_Cron_Scheduler'] : $this->getLlmsTxtCronSchedulerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Commands\\Remove_File_Command_Handler']) ? $this->services['Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Commands\\Remove_File_Command_Handler'] : $this->getRemoveFileCommandHandlerService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Schedule_Population_On_Activation_Integration'] = new \Yoast\WP\SEO\Llms_Txt\User_Interface\Schedule_Population_On_Activation_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Llms_Txt_Cron_Scheduler']) ? $this->services['Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Llms_Txt_Cron_Scheduler'] : $this->getLlmsTxtCronSchedulerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
     }
 
     /**
@@ -5366,6 +5378,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Introductions\\User_Interface\\Introductions_Integration');
         $instance->register_route('Yoast\\WP\\SEO\\Introductions\\User_Interface\\Introductions_Seen_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Introductions\\User_Interface\\Wistia_Embed_Permission_Route');
+        $instance->register_integration('Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Cleanup_Llms_Txt_On_Deactivation');
         $instance->register_integration('Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Enable_Llms_Txt_Option_Watcher');
         $instance->register_integration('Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Llms_Txt_Cron_Callback_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Schedule_Population_On_Activation_Integration');
