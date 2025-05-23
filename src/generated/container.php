@@ -1109,6 +1109,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Commands\\Populate_File_Command_Handler' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Commands\\Remove_File_Command_Handler' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Llms_Txt_Cron_Scheduler' => true,
+            'Yoast\\WP\\SEO\\Llms_Txt\\Application\\Health_Check\\File_Check' => true,
+            'Yoast\\WP\\SEO\\Llms_Txt\\Application\\Health_Check\\File_Runner' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\Markdown_Builders\\Description_Builder' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\Markdown_Builders\\Intro_Builder' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\Markdown_Builders\\Link_Lists_Builder' => true,
@@ -1130,6 +1132,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\Markdown_Services\\Sitemap_Link_Collector' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\Markdown_Services\\Terms_Collector' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\Markdown_Services\\Title_Adapter' => true,
+            'Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Health_Check\\File_Reports' => true,
             'Yoast\\WP\\SEO\\Presenters\\Robots_Txt_Presenter' => true,
             'Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager_Interface' => true,
             'Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Checklist_Promotion' => true,
@@ -4123,7 +4126,7 @@ class Cached_Container extends Container
      */
     protected function getHealthCheckIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Health_Check_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Health_Check_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Check']) ? $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Check'] : $this->getDefaultTaglineCheckService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Check']) ? $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Check'] : $this->getLinksTableCheckService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Page_Comments_Check']) ? $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Page_Comments_Check'] : $this->getPageCommentsCheckService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Postname_Permalink_Check']) ? $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Postname_Permalink_Check'] : $this->getPostnamePermalinkCheckService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Health_Check_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Health_Check_Integration(new \Yoast\WP\SEO\Llms_Txt\Application\Health_Check\File_Check(new \Yoast\WP\SEO\Llms_Txt\Application\Health_Check\File_Runner(), new \Yoast\WP\SEO\Llms_Txt\User_Interface\Health_Check\File_Reports(${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Report_Builder_Factory']) ? $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Report_Builder_Factory'] : ($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Report_Builder_Factory'] = new \Yoast\WP\SEO\Services\Health_Check\Report_Builder_Factory())) && false ?: '_'}), ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}), ${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Check']) ? $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Check'] : $this->getDefaultTaglineCheckService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Check']) ? $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Check'] : $this->getLinksTableCheckService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Page_Comments_Check']) ? $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Page_Comments_Check'] : $this->getPageCommentsCheckService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Postname_Permalink_Check']) ? $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Postname_Permalink_Check'] : $this->getPostnamePermalinkCheckService()) && false ?: '_'});
     }
 
     /**
@@ -5848,7 +5851,7 @@ class Cached_Container extends Container
      */
     protected function getLinksTableCheckService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Check'] = new \Yoast\WP\SEO\Services\Health_Check\Links_Table_Check(${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Runner']) ? $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Runner'] : $this->getLinksTableRunnerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Reports']) ? $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Reports'] : $this->getLinksTableReportsService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Check'] = new \Yoast\WP\SEO\Services\Health_Check\Links_Table_Check(${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Runner']) ? $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Runner'] : $this->getLinksTableRunnerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Reports']) ? $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Links_Table_Reports'] : $this->getLinksTableReportsService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Should_Index_Links_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Should_Index_Links_Conditional'] : $this->getShouldIndexLinksConditionalService()) && false ?: '_'});
     }
 
     /**
