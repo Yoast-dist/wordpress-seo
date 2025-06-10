@@ -222,6 +222,7 @@
 	padding-top: 1px;
 	line-height: 20px;
 	vertical-align: bottom;
+	column-gap: 12px;
 `;j.displayName="BaseUrlOverflowContainer";const N=i.default.span`
 	font-size: ${e=>e.screenMode===m.MODE_DESKTOP?"14px":"12px"};
 	line-height: ${e=>e.screenMode===m.MODE_DESKTOP?"1.3":"20px"};
@@ -232,7 +233,6 @@
 `,I=i.default.div`
 width: 28px;
 height: 28px;
-margin-right: 12px;
 border-radius: 50px;
 display: flex;
 align-items: center;
