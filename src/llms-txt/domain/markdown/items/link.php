@@ -10,13 +10,6 @@ use Yoast\WP\SEO\Llms_Txt\Application\Markdown_Escaper;
 class Link implements Item_Interface {
 
 	/**
-	 * The description that is part of this link.
-	 *
-	 * @var string
-	 */
-	private $description;
-
-	/**
 	 * The link text.
 	 *
 	 * @var string
@@ -33,14 +26,12 @@ class Link implements Item_Interface {
 	/**
 	 * Class constructor.
 	 *
-	 * @param string $text        The link text.
-	 * @param string $anchor      The anchor text.
-	 * @param string $description The description.
+	 * @param string $text   The link text.
+	 * @param string $anchor The anchor text.
 	 */
-	public function __construct( string $text, string $anchor, string $description = '' ) {
-		$this->text        = $text;
-		$this->anchor      = $anchor;
-		$this->description = $description;
+	public function __construct( string $text, string $anchor ) {
+		$this->text   = $text;
+		$this->anchor = $anchor;
 	}
 
 	/**
@@ -49,8 +40,7 @@ class Link implements Item_Interface {
 	 * @return string
 	 */
 	public function render(): string {
-		$description = ( $this->description !== '' ) ? ": $this->description" : '';
-		return "[$this->text]($this->anchor)$description";
+		return "[$this->text]($this->anchor)";
 	}
 
 	/**
@@ -61,8 +51,7 @@ class Link implements Item_Interface {
 	 * @return void
 	 */
 	public function escape_markdown( Markdown_Escaper $markdown_escaper ): void {
-		$this->text        = $markdown_escaper->escape_markdown_content( $this->text );
-		$this->description = $markdown_escaper->escape_markdown_content( $this->description );
-		$this->anchor      = $markdown_escaper->escape_markdown_url( $this->anchor );
+		$this->text   = $markdown_escaper->escape_markdown_content( $this->text );
+		$this->anchor = $markdown_escaper->escape_markdown_url( $this->anchor );
 	}
 }
