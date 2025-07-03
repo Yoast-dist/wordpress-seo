@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.8
-Stable tag: 25.5-RC1
+Stable tag: 25.5-RC2
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -201,17 +201,13 @@ Release date: 2025-07-15
 
 #### Enhancements
 
-* Changes the `Upgrades` page to a `Plans` page.
 * Enhances the UX of the llms.txt feature, by informing users for potential issues with generating the file, via Yoast's alert center.
 * Uses canonical URLs for the post lists in the llms.txt file.
 
-#### Bugfixes
-
-* Fixes a bug where the Google Docs add-on announcement modals appeared on all admin pages.
-
 #### Other
 
-* Announces the addition of the Google Docs add-on on both, the Free and Premium plugin plans.
+* Adds an announcement for the Google Docs add-on.
+* Changes the `Upgrades` page to a `Plans` page.
 * Removes redundant flushing of cache groups when incoming links for posts change.
 
 = 25.4 =
