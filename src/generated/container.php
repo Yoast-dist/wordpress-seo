@@ -98,6 +98,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\conditionals\\headless_rest_endpoints_enabled_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Headless_Rest_Endpoints_Enabled_Conditional',
             'yoast\\wp\\seo\\conditionals\\import_tool_selected_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Import_Tool_Selected_Conditional',
             'yoast\\wp\\seo\\conditionals\\jetpack_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Jetpack_Conditional',
+            'yoast\\wp\\seo\\conditionals\\llms_txt_enabled_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Llms_Txt_Enabled_Conditional',
             'yoast\\wp\\seo\\conditionals\\migrations_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Migrations_Conditional',
             'yoast\\wp\\seo\\conditionals\\new_settings_ui_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\New_Settings_Ui_Conditional',
             'yoast\\wp\\seo\\conditionals\\news_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\News_Conditional',
@@ -405,8 +406,10 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\llms_txt\\application\\file\\commands\\remove_file_command_handler' => 'Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Commands\\Remove_File_Command_Handler',
             'yoast\\wp\\seo\\llms_txt\\application\\file\\llms_txt_cron_scheduler' => 'Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Llms_Txt_Cron_Scheduler',
             'yoast\\wp\\seo\\llms_txt\\application\\health_check\\file_runner' => 'Yoast\\WP\\SEO\\Llms_Txt\\Application\\Health_Check\\File_Runner',
+            'yoast\\wp\\seo\\llms_txt\\infrastructure\\content\\automatic_post_collection' => 'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\Content\\Automatic_Post_Collection',
             'yoast\\wp\\seo\\llms_txt\\infrastructure\\file\\wordpress_file_system_adapter' => 'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_File_System_Adapter',
             'yoast\\wp\\seo\\llms_txt\\infrastructure\\file\\wordpress_llms_txt_permission_gate' => 'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_Llms_Txt_Permission_Gate',
+            'yoast\\wp\\seo\\llms_txt\\user_interface\\available_posts_route' => 'Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Available_Posts_Route',
             'yoast\\wp\\seo\\llms_txt\\user_interface\\cleanup_llms_txt_on_deactivation' => 'Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Cleanup_Llms_Txt_On_Deactivation',
             'yoast\\wp\\seo\\llms_txt\\user_interface\\enable_llms_txt_option_watcher' => 'Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Enable_Llms_Txt_Option_Watcher',
             'yoast\\wp\\seo\\llms_txt\\user_interface\\file_failure_llms_txt_notification_integration' => 'Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\File_Failure_Llms_Txt_Notification_Integration',
@@ -565,6 +568,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\Headless_Rest_Endpoints_Enabled_Conditional' => 'getHeadlessRestEndpointsEnabledConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Import_Tool_Selected_Conditional' => 'getImportToolSelectedConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Jetpack_Conditional' => 'getJetpackConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Llms_Txt_Enabled_Conditional' => 'getLlmsTxtEnabledConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Migrations_Conditional' => 'getMigrationsConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\New_Settings_Ui_Conditional' => 'getNewSettingsUiConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\News_Conditional' => 'getNewsConditionalService',
@@ -872,8 +876,10 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Commands\\Remove_File_Command_Handler' => 'getRemoveFileCommandHandlerService',
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Llms_Txt_Cron_Scheduler' => 'getLlmsTxtCronSchedulerService',
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\Health_Check\\File_Runner' => 'getFileRunnerService',
+            'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\Content\\Automatic_Post_Collection' => 'getAutomaticPostCollectionService',
             'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_File_System_Adapter' => 'getWordPressFileSystemAdapterService',
             'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_Llms_Txt_Permission_Gate' => 'getWordPressLlmsTxtPermissionGateService',
+            'Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Available_Posts_Route' => 'getAvailablePostsRouteService',
             'Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Cleanup_Llms_Txt_On_Deactivation' => 'getCleanupLlmsTxtOnDeactivationService',
             'Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Enable_Llms_Txt_Option_Watcher' => 'getEnableLlmsTxtOptionWatcherService',
             'Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\File_Failure_Llms_Txt_Notification_Integration' => 'getFileFailureLlmsTxtNotificationIntegrationService',
@@ -978,6 +984,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Commands\\Remove_File_Command_Handler' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Llms_Txt_Cron_Scheduler' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\Health_Check\\File_Runner' => true,
+            'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\Content\\Automatic_Post_Collection' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_File_System_Adapter' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_Llms_Txt_Permission_Gate' => true,
         ];
@@ -1113,6 +1120,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Introductions\\Domain\\Introductions_Bucket' => true,
             'Yoast\\WP\\SEO\\Introductions\\Domain\\Invalid_User_Id_Exception' => true,
             'Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Introductions_Seen_Repository' => true,
+            'Yoast\\WP\\SEO\\Llms_Txt\\Application\\Available_Posts\\Available_Posts_Repository' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\Configuration\\Llms_Txt_Configuration' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Commands\\Populate_File_Command_Handler' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Commands\\Remove_File_Command_Handler' => true,
@@ -1126,6 +1134,12 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\Markdown_Builders\\Markdown_Builder' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\Markdown_Builders\\Title_Builder' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Application\\Markdown_Escaper' => true,
+            'Yoast\\WP\\SEO\\Llms_Txt\\Domain\\Available_Posts\\Data_Provider\\Available_Posts_Data' => true,
+            'Yoast\\WP\\SEO\\Llms_Txt\\Domain\\Available_Posts\\Data_Provider\\Available_Posts_Repository_Interface' => true,
+            'Yoast\\WP\\SEO\\Llms_Txt\\Domain\\Available_Posts\\Data_Provider\\Data_Container' => true,
+            'Yoast\\WP\\SEO\\Llms_Txt\\Domain\\Available_Posts\\Data_Provider\\Data_Interface' => true,
+            'Yoast\\WP\\SEO\\Llms_Txt\\Domain\\Available_Posts\\Data_Provider\\Parameters' => true,
+            'Yoast\\WP\\SEO\\Llms_Txt\\Domain\\Available_Posts\\Invalid_Post_Type_Exception' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Domain\\Content_Types\\Content_Type_Entry' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Domain\\File\\Llms_File_System_Interface' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Domain\\File\\Llms_Txt_Permission_Gate_Interface' => true,
@@ -2173,6 +2187,16 @@ class Cached_Container extends Container
     protected function getJetpackConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\Jetpack_Conditional'] = new \Yoast\WP\SEO\Conditionals\Jetpack_Conditional();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Llms_Txt_Enabled_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Llms_Txt_Enabled_Conditional
+     */
+    protected function getLlmsTxtEnabledConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Llms_Txt_Enabled_Conditional'] = new \Yoast\WP\SEO\Conditionals\Llms_Txt_Enabled_Conditional(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
     }
 
     /**
@@ -5198,6 +5222,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Llms_Txt\User_Interface\Available_Posts_Route' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Llms_Txt\User_Interface\Available_Posts_Route
+     */
+    protected function getAvailablePostsRouteService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Available_Posts_Route'] = new \Yoast\WP\SEO\Llms_Txt\User_Interface\Available_Posts_Route(new \Yoast\WP\SEO\Llms_Txt\Application\Available_Posts\Available_Posts_Repository(${($_ = isset($this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\Content\\Automatic_Post_Collection']) ? $this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\Content\\Automatic_Post_Collection'] : $this->getAutomaticPostCollectionService()) && false ?: '_'}), ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())) && false ?: '_'});
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Llms_Txt\User_Interface\Cleanup_Llms_Txt_On_Deactivation' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Llms_Txt\User_Interface\Cleanup_Llms_Txt_On_Deactivation
@@ -5408,6 +5442,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Introductions\\User_Interface\\Introductions_Integration');
         $instance->register_route('Yoast\\WP\\SEO\\Introductions\\User_Interface\\Introductions_Seen_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Introductions\\User_Interface\\Wistia_Embed_Permission_Route');
+        $instance->register_route('Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Available_Posts_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Cleanup_Llms_Txt_On_Deactivation');
         $instance->register_integration('Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Enable_Llms_Txt_Option_Watcher');
         $instance->register_integration('Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\File_Failure_Llms_Txt_Notification_Integration');
@@ -6448,10 +6483,8 @@ class Cached_Container extends Container
     {
         $a = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'};
         $b = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface']) ? $this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface'] : $this->getMetaSurfaceService()) && false ?: '_'};
-        $c = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : $this->getIndexableHelperService()) && false ?: '_'};
-        $d = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'};
 
-        return $this->services['Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Commands\\Populate_File_Command_Handler'] = new \Yoast\WP\SEO\Llms_Txt\Application\File\Commands\Populate_File_Command_Handler($a, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_File_System_Adapter']) ? $this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_File_System_Adapter'] : ($this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_File_System_Adapter'] = new \Yoast\WP\SEO\Llms_Txt\Infrastructure\File\WordPress_File_System_Adapter())) && false ?: '_'}, new \Yoast\WP\SEO\Llms_Txt\Application\Markdown_Builders\Markdown_Builder(new \Yoast\WP\SEO\Llms_Txt\Domain\Markdown\Llms_Txt_Renderer(), new \Yoast\WP\SEO\Llms_Txt\Application\Markdown_Builders\Intro_Builder(new \Yoast\WP\SEO\Llms_Txt\Infrastructure\Markdown_Services\Sitemap_Link_Collector()), new \Yoast\WP\SEO\Llms_Txt\Application\Markdown_Builders\Title_Builder(new \Yoast\WP\SEO\Llms_Txt\Infrastructure\Markdown_Services\Title_Adapter(${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Runner']) ? $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Runner'] : ($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Runner'] = new \Yoast\WP\SEO\Services\Health_Check\Default_Tagline_Runner())) && false ?: '_'})), new \Yoast\WP\SEO\Llms_Txt\Application\Markdown_Builders\Description_Builder(new \Yoast\WP\SEO\Llms_Txt\Infrastructure\Markdown_Services\Description_Adapter($b)), new \Yoast\WP\SEO\Llms_Txt\Application\Markdown_Builders\Link_Lists_Builder(new \Yoast\WP\SEO\Llms_Txt\Infrastructure\Markdown_Services\Content_Types_Collector(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] : $this->getPostTypeHelperService()) && false ?: '_'}, new \Yoast\WP\SEO\Llms_Txt\Infrastructure\Content\Post_Collection_Factory(new \Yoast\WP\SEO\Llms_Txt\Infrastructure\Content\Manual_Post_Collection($a, $c, $d, $b), new \Yoast\WP\SEO\Llms_Txt\Infrastructure\Content\Automatic_Post_Collection($a, $d, $b, $c)), $a), new \Yoast\WP\SEO\Llms_Txt\Infrastructure\Markdown_Services\Terms_Collector(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper'] : $this->getTaxonomyHelperService()) && false ?: '_'})), new \Yoast\WP\SEO\Llms_Txt\Application\Markdown_Escaper()), ${($_ = isset($this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_Llms_Txt_Permission_Gate']) ? $this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_Llms_Txt_Permission_Gate'] : $this->getWordPressLlmsTxtPermissionGateService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Commands\\Populate_File_Command_Handler'] = new \Yoast\WP\SEO\Llms_Txt\Application\File\Commands\Populate_File_Command_Handler($a, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_File_System_Adapter']) ? $this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_File_System_Adapter'] : ($this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_File_System_Adapter'] = new \Yoast\WP\SEO\Llms_Txt\Infrastructure\File\WordPress_File_System_Adapter())) && false ?: '_'}, new \Yoast\WP\SEO\Llms_Txt\Application\Markdown_Builders\Markdown_Builder(new \Yoast\WP\SEO\Llms_Txt\Domain\Markdown\Llms_Txt_Renderer(), new \Yoast\WP\SEO\Llms_Txt\Application\Markdown_Builders\Intro_Builder(new \Yoast\WP\SEO\Llms_Txt\Infrastructure\Markdown_Services\Sitemap_Link_Collector()), new \Yoast\WP\SEO\Llms_Txt\Application\Markdown_Builders\Title_Builder(new \Yoast\WP\SEO\Llms_Txt\Infrastructure\Markdown_Services\Title_Adapter(${($_ = isset($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Runner']) ? $this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Runner'] : ($this->services['Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Runner'] = new \Yoast\WP\SEO\Services\Health_Check\Default_Tagline_Runner())) && false ?: '_'})), new \Yoast\WP\SEO\Llms_Txt\Application\Markdown_Builders\Description_Builder(new \Yoast\WP\SEO\Llms_Txt\Infrastructure\Markdown_Services\Description_Adapter($b)), new \Yoast\WP\SEO\Llms_Txt\Application\Markdown_Builders\Link_Lists_Builder(new \Yoast\WP\SEO\Llms_Txt\Infrastructure\Markdown_Services\Content_Types_Collector(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] : $this->getPostTypeHelperService()) && false ?: '_'}, new \Yoast\WP\SEO\Llms_Txt\Infrastructure\Content\Post_Collection_Factory(new \Yoast\WP\SEO\Llms_Txt\Infrastructure\Content\Manual_Post_Collection($a, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : $this->getIndexableHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'}, $b), ${($_ = isset($this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\Content\\Automatic_Post_Collection']) ? $this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\Content\\Automatic_Post_Collection'] : $this->getAutomaticPostCollectionService()) && false ?: '_'}), $a), new \Yoast\WP\SEO\Llms_Txt\Infrastructure\Markdown_Services\Terms_Collector(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper'] : $this->getTaxonomyHelperService()) && false ?: '_'})), new \Yoast\WP\SEO\Llms_Txt\Application\Markdown_Escaper()), ${($_ = isset($this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_Llms_Txt_Permission_Gate']) ? $this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_Llms_Txt_Permission_Gate'] : $this->getWordPressLlmsTxtPermissionGateService()) && false ?: '_'});
     }
 
     /**
@@ -6482,6 +6515,16 @@ class Cached_Container extends Container
     protected function getFileRunnerService()
     {
         return $this->services['Yoast\\WP\\SEO\\Llms_Txt\\Application\\Health_Check\\File_Runner'] = new \Yoast\WP\SEO\Llms_Txt\Application\Health_Check\File_Runner();
+    }
+
+    /**
+     * Gets the private 'Yoast\WP\SEO\Llms_Txt\Infrastructure\Content\Automatic_Post_Collection' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Llms_Txt\Infrastructure\Content\Automatic_Post_Collection
+     */
+    protected function getAutomaticPostCollectionService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\Content\\Automatic_Post_Collection'] = new \Yoast\WP\SEO\Llms_Txt\Infrastructure\Content\Automatic_Post_Collection(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface']) ? $this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface'] : $this->getMetaSurfaceService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : $this->getIndexableHelperService()) && false ?: '_'});
     }
 
     /**
