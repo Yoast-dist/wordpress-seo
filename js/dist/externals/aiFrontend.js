@@ -98,7 +98,7 @@
 		max-width: none;
 	}
 `,s=o.default.img`
-	&&{
+	&& {
 		height: 100%;
 		position: absolute;
 		width: 100%;
@@ -106,7 +106,7 @@
 	}
 `,c=o.default.div`
 	padding-bottom: ${e=>e.aspectRatio}%;
-`,d=e=>{const{imageProps:t,width:r,height:n,imageMode:o}=e;return"landscape"===o?a.default.createElement(c,{aspectRatio:t.aspectRatio},a.default.createElement(s,{src:t.src,alt:t.alt})):a.default.createElement(i,{src:t.src,alt:t.alt,width:r,height:n,imageProperties:t})};t.SocialImage=d,d.propTypes={imageProps:n.default.shape({src:n.default.string.isRequired,alt:n.default.string.isRequired,aspectRatio:n.default.number.isRequired}).isRequired,width:n.default.number.isRequired,height:n.default.number.isRequired,imageMode:n.default.string},d.defaultProps={imageMode:"landscape"}},20455:(e,t,r)=>{"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var n,a=r(19275);const o=((n=r(98487))&&n.__esModule?n:{default:n}).default.p`
+`,d=({imageProps:e,width:t,height:r,imageMode:n="landscape"})=>"landscape"===n?a.default.createElement(c,{aspectRatio:e.aspectRatio},a.default.createElement(s,{src:e.src,alt:e.alt})):a.default.createElement(i,{src:e.src,alt:e.alt,width:t,height:r,imageProperties:e});t.SocialImage=d,d.propTypes={imageProps:n.default.shape({src:n.default.string.isRequired,alt:n.default.string.isRequired,aspectRatio:n.default.number.isRequired}).isRequired,width:n.default.number.isRequired,height:n.default.number.isRequired,imageMode:n.default.string}},20455:(e,t,r)=>{"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var n,a=r(19275);const o=((n=r(98487))&&n.__esModule?n:{default:n}).default.p`
 	max-height: 55px;
 	overflow: hidden;
 	text-overflow: ellipsis;
