@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.8
-Stable tag: 25.6-RC1
+Stable tag: 25.5
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -204,10 +204,6 @@ Release date: 2025-07-29
 #### Enhancements
 
 * Introduces a way to manually select the pages to be included in the llms.txt file.
-
-#### Other
-
-* Adds another wpseo option in the database, one that's specific to the llms.txt feature.
 
 = 25.5 =
 
