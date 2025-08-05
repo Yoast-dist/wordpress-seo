@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.8
-Stable tag: 25.7-RC2
+Stable tag: 25.7-RC3
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -207,6 +207,7 @@ Release date: 2025-08-12
 
 #### Other
 
+* Adds an announcement for the upcoming AI Brand Insights feature.
 * Sets the minimum supported WordPress version to 6.7.
 
 = 25.6 =
