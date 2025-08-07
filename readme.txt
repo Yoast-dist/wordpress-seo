@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.8
-Stable tag: 25.7-RC4
+Stable tag: 25.7-RC5
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -204,6 +204,10 @@ Release date: 2025-08-12
 #### Enhancements
 
 * Re-generates the llms.txt file immediately when there's any change in the selection of the pages to be included.
+
+#### Bugfixes
+
+* Fixes a bug where the AI free sparks upsell would appear instead of the rate limit error when rate limit is reached in the AI generator before reaching the free sparks limit.
 
 #### Other
 
