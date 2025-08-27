@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.8
-Stable tag: 25.9-RC1
+Stable tag: 25.9-RC2
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -203,12 +203,8 @@ Release date: 2025-09-09
 
 #### Enhancements
 
-* Improves the UX of onboarding new users by preventing irrelevant modals from displaying in the First Time Configuration.
 * Enhances the UX of the llms.txt feature by displaying errors with generating the llms.txt file in the relevant settings page.
-
-#### Bugfixes
-
-* Fixes a bug where users could not enter leading zeros in HowTo block time duration fields when specifying cooking or preparation times.
+* Improves the UX of onboarding new users by preventing irrelevant modals from displaying in the First Time Configuration.
 
 = 25.8 =
 
