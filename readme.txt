@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.8
-Stable tag: 25.9-RC6
+Stable tag: 25.9-RC7
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -205,6 +205,10 @@ Release date: 2025-09-09
 
 * Enhances the UX of the llms.txt feature by displaying errors with generating the llms.txt file in the relevant settings page.
 * Improves the UX of onboarding new users by preventing irrelevant modals from displaying in the First Time Configuration.
+
+#### Other
+
+* Updates the copy of the consent modal for using the Yoast AI features.
 
 = 25.8 =
 
