@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.8
-Stable tag: 26.0-RC1
+Stable tag: 26.0-RC2
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -211,6 +211,7 @@ Release date: 2025-09-23
 
 #### Other
 
+* Adds an introduction which would show after 14 days of the plugin activation or update.
 * Adds safety check when accessing an array to avoid PHP warnings when getting the upgrade campaign for Wincher integration. Props to @bor0.
 
 = 25.9 =
