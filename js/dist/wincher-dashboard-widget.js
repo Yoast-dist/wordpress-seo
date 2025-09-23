@@ -56,7 +56,7 @@
 	line-height: 20px;
 	margin-right: 2px;
 	margin-left: 12px;
-`;function E(e){return Math.round(100*e)}function A({chartData:e={}}){if((0,s.isEmpty)(e)||(0,s.isEmpty)(e.position))return"?";const t=function(e){return Array.from({length:e.position.history.length},((e,t)=>t+1)).map((e=>(0,r.sprintf)((0,r._n)("%d day","%d days",e,"wordpress-seo"),e)))}(e),n=e.position.history.map(((e,t)=>({x:t,y:101-e.value})));return(0,p.jsx)(L,{width:66,height:24,data:n,strokeWidth:1.8,strokeColor:"#498afc",fillColor:"#ade3fc",mapChartDataToTableData:E,dataTableCaption:(0,r.__)("Keyphrase position in the last 90 days on a scale from 0 to 100.","wordpress-seo"),dataTableHeaderLabels:t})}function W(e){return!e||!e.position||e.position.value>100?"> 100":e.position.value}o().td`
+`;function E(e){return Math.round(100*e)}function A({chartData:e={}}){if((0,s.isEmpty)(e)||(0,s.isEmpty)(e.position))return"?";const t=function(e){return Array.from({length:e.position.history.length},((e,t)=>t+1)).map((e=>(0,r.sprintf)((0,r._n)("%d day","%d days",e,"wordpress-seo"),e)))}(e),n=e.position.history.map(((e,t)=>({x:t,y:31-e.value})));return(0,p.jsx)(L,{width:66,height:24,data:n,strokeWidth:1.8,strokeColor:"#498afc",fillColor:"#ade3fc",mapChartDataToTableData:E,dataTableCaption:(0,r.__)("Keyphrase position in the last 90 days on a scale from 0 to 30.","wordpress-seo"),dataTableHeaderLabels:t})}function W(e){return!e||!e.position||e.position.value>30?"> 30":e.position.value}o().td`
 	padding-right: 0 !important;
 
 	& > div {
