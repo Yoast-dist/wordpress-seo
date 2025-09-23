@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.8
-Stable tag: 26.0-RC4
+Stable tag: 26.0
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -215,7 +215,7 @@ Yoast SEO 26.0 brings more enhancements and bugfixes. [Find more information abo
 
 * Adds an introduction which would show after 14 days of the plugin activation or update.
 * Adds safety check when accessing an array to avoid PHP warnings when getting the upgrade campaign for Wincher integration. Props to [@bor0](https://github.com/bor0).
-* Allow changing the main image ID through a filter `wpseo_schema_main_image_id` props: @JoryHogeveen
+* Allow changing the main image ID through a filter `wpseo_schema_main_image_id`. Props to [@JoryHogeveen](https://github.com/JoryHogeveen).
 * Ensures compatibility with the recent Wincher API changes.
 
 = 25.9 =
