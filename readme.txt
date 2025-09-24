@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.8
-Stable tag: 26.1-RC1
+Stable tag: 26.1-RC2
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -203,7 +203,6 @@ Release date: 2025-10-07
 
 #### Enhancements
 
-* Adds a `Pronouns` field to the user profile and includes these pronouns in the Schema.org output. Props to [jdevalk](https://github.com/jdevalk).
 * Improves the UX of the llms.txt settings, by informing the user that they have to save their changes in order for the file to be generated.
 * Introduces the ability to add a Ahrefs verification code via Yoast settings.
 
