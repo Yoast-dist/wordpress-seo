@@ -1,6 +1,7 @@
 <?php
 // phpcs:disable Yoast.NamingConventions.NamespaceName.TooLong -- Needed in the folder structure.
-namespace Yoast\WP\SEO\AI_Generator\User_Interface;
+// phpcs:disable Yoast.NamingConventions.NamespaceName.MaxExceeded
+namespace Yoast\WP\SEO\Ai_Generator\User_Interface;
 
 use WP_REST_Response;
 use WPSEO_Addon_Manager;
@@ -16,6 +17,9 @@ use Yoast\WP\SEO\Routes\Route_Interface;
 
 /**
  * Registers a route to get suggestions from the AI API
+ *
+ * @deprecated
+ * @codeCoverageIgnore
  *
  * @makePublic
  *
@@ -63,9 +67,13 @@ class Get_Usage_Route implements Route_Interface {
 	/**
 	 * Returns the conditionals based in which this loadable should be active.
 	 *
+	 * @deprecated
+	 * @codeCoverageIgnore
+	 *
 	 * @return array<string> The conditionals.
 	 */
 	public static function get_conditionals() {
+		\_deprecated_function( __METHOD__, 'Yoast SEO ', '\\Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Get_Usage_Route::get_conditionals' );
 		return [ AI_Conditional::class ];
 	}
 
@@ -85,9 +93,13 @@ class Get_Usage_Route implements Route_Interface {
 	/**
 	 * Registers routes with WordPress.
 	 *
+	 * @deprecated
+	 * @codeCoverageIgnore
+	 *
 	 * @return void
 	 */
 	public function register_routes() {
+		\_deprecated_function( __METHOD__, 'Yoast SEO ', '\\Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Get_Usage_Route::register_routes' );
 		\register_rest_route(
 			self::ROUTE_NAMESPACE,
 			self::ROUTE_PREFIX,
@@ -108,12 +120,16 @@ class Get_Usage_Route implements Route_Interface {
 	/**
 	 * Runs the callback that gets the monthly usage of the user.
 	 *
-	 * @param WP_REST_Request $request The request object.
+	 * @deprecated
+	 * @codeCoverageIgnore
+	 *
+	 * @param WP_REST_Response $response The response object containing the parameters for the request.
 	 *
 	 * @return WP_REST_Response The response of the callback action.
 	 */
-	public function get_usage( $request ): WP_REST_Response {
-		$is_woo_product_entity = $request->get_param( 'is_woo_product_entity' );
+	public function get_usage( $response ): WP_REST_Response {
+		\_deprecated_function( __METHOD__, 'Yoast SEO ', '\\Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Get_Usage_Route::get_usage' );
+		$is_woo_product_entity = $response->get_param( 'is_woo_product_entity' );
 		$user                  = \wp_get_current_user();
 		try {
 			$token           = $this->token_manager->get_or_request_access_token( $user );
@@ -145,11 +161,15 @@ class Get_Usage_Route implements Route_Interface {
 	/**
 	 * Get action path for the request.
 	 *
+	 * @deprecated
+	 * @codeCoverageIgnore
+	 *
 	 * @param bool $is_woo_product_entity Whether the request is for a WooCommerce product entity.
 	 *
 	 * @return string The action path.
 	 */
 	public function get_action_path( $is_woo_product_entity = false ): string {
+		\_deprecated_function( __METHOD__, 'Yoast SEO ', '\\Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Get_Usage_Route::get_action_path' );
 		$unlimited = '/usage/' . \gmdate( 'Y-m' );
 		if ( $is_woo_product_entity && $this->addon_manager->has_valid_subscription( WPSEO_Addon_Manager::WOOCOMMERCE_SLUG ) ) {
 			return $unlimited;
