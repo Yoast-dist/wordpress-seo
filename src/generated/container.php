@@ -153,6 +153,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\conditionals\\woocommerce_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Conditional',
             'yoast\\wp\\seo\\conditionals\\wp_cron_enabled_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\WP_CRON_Enabled_Conditional',
             'yoast\\wp\\seo\\conditionals\\wp_robots_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\WP_Robots_Conditional',
+            'yoast\\wp\\seo\\conditionals\\wp_tests_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\WP_Tests_Conditional',
             'yoast\\wp\\seo\\conditionals\\xmlrpc_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\XMLRPC_Conditional',
             'yoast\\wp\\seo\\conditionals\\yoast_admin_and_dashboard_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Yoast_Admin_And_Dashboard_Conditional',
             'yoast\\wp\\seo\\conditionals\\yoast_tools_page_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Yoast_Tools_Page_Conditional',
@@ -295,6 +296,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\initializers\\disable_core_sitemaps' => 'Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps',
             'yoast\\wp\\seo\\initializers\\migration_runner' => 'Yoast\\WP\\SEO\\Initializers\\Migration_Runner',
             'yoast\\wp\\seo\\initializers\\plugin_headers' => 'Yoast\\WP\\SEO\\Initializers\\Plugin_Headers',
+            'yoast\\wp\\seo\\initializers\\silence_load_textdomain_just_in_time_notices' => 'Yoast\\WP\\SEO\\Initializers\\Silence_Load_Textdomain_Just_In_Time_Notices',
             'yoast\\wp\\seo\\initializers\\woocommerce' => 'Yoast\\WP\\SEO\\Initializers\\Woocommerce',
             'yoast\\wp\\seo\\integrations\\academy_integration' => 'Yoast\\WP\\SEO\\Integrations\\Academy_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\activation_cleanup_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Activation_Cleanup_Integration',
@@ -322,6 +324,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\integrations\\admin\\migration_error_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Migration_Error_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\old_configuration_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Old_Configuration_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\redirect_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirect_Integration',
+            'yoast\\wp\\seo\\integrations\\admin\\redirections_tools_page' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirections_Tools_Page',
             'yoast\\wp\\seo\\integrations\\admin\\redirects_page_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirects_Page_Integration',
             'yoast\\wp\\seo\\integrations\\admin\\unsupported_php_version_notice' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Unsupported_PHP_Version_Notice',
             'yoast\\wp\\seo\\integrations\\admin\\workouts_integration' => 'Yoast\\WP\\SEO\\Integrations\\Admin\\Workouts_Integration',
@@ -626,6 +629,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\User_Profile_Conditional' => 'getUserProfileConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\WP_CRON_Enabled_Conditional' => 'getWPCRONEnabledConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\WP_Robots_Conditional' => 'getWPRobotsConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\WP_Tests_Conditional' => 'getWPTestsConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Web_Stories_Conditional' => 'getWebStoriesConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Wincher_Automatically_Track_Conditional' => 'getWincherAutomaticallyTrackConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Wincher_Conditional' => 'getWincherConditionalService',
@@ -774,6 +778,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps' => 'getDisableCoreSitemapsService',
             'Yoast\\WP\\SEO\\Initializers\\Migration_Runner' => 'getMigrationRunnerService',
             'Yoast\\WP\\SEO\\Initializers\\Plugin_Headers' => 'getPluginHeadersService',
+            'Yoast\\WP\\SEO\\Initializers\\Silence_Load_Textdomain_Just_In_Time_Notices' => 'getSilenceLoadTextdomainJustInTimeNoticesService',
             'Yoast\\WP\\SEO\\Initializers\\Woocommerce' => 'getWoocommerceService',
             'Yoast\\WP\\SEO\\Integrations\\Academy_Integration' => 'getAcademyIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Activation_Cleanup_Integration' => 'getActivationCleanupIntegrationService',
@@ -801,6 +806,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Migration_Error_Integration' => 'getMigrationErrorIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Old_Configuration_Integration' => 'getOldConfigurationIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirect_Integration' => 'getRedirectIntegrationService',
+            'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirections_Tools_Page' => 'getRedirectionsToolsPageService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirects_Page_Integration' => 'getRedirectsPageIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Unsupported_PHP_Version_Notice' => 'getUnsupportedPHPVersionNoticeService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Workouts_Integration' => 'getWorkoutsIntegrationService',
@@ -1249,6 +1255,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\X' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Youtube' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Author_Metadesc' => true,
+            'Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Author_Pronouns' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Author_Title' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Content_Analysis_Disable' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Inclusive_Language_Analysis_Disable' => true,
@@ -2721,6 +2728,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\WP_Tests_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\WP_Tests_Conditional
+     */
+    protected function getWPTestsConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\WP_Tests_Conditional'] = new \Yoast\WP\SEO\Conditionals\WP_Tests_Conditional();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Conditionals\Web_Stories_Conditional' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Conditionals\Web_Stories_Conditional
@@ -4149,6 +4166,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Initializers\Silence_Load_Textdomain_Just_In_Time_Notices' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Initializers\Silence_Load_Textdomain_Just_In_Time_Notices
+     */
+    protected function getSilenceLoadTextdomainJustInTimeNoticesService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Initializers\\Silence_Load_Textdomain_Just_In_Time_Notices'] = new \Yoast\WP\SEO\Initializers\Silence_Load_Textdomain_Just_In_Time_Notices();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Initializers\Woocommerce' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Initializers\Woocommerce
@@ -4416,6 +4443,16 @@ class Cached_Container extends Container
     protected function getRedirectIntegrationService()
     {
         return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Redirect_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Redirect_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Redirect_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Redirect_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Redirect_Helper'] = new \Yoast\WP\SEO\Helpers\Redirect_Helper())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\Admin\Redirections_Tools_Page' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\Admin\Redirections_Tools_Page
+     */
+    protected function getRedirectionsToolsPageService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Redirections_Tools_Page'] = new \Yoast\WP\SEO\Integrations\Admin\Redirections_Tools_Page(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Redirect_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Redirect_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Redirect_Helper'] = new \Yoast\WP\SEO\Helpers\Redirect_Helper())) && false ?: '_'});
     }
 
     /**
@@ -5399,6 +5436,7 @@ class Cached_Container extends Container
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Migration_Runner');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Plugin_Headers');
+        $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Silence_Load_Textdomain_Just_In_Time_Notices');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Woocommerce');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Academy_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Activation_Cleanup_Integration');
@@ -5426,6 +5464,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Migration_Error_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Old_Configuration_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Redirect_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Redirections_Tools_Page');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Redirects_Page_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Workouts_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Alerts\\Ai_Generator_Tip_Notification');
@@ -6266,7 +6305,7 @@ class Cached_Container extends Container
     {
         $a = ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'};
 
-        return $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Collector'] = new \Yoast\WP\SEO\User_Meta\Application\Custom_Meta_Collector(new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Author_Metadesc($a), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Author_Title($a), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Content_Analysis_Disable($a), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Inclusive_Language_Analysis_Disable($a), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Keyword_Analysis_Disable($a), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Noindex_Author($a));
+        return $this->services['Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Collector'] = new \Yoast\WP\SEO\User_Meta\Application\Custom_Meta_Collector(new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Author_Metadesc($a), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Author_Pronouns($a), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Author_Title($a), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Content_Analysis_Disable($a), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Inclusive_Language_Analysis_Disable($a), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Keyword_Analysis_Disable($a), new \Yoast\WP\SEO\User_Meta\Framework\Custom_Meta\Noindex_Author($a));
     }
 
     /**
