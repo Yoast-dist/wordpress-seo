@@ -96,8 +96,7 @@ class Redirects_Page_Integration implements Integration_Interface {
 			'wpseoScriptData',
 			[
 				'preferences' => [
-					'isRtl'                 => \is_rtl(),
-					'isComingFromToolsPage' => $this->is_coming_from_tools_page(),
+					'isRtl'     => \is_rtl(),
 				],
 				'linkParams'  => \YoastSEO()->helpers->short_link->get_query_params(),
 			]
@@ -123,15 +122,5 @@ class Redirects_Page_Integration implements Integration_Interface {
 		\remove_all_actions( 'user_admin_notices' );
 		\remove_all_actions( 'network_admin_notices' );
 		\remove_all_actions( 'all_admin_notices' );
-	}
-
-	/**
-	 * Checks whether the user is coming from the tools page.
-	 *
-	 * @return bool
-	 */
-	public function is_coming_from_tools_page() {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reason: We are simply checking against a set value.
-		return isset( $_GET['from_tools'] ) && $_GET['from_tools'] === '1';
 	}
 }
