@@ -1261,11 +1261,14 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\Markdown_Services\\Terms_Collector' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\Markdown_Services\\Title_Adapter' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\User_Interface\\Health_Check\\File_Reports' => true,
+            'Yoast\\WP\\SEO\\NLWeb\\Schema_Aggregator\\Domain\\Schema_Piece' => true,
+            'Yoast\\WP\\SEO\\NLWeb\\Schema_Aggregator\\Domain\\Schema_Piece_Repository_Interface' => true,
+            'Yoast\\WP\\SEO\\NLWeb\\Schema_Aggregator\\Infrastructure\\Meta_Tags_Context_Memoizer_Adapter' => true,
+            'Yoast\\WP\\SEO\\NLWeb\\Schema_Aggregator\\Infrastructure\\Schema_Piece_Repository' => true,
             'Yoast\\WP\\SEO\\Nlweb\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command' => true,
             'Yoast\\WP\\SEO\\Nlweb\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler' => true,
             'Yoast\\WP\\SEO\\Nlweb\\Schema_Aggregator\\Domain\\Page_Controls' => true,
             'Yoast\\WP\\SEO\\Nlweb\\Schema_Aggregator\\Infrastructure\\Config' => true,
-            'Yoast\\WP\\SEO\\Nlweb\\Schema_Aggregator\\Infrastructure\\To_Aggregate_Indexable_Collector' => true,
             'Yoast\\WP\\SEO\\Plans\\Application\\Add_Ons_Collector' => true,
             'Yoast\\WP\\SEO\\Plans\\Domain\\Add_Ons\\Premium' => true,
             'Yoast\\WP\\SEO\\Plans\\Domain\\Add_Ons\\Woo' => true,
@@ -6862,7 +6865,7 @@ class Cached_Container extends Container
      */
     protected function getAggregateSiteSchemaCommandHandlerService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Nlweb\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler'] = new \Yoast\WP\SEO\Nlweb\Schema_Aggregator\Application\Aggregate_Site_Schema_Command_Handler(new \Yoast\WP\SEO\Nlweb\Schema_Aggregator\Infrastructure\To_Aggregate_Indexable_Collector(${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'}), ${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Nlweb\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler'] = new \Yoast\WP\SEO\Nlweb\Schema_Aggregator\Application\Aggregate_Site_Schema_Command_Handler(new \Yoast\WP\SEO\NLWeb\Schema_Aggregator\Infrastructure\Schema_Piece_Repository(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : $this->getIndexableHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'}, new \Yoast\WP\SEO\NLWeb\Schema_Aggregator\Infrastructure\Meta_Tags_Context_Memoizer_Adapter()));
     }
 
     /**
