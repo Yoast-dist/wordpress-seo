@@ -469,6 +469,11 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\routes\\wincher_route' => 'Yoast\\WP\\SEO\\Routes\\Wincher_Route',
             'yoast\\wp\\seo\\routes\\workouts_route' => 'Yoast\\WP\\SEO\\Routes\\Workouts_Route',
             'yoast\\wp\\seo\\routes\\yoast_head_rest_field' => 'Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field',
+            'yoast\\wp\\seo\\schema_aggregator\\application\\aggregate_site_schema_command_handler' => 'Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler',
+            'yoast\\wp\\seo\\schema_aggregator\\infrastructure\\config' => 'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config',
+            'yoast\\wp\\seo\\schema_aggregator\\infrastructure\\site_schema_json_conditional' => 'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Site_Schema_Json_Conditional',
+            'yoast\\wp\\seo\\schema_aggregator\\user_interface\\site_schema_aggregator_cli_command' => 'Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Aggregator_Cli_Command',
+            'yoast\\wp\\seo\\schema_aggregator\\user_interface\\site_schema_aggregator_route' => 'Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Aggregator_Route',
             'yoast\\wp\\seo\\services\\health_check\\default_tagline_check' => 'Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Check',
             'yoast\\wp\\seo\\services\\health_check\\default_tagline_reports' => 'Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Reports',
             'yoast\\wp\\seo\\services\\health_check\\default_tagline_runner' => 'Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Runner',
@@ -958,6 +963,11 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Routes\\Wincher_Route' => 'getWincherRouteService',
             'Yoast\\WP\\SEO\\Routes\\Workouts_Route' => 'getWorkoutsRouteService',
             'Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field' => 'getYoastHeadRESTFieldService',
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler' => 'getAggregateSiteSchemaCommandHandlerService',
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config' => 'getConfigService',
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Site_Schema_Json_Conditional' => 'getSiteSchemaJsonConditionalService',
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Aggregator_Cli_Command' => 'getSiteSchemaAggregatorCliCommandService',
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Aggregator_Route' => 'getSiteSchemaAggregatorRouteService',
             'Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Check' => 'getDefaultTaglineCheckService',
             'Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Reports' => 'getDefaultTaglineReportsService',
             'Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Runner' => 'getDefaultTaglineRunnerService',
@@ -1030,6 +1040,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\Content\\Manual_Post_Collection' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_File_System_Adapter' => true,
             'Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_Llms_Txt_Permission_Gate' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config' => true,
         ];
         $this->aliases = [
             'YoastSEO_Vendor\\YoastSEO_Vendor\\Symfony\\Component\\DependencyInjection\\ContainerInterface' => 'service_container',
@@ -1258,6 +1270,14 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Promotions\\Domain\\Promotion_Interface' => true,
             'Yoast\\WP\\SEO\\Promotions\\Domain\\Time_Interval' => true,
             'Yoast\\WP\\SEO\\Routes\\Endpoint_Interface' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Domain\\Page_Controls' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Domain\\Schema_Piece' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Domain\\Schema_Piece_Repository_Interface' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Meta_Tags_Context_Memoizer_Adapter' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Piece_Repository' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Application\\Cleanup_Service' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Facebook' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Instagram' => true,
@@ -4547,7 +4567,7 @@ class Cached_Container extends Container
      */
     protected function getRedirectsPageIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Redirects_Page_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Redirects_Page_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] : $this->getCurrentPageHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Wistia_Embed_Permission_Repository']) ? $this->services['Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Wistia_Embed_Permission_Repository'] : $this->getWistiaEmbedPermissionRepositoryService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Redirects_Page_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Redirects_Page_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] : $this->getCurrentPageHelperService()) && false ?: '_'});
     }
 
     /**
@@ -5660,6 +5680,8 @@ class Cached_Container extends Container
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Wincher_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Workouts_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field');
+        $instance->register_command('Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Aggregator_Cli_Command');
+        $instance->register_route('Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Aggregator_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Additional_Contactmethods_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Cleanup_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Custom_Meta_Integration');
@@ -6096,6 +6118,36 @@ class Cached_Container extends Container
     protected function getYoastHeadRESTFieldService()
     {
         return $this->services['Yoast\\WP\\SEO\\Routes\\Yoast_Head_REST_Field'] = new \Yoast\WP\SEO\Routes\Yoast_Head_REST_Field(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] : $this->getPostTypeHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper'] : $this->getTaxonomyHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Post_Helper'] : $this->getPostHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexables\\Indexable_Head_Action']) ? $this->services['Yoast\\WP\\SEO\\Actions\\Indexables\\Indexable_Head_Action'] : $this->getIndexableHeadActionService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Site_Schema_Json_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Site_Schema_Json_Conditional
+     */
+    protected function getSiteSchemaJsonConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Site_Schema_Json_Conditional'] = new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Site_Schema_Json_Conditional(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Schema_Aggregator\User_Interface\Site_Schema_Aggregator_Cli_Command' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Schema_Aggregator\User_Interface\Site_Schema_Aggregator_Cli_Command
+     */
+    protected function getSiteSchemaAggregatorCliCommandService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Aggregator_Cli_Command'] = new \Yoast\WP\SEO\Schema_Aggregator\User_Interface\Site_Schema_Aggregator_Cli_Command(${($_ = isset($this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config']) ? $this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config'] : ($this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config'] = new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Config())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler']) ? $this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler'] : $this->getAggregateSiteSchemaCommandHandlerService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Schema_Aggregator\User_Interface\Site_Schema_Aggregator_Route' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Schema_Aggregator\User_Interface\Site_Schema_Aggregator_Route
+     */
+    protected function getSiteSchemaAggregatorRouteService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Aggregator_Route'] = new \Yoast\WP\SEO\Schema_Aggregator\User_Interface\Site_Schema_Aggregator_Route(${($_ = isset($this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config']) ? $this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config'] : ($this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config'] = new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Config())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler']) ? $this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler'] : $this->getAggregateSiteSchemaCommandHandlerService()) && false ?: '_'});
     }
 
     /**
@@ -6804,5 +6856,25 @@ class Cached_Container extends Container
     protected function getWordPressLlmsTxtPermissionGateService()
     {
         return $this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_Llms_Txt_Permission_Gate'] = new \Yoast\WP\SEO\Llms_Txt\Infrastructure\File\WordPress_Llms_Txt_Permission_Gate(${($_ = isset($this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_File_System_Adapter']) ? $this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_File_System_Adapter'] : ($this->services['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_File_System_Adapter'] = new \Yoast\WP\SEO\Llms_Txt\Infrastructure\File\WordPress_File_System_Adapter())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the private 'Yoast\WP\SEO\Schema_Aggregator\Application\Aggregate_Site_Schema_Command_Handler' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Schema_Aggregator\Application\Aggregate_Site_Schema_Command_Handler
+     */
+    protected function getAggregateSiteSchemaCommandHandlerService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler'] = new \Yoast\WP\SEO\Schema_Aggregator\Application\Aggregate_Site_Schema_Command_Handler(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Piece_Repository(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : $this->getIndexableHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'}, new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Meta_Tags_Context_Memoizer_Adapter()));
+    }
+
+    /**
+     * Gets the private 'Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Config' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Config
+     */
+    protected function getConfigService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config'] = new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Config();
     }
 }
