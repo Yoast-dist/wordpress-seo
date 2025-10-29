@@ -73,6 +73,13 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Account_Action' => 'getWincherAccountActionService',
             'Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Keyphrases_Action' => 'getWincherKeyphrasesActionService',
             'Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Login_Action' => 'getWincherLoginActionService',
+            'Yoast\\WP\\SEO\\Alerts\\Application\\Default_SEO_Data\\Default_SEO_Data_Alert' => 'getDefaultSEODataAlertService',
+            'Yoast\\WP\\SEO\\Alerts\\Application\\Ping_Other_Admins\\Ping_Other_Admins_Alert' => 'getPingOtherAdminsAlertService',
+            'Yoast\\WP\\SEO\\Alerts\\Infrastructure\\Default_SEO_Data\\Default_SEO_Data_Collector' => 'getDefaultSEODataCollectorService',
+            'Yoast\\WP\\SEO\\Alerts\\User_Interface\\Default_SEO_Data\\Default_SEO_Data_Cron_Callback_Integration' => 'getDefaultSEODataCronCallbackIntegrationService',
+            'Yoast\\WP\\SEO\\Alerts\\User_Interface\\Default_SEO_Data\\Default_SEO_Data_Watcher' => 'getDefaultSEODataWatcherService',
+            'Yoast\\WP\\SEO\\Alerts\\User_Interface\\Default_Seo_Data\\Default_SEO_Data_Cron_Scheduler' => 'getDefaultSEODataCronSchedulerService',
+            'Yoast\\WP\\SEO\\Alerts\\User_Interface\\Resolve_Alert_Route' => 'getResolveAlertRouteService',
             'Yoast\\WP\\SEO\\Analytics\\Application\\Missing_Indexables_Collector' => 'getMissingIndexablesCollectorService',
             'Yoast\\WP\\SEO\\Analytics\\Application\\To_Be_Cleaned_Indexables_Collector' => 'getToBeCleanedIndexablesCollectorService',
             'Yoast\\WP\\SEO\\Analytics\\User_Interface\\Last_Completed_Indexation_Integration' => 'getLastCompletedIndexationIntegrationService',
@@ -285,6 +292,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Installation_Integration' => 'getInstallationIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Admin_Columns_Cache_Integration' => 'getAdminColumnsCacheIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Background_Indexing_Integration' => 'getBackgroundIndexingIntegrationService',
+            'Yoast\\WP\\SEO\\Integrations\\Admin\\Brand_Insights_Page' => 'getBrandInsightsPageService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Check_Required_Version' => 'getCheckRequiredVersionService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Crawl_Settings_Integration' => 'getCrawlSettingsIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Admin\\Cron_Integration' => 'getCronIntegrationService',
@@ -1359,6 +1367,76 @@ class Cached_Container extends Container
     protected function getWincherLoginActionService()
     {
         return $this->services['Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Login_Action'] = new \Yoast\WP\SEO\Actions\Wincher\Wincher_Login_Action(($this->services['Yoast\\WP\\SEO\\Config\\Wincher_Client'] ?? $this->getWincherClientService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Alerts\Application\Default_SEO_Data\Default_SEO_Data_Alert' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Alerts\Application\Default_SEO_Data\Default_SEO_Data_Alert
+     */
+    protected function getDefaultSEODataAlertService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Alerts\\Application\\Default_SEO_Data\\Default_SEO_Data_Alert'] = new \Yoast\WP\SEO\Alerts\Application\Default_SEO_Data\Default_SEO_Data_Alert(($this->services['Yoast_Notification_Center'] ?? $this->getYoastNotificationCenterService()), ($this->services['Yoast\\WP\\SEO\\Alerts\\Infrastructure\\Default_SEO_Data\\Default_SEO_Data_Collector'] ?? $this->getDefaultSEODataCollectorService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper'] ?? $this->getShortLinkHelperService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] ?? $this->getIndexableHelperService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] ?? $this->getPostTypeHelperService()));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Alerts\Application\Ping_Other_Admins\Ping_Other_Admins_Alert' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Alerts\Application\Ping_Other_Admins\Ping_Other_Admins_Alert
+     */
+    protected function getPingOtherAdminsAlertService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Alerts\\Application\\Ping_Other_Admins\\Ping_Other_Admins_Alert'] = new \Yoast\WP\SEO\Alerts\Application\Ping_Other_Admins\Ping_Other_Admins_Alert(($this->services['Yoast_Notification_Center'] ?? $this->getYoastNotificationCenterService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper'] ?? $this->getShortLinkHelperService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper())));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Alerts\Infrastructure\Default_SEO_Data\Default_SEO_Data_Collector' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Alerts\Infrastructure\Default_SEO_Data\Default_SEO_Data_Collector
+     */
+    protected function getDefaultSEODataCollectorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Alerts\\Infrastructure\\Default_SEO_Data\\Default_SEO_Data_Collector'] = new \Yoast\WP\SEO\Alerts\Infrastructure\Default_SEO_Data\Default_SEO_Data_Collector(($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Alerts\User_Interface\Default_SEO_Data\Default_SEO_Data_Cron_Callback_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Alerts\User_Interface\Default_SEO_Data\Default_SEO_Data_Cron_Callback_Integration
+     */
+    protected function getDefaultSEODataCronCallbackIntegrationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Alerts\\User_Interface\\Default_SEO_Data\\Default_SEO_Data_Cron_Callback_Integration'] = new \Yoast\WP\SEO\Alerts\User_Interface\Default_SEO_Data\Default_SEO_Data_Cron_Callback_Integration(($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())), ($this->services['Yoast\\WP\\SEO\\Alerts\\User_Interface\\Default_Seo_Data\\Default_SEO_Data_Cron_Scheduler'] ?? ($this->services['Yoast\\WP\\SEO\\Alerts\\User_Interface\\Default_Seo_Data\\Default_SEO_Data_Cron_Scheduler'] = new \Yoast\WP\SEO\Alerts\User_Interface\Default_Seo_Data\Default_SEO_Data_Cron_Scheduler())), ($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService()));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Alerts\User_Interface\Default_SEO_Data\Default_SEO_Data_Watcher' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Alerts\User_Interface\Default_SEO_Data\Default_SEO_Data_Watcher
+     */
+    protected function getDefaultSEODataWatcherService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Alerts\\User_Interface\\Default_SEO_Data\\Default_SEO_Data_Watcher'] = new \Yoast\WP\SEO\Alerts\User_Interface\Default_SEO_Data\Default_SEO_Data_Watcher(($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Alerts\User_Interface\Default_Seo_Data\Default_SEO_Data_Cron_Scheduler' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Alerts\User_Interface\Default_Seo_Data\Default_SEO_Data_Cron_Scheduler
+     */
+    protected function getDefaultSEODataCronSchedulerService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Alerts\\User_Interface\\Default_Seo_Data\\Default_SEO_Data_Cron_Scheduler'] = new \Yoast\WP\SEO\Alerts\User_Interface\Default_Seo_Data\Default_SEO_Data_Cron_Scheduler();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Alerts\User_Interface\Resolve_Alert_Route' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Alerts\User_Interface\Resolve_Alert_Route
+     */
+    protected function getResolveAlertRouteService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Alerts\\User_Interface\\Resolve_Alert_Route'] = new \Yoast\WP\SEO\Alerts\User_Interface\Resolve_Alert_Route(($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())));
     }
 
     /**
@@ -2811,7 +2889,7 @@ class Cached_Container extends Container
         $e = ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper()));
         $f = ($this->services['Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager'] ?? $this->getPromotionManagerService());
 
-        return $this->services['Yoast\\WP\\SEO\\Editors\\Application\\Site\\Website_Information_Repository'] = new \Yoast\WP\SEO\Editors\Application\Site\Website_Information_Repository(new \Yoast\WP\SEO\Editors\Framework\Site\Post_Site_Information($a, $b, $c, $d, ($this->services['Yoast\\WP\\SEO\\Actions\\Alert_Dismissal_Action'] ?? $this->getAlertDismissalActionService()), $e, $f), new \Yoast\WP\SEO\Editors\Framework\Site\Term_Site_Information($a, $b, $c, $d, $e, $f));
+        return $this->services['Yoast\\WP\\SEO\\Editors\\Application\\Site\\Website_Information_Repository'] = new \Yoast\WP\SEO\Editors\Application\Site\Website_Information_Repository(new \Yoast\WP\SEO\Editors\Framework\Site\Post_Site_Information($a, $b, $c, $d, ($this->services['Yoast\\WP\\SEO\\Actions\\Alert_Dismissal_Action'] ?? $this->getAlertDismissalActionService()), $e, $f, ($this->services['Yoast\\WP\\SEO\\Alerts\\Infrastructure\\Default_SEO_Data\\Default_SEO_Data_Collector'] ?? $this->getDefaultSEODataCollectorService())), new \Yoast\WP\SEO\Editors\Framework\Site\Term_Site_Information($a, $b, $c, $d, $e, $f));
     }
 
     /**
@@ -3698,6 +3776,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\Admin\Brand_Insights_Page' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\Admin\Brand_Insights_Page
+     */
+    protected function getBrandInsightsPageService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Brand_Insights_Page'] = new \Yoast\WP\SEO\Integrations\Admin\Brand_Insights_Page(($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())));
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Integrations\Admin\Check_Required_Version' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Integrations\Admin\Check_Required_Version
@@ -3834,7 +3922,7 @@ class Cached_Container extends Container
      */
     protected function getInstallationSuccessIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Installation_Success_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Installation_Success_Integration(($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())));
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Installation_Success_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Installation_Success_Integration(($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper'] ?? $this->getShortLinkHelperService()));
     }
 
     /**
@@ -3894,7 +3982,7 @@ class Cached_Container extends Container
      */
     protected function getRedirectIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Redirect_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Redirect_Integration(($this->services['Yoast\\WP\\SEO\\Helpers\\Redirect_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Redirect_Helper'] = new \Yoast\WP\SEO\Helpers\Redirect_Helper())));
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Redirect_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Redirect_Integration(($this->services['Yoast\\WP\\SEO\\Helpers\\Redirect_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Redirect_Helper'] = new \Yoast\WP\SEO\Helpers\Redirect_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper'] ?? $this->getShortLinkHelperService()));
     }
 
     /**
@@ -3914,7 +4002,7 @@ class Cached_Container extends Container
      */
     protected function getRedirectsPageIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Redirects_Page_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Redirects_Page_Integration(($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] ?? $this->getCurrentPageHelperService()));
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\Redirects_Page_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\Redirects_Page_Integration(($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] ?? $this->getCurrentPageHelperService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper())), ($this->services['Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Wistia_Embed_Permission_Repository'] ?? $this->getWistiaEmbedPermissionRepositoryService()));
     }
 
     /**
@@ -4865,6 +4953,12 @@ class Cached_Container extends Container
         $instance->register_route('Yoast\\WP\\SEO\\AI_Generator\\User_Interface\\Bust_Subscription_Cache_Route');
         $instance->register_route('Yoast\\WP\\SEO\\AI_Generator\\User_Interface\\Get_Suggestions_Route');
         $instance->register_route('Yoast\\WP\\SEO\\AI_Generator\\User_Interface\\Get_Usage_Route');
+        $instance->register_integration('Yoast\\WP\\SEO\\Alerts\\Application\\Default_SEO_Data\\Default_SEO_Data_Alert');
+        $instance->register_integration('Yoast\\WP\\SEO\\Alerts\\Application\\Ping_Other_Admins\\Ping_Other_Admins_Alert');
+        $instance->register_integration('Yoast\\WP\\SEO\\Alerts\\User_Interface\\Default_SEO_Data\\Default_SEO_Data_Cron_Callback_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\Alerts\\User_Interface\\Default_Seo_Data\\Default_SEO_Data_Cron_Scheduler');
+        $instance->register_integration('Yoast\\WP\\SEO\\Alerts\\User_Interface\\Default_SEO_Data\\Default_SEO_Data_Watcher');
+        $instance->register_integration('Yoast\\WP\\SEO\\Alerts\\User_Interface\\Resolve_Alert_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\Analytics\\User_Interface\\Last_Completed_Indexation_Integration');
         $instance->register_command('Yoast\\WP\\SEO\\Commands\\Cleanup_Command');
         $instance->register_command('Yoast\\WP\\SEO\\Commands\\Index_Command');
@@ -4916,6 +5010,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Addon_Installation\\Installation_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Admin_Columns_Cache_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Background_Indexing_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Brand_Insights_Page');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Check_Required_Version');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Crawl_Settings_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Admin\\Cron_Integration');
