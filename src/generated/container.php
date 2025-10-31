@@ -228,6 +228,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\editors\\application\\seo\\term_seo_information_repository' => 'Yoast\\WP\\SEO\\Editors\\Application\\Seo\\Term_Seo_Information_Repository',
             'yoast\\wp\\seo\\editors\\application\\site\\website_information_repository' => 'Yoast\\WP\\SEO\\Editors\\Application\\Site\\Website_Information_Repository',
             'yoast\\wp\\seo\\general\\user_interface\\general_page_integration' => 'Yoast\\WP\\SEO\\General\\User_Interface\\General_Page_Integration',
+            'yoast\\wp\\seo\\general\\user_interface\\opt_in_route' => 'Yoast\\WP\\SEO\\General\\User_Interface\\Opt_In_Route',
             'yoast\\wp\\seo\\generators\\breadcrumbs_generator' => 'Yoast\\WP\\SEO\\Generators\\Breadcrumbs_Generator',
             'yoast\\wp\\seo\\generators\\open_graph_image_generator' => 'Yoast\\WP\\SEO\\Generators\\Open_Graph_Image_Generator',
             'yoast\\wp\\seo\\generators\\open_graph_locale_generator' => 'Yoast\\WP\\SEO\\Generators\\Open_Graph_Locale_Generator',
@@ -718,6 +719,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Editors\\Application\\Seo\\Term_Seo_Information_Repository' => 'getTermSeoInformationRepositoryService',
             'Yoast\\WP\\SEO\\Editors\\Application\\Site\\Website_Information_Repository' => 'getWebsiteInformationRepositoryService',
             'Yoast\\WP\\SEO\\General\\User_Interface\\General_Page_Integration' => 'getGeneralPageIntegrationService',
+            'Yoast\\WP\\SEO\\General\\User_Interface\\Opt_In_Route' => 'getOptInRouteService',
             'Yoast\\WP\\SEO\\Generators\\Breadcrumbs_Generator' => 'getBreadcrumbsGeneratorService',
             'Yoast\\WP\\SEO\\Generators\\Open_Graph_Image_Generator' => 'getOpenGraphImageGeneratorService',
             'Yoast\\WP\\SEO\\Generators\\Open_Graph_Locale_Generator' => 'getOpenGraphLocaleGeneratorService',
@@ -3453,6 +3455,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\General\User_Interface\Opt_In_Route' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\General\User_Interface\Opt_In_Route
+     */
+    protected function getOptInRouteService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\General\\User_Interface\\Opt_In_Route'] = new \Yoast\WP\SEO\General\User_Interface\Opt_In_Route(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] : ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())) && false ?: '_'});
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Generators\Breadcrumbs_Generator' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Generators\Breadcrumbs_Generator
@@ -5526,6 +5538,7 @@ class Cached_Container extends Container
         $instance->register_route('Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Time_Based_SEO_Metrics\\Time_Based_SEO_Metrics_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Tracking\\Setup_Steps_Tracking_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\General\\User_Interface\\General_Page_Integration');
+        $instance->register_route('Yoast\\WP\\SEO\\General\\User_Interface\\Opt_In_Route');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Crawl_Cleanup_Permalinks');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Migration_Runner');
