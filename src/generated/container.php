@@ -2684,7 +2684,7 @@ class Cached_Container extends Container
      */
     protected function getSiteKitConditionalService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Site_Kit_Conditional'] = new \Yoast\WP\SEO\Conditionals\Third_Party\Site_Kit_Conditional(${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit'] : $this->getSiteKitService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Site_Kit_Conditional'] = new \Yoast\WP\SEO\Conditionals\Third_Party\Site_Kit_Conditional();
     }
 
     /**
@@ -6713,7 +6713,7 @@ class Cached_Container extends Container
      */
     protected function getSiteKitService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit'] = new \Yoast\WP\SEO\Dashboard\Infrastructure\Integrations\Site_Kit(${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Site_Kit_Consent_Repository']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Site_Kit_Consent_Repository'] : $this->getSiteKitConsentRepositoryService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Permanently_Dismissed_Site_Kit_Configuration_Repository']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Permanently_Dismissed_Site_Kit_Configuration_Repository'] : $this->getPermanentlyDismissedSiteKitConfigurationRepositoryService()) && false ?: '_'}, new \Yoast\WP\SEO\Dashboard\Infrastructure\Connection\Site_Kit_Is_Connected_Call(), ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Google_Site_Kit_Feature_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Google_Site_Kit_Feature_Conditional'] : $this->getGoogleSiteKitFeatureConditionalService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit'] = new \Yoast\WP\SEO\Dashboard\Infrastructure\Integrations\Site_Kit(${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Site_Kit_Consent_Repository']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Site_Kit_Consent_Repository'] : $this->getSiteKitConsentRepositoryService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Permanently_Dismissed_Site_Kit_Configuration_Repository']) ? $this->services['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Permanently_Dismissed_Site_Kit_Configuration_Repository'] : $this->getPermanentlyDismissedSiteKitConfigurationRepositoryService()) && false ?: '_'}, new \Yoast\WP\SEO\Dashboard\Infrastructure\Connection\Site_Kit_Is_Connected_Call(), ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Google_Site_Kit_Feature_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Google_Site_Kit_Feature_Conditional'] : $this->getGoogleSiteKitFeatureConditionalService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Site_Kit_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Site_Kit_Conditional'] : ($this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Site_Kit_Conditional'] = new \Yoast\WP\SEO\Conditionals\Third_Party\Site_Kit_Conditional())) && false ?: '_'});
     }
 
     /**
