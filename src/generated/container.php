@@ -1272,10 +1272,15 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Routes\\Endpoint_Interface' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Enhancement\\Article_Schema_Enhancer' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Enhancement\\Person_Schema_Enhancer' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Enhancement\\Schema_Enhancement_Factory' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Domain\\Page_Controls' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Domain\\Schema_Piece' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Domain\\Schema_Piece_Repository_Interface' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Enhancement\\Article_Config' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Enhancement\\Person_Config' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Meta_Tags_Context_Memoizer_Adapter' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Piece_Repository' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Application\\Cleanup_Service' => true,
@@ -6865,7 +6870,12 @@ class Cached_Container extends Container
      */
     protected function getAggregateSiteSchemaCommandHandlerService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler'] = new \Yoast\WP\SEO\Schema_Aggregator\Application\Aggregate_Site_Schema_Command_Handler(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Piece_Repository(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : $this->getIndexableHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'}, new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Meta_Tags_Context_Memoizer_Adapter()));
+        $a = new \Yoast\WP\SEO\Schema_Aggregator\Application\Enhancement\Article_Schema_Enhancer();
+        $a->set_article_config(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Enhancement\Article_Config());
+        $b = new \Yoast\WP\SEO\Schema_Aggregator\Application\Enhancement\Person_Schema_Enhancer();
+        $b->set_person_config(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Enhancement\Person_Config());
+
+        return $this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler'] = new \Yoast\WP\SEO\Schema_Aggregator\Application\Aggregate_Site_Schema_Command_Handler(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Piece_Repository(${($_ = isset($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer']) ? $this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] : $this->getMetaTagsContextMemoizerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : $this->getIndexableHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'}, new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Meta_Tags_Context_Memoizer_Adapter(), new \Yoast\WP\SEO\Schema_Aggregator\Application\Enhancement\Schema_Enhancement_Factory($a, $b)));
     }
 
     /**
