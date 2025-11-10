@@ -2135,7 +2135,7 @@ class Cached_Container extends Container
      */
     protected function getSiteKitConditionalService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Site_Kit_Conditional'] = new \Yoast\WP\SEO\Conditionals\Third_Party\Site_Kit_Conditional(($this->privates['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit'] ?? $this->getSiteKitService()));
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Site_Kit_Conditional'] = new \Yoast\WP\SEO\Conditionals\Third_Party\Site_Kit_Conditional();
     }
 
     /**
@@ -3843,7 +3843,7 @@ class Cached_Container extends Container
      */
     protected function getFirstTimeConfigurationIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\First_Time_Configuration_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\First_Time_Configuration_Integration(($this->services['WPSEO_Admin_Asset_Manager'] ?? $this->getWPSEOAdminAssetManagerService()), ($this->services['WPSEO_Addon_Manager'] ?? $this->getWPSEOAddonManagerService()), ($this->services['WPSEO_Shortlinker'] ?? $this->getWPSEOShortlinkerService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Social_Profiles_Helper'] ?? $this->getSocialProfilesHelperService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())), ($this->services['Yoast\\WP\\SEO\\Context\\Meta_Tags_Context'] ?? $this->getMetaTagsContextService()));
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Admin\\First_Time_Configuration_Integration'] = new \Yoast\WP\SEO\Integrations\Admin\First_Time_Configuration_Integration(($this->services['WPSEO_Admin_Asset_Manager'] ?? $this->getWPSEOAdminAssetManagerService()), ($this->services['WPSEO_Addon_Manager'] ?? $this->getWPSEOAddonManagerService()), ($this->services['WPSEO_Shortlinker'] ?? $this->getWPSEOShortlinkerService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Social_Profiles_Helper'] ?? $this->getSocialProfilesHelperService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())), ($this->services['Yoast\\WP\\SEO\\Context\\Meta_Tags_Context'] ?? $this->getMetaTagsContextService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper'] = new \Yoast\WP\SEO\Helpers\Woocommerce_Helper())));
     }
 
     /**
@@ -6124,7 +6124,7 @@ class Cached_Container extends Container
      */
     protected function getSiteKitService()
     {
-        return $this->privates['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit'] = new \Yoast\WP\SEO\Dashboard\Infrastructure\Integrations\Site_Kit(($this->privates['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Site_Kit_Consent_Repository'] ?? $this->getSiteKitConsentRepositoryService()), ($this->privates['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Permanently_Dismissed_Site_Kit_Configuration_Repository'] ?? $this->getPermanentlyDismissedSiteKitConfigurationRepositoryService()), new \Yoast\WP\SEO\Dashboard\Infrastructure\Connection\Site_Kit_Is_Connected_Call(), ($this->services['Yoast\\WP\\SEO\\Conditionals\\Google_Site_Kit_Feature_Conditional'] ?? $this->getGoogleSiteKitFeatureConditionalService()));
+        return $this->privates['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Integrations\\Site_Kit'] = new \Yoast\WP\SEO\Dashboard\Infrastructure\Integrations\Site_Kit(($this->privates['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Site_Kit_Consent_Repository'] ?? $this->getSiteKitConsentRepositoryService()), ($this->privates['Yoast\\WP\\SEO\\Dashboard\\Infrastructure\\Configuration\\Permanently_Dismissed_Site_Kit_Configuration_Repository'] ?? $this->getPermanentlyDismissedSiteKitConfigurationRepositoryService()), new \Yoast\WP\SEO\Dashboard\Infrastructure\Connection\Site_Kit_Is_Connected_Call(), ($this->services['Yoast\\WP\\SEO\\Conditionals\\Google_Site_Kit_Feature_Conditional'] ?? $this->getGoogleSiteKitFeatureConditionalService()), ($this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Site_Kit_Conditional'] ?? ($this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Site_Kit_Conditional'] = new \Yoast\WP\SEO\Conditionals\Third_Party\Site_Kit_Conditional())));
     }
 
     /**
