@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.8
-Stable tag: 26.5-RC2
+Stable tag: 26.4
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -315,20 +315,6 @@ Bugfixes:
 * Fixes a bug where table backgrounds in the RSS settings and Semrush related keyphrases tables would expand beyond the rounded corners in Firefox.
 
 Other:
-
-* Relocates the introduction notification to point to the Yoast SEO tab within the Elements panel sidebar of the Elementor Editor for better user guidance.
-
-
-#### Enhancements
-
-* Integrates the Yoast SEO tab into the Elementor Editor's Elements panel sidebar to provide enhanced access to SEO settings.
-* Makes the _keyphrase density assessment_ and _keyphrase in subheadings assessment_  available when no content has been added.
-
-#### Bugfixes
-
-* Fixes a bug where table backgrounds in the RSS settings and Semrush related keyphrases tables would expand beyond the rounded corners in Firefox.
-
-#### Other
 
 * Relocates the introduction notification to point to the Yoast SEO tab within the Elements panel sidebar of the Elementor Editor for better user guidance.
 
