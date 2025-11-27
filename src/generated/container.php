@@ -131,6 +131,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\SEMrush_Enabled_Conditional' => 'getSEMrushEnabledConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Settings_Conditional' => 'getSettingsConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Should_Index_Links_Conditional' => 'getShouldIndexLinksConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Task_List_Enabled_Conditional' => 'getTaskListEnabledConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Text_Formality_Conditional' => 'getTextFormalityConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Elementor_Activated_Conditional' => 'getElementorActivatedConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Elementor_Edit_Conditional' => 'getElementorEditConditionalService',
@@ -740,6 +741,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Task_List\\Domain\\Exceptions\\Complete_Hello_World_Task_Exception' => true,
             'Yoast\\WP\\SEO\\Task_List\\Domain\\Exceptions\\Complete_LLMS_Task_Exception' => true,
             'Yoast\\WP\\SEO\\Task_List\\Domain\\Exceptions\\Invalid_Post_Type_Tasks_Exception' => true,
+            'Yoast\\WP\\SEO\\Task_List\\Domain\\Exceptions\\Invalid_Tasks_Exception' => true,
             'Yoast\\WP\\SEO\\Task_List\\Domain\\Exceptions\\Task_Not_Found_Exception' => true,
             'Yoast\\WP\\SEO\\Task_List\\Domain\\Tasks\\Post_Type_Task_Interface' => true,
             'Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Endpoints\\Complete_Task_Endpoint' => true,
@@ -2111,6 +2113,16 @@ class Cached_Container extends Container
     protected function getShouldIndexLinksConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\Should_Index_Links_Conditional'] = new \Yoast\WP\SEO\Conditionals\Should_Index_Links_Conditional(($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Task_List_Enabled_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Task_List_Enabled_Conditional
+     */
+    protected function getTaskListEnabledConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Task_List_Enabled_Conditional'] = new \Yoast\WP\SEO\Conditionals\Task_List_Enabled_Conditional(($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())));
     }
 
     /**
