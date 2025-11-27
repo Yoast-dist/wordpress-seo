@@ -4,7 +4,7 @@ Donate link: https://yoa.st/1up
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
-Tested up to: 6.8
+Tested up to: 6.9
 Stable tag: 26.4
 Requires PHP: 7.4
 
@@ -306,6 +306,8 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 = 26.5 =
 
 Release date: 2025-12-02
+
+Yoast SEO 26.5 brings more enhancements and bugfixes. [Find more information about our software releases and updates here](https://yoa.st/releases).
 
 #### Enhancements
 
