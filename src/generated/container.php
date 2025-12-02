@@ -761,6 +761,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Map\\Schema_Map_Config' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Map\\Schema_Map_Header_Adapter' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Map\\Schema_Map_Indexable_Repository' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Map\\Schema_Map_Repository_Factory' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Map\\Schema_Map_WordPress_Repository' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Piece_Repository' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Application\\Cleanup_Service' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Facebook' => true,
@@ -5700,7 +5702,9 @@ class Cached_Container extends Container
      */
     protected function getSiteSchemaAggregatorXmlRouteService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Aggregator_Xml_Route'] = new \Yoast\WP\SEO\Schema_Aggregator\User_Interface\Site_Schema_Aggregator_Xml_Route(($this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config'] ?? ($this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config'] = new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Config())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())), new \Yoast\WP\SEO\Schema_Aggregator\Application\Aggregate_Site_Schema_Map_Command_Handler(($this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Map\\Schema_Map_Indexable_Repository'] ?? $this->getSchemaMapIndexableRepositoryService()), ($this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Schema_Map\\Schema_Map_Builder'] ?? $this->getSchemaMapBuilderService()), new \Yoast\WP\SEO\Schema_Aggregator\Application\Schema_Map\Schema_Map_Xml_Renderer(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Map\Schema_Map_Config())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] ?? $this->getPostTypeHelperService()), ($this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Cache\\Xml_Manager'] ?? $this->getXmlManagerService()));
+        $a = ($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService());
+
+        return $this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Aggregator_Xml_Route'] = new \Yoast\WP\SEO\Schema_Aggregator\User_Interface\Site_Schema_Aggregator_Xml_Route(($this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config'] ?? ($this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config'] = new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Config())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())), new \Yoast\WP\SEO\Schema_Aggregator\Application\Aggregate_Site_Schema_Map_Command_Handler(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Map\Schema_Map_Repository_Factory(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Map\Schema_Map_Indexable_Repository($a), new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Map\Schema_Map_WordPress_Repository($a)), new \Yoast\WP\SEO\Schema_Aggregator\Application\Schema_Map\Schema_Map_Builder(), new \Yoast\WP\SEO\Schema_Aggregator\Application\Schema_Map\Schema_Map_Xml_Renderer(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Map\Schema_Map_Config()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] ?? $this->getIndexableHelperService())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] ?? $this->getPostTypeHelperService()), ($this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Cache\\Xml_Manager'] ?? $this->getXmlManagerService()));
     }
 
     /**
@@ -6345,7 +6349,7 @@ class Cached_Container extends Container
         $c->set_person_config(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Enhancement\Person_Config());
         $d = ($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService());
 
-        return $this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler'] = new \Yoast\WP\SEO\Schema_Aggregator\Application\Aggregate_Site_Schema_Command_Handler(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Piece_Repository(($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] ?? $this->getMetaTagsContextMemoizerService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] ?? $this->getIndexableHelperService()), new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Meta_Tags_Context_Memoizer_Adapter(), $a, new \Yoast\WP\SEO\Schema_Aggregator\Application\Enhancement\Schema_Enhancement_Factory($b, $c), new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Indexable_Repository\Indexable_Repository_Factory(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Indexable_Repository\Indexable_Repository($d), new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Indexable_Repository\WordPress_Query_Repository(($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] ?? $this->getIndexableBuilderService()), $d))), new \Yoast\WP\SEO\Schema_Aggregator\Application\Schema_Pieces_Aggregator(new \Yoast\WP\SEO\Schema_Aggregator\Application\Properties_Filter($a), new \Yoast\WP\SEO\Schema_Aggregator\Application\Schema_Pieces_Filter($a), new \Yoast\WP\SEO\Schema_Aggregator\Application\Properties_Merger()), new \Yoast\WP\SEO\Schema_Aggregator\Application\Schema_Aggregator_Response_Composer(new \Yoast\WP\SEO\Schema_Aggregator\Application\Meta\Response_Meta_Provider(($this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Map\\Schema_Map_Indexable_Repository'] ?? $this->getSchemaMapIndexableRepositoryService()), ($this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Schema_Map\\Schema_Map_Builder'] ?? $this->getSchemaMapBuilderService()))));
+        return $this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler'] = new \Yoast\WP\SEO\Schema_Aggregator\Application\Aggregate_Site_Schema_Command_Handler(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Piece_Repository(($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] ?? $this->getMetaTagsContextMemoizerService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] ?? $this->getIndexableHelperService()), new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Meta_Tags_Context_Memoizer_Adapter(), $a, new \Yoast\WP\SEO\Schema_Aggregator\Application\Enhancement\Schema_Enhancement_Factory($b, $c), new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Indexable_Repository\Indexable_Repository_Factory(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Indexable_Repository\Indexable_Repository($d), new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Indexable_Repository\WordPress_Query_Repository(($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] ?? $this->getIndexableBuilderService()), $d))), new \Yoast\WP\SEO\Schema_Aggregator\Application\Schema_Pieces_Aggregator(new \Yoast\WP\SEO\Schema_Aggregator\Application\Properties_Filter($a), new \Yoast\WP\SEO\Schema_Aggregator\Application\Schema_Pieces_Filter($a), new \Yoast\WP\SEO\Schema_Aggregator\Application\Properties_Merger()), new \Yoast\WP\SEO\Schema_Aggregator\Application\Schema_Aggregator_Response_Composer());
     }
 
     /**
@@ -6366,25 +6370,5 @@ class Cached_Container extends Container
     protected function getXmlManagerService()
     {
         return $this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Cache\\Xml_Manager'] = new \Yoast\WP\SEO\Schema_Aggregator\Application\Cache\Xml_Manager(($this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config'] ?? ($this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config'] = new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Config())));
-    }
-
-    /**
-     * Gets the private 'Yoast\WP\SEO\Schema_Aggregator\Application\Schema_Map\Schema_Map_Builder' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Schema_Aggregator\Application\Schema_Map\Schema_Map_Builder
-     */
-    protected function getSchemaMapBuilderService()
-    {
-        return $this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Schema_Map\\Schema_Map_Builder'] = new \Yoast\WP\SEO\Schema_Aggregator\Application\Schema_Map\Schema_Map_Builder(($this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Map\\Schema_Map_Indexable_Repository'] ?? $this->getSchemaMapIndexableRepositoryService()));
-    }
-
-    /**
-     * Gets the private 'Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Map\Schema_Map_Indexable_Repository' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Map\Schema_Map_Indexable_Repository
-     */
-    protected function getSchemaMapIndexableRepositoryService()
-    {
-        return $this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Map\\Schema_Map_Indexable_Repository'] = new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Map\Schema_Map_Indexable_Repository(($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService()));
     }
 }
