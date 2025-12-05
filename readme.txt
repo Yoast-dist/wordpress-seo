@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.9
-Stable tag: 26.6-RC3
+Stable tag: 26.6-RC4
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -315,11 +315,14 @@ Release date: 2025-12-16
 #### Bugfixes
 
 * Fixes a bug where the `Show more` list for categries and content types would collapse when clicking on menu items in the settings sidebar navigation.
+* Fixes a bug where translations for the content analysis were not displayed on WordPress 6.9.
+* Fixes a security bug that would allow users with limited capabilities to read metadata of posts that they should not have access to.
 
 #### Other
 
 * Highlights the Google Docs & Yoast Duplicate post add-ons on the Plans page.
 * Improves the behavior of the upgrade button in the Yoast sidebar and admin menus.
+* Improves the focus behaviour for some buttons and links in the Yoast SEO admin pages.
 * Redesigns the AI Brand Insights button in the Yoast sidebar and admin menus.
 
 = 26.5 =
