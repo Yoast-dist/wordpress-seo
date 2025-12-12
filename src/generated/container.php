@@ -750,7 +750,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Filtering\\Filtering_Strategy_Interface' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Filtering\\Schema_Node_Filter\\WebPage_Schema_Node_Filter' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Filtering\\Schema_Node_Filter\\WebSite_Schema_Node_Filter' => true,
-            'Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Filtering\\Schema_Node_Property_Filter\\Article_Schema_Node_Property_Filter' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Filtering\\Schema_Node_Property_Filter\\Base_Schema_Node_Property_Filter' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Filtering\\Schema_Node_Property_Filter\\WebPage_Schema_Node_Property_Filter' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Meta\\Response_Meta_Provider' => true,
