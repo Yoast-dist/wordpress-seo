@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.9
-Stable tag: 26.7-RC1
+Stable tag: 26.7-RC2
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -318,6 +318,7 @@ Release date: 2025-12-30
 
 #### Other
 
+* Hides the llms.txt task in multisites, since the feature is disabled in such setups.
 * Increases disabling opcache invalidation on plugin upgrade, now applied to a bigger subset of the userbase.
 
 = 26.6 =
