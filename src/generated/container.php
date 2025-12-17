@@ -455,6 +455,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Aggregator_Route' => 'getSiteSchemaAggregatorRouteService',
             'Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Aggregator_Xml_Route' => 'getSiteSchemaAggregatorXmlRouteService',
             'Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Response_Header_Integration' => 'getSiteSchemaResponseHeaderIntegrationService',
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Robots_Txt_Integration' => 'getSiteSchemaRobotsTxtIntegrationService',
             'Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Check' => 'getDefaultTaglineCheckService',
             'Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Reports' => 'getDefaultTaglineReportsService',
             'Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Runner' => 'getDefaultTaglineRunnerService',
@@ -5266,6 +5267,7 @@ class Cached_Container extends Container
         $instance->register_route('Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Aggregator_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Aggregator_Xml_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Response_Header_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Robots_Txt_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Register_Post_Type_Tasks_Integration');
         $instance->register_route('Yoast\\WP\\SEO\\Task_List\\User_Interface\\Tasks\\Complete_Task_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Task_List\\User_Interface\\Tasks\\Get_Tasks_Route');
@@ -5798,6 +5800,16 @@ class Cached_Container extends Container
     protected function getSiteSchemaResponseHeaderIntegrationService()
     {
         return $this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Response_Header_Integration'] = new \Yoast\WP\SEO\Schema_Aggregator\User_Interface\Site_Schema_Response_Header_Integration(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Map\Schema_Map_Header_Adapter());
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Schema_Aggregator\User_Interface\Site_Schema_Robots_Txt_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Schema_Aggregator\User_Interface\Site_Schema_Robots_Txt_Integration
+     */
+    protected function getSiteSchemaRobotsTxtIntegrationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Robots_Txt_Integration'] = new \Yoast\WP\SEO\Schema_Aggregator\User_Interface\Site_Schema_Robots_Txt_Integration();
     }
 
     /**
