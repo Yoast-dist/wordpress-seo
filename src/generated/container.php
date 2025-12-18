@@ -477,6 +477,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Register_Post_Type_Tasks_Integration' => 'getRegisterPostTypeTasksIntegrationService',
             'Yoast\\WP\\SEO\\Task_List\\User_Interface\\Tasks\\Complete_Task_Route' => 'getCompleteTaskRouteService',
             'Yoast\\WP\\SEO\\Task_List\\User_Interface\\Tasks\\Get_Tasks_Route' => 'getGetTasksRouteService',
+            'Yoast\\WP\\SEO\\Tracking\\Infrastructure\\Tracking_On_Page_Load_Integration' => 'getTrackingOnPageLoadIntegrationService',
             'Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Collector' => 'getAdditionalContactmethodsCollectorService',
             'Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Collector' => 'getCustomMetaCollectorService',
             'Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Additional_Contactmethods_Integration' => 'getAdditionalContactmethodsIntegrationService',
@@ -749,6 +750,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Endpoints\\Get_Tasks_Endpoint' => true,
             'Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Tasks_Collectors\\Cached_Tasks_Collector' => true,
             'Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Tasks_Collectors\\Tasks_Collector' => true,
+            'Yoast\\WP\\SEO\\Tracking\\Application\\Action_Tracker' => true,
+            'Yoast\\WP\\SEO\\Tracking\\Infrastructure\\Tracking_Link_Adapter' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Application\\Cleanup_Service' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Facebook' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Instagram' => true,
@@ -5203,6 +5206,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Register_Post_Type_Tasks_Integration');
         $instance->register_route('Yoast\\WP\\SEO\\Task_List\\User_Interface\\Tasks\\Complete_Task_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Task_List\\User_Interface\\Tasks\\Get_Tasks_Route');
+        $instance->register_integration('Yoast\\WP\\SEO\\Tracking\\Infrastructure\\Tracking_On_Page_Load_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Additional_Contactmethods_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Cleanup_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Custom_Meta_Integration');
@@ -5942,7 +5946,7 @@ class Cached_Container extends Container
      */
     protected function getCompleteTaskRouteService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Task_List\\User_Interface\\Tasks\\Complete_Task_Route'] = new \Yoast\WP\SEO\Task_List\User_Interface\Tasks\Complete_Task_Route(($this->privates['Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Tasks_Collectors\\Tasks_Collector'] ?? $this->getTasksCollectorService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())));
+        return $this->services['Yoast\\WP\\SEO\\Task_List\\User_Interface\\Tasks\\Complete_Task_Route'] = new \Yoast\WP\SEO\Task_List\User_Interface\Tasks\Complete_Task_Route(($this->privates['Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Tasks_Collectors\\Tasks_Collector'] ?? $this->getTasksCollectorService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())), ($this->privates['Yoast\\WP\\SEO\\Tracking\\Application\\Action_Tracker'] ?? $this->getActionTrackerService()));
     }
 
     /**
@@ -5952,7 +5956,17 @@ class Cached_Container extends Container
      */
     protected function getGetTasksRouteService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Task_List\\User_Interface\\Tasks\\Get_Tasks_Route'] = new \Yoast\WP\SEO\Task_List\User_Interface\Tasks\Get_Tasks_Route(new \Yoast\WP\SEO\Task_List\Application\Tasks_Repository(new \Yoast\WP\SEO\Task_List\Infrastructure\Tasks_Collectors\Cached_Tasks_Collector(($this->privates['Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Tasks_Collectors\\Tasks_Collector'] ?? $this->getTasksCollectorService()))), ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())));
+        return $this->services['Yoast\\WP\\SEO\\Task_List\\User_Interface\\Tasks\\Get_Tasks_Route'] = new \Yoast\WP\SEO\Task_List\User_Interface\Tasks\Get_Tasks_Route(new \Yoast\WP\SEO\Task_List\Application\Tasks_Repository(new \Yoast\WP\SEO\Task_List\Infrastructure\Tasks_Collectors\Cached_Tasks_Collector(($this->privates['Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Tasks_Collectors\\Tasks_Collector'] ?? $this->getTasksCollectorService()))), ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())), ($this->privates['Yoast\\WP\\SEO\\Tracking\\Application\\Action_Tracker'] ?? $this->getActionTrackerService()));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Tracking\Infrastructure\Tracking_On_Page_Load_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Tracking\Infrastructure\Tracking_On_Page_Load_Integration
+     */
+    protected function getTrackingOnPageLoadIntegrationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Tracking\\Infrastructure\\Tracking_On_Page_Load_Integration'] = new \Yoast\WP\SEO\Tracking\Infrastructure\Tracking_On_Page_Load_Integration(($this->privates['Yoast\\WP\\SEO\\Tracking\\Application\\Action_Tracker'] ?? $this->getActionTrackerService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())));
     }
 
     /**
@@ -6310,6 +6324,20 @@ class Cached_Container extends Container
      */
     protected function getTasksCollectorService()
     {
-        return $this->privates['Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Tasks_Collectors\\Tasks_Collector'] = new \Yoast\WP\SEO\Task_List\Infrastructure\Tasks_Collectors\Tasks_Collector(new \Yoast\WP\SEO\Task_List\Application\Tasks\Complete_FTC(($this->services['Yoast\\WP\\SEO\\Helpers\\First_Time_Configuration_Notice_Helper'] ?? $this->getFirstTimeConfigurationNoticeHelperService())), new \Yoast\WP\SEO\Task_List\Application\Tasks\Create_New_Content(($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] ?? $this->getPostTypeHelperService())), new \Yoast\WP\SEO\Task_List\Application\Tasks\Delete_Hello_World(), new \Yoast\WP\SEO\Task_List\Application\Tasks\Enable_Llms_Txt(($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper()))), ($this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Set_Search_Appearance_Templates'] ?? $this->getSetSearchAppearanceTemplatesService()));
+        $this->privates['Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Tasks_Collectors\\Tasks_Collector'] = $instance = new \Yoast\WP\SEO\Task_List\Infrastructure\Tasks_Collectors\Tasks_Collector(new \Yoast\WP\SEO\Task_List\Application\Tasks\Complete_FTC(($this->services['Yoast\\WP\\SEO\\Helpers\\First_Time_Configuration_Notice_Helper'] ?? $this->getFirstTimeConfigurationNoticeHelperService())), new \Yoast\WP\SEO\Task_List\Application\Tasks\Create_New_Content(($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] ?? $this->getPostTypeHelperService())), new \Yoast\WP\SEO\Task_List\Application\Tasks\Delete_Hello_World(), new \Yoast\WP\SEO\Task_List\Application\Tasks\Enable_Llms_Txt(($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper()))), ($this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Set_Search_Appearance_Templates'] ?? $this->getSetSearchAppearanceTemplatesService()));
+
+        $instance->set_tracking_link_adapter(new \Yoast\WP\SEO\Tracking\Infrastructure\Tracking_Link_Adapter());
+
+        return $instance;
+    }
+
+    /**
+     * Gets the private 'Yoast\WP\SEO\Tracking\Application\Action_Tracker' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Tracking\Application\Action_Tracker
+     */
+    protected function getActionTrackerService()
+    {
+        return $this->privates['Yoast\\WP\\SEO\\Tracking\\Application\\Action_Tracker'] = new \Yoast\WP\SEO\Tracking\Application\Action_Tracker(($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())));
     }
 }
