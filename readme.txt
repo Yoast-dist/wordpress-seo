@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.9
-Stable tag: 26.8-RC2
+Stable tag: 26.8-RC3
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -323,8 +323,7 @@ Release date: 2026-01-20
 
 #### Other
 
-* Adds optin notification for the task list feaature on the general page.
-* Documentation improvement
+* Adds an opt-in notification for the task list feature on the general page.
 * Improves the translatability of some tasks' title in the task list.
 * Updates the product URL inside the marker presenter for Yoast SEO and Yoast SEO Premium.
 
