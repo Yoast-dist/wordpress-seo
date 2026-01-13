@@ -481,6 +481,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Task_List\\User_Interface\\Tasks\\Complete_Task_Route' => 'getCompleteTaskRouteService',
             'Yoast\\WP\\SEO\\Task_List\\User_Interface\\Tasks\\Get_Tasks_Route' => 'getGetTasksRouteService',
             'Yoast\\WP\\SEO\\Tracking\\Infrastructure\\Tracking_On_Page_Load_Integration' => 'getTrackingOnPageLoadIntegrationService',
+            'Yoast\\WP\\SEO\\Tracking\\User_Interface\\Action_Tracking_Route' => 'getActionTrackingRouteService',
             'Yoast\\WP\\SEO\\User_Meta\\Application\\Additional_Contactmethods_Collector' => 'getAdditionalContactmethodsCollectorService',
             'Yoast\\WP\\SEO\\User_Meta\\Application\\Custom_Meta_Collector' => 'getCustomMetaCollectorService',
             'Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Additional_Contactmethods_Integration' => 'getAdditionalContactmethodsIntegrationService',
@@ -754,6 +755,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Tasks_Collectors\\Cached_Tasks_Collector' => true,
             'Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Tasks_Collectors\\Tasks_Collector' => true,
             'Yoast\\WP\\SEO\\Tracking\\Application\\Action_Tracker' => true,
+            'Yoast\\WP\\SEO\\Tracking\\Domain\\Exceptions\\Invalid_Tracked_Action_Exception' => true,
             'Yoast\\WP\\SEO\\Tracking\\Infrastructure\\Tracking_Link_Adapter' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Application\\Cleanup_Service' => true,
             'Yoast\\WP\\SEO\\User_Meta\\Framework\\Additional_Contactmethods\\Facebook' => true,
@@ -5221,6 +5223,7 @@ class Cached_Container extends Container
         $instance->register_route('Yoast\\WP\\SEO\\Task_List\\User_Interface\\Tasks\\Complete_Task_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Task_List\\User_Interface\\Tasks\\Get_Tasks_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\Tracking\\Infrastructure\\Tracking_On_Page_Load_Integration');
+        $instance->register_route('Yoast\\WP\\SEO\\Tracking\\User_Interface\\Action_Tracking_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Additional_Contactmethods_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Cleanup_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\User_Meta\\User_Interface\\Custom_Meta_Integration');
@@ -6001,6 +6004,16 @@ class Cached_Container extends Container
     protected function getTrackingOnPageLoadIntegrationService()
     {
         return $this->services['Yoast\\WP\\SEO\\Tracking\\Infrastructure\\Tracking_On_Page_Load_Integration'] = new \Yoast\WP\SEO\Tracking\Infrastructure\Tracking_On_Page_Load_Integration(($this->privates['Yoast\\WP\\SEO\\Tracking\\Application\\Action_Tracker'] ?? $this->getActionTrackerService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Tracking\User_Interface\Action_Tracking_Route' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Tracking\User_Interface\Action_Tracking_Route
+     */
+    protected function getActionTrackingRouteService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Tracking\\User_Interface\\Action_Tracking_Route'] = new \Yoast\WP\SEO\Tracking\User_Interface\Action_Tracking_Route(($this->privates['Yoast\\WP\\SEO\\Tracking\\Application\\Action_Tracker'] ?? $this->getActionTrackerService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())));
     }
 
     /**
