@@ -134,6 +134,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\Should_Index_Links_Conditional' => 'getShouldIndexLinksConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Task_List_Enabled_Conditional' => 'getTaskListEnabledConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Text_Formality_Conditional' => 'getTextFormalityConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\EDD_Conditional' => 'getEDDConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Elementor_Activated_Conditional' => 'getElementorActivatedConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Elementor_Edit_Conditional' => 'getElementorEditConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Third_Party\\Polylang_Conditional' => 'getPolylangConditionalService',
@@ -790,8 +791,10 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Map\\Schema_Map_Indexable_Repository' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Map\\Schema_Map_Repository_Factory' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Map\\Schema_Map_WordPress_Repository' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Pieces\\Edd_Schema_Piece_Repository' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Pieces\\Schema_Piece_Repository' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Pieces\\Woo_Schema_Piece_Repository' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Schema_Pieces\\WordPress_Global_State_Adapter' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\WordPress_Current_Site_URL_Provider' => true,
             'Yoast\\WP\\SEO\\Task_List\\Application\\Configuration\\Task_List_Configuration' => true,
             'Yoast\\WP\\SEO\\Task_List\\Application\\Endpoints\\Endpoints_Repository' => true,
@@ -2216,6 +2219,16 @@ class Cached_Container extends Container
     protected function getTextFormalityConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\Text_Formality_Conditional'] = new \Yoast\WP\SEO\Conditionals\Text_Formality_Conditional();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Third_Party\EDD_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Third_Party\EDD_Conditional
+     */
+    protected function getEDDConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\EDD_Conditional'] = new \Yoast\WP\SEO\Conditionals\Third_Party\EDD_Conditional();
     }
 
     /**
@@ -6550,7 +6563,7 @@ class Cached_Container extends Container
         $b->set_person_config(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Enhancement\Person_Config());
         $c = ($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService());
 
-        return $this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler'] = new \Yoast\WP\SEO\Schema_Aggregator\Application\Aggregate_Site_Schema_Command_Handler(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Pieces\Schema_Piece_Repository(($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] ?? $this->getMetaTagsContextMemoizerService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] ?? $this->getIndexableHelperService()), new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Meta_Tags_Context_Memoizer_Adapter(), ($this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Aggregator_Config'] ?? $this->getAggregatorConfigService()), new \Yoast\WP\SEO\Schema_Aggregator\Application\Enhancement\Schema_Enhancement_Factory($a, $b), new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Indexable_Repository\Indexable_Repository_Factory(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Indexable_Repository\Indexable_Repository($c), new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Indexable_Repository\WordPress_Query_Repository(($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] ?? $this->getIndexableBuilderService()), $c)), new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Pieces\Woo_Schema_Piece_Repository(($this->services['Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Conditional'] ?? ($this->services['Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Conditional'] = new \Yoast\WP\SEO\Conditionals\WooCommerce_Conditional())))), new \Yoast\WP\SEO\Schema_Aggregator\Application\Schema_Pieces_Aggregator(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Filtering_Strategy_Factory()), new \Yoast\WP\SEO\Schema_Aggregator\Application\Schema_Aggregator_Response_Composer());
+        return $this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Application\\Aggregate_Site_Schema_Command_Handler'] = new \Yoast\WP\SEO\Schema_Aggregator\Application\Aggregate_Site_Schema_Command_Handler(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Pieces\Schema_Piece_Repository(($this->services['Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer'] ?? $this->getMetaTagsContextMemoizerService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] ?? $this->getIndexableHelperService()), new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Meta_Tags_Context_Memoizer_Adapter(), ($this->privates['Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Aggregator_Config'] ?? $this->getAggregatorConfigService()), new \Yoast\WP\SEO\Schema_Aggregator\Application\Enhancement\Schema_Enhancement_Factory($a, $b), new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Indexable_Repository\Indexable_Repository_Factory(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Indexable_Repository\Indexable_Repository($c), new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Indexable_Repository\WordPress_Query_Repository(($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] ?? $this->getIndexableBuilderService()), $c)), new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Pieces\WordPress_Global_State_Adapter(), new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Pieces\Edd_Schema_Piece_Repository(($this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\EDD_Conditional'] ?? ($this->services['Yoast\\WP\\SEO\\Conditionals\\Third_Party\\EDD_Conditional'] = new \Yoast\WP\SEO\Conditionals\Third_Party\EDD_Conditional())), ($this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface'] ?? $this->getMetaSurfaceService())), new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Pieces\Woo_Schema_Piece_Repository(($this->services['Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Conditional'] ?? ($this->services['Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Conditional'] = new \Yoast\WP\SEO\Conditionals\WooCommerce_Conditional())))), new \Yoast\WP\SEO\Schema_Aggregator\Application\Schema_Pieces_Aggregator(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Filtering_Strategy_Factory()), new \Yoast\WP\SEO\Schema_Aggregator\Application\Schema_Aggregator_Response_Composer());
     }
 
     /**
