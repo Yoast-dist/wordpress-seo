@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.9
-Stable tag: 26.8-RC6
+Stable tag: 26.8-RC7
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -312,8 +312,7 @@ Yoast SEO 26.8 brings more enhancements and bugfixes. [Find more information abo
 #### Enhancements
 
 * Adds a schema settings page to allow users more control over the Yoast Schema Framework API.
-* Implements the new design to the site's features section.
-* Replaces Yoast product logos with new designs across the plugin’s interface.
+* Implements a new, easy-to-use design for the site features settings.
 
 #### Bugfixes
 
@@ -327,6 +326,7 @@ Yoast SEO 26.8 brings more enhancements and bugfixes. [Find more information abo
 
 * Adds an opt-in notification for the task list feature on the general page.
 * Improves the translatability of some tasks' title in the task list.
+* Replaces Yoast product logos with new designs across the plugin’s interface.
 * Updates the product URL inside the marker presenter for Yoast SEO and Yoast SEO Premium.
 
 = 26.7 =
