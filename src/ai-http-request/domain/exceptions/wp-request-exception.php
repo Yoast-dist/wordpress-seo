@@ -1,10 +1,8 @@
 <?php
-
 // phpcs:disable Yoast.NamingConventions.NamespaceName.TooLong -- Needed in the folder structure.
 namespace Yoast\WP\SEO\AI_HTTP_Request\Domain\Exceptions;
 
 use Throwable;
-
 /**
  * Class to manage an error response in wp_remote_*() requests.
  *

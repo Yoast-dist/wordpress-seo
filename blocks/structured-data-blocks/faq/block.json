@@ -25,7 +25,7 @@
   },
   "example": {
     "attributes": {
-      "questions": [
+      "steps": [
         {
           "id": "faq-question-1",
           "question": [ ],

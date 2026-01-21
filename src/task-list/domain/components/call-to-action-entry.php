@@ -1,10 +1,8 @@
 <?php
-
 // phpcs:disable Yoast.NamingConventions.NamespaceName.TooLong -- Needed in the folder structure.
 namespace Yoast\WP\SEO\Task_List\Domain\Components;
 
 use InvalidArgumentException;
-
 /**
  * This class describes a Call To Action Entry.
  */

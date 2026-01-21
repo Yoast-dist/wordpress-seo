@@ -6,7 +6,6 @@ use RuntimeException;
 use Yoast\WP\SEO\AI_Authorization\Domain\Code_Verifier;
 use Yoast\WP\SEO\Helpers\Date_Helper;
 use Yoast\WP\SEO\Helpers\User_Helper;
-
 /**
  * Class Code_Verifier_Repository
  */

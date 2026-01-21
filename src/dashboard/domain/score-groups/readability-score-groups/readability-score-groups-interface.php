@@ -1,5 +1,4 @@
 <?php
-
 // phpcs:disable Yoast.NamingConventions.NamespaceName
 namespace Yoast\WP\SEO\Dashboard\Domain\Score_Groups\Readability_Score_Groups;
 

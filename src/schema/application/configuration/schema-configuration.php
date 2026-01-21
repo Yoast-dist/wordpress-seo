@@ -1,5 +1,6 @@
 <?php
 
+
 // phpcs:disable Yoast.NamingConventions.NamespaceName.TooLong
 namespace Yoast\WP\SEO\Schema\Application\Configuration;
 

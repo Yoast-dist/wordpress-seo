@@ -9,7 +9,6 @@ use WPSEO_Admin_Utils;
  * The Yoast SEO Duplicate Post plugin Manager.
  */
 class Duplicate_Post_Manager {
-
 	/**
 	 * The Duplicate post main file.
 	 *

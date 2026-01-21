@@ -1,10 +1,8 @@
 <?php
-
 // phpcs:disable Yoast.NamingConventions.NamespaceName.MaxExceeded
 namespace Yoast\WP\SEO\Llms_Txt\Domain\Markdown\Sections;
 
 use Yoast\WP\SEO\Llms_Txt\Application\Markdown_Escaper;
-
 /**
  * Represents the description section.
  */
