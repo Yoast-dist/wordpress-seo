@@ -776,6 +776,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Aggregator_Config' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Config' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Elements_Context_Map\\Base_Map_Loader' => true,
+            'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Elements_Context_Map\\Default_Elements_Context_Map' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Elements_Context_Map\\Elements_Context_Map_Repository' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Elements_Context_Map\\Elements_Context_Map_Repository_Interface' => true,
             'Yoast\\WP\\SEO\\Schema_Aggregator\\Infrastructure\\Elements_Context_Map\\Filtered_Map_Loader' => true,
