@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.9
-Stable tag: 26.9-RC2
+Stable tag: 26.9-RC3
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -313,6 +313,7 @@ Release date: 2026-02-03
 * Improves performance in large sites with lots of inbound links by adding appropriate database indices.
 * Improves the general security of the plugin via sanitization and escaping.
 * Replaces deprecated standard WordPress components with their modern variants.
+* Restores legacy Woo behavior of handling permalinks.
 * Sets the minimum supported WordPress version to 6.8.
 * Updates the OAuth2 Client library for improved compatibility with PHP 8.5.
 
