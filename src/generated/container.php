@@ -157,6 +157,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\Wincher_Enabled_Conditional' => 'getWincherEnabledConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Wincher_Token_Conditional' => 'getWincherTokenConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Conditional' => 'getWooCommerceConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Version_Conditional' => 'getWooCommerceVersionConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Woo_SEO_Inactive_Conditional' => 'getWooSEOInactiveConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\XMLRPC_Conditional' => 'getXMLRPCConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Yoast_Admin_And_Dashboard_Conditional' => 'getYoastAdminAndDashboardConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Yoast_Tools_Page_Conditional' => 'getYoastToolsPageConditionalService',
@@ -399,6 +401,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Watchers\\Primary_Term_Watcher' => 'getPrimaryTermWatcherService',
             'Yoast\\WP\\SEO\\Integrations\\Watchers\\Search_Engines_Discouraged_Watcher' => 'getSearchEnginesDiscouragedWatcherService',
             'Yoast\\WP\\SEO\\Integrations\\Watchers\\Woocommerce_Beta_Editor_Watcher' => 'getWoocommerceBetaEditorWatcherService',
+            'Yoast\\WP\\SEO\\Integrations\\Woocommerce_Product_Category_Permalink_Integration' => 'getWoocommerceProductCategoryPermalinkIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\XMLRPC' => 'getXMLRPCService',
             'Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Introductions_Seen_Repository' => 'getIntroductionsSeenRepositoryService',
             'Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Wistia_Embed_Permission_Repository' => 'getWistiaEmbedPermissionRepositoryService',
@@ -2387,6 +2390,26 @@ class Cached_Container extends Container
     protected function getWooCommerceConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Conditional'] = new \Yoast\WP\SEO\Conditionals\WooCommerce_Conditional();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\WooCommerce_Version_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\WooCommerce_Version_Conditional
+     */
+    protected function getWooCommerceVersionConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Version_Conditional'] = new \Yoast\WP\SEO\Conditionals\WooCommerce_Version_Conditional();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Woo_SEO_Inactive_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Woo_SEO_Inactive_Conditional
+     */
+    protected function getWooSEOInactiveConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Woo_SEO_Inactive_Conditional'] = new \Yoast\WP\SEO\Conditionals\Woo_SEO_Inactive_Conditional();
     }
 
     /**
@@ -4899,6 +4922,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Integrations\Woocommerce_Product_Category_Permalink_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Integrations\Woocommerce_Product_Category_Permalink_Integration
+     */
+    protected function getWoocommerceProductCategoryPermalinkIntegrationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Woocommerce_Product_Category_Permalink_Integration'] = new \Yoast\WP\SEO\Integrations\Woocommerce_Product_Category_Permalink_Integration();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Integrations\XMLRPC' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Integrations\XMLRPC
@@ -5206,6 +5239,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Watchers\\Primary_Term_Watcher');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Watchers\\Search_Engines_Discouraged_Watcher');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Watchers\\Woocommerce_Beta_Editor_Watcher');
+        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Woocommerce_Product_Category_Permalink_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\XMLRPC');
         $instance->register_integration('Yoast\\WP\\SEO\\Introductions\\User_Interface\\Introductions_Integration');
         $instance->register_route('Yoast\\WP\\SEO\\Introductions\\User_Interface\\Introductions_Seen_Route');
