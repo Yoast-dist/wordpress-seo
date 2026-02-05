@@ -6420,7 +6420,7 @@ class Cached_Container extends Container
      */
     protected function getImproveContentSEOService()
     {
-        return $this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Improve_Content_SEO'] = new \Yoast\WP\SEO\Task_List\Application\Tasks\Improve_Content_SEO(new \Yoast\WP\SEO\Task_List\Infrastructure\Indexables\Recent_Content_Indexable_Collector(($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService()), ($this->privates['Yoast\\WP\\SEO\\Dashboard\\Application\\Score_Groups\\SEO_Score_Groups\\SEO_Score_Groups_Repository'] ?? $this->getSEOScoreGroupsRepositoryService())));
+        return $this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Improve_Content_SEO'] = new \Yoast\WP\SEO\Task_List\Application\Tasks\Improve_Content_SEO(new \Yoast\WP\SEO\Task_List\Infrastructure\Indexables\Recent_Content_Indexable_Collector(($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService()), ($this->privates['Yoast\\WP\\SEO\\Dashboard\\Application\\Score_Groups\\SEO_Score_Groups\\SEO_Score_Groups_Repository'] ?? $this->getSEOScoreGroupsRepositoryService())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] ?? $this->getIndexableHelperService()), ($this->services['Yoast\\WP\\SEO\\Editors\\Application\\Analysis_Features\\Enabled_Analysis_Features_Repository'] ?? $this->getEnabledAnalysisFeaturesRepositoryService()));
     }
 
     /**
