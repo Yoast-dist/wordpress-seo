@@ -1012,7 +1012,7 @@ class WPSEO_Upgrade {
 		WPSEO_Options::set( 'should_redirect_after_install_free', false );
 		// We're adding a hardcoded time here, so that in the future we can be able to identify whether the user did see the Installation Success page or not.
 		// If they did, they wouldn't have this hardcoded value in that option, but rather (roughly) the timestamp of the moment they saw it.
-		WPSEO_Options::set( 'activation_redirect_timestamp_free', 1652258756 );
+		WPSEO_Options::set( 'activation_redirect_timestamp_free', 1_652_258_756 );
 
 		// Transfer the Social URLs.
 		$other   = [];
@@ -1402,9 +1402,7 @@ class WPSEO_Upgrade {
 	 * @return void
 	 */
 	protected function save_option_setting( $source_data, $source_setting, $target_setting = null ) {
-		if ( $target_setting === null ) {
-			$target_setting = $source_setting;
-		}
+		$target_setting ??= $source_setting;
 
 		if ( isset( $source_data[ $source_setting ] ) ) {
 			WPSEO_Options::set( $target_setting, $source_data[ $source_setting ] );

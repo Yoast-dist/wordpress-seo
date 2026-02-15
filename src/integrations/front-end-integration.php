@@ -262,7 +262,7 @@ class Front_End_Integration implements Integration_Interface {
 		\add_filter( 'wpseo_frontend_presenter_classes', [ $this, 'filter_robots_presenter' ] );
 
 		\add_action( 'wpseo_head', [ $this, 'present_head' ], -9999 );
-		\add_action( 'wpseo_head', [ $this, 'update_outdated_permalink' ], -10000 );
+		\add_action( 'wpseo_head', [ $this, 'update_outdated_permalink' ], -10_000 );
 
 		\remove_action( 'wp_head', 'rel_canonical' );
 		\remove_action( 'wp_head', 'index_rel_link' );
@@ -501,9 +501,7 @@ class Front_End_Integration implements Integration_Interface {
 	 * @return Abstract_Indexable_Presenter[] The presenters.
 	 */
 	public function get_presenters( $page_type, $context = null ) {
-		if ( $context === null ) {
-			$context = $this->context_memoizer->for_current_page();
-		}
+		$context ??= $this->context_memoizer->for_current_page();
 
 		$needed_presenters = $this->get_needed_presenters( $page_type );
 
