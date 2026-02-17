@@ -759,6 +759,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Task_List\\Domain\\Endpoint\\Endpoint_List' => true,
             'Yoast\\WP\\SEO\\Task_List\\Domain\\Exceptions\\Complete_Hello_World_Task_Exception' => true,
             'Yoast\\WP\\SEO\\Task_List\\Domain\\Exceptions\\Complete_LLMS_Task_Exception' => true,
+            'Yoast\\WP\\SEO\\Task_List\\Domain\\Exceptions\\Incorrect_Child_Task_Usage_Exception' => true,
+            'Yoast\\WP\\SEO\\Task_List\\Domain\\Exceptions\\Incorrect_Child_Trait_Usage_Exception' => true,
             'Yoast\\WP\\SEO\\Task_List\\Domain\\Exceptions\\Invalid_Post_Type_Tasks_Exception' => true,
             'Yoast\\WP\\SEO\\Task_List\\Domain\\Exceptions\\Invalid_Tasks_Exception' => true,
             'Yoast\\WP\\SEO\\Task_List\\Domain\\Exceptions\\Task_Not_Found_Exception' => true,
