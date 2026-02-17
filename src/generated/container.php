@@ -74,6 +74,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Keyphrases_Action' => 'getWincherKeyphrasesActionService',
             'Yoast\\WP\\SEO\\Actions\\Wincher\\Wincher_Login_Action' => 'getWincherLoginActionService',
             'Yoast\\WP\\SEO\\Alerts\\Application\\Default_SEO_Data\\Default_SEO_Data_Alert' => 'getDefaultSEODataAlertService',
+            'Yoast\\WP\\SEO\\Alerts\\Application\\Indexables_Disabled\\Indexables_Disabled_Alert' => 'getIndexablesDisabledAlertService',
             'Yoast\\WP\\SEO\\Alerts\\Application\\Ping_Other_Admins\\Ping_Other_Admins_Alert' => 'getPingOtherAdminsAlertService',
             'Yoast\\WP\\SEO\\Alerts\\Infrastructure\\Default_SEO_Data\\Default_SEO_Data_Collector' => 'getDefaultSEODataCollectorService',
             'Yoast\\WP\\SEO\\Alerts\\User_Interface\\Default_SEO_Data\\Default_SEO_Data_Cron_Callback_Integration' => 'getDefaultSEODataCronCallbackIntegrationService',
@@ -1485,6 +1486,16 @@ class Cached_Container extends Container
     protected function getDefaultSEODataAlertService()
     {
         return $this->services['Yoast\\WP\\SEO\\Alerts\\Application\\Default_SEO_Data\\Default_SEO_Data_Alert'] = new \Yoast\WP\SEO\Alerts\Application\Default_SEO_Data\Default_SEO_Data_Alert(($this->services['Yoast_Notification_Center'] ?? $this->getYoastNotificationCenterService()), ($this->services['Yoast\\WP\\SEO\\Alerts\\Infrastructure\\Default_SEO_Data\\Default_SEO_Data_Collector'] ?? $this->getDefaultSEODataCollectorService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper'] ?? $this->getShortLinkHelperService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] ?? $this->getIndexableHelperService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] ?? $this->getPostTypeHelperService()));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Alerts\Application\Indexables_Disabled\Indexables_Disabled_Alert' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Alerts\Application\Indexables_Disabled\Indexables_Disabled_Alert
+     */
+    protected function getIndexablesDisabledAlertService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Alerts\\Application\\Indexables_Disabled\\Indexables_Disabled_Alert'] = new \Yoast\WP\SEO\Alerts\Application\Indexables_Disabled\Indexables_Disabled_Alert(($this->services['Yoast_Notification_Center'] ?? $this->getYoastNotificationCenterService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] ?? $this->getIndexableHelperService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper'] ?? $this->getShortLinkHelperService()));
     }
 
     /**
@@ -5167,6 +5178,7 @@ class Cached_Container extends Container
         $instance->register_route('Yoast\\WP\\SEO\\AI_Generator\\User_Interface\\Get_Suggestions_Route');
         $instance->register_route('Yoast\\WP\\SEO\\AI_Generator\\User_Interface\\Get_Usage_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\Alerts\\Application\\Default_SEO_Data\\Default_SEO_Data_Alert');
+        $instance->register_integration('Yoast\\WP\\SEO\\Alerts\\Application\\Indexables_Disabled\\Indexables_Disabled_Alert');
         $instance->register_integration('Yoast\\WP\\SEO\\Alerts\\Application\\Ping_Other_Admins\\Ping_Other_Admins_Alert');
         $instance->register_integration('Yoast\\WP\\SEO\\Alerts\\User_Interface\\Default_SEO_Data\\Default_SEO_Data_Cron_Callback_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Alerts\\User_Interface\\Default_Seo_Data\\Default_SEO_Data_Cron_Scheduler');
