@@ -307,10 +307,12 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 Release date: 2026-03-03
 
+New: Introducing the Schema Aggregation feature. Futureproof your website for an agentic future. [Read the full release post here](https://yoa.st/55i).
+
 #### Enhancements
 
+* Introduces the Schema aggregation feature. Thanks to Syde for helping us with testing it!
 * Introduces a more robust HTML processing and highlighting approach for the *transition words* assessment.
-* Introduces the Schema aggregation feature.
 
 #### Bugfixes
 
