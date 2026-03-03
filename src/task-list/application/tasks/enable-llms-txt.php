@@ -7,13 +7,12 @@ use Yoast\WP\SEO\Helpers\Options_Helper;
 use Yoast\WP\SEO\Task_List\Domain\Components\Call_To_Action_Entry;
 use Yoast\WP\SEO\Task_List\Domain\Components\Copy_Set;
 use Yoast\WP\SEO\Task_List\Domain\Exceptions\Complete_LLMS_Task_Exception;
-use Yoast\WP\SEO\Task_List\Domain\Tasks\Abstract_Task;
-use Yoast\WP\SEO\Task_List\Domain\Tasks\Completeable_Task_Interface;
+use Yoast\WP\SEO\Task_List\Domain\Tasks\Abstract_Completeable_Task;
 
 /**
  * Represents the task for the enabling the llms.txt file.
  */
-class Enable_Llms_Txt extends Abstract_Task implements Completeable_Task_Interface {
+class Enable_Llms_Txt extends Abstract_Completeable_Task {
 
 	/**
 	 * Holds the id.
@@ -88,9 +87,9 @@ class Enable_Llms_Txt extends Abstract_Task implements Completeable_Task_Interfa
 	/**
 	 * Returns the task's call to action entry.
 	 *
-	 * @return Call_To_Action_Entry|null
+	 * @return string|null
 	 */
-	public function get_call_to_action(): ?Call_To_Action_Entry {
+	public function get_call_to_action(): Call_To_Action_Entry {
 		return new Call_To_Action_Entry(
 			\__( 'Enable llms.txt', 'wordpress-seo' ),
 			'default',
@@ -106,7 +105,7 @@ class Enable_Llms_Txt extends Abstract_Task implements Completeable_Task_Interfa
 	public function get_copy_set(): Copy_Set {
 		return new Copy_Set(
 			\__( 'Create an llms.txt file', 'wordpress-seo' ),
-			'<p>' . \__( 'Without llms.txt, AI platforms may not know how to treat your content. Enabling it helps communicate your preferences in a clearer way to AI tools.', 'wordpress-seo' ) . '</p>',
+			\__( 'Without llms.txt, AI crawlers may not know how to treat your content. Publishing it helps communicate your preferences in a clearer way to AI tools.', 'wordpress-seo' ),
 		);
 	}
 

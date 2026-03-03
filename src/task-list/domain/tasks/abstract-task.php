@@ -32,13 +32,6 @@ abstract class Abstract_Task implements Task_Interface {
 	protected $duration;
 
 	/**
-	 * Whether the task is completed. Can be used for caching the completed status if the calculation is expensive.
-	 *
-	 * @var bool|null
-	 */
-	protected $is_completed = null;
-
-	/**
 	 * The enhanced call to action.
 	 *
 	 * @var Call_To_Action_Entry
@@ -113,7 +106,7 @@ abstract class Abstract_Task implements Task_Interface {
 			'priority'     => $this->get_priority(),
 			'badge'        => $this->get_badge(),
 			'isCompleted'  => $this->get_is_completed(),
-			'callToAction' => ( $this->get_enhanced_call_to_action() !== null ) ? $this->get_enhanced_call_to_action()->to_array() : null,
+			'callToAction' => $this->get_enhanced_call_to_action()->to_array(),
 		];
 
 		return \array_merge( $data, $this->get_copy_set()->to_array() );
