@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.9
-Stable tag: 27.1-RC6
+Stable tag: 27.1
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -307,15 +307,17 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 Release date: 2026-03-03
 
+New: Introducing the Schema Aggregation feature. Futureproof your website for an agentic future. [Read the full release post here](https://yoa.st/55i).
+
 #### Enhancements
 
+* Introduces the Schema aggregation feature. Thanks to Syde for helping us with testing it!
 * Introduces a more robust HTML processing and highlighting approach for the *transition words* assessment.
-* Introduces the Schema aggregation feature.
 
 #### Bugfixes
 
 * Fixes a bug where sentences containing transition words failed to be highlighted in _transition words_ assessment when they contained elements excluded from the analysis such as `<code>`.
-* Fixes a bug where Slovak two-part transition words wasn't recognized when running the readability analysis.
+* Fixes a bug where Slovak two-part transition words weren't recognized when running the readability analysis.
 
 = 27.0 =
 
