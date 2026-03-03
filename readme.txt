@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.9
-Stable tag: 27.1
+Stable tag: 27.1.1-RC1
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -302,6 +302,14 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 8. The inclusive language analysis in Yoast SEO.
 
 == Changelog ==
+
+= 27.1.1 =
+
+Release date: 2026-03-03
+
+#### Bugfixes
+
+* Fixes a bug where Schema aggregator endpoints were returning a fatal error when trying to access response pages other than the first one by using slash syntax.
 
 = 27.1 =
 
