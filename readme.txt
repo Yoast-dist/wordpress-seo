@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.9
-Stable tag: 27.2-RC4
+Stable tag: 27.2-RC5
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -320,6 +320,7 @@ Release date: 2026-03-17
 * Fixes a bug where structured data broke when `script` tag was used in the step description of the HowTo block.
 * Fixes a bug where the \"Additional CSS class(es)\" field was missing from the link popover when Yoast SEO was active. Props to [somecodeiwrote](https://github.com/somecodeiwrote).
 * Fixes a bug where the Schema aggregator could break if another plugin returns `null` from the `rest_pre_serve_request` filter.
+* Fixes a bug where the Schema aggregator response headers processor was called even when the feature was off.
 
 #### Other
 
