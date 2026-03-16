@@ -202,7 +202,7 @@ class Site_Schema_Aggregator_Route implements Route_Interface {
 	 *
 	 * @return bool True if the page is valid, false otherwise.
 	 */
-	public function validate_page( string $page ): bool {
+	private function validate_page( string $page ): bool {
 		return \is_numeric( $page ) && $page > 0 && $page < \PHP_INT_MAX;
 	}
 }
