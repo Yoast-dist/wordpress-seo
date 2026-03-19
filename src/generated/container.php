@@ -870,6 +870,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Enable_Llms_Txt' => true,
             'Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Improve_Content_Readability' => true,
             'Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Improve_Content_SEO' => true,
+            'Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Improve_Default_Meta_Descriptions' => true,
             'Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Set_Search_Appearance_Templates' => true,
             'Yoast\\WP\\SEO\\Task_List\\Application\\Tasks_Repository' => true,
             'Yoast\\WP\\SEO\\Task_List\\Domain\\Components\\Call_To_Action_Entry' => true,
@@ -877,6 +878,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Task_List\\Domain\\Components\\Score_Task_Analyzer' => true,
             'Yoast\\WP\\SEO\\Task_List\\Domain\\Components\\Task_Analyzer_Interface' => true,
             'Yoast\\WP\\SEO\\Task_List\\Domain\\Data\\Content_Item_Score_Data' => true,
+            'Yoast\\WP\\SEO\\Task_List\\Domain\\Data\\Meta_Description_Content_Item_Data' => true,
             'Yoast\\WP\\SEO\\Task_List\\Domain\\Endpoint\\Endpoint_List' => true,
             'Yoast\\WP\\SEO\\Task_List\\Domain\\Exceptions\\Complete_Hello_World_Task_Exception' => true,
             'Yoast\\WP\\SEO\\Task_List\\Domain\\Exceptions\\Complete_LLMS_Task_Exception' => true,
@@ -6431,7 +6433,7 @@ class Cached_Container extends Container
      */
     protected function getRegisterPostTypeTasksIntegrationService()
     {
-        $this->services['Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Register_Post_Type_Tasks_Integration'] = $instance = new \Yoast\WP\SEO\Task_List\Infrastructure\Register_Post_Type_Tasks_Integration(($this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Improve_Content_Readability'] ?? $this->getImproveContentReadabilityService()), ($this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Improve_Content_SEO'] ?? $this->getImproveContentSEOService()), ($this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Set_Search_Appearance_Templates'] ?? $this->getSetSearchAppearanceTemplatesService()));
+        $this->services['Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Register_Post_Type_Tasks_Integration'] = $instance = new \Yoast\WP\SEO\Task_List\Infrastructure\Register_Post_Type_Tasks_Integration(($this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Improve_Content_Readability'] ?? $this->getImproveContentReadabilityService()), ($this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Improve_Content_SEO'] ?? $this->getImproveContentSEOService()), ($this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Improve_Default_Meta_Descriptions'] ?? $this->getImproveDefaultMetaDescriptionsService()), ($this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Set_Search_Appearance_Templates'] ?? $this->getSetSearchAppearanceTemplatesService()));
 
         $instance->set_post_type_helper(($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] ?? $this->getPostTypeHelperService()));
 
@@ -6923,6 +6925,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the private 'Yoast\WP\SEO\Task_List\Application\Tasks\Improve_Default_Meta_Descriptions' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Task_List\Application\Tasks\Improve_Default_Meta_Descriptions
+     */
+    protected function getImproveDefaultMetaDescriptionsService()
+    {
+        return $this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Improve_Default_Meta_Descriptions'] = new \Yoast\WP\SEO\Task_List\Application\Tasks\Improve_Default_Meta_Descriptions(($this->privates['Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Indexables\\Recent_Content_Indexable_Collector'] ?? $this->getRecentContentIndexableCollectorService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] ?? $this->getIndexableHelperService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())));
+    }
+
+    /**
      * Gets the private 'Yoast\WP\SEO\Task_List\Application\Tasks\Set_Search_Appearance_Templates' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Task_List\Application\Tasks\Set_Search_Appearance_Templates
@@ -6949,7 +6961,7 @@ class Cached_Container extends Container
      */
     protected function getTasksCollectorService()
     {
-        $this->privates['Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Tasks_Collectors\\Tasks_Collector'] = $instance = new \Yoast\WP\SEO\Task_List\Infrastructure\Tasks_Collectors\Tasks_Collector(new \Yoast\WP\SEO\Task_List\Application\Tasks\Complete_FTC(($this->services['Yoast\\WP\\SEO\\Helpers\\First_Time_Configuration_Notice_Helper'] ?? $this->getFirstTimeConfigurationNoticeHelperService())), new \Yoast\WP\SEO\Task_List\Application\Tasks\Create_New_Content(($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] ?? $this->getPostTypeHelperService())), new \Yoast\WP\SEO\Task_List\Application\Tasks\Delete_Hello_World(), new \Yoast\WP\SEO\Task_List\Application\Tasks\Delete_Sample_Page(), new \Yoast\WP\SEO\Task_List\Application\Tasks\Enable_Llms_Txt(($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper()))), ($this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Improve_Content_Readability'] ?? $this->getImproveContentReadabilityService()), ($this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Improve_Content_SEO'] ?? $this->getImproveContentSEOService()), ($this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Set_Search_Appearance_Templates'] ?? $this->getSetSearchAppearanceTemplatesService()));
+        $this->privates['Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Tasks_Collectors\\Tasks_Collector'] = $instance = new \Yoast\WP\SEO\Task_List\Infrastructure\Tasks_Collectors\Tasks_Collector(new \Yoast\WP\SEO\Task_List\Application\Tasks\Complete_FTC(($this->services['Yoast\\WP\\SEO\\Helpers\\First_Time_Configuration_Notice_Helper'] ?? $this->getFirstTimeConfigurationNoticeHelperService())), new \Yoast\WP\SEO\Task_List\Application\Tasks\Create_New_Content(($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] ?? $this->getPostTypeHelperService())), new \Yoast\WP\SEO\Task_List\Application\Tasks\Delete_Hello_World(), new \Yoast\WP\SEO\Task_List\Application\Tasks\Delete_Sample_Page(), new \Yoast\WP\SEO\Task_List\Application\Tasks\Enable_Llms_Txt(($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper()))), ($this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Improve_Content_Readability'] ?? $this->getImproveContentReadabilityService()), ($this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Improve_Content_SEO'] ?? $this->getImproveContentSEOService()), ($this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Improve_Default_Meta_Descriptions'] ?? $this->getImproveDefaultMetaDescriptionsService()), ($this->privates['Yoast\\WP\\SEO\\Task_List\\Application\\Tasks\\Set_Search_Appearance_Templates'] ?? $this->getSetSearchAppearanceTemplatesService()));
 
         $instance->set_tracking_link_adapter(new \Yoast\WP\SEO\Tracking\Infrastructure\Tracking_Link_Adapter());
 
