@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 6.9
-Stable tag: 27.3-RC2
+Stable tag: 27.3-RC3
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -315,6 +315,7 @@ Release date: 2026-03-31
 #### Bugfixes
 
 * Fixes a bug where `Deprecated: strip_tags(): Passing null to parameter #1 ($string) of type string is deprecated` notices appeared on certain actions, like when activating the plugin, or saving a Yoast setting. Props to @sabernhardt.
+* Fixes a bug where the installation success redirect was incorrectly fire during AJAX, cron, REST API, or JSON requests, breaking integrations such as the Bluehost SSO.
 * Fixes a console error in the editor related to AI Generate feature that occurred when the “Enable SEO controls and assessments” option was disabled for a content type.
 
 #### Other
