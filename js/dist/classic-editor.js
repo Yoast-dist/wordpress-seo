@@ -199,7 +199,7 @@
 		border-top: 1px solid rgba(0,0,0,0.2);
 	}
 
-`,fs=e=>(0,u.jsx)(ws,{hasPadding:!0,hasSeparator:!0,...e}),xs=()=>{const t=(0,a.useSelect)(e=>e("yoast-seo/editor").getEstimatedReadingTime(),[]),s=(0,e.useMemo)(()=>(0,n.get)(window,"wpseoAdminL10n.shortlinks-insights-estimated_reading_time",""),[]);return(0,u.jsx)(F.InsightsCard,{amount:t,unit:(0,d._n)("minute","minutes",t,"wordpress-seo"),title:(0,d.__)("Reading time","wordpress-seo"),linkTo:s
+`,fs=({initialIsOpen:e,id:t,...s})=>(0,u.jsx)(ws,{hasPadding:!0,hasSeparator:!0,initialIsOpen:e,id:t,...s}),xs=()=>{const t=(0,a.useSelect)(e=>e("yoast-seo/editor").getEstimatedReadingTime(),[]),s=(0,e.useMemo)(()=>(0,n.get)(window,"wpseoAdminL10n.shortlinks-insights-estimated_reading_time",""),[]);return(0,u.jsx)(F.InsightsCard,{amount:t,unit:(0,d._n)("minute","minutes",t,"wordpress-seo"),title:(0,d.__)("Reading time","wordpress-seo"),linkTo:s
 /* translators: Hidden accessibility text. */,linkText:(0,d.__)("Learn more about reading time","wordpress-seo")})},bs=(0,Q.makeOutboundLink)();function vs(e,t){return-1===e?(0,d.__)("Your text should be slightly longer to calculate your Flesch reading ease score.","wordpress-seo"):(0,d.sprintf)(
 /* Translators: %1$s expands to the numeric Flesch reading ease score,
   %2$s expands to the easiness of reading (e.g. 'easy' or 'very difficult') */
