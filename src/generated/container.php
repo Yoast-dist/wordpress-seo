@@ -36,6 +36,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler' => 'getConsentHandlerService',
             'Yoast\\WP\\SEO\\AI\\Consent\\User_Interface\\Ai_Consent_Integration' => 'getAiConsentIntegrationService',
             'Yoast\\WP\\SEO\\AI\\Consent\\User_Interface\\Consent_Route' => 'getConsentRouteService',
+            'Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Content_Planner_Route' => 'getContentPlannerRouteService',
             'Yoast\\WP\\SEO\\AI\\Free_Sparks\\User_Interface\\Free_Sparks_Route' => 'getFreeSparksRouteService',
             'Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Ai_Generator_Integration' => 'getAiGeneratorIntegrationService',
             'Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Bust_Subscription_Cache_Route' => 'getBustSubscriptionCacheRouteService',
@@ -570,6 +571,14 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler_Interface' => true,
             'Yoast\\WP\\SEO\\AI\\Consent\\Infrastructure\\Endpoints\\Consent_Endpoint' => true,
             'Yoast\\WP\\SEO\\AI\\Consent\\Infrastructure\\Endpoints\\Consent_Endpoint_Interface' => true,
+            'Yoast\\WP\\SEO\\AI\\Content_Planner\\Application\\Content_Suggestion_Command' => true,
+            'Yoast\\WP\\SEO\\AI\\Content_Planner\\Application\\Content_Suggestion_Command_Handler' => true,
+            'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Category' => true,
+            'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Content_Suggestion' => true,
+            'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Content_Suggestion_List' => true,
+            'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Post' => true,
+            'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Post_List' => true,
+            'Yoast\\WP\\SEO\\AI\\Content_Planner\\Infrastructure\\Recent_Content\\Recent_Content_Collector' => true,
             'Yoast\\WP\\SEO\\AI\\Free_Sparks\\Application\\Free_Sparks_Endpoints_Repository' => true,
             'Yoast\\WP\\SEO\\AI\\Free_Sparks\\Application\\Free_Sparks_Handler' => true,
             'Yoast\\WP\\SEO\\AI\\Free_Sparks\\Application\\Free_Sparks_Handler_Interface' => true,
@@ -1072,6 +1081,16 @@ class Cached_Container extends Container
     protected function getConsentRouteService()
     {
         return $this->services['Yoast\\WP\\SEO\\AI\\Consent\\User_Interface\\Consent_Route'] = new \Yoast\WP\SEO\AI\Consent\User_Interface\Consent_Route(($this->services['Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler'] ?? $this->getConsentHandlerService()), ($this->services['Yoast\\WP\\SEO\\AI\\Authorization\\Application\\Token_Manager'] ?? $this->getTokenManagerService()));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\AI\Content_Planner\User_Interface\Content_Planner_Route' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\AI\Content_Planner\User_Interface\Content_Planner_Route
+     */
+    protected function getContentPlannerRouteService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Content_Planner_Route'] = new \Yoast\WP\SEO\AI\Content_Planner\User_Interface\Content_Planner_Route(new \Yoast\WP\SEO\AI\Content_Planner\Application\Content_Suggestion_Command_Handler(new \Yoast\WP\SEO\AI\Content_Planner\Infrastructure\Recent_Content\Recent_Content_Collector(($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService())), ($this->services['Yoast\\WP\\SEO\\AI\\Authorization\\Application\\Token_Manager'] ?? $this->getTokenManagerService()), ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Request_Handler'] ?? $this->getRequestHandlerService()), ($this->services['Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler'] ?? $this->getConsentHandlerService())));
     }
 
     /**
@@ -5427,6 +5446,7 @@ class Cached_Container extends Container
         $instance->register_route('Yoast\\WP\\SEO\\AI\\Authorization\\User_Interface\\Refresh_Callback_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\AI\\Consent\\User_Interface\\Ai_Consent_Integration');
         $instance->register_route('Yoast\\WP\\SEO\\AI\\Consent\\User_Interface\\Consent_Route');
+        $instance->register_route('Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Content_Planner_Route');
         $instance->register_route('Yoast\\WP\\SEO\\AI\\Free_Sparks\\User_Interface\\Free_Sparks_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Ai_Generator_Integration');
         $instance->register_route('Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Bust_Subscription_Cache_Route');
