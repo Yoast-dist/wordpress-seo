@@ -56,6 +56,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\AI_Generator\\User_Interface\\Get_Usage_Route' => 'getGetUsageRoute2Service',
             'Yoast\\WP\\SEO\\AI_HTTP_Request\\Application\\Request_Handler' => 'getRequestHandler2Service',
             'Yoast\\WP\\SEO\\AI_HTTP_Request\\Infrastructure\\API_Client' => 'getAPIClient2Service',
+            'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities_Integration' => 'getAbilitiesIntegrationService',
+            'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Ability_Categories_Integration' => 'getAbilityCategoriesIntegrationService',
             'Yoast\\WP\\SEO\\Actions\\Addon_Installation\\Addon_Activate_Action' => 'getAddonActivateActionService',
             'Yoast\\WP\\SEO\\Actions\\Addon_Installation\\Addon_Install_Action' => 'getAddonInstallActionService',
             'Yoast\\WP\\SEO\\Actions\\Alert_Dismissal_Action' => 'getAlertDismissalActionService',
@@ -112,6 +114,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Commands\\Index_Command' => 'getIndexCommandService',
             'Yoast\\WP\\SEO\\Conditionals\\AI_Conditional' => 'getAIConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\AI_Editor_Conditional' => 'getAIEditorConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Abilities_API_Conditional' => 'getAbilitiesAPIConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Addon_Installation_Conditional' => 'getAddonInstallationConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Admin\\Doing_Post_Quick_Edit_Save_Conditional' => 'getDoingPostQuickEditSaveConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Admin\\Estimated_Reading_Time_Conditional' => 'getEstimatedReadingTimeConditionalService',
@@ -479,7 +482,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Aggregator_Route' => 'getSiteSchemaAggregatorRouteService',
             'Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Aggregator_Xml_Route' => 'getSiteSchemaAggregatorXmlRouteService',
             'Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Response_Header_Integration' => 'getSiteSchemaResponseHeaderIntegrationService',
-            'Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Robots_Txt_Integration' => 'getSiteSchemaRobotsTxtIntegrationService',
             'Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Check' => 'getDefaultTaglineCheckService',
             'Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Reports' => 'getDefaultTaglineReportsService',
             'Yoast\\WP\\SEO\\Services\\Health_Check\\Default_Tagline_Runner' => 'getDefaultTaglineRunnerService',
@@ -639,6 +641,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\AI_HTTP_Request\\Domain\\Request' => true,
             'Yoast\\WP\\SEO\\AI_HTTP_Request\\Domain\\Response' => true,
             'Yoast\\WP\\SEO\\AI_HTTP_Request\\Infrastructure\\API_Client_Interface' => true,
+            'Yoast\\WP\\SEO\\Abilities\\Application\\Score_Retriever' => true,
+            'Yoast\\WP\\SEO\\Abilities\\Domain\\Score_Result' => true,
             'Yoast\\WP\\SEO\\Analytics\\Domain\\Missing_Indexable_Bucket' => true,
             'Yoast\\WP\\SEO\\Analytics\\Domain\\Missing_Indexable_Count' => true,
             'Yoast\\WP\\SEO\\Analytics\\Domain\\To_Be_Cleaned_Indexable_Bucket' => true,
@@ -1268,6 +1272,26 @@ class Cached_Container extends Container
     protected function getAPIClient2Service()
     {
         return $this->services['Yoast\\WP\\SEO\\AI_HTTP_Request\\Infrastructure\\API_Client'] = new \Yoast\WP\SEO\AI_HTTP_Request\Infrastructure\API_Client();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Abilities\User_Interface\Abilities_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Abilities\User_Interface\Abilities_Integration
+     */
+    protected function getAbilitiesIntegrationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities_Integration'] = new \Yoast\WP\SEO\Abilities\User_Interface\Abilities_Integration(new \Yoast\WP\SEO\Abilities\Application\Score_Retriever(($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())), ($this->services['Yoast\\WP\\SEO\\Editors\\Application\\Analysis_Features\\Enabled_Analysis_Features_Repository'] ?? $this->getEnabledAnalysisFeaturesRepositoryService()));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Abilities\User_Interface\Ability_Categories_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Abilities\User_Interface\Ability_Categories_Integration
+     */
+    protected function getAbilityCategoriesIntegrationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Abilities\\User_Interface\\Ability_Categories_Integration'] = new \Yoast\WP\SEO\Abilities\User_Interface\Ability_Categories_Integration();
     }
 
     /**
@@ -2081,6 +2105,16 @@ class Cached_Container extends Container
     protected function getAIEditorConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\AI_Editor_Conditional'] = new \Yoast\WP\SEO\Conditionals\AI_Editor_Conditional(($this->services['Yoast\\WP\\SEO\\Conditionals\\Admin\\Post_Conditional'] ?? ($this->services['Yoast\\WP\\SEO\\Conditionals\\Admin\\Post_Conditional'] = new \Yoast\WP\SEO\Conditionals\Admin\Post_Conditional())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] ?? $this->getCurrentPageHelperService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Abilities_API_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Abilities_API_Conditional
+     */
+    protected function getAbilitiesAPIConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Abilities_API_Conditional'] = new \Yoast\WP\SEO\Conditionals\Abilities_API_Conditional();
     }
 
     /**
@@ -5375,6 +5409,8 @@ class Cached_Container extends Container
     {
         $this->services['Yoast\\WP\\SEO\\Loader'] = $instance = new \Yoast\WP\SEO\Loader($this);
 
+        $instance->register_integration('Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\Abilities\\User_Interface\\Ability_Categories_Integration');
         $instance->register_route('Yoast\\WP\\SEO\\AI\\Authorization\\User_Interface\\Callback_Route');
         $instance->register_route('Yoast\\WP\\SEO\\AI\\Authorization\\User_Interface\\Refresh_Callback_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\AI\\Consent\\User_Interface\\Ai_Consent_Integration');
@@ -5589,7 +5625,6 @@ class Cached_Container extends Container
         $instance->register_route('Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Aggregator_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Aggregator_Xml_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Response_Header_Integration');
-        $instance->register_integration('Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Robots_Txt_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Task_List\\Infrastructure\\Register_Post_Type_Tasks_Integration');
         $instance->register_route('Yoast\\WP\\SEO\\Task_List\\User_Interface\\Tasks\\Complete_Task_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Task_List\\User_Interface\\Tasks\\Get_Tasks_Route');
@@ -6153,16 +6188,6 @@ class Cached_Container extends Container
     protected function getSiteSchemaResponseHeaderIntegrationService()
     {
         return $this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Response_Header_Integration'] = new \Yoast\WP\SEO\Schema_Aggregator\User_Interface\Site_Schema_Response_Header_Integration(new \Yoast\WP\SEO\Schema_Aggregator\Infrastructure\Schema_Map\Schema_Map_Header_Adapter());
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Schema_Aggregator\User_Interface\Site_Schema_Robots_Txt_Integration' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Schema_Aggregator\User_Interface\Site_Schema_Robots_Txt_Integration
-     */
-    protected function getSiteSchemaRobotsTxtIntegrationService()
-    {
-        return $this->services['Yoast\\WP\\SEO\\Schema_Aggregator\\User_Interface\\Site_Schema_Robots_Txt_Integration'] = new \Yoast\WP\SEO\Schema_Aggregator\User_Interface\Site_Schema_Robots_Txt_Integration();
     }
 
     /**
