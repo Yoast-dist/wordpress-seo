@@ -6796,7 +6796,7 @@ class Cached_Container extends Container
      */
     protected function getRecentContentCollectorService()
     {
-        return $this->privates['Yoast\\WP\\SEO\\AI\\Content_Planner\\Infrastructure\\Recent_Content\\Recent_Content_Collector'] = new \Yoast\WP\SEO\AI\Content_Planner\Infrastructure\Recent_Content\Recent_Content_Collector(($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService()));
+        return $this->privates['Yoast\\WP\\SEO\\AI\\Content_Planner\\Infrastructure\\Recent_Content\\Recent_Content_Collector'] = new \Yoast\WP\SEO\AI\Content_Planner\Infrastructure\Recent_Content\Recent_Content_Collector(($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService()), ($this->services['Yoast\\WP\\SEO\\Repositories\\Primary_Term_Repository'] ?? ($this->services['Yoast\\WP\\SEO\\Repositories\\Primary_Term_Repository'] = new \Yoast\WP\SEO\Repositories\Primary_Term_Repository())));
     }
 
     /**
