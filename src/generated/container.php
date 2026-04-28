@@ -37,12 +37,12 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\AI\\Consent\\User_Interface\\Ai_Consent_Integration' => 'getAiConsentIntegrationService',
             'Yoast\\WP\\SEO\\AI\\Consent\\User_Interface\\Consent_Route' => 'getConsentRouteService',
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Content_Planner_Integration' => 'getContentPlannerIntegrationService',
-            'Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Content_Planner_Route' => 'getContentPlannerRouteService',
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Get_Outline_Route' => 'getGetOutlineRouteService',
+            'Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Get_Suggestions_Route' => 'getGetSuggestionsRouteService',
             'Yoast\\WP\\SEO\\AI\\Free_Sparks\\User_Interface\\Free_Sparks_Route' => 'getFreeSparksRouteService',
             'Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Ai_Generator_Integration' => 'getAiGeneratorIntegrationService',
             'Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Bust_Subscription_Cache_Route' => 'getBustSubscriptionCacheRouteService',
-            'Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Get_Suggestions_Route' => 'getGetSuggestionsRouteService',
+            'Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Get_Suggestions_Route' => 'getGetSuggestionsRoute2Service',
             'Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Get_Usage_Route' => 'getGetUsageRouteService',
             'Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Request_Handler' => 'getRequestHandlerService',
             'Yoast\\WP\\SEO\\AI\\HTTP_Request\\Infrastructure\\API_Client' => 'getAPIClientService',
@@ -55,7 +55,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\AI_Free_Sparks\\User_Interface\\Free_Sparks_Route' => 'getFreeSparksRoute2Service',
             'Yoast\\WP\\SEO\\AI_Generator\\User_Interface\\Ai_Generator_Integration' => 'getAiGeneratorIntegration2Service',
             'Yoast\\WP\\SEO\\AI_Generator\\User_Interface\\Bust_Subscription_Cache_Route' => 'getBustSubscriptionCacheRoute2Service',
-            'Yoast\\WP\\SEO\\AI_Generator\\User_Interface\\Get_Suggestions_Route' => 'getGetSuggestionsRoute2Service',
+            'Yoast\\WP\\SEO\\AI_Generator\\User_Interface\\Get_Suggestions_Route' => 'getGetSuggestionsRoute3Service',
             'Yoast\\WP\\SEO\\AI_Generator\\User_Interface\\Get_Usage_Route' => 'getGetUsageRoute2Service',
             'Yoast\\WP\\SEO\\AI_HTTP_Request\\Application\\Request_Handler' => 'getRequestHandler2Service',
             'Yoast\\WP\\SEO\\AI_HTTP_Request\\Infrastructure\\API_Client' => 'getAPIClient2Service',
@@ -585,8 +585,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Post_List' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Section' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Section_List' => true,
-            'Yoast\\WP\\SEO\\AI\\Content_Planner\\Infrastructure\\Endpoints\\Content_Planner_Endpoint' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Infrastructure\\Endpoints\\Get_Outline_Endpoint' => true,
+            'Yoast\\WP\\SEO\\AI\\Content_Planner\\Infrastructure\\Endpoints\\Get_Suggestions_Endpoint' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Infrastructure\\Recent_Content\\Recent_Content_Collector' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Infrastructure\\WordPress_Category_Repository' => true,
             'Yoast\\WP\\SEO\\AI\\Free_Sparks\\Application\\Free_Sparks_Endpoints_Repository' => true,
@@ -1100,17 +1100,7 @@ class Cached_Container extends Container
      */
     protected function getContentPlannerIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Content_Planner_Integration'] = new \Yoast\WP\SEO\AI\Content_Planner\User_Interface\Content_Planner_Integration(($this->services['WPSEO_Admin_Asset_Manager'] ?? $this->getWPSEOAdminAssetManagerService()), new \Yoast\WP\SEO\AI\Content_Planner\Application\Content_Planner_Endpoints_Repository(new \Yoast\WP\SEO\AI\Content_Planner\Infrastructure\Endpoints\Content_Planner_Endpoint(), new \Yoast\WP\SEO\AI\Content_Planner\Infrastructure\Endpoints\Get_Outline_Endpoint()));
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\AI\Content_Planner\User_Interface\Content_Planner_Route' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\AI\Content_Planner\User_Interface\Content_Planner_Route
-     */
-    protected function getContentPlannerRouteService()
-    {
-        return $this->services['Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Content_Planner_Route'] = new \Yoast\WP\SEO\AI\Content_Planner\User_Interface\Content_Planner_Route(new \Yoast\WP\SEO\AI\Content_Planner\Application\Content_Suggestion_Command_Handler(($this->privates['Yoast\\WP\\SEO\\AI\\Content_Planner\\Infrastructure\\Recent_Content\\Recent_Content_Collector'] ?? $this->getRecentContentCollectorService()), ($this->services['Yoast\\WP\\SEO\\AI\\Authorization\\Application\\Token_Manager'] ?? $this->getTokenManagerService()), ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Request_Handler'] ?? $this->getRequestHandlerService()), ($this->services['Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler'] ?? $this->getConsentHandlerService()), new \Yoast\WP\SEO\AI\Content_Planner\Infrastructure\WordPress_Category_Repository()));
+        return $this->services['Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Content_Planner_Integration'] = new \Yoast\WP\SEO\AI\Content_Planner\User_Interface\Content_Planner_Integration(($this->services['WPSEO_Admin_Asset_Manager'] ?? $this->getWPSEOAdminAssetManagerService()), new \Yoast\WP\SEO\AI\Content_Planner\Application\Content_Planner_Endpoints_Repository(new \Yoast\WP\SEO\AI\Content_Planner\Infrastructure\Endpoints\Get_Outline_Endpoint(), new \Yoast\WP\SEO\AI\Content_Planner\Infrastructure\Endpoints\Get_Suggestions_Endpoint()));
     }
 
     /**
@@ -1121,6 +1111,16 @@ class Cached_Container extends Container
     protected function getGetOutlineRouteService()
     {
         return $this->services['Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Get_Outline_Route'] = new \Yoast\WP\SEO\AI\Content_Planner\User_Interface\Get_Outline_Route(new \Yoast\WP\SEO\AI\Content_Planner\Application\Content_Outline_Command_Handler(($this->privates['Yoast\\WP\\SEO\\AI\\Content_Planner\\Infrastructure\\Recent_Content\\Recent_Content_Collector'] ?? $this->getRecentContentCollectorService()), ($this->services['Yoast\\WP\\SEO\\AI\\Authorization\\Application\\Token_Manager'] ?? $this->getTokenManagerService()), ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Request_Handler'] ?? $this->getRequestHandlerService()), ($this->services['Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler'] ?? $this->getConsentHandlerService())));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\AI\Content_Planner\User_Interface\Get_Suggestions_Route' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\AI\Content_Planner\User_Interface\Get_Suggestions_Route
+     */
+    protected function getGetSuggestionsRouteService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Get_Suggestions_Route'] = new \Yoast\WP\SEO\AI\Content_Planner\User_Interface\Get_Suggestions_Route(new \Yoast\WP\SEO\AI\Content_Planner\Application\Content_Suggestion_Command_Handler(($this->privates['Yoast\\WP\\SEO\\AI\\Content_Planner\\Infrastructure\\Recent_Content\\Recent_Content_Collector'] ?? $this->getRecentContentCollectorService()), ($this->services['Yoast\\WP\\SEO\\AI\\Authorization\\Application\\Token_Manager'] ?? $this->getTokenManagerService()), ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Request_Handler'] ?? $this->getRequestHandlerService()), ($this->services['Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler'] ?? $this->getConsentHandlerService()), new \Yoast\WP\SEO\AI\Content_Planner\Infrastructure\WordPress_Category_Repository()));
     }
 
     /**
@@ -1158,7 +1158,7 @@ class Cached_Container extends Container
      *
      * @return \Yoast\WP\SEO\AI\Generator\User_Interface\Get_Suggestions_Route
      */
-    protected function getGetSuggestionsRouteService()
+    protected function getGetSuggestionsRoute2Service()
     {
         return $this->services['Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Get_Suggestions_Route'] = new \Yoast\WP\SEO\AI\Generator\User_Interface\Get_Suggestions_Route(new \Yoast\WP\SEO\AI\Generator\Application\Suggestions_Provider(($this->services['Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler'] ?? $this->getConsentHandlerService()), ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Request_Handler'] ?? $this->getRequestHandlerService()), ($this->services['Yoast\\WP\\SEO\\AI\\Authorization\\Application\\Token_Manager'] ?? $this->getTokenManagerService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper()))));
     }
@@ -1290,7 +1290,7 @@ class Cached_Container extends Container
      *
      * @return \Yoast\WP\SEO\AI_Generator\User_Interface\Get_Suggestions_Route
      */
-    protected function getGetSuggestionsRoute2Service()
+    protected function getGetSuggestionsRoute3Service()
     {
         return $this->services['Yoast\\WP\\SEO\\AI_Generator\\User_Interface\\Get_Suggestions_Route'] = new \Yoast\WP\SEO\AI_Generator\User_Interface\Get_Suggestions_Route(new \Yoast\WP\SEO\AI_Generator\Application\Suggestions_Provider(($this->services['Yoast\\WP\\SEO\\AI_Consent\\Application\\Consent_Handler'] ?? $this->getConsentHandler2Service()), ($this->services['Yoast\\WP\\SEO\\AI_HTTP_Request\\Application\\Request_Handler'] ?? $this->getRequestHandler2Service()), ($this->services['Yoast\\WP\\SEO\\AI_Authorization\\Application\\Token_Manager'] ?? $this->getTokenManager2Service()), ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper()))));
     }
@@ -5477,8 +5477,8 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\AI\\Consent\\User_Interface\\Ai_Consent_Integration');
         $instance->register_route('Yoast\\WP\\SEO\\AI\\Consent\\User_Interface\\Consent_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Content_Planner_Integration');
-        $instance->register_route('Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Content_Planner_Route');
         $instance->register_route('Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Get_Outline_Route');
+        $instance->register_route('Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Get_Suggestions_Route');
         $instance->register_route('Yoast\\WP\\SEO\\AI\\Free_Sparks\\User_Interface\\Free_Sparks_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Ai_Generator_Integration');
         $instance->register_route('Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Bust_Subscription_Cache_Route');
