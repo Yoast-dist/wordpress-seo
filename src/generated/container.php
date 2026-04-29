@@ -1100,7 +1100,7 @@ class Cached_Container extends Container
      */
     protected function getContentPlannerIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Content_Planner_Integration'] = new \Yoast\WP\SEO\AI\Content_Planner\User_Interface\Content_Planner_Integration(($this->services['WPSEO_Admin_Asset_Manager'] ?? $this->getWPSEOAdminAssetManagerService()), new \Yoast\WP\SEO\AI\Content_Planner\Application\Content_Planner_Endpoints_Repository(new \Yoast\WP\SEO\AI\Content_Planner\Infrastructure\Endpoints\Get_Outline_Endpoint(), new \Yoast\WP\SEO\AI\Content_Planner\Infrastructure\Endpoints\Get_Suggestions_Endpoint()));
+        return $this->services['Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Content_Planner_Integration'] = new \Yoast\WP\SEO\AI\Content_Planner\User_Interface\Content_Planner_Integration(($this->services['WPSEO_Admin_Asset_Manager'] ?? $this->getWPSEOAdminAssetManagerService()), new \Yoast\WP\SEO\AI\Content_Planner\Application\Content_Planner_Endpoints_Repository(new \Yoast\WP\SEO\AI\Content_Planner\Infrastructure\Endpoints\Get_Outline_Endpoint(), new \Yoast\WP\SEO\AI\Content_Planner\Infrastructure\Endpoints\Get_Suggestions_Endpoint()), ($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService()));
     }
 
     /**
