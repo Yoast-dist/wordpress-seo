@@ -354,7 +354,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Integrations\\Alerts\\Webinar_Promo_Notification' => 'getWebinarPromoNotificationService',
             'Yoast\\WP\\SEO\\Integrations\\Blocks\\Block_Editor_Integration' => 'getBlockEditorIntegrationService',
             'Yoast\\WP\\SEO\\Integrations\\Blocks\\Breadcrumbs_Block' => 'getBreadcrumbsBlockService',
-            'Yoast\\WP\\SEO\\Integrations\\Blocks\\Content_Planner_Block' => 'getContentPlannerBlockService',
             'Yoast\\WP\\SEO\\Integrations\\Blocks\\Internal_Linking_Category' => 'getInternalLinkingCategoryService',
             'Yoast\\WP\\SEO\\Integrations\\Blocks\\Structured_Data_Blocks' => 'getStructuredDataBlocksService',
             'Yoast\\WP\\SEO\\Integrations\\Breadcrumbs_Integration' => 'getBreadcrumbsIntegrationService',
@@ -4616,16 +4615,6 @@ class Cached_Container extends Container
     }
 
     /**
-     * Gets the public 'Yoast\WP\SEO\Integrations\Blocks\Content_Planner_Block' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Integrations\Blocks\Content_Planner_Block
-     */
-    protected function getContentPlannerBlockService()
-    {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Blocks\\Content_Planner_Block'] = new \Yoast\WP\SEO\Integrations\Blocks\Content_Planner_Block();
-    }
-
-    /**
      * Gets the public 'Yoast\WP\SEO\Integrations\Blocks\Internal_Linking_Category' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Integrations\Blocks\Internal_Linking_Category
@@ -5586,7 +5575,6 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Blocks\\Internal_Linking_Category');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Blocks\\Block_Editor_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Blocks\\Breadcrumbs_Block');
-        $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Blocks\\Content_Planner_Block');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Blocks\\Structured_Data_Blocks');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Breadcrumbs_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Cleanup_Integration');
