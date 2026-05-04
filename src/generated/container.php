@@ -139,11 +139,13 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\Import_Tool_Selected_Conditional' => 'getImportToolSelectedConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Jetpack_Conditional' => 'getJetpackConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Migrations_Conditional' => 'getMigrationsConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\New_Premium_Or_Free_AI_Conditional' => 'getNewPremiumOrFreeAIConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\New_Settings_Ui_Conditional' => 'getNewSettingsUiConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\News_Conditional' => 'getNewsConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\No_Tool_Selected_Conditional' => 'getNoToolSelectedConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Non_Multisite_Conditional' => 'getNonMultisiteConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Not_Admin_Ajax_Conditional' => 'getNotAdminAjaxConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Old_Premium_AI_Conditional' => 'getOldPremiumAIConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Open_Graph_Conditional' => 'getOpenGraphConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Premium_Active_Conditional' => 'getPremiumActiveConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Premium_Inactive_Conditional' => 'getPremiumInactiveConditionalService',
@@ -2382,6 +2384,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\New_Premium_Or_Free_AI_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\New_Premium_Or_Free_AI_Conditional
+     */
+    protected function getNewPremiumOrFreeAIConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\New_Premium_Or_Free_AI_Conditional'] = new \Yoast\WP\SEO\Conditionals\New_Premium_Or_Free_AI_Conditional(($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())));
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Conditionals\New_Settings_Ui_Conditional' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Conditionals\New_Settings_Ui_Conditional
@@ -2429,6 +2441,16 @@ class Cached_Container extends Container
     protected function getNotAdminAjaxConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\Not_Admin_Ajax_Conditional'] = new \Yoast\WP\SEO\Conditionals\Not_Admin_Ajax_Conditional();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Old_Premium_AI_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Old_Premium_AI_Conditional
+     */
+    protected function getOldPremiumAIConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Old_Premium_AI_Conditional'] = new \Yoast\WP\SEO\Conditionals\Old_Premium_AI_Conditional(($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())));
     }
 
     /**
