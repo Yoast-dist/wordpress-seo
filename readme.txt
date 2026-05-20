@@ -309,6 +309,7 @@ Release date: 2026-05-26
 
 #### Bugfixes
 
+* Adds error boundary to the AI content planner and defensive coding regarding the AI Generator redux store.
 * Fixes a bug in Schema aggregator where products Schema pieces had  incorrect `@id` values for `mainEntityOfPage` and `image` properties.
 * Fixes a bug where a `FocusTrap` warning was thrown and the X button did not receive focus when the replace content confirmation modal from the AI Content Planner was opened.
 * Fixes a bug where a warning was triggered in the console when editing a post with the Content Planner feature enabled.
