@@ -5906,7 +5906,7 @@ class Cached_Container extends Container
      */
     protected function getAuthCommandService()
     {
-        return $this->services['Yoast\\WP\\SEO\\MyYoast_Client\\User_Interface\\Auth_Command'] = new \Yoast\WP\SEO\MyYoast_Client\User_Interface\Auth_Command(($this->services['Yoast\\WP\\SEO\\MyYoast_Client\\Application\\MyYoast_Client'] ?? $this->getMyYoastClientService()), ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Registration\\Client_Registration'] ?? $this->getClientRegistrationService()), ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\OIDC\\Issuer_Config'] ?? ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\OIDC\\Issuer_Config'] = new \Yoast\WP\SEO\MyYoast_Client\Infrastructure\OIDC\Issuer_Config())), ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Token\\Token_Storage'] ?? $this->getTokenStorageService()), ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Token\\User_Token_Storage'] ?? $this->getUserTokenStorageService()));
+        return $this->services['Yoast\\WP\\SEO\\MyYoast_Client\\User_Interface\\Auth_Command'] = new \Yoast\WP\SEO\MyYoast_Client\User_Interface\Auth_Command(($this->services['Yoast\\WP\\SEO\\MyYoast_Client\\Application\\MyYoast_Client'] ?? $this->getMyYoastClientService()), ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Registration\\Client_Registration'] ?? $this->getClientRegistrationService()), ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\OIDC\\Issuer_Config'] ?? ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\OIDC\\Issuer_Config'] = new \Yoast\WP\SEO\MyYoast_Client\Infrastructure\OIDC\Issuer_Config())), ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Token\\Token_Storage'] ?? $this->getTokenStorageService()), ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Token\\User_Token_Storage'] ?? $this->getUserTokenStorageService()), ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Application\\MyYoast_Client_Cleanup'] ?? $this->getMyYoastClientCleanupService()));
     }
 
     /**
@@ -5916,10 +5916,7 @@ class Cached_Container extends Container
      */
     protected function getMyYoastCleanupIntegrationService()
     {
-        $a = new \Yoast\WP\SEO\MyYoast_Client\Application\MyYoast_Client_Cleanup(($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Registration\\Client_Registration'] ?? $this->getClientRegistrationService()), ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Token\\Token_Storage'] ?? $this->getTokenStorageService()), ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Token\\User_Token_Storage'] ?? $this->getUserTokenStorageService()));
-        $a->setLogger(($this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] ?? ($this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] = new \Yoast\WP\SEO\Loggers\Logger())));
-
-        return $this->services['Yoast\\WP\\SEO\\MyYoast_Client\\User_Interface\\MyYoast_Cleanup_Integration'] = new \Yoast\WP\SEO\MyYoast_Client\User_Interface\MyYoast_Cleanup_Integration($a);
+        return $this->services['Yoast\\WP\\SEO\\MyYoast_Client\\User_Interface\\MyYoast_Cleanup_Integration'] = new \Yoast\WP\SEO\MyYoast_Client\User_Interface\MyYoast_Cleanup_Integration(($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Application\\MyYoast_Client_Cleanup'] ?? $this->getMyYoastClientCleanupService()));
     }
 
     /**
@@ -7218,6 +7215,20 @@ class Cached_Container extends Container
     protected function getWordPressLlmsTxtPermissionGateService()
     {
         return $this->privates['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_Llms_Txt_Permission_Gate'] = new \Yoast\WP\SEO\Llms_Txt\Infrastructure\File\WordPress_Llms_Txt_Permission_Gate(($this->privates['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_File_System_Adapter'] ?? ($this->privates['Yoast\\WP\\SEO\\Llms_Txt\\Infrastructure\\File\\WordPress_File_System_Adapter'] = new \Yoast\WP\SEO\Llms_Txt\Infrastructure\File\WordPress_File_System_Adapter())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())));
+    }
+
+    /**
+     * Gets the private 'Yoast\WP\SEO\MyYoast_Client\Application\MyYoast_Client_Cleanup' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\MyYoast_Client\Application\MyYoast_Client_Cleanup
+     */
+    protected function getMyYoastClientCleanupService()
+    {
+        $this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Application\\MyYoast_Client_Cleanup'] = $instance = new \Yoast\WP\SEO\MyYoast_Client\Application\MyYoast_Client_Cleanup(($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Registration\\Client_Registration'] ?? $this->getClientRegistrationService()), ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Token\\Token_Storage'] ?? $this->getTokenStorageService()), ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Token\\User_Token_Storage'] ?? $this->getUserTokenStorageService()));
+
+        $instance->setLogger(($this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] ?? ($this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] = new \Yoast\WP\SEO\Loggers\Logger())));
+
+        return $instance;
     }
 
     /**
