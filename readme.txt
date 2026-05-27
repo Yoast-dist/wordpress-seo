@@ -303,6 +303,34 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 == Changelog ==
 
+= 27.8 =
+
+Release date: 2026-06-09
+
+#### Enhancements
+
+* Adds the editor intro of the Yoast Icon and intro text to Yoast Elementor integration and in Yoast editor in classic editor.
+* Makes the schema aggregator faster by drastically reducing the roundtrips to the database, when indexables are disabled.
+* Makes the SEO optimization faster by drastically reducing the roundtrips to the database.
+* Optimizes expensive DB queries when performing actions in admin pages related to SEO optimization.
+* Prevents unnecessary expensive DB queries when admin pages are being visited.
+* Reduces loading times of the author sitemap on sites with many users.
+* Significantly reduces loading times of the root sitemap on sites with many users.
+* Updates the design of the focus keyphrase field to use the `@yoast/ui-library` `TextField`, with an inline description and a "Type here" placeholder.
+* Wraps the focus keyphrase field in a collapsible that defaults to open, mirroring the other analysis sections.
+* Replaces the legacy `Get related keyphrases` button text with `Discover related keyphrases` and a leading search icon.
+* Adds a new `RelatedKeyphraseInputField` component to the editor modules to render the updated related keyphrase input field in YoasSEO Premium.
+
+#### Bugfixes
+
+* Fixes a bug where NaN was set as the Primary taxonomy and triggered a console error.
+* Improves post editor rendering performance by stabilising Redux selector and `withSelect` references in multiple components to prevent unnecessary re-renders.
+
+#### Other
+
+* Introduces the `wpseo_custom_fields_pre_query` filter, allowing sites to short-circuit the potentiall expensive custom-fields lookup in Yoast settings, with a pre-computed list or a custom query.
+* Sets the title of a child task to "(no title)" in the task list, when the related post has no title.
+
 = 27.7 =
 
 Release date: 2026-05-27
@@ -322,21 +350,6 @@ Yoast SEO 27.7 brings more enhancements and bugfixes. [Find more information abo
 #### Other
 
 * Makes the Academy, Upgrade and Brand insights links visible to more user roles.
-
-= 27.6 =
-
-Release date: 2026-05-12
-
-Introduces Yoast AI Content Planner to Yoast SEO Premium, giving five site-specific post ideas and a structured starter draft the moment you open a new post. Haven't used your free AI sparks yet? Give it a try on us. [Read the full release post here](https://yoa.st/56n).
-
-#### Enhancements
-
-* Adds the Content Planner feature, which allows users to get AI-powered content suggestions and structured outlines for new posts directly from the block editor. This is available as part of the free sparks allowance in Yoast SEO Free.
-
-#### Other
-
-* Improves documentation in a docblock. Props to [@MukundaKatta](https://github.com/MukundaKatta).
-* Introduces a shared contributor guide for humans and AI coding tools.
 
 = Earlier versions =
 For the changelog of earlier versions, please refer to [the changelog on yoast.com](https://yoa.st/yoast-seo-changelog).
