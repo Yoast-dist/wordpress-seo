@@ -454,7 +454,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\MyYoast_Client\\User_Interface\\MyYoast_Client_Integration' => 'getMyYoastClientIntegrationService',
             'Yoast\\WP\\SEO\\Plans\\User_Interface\\Plans_Page_Integration' => 'getPlansPageIntegrationService',
             'Yoast\\WP\\SEO\\Plans\\User_Interface\\Upgrade_Sidebar_Menu_Integration' => 'getUpgradeSidebarMenuIntegrationService',
-            'Yoast\\WP\\SEO\\Plugins_Tab\\User_Interface\\Plugins_Tab_Integration' => 'getPluginsTabIntegrationService',
             'Yoast\\WP\\SEO\\Presentations\\Abstract_Presentation' => 'getAbstractPresentationService',
             'Yoast\\WP\\SEO\\Presentations\\Indexable_Author_Archive_Presentation' => 'getIndexableAuthorArchivePresentationService',
             'Yoast\\WP\\SEO\\Presentations\\Indexable_Date_Archive_Presentation' => 'getIndexableDateArchivePresentationService',
@@ -900,8 +899,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Plans\\Application\\Duplicate_Post_Manager' => true,
             'Yoast\\WP\\SEO\\Plans\\Domain\\Add_Ons\\Premium' => true,
             'Yoast\\WP\\SEO\\Plans\\Domain\\Add_Ons\\Woo' => true,
-            'Yoast\\WP\\SEO\\Plugins_Tab\\Application\\Plugins_List_Handler' => true,
-            'Yoast\\WP\\SEO\\Plugins_Tab\\Domain\\Plugin_Detector' => true,
             'Yoast\\WP\\SEO\\Presenters\\Robots_Txt_Presenter' => true,
             'Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager_Interface' => true,
             'Yoast\\WP\\SEO\\Promotions\\Domain\\Black_Friday_Promotion' => true,
@@ -5800,7 +5797,6 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\MyYoast_Client\\User_Interface\\MyYoast_Client_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Plans\\User_Interface\\Plans_Page_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Plans\\User_Interface\\Upgrade_Sidebar_Menu_Integration');
-        $instance->register_integration('Yoast\\WP\\SEO\\Plugins_Tab\\User_Interface\\Plugins_Tab_Integration');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Alert_Dismissal_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\First_Time_Configuration_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Routes\\Importing_Route');
@@ -5953,16 +5949,6 @@ class Cached_Container extends Container
     protected function getUpgradeSidebarMenuIntegrationService()
     {
         return $this->services['Yoast\\WP\\SEO\\Plans\\User_Interface\\Upgrade_Sidebar_Menu_Integration'] = new \Yoast\WP\SEO\Plans\User_Interface\Upgrade_Sidebar_Menu_Integration(($this->services['Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Conditional'] ?? ($this->services['Yoast\\WP\\SEO\\Conditionals\\WooCommerce_Conditional'] = new \Yoast\WP\SEO\Conditionals\WooCommerce_Conditional())), ($this->services['WPSEO_Shortlinker'] ?? $this->getWPSEOShortlinkerService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] ?? $this->getCurrentPageHelperService()), ($this->services['Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager'] ?? $this->getPromotionManagerService()), ($this->services['WPSEO_Addon_Manager'] ?? $this->getWPSEOAddonManagerService()));
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Plugins_Tab\User_Interface\Plugins_Tab_Integration' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Plugins_Tab\User_Interface\Plugins_Tab_Integration
-     */
-    protected function getPluginsTabIntegrationService()
-    {
-        return $this->services['Yoast\\WP\\SEO\\Plugins_Tab\\User_Interface\\Plugins_Tab_Integration'] = new \Yoast\WP\SEO\Plugins_Tab\User_Interface\Plugins_Tab_Integration(new \Yoast\WP\SEO\Plugins_Tab\Application\Plugins_List_Handler(new \Yoast\WP\SEO\Plugins_Tab\Domain\Plugin_Detector()));
     }
 
     /**
