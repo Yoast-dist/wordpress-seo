@@ -590,6 +590,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Category' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Content_Suggestion' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Content_Suggestion_List' => true,
+            'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Content_Suggestion_Response' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Post' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Post_List' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Section' => true,
