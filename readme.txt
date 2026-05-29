@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 7.0
-Stable tag: 27.8-RC4
+Stable tag: 27.7
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -326,7 +326,7 @@ Release date: 2026-06-09
 #### Other
 
 * Bumps `@yoast/ai-frontend` to 0.25.0 to reduce the plugin zip size.
-* Introduces the `wpseo_custom_fields_pre_query` filter, allowing sites to short-circuit the potentiall expensive custom-fields lookup in Yoast settings, with a pre-computed list or a custom query.
+* Introduces the `wpseo_custom_fields_pre_query` filter, allowing sites to short-circuit the potentially expensive custom-fields lookup in Yoast settings, with a pre-computed list or a custom query.
 * Removes the Yoast group from the filter bar on the WordPress plugins list.
 * Sets the title of a child task to \"(no title)\" in the task list, when the related post has no title.
 
