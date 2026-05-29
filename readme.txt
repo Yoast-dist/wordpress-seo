@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 7.0
-Stable tag: 27.8-RC2
+Stable tag: 27.8-RC3
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -320,10 +320,12 @@ Release date: 2026-06-09
 #### Bugfixes
 
 * Fixes a bug where NaN was set as the Primary taxonomy and triggered a console error.
+* Fixes a bug where the dismiss button in the Webinar promo notice in general page was transparent.
 * Improves post editor rendering performance by stabilising Redux selector and `withSelect` references in multiple components to prevent unnecessary re-renders.
 
 #### Other
 
+* Bumps `@yoast/ai-frontend` to 0.25.0 to reduce the plugin zip size.
 * Introduces the `wpseo_custom_fields_pre_query` filter, allowing sites to short-circuit the potentiall expensive custom-fields lookup in Yoast settings, with a pre-computed list or a custom query.
 * Removes the Yoast group from the filter bar on the WordPress plugins list.
 * Sets the title of a child task to \"(no title)\" in the task list, when the related post has no title.
