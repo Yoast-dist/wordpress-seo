@@ -326,7 +326,7 @@ Release date: 2026-06-09
 #### Other
 
 * Bumps `@yoast/ai-frontend` to 0.25.0 to reduce the plugin zip size.
-* Introduces the `wpseo_custom_fields_pre_query` filter, allowing sites to short-circuit the potentiall expensive custom-fields lookup in Yoast settings, with a pre-computed list or a custom query.
+* Introduces the `wpseo_custom_fields_pre_query` filter, allowing sites to short-circuit the potentially expensive custom-fields lookup in Yoast settings, with a pre-computed list or a custom query.
 * Removes the Yoast group from the filter bar on the WordPress plugins list.
 * Sets the title of a child task to \"(no title)\" in the task list, when the related post has no title.
 
