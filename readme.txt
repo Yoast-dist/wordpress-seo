@@ -319,6 +319,7 @@ Release date: 2026-06-09
 
 #### Bugfixes
 
+* Ensures compatibility with the React 19 version bundled in Gutenberg 23.3 (WordPress 7.1), fixing several screens and components that could otherwise fail to render.
 * Fixes a bug where NaN was set as the Primary taxonomy and triggered a console error.
 * Fixes a bug where the dismiss button in the Webinar promo notice in general page was transparent.
 * Improves post editor rendering performance by stabilising Redux selector and `withSelect` references in multiple components to prevent unnecessary re-renders.
