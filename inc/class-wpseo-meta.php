@@ -103,22 +103,16 @@ class WPSEO_Meta {
 			'focuskw' => [
 				'type'         => 'hidden',
 				'title'        => '',
-				'show_in_rest' => true,
-				'single'       => true,
 			],
 			'title' => [
 				'type'          => 'hidden',
 				'default_value' => '',
-				'show_in_rest'  => true,
-				'single'        => true,
 			],
 			'metadesc' => [
 				'type'          => 'hidden',
 				'default_value' => '',
 				'class'         => 'metadesc',
 				'rows'          => 2,
-				'show_in_rest'  => true,
-				'single'        => true,
 			],
 			'linkdex' => [
 				'type'          => 'hidden',
@@ -280,30 +274,19 @@ class WPSEO_Meta {
 		foreach ( self::$meta_fields as $subset => $field_group ) {
 			foreach ( $field_group as $key => $field_def ) {
 
-				// Register for all post types: sanitise callback only, REST disabled.
 				register_meta(
 					'post',
 					self::$meta_prefix . $key,
-					[ 'sanitize_callback' => [ self::class, 'sanitize_post_meta' ] ],
+					[
+						'show_in_rest'      => true,
+						'single'            => true,
+						'type'              => 'string',
+						'sanitize_callback' => [ self::class, 'sanitize_post_meta' ],
+						'auth_callback'     => static function ( $allowed, $meta_key, $object_id ) {
+							return current_user_can( 'edit_post', $object_id );
+						},
+					],
 				);
-
-				// Re-register for the 'post' subtype with REST exposure and auth callback when show_in_rest is enabled.
-				if ( ! empty( $field_def['show_in_rest'] ) ) {
-					register_meta(
-						'post',
-						self::$meta_prefix . $key,
-						[
-							'show_in_rest'      => true,
-							'single'            => ( $field_def['single'] ?? false ),
-							'type'              => 'string',
-							'object_subtype'    => 'post',
-							'sanitize_callback' => [ self::class, 'sanitize_post_meta' ],
-							'auth_callback'     => static function ( $allowed, $meta_key, $object_id ) {
-								return current_user_can( 'edit_post', $object_id );
-							},
-						],
-					);
-				}
 
 				// Set the $fields_index property for efficiency.
 				self::$fields_index[ self::$meta_prefix . $key ] = [
