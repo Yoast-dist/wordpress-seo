@@ -114,6 +114,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Builders\\Indexable_System_Page_Builder' => 'getIndexableSystemPageBuilderService',
             'Yoast\\WP\\SEO\\Builders\\Indexable_Term_Builder' => 'getIndexableTermBuilderService',
             'Yoast\\WP\\SEO\\Builders\\Primary_Term_Builder' => 'getPrimaryTermBuilderService',
+            'Yoast\\WP\\SEO\\Bulk_Editor\\User_Interface\\Bulk_Editor_Integration' => 'getBulkEditorIntegrationService',
             'Yoast\\WP\\SEO\\Commands\\Cleanup_Command' => 'getCleanupCommandService',
             'Yoast\\WP\\SEO\\Commands\\Index_Command' => 'getIndexCommandService',
             'Yoast\\WP\\SEO\\Conditionals\\AI_Conditional' => 'getAIConditionalService',
@@ -679,6 +680,11 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Analytics\\Domain\\Missing_Indexable_Count' => true,
             'Yoast\\WP\\SEO\\Analytics\\Domain\\To_Be_Cleaned_Indexable_Bucket' => true,
             'Yoast\\WP\\SEO\\Analytics\\Domain\\To_Be_Cleaned_Indexable_Count' => true,
+            'Yoast\\WP\\SEO\\Bulk_Editor\\Application\\Content_Types\\Content_Types_Repository' => true,
+            'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Content_Types\\Content_Type' => true,
+            'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Content_Types\\Content_Types_List' => true,
+            'Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Content_Types\\Content_Types_Collector' => true,
+            'Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Nonces\\Nonce_Repository' => true,
             'Yoast\\WP\\SEO\\Content_Type_Visibility\\Application\\Content_Type_Visibility_Dismiss_Notifications' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Application\\Configuration\\Dashboard_Configuration' => true,
             'Yoast\\WP\\SEO\\Dashboard\\Application\\Content_Types\\Content_Types_Repository' => true,
@@ -2193,6 +2199,16 @@ class Cached_Container extends Container
         }
 
         return $this->services['Yoast\\WP\\SEO\\Builders\\Primary_Term_Builder'] = new \Yoast\WP\SEO\Builders\Primary_Term_Builder(($this->services['Yoast\\WP\\SEO\\Repositories\\Primary_Term_Repository'] ?? ($this->services['Yoast\\WP\\SEO\\Repositories\\Primary_Term_Repository'] = new \Yoast\WP\SEO\Repositories\Primary_Term_Repository())), $a, ($this->services['Yoast\\WP\\SEO\\Helpers\\Primary_Term_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Primary_Term_Helper'] = new \Yoast\WP\SEO\Helpers\Primary_Term_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Meta_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Meta_Helper'] = new \Yoast\WP\SEO\Helpers\Meta_Helper())));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Bulk_Editor\User_Interface\Bulk_Editor_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Bulk_Editor\User_Interface\Bulk_Editor_Integration
+     */
+    protected function getBulkEditorIntegrationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Bulk_Editor\\User_Interface\\Bulk_Editor_Integration'] = new \Yoast\WP\SEO\Bulk_Editor\User_Interface\Bulk_Editor_Integration(($this->services['WPSEO_Admin_Asset_Manager'] ?? $this->getWPSEOAdminAssetManagerService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] ?? $this->getCurrentPageHelperService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper'] ?? $this->getShortLinkHelperService()), new \Yoast\WP\SEO\Bulk_Editor\Application\Content_Types\Content_Types_Repository(new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Content_Types\Content_Types_Collector(($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] ?? $this->getPostTypeHelperService()))), new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Nonces\Nonce_Repository());
     }
 
     /**
@@ -5629,6 +5645,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Alerts\\User_Interface\\Default_SEO_Data\\Default_SEO_Data_Watcher');
         $instance->register_integration('Yoast\\WP\\SEO\\Alerts\\User_Interface\\Resolve_Alert_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\Analytics\\User_Interface\\Last_Completed_Indexation_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\Bulk_Editor\\User_Interface\\Bulk_Editor_Integration');
         $instance->register_command('Yoast\\WP\\SEO\\Commands\\Cleanup_Command');
         $instance->register_command('Yoast\\WP\\SEO\\Commands\\Index_Command');
         $instance->register_migration('free', '20171228151840', 'Yoast\\WP\\SEO\\Config\\Migrations\\WpYoastIndexable');
