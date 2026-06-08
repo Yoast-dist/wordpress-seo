@@ -307,15 +307,16 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 Release date: 2026-06-09
 
+Yoast SEO 27.8 brings more enhancements and bugfixes. [Find more information about our software releases and updates here](https://yoa.st/releases).
+
 #### Enhancements
 
-* Adds the editor intro of the Yoast Icon and intro text to Yoast Elementor integration and in Yoast editor in classic editor.
 * Makes the schema aggregator faster by drastically reducing the roundtrips to the database, when indexables are disabled.
 * Makes the SEO optimization faster by drastically reducing the roundtrips to the database.
 * Optimizes expensive DB queries when performing actions in admin pages related to SEO optimization.
-* Prevents unnecessary expensive DB queries when admin pages are being visited.
-* Reduces loading times of the author sitemap on sites with many users.
 * Significantly reduces loading times of the root sitemap on sites with many users.
+* Reduces loading times of the author sitemap on sites with many users.
+* Prevents unnecessary expensive DB queries when admin pages are being visited.
 
 #### Bugfixes
 
@@ -326,10 +327,9 @@ Release date: 2026-06-09
 
 #### Other
 
-* Bumps `@yoast/ai-frontend` to 0.25.0 to reduce the plugin zip size.
 * Introduces the `wpseo_custom_fields_pre_query` filter, allowing sites to short-circuit the potentially expensive custom-fields lookup in Yoast settings, with a pre-computed list or a custom query.
 * Removes the Yoast group from the filter bar on the WordPress plugins list.
-* Sets the title of a child task to \"(no title)\" in the task list, when the related post has no title.
+* Sets the title of a child task to "(no title)" in the task list, when the related post has no title.
 
 = 27.7 =
 
