@@ -421,6 +421,10 @@ class Elementor implements Integration_Interface {
 		$this->asset_manager->enqueue_script( 'admin-global' );
 		$this->asset_manager->enqueue_script( 'elementor' );
 
+		if ( $this->is_elementor_v4_atomic_active() ) {
+			$this->asset_manager->enqueue_script( 'elementor-v4' );
+		}
+
 		$this->asset_manager->localize_script( 'elementor', 'wpseoAdminGlobalL10n', \YoastSEO()->helpers->wincher->get_admin_global_links() );
 		$this->asset_manager->localize_script( 'elementor', 'wpseoAdminL10n', WPSEO_Utils::get_admin_l10n() );
 		$this->asset_manager->localize_script( 'elementor', 'wpseoFeaturesL10n', WPSEO_Utils::retrieve_enabled_features() );
@@ -459,6 +463,7 @@ class Elementor implements Integration_Interface {
 			'isBlockEditor'             => WP_Screen::get()->is_block_editor(),
 			'isElementorEditor'         => true,
 			'isAlwaysIntroductionV2'    => $this->is_elementor_version_compatible_with_introduction_v2(),
+			'isElementorV4Atomic'       => $this->is_elementor_v4_atomic_active(),
 			'postStatus'                => \get_post_status( $post_id ),
 			'postType'                  => \get_post_type( $post_id ),
 			'analysis'                  => [
@@ -501,6 +506,40 @@ class Elementor implements Integration_Interface {
 
 		// Check if the version is 3.30.0 or higher. This is where the editor v2 was taken out of the experimental into the default state.
 		return \version_compare( $version, '3.30.0', '>=' );
+	}
+
+	/**
+	 * Checks whether Elementor V4 (the atomic editor) is currently active on this site.
+	 *
+	 * Returns true only when all of the following hold: Elementor >= 4.0.0 is loaded,
+	 * its experiments manager is accessible, and the `e_opt_in_v4` experiment is active.
+	 * Defensive at each step so older Elementor versions (or partial installs) never throw.
+	 *
+	 * @return bool Whether the V4 atomic editor path should be used.
+	 */
+	private function is_elementor_v4_atomic_active(): bool {
+		if ( ! \defined( 'ELEMENTOR_VERSION' ) ) {
+			return false;
+		}
+
+		$matches = [];
+		$version = ( \preg_match( '/^([0-9]+\.[0-9]+\.[0-9]+)/', \ELEMENTOR_VERSION, $matches ) > 0 ) ? $matches[1] : \ELEMENTOR_VERSION;
+		if ( \version_compare( $version, '4.0.0', '<' ) ) {
+			return false;
+		}
+
+		if ( ! \class_exists( '\Elementor\Plugin' ) ) {
+			return false;
+		}
+		$elementor = \Elementor\Plugin::$instance ?? null;
+		if ( $elementor === null || ! isset( $elementor->experiments ) ) {
+			return false;
+		}
+		if ( ! \method_exists( $elementor->experiments, 'is_feature_active' ) ) {
+			return false;
+		}
+
+		return (bool) $elementor->experiments->is_feature_active( 'e_opt_in_v4' );
 	}
 
 	/**

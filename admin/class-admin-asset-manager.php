@@ -293,6 +293,7 @@ class WPSEO_Admin_Asset_Manager {
 			'wincher-dashboard-widget' => [ self::PREFIX . 'api-client' ],
 			'editor-modules'           => [ 'jquery' ],
 			'elementor'                => $elementor_dependencies,
+			'elementor-v4'             => $elementor_dependencies,
 			'indexation'               => [
 				'jquery-ui-core',
 				'jquery-ui-progressbar',
@@ -667,6 +668,10 @@ class WPSEO_Admin_Asset_Manager {
 			[
 				'name' => 'elementor',
 				'src'  => 'elementor-' . $flat_version,
+			],
+			[
+				'name' => 'elementor-v4',
+				'src'  => 'elementor-v4-' . $flat_version,
 			],
 			[
 				'name' => 'tailwind',

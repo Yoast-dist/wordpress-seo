@@ -103,22 +103,16 @@ class WPSEO_Meta {
 			'focuskw' => [
 				'type'         => 'hidden',
 				'title'        => '',
-				'show_in_rest' => true,
-				'single'       => true,
 			],
 			'title' => [
 				'type'          => 'hidden',
 				'default_value' => '',
-				'show_in_rest'  => true,
-				'single'        => true,
 			],
 			'metadesc' => [
 				'type'          => 'hidden',
 				'default_value' => '',
 				'class'         => 'metadesc',
 				'rows'          => 2,
-				'show_in_rest'  => true,
-				'single'        => true,
 			],
 			'linkdex' => [
 				'type'          => 'hidden',
@@ -135,6 +129,9 @@ class WPSEO_Meta {
 			'is_cornerstone' => [
 				'type'          => 'hidden',
 				'default_value' => 'false',
+			],
+			'estimated-reading-time-minutes' => [
+				'type' => 'hidden',
 			],
 		],
 		'advanced'        => [
@@ -280,30 +277,7 @@ class WPSEO_Meta {
 		foreach ( self::$meta_fields as $subset => $field_group ) {
 			foreach ( $field_group as $key => $field_def ) {
 
-				// Register for all post types: sanitise callback only, REST disabled.
-				register_meta(
-					'post',
-					self::$meta_prefix . $key,
-					[ 'sanitize_callback' => [ self::class, 'sanitize_post_meta' ] ],
-				);
-
-				// Re-register for the 'post' subtype with REST exposure and auth callback when show_in_rest is enabled.
-				if ( ! empty( $field_def['show_in_rest'] ) ) {
-					register_meta(
-						'post',
-						self::$meta_prefix . $key,
-						[
-							'show_in_rest'      => true,
-							'single'            => ( $field_def['single'] ?? false ),
-							'type'              => 'string',
-							'object_subtype'    => 'post',
-							'sanitize_callback' => [ self::class, 'sanitize_post_meta' ],
-							'auth_callback'     => static function ( $allowed, $meta_key, $object_id ) {
-								return current_user_can( 'edit_post', $object_id );
-							},
-						],
-					);
-				}
+				self::register_meta( $key, $field_def );
 
 				// Set the $fields_index property for efficiency.
 				self::$fields_index[ self::$meta_prefix . $key ] = [
@@ -333,6 +307,43 @@ class WPSEO_Meta {
 
 		add_filter( 'update_post_metadata', [ self::class, 'remove_meta_if_default' ], 10, 5 );
 		add_filter( 'add_post_metadata', [ self::class, 'dont_save_meta_if_default' ], 10, 4 );
+	}
+
+	/**
+	 * Registers a single Yoast post meta field for REST API access.
+	 *
+	 * Registers the field with the shared Yoast sanitize and auth callbacks. Addons can call
+	 * this method to register additional fields using the same setup without duplicating the
+	 * registration boilerplate.
+	 *
+	 * Fields with `type: null` in their definition are internal/serialized fields (e.g. addon
+	 * data blobs) that are not suitable for REST API access and will be registered with
+	 * `show_in_rest: false`.
+	 *
+	 * @param string                     $key       The internal key of the meta field to register (without prefix).
+	 * @param array<string, string|null> $field_def Optional. The field definition array. Used to determine whether
+	 *                             the field should be exposed via the REST API. Defaults to [].
+	 *
+	 * @return void
+	 */
+	public static function register_meta( $key, $field_def = [] ) {
+		// Fields with type: null are internal/serialized fields not suitable for REST API access.
+		// All other field types (hidden, text, select, etc.) are stored as strings in the DB.
+		$show_in_rest = ! array_key_exists( 'type', $field_def ) || $field_def['type'] !== null;
+
+		register_meta(
+			'post',
+			self::$meta_prefix . $key,
+			[
+				'show_in_rest'      => $show_in_rest,
+				'single'            => true,
+				'type'              => 'string',
+				'sanitize_callback' => [ self::class, 'sanitize_post_meta' ],
+				'auth_callback'     => static function ( $allowed, $meta_key, $object_id ) {
+					return current_user_can( 'edit_post', $object_id );
+				},
+			],
+		);
 	}
 
 	/**
@@ -1086,12 +1097,11 @@ class WPSEO_Meta {
 		if ( current_user_can( 'edit_post', $post->ID ) ) {
 			return $response;
 		}
-		$data = $response->get_data();
-		foreach ( self::$meta_fields as $field_group ) {
-			foreach ( $field_group as $key => $field_def ) {
-				if ( ! empty( $field_def['show_in_rest'] ) ) {
-					unset( $data['meta'][ self::$meta_prefix . $key ] );
-				}
+		$data   = $response->get_data();
+		$prefix = self::$meta_prefix;
+		foreach ( array_keys( ( $data['meta'] ?? [] ) ) as $meta_key ) {
+			if ( str_starts_with( $meta_key, $prefix ) ) {
+				unset( $data['meta'][ $meta_key ] );
 			}
 		}
 		$response->set_data( $data );

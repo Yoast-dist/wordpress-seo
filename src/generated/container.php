@@ -590,6 +590,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Category' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Content_Suggestion' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Content_Suggestion_List' => true,
+            'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Content_Suggestion_Response' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Post' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Post_List' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Section' => true,
@@ -871,8 +872,10 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\MyYoast_Client\\Domain\\Auth_Flow_State' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Domain\\Auth_Token_Type' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Domain\\Discovery_Document' => true,
+            'Yoast\\WP\\SEO\\MyYoast_Client\\Domain\\Exceptions\\Invalid_Resource_Exception' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Domain\\HTTP_Response' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Domain\\Registered_Client' => true,
+            'Yoast\\WP\\SEO\\MyYoast_Client\\Domain\\Resource_Indicator' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Domain\\Token_Set' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Domain\\Token_Type_Hint' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Crypto\\Client_Authenticator' => true,
@@ -4796,7 +4799,7 @@ class Cached_Container extends Container
      */
     protected function getEstimatedReadingTimeService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Estimated_Reading_Time'] = new \Yoast\WP\SEO\Integrations\Estimated_Reading_Time();
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Estimated_Reading_Time'] = new \Yoast\WP\SEO\Integrations\Estimated_Reading_Time(($this->services['Yoast\\WP\\SEO\\Conditionals\\Admin\\Estimated_Reading_Time_Conditional'] ?? $this->getEstimatedReadingTimeConditionalService()));
     }
 
     /**
