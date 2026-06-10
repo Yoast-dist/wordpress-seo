@@ -2,6 +2,7 @@
 
 namespace Yoast\WP\SEO\Integrations\Third_Party;
 
+use Elementor\Plugin;
 use WP_Post;
 use WP_Screen;
 use WPSEO_Admin_Asset_Manager;
@@ -531,7 +532,7 @@ class Elementor implements Integration_Interface {
 		if ( ! \class_exists( '\Elementor\Plugin' ) ) {
 			return false;
 		}
-		$elementor = \Elementor\Plugin::$instance ?? null;
+		$elementor = Plugin::$instance ?? null;
 		if ( $elementor === null || ! isset( $elementor->experiments ) ) {
 			return false;
 		}
