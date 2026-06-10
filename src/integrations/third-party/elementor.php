@@ -532,7 +532,7 @@ class Elementor implements Integration_Interface {
 		if ( ! \class_exists( '\Elementor\Plugin' ) ) {
 			return false;
 		}
-		$elementor = Plugin::$instance ?? null;
+		$elementor = ( Plugin::$instance ?? null );
 		if ( $elementor === null || ! isset( $elementor->experiments ) ) {
 			return false;
 		}
