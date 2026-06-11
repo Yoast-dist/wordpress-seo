@@ -422,7 +422,9 @@ class Elementor implements Integration_Interface {
 		$this->asset_manager->enqueue_script( 'admin-global' );
 		$this->asset_manager->enqueue_script( 'elementor' );
 
-		if ( $this->is_elementor_v4_atomic_active() ) {
+		$is_v4_atomic = $this->is_elementor_v4_atomic_active();
+
+		if ( $is_v4_atomic ) {
 			$this->asset_manager->enqueue_script( 'elementor-v4' );
 		}
 
@@ -464,7 +466,7 @@ class Elementor implements Integration_Interface {
 			'isBlockEditor'             => WP_Screen::get()->is_block_editor(),
 			'isElementorEditor'         => true,
 			'isAlwaysIntroductionV2'    => $this->is_elementor_version_compatible_with_introduction_v2(),
-			'isElementorV4Atomic'       => $this->is_elementor_v4_atomic_active(),
+			'isElementorV4Atomic'       => $is_v4_atomic,
 			'postStatus'                => \get_post_status( $post_id ),
 			'postType'                  => \get_post_type( $post_id ),
 			'analysis'                  => [
