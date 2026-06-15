@@ -4799,7 +4799,7 @@ class Cached_Container extends Container
      */
     protected function getEstimatedReadingTimeService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Estimated_Reading_Time'] = new \Yoast\WP\SEO\Integrations\Estimated_Reading_Time(($this->services['Yoast\\WP\\SEO\\Conditionals\\Admin\\Estimated_Reading_Time_Conditional'] ?? $this->getEstimatedReadingTimeConditionalService()));
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Estimated_Reading_Time'] = new \Yoast\WP\SEO\Integrations\Estimated_Reading_Time();
     }
 
     /**
