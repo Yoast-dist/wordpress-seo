@@ -514,23 +514,17 @@ class Elementor implements Integration_Interface {
 	/**
 	 * Checks whether Elementor V4 (the atomic editor) is currently active on this site.
 	 *
-	 * Returns true only when all of the following hold: Elementor >= 4.0.0 is loaded,
-	 * its experiments manager is accessible, and the `e_opt_in_v4` experiment is active.
-	 * Defensive at each step so older Elementor versions (or partial installs) never throw.
+	 * Mirrors Elementor's own atomic check (`Atomic_Widgets\OptIn\Opt_In::EXPERIMENT_NAME`):
+	 * the `e_opt_in_v4` experiment is the authoritative signal for the atomic editor and is
+	 * only registered on Elementor versions that ship it, so `is_feature_active()` already
+	 * returns false on older versions or partial installs. No separate version gate is used:
+	 * the experiment is an opt-in to V4 that can be enabled before the major version bump, so
+	 * a version comparison would wrongly suppress sites that opt in early. Defensive at each
+	 * step so missing Elementor internals never throw.
 	 *
 	 * @return bool Whether the V4 atomic editor path should be used.
 	 */
 	private function is_elementor_v4_atomic_active(): bool {
-		if ( ! \defined( 'ELEMENTOR_VERSION' ) ) {
-			return false;
-		}
-
-		$matches = [];
-		$version = ( \preg_match( '/^([0-9]+\.[0-9]+\.[0-9]+)/', \ELEMENTOR_VERSION, $matches ) > 0 ) ? $matches[1] : \ELEMENTOR_VERSION;
-		if ( \version_compare( $version, '4.0.0', '<' ) ) {
-			return false;
-		}
-
 		if ( ! \class_exists( '\Elementor\Plugin' ) ) {
 			return false;
 		}
