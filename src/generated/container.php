@@ -693,6 +693,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Content_Types\\Content_Types_List' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Posts\\Post' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Posts\\Posts_List' => true,
+            'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Posts\\Posts_Page' => true,
+            'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Posts\\Posts_Query' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Updates\\Batch_Limit' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Updates\\Post_Update' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Updates\\Post_Update_Collection' => true,
