@@ -46,6 +46,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Get_Suggestions_Route' => 'getGetSuggestionsRoute2Service',
             'Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Get_Usage_Route' => 'getGetUsageRouteService',
             'Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Request_Handler' => 'getRequestHandlerService',
+            'Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Response_Validator' => 'getResponseValidatorService',
             'Yoast\\WP\\SEO\\AI\\HTTP_Request\\Infrastructure\\API_Client' => 'getAPIClientService',
             'Yoast\\WP\\SEO\\AI_Authorization\\Application\\Token_Manager' => 'getTokenManager2Service',
             'Yoast\\WP\\SEO\\AI_Authorization\\User_Interface\\Callback_Route' => 'getCallbackRoute2Service',
@@ -564,6 +565,12 @@ class Cached_Container extends Container
             'Psr\\Container\\ContainerInterface' => true,
             'YoastSEO_Vendor\\Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
             'YoastSEO_Vendor\\YoastSEO_Vendor\\Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
+            'Yoast\\WP\\SEO\\AI\\Authentication\\Application\\AI_Request_Sender' => true,
+            'Yoast\\WP\\SEO\\AI\\Authentication\\Application\\AI_Request_Sender_Factory' => true,
+            'Yoast\\WP\\SEO\\AI\\Authentication\\Application\\OAuth_Auth_Strategy' => true,
+            'Yoast\\WP\\SEO\\AI\\Authentication\\Application\\Token_Auth_Strategy' => true,
+            'Yoast\\WP\\SEO\\AI\\Authentication\\Domain\\Auth_Method' => true,
+            'Yoast\\WP\\SEO\\AI\\Authentication\\Domain\\Exceptions\\Auth_Strategy_Unavailable_Exception' => true,
             'Yoast\\WP\\SEO\\AI\\Authorization\\Application\\Code_Generator_Interface' => true,
             'Yoast\\WP\\SEO\\AI\\Authorization\\Application\\Code_Verifier_Handler' => true,
             'Yoast\\WP\\SEO\\AI\\Authorization\\Application\\Code_Verifier_Handler_Interface' => true,
@@ -588,8 +595,10 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Application\\Content_Suggestion_Command' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Application\\Content_Suggestion_Command_Handler' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Category' => true,
+            'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Content_Outline_Parameters' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Content_Suggestion' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Content_Suggestion_List' => true,
+            'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Content_Suggestion_Parameters' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Content_Suggestion_Response' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Post' => true,
             'Yoast\\WP\\SEO\\AI\\Content_Planner\\Domain\\Post_List' => true,
@@ -609,7 +618,9 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\AI\\Generator\\Application\\Suggestions_Provider' => true,
             'Yoast\\WP\\SEO\\AI\\Generator\\Domain\\Suggestion' => true,
             'Yoast\\WP\\SEO\\AI\\Generator\\Domain\\Suggestions_Bucket' => true,
+            'Yoast\\WP\\SEO\\AI\\Generator\\Domain\\Suggestions_Parameters' => true,
             'Yoast\\WP\\SEO\\AI\\Generator\\Domain\\URLs_Interface' => true,
+            'Yoast\\WP\\SEO\\AI\\Generator\\Domain\\Usage_Parameters' => true,
             'Yoast\\WP\\SEO\\AI\\Generator\\Infrastructure\\Endpoints\\Bust_Subscription_Cache_Endpoint' => true,
             'Yoast\\WP\\SEO\\AI\\Generator\\Infrastructure\\Endpoints\\Get_Suggestions_Endpoint' => true,
             'Yoast\\WP\\SEO\\AI\\Generator\\Infrastructure\\Endpoints\\Get_Usage_Endpoint' => true,
@@ -618,7 +629,9 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Response_Parser' => true,
             'Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Response_Parser_Interface' => true,
             'Yoast\\WP\\SEO\\AI\\HTTP_Request\\Domain\\Exceptions\\Bad_Request_Exception' => true,
+            'Yoast\\WP\\SEO\\AI\\HTTP_Request\\Domain\\Exceptions\\Consent_Required_Exception' => true,
             'Yoast\\WP\\SEO\\AI\\HTTP_Request\\Domain\\Exceptions\\Forbidden_Exception' => true,
+            'Yoast\\WP\\SEO\\AI\\HTTP_Request\\Domain\\Exceptions\\Insufficient_Scope_Exception' => true,
             'Yoast\\WP\\SEO\\AI\\HTTP_Request\\Domain\\Exceptions\\Internal_Server_Error_Exception' => true,
             'Yoast\\WP\\SEO\\AI\\HTTP_Request\\Domain\\Exceptions\\Not_Found_Exception' => true,
             'Yoast\\WP\\SEO\\AI\\HTTP_Request\\Domain\\Exceptions\\Payment_Required_Exception' => true,
@@ -865,6 +878,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\MyYoast_Client\\Application\\Ports\\Discovery_Interface' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Application\\Ports\\ID_Token_Validator_Interface' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Application\\Ports\\OAuth_Server_Client_Interface' => true,
+            'Yoast\\WP\\SEO\\MyYoast_Client\\Application\\Ports\\Redirect_URI_Provider_Interface' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Application\\Ports\\Site_URL_Provider_Interface' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Application\\Ports\\Token_Storage_Interface' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Application\\Ports\\User_Token_Storage_Interface' => true,
@@ -897,6 +911,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Registration\\Client_Registration' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Token\\Token_Storage' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Token\\User_Token_Storage' => true,
+            'Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\WordPress\\Redirect_URI_Provider' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\WordPress\\Site_URL_Provider' => true,
             'Yoast\\WP\\SEO\\Plans\\Application\\Add_Ons_Collector' => true,
             'Yoast\\WP\\SEO\\Plans\\Application\\Duplicate_Post_Manager' => true,
@@ -1137,7 +1152,7 @@ class Cached_Container extends Container
      */
     protected function getConsentHandlerService()
     {
-        return $this->services['Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler'] = new \Yoast\WP\SEO\AI\Consent\Application\Consent_Handler(($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper())), ($this->services['Yoast\\WP\\SEO\\AI\\Authorization\\Application\\Token_Manager'] ?? $this->getTokenManagerService()), ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Request_Handler'] ?? $this->getRequestHandlerService()));
+        return $this->services['Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler'] = new \Yoast\WP\SEO\AI\Consent\Application\Consent_Handler(($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper())), ($this->privates['Yoast\\WP\\SEO\\AI\\Authentication\\Application\\AI_Request_Sender_Factory'] ?? $this->getAIRequestSenderFactoryService()));
     }
 
     /**
@@ -1187,7 +1202,7 @@ class Cached_Container extends Container
      */
     protected function getGetOutlineRouteService()
     {
-        return $this->services['Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Get_Outline_Route'] = new \Yoast\WP\SEO\AI\Content_Planner\User_Interface\Get_Outline_Route(new \Yoast\WP\SEO\AI\Content_Planner\Application\Content_Outline_Command_Handler(($this->privates['Yoast\\WP\\SEO\\AI\\Content_Planner\\Infrastructure\\Recent_Content\\Recent_Content_Collector'] ?? $this->getRecentContentCollectorService()), ($this->services['Yoast\\WP\\SEO\\AI\\Authorization\\Application\\Token_Manager'] ?? $this->getTokenManagerService()), ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Request_Handler'] ?? $this->getRequestHandlerService()), ($this->services['Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler'] ?? $this->getConsentHandlerService())));
+        return $this->services['Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Get_Outline_Route'] = new \Yoast\WP\SEO\AI\Content_Planner\User_Interface\Get_Outline_Route(new \Yoast\WP\SEO\AI\Content_Planner\Application\Content_Outline_Command_Handler(($this->privates['Yoast\\WP\\SEO\\AI\\Content_Planner\\Infrastructure\\Recent_Content\\Recent_Content_Collector'] ?? $this->getRecentContentCollectorService()), ($this->privates['Yoast\\WP\\SEO\\AI\\Authentication\\Application\\AI_Request_Sender_Factory'] ?? $this->getAIRequestSenderFactoryService()), ($this->services['Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler'] ?? $this->getConsentHandlerService())));
     }
 
     /**
@@ -1197,7 +1212,7 @@ class Cached_Container extends Container
      */
     protected function getGetSuggestionsRouteService()
     {
-        return $this->services['Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Get_Suggestions_Route'] = new \Yoast\WP\SEO\AI\Content_Planner\User_Interface\Get_Suggestions_Route(new \Yoast\WP\SEO\AI\Content_Planner\Application\Content_Suggestion_Command_Handler(($this->privates['Yoast\\WP\\SEO\\AI\\Content_Planner\\Infrastructure\\Recent_Content\\Recent_Content_Collector'] ?? $this->getRecentContentCollectorService()), ($this->services['Yoast\\WP\\SEO\\AI\\Authorization\\Application\\Token_Manager'] ?? $this->getTokenManagerService()), ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Request_Handler'] ?? $this->getRequestHandlerService()), ($this->services['Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler'] ?? $this->getConsentHandlerService()), new \Yoast\WP\SEO\AI\Content_Planner\Infrastructure\WordPress_Category_Repository()));
+        return $this->services['Yoast\\WP\\SEO\\AI\\Content_Planner\\User_Interface\\Get_Suggestions_Route'] = new \Yoast\WP\SEO\AI\Content_Planner\User_Interface\Get_Suggestions_Route(new \Yoast\WP\SEO\AI\Content_Planner\Application\Content_Suggestion_Command_Handler(($this->privates['Yoast\\WP\\SEO\\AI\\Content_Planner\\Infrastructure\\Recent_Content\\Recent_Content_Collector'] ?? $this->getRecentContentCollectorService()), ($this->privates['Yoast\\WP\\SEO\\AI\\Authentication\\Application\\AI_Request_Sender_Factory'] ?? $this->getAIRequestSenderFactoryService()), ($this->services['Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler'] ?? $this->getConsentHandlerService()), new \Yoast\WP\SEO\AI\Content_Planner\Infrastructure\WordPress_Category_Repository()));
     }
 
     /**
@@ -1237,7 +1252,7 @@ class Cached_Container extends Container
      */
     protected function getGetSuggestionsRoute2Service()
     {
-        return $this->services['Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Get_Suggestions_Route'] = new \Yoast\WP\SEO\AI\Generator\User_Interface\Get_Suggestions_Route(new \Yoast\WP\SEO\AI\Generator\Application\Suggestions_Provider(($this->services['Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler'] ?? $this->getConsentHandlerService()), ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Request_Handler'] ?? $this->getRequestHandlerService()), ($this->services['Yoast\\WP\\SEO\\AI\\Authorization\\Application\\Token_Manager'] ?? $this->getTokenManagerService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper()))));
+        return $this->services['Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Get_Suggestions_Route'] = new \Yoast\WP\SEO\AI\Generator\User_Interface\Get_Suggestions_Route(new \Yoast\WP\SEO\AI\Generator\Application\Suggestions_Provider(($this->services['Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler'] ?? $this->getConsentHandlerService()), ($this->privates['Yoast\\WP\\SEO\\AI\\Authentication\\Application\\AI_Request_Sender_Factory'] ?? $this->getAIRequestSenderFactoryService())));
     }
 
     /**
@@ -1247,7 +1262,7 @@ class Cached_Container extends Container
      */
     protected function getGetUsageRouteService()
     {
-        return $this->services['Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Get_Usage_Route'] = new \Yoast\WP\SEO\AI\Generator\User_Interface\Get_Usage_Route(($this->services['Yoast\\WP\\SEO\\AI\\Authorization\\Application\\Token_Manager'] ?? $this->getTokenManagerService()), ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Request_Handler'] ?? $this->getRequestHandlerService()), ($this->services['Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler'] ?? $this->getConsentHandlerService()), ($this->services['WPSEO_Addon_Manager'] ?? $this->getWPSEOAddonManagerService()));
+        return $this->services['Yoast\\WP\\SEO\\AI\\Generator\\User_Interface\\Get_Usage_Route'] = new \Yoast\WP\SEO\AI\Generator\User_Interface\Get_Usage_Route(($this->privates['Yoast\\WP\\SEO\\AI\\Authentication\\Application\\AI_Request_Sender_Factory'] ?? $this->getAIRequestSenderFactoryService()), ($this->services['Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler'] ?? $this->getConsentHandlerService()), ($this->services['WPSEO_Addon_Manager'] ?? $this->getWPSEOAddonManagerService()));
     }
 
     /**
@@ -1257,7 +1272,17 @@ class Cached_Container extends Container
      */
     protected function getRequestHandlerService()
     {
-        return $this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Request_Handler'] = new \Yoast\WP\SEO\AI\HTTP_Request\Application\Request_Handler(($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Infrastructure\\API_Client'] ?? ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Infrastructure\\API_Client'] = new \Yoast\WP\SEO\AI\HTTP_Request\Infrastructure\API_Client())), new \Yoast\WP\SEO\AI\HTTP_Request\Application\Response_Parser());
+        return $this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Request_Handler'] = new \Yoast\WP\SEO\AI\HTTP_Request\Application\Request_Handler(($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Infrastructure\\API_Client'] ?? ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Infrastructure\\API_Client'] = new \Yoast\WP\SEO\AI\HTTP_Request\Infrastructure\API_Client())), new \Yoast\WP\SEO\AI\HTTP_Request\Application\Response_Parser(), ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Response_Validator'] ?? ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Response_Validator'] = new \Yoast\WP\SEO\AI\HTTP_Request\Application\Response_Validator())));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\AI\HTTP_Request\Application\Response_Validator' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\AI\HTTP_Request\Application\Response_Validator
+     */
+    protected function getResponseValidatorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Response_Validator'] = new \Yoast\WP\SEO\AI\HTTP_Request\Application\Response_Validator();
     }
 
     /**
@@ -5885,13 +5910,14 @@ class Cached_Container extends Container
         $f->setLogger($g);
         $h = new \Yoast\WP\SEO\MyYoast_Client\Infrastructure\OIDC\ID_Token_Validator($b, $c, $e, ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\OIDC\\Issuer_Config'] ?? ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\OIDC\\Issuer_Config'] = new \Yoast\WP\SEO\MyYoast_Client\Infrastructure\OIDC\Issuer_Config())));
         $h->setLogger($g);
+        $i = new \Yoast\WP\SEO\MyYoast_Client\Infrastructure\WordPress\Redirect_URI_Provider();
 
-        $i = new \Yoast\WP\SEO\MyYoast_Client\Application\Authorization_Code_Handler($b, $a, $f, $h, ($this->privates['Yoast\\WP\\SEO\\Expiring_Store\\Application\\Expiring_Store'] ?? $this->getExpiringStoreService()));
-        $i->setLogger($g);
-        $j = new \Yoast\WP\SEO\MyYoast_Client\Application\Token_Revocation_Handler($b, $a, $d, $e);
+        $j = new \Yoast\WP\SEO\MyYoast_Client\Application\Authorization_Code_Handler($b, $a, $f, $h, ($this->privates['Yoast\\WP\\SEO\\Expiring_Store\\Application\\Expiring_Store'] ?? $this->getExpiringStoreService()), $i);
         $j->setLogger($g);
+        $k = new \Yoast\WP\SEO\MyYoast_Client\Application\Token_Revocation_Handler($b, $a, $d, $e);
+        $k->setLogger($g);
 
-        $this->services['Yoast\\WP\\SEO\\MyYoast_Client\\Application\\MyYoast_Client'] = $instance = new \Yoast\WP\SEO\MyYoast_Client\Application\MyYoast_Client($a, $i, $f, $j, $e, ($this->services['Yoast\\WP\\SEO\\Helpers\\Lock_Helper'] ?? $this->getLockHelperService()), ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Token\\Token_Storage'] ?? $this->getTokenStorageService()), ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Token\\User_Token_Storage'] ?? $this->getUserTokenStorageService()), new \Yoast\WP\SEO\MyYoast_Client\Infrastructure\WordPress\Site_URL_Provider());
+        $this->services['Yoast\\WP\\SEO\\MyYoast_Client\\Application\\MyYoast_Client'] = $instance = new \Yoast\WP\SEO\MyYoast_Client\Application\MyYoast_Client($a, $j, $f, $k, $e, ($this->services['Yoast\\WP\\SEO\\Helpers\\Lock_Helper'] ?? $this->getLockHelperService()), ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Token\\Token_Storage'] ?? $this->getTokenStorageService()), ($this->privates['Yoast\\WP\\SEO\\MyYoast_Client\\Infrastructure\\Token\\User_Token_Storage'] ?? $this->getUserTokenStorageService()), new \Yoast\WP\SEO\MyYoast_Client\Infrastructure\WordPress\Site_URL_Provider(), $i);
 
         $instance->setLogger($g);
 
@@ -6936,6 +6962,28 @@ class Cached_Container extends Container
     protected function getWpdbService()
     {
         return $this->services['wpdb'] = \Yoast\WP\SEO\WordPress\Wrapper::get_wpdb();
+    }
+
+    /**
+     * Gets the private 'Yoast\WP\SEO\AI\Authentication\Application\AI_Request_Sender_Factory' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\AI\Authentication\Application\AI_Request_Sender_Factory
+     */
+    protected function getAIRequestSenderFactoryService()
+    {
+        $a = new \Yoast\WP\SEO\AI\Authentication\Application\OAuth_Auth_Strategy(($this->services['Yoast\\WP\\SEO\\MyYoast_Client\\Application\\MyYoast_Client'] ?? $this->getMyYoastClientService()), ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Infrastructure\\API_Client'] ?? ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Infrastructure\\API_Client'] = new \Yoast\WP\SEO\AI\HTTP_Request\Infrastructure\API_Client())), ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Response_Validator'] ?? ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Response_Validator'] = new \Yoast\WP\SEO\AI\HTTP_Request\Application\Response_Validator())));
+
+        $b = ($this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] ?? ($this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] = new \Yoast\WP\SEO\Loggers\Logger()));
+
+        $a->setLogger($b);
+        $c = new \Yoast\WP\SEO\AI\Authentication\Application\Token_Auth_Strategy(($this->services['Yoast\\WP\\SEO\\AI\\Authorization\\Application\\Token_Manager'] ?? $this->getTokenManagerService()), ($this->services['Yoast\\WP\\SEO\\AI\\HTTP_Request\\Application\\Request_Handler'] ?? $this->getRequestHandlerService()));
+        $c->setLogger($b);
+
+        $this->privates['Yoast\\WP\\SEO\\AI\\Authentication\\Application\\AI_Request_Sender_Factory'] = $instance = new \Yoast\WP\SEO\AI\Authentication\Application\AI_Request_Sender_Factory(($this->services['Yoast\\WP\\SEO\\Conditionals\\MyYoast_Connection_Conditional'] ?? ($this->services['Yoast\\WP\\SEO\\Conditionals\\MyYoast_Connection_Conditional'] = new \Yoast\WP\SEO\Conditionals\MyYoast_Connection_Conditional())), $a, $c);
+
+        $instance->setLogger($b);
+
+        return $instance;
     }
 
     /**
