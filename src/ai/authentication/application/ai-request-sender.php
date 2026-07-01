@@ -194,6 +194,10 @@ class AI_Request_Sender implements LoggerAwareInterface {
 				throw $exception;
 			}
 			if ( $this->fallback === null ) {
+				$this->logger->warning(
+					'Primary AI auth strategy failed ({error_id}, HTTP {status}: {message}); no fallback configured, giving up.',
+					$this->error_context( $exception ),
+				);
 				throw $exception;
 			}
 			$this->logger->warning(
