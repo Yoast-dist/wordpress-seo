@@ -1217,7 +1217,7 @@ class Cached_Container extends Container
      */
     protected function getConsentHandlerService()
     {
-        return $this->services['Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler'] = new \Yoast\WP\SEO\AI\Consent\Application\Consent_Handler(($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper())), ($this->services['Yoast\\WP\\SEO\\AI\\Authentication\\Application\\AI_Request_Sender_Factory'] ?? $this->getAIRequestSenderFactoryService()));
+        return $this->services['Yoast\\WP\\SEO\\AI\\Consent\\Application\\Consent_Handler'] = new \Yoast\WP\SEO\AI\Consent\Application\Consent_Handler(($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper())), ($this->services['Yoast\\WP\\SEO\\AI\\Authentication\\Application\\AI_Request_Sender_Factory'] ?? $this->getAIRequestSenderFactoryService()), ($this->services['Yoast\\WP\\SEO\\AI\\Authorization\\Application\\Token_Manager'] ?? $this->getTokenManagerService()));
     }
 
     /**
