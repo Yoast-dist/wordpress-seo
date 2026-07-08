@@ -899,6 +899,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\MyYoast_Client\\Application\\Exceptions\\Rate_Limited_Exception' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Application\\Exceptions\\Registration_Failed_Exception' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Application\\Exceptions\\Registration_Not_Found_Exception' => true,
+            'Yoast\\WP\\SEO\\MyYoast_Client\\Application\\Exceptions\\Registration_Temporarily_Unavailable_Exception' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Application\\Exceptions\\Server_Capability_Exception' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Application\\Exceptions\\Token_Request_Failed_Exception' => true,
             'Yoast\\WP\\SEO\\MyYoast_Client\\Application\\Exceptions\\Token_Storage_Exception' => true,
