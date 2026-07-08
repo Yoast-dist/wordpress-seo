@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 7.0
-Stable tag: 28.1-RC1
+Stable tag: 28.1-RC2
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -310,7 +310,7 @@ Release date: 2026-07-21
 #### Enhancements
 
 * Adds a MyYoast connection card on the Integrations page to connect, verify, and disconnect a site using MyYoast OAuth.
-* Adds the bulk generation feature, which allows users to get AI-powered Metadata suggestions for multiple posts directly from the bulk editor page.
+* Redesigns the bulk editor page, which allows users to edit Metadata for multiple posts at once.
 
 = 28.0 =
 
