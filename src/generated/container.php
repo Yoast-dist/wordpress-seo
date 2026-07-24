@@ -118,6 +118,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Builders\\Primary_Term_Builder' => 'getPrimaryTermBuilderService',
             'Yoast\\WP\\SEO\\Bulk_Editor\\User_Interface\\Bulk_Editor_Integration' => 'getBulkEditorIntegrationService',
             'Yoast\\WP\\SEO\\Bulk_Editor\\User_Interface\\Posts_Route' => 'getPostsRouteService',
+            'Yoast\\WP\\SEO\\Bulk_Editor\\User_Interface\\Scores_Route' => 'getScoresRouteService',
             'Yoast\\WP\\SEO\\Bulk_Editor\\User_Interface\\Search_Bulk_Update_Route' => 'getSearchBulkUpdateRouteService',
             'Yoast\\WP\\SEO\\Bulk_Editor\\User_Interface\\Social_Bulk_Update_Route' => 'getSocialBulkUpdateRouteService',
             'Yoast\\WP\\SEO\\Commands\\Cleanup_Command' => 'getCleanupCommandService',
@@ -208,6 +209,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Config\\Migrations\\AddIndexesForProminentWordsOnIndexables' => 'getAddIndexesForProminentWordsOnIndexablesService',
             'Yoast\\WP\\SEO\\Config\\Migrations\\AddObjectTimestamps' => 'getAddObjectTimestampsService',
             'Yoast\\WP\\SEO\\Config\\Migrations\\AddSeoLinksIndex' => 'getAddSeoLinksIndexService',
+            'Yoast\\WP\\SEO\\Config\\Migrations\\AddSeoTitleAndMetaDescriptionScores' => 'getAddSeoTitleAndMetaDescriptionScoresService',
             'Yoast\\WP\\SEO\\Config\\Migrations\\AddVersionColumnToIndexables' => 'getAddVersionColumnToIndexablesService',
             'Yoast\\WP\\SEO\\Config\\Migrations\\BreadcrumbTitleAndHierarchyReset' => 'getBreadcrumbTitleAndHierarchyResetService',
             'Yoast\\WP\\SEO\\Config\\Migrations\\ClearIndexableTables' => 'getClearIndexableTablesService',
@@ -708,8 +710,10 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Bulk_Editor\\Application\\Endpoints\\Endpoints_Repository' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Application\\Posts\\Posts_Repository' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Application\\Updates\\Bulk_Updater' => true,
+            'Yoast\\WP\\SEO\\Bulk_Editor\\Application\\Updates\\Field_Renderer_Interface' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Application\\Updates\\Meta_Writer_Interface' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Application\\Updates\\Post_Access_Checker_Interface' => true,
+            'Yoast\\WP\\SEO\\Bulk_Editor\\Application\\Updates\\Score_Updater' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Content_Types\\Content_Type' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Content_Types\\Content_Types_List' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Posts\\Post' => true,
@@ -717,6 +721,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Posts\\Posts_Page' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Posts\\Posts_Query' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Updates\\Batch_Limit' => true,
+            'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Updates\\Post_Score_Update' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Updates\\Post_Update' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Updates\\Post_Update_Collection' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Domain\\Updates\\Update_Error' => true,
@@ -724,12 +729,14 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Content_Types\\Content_Type_Access_Checker' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Content_Types\\Content_Types_Collector' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Endpoints\\Posts_Endpoint' => true,
+            'Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Endpoints\\Update_Scores_Endpoint' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Endpoints\\Update_Search_Endpoint' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Endpoints\\Update_Social_Endpoint' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Nonces\\Nonce_Repository' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Posts\\Indexable_Posts_Collector' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Posts\\Post_Editability_Resolver' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Posts\\Post_Meta_Posts_Collector' => true,
+            'Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Updates\\Field_Renderer' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Updates\\Meta_Writer' => true,
             'Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Updates\\Post_Access_Checker' => true,
             'Yoast\\WP\\SEO\\Content_Type_Visibility\\Application\\Content_Type_Visibility_Dismiss_Notifications' => true,
@@ -2306,7 +2313,7 @@ class Cached_Container extends Container
      */
     protected function getBulkEditorIntegrationService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Bulk_Editor\\User_Interface\\Bulk_Editor_Integration'] = new \Yoast\WP\SEO\Bulk_Editor\User_Interface\Bulk_Editor_Integration(($this->services['WPSEO_Admin_Asset_Manager'] ?? $this->getWPSEOAdminAssetManagerService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] ?? $this->getCurrentPageHelperService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper'] ?? $this->getShortLinkHelperService()), ($this->privates['Yoast\\WP\\SEO\\Bulk_Editor\\Application\\Content_Types\\Content_Types_Repository'] ?? $this->getContentTypesRepositoryService()), new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Nonces\Nonce_Repository(), new \Yoast\WP\SEO\Bulk_Editor\Application\Endpoints\Endpoints_Repository(new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Endpoints\Posts_Endpoint(), new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Endpoints\Update_Search_Endpoint(), new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Endpoints\Update_Social_Endpoint()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())));
+        return $this->services['Yoast\\WP\\SEO\\Bulk_Editor\\User_Interface\\Bulk_Editor_Integration'] = new \Yoast\WP\SEO\Bulk_Editor\User_Interface\Bulk_Editor_Integration(($this->services['WPSEO_Admin_Asset_Manager'] ?? $this->getWPSEOAdminAssetManagerService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] ?? $this->getCurrentPageHelperService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Short_Link_Helper'] ?? $this->getShortLinkHelperService()), ($this->privates['Yoast\\WP\\SEO\\Bulk_Editor\\Application\\Content_Types\\Content_Types_Repository'] ?? $this->getContentTypesRepositoryService()), new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Nonces\Nonce_Repository(), new \Yoast\WP\SEO\Bulk_Editor\Application\Endpoints\Endpoints_Repository(new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Endpoints\Posts_Endpoint(), new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Endpoints\Update_Scores_Endpoint(), new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Endpoints\Update_Search_Endpoint(), new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Endpoints\Update_Social_Endpoint()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())));
     }
 
     /**
@@ -2318,7 +2325,20 @@ class Cached_Container extends Container
     {
         $a = new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Posts\Post_Editability_Resolver(($this->privates['Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Updates\\Post_Access_Checker'] ?? $this->getPostAccessCheckerService()));
 
-        return $this->services['Yoast\\WP\\SEO\\Bulk_Editor\\User_Interface\\Posts_Route'] = new \Yoast\WP\SEO\Bulk_Editor\User_Interface\Posts_Route(new \Yoast\WP\SEO\Bulk_Editor\Application\Posts\Posts_Repository(new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Posts\Indexable_Posts_Collector(($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService()), $a), new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Posts\Post_Meta_Posts_Collector($a), ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] ?? $this->getIndexableHelperService())), ($this->privates['Yoast\\WP\\SEO\\Bulk_Editor\\Application\\Content_Types\\Content_Types_Repository'] ?? $this->getContentTypesRepositoryService()), ($this->privates['Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Content_Types\\Content_Type_Access_Checker'] ?? ($this->privates['Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Content_Types\\Content_Type_Access_Checker'] = new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Content_Types\Content_Type_Access_Checker())), ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper())));
+        return $this->services['Yoast\\WP\\SEO\\Bulk_Editor\\User_Interface\\Posts_Route'] = new \Yoast\WP\SEO\Bulk_Editor\User_Interface\Posts_Route(new \Yoast\WP\SEO\Bulk_Editor\Application\Posts\Posts_Repository(new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Posts\Indexable_Posts_Collector(($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService()), $a), new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Posts\Post_Meta_Posts_Collector($a), ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] ?? $this->getIndexableHelperService())), ($this->privates['Yoast\\WP\\SEO\\Bulk_Editor\\Application\\Content_Types\\Content_Types_Repository'] ?? $this->getContentTypesRepositoryService()), ($this->privates['Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Content_Types\\Content_Type_Access_Checker'] ?? ($this->privates['Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Content_Types\\Content_Type_Access_Checker'] = new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Content_Types\Content_Type_Access_Checker())), ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Bulk_Editor\User_Interface\Scores_Route' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Bulk_Editor\User_Interface\Scores_Route
+     */
+    protected function getScoresRouteService()
+    {
+        $a = new \Yoast\WP\SEO\Bulk_Editor\Application\Updates\Score_Updater(($this->privates['Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Updates\\Post_Access_Checker'] ?? $this->getPostAccessCheckerService()), ($this->privates['Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Updates\\Meta_Writer'] ?? $this->getMetaWriterService()));
+        $a->setLogger(($this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] ?? ($this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] = new \Yoast\WP\SEO\Loggers\Logger())));
+
+        return $this->services['Yoast\\WP\\SEO\\Bulk_Editor\\User_Interface\\Scores_Route'] = new \Yoast\WP\SEO\Bulk_Editor\User_Interface\Scores_Route($a);
     }
 
     /**
@@ -3231,6 +3251,16 @@ class Cached_Container extends Container
     protected function getAddSeoLinksIndexService()
     {
         return $this->services['Yoast\\WP\\SEO\\Config\\Migrations\\AddSeoLinksIndex'] = new \Yoast\WP\SEO\Config\Migrations\AddSeoLinksIndex(($this->services['Yoast\\WP\\Lib\\Migrations\\Adapter'] ?? ($this->services['Yoast\\WP\\Lib\\Migrations\\Adapter'] = new \Yoast\WP\Lib\Migrations\Adapter())));
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Config\Migrations\AddSeoTitleAndMetaDescriptionScores' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Config\Migrations\AddSeoTitleAndMetaDescriptionScores
+     */
+    protected function getAddSeoTitleAndMetaDescriptionScoresService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Config\\Migrations\\AddSeoTitleAndMetaDescriptionScores'] = new \Yoast\WP\SEO\Config\Migrations\AddSeoTitleAndMetaDescriptionScores(($this->services['Yoast\\WP\\Lib\\Migrations\\Adapter'] ?? ($this->services['Yoast\\WP\\Lib\\Migrations\\Adapter'] = new \Yoast\WP\Lib\Migrations\Adapter())));
     }
 
     /**
@@ -5795,6 +5825,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Analytics\\User_Interface\\Last_Completed_Indexation_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Bulk_Editor\\User_Interface\\Bulk_Editor_Integration');
         $instance->register_route('Yoast\\WP\\SEO\\Bulk_Editor\\User_Interface\\Posts_Route');
+        $instance->register_route('Yoast\\WP\\SEO\\Bulk_Editor\\User_Interface\\Scores_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Bulk_Editor\\User_Interface\\Search_Bulk_Update_Route');
         $instance->register_route('Yoast\\WP\\SEO\\Bulk_Editor\\User_Interface\\Social_Bulk_Update_Route');
         $instance->register_command('Yoast\\WP\\SEO\\Commands\\Cleanup_Command');
@@ -5825,6 +5856,7 @@ class Cached_Container extends Container
         $instance->register_migration('free', '20230417083836', 'Yoast\\WP\\SEO\\Config\\Migrations\\AddInclusiveLanguageScore');
         $instance->register_migration('free', '20260105111111', 'Yoast\\WP\\SEO\\Config\\Migrations\\AddSeoLinksIndex');
         $instance->register_migration('free', '20260325155530', 'Yoast\\WP\\SEO\\Config\\Migrations\\CreateExpiringStoreTable');
+        $instance->register_migration('free', '20260709144332', 'Yoast\\WP\\SEO\\Config\\Migrations\\AddSeoTitleAndMetaDescriptionScores');
         $instance->register_integration('Yoast\\WP\\SEO\\Content_Type_Visibility\\Application\\Content_Type_Visibility_Watcher_Actions');
         $instance->register_route('Yoast\\WP\\SEO\\Content_Type_Visibility\\User_Interface\\Content_Type_Visibility_Dismiss_New_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\Dashboard\\User_Interface\\Configuration\\Site_Kit_Capabilities_Integration');
@@ -7238,11 +7270,21 @@ class Cached_Container extends Container
      */
     protected function getBulkUpdaterService()
     {
-        $this->privates['Yoast\\WP\\SEO\\Bulk_Editor\\Application\\Updates\\Bulk_Updater'] = $instance = new \Yoast\WP\SEO\Bulk_Editor\Application\Updates\Bulk_Updater(($this->privates['Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Updates\\Post_Access_Checker'] ?? $this->getPostAccessCheckerService()), new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Updates\Meta_Writer(($this->services['Yoast\\WP\\SEO\\Helpers\\Meta_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Meta_Helper'] = new \Yoast\WP\SEO\Helpers\Meta_Helper()))));
+        $this->privates['Yoast\\WP\\SEO\\Bulk_Editor\\Application\\Updates\\Bulk_Updater'] = $instance = new \Yoast\WP\SEO\Bulk_Editor\Application\Updates\Bulk_Updater(($this->privates['Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Updates\\Post_Access_Checker'] ?? $this->getPostAccessCheckerService()), ($this->privates['Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Updates\\Meta_Writer'] ?? $this->getMetaWriterService()), new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Updates\Field_Renderer(($this->services['Yoast\\WP\\SEO\\Helpers\\Meta_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Meta_Helper'] = new \Yoast\WP\SEO\Helpers\Meta_Helper()))));
 
         $instance->setLogger(($this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] ?? ($this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] = new \Yoast\WP\SEO\Loggers\Logger())));
 
         return $instance;
+    }
+
+    /**
+     * Gets the private 'Yoast\WP\SEO\Bulk_Editor\Infrastructure\Updates\Meta_Writer' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Updates\Meta_Writer
+     */
+    protected function getMetaWriterService()
+    {
+        return $this->privates['Yoast\\WP\\SEO\\Bulk_Editor\\Infrastructure\\Updates\\Meta_Writer'] = new \Yoast\WP\SEO\Bulk_Editor\Infrastructure\Updates\Meta_Writer(($this->services['Yoast\\WP\\SEO\\Helpers\\Meta_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Meta_Helper'] = new \Yoast\WP\SEO\Helpers\Meta_Helper())));
     }
 
     /**
