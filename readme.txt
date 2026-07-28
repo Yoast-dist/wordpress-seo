@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 7.0
-Stable tag: 28.2-RC2
+Stable tag: 28.2-RC3
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -314,6 +314,10 @@ Release date: 2026-08-04
 #### Bugfixes
 
 * Fixes a bug where the overall SEO score was lowered when the focus keyphrase did not consist of function words only. Props to @faisalahammad.
+
+#### Other
+
+* Prevents Yoast SEO Abilities from being registered when indexables are disabled.
 
 = 28.1 =
 
