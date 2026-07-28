@@ -697,6 +697,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Abilities\\Application\\Post_SEO_Data_Updater' => true,
             'Yoast\\WP\\SEO\\Abilities\\Application\\Score_Retriever' => true,
             'Yoast\\WP\\SEO\\Abilities\\Domain\\Score_Result' => true,
+            'Yoast\\WP\\SEO\\Abilities\\Infrastructure\\Post_Access_Checker' => true,
             'Yoast\\WP\\SEO\\Abilities\\Infrastructure\\Post_Identifier_Resolver' => true,
             'Yoast\\WP\\SEO\\Abilities\\Infrastructure\\Post_SEO_Field_Map' => true,
             'Yoast\\WP\\SEO\\Analytics\\Domain\\Missing_Indexable_Bucket' => true,
@@ -848,8 +849,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Expiring_Store\\Domain\\No_Current_User_Exception' => true,
             'Yoast\\WP\\SEO\\Expiring_Store\\Infrastructure\\WPDB_Expiring_Store_Repository' => true,
             'Yoast\\WP\\SEO\\Images\\Application\\Image_Content_Extractor' => true,
-            'Yoast\\WP\\SEO\\Introductions\\Application\\AI_Brand_Insights_Free_Trial' => true,
-            'Yoast\\WP\\SEO\\Introductions\\Application\\AI_Brand_Insights_Post_Launch' => true,
             'Yoast\\WP\\SEO\\Introductions\\Application\\AI_Brand_Insights_Pre_Launch' => true,
             'Yoast\\WP\\SEO\\Introductions\\Application\\Ai_Fix_Assessments_Upsell' => true,
             'Yoast\\WP\\SEO\\Introductions\\Application\\Black_Friday_Announcement' => true,
@@ -1512,8 +1511,9 @@ class Cached_Container extends Container
         $a = ($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService());
         $b = new \Yoast\WP\SEO\Abilities\Infrastructure\Post_Identifier_Resolver($a);
         $c = new \Yoast\WP\SEO\Abilities\Infrastructure\Post_SEO_Field_Map(($this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface'] ?? $this->getMetaSurfaceService()));
+        $d = new \Yoast\WP\SEO\Abilities\Infrastructure\Post_Access_Checker();
 
-        return $this->services['Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities_Integration'] = new \Yoast\WP\SEO\Abilities\User_Interface\Abilities_Integration(new \Yoast\WP\SEO\Abilities\Application\Score_Retriever($a), ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())), ($this->services['Yoast\\WP\\SEO\\Editors\\Application\\Analysis_Features\\Enabled_Analysis_Features_Repository'] ?? $this->getEnabledAnalysisFeaturesRepositoryService()), new \Yoast\WP\SEO\Abilities\Application\Post_SEO_Data_Collector($b, $c), new \Yoast\WP\SEO\Abilities\Application\Post_SEO_Data_Updater($b, $c, ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_To_Postmeta_Helper'] ?? $this->getIndexableToPostmetaHelperService()), ($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] ?? $this->getIndexableBuilderService())));
+        return $this->services['Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities_Integration'] = new \Yoast\WP\SEO\Abilities\User_Interface\Abilities_Integration(new \Yoast\WP\SEO\Abilities\Application\Score_Retriever($a), ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())), ($this->services['Yoast\\WP\\SEO\\Editors\\Application\\Analysis_Features\\Enabled_Analysis_Features_Repository'] ?? $this->getEnabledAnalysisFeaturesRepositoryService()), new \Yoast\WP\SEO\Abilities\Application\Post_SEO_Data_Collector($b, $c, $d), new \Yoast\WP\SEO\Abilities\Application\Post_SEO_Data_Updater($b, $c, $d, ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_To_Postmeta_Helper'] ?? $this->getIndexableToPostmetaHelperService()), ($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] ?? $this->getIndexableBuilderService())));
     }
 
     /**
@@ -7365,10 +7365,10 @@ class Cached_Container extends Container
     protected function getIntroductionsCollectorService()
     {
         $a = ($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] ?? $this->getCurrentPageHelperService());
-        $b = ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper()));
-        $c = ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper()));
+        $b = ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper()));
+        $c = ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper()));
 
-        return $this->privates['Yoast\\WP\\SEO\\Introductions\\Application\\Introductions_Collector'] = new \Yoast\WP\SEO\Introductions\Application\Introductions_Collector(new \Yoast\WP\SEO\Introductions\Application\AI_Brand_Insights_Free_Trial($a, $b), new \Yoast\WP\SEO\Introductions\Application\AI_Brand_Insights_Post_Launch($a, $b), new \Yoast\WP\SEO\Introductions\Application\AI_Brand_Insights_Pre_Launch($a), new \Yoast\WP\SEO\Introductions\Application\Ai_Fix_Assessments_Upsell($c, $b), new \Yoast\WP\SEO\Introductions\Application\Black_Friday_Announcement($a, ($this->services['Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager'] ?? $this->getPromotionManagerService()), $b), new \Yoast\WP\SEO\Introductions\Application\Delayed_Premium_Upsell($a, ($this->services['Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Introductions_Seen_Repository'] ?? $this->getIntroductionsSeenRepositoryService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())), $b), new \Yoast\WP\SEO\Introductions\Application\Google_Docs_Addon_Upsell($c, $b, $a), new \Yoast\WP\SEO\Schema_Aggregator\Application\Schema_Aggregator_Announcement($a));
+        return $this->privates['Yoast\\WP\\SEO\\Introductions\\Application\\Introductions_Collector'] = new \Yoast\WP\SEO\Introductions\Application\Introductions_Collector(new \Yoast\WP\SEO\Introductions\Application\AI_Brand_Insights_Pre_Launch($a), new \Yoast\WP\SEO\Introductions\Application\Ai_Fix_Assessments_Upsell($b, $c), new \Yoast\WP\SEO\Introductions\Application\Black_Friday_Announcement($a, ($this->services['Yoast\\WP\\SEO\\Promotions\\Application\\Promotion_Manager'] ?? $this->getPromotionManagerService()), $c), new \Yoast\WP\SEO\Introductions\Application\Delayed_Premium_Upsell($a, ($this->services['Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Introductions_Seen_Repository'] ?? $this->getIntroductionsSeenRepositoryService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())), $c), new \Yoast\WP\SEO\Introductions\Application\Google_Docs_Addon_Upsell($b, $c, $a), new \Yoast\WP\SEO\Schema_Aggregator\Application\Schema_Aggregator_Announcement($a));
     }
 
     /**
