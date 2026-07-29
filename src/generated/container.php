@@ -699,6 +699,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Abilities\\Application\\Post_SEO_Data_Updater' => true,
             'Yoast\\WP\\SEO\\Abilities\\Application\\Score_Retriever' => true,
             'Yoast\\WP\\SEO\\Abilities\\Domain\\Score_Result' => true,
+            'Yoast\\WP\\SEO\\Abilities\\Infrastructure\\Post_Access_Checker' => true,
             'Yoast\\WP\\SEO\\Abilities\\Infrastructure\\Post_Identifier_Resolver' => true,
             'Yoast\\WP\\SEO\\Abilities\\Infrastructure\\Post_SEO_Field_Map' => true,
             'Yoast\\WP\\SEO\\Analytics\\Domain\\Missing_Indexable_Bucket' => true,
@@ -1518,8 +1519,9 @@ class Cached_Container extends Container
         $a = ($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService());
         $b = new \Yoast\WP\SEO\Abilities\Infrastructure\Post_Identifier_Resolver($a);
         $c = new \Yoast\WP\SEO\Abilities\Infrastructure\Post_SEO_Field_Map(($this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface'] ?? $this->getMetaSurfaceService()));
+        $d = new \Yoast\WP\SEO\Abilities\Infrastructure\Post_Access_Checker();
 
-        return $this->services['Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities_Integration'] = new \Yoast\WP\SEO\Abilities\User_Interface\Abilities_Integration(new \Yoast\WP\SEO\Abilities\Application\Score_Retriever($a), ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())), ($this->services['Yoast\\WP\\SEO\\Editors\\Application\\Analysis_Features\\Enabled_Analysis_Features_Repository'] ?? $this->getEnabledAnalysisFeaturesRepositoryService()), new \Yoast\WP\SEO\Abilities\Application\Post_SEO_Data_Collector($b, $c), new \Yoast\WP\SEO\Abilities\Application\Post_SEO_Data_Updater($b, $c, ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_To_Postmeta_Helper'] ?? $this->getIndexableToPostmetaHelperService()), ($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] ?? $this->getIndexableBuilderService())));
+        return $this->services['Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities_Integration'] = new \Yoast\WP\SEO\Abilities\User_Interface\Abilities_Integration(new \Yoast\WP\SEO\Abilities\Application\Score_Retriever($a), ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())), ($this->services['Yoast\\WP\\SEO\\Editors\\Application\\Analysis_Features\\Enabled_Analysis_Features_Repository'] ?? $this->getEnabledAnalysisFeaturesRepositoryService()), new \Yoast\WP\SEO\Abilities\Application\Post_SEO_Data_Collector($b, $c, $d), new \Yoast\WP\SEO\Abilities\Application\Post_SEO_Data_Updater($b, $c, $d, ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_To_Postmeta_Helper'] ?? $this->getIndexableToPostmetaHelperService()), ($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] ?? $this->getIndexableBuilderService())));
     }
 
     /**
