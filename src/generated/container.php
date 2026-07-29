@@ -2132,7 +2132,7 @@ class Cached_Container extends Container
             return $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'];
         }
 
-        $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] = $instance = new \Yoast\WP\SEO\Builders\Indexable_Builder($a, $d, $e, $f, $g, ($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Date_Archive_Builder'] ?? $this->getIndexableDateArchiveBuilderService()), ($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_System_Page_Builder'] ?? $this->getIndexableSystemPageBuilderService()), $h, $b, $c, ($this->services['Yoast\\WP\\SEO\\Services\\Indexables\\Indexable_Version_Manager'] ?? $this->getIndexableVersionManagerService()), $i);
+        $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] = $instance = new \Yoast\WP\SEO\Builders\Indexable_Builder($a, $d, $e, $f, $g, ($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Date_Archive_Builder'] ?? $this->getIndexableDateArchiveBuilderService()), ($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_System_Page_Builder'] ?? $this->getIndexableSystemPageBuilderService()), $h, $b, $c, ($this->services['Yoast\\WP\\SEO\\Services\\Indexables\\Indexable_Version_Manager'] ?? $this->getIndexableVersionManagerService()), $i, ($this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] ?? ($this->services['Yoast\\WP\\SEO\\Loggers\\Logger'] = new \Yoast\WP\SEO\Loggers\Logger())));
 
         $instance->set_indexable_repository(($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService()));
 
