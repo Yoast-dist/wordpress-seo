@@ -1,18 +1,17 @@
 <?php
 
-// phpcs:disable Yoast.NamingConventions.NamespaceName.TooLong -- Needed in the folder structure.
-
-namespace Yoast\WP\SEO\AI\Generator\User_Interface;
+namespace Yoast\WP\SEO\AI_Generator\User_Interface;
 
 use WPSEO_Addon_Manager;
 use WPSEO_Admin_Asset_Manager;
 use Yoast\WP\SEO\AI\Consent\Application\Consent_Endpoints_Repository;
 use Yoast\WP\SEO\AI\Free_Sparks\Application\Free_Sparks_Endpoints_Repository;
 use Yoast\WP\SEO\AI\Generator\Application\Generator_Endpoints_Repository;
-use Yoast\WP\SEO\AI\HTTP_Request\Infrastructure\API_Client;
+use Yoast\WP\SEO\AI_HTTP_Request\Infrastructure\API_Client;
 use Yoast\WP\SEO\Conditionals\AI_Conditional;
 use Yoast\WP\SEO\Conditionals\AI_Editor_Conditional;
 use Yoast\WP\SEO\Conditionals\MyYoast_Connection_Conditional;
+use Yoast\WP\SEO\Conditionals\Old_Premium_AI_Conditional;
 use Yoast\WP\SEO\Helpers\Current_Page_Helper;
 use Yoast\WP\SEO\Helpers\Options_Helper;
 use Yoast\WP\SEO\Helpers\Short_Link_Helper;
@@ -26,6 +25,9 @@ use Yoast\WP\SEO\MyYoast_Client\User_Interface\Status_Presenter;
 
 /**
  * Ai_Generator_Integration class.
+ *
+ * @deprecated 28.4
+ * @codeCoverageIgnore
  */
 class Ai_Generator_Integration implements Integration_Interface {
 
@@ -130,14 +132,21 @@ class Ai_Generator_Integration implements Integration_Interface {
 	/**
 	 * Returns the conditionals based in which this loadable should be active.
 	 *
+	 * @deprecated 28.4
+	 * @codeCoverageIgnore
+	 *
 	 * @return array<string>
 	 */
 	public static function get_conditionals() {
-		return [ AI_Conditional::class, AI_Editor_Conditional::class ];
+		\_deprecated_function( __METHOD__, 'Yoast SEO 28.4' );
+		return [ AI_Conditional::class, AI_Editor_Conditional::class, Old_Premium_AI_Conditional::class ];
 	}
 
 	/**
 	 * Constructs the class.
+	 *
+	 * @deprecated 28.4
+	 * @codeCoverageIgnore
 	 *
 	 * @param WPSEO_Admin_Asset_Manager        $asset_manager                    The admin asset manager.
 	 * @param WPSEO_Addon_Manager              $addon_manager                    The addon manager.
@@ -170,6 +179,7 @@ class Ai_Generator_Integration implements Integration_Interface {
 		Short_Link_Helper $short_link_helper,
 		Connection_Permission $connection_permission
 	) {
+		\_deprecated_function( __METHOD__, 'Yoast SEO 28.4' );
 		$this->asset_manager                    = $asset_manager;
 		$this->addon_manager                    = $addon_manager;
 		$this->api_client                       = $api_client;
@@ -191,9 +201,13 @@ class Ai_Generator_Integration implements Integration_Interface {
 	 *
 	 * This is the place to register hooks and filters.
 	 *
+	 * @deprecated 28.4
+	 * @codeCoverageIgnore
+	 *
 	 * @return void
 	 */
 	public function register_hooks() {
+		\_deprecated_function( __METHOD__, 'Yoast SEO 28.4' );
 		\add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
 		// Enqueue after Elementor_Premium integration, which re-registers the assets.
 		\add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_assets' ], 11 );
@@ -202,9 +216,13 @@ class Ai_Generator_Integration implements Integration_Interface {
 	/**
 	 * Gets the subscription status for Yoast SEO Premium and Yoast WooCommerce SEO.
 	 *
+	 * @deprecated 28.4
+	 * @codeCoverageIgnore
+	 *
 	 * @return array<string, bool>
 	 */
 	public function get_product_subscriptions() {
+		\_deprecated_function( __METHOD__, 'Yoast SEO 28.4' );
 		return [
 			'premiumSubscription'     => $this->addon_manager->has_valid_subscription( WPSEO_Addon_Manager::PREMIUM_SLUG ),
 			'wooCommerceSubscription' => $this->addon_manager->has_valid_subscription( WPSEO_Addon_Manager::WOOCOMMERCE_SLUG ),
@@ -214,9 +232,13 @@ class Ai_Generator_Integration implements Integration_Interface {
 	/**
 	 * Returns the data that should be passed to the script.
 	 *
+	 * @deprecated 28.4
+	 * @codeCoverageIgnore
+	 *
 	 * @return array<string|array<string>>
 	 */
 	public function get_script_data() {
+		\_deprecated_function( __METHOD__, 'Yoast SEO 28.4' );
 		$user_id = $this->user_helper->get_current_user_id();
 
 		$endpoints = $this->generator_endpoints_repository->get_all_endpoints()
@@ -225,6 +247,7 @@ class Ai_Generator_Integration implements Integration_Interface {
 			)->merge_with(
 				$this->free_sparks_endpoints_repository->get_all_endpoints(),
 			)->to_paths_array();
+
 		return [
 			'hasConsent'           => $this->user_helper->get_meta( $user_id, '_yoast_wpseo_ai_consent', true ),
 			'productSubscriptions' => $this->get_product_subscriptions(),
@@ -246,9 +269,13 @@ class Ai_Generator_Integration implements Integration_Interface {
 	 * editor; the connect call-to-action is just a nonce-protected link that
 	 * auto-starts the flow on the Integrations page in a new tab.
 	 *
+	 * @deprecated 28.4
+	 * @codeCoverageIgnore
+	 *
 	 * @return array{isProvisioned: bool, canConnect: bool, connectUrl: string|null, learnMoreUrl: string}|null
 	 */
 	public function get_myyoast_connection_data() {
+		\_deprecated_function( __METHOD__, 'Yoast SEO 28.4' );
 		if ( ! $this->myyoast_connection_conditional->is_met() ) {
 			return null;
 		}
@@ -292,9 +319,13 @@ class Ai_Generator_Integration implements Integration_Interface {
 	/**
 	 * Enqueues the required assets.
 	 *
+	 * @deprecated 28.4
+	 * @codeCoverageIgnore
+	 *
 	 * @return void
 	 */
 	public function enqueue_assets() {
+		\_deprecated_function( __METHOD__, 'Yoast SEO 28.4' );
 
 		$this->asset_manager->enqueue_script( 'ai-generator' );
 		$this->asset_manager->localize_script( 'ai-generator', 'wpseoAiGenerator', $this->get_script_data() );

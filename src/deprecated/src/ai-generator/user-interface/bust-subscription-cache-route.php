@@ -1,16 +1,20 @@
 <?php
 
 // phpcs:disable Yoast.NamingConventions.NamespaceName.TooLong -- Needed in the folder structure.
-namespace Yoast\WP\SEO\AI\Generator\User_Interface;
+namespace Yoast\WP\SEO\AI_Generator\User_Interface;
 
 use WP_REST_Response;
 use WPSEO_Addon_Manager;
 use Yoast\WP\SEO\Conditionals\AI_Conditional;
+use Yoast\WP\SEO\Conditionals\Old_Premium_AI_Conditional;
 use Yoast\WP\SEO\Main;
 use Yoast\WP\SEO\Routes\Route_Interface;
 
 /**
  * Registers a route to bust the subscription cache.
+ *
+ * @deprecated 28.4
+ * @codeCoverageIgnore
  *
  * @makePublic
  *
@@ -44,45 +48,51 @@ class Bust_Subscription_Cache_Route implements Route_Interface {
 	/**
 	 * Returns the conditionals based in which this loadable should be active.
 	 *
+	 * @deprecated 28.4
+	 * @codeCoverageIgnore
+	 *
 	 * @return array<string> The conditionals.
 	 */
 	public static function get_conditionals() {
-		return [ AI_Conditional::class ];
+		\_deprecated_function( __METHOD__, 'Yoast SEO 28.4' );
+		return [ AI_Conditional::class, Old_Premium_AI_Conditional::class ];
 	}
 
 	/**
 	 * Class constructor.
 	 *
+	 * @deprecated 28.4
+	 * @codeCoverageIgnore
+	 *
 	 * @param WPSEO_Addon_Manager $addon_manager The addon manager instance.
 	 */
 	public function __construct( WPSEO_Addon_Manager $addon_manager ) {
+		\_deprecated_function( __METHOD__, 'Yoast SEO 28.4' );
 		$this->addon_manager = $addon_manager;
 	}
 
 	/**
 	 * Registers routes with WordPress.
 	 *
+	 * @deprecated 28.4
+	 * @codeCoverageIgnore
+	 *
 	 * @return void
 	 */
 	public function register_routes() {
-		\register_rest_route(
-			self::ROUTE_NAMESPACE,
-			self::ROUTE_PREFIX,
-			[
-				'methods'             => 'POST',
-				'args'                => [],
-				'callback'            => [ $this, 'bust_subscription_cache' ],
-				'permission_callback' => [ $this, 'check_permissions' ],
-			],
-		);
+		\_deprecated_function( __METHOD__, 'Yoast SEO 28.4' );
 	}
 
 	/**
 	 * Runs the callback that busts the subscription cache.
 	 *
+	 * @deprecated 28.4
+	 * @codeCoverageIgnore
+	 *
 	 * @return WP_REST_Response The response of the callback action.
 	 */
 	public function bust_subscription_cache(): WP_REST_Response {
+		\_deprecated_function( __METHOD__, 'Yoast SEO 28.4' );
 		$this->addon_manager->remove_site_information_transients();
 
 		return new WP_REST_Response( 'Subscription cache successfully busted.' );
