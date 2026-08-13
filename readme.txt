@@ -4,7 +4,7 @@ Donate link: https://yoa.st/1up
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
-Tested up to: 7.0
+Tested up to: 7.1
 Stable tag: 28.2
 Requires PHP: 7.4
 
@@ -326,6 +326,7 @@ Release date: 2026-08-18
 
 * Adds a first-time guided tour to the bulk editor.
 * Sets the minimum supported WordPress version to 6.9.
+* Sets the _WordPress tested up to_ version to 7.1.
 
 = 28.2 =
 
