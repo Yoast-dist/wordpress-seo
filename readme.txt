@@ -323,7 +323,6 @@ Yoast SEO 28.3 brings more enhancements and bugfixes. [Find more information abo
 #### Bugfixes
 
 * Fixes a bug where the AI Content Planner inserted an empty paragraph block before the template blocks when a post type had a block template registered.
-* Fixes PHP object injection via unrestricted unserialize() methods.
 
 #### Other
 
