@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 7.1
-Stable tag: 28.6-RC1
+Stable tag: 28.6-RC2
 Requires PHP: 7.4
 
 Real-time SEO guidance, schema, and AI built in. Help search engines and AI systems understand your content. All AI tools included, no hidden fees.
@@ -315,6 +315,11 @@ Release date: 2026-09-29
 
 * Don't show a post type in the Bulk editor if `Enable SEO controls and assessments` is turned off for that post type.
 * Introduces 2 new Yoast Abilities, to allow agents to get and update SEO data for given posts.
+
+#### Bugfixes
+
+* Adds a notice to the bulk editor explaining that no content types are available when *Enable SEO controls and assessments* is disabled for all post types, with a link to the settings page.
+* Fixes a bug where a `rest_invalid_content_type` error would be logged in the browser console when opening the bulk editor while *Enable SEO controls and assessments* was disabled for all post types.
 
 #### Other
 
