@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 7.1
-Stable tag: 28.6-RC2
+Stable tag: 28.6-RC3
 Requires PHP: 7.4
 
 Real-time SEO guidance, schema, and AI built in. Help search engines and AI systems understand your content. All AI tools included, no hidden fees.
@@ -323,7 +323,9 @@ Release date: 2026-09-29
 
 #### Other
 
+* Adds two new cards for the Schema aggregator and the WordPress abilities API features.
 * Adjust the name and description of the setting's toggle controlling the breadcrumbs' rendering to state clearly its intended behaviour.
+* Re-groups the integrations' cards in the `Integrations` page.
 
 = 28.5 =
 
