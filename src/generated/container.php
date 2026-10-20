@@ -152,6 +152,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Conditionals\\Headless_Rest_Endpoints_Enabled_Conditional' => 'getHeadlessRestEndpointsEnabledConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Import_Tool_Selected_Conditional' => 'getImportToolSelectedConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Jetpack_Conditional' => 'getJetpackConditionalService',
+            'Yoast\\WP\\SEO\\Conditionals\\Local_SEO_Active_Conditional' => 'getLocalSEOActiveConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Migrations_Conditional' => 'getMigrationsConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\MyYoast_Connection_Conditional' => 'getMyYoastConnectionConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\New_Premium_Or_Free_AI_Conditional' => 'getNewPremiumOrFreeAIConditionalService',
@@ -656,18 +657,30 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\AI\\HTTP_Request\\Domain\\Request' => true,
             'Yoast\\WP\\SEO\\AI\\HTTP_Request\\Domain\\Response' => true,
             'Yoast\\WP\\SEO\\AI\\HTTP_Request\\Infrastructure\\API_Client_Interface' => true,
+            'Yoast\\WP\\SEO\\Abilities\\Application\\Feature_Status_Updater' => true,
+            'Yoast\\WP\\SEO\\Abilities\\Application\\Llms_Txt_Status_Updater' => true,
             'Yoast\\WP\\SEO\\Abilities\\Application\\Post_SEO_Data_Collector' => true,
             'Yoast\\WP\\SEO\\Abilities\\Application\\Post_SEO_Data_Updater' => true,
             'Yoast\\WP\\SEO\\Abilities\\Application\\Score_Retriever' => true,
+            'Yoast\\WP\\SEO\\Abilities\\Application\\Site_Representation_Updater' => true,
             'Yoast\\WP\\SEO\\Abilities\\Domain\\Score_Result' => true,
             'Yoast\\WP\\SEO\\Abilities\\Infrastructure\\Post_Access_Checker' => true,
             'Yoast\\WP\\SEO\\Abilities\\Infrastructure\\Post_Identifier_Resolver' => true,
             'Yoast\\WP\\SEO\\Abilities\\Infrastructure\\Post_SEO_Field_Map' => true,
+            'Yoast\\WP\\SEO\\Abilities\\Infrastructure\\Site_Representation_Field_Map' => true,
+            'Yoast\\WP\\SEO\\Abilities\\Infrastructure\\Site_Representation_Field_Validators' => true,
             'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Get_Inclusive_Language_Scores_Ability' => true,
             'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Get_Post_SEO_Data_Ability' => true,
             'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Get_Readability_Scores_Ability' => true,
             'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Get_SEO_Scores_Ability' => true,
+            'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Set_Llms_Txt_Status_Ability' => true,
+            'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Set_Open_Graph_Status_Ability' => true,
+            'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Set_Schema_Aggregation_Status_Ability' => true,
+            'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Set_Schema_Framework_Status_Ability' => true,
+            'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Set_X_Card_Status_Ability' => true,
+            'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Set_Xml_Sitemap_Status_Ability' => true,
             'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Update_Post_SEO_Data_Ability' => true,
+            'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Update_Site_Representation_Ability' => true,
             'Yoast\\WP\\SEO\\Analytics\\Domain\\Missing_Indexable_Bucket' => true,
             'Yoast\\WP\\SEO\\Analytics\\Domain\\Missing_Indexable_Count' => true,
             'Yoast\\WP\\SEO\\Analytics\\Domain\\To_Be_Cleaned_Indexable_Bucket' => true,
@@ -1604,8 +1617,15 @@ class Cached_Container extends Container
         $f = new \Yoast\WP\SEO\Abilities\Infrastructure\Post_Identifier_Resolver($a);
         $g = new \Yoast\WP\SEO\Abilities\Infrastructure\Post_SEO_Field_Map(($this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface'] ?? $this->getMetaSurfaceService()));
         $h = new \Yoast\WP\SEO\Abilities\Infrastructure\Post_Access_Checker();
+        $i = ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper()));
 
-        return $this->services['Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities_Integration'] = new \Yoast\WP\SEO\Abilities\User_Interface\Abilities_Integration(new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_Inclusive_Language_Scores_Ability($b, $c, $d, $e), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_Post_SEO_Data_Ability($c, $e, new \Yoast\WP\SEO\Abilities\Application\Post_SEO_Data_Collector($f, $g, $h)), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_Readability_Scores_Ability($b, $c, $d, $e), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_SEO_Scores_Ability($b, $c, $d, $e), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Update_Post_SEO_Data_Ability($c, $e, new \Yoast\WP\SEO\Abilities\Application\Post_SEO_Data_Updater($f, $g, $h, ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_To_Postmeta_Helper'] ?? $this->getIndexableToPostmetaHelperService()), ($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] ?? $this->getIndexableBuilderService())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper()))));
+        $j = new \Yoast\WP\SEO\Abilities\Application\Feature_Status_Updater($i);
+        $k = ($this->services['Yoast\\WP\\SEO\\Conditionals\\Local_SEO_Active_Conditional'] ?? ($this->services['Yoast\\WP\\SEO\\Conditionals\\Local_SEO_Active_Conditional'] = new \Yoast\WP\SEO\Conditionals\Local_SEO_Active_Conditional()));
+        $l = ($this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper'] ?? $this->getImageHelperService());
+
+        $m = new \Yoast\WP\SEO\Abilities\Infrastructure\Site_Representation_Field_Map($k, new \Yoast\WP\SEO\Abilities\Infrastructure\Site_Representation_Field_Validators($k, $l, $i));
+
+        return $this->services['Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities_Integration'] = new \Yoast\WP\SEO\Abilities\User_Interface\Abilities_Integration(new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_Inclusive_Language_Scores_Ability($b, $c, $d, $e), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_Post_SEO_Data_Ability($c, $e, new \Yoast\WP\SEO\Abilities\Application\Post_SEO_Data_Collector($f, $g, $h)), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_Readability_Scores_Ability($b, $c, $d, $e), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_SEO_Scores_Ability($b, $c, $d, $e), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Set_Llms_Txt_Status_Ability($c, ($this->services['Yoast\\WP\\SEO\\Conditionals\\Non_Multisite_Conditional'] ?? ($this->services['Yoast\\WP\\SEO\\Conditionals\\Non_Multisite_Conditional'] = new \Yoast\WP\SEO\Conditionals\Non_Multisite_Conditional())), new \Yoast\WP\SEO\Abilities\Application\Llms_Txt_Status_Updater($j, $i, ($this->privates['Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Commands\\Populate_File_Command_Handler'] ?? $this->getPopulateFileCommandHandlerService()), ($this->privates['Yoast\\WP\\SEO\\Llms_Txt\\Application\\Health_Check\\File_Runner'] ?? ($this->privates['Yoast\\WP\\SEO\\Llms_Txt\\Application\\Health_Check\\File_Runner'] = new \Yoast\WP\SEO\Llms_Txt\Application\Health_Check\File_Runner())))), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Set_Open_Graph_Status_Ability($c, $j), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Set_Schema_Aggregation_Status_Ability($c, $j), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Set_Schema_Framework_Status_Ability($c, $j), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Set_X_Card_Status_Ability($c, $j), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Set_Xml_Sitemap_Status_Ability($c, $j, $i), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Update_Post_SEO_Data_Ability($c, $e, new \Yoast\WP\SEO\Abilities\Application\Post_SEO_Data_Updater($f, $g, $h, ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_To_Postmeta_Helper'] ?? $this->getIndexableToPostmetaHelperService()), ($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] ?? $this->getIndexableBuilderService())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper()))), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Update_Site_Representation_Ability($c, $m, new \Yoast\WP\SEO\Abilities\Application\Site_Representation_Updater($i, $m, $l, ($this->services['Yoast\\WP\\SEO\\Helpers\\Social_Profiles_Helper'] ?? $this->getSocialProfilesHelperService()))));
     }
 
     /**
@@ -2729,6 +2749,16 @@ class Cached_Container extends Container
     protected function getJetpackConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\Jetpack_Conditional'] = new \Yoast\WP\SEO\Conditionals\Jetpack_Conditional();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Conditionals\Local_SEO_Active_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Conditionals\Local_SEO_Active_Conditional
+     */
+    protected function getLocalSEOActiveConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Local_SEO_Active_Conditional'] = new \Yoast\WP\SEO\Conditionals\Local_SEO_Active_Conditional();
     }
 
     /**
