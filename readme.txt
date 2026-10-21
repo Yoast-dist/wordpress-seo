@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 7.1
-Stable tag: 28.8-RC5
+Stable tag: 28.8-RC6
 Requires PHP: 7.4
 
 Real-time SEO guidance, schema, and AI built in. Help search engines and AI systems understand your content. All AI tools included, no hidden fees.
@@ -325,7 +325,9 @@ Release date: 2026-10-27
 
 #### Bugfixes
 
+* Fixes a bug where AI Optimize buttons were shown in the content analysis when AI features were turned off.
 * Fixes a bug where the AI features' free trial was treated as already started after the Yoast SEO settings were saved.
+* Fixes a bug where the bulk editor kept the SEO analysis active when the user had turned it off in their profile.
 * Fixes a bug where the time the schema aggregation endpoint was enabled was not recorded when the setting was saved from the Site features page.
 
 #### Other
