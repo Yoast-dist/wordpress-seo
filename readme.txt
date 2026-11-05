@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 7.1
-Stable tag: 28.9-RC4
+Stable tag: 28.9-RC5
 Requires PHP: 7.4
 
 Real-time SEO guidance, schema, and AI built in. Help search engines and AI systems understand your content. All AI tools included, no hidden fees.
@@ -332,7 +332,6 @@ Release date: 2026-11-17
 #### Other
 
 * Removes the _keyphrase in image alt attributes_ assessment, which is replaced by the alt text quality assessments.
-* Replaces legacy `IconButtonToggle` and `IconCTAEditButton` components with `@yoast/ui-library` `Button`, `TooltipContainer`, and `@heroicons/react` icons in content analysis results.
 
 = 28.8 =
 
