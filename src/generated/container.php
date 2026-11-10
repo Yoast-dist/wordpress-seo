@@ -659,6 +659,8 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\AI\\HTTP_Request\\Infrastructure\\API_Client_Interface' => true,
             'Yoast\\WP\\SEO\\Abilities\\Application\\Archive_And_Special_Page_SEO_Settings_Collector' => true,
             'Yoast\\WP\\SEO\\Abilities\\Application\\Archive_And_Special_Page_SEO_Settings_Updater' => true,
+            'Yoast\\WP\\SEO\\Abilities\\Application\\Author_SEO_Data_Collector' => true,
+            'Yoast\\WP\\SEO\\Abilities\\Application\\Author_SEO_Data_Updater' => true,
             'Yoast\\WP\\SEO\\Abilities\\Application\\Author_Schema_Updater' => true,
             'Yoast\\WP\\SEO\\Abilities\\Application\\Feature_Status_Updater' => true,
             'Yoast\\WP\\SEO\\Abilities\\Application\\Llms_Txt_Status_Updater' => true,
@@ -671,6 +673,9 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Abilities\\Domain\\Author_Schema_Field_Repository_Interface' => true,
             'Yoast\\WP\\SEO\\Abilities\\Domain\\Exceptions\\Unavailable_Global_Setting_Target_Exception' => true,
             'Yoast\\WP\\SEO\\Abilities\\Domain\\Score_Result' => true,
+            'Yoast\\WP\\SEO\\Abilities\\Infrastructure\\Author_Identifier_Resolver' => true,
+            'Yoast\\WP\\SEO\\Abilities\\Infrastructure\\Author_SEO_Field_Map' => true,
+            'Yoast\\WP\\SEO\\Abilities\\Infrastructure\\Author_SEO_Meta_Writer' => true,
             'Yoast\\WP\\SEO\\Abilities\\Infrastructure\\Author_Schema_Field_Map' => true,
             'Yoast\\WP\\SEO\\Abilities\\Infrastructure\\Author_Schema_User_Meta_Repository' => true,
             'Yoast\\WP\\SEO\\Abilities\\Infrastructure\\Global_Setting_Field_Map' => true,
@@ -693,6 +698,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Abilities\\Infrastructure\\Term_SEO_Meta_Writer' => true,
             'Yoast\\WP\\SEO\\Abilities\\User_Interface\\AI_Generate_Upsell' => true,
             'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Get_Archive_And_Special_Page_SEO_Settings_Ability' => true,
+            'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Get_Author_SEO_Data_Ability' => true,
             'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Get_Inclusive_Language_Scores_Ability' => true,
             'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Get_Post_SEO_Data_Ability' => true,
             'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Get_Readability_Scores_Ability' => true,
@@ -705,6 +711,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Set_X_Card_Status_Ability' => true,
             'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Set_Xml_Sitemap_Status_Ability' => true,
             'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Update_Archive_And_Special_Page_SEO_Settings_Ability' => true,
+            'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Update_Author_SEO_Data_Ability' => true,
             'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Update_Author_Schema_Ability' => true,
             'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Update_Post_SEO_Data_Ability' => true,
             'Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities\\Update_Site_Representation_Ability' => true,
@@ -1640,37 +1647,41 @@ class Cached_Container extends Container
         $a = ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper()));
         $b = new \Yoast\WP\SEO\Abilities\Infrastructure\Global_Setting_Field_Map();
         $c = ($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] ?? $this->getCurrentPageHelperService());
-        $d = ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper()));
+        $d = ($this->services['Yoast\\WP\\SEO\\Helpers\\Author_Archive_Helper'] ?? $this->getAuthorArchiveHelperService());
+        $e = ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper()));
 
-        $e = new \Yoast\WP\SEO\Abilities\Infrastructure\Global_Setting_Targets\Global_Setting_Target_Repository(new \Yoast\WP\SEO\Abilities\Infrastructure\Global_Setting_Targets\Homepage_Target($c), new \Yoast\WP\SEO\Abilities\Infrastructure\Global_Setting_Targets\Author_Archives_Target(($this->services['Yoast\\WP\\SEO\\Helpers\\Author_Archive_Helper'] ?? $this->getAuthorArchiveHelperService())), new \Yoast\WP\SEO\Abilities\Infrastructure\Global_Setting_Targets\Date_Archives_Target($d), new \Yoast\WP\SEO\Abilities\Infrastructure\Global_Setting_Targets\Search_Page_Target(), new \Yoast\WP\SEO\Abilities\Infrastructure\Global_Setting_Targets\Not_Found_Page_Target(), new \Yoast\WP\SEO\Abilities\Infrastructure\Global_Setting_Targets\Post_Type_Archive_Target_Factory(($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] ?? $this->getPostTypeHelperService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper'] = new \Yoast\WP\SEO\Helpers\Woocommerce_Helper()))));
-        $f = new \Yoast\WP\SEO\Abilities\Application\Archive_And_Special_Page_SEO_Settings_Collector($b, $e, $d);
-        $g = ($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService());
+        $f = new \Yoast\WP\SEO\Abilities\Infrastructure\Global_Setting_Targets\Global_Setting_Target_Repository(new \Yoast\WP\SEO\Abilities\Infrastructure\Global_Setting_Targets\Homepage_Target($c), new \Yoast\WP\SEO\Abilities\Infrastructure\Global_Setting_Targets\Author_Archives_Target($d), new \Yoast\WP\SEO\Abilities\Infrastructure\Global_Setting_Targets\Date_Archives_Target($e), new \Yoast\WP\SEO\Abilities\Infrastructure\Global_Setting_Targets\Search_Page_Target(), new \Yoast\WP\SEO\Abilities\Infrastructure\Global_Setting_Targets\Not_Found_Page_Target(), new \Yoast\WP\SEO\Abilities\Infrastructure\Global_Setting_Targets\Post_Type_Archive_Target_Factory(($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] ?? $this->getPostTypeHelperService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Woocommerce_Helper'] = new \Yoast\WP\SEO\Helpers\Woocommerce_Helper()))));
+        $g = new \Yoast\WP\SEO\Abilities\Application\Archive_And_Special_Page_SEO_Settings_Collector($b, $f, $e);
+        $h = ($this->services['Yoast\\WP\\SEO\\Conditionals\\Should_Index_Indexables_Conditional'] ?? $this->getShouldIndexIndexablesConditionalService());
+        $i = new \Yoast\WP\SEO\Abilities\User_Interface\SEO_Data_Output_Schema();
+        $j = ($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService());
 
-        $h = new \Yoast\WP\SEO\Abilities\Application\Score_Retriever($g);
-        $i = ($this->services['Yoast\\WP\\SEO\\Editors\\Application\\Analysis_Features\\Enabled_Analysis_Features_Repository'] ?? $this->getEnabledAnalysisFeaturesRepositoryService());
-        $j = ($this->services['Yoast\\WP\\SEO\\Conditionals\\Should_Index_Indexables_Conditional'] ?? $this->getShouldIndexIndexablesConditionalService());
-        $k = new \Yoast\WP\SEO\Abilities\Infrastructure\Post_Identifier_Resolver($g, $c);
+        $k = new \Yoast\WP\SEO\Abilities\Infrastructure\Author_Identifier_Resolver($j, $d);
         $l = ($this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface'] ?? $this->getMetaSurfaceService());
+        $m = ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper()));
 
-        $m = new \Yoast\WP\SEO\Abilities\Infrastructure\Post_SEO_Field_Map($l);
-        $n = new \Yoast\WP\SEO\Abilities\Infrastructure\Post_Access_Checker();
-        $o = new \Yoast\WP\SEO\Abilities\Infrastructure\Term_Identifier_Resolver($g);
-        $p = new \Yoast\WP\SEO\Abilities\Infrastructure\Term_SEO_Field_Map($l);
-        $q = new \Yoast\WP\SEO\Abilities\Infrastructure\Indexable_Access_Checker();
-        $r = new \Yoast\WP\SEO\Abilities\User_Interface\SEO_Data_Output_Schema();
-        $s = new \Yoast\WP\SEO\Abilities\Application\Feature_Status_Updater($d);
-        $t = ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper()));
+        $n = new \Yoast\WP\SEO\Abilities\Infrastructure\Author_SEO_Field_Map($l, $m);
+        $o = new \Yoast\WP\SEO\Abilities\Infrastructure\Indexable_Access_Checker();
+        $p = new \Yoast\WP\SEO\Abilities\Application\Score_Retriever($j);
+        $q = ($this->services['Yoast\\WP\\SEO\\Editors\\Application\\Analysis_Features\\Enabled_Analysis_Features_Repository'] ?? $this->getEnabledAnalysisFeaturesRepositoryService());
+        $r = new \Yoast\WP\SEO\Abilities\Infrastructure\Post_Identifier_Resolver($j, $c);
+        $s = new \Yoast\WP\SEO\Abilities\Infrastructure\Post_SEO_Field_Map($l);
+        $t = new \Yoast\WP\SEO\Abilities\Infrastructure\Post_Access_Checker();
+        $u = new \Yoast\WP\SEO\Abilities\Infrastructure\Term_Identifier_Resolver($j);
+        $v = new \Yoast\WP\SEO\Abilities\Infrastructure\Term_SEO_Field_Map($l);
+        $w = new \Yoast\WP\SEO\Abilities\Application\Feature_Status_Updater($e);
+        $x = ($this->services['Yoast\\WP\\SEO\\Helpers\\Sanitization_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Sanitization_Helper'] = new \Yoast\WP\SEO\Helpers\Sanitization_Helper()));
 
-        $u = new \Yoast\WP\SEO\Abilities\Infrastructure\Author_Schema_Field_Map(($this->privates['Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Author_Pronouns'] ?? $this->getAuthorPronounsService()), new \Yoast\WP\SEO\Abilities\Infrastructure\Author_Schema_User_Meta_Repository($t, ($this->services['Yoast\\WP\\SEO\\Helpers\\Sanitization_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Sanitization_Helper'] = new \Yoast\WP\SEO\Helpers\Sanitization_Helper()))), ($this->services['Yoast\\WP\\SEO\\Conditionals\\User_Can_Edit_Users_Conditional'] ?? ($this->services['Yoast\\WP\\SEO\\Conditionals\\User_Can_Edit_Users_Conditional'] = new \Yoast\WP\SEO\Conditionals\User_Can_Edit_Users_Conditional())));
-        $v = ($this->services['Yoast\\WP\\SEO\\Helpers\\Social_Profiles_Helper'] ?? $this->getSocialProfilesHelperService());
-        $w = ($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] ?? $this->getIndexableBuilderService());
-        $x = new \Yoast\WP\SEO\Abilities\User_Interface\AI_Generate_Upsell(($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())));
-        $y = ($this->services['Yoast\\WP\\SEO\\Conditionals\\Local_SEO_Active_Conditional'] ?? ($this->services['Yoast\\WP\\SEO\\Conditionals\\Local_SEO_Active_Conditional'] = new \Yoast\WP\SEO\Conditionals\Local_SEO_Active_Conditional()));
-        $z = ($this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper'] ?? $this->getImageHelperService());
+        $y = new \Yoast\WP\SEO\Abilities\Infrastructure\Author_Schema_Field_Map(($this->privates['Yoast\\WP\\SEO\\User_Meta\\Framework\\Custom_Meta\\Author_Pronouns'] ?? $this->getAuthorPronounsService()), new \Yoast\WP\SEO\Abilities\Infrastructure\Author_Schema_User_Meta_Repository($m, $x), ($this->services['Yoast\\WP\\SEO\\Conditionals\\User_Can_Edit_Users_Conditional'] ?? ($this->services['Yoast\\WP\\SEO\\Conditionals\\User_Can_Edit_Users_Conditional'] = new \Yoast\WP\SEO\Conditionals\User_Can_Edit_Users_Conditional())));
+        $z = ($this->services['Yoast\\WP\\SEO\\Helpers\\Social_Profiles_Helper'] ?? $this->getSocialProfilesHelperService());
+        $aa = ($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Builder'] ?? $this->getIndexableBuilderService());
+        $ba = new \Yoast\WP\SEO\Abilities\User_Interface\AI_Generate_Upsell(($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Product_Helper'] = new \Yoast\WP\SEO\Helpers\Product_Helper())));
+        $ca = ($this->services['Yoast\\WP\\SEO\\Conditionals\\Local_SEO_Active_Conditional'] ?? ($this->services['Yoast\\WP\\SEO\\Conditionals\\Local_SEO_Active_Conditional'] = new \Yoast\WP\SEO\Conditionals\Local_SEO_Active_Conditional()));
+        $da = ($this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper'] ?? $this->getImageHelperService());
 
-        $aa = new \Yoast\WP\SEO\Abilities\Infrastructure\Site_Representation_Field_Map($y, new \Yoast\WP\SEO\Abilities\Infrastructure\Site_Representation_Field_Validators($y, $z, $d));
+        $ea = new \Yoast\WP\SEO\Abilities\Infrastructure\Site_Representation_Field_Map($ca, new \Yoast\WP\SEO\Abilities\Infrastructure\Site_Representation_Field_Validators($ca, $da, $e));
 
-        return $this->services['Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities_Integration'] = new \Yoast\WP\SEO\Abilities\User_Interface\Abilities_Integration(new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_Archive_And_Special_Page_SEO_Settings_Ability($a, $b, $e, $f), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_Inclusive_Language_Scores_Ability($h, $a, $i, $j), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_Post_SEO_Data_Ability($a, $j, new \Yoast\WP\SEO\Abilities\Application\Post_SEO_Data_Collector($k, $m, $n)), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_Readability_Scores_Ability($h, $a, $i, $j), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_SEO_Scores_Ability($h, $a, $i, $j), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_Term_SEO_Data_Ability($a, $j, new \Yoast\WP\SEO\Abilities\Application\Term_SEO_Data_Collector($o, $p, $q), $r), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Set_Llms_Txt_Status_Ability($a, ($this->services['Yoast\\WP\\SEO\\Conditionals\\Non_Multisite_Conditional'] ?? ($this->services['Yoast\\WP\\SEO\\Conditionals\\Non_Multisite_Conditional'] = new \Yoast\WP\SEO\Conditionals\Non_Multisite_Conditional())), new \Yoast\WP\SEO\Abilities\Application\Llms_Txt_Status_Updater($s, $d, ($this->privates['Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Commands\\Populate_File_Command_Handler'] ?? $this->getPopulateFileCommandHandlerService()), ($this->privates['Yoast\\WP\\SEO\\Llms_Txt\\Application\\Health_Check\\File_Runner'] ?? ($this->privates['Yoast\\WP\\SEO\\Llms_Txt\\Application\\Health_Check\\File_Runner'] = new \Yoast\WP\SEO\Llms_Txt\Application\Health_Check\File_Runner())))), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Set_Open_Graph_Status_Ability($a, $s), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Set_Schema_Aggregation_Status_Ability($a, $s), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Set_Schema_Framework_Status_Ability($a, $s), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Set_X_Card_Status_Ability($a, $s), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Set_Xml_Sitemap_Status_Ability($a, $s, $d), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Update_Archive_And_Special_Page_SEO_Settings_Ability($a, $b, $e, new \Yoast\WP\SEO\Abilities\Application\Archive_And_Special_Page_SEO_Settings_Updater($b, $e, $f, $d)), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Update_Author_Schema_Ability($u, new \Yoast\WP\SEO\Abilities\Application\Author_Schema_Updater($u, $v, $d, $t)), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Update_Post_SEO_Data_Ability($a, $j, new \Yoast\WP\SEO\Abilities\Application\Post_SEO_Data_Updater($k, $m, $n, ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_To_Postmeta_Helper'] ?? $this->getIndexableToPostmetaHelperService()), $w), $x), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Update_Site_Representation_Ability($a, $aa, new \Yoast\WP\SEO\Abilities\Application\Site_Representation_Updater($d, $aa, $z, $v)), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Update_Term_SEO_Data_Ability($a, $j, new \Yoast\WP\SEO\Abilities\Application\Term_SEO_Data_Updater($o, $p, $q, new \Yoast\WP\SEO\Abilities\Infrastructure\Term_SEO_Meta_Writer(), $w), $x, $r));
+        return $this->services['Yoast\\WP\\SEO\\Abilities\\User_Interface\\Abilities_Integration'] = new \Yoast\WP\SEO\Abilities\User_Interface\Abilities_Integration(new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_Archive_And_Special_Page_SEO_Settings_Ability($a, $b, $f, $g), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_Author_SEO_Data_Ability($a, $h, $i, new \Yoast\WP\SEO\Abilities\Application\Author_SEO_Data_Collector($k, $n, $o)), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_Inclusive_Language_Scores_Ability($p, $a, $q, $h), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_Post_SEO_Data_Ability($a, $h, new \Yoast\WP\SEO\Abilities\Application\Post_SEO_Data_Collector($r, $s, $t)), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_Readability_Scores_Ability($p, $a, $q, $h), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_SEO_Scores_Ability($p, $a, $q, $h), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Get_Term_SEO_Data_Ability($a, $h, new \Yoast\WP\SEO\Abilities\Application\Term_SEO_Data_Collector($u, $v, $o), $i), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Set_Llms_Txt_Status_Ability($a, ($this->services['Yoast\\WP\\SEO\\Conditionals\\Non_Multisite_Conditional'] ?? ($this->services['Yoast\\WP\\SEO\\Conditionals\\Non_Multisite_Conditional'] = new \Yoast\WP\SEO\Conditionals\Non_Multisite_Conditional())), new \Yoast\WP\SEO\Abilities\Application\Llms_Txt_Status_Updater($w, $e, ($this->privates['Yoast\\WP\\SEO\\Llms_Txt\\Application\\File\\Commands\\Populate_File_Command_Handler'] ?? $this->getPopulateFileCommandHandlerService()), ($this->privates['Yoast\\WP\\SEO\\Llms_Txt\\Application\\Health_Check\\File_Runner'] ?? ($this->privates['Yoast\\WP\\SEO\\Llms_Txt\\Application\\Health_Check\\File_Runner'] = new \Yoast\WP\SEO\Llms_Txt\Application\Health_Check\File_Runner())))), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Set_Open_Graph_Status_Ability($a, $w), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Set_Schema_Aggregation_Status_Ability($a, $w), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Set_Schema_Framework_Status_Ability($a, $w), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Set_X_Card_Status_Ability($a, $w), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Set_Xml_Sitemap_Status_Ability($a, $w, $e), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Update_Archive_And_Special_Page_SEO_Settings_Ability($a, $b, $f, new \Yoast\WP\SEO\Abilities\Application\Archive_And_Special_Page_SEO_Settings_Updater($b, $f, $g, $e)), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Update_Author_Schema_Ability($y, new \Yoast\WP\SEO\Abilities\Application\Author_Schema_Updater($y, $z, $e, $m)), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Update_Author_SEO_Data_Ability($a, $h, $i, new \Yoast\WP\SEO\Abilities\Application\Author_SEO_Data_Updater($k, $n, $o, new \Yoast\WP\SEO\Abilities\Infrastructure\Author_SEO_Meta_Writer($m, $x), $aa)), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Update_Post_SEO_Data_Ability($a, $h, new \Yoast\WP\SEO\Abilities\Application\Post_SEO_Data_Updater($r, $s, $t, ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_To_Postmeta_Helper'] ?? $this->getIndexableToPostmetaHelperService()), $aa), $ba), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Update_Site_Representation_Ability($a, $ea, new \Yoast\WP\SEO\Abilities\Application\Site_Representation_Updater($e, $ea, $da, $z)), new \Yoast\WP\SEO\Abilities\User_Interface\Abilities\Update_Term_SEO_Data_Ability($a, $h, new \Yoast\WP\SEO\Abilities\Application\Term_SEO_Data_Updater($u, $v, $o, new \Yoast\WP\SEO\Abilities\Infrastructure\Term_SEO_Meta_Writer(), $aa), $ba, $i));
     }
 
     /**
@@ -1902,13 +1913,8 @@ class Cached_Container extends Container
         if (isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Post_Indexation_Action'])) {
             return $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Post_Indexation_Action'];
         }
-        $b = ($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Helper'] ?? $this->getPostHelperService());
 
-        if (isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Post_Indexation_Action'])) {
-            return $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Post_Indexation_Action'];
-        }
-
-        return $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Post_Indexation_Action'] = new \Yoast\WP\SEO\Actions\Indexing\Indexable_Post_Indexation_Action(($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] ?? $this->getPostTypeHelperService()), $a, ($this->services['wpdb'] ?? $this->getWpdbService()), ($this->services['Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions'] ?? ($this->services['Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions'] = new \Yoast\WP\SEO\Values\Indexables\Indexable_Builder_Versions())), $b);
+        return $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Indexable_Post_Indexation_Action'] = new \Yoast\WP\SEO\Actions\Indexing\Indexable_Post_Indexation_Action(($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] ?? $this->getPostTypeHelperService()), $a, ($this->services['wpdb'] ?? $this->getWpdbService()), ($this->services['Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions'] ?? ($this->services['Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions'] = new \Yoast\WP\SEO\Values\Indexables\Indexable_Builder_Versions())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Helper'] ?? $this->getPostHelperService()));
     }
 
     /**
@@ -1975,23 +1981,18 @@ class Cached_Container extends Container
      */
     protected function getPostLinkIndexingActionService()
     {
-        $a = ($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Link_Builder'] ?? $this->getIndexableLinkBuilderService());
+        $a = ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] ?? $this->getIndexableHelperService());
 
         if (isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Post_Link_Indexing_Action'])) {
             return $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Post_Link_Indexing_Action'];
         }
-        $b = ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] ?? $this->getIndexableHelperService());
-
-        if (isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Post_Link_Indexing_Action'])) {
-            return $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Post_Link_Indexing_Action'];
-        }
-        $c = ($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService());
+        $b = ($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService());
 
         if (isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Post_Link_Indexing_Action'])) {
             return $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Post_Link_Indexing_Action'];
         }
 
-        $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Post_Link_Indexing_Action'] = $instance = new \Yoast\WP\SEO\Actions\Indexing\Post_Link_Indexing_Action($a, $b, $c, ($this->services['wpdb'] ?? $this->getWpdbService()));
+        $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Post_Link_Indexing_Action'] = $instance = new \Yoast\WP\SEO\Actions\Indexing\Post_Link_Indexing_Action(($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Link_Builder'] ?? $this->getIndexableLinkBuilderService()), $a, $b, ($this->services['wpdb'] ?? $this->getWpdbService()));
 
         $instance->set_helper(($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Type_Helper'] ?? $this->getPostTypeHelperService()));
 
@@ -2005,23 +2006,18 @@ class Cached_Container extends Container
      */
     protected function getTermLinkIndexingActionService()
     {
-        $a = ($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Link_Builder'] ?? $this->getIndexableLinkBuilderService());
+        $a = ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] ?? $this->getIndexableHelperService());
 
         if (isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Term_Link_Indexing_Action'])) {
             return $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Term_Link_Indexing_Action'];
         }
-        $b = ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] ?? $this->getIndexableHelperService());
-
-        if (isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Term_Link_Indexing_Action'])) {
-            return $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Term_Link_Indexing_Action'];
-        }
-        $c = ($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService());
+        $b = ($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService());
 
         if (isset($this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Term_Link_Indexing_Action'])) {
             return $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Term_Link_Indexing_Action'];
         }
 
-        $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Term_Link_Indexing_Action'] = $instance = new \Yoast\WP\SEO\Actions\Indexing\Term_Link_Indexing_Action($a, $b, $c, ($this->services['wpdb'] ?? $this->getWpdbService()));
+        $this->services['Yoast\\WP\\SEO\\Actions\\Indexing\\Term_Link_Indexing_Action'] = $instance = new \Yoast\WP\SEO\Actions\Indexing\Term_Link_Indexing_Action(($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Link_Builder'] ?? $this->getIndexableLinkBuilderService()), $a, $b, ($this->services['wpdb'] ?? $this->getWpdbService()));
 
         $instance->set_helper(($this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper'] ?? $this->getTaxonomyHelperService()));
 
@@ -2355,18 +2351,18 @@ class Cached_Container extends Container
      */
     protected function getIndexableLinkBuilderService()
     {
-        $a = ($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Helper'] ?? $this->getPostHelperService());
+        $a = ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] ?? $this->getIndexableHelperService());
 
         if (isset($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Link_Builder'])) {
             return $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Link_Builder'];
         }
-        $b = ($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] ?? $this->getIndexableHelperService());
+        $b = ($this->services['Yoast\\WP\\SEO\\Helpers\\Post_Helper'] ?? $this->getPostHelperService());
 
         if (isset($this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Link_Builder'])) {
             return $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Link_Builder'];
         }
 
-        $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Link_Builder'] = $instance = new \Yoast\WP\SEO\Builders\Indexable_Link_Builder(($this->services['Yoast\\WP\\SEO\\Repositories\\SEO_Links_Repository'] ?? ($this->services['Yoast\\WP\\SEO\\Repositories\\SEO_Links_Repository'] = new \Yoast\WP\SEO\Repositories\SEO_Links_Repository())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] = new \Yoast\WP\SEO\Helpers\Url_Helper())), $a, ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())), $b, new \Yoast\WP\SEO\Images\Application\Image_Content_Extractor());
+        $this->services['Yoast\\WP\\SEO\\Builders\\Indexable_Link_Builder'] = $instance = new \Yoast\WP\SEO\Builders\Indexable_Link_Builder(($this->services['Yoast\\WP\\SEO\\Repositories\\SEO_Links_Repository'] ?? ($this->services['Yoast\\WP\\SEO\\Repositories\\SEO_Links_Repository'] = new \Yoast\WP\SEO\Repositories\SEO_Links_Repository())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] = new \Yoast\WP\SEO\Helpers\Url_Helper())), $b, ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())), $a, new \Yoast\WP\SEO\Images\Application\Image_Content_Extractor());
 
         $instance->set_dependencies(($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Image_Helper'] ?? $this->getImageHelperService()));
 
