@@ -1656,7 +1656,7 @@ class Cached_Container extends Container
         $i = new \Yoast\WP\SEO\Abilities\User_Interface\SEO_Data_Output_Schema();
         $j = ($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] ?? $this->getIndexableRepositoryService());
 
-        $k = new \Yoast\WP\SEO\Abilities\Infrastructure\Author_Identifier_Resolver($j, $d);
+        $k = new \Yoast\WP\SEO\Abilities\Infrastructure\Author_Identifier_Resolver($j, $d, ($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Url_Helper'] = new \Yoast\WP\SEO\Helpers\Url_Helper())));
         $l = ($this->services['Yoast\\WP\\SEO\\Surfaces\\Meta_Surface'] ?? $this->getMetaSurfaceService());
         $m = ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] = new \Yoast\WP\SEO\Helpers\User_Helper()));
 
