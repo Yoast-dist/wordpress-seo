@@ -336,7 +336,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps' => 'getDisableCoreSitemapsService',
             'Yoast\\WP\\SEO\\Initializers\\Migration_Runner' => 'getMigrationRunnerService',
             'Yoast\\WP\\SEO\\Initializers\\Plugin_Headers' => 'getPluginHeadersService',
-            'Yoast\\WP\\SEO\\Initializers\\Post_Meta_Rest_Fields' => 'getPostMetaRestFieldsService',
             'Yoast\\WP\\SEO\\Initializers\\Silence_Load_Textdomain_Just_In_Time_Notices' => 'getSilenceLoadTextdomainJustInTimeNoticesService',
             'Yoast\\WP\\SEO\\Initializers\\Woocommerce' => 'getWoocommerceService',
             'Yoast\\WP\\SEO\\Integrations\\Academy_Integration' => 'getAcademyIntegrationService',
@@ -4724,16 +4723,6 @@ class Cached_Container extends Container
     }
 
     /**
-     * Gets the public 'Yoast\WP\SEO\Initializers\Post_Meta_Rest_Fields' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Initializers\Post_Meta_Rest_Fields
-     */
-    protected function getPostMetaRestFieldsService()
-    {
-        return $this->services['Yoast\\WP\\SEO\\Initializers\\Post_Meta_Rest_Fields'] = new \Yoast\WP\SEO\Initializers\Post_Meta_Rest_Fields(($this->services['Yoast\\WP\\SEO\\Helpers\\Primary_Term_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Primary_Term_Helper'] = new \Yoast\WP\SEO\Helpers\Primary_Term_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Taxonomy_Helper'] ?? $this->getTaxonomyHelperService()), ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] = new \Yoast\WP\SEO\Helpers\Options_Helper())), ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] ?? ($this->services['Yoast\\WP\\SEO\\Helpers\\Capability_Helper'] = new \Yoast\WP\SEO\Helpers\Capability_Helper())));
-    }
-
-    /**
      * Gets the public 'Yoast\WP\SEO\Initializers\Silence_Load_Textdomain_Just_In_Time_Notices' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Initializers\Silence_Load_Textdomain_Just_In_Time_Notices
@@ -5180,7 +5169,7 @@ class Cached_Container extends Container
      */
     protected function getEstimatedReadingTimeService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Integrations\\Estimated_Reading_Time'] = new \Yoast\WP\SEO\Integrations\Estimated_Reading_Time(($this->services['Yoast\\WP\\SEO\\Conditionals\\Admin\\Estimated_Reading_Time_Conditional'] ?? $this->getEstimatedReadingTimeConditionalService()));
+        return $this->services['Yoast\\WP\\SEO\\Integrations\\Estimated_Reading_Time'] = new \Yoast\WP\SEO\Integrations\Estimated_Reading_Time();
     }
 
     /**
@@ -6045,7 +6034,6 @@ class Cached_Container extends Container
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Disable_Core_Sitemaps');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Migration_Runner');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Plugin_Headers');
-        $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Post_Meta_Rest_Fields');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Silence_Load_Textdomain_Just_In_Time_Notices');
         $instance->register_initializer('Yoast\\WP\\SEO\\Initializers\\Woocommerce');
         $instance->register_integration('Yoast\\WP\\SEO\\Integrations\\Academy_Integration');
