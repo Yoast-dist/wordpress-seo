@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 7.1
-Stable tag: 29.0-RC2
+Stable tag: 29.0-RC3
 Requires PHP: 7.4
 
 Real-time SEO guidance, schema, and AI built in. Help search engines and AI systems understand your content. All AI tools included, no hidden fees.
@@ -315,11 +315,14 @@ Release date: 2026-12-01
 
 * Adds an \"Edit in bulk\" call-to-action button to the \"Improve default meta descriptions\" task in the task list, linking directly to the bulk editor.
 * Adds the `wpseo_disable_metabox_in_block_editor` filter, which lets the block editor sidebar save post meta via the REST API instead of the metabox hidden fields.
+* Adds `WPSEO_Sitemaps::register_css()` to let add-ons serve a CSS stylesheet for their XML sitemaps.
+* Deprecates `WPSEO_Sitemaps::register_xsl()`, `WPSEO_Sitemaps::xsl_output()` and the `wpseo_xsl_<type>` action.
 * Improves how Yoast abilities explain their responses, settings and limitations to agents.
 * Improves the way we describe post titles and term names to agents to cover cases where custom breadcrumb titles are set.
 * Improves the way we describe to agents how to use permalinks to get and set SEO data of specific posts and terms.
 * Introduces two new Yoast abilities that let agents get and set SEO data for specific author archives.
 * Makes the MyYoast connection available on all sites.
+* Styles the XML sitemaps with a CSS stylesheet.
 
 #### Bugfixes
 
